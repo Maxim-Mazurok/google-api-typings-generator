@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://youtubeanalytics.googleapis.com/$discovery/rest?version=v2'
+    'https://youtubeanalytics.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.youtubeAnalytics */
 
@@ -73,7 +73,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           kind: 'Test string',
         },
-      }
+      },
     );
     /** Returns a collection of group items that match the API request parameters. */
     await gapi.client.youtubeAnalytics.groupItems.list({
@@ -117,7 +117,7 @@ gapi.load('client', async () => {
           publishedAt: 'Test string',
           title: 'Test string',
         },
-      }
+      },
     );
     /** Returns a collection of groups that match the API request parameters. For example, you can retrieve all groups that the authenticated user owns, or you can retrieve one or more groups by their unique IDs. */
     await gapi.client.youtubeAnalytics.groups.list({
@@ -158,7 +158,7 @@ gapi.load('client', async () => {
           publishedAt: 'Test string',
           title: 'Test string',
         },
-      }
+      },
     );
     /** Retrieve your YouTube Analytics reports. */
     await gapi.client.youtubeAnalytics.reports.query({

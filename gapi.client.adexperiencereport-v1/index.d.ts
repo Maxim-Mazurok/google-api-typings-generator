@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Ad Experience Report API v1 */
   function load(
-    urlOrObject: 'https://adexperiencereport.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://adexperiencereport.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'adexperiencereport', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'adexperiencereport',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace adexperiencereport {

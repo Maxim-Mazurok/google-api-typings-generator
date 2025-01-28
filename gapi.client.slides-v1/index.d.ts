@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Slides API v1 */
   function load(
-    urlOrObject: 'https://slides.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://slides.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'slides', version: 'v1'): Promise<void>;
@@ -1345,7 +1345,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdatePresentationRequest
+        body: BatchUpdatePresentationRequest,
       ): client.Request<BatchUpdatePresentationResponse>;
       /** Creates a blank presentation using the title given in the request. If a `presentationId` is provided, it is used as the ID of the new presentation. Otherwise, a new ID is generated. Other fields in the request, including any provided content, are ignored. Returns the created presentation. */
       create(request: {
@@ -1399,7 +1399,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Presentation
+        body: Presentation,
       ): client.Request<Presentation>;
       /** Gets the latest version of the specified presentation. */
       get(request?: {

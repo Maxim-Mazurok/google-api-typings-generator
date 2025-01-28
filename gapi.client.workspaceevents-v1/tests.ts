@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://workspaceevents.googleapis.com/$discovery/rest?version=v1'
+    'https://workspaceevents.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.workspaceevents */
 
@@ -91,7 +91,7 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** [Developer Preview](https://developers.google.com/workspace/preview): Deletes a Google Workspace subscription. To learn how to use this method, see [Delete a Google Workspace subscription](https://developers.google.com/workspace/events/guides/delete-subscription). */
     await gapi.client.workspaceevents.subscriptions.delete({
@@ -138,14 +138,14 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** [Developer Preview](https://developers.google.com/workspace/preview): Reactivates a suspended Google Workspace subscription. This method resets your subscription's `State` field to `ACTIVE`. Before you use this method, you must fix the error that suspended the subscription. This method will ignore or reject any subscription that isn't currently in a suspended state. To learn how to use this method, see [Reactivate a Google Workspace subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription). */
     await gapi.client.workspaceevents.subscriptions.reactivate(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
   }
 });

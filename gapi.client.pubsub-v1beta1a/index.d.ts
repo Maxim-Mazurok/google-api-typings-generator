@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Pub/Sub API v1beta1a */
   function load(
-    urlOrObject: 'https://pubsub.googleapis.com/$discovery/rest?version=v1beta1a'
+    urlOrObject: 'https://pubsub.googleapis.com/$discovery/rest?version=v1beta1a',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'pubsub', version: 'v1beta1a'): Promise<void>;
@@ -198,7 +198,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AcknowledgeRequest
+        body: AcknowledgeRequest,
       ): Request<{}>;
       /** Creates a subscription on a given topic for a given subscriber. If the subscription already exists, returns ALREADY_EXISTS. If the corresponding topic doesn't exist, returns NOT_FOUND. If the name is not provided in the request, the server will assign a random name for this subscription on the same project as the topic. */
       create(request: {
@@ -252,7 +252,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Subscription
+        body: Subscription,
       ): Request<Subscription>;
       /** Deletes an existing subscription. All pending messages in the subscription are immediately dropped. Calls to Pull after deletion will return NOT_FOUND. */
       delete(request?: {
@@ -391,7 +391,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModifyAckDeadlineRequest
+        body: ModifyAckDeadlineRequest,
       ): Request<{}>;
       /** Modifies the PushConfig for a specified subscription. This method can be used to suspend the flow of messages to an endpoint by clearing the PushConfig field in the request. Messages will be accumulated for delivery even if no push configuration is defined or while the configuration is modified. */
       modifyPushConfig(request: {
@@ -445,7 +445,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModifyPushConfigRequest
+        body: ModifyPushConfigRequest,
       ): Request<{}>;
       /** Pulls a single message from the server. If return_immediately is true, and no messages are available in the subscription, this method returns FAILED_PRECONDITION. The system is free to return an UNAVAILABLE error if no messages are available in a reasonable amount of time (to reduce system load). */
       pull(request: {
@@ -499,7 +499,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PullRequest
+        body: PullRequest,
       ): Request<PullResponse>;
       /** Pulls messages from the server. Returns an empty list if there are no messages available in the backlog. The system is free to return UNAVAILABLE if there are too many pull requests outstanding for the given subscription. */
       pullBatch(request: {
@@ -553,7 +553,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PullBatchRequest
+        body: PullBatchRequest,
       ): Request<PullBatchResponse>;
     }
     interface TopicsResource {
@@ -609,7 +609,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Topic
+        body: Topic,
       ): Request<Topic>;
       /** Deletes the topic with the given name. Returns NOT_FOUND if the topic does not exist. After a topic is deleted, a new topic may be created with the same name. */
       delete(request?: {
@@ -748,7 +748,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PublishRequest
+        body: PublishRequest,
       ): Request<{}>;
       /** Adds one or more messages to the topic. Returns NOT_FOUND if the topic does not exist. */
       publishBatch(request: {
@@ -802,7 +802,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PublishBatchRequest
+        body: PublishBatchRequest,
       ): Request<PublishBatchResponse>;
     }
 

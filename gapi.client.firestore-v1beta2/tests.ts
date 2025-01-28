@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firestore.googleapis.com/$discovery/rest?version=v1beta2'
+    'https://firestore.googleapis.com/$discovery/rest?version=v1beta2',
   );
   /** now we can use gapi.client.firestore */
 
@@ -41,7 +41,7 @@ gapi.load('client', async () => {
       {
         collectionIds: ['Test string'],
         outputUriPrefix: 'Test string',
-      }
+      },
     );
     /** Imports documents into Google Cloud Firestore. Existing documents with the same name are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportDocuments operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Firestore. */
     await gapi.client.firestore.projects.databases.importDocuments(
@@ -51,7 +51,7 @@ gapi.load('client', async () => {
       {
         collectionIds: ['Test string'],
         inputUriPrefix: 'Test string',
-      }
+      },
     );
     /** Gets the metadata and configuration for a Field. */
     await gapi.client.firestore.projects.databases.collectionGroups.fields.get({
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a field configuration. Currently, field updates apply only to single field index configuration. However, calls to FirestoreAdmin.UpdateField should provide a field mask to avoid changing any configuration that the caller isn't aware of. The field mask should be specified as: `{ paths: "index_config" }`. This call returns a google.longrunning.Operation which may be used to track the status of the field update. The metadata for the operation will be the type FieldOperationMetadata. To configure the default field settings for the database, use the special `Field` with resource name: `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/*`. */
     await gapi.client.firestore.projects.databases.collectionGroups.fields.patch(
@@ -93,7 +93,7 @@ gapi.load('client', async () => {
           usesAncestorConfig: true,
         },
         name: 'Test string',
-      }
+      },
     );
     /** Creates a composite index. This returns a google.longrunning.Operation which may be used to track the status of the creation. The metadata for the operation will be the type IndexOperationMetadata. */
     await gapi.client.firestore.projects.databases.collectionGroups.indexes.create(
@@ -111,19 +111,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         queryScope: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes a composite index. */
     await gapi.client.firestore.projects.databases.collectionGroups.indexes.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a composite index. */
     await gapi.client.firestore.projects.databases.collectionGroups.indexes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists composite indexes. */
     await gapi.client.firestore.projects.databases.collectionGroups.indexes.list(
@@ -132,7 +132,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

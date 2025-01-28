@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Identity-Aware Proxy API v1 */
   function load(
-    urlOrObject: 'https://iap.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://iap.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'iap', version: 'v1'): Promise<void>;
@@ -323,7 +323,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: IdentityAwareProxyClient
+        body: IdentityAwareProxyClient,
       ): Request<IdentityAwareProxyClient>;
       /** Deletes an Identity Aware Proxy (IAP) OAuth client. Useful for removing obsolete clients, managing the number of clients in a given project, and cleaning up after tests. Requires that the client is owned by IAP. */
       delete(request?: {
@@ -466,7 +466,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetIdentityAwareProxyClientSecretRequest
+        body: ResetIdentityAwareProxyClientSecretRequest,
       ): Request<IdentityAwareProxyClient>;
     }
     interface BrandsResource {
@@ -526,7 +526,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Brand
+        body: Brand,
       ): Request<Brand>;
       /** Retrieves the OAuth brand of the project. */
       get(request?: {
@@ -645,7 +645,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TunnelDestGroup
+        body: TunnelDestGroup,
       ): Request<TunnelDestGroup>;
       /** Deletes a TunnelDestGroup. */
       delete(request?: {
@@ -792,7 +792,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TunnelDestGroup
+        body: TunnelDestGroup,
       ): Request<TunnelDestGroup>;
     }
     interface LocationsResource {
@@ -834,7 +834,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Gets the IAP settings on a particular IAP protected resource. */
       getIapSettings(request?: {
@@ -891,7 +891,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the Identity-Aware Proxy protected resource. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api */
       testIamPermissions(
@@ -921,7 +921,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Updates the IAP settings on a particular IAP protected resource. It replaces all fields unless the `update_mask` is set. */
       updateIapSettings(request: {
@@ -983,7 +983,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: IapSettings
+        body: IapSettings,
       ): Request<IapSettings>;
       /** Validates that a given CEL expression conforms to IAP restrictions. */
       validateAttributeExpression(request?: {

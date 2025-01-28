@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://ondemandscanning.googleapis.com/$discovery/rest?version=v1'
+    'https://ondemandscanning.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.ondemandscanning */
 
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
           },
         ],
         resourceUri: 'Test string',
-      }
+      },
     );
     /** Lists vulnerabilities resulting from a successfully completed scan. */
     await gapi.client.ondemandscanning.projects.locations.scans.vulnerabilities.list(
@@ -127,7 +127,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

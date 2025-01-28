@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudbuild.googleapis.com/$discovery/rest?version=v1'
+    'https://cloudbuild.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.cloudbuild */
 
@@ -44,7 +44,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** ReceiveRegionalWebhook is called when the API receives a regional GitHub webhook. */
     await gapi.client.cloudbuild.locations.regionalWebhook(
@@ -60,14 +60,14 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.cloudbuild.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.cloudbuild.operations.get({
@@ -86,7 +86,7 @@ gapi.load('client', async () => {
           decision: 'Test string',
           url: 'Test string',
         },
-      }
+      },
     );
     /** Cancels a build in progress. */
     await gapi.client.cloudbuild.projects.builds.cancel(
@@ -98,7 +98,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         name: 'Test string',
         projectId: 'Test string',
-      }
+      },
     );
     /** Starts a build with the specified configuration. This method returns a long-running `Operation`, which includes the build ID. Pass the build ID to `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`). */
     await gapi.client.cloudbuild.projects.builds.create(
@@ -457,7 +457,7 @@ gapi.load('client', async () => {
             text: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Returns information about a previously requested build. The `Build` that is returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`), and timing information. */
     await gapi.client.cloudbuild.projects.builds.get({
@@ -483,7 +483,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         name: 'Test string',
         projectId: 'Test string',
-      }
+      },
     );
     /** Create an association between a GCP project and a GitHub Enterprise server. */
     await gapi.client.cloudbuild.projects.githubEnterpriseConfigs.create(
@@ -511,7 +511,7 @@ gapi.load('client', async () => {
         },
         sslCa: 'Test string',
         webhookKey: 'Test string',
-      }
+      },
     );
     /** Delete an association between a GCP project and a GitHub Enterprise server. */
     await gapi.client.cloudbuild.projects.githubEnterpriseConfigs.delete({
@@ -555,7 +555,7 @@ gapi.load('client', async () => {
         },
         sslCa: 'Test string',
         webhookKey: 'Test string',
-      }
+      },
     );
     /** Returns the `DefaultServiceAccount` used by the project. */
     await gapi.client.cloudbuild.projects.locations.getDefaultServiceAccount({
@@ -589,13 +589,13 @@ gapi.load('client', async () => {
         sslCa: 'Test string',
         username: 'Test string',
         webhookKey: 'Test string',
-      }
+      },
     );
     /** Delete a `BitbucketServerConfig`. This API is experimental. */
     await gapi.client.cloudbuild.projects.locations.bitbucketServerConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieve a `BitbucketServerConfig`. This API is experimental. */
     await gapi.client.cloudbuild.projects.locations.bitbucketServerConfigs.get({
@@ -607,7 +607,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an existing `BitbucketServerConfig`. This API is experimental. */
     await gapi.client.cloudbuild.projects.locations.bitbucketServerConfigs.patch(
@@ -637,7 +637,7 @@ gapi.load('client', async () => {
         sslCa: 'Test string',
         username: 'Test string',
         webhookKey: 'Test string',
-      }
+      },
     );
     /** Remove a Bitbucket Server repository from a given BitbucketServerConfig's connected repositories. This API is experimental. */
     await gapi.client.cloudbuild.projects.locations.bitbucketServerConfigs.removeBitbucketServerConnectedRepository(
@@ -650,7 +650,7 @@ gapi.load('client', async () => {
           repoSlug: 'Test string',
           webhookId: 42,
         },
-      }
+      },
     );
     /** Batch connecting Bitbucket Server repositories to Cloud Build. */
     await gapi.client.cloudbuild.projects.locations.bitbucketServerConfigs.connectedRepositories.batchCreate(
@@ -680,7 +680,7 @@ gapi.load('client', async () => {
             parent: 'Test string',
           },
         ],
-      }
+      },
     );
     /** List all repositories for a given `BitbucketServerConfig`. This API is experimental. */
     await gapi.client.cloudbuild.projects.locations.bitbucketServerConfigs.repos.list(
@@ -688,7 +688,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Approves or rejects a pending build. If approved, the returned LRO will be analogous to the LRO returned from a CreateBuild call. If rejected, the returned LRO will be immediately done. */
     await gapi.client.cloudbuild.projects.locations.builds.approve(
@@ -703,7 +703,7 @@ gapi.load('client', async () => {
           decision: 'Test string',
           url: 'Test string',
         },
-      }
+      },
     );
     /** Cancels a build in progress. */
     await gapi.client.cloudbuild.projects.locations.builds.cancel(
@@ -714,7 +714,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         name: 'Test string',
         projectId: 'Test string',
-      }
+      },
     );
     /** Starts a build with the specified configuration. This method returns a long-running `Operation`, which includes the build ID. Pass the build ID to `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`). */
     await gapi.client.cloudbuild.projects.locations.builds.create(
@@ -1073,7 +1073,7 @@ gapi.load('client', async () => {
             text: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Returns information about a previously requested build. The `Build` that is returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`), and timing information. */
     await gapi.client.cloudbuild.projects.locations.builds.get({
@@ -1098,7 +1098,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         name: 'Test string',
         projectId: 'Test string',
-      }
+      },
     );
     /** Create an association between a GCP project and a GitHub Enterprise server. */
     await gapi.client.cloudbuild.projects.locations.githubEnterpriseConfigs.create(
@@ -1126,7 +1126,7 @@ gapi.load('client', async () => {
         },
         sslCa: 'Test string',
         webhookKey: 'Test string',
-      }
+      },
     );
     /** Delete an association between a GCP project and a GitHub Enterprise server. */
     await gapi.client.cloudbuild.projects.locations.githubEnterpriseConfigs.delete(
@@ -1134,7 +1134,7 @@ gapi.load('client', async () => {
         configId: 'Test string',
         name: 'Test string',
         projectId: 'Test string',
-      }
+      },
     );
     /** Retrieve a GitHubEnterpriseConfig. */
     await gapi.client.cloudbuild.projects.locations.githubEnterpriseConfigs.get(
@@ -1142,14 +1142,14 @@ gapi.load('client', async () => {
         configId: 'Test string',
         name: 'Test string',
         projectId: 'Test string',
-      }
+      },
     );
     /** List all GitHubEnterpriseConfigs for a given project. */
     await gapi.client.cloudbuild.projects.locations.githubEnterpriseConfigs.list(
       {
         parent: 'Test string',
         projectId: 'Test string',
-      }
+      },
     );
     /** Update an association between a GCP project and a GitHub Enterprise server. */
     await gapi.client.cloudbuild.projects.locations.githubEnterpriseConfigs.patch(
@@ -1176,7 +1176,7 @@ gapi.load('client', async () => {
         },
         sslCa: 'Test string',
         webhookKey: 'Test string',
-      }
+      },
     );
     /** Creates a new `GitLabConfig`. This API is experimental */
     await gapi.client.cloudbuild.projects.locations.gitLabConfigs.create(
@@ -1208,7 +1208,7 @@ gapi.load('client', async () => {
         },
         username: 'Test string',
         webhookKey: 'Test string',
-      }
+      },
     );
     /** Delete a `GitLabConfig`. This API is experimental */
     await gapi.client.cloudbuild.projects.locations.gitLabConfigs.delete({
@@ -1254,7 +1254,7 @@ gapi.load('client', async () => {
         },
         username: 'Test string',
         webhookKey: 'Test string',
-      }
+      },
     );
     /** Remove a GitLab repository from a given GitLabConfig's connected repositories. This API is experimental. */
     await gapi.client.cloudbuild.projects.locations.gitLabConfigs.removeGitLabConnectedRepository(
@@ -1266,7 +1266,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           webhookId: 42,
         },
-      }
+      },
     );
     /** Batch connecting GitLab repositories to Cloud Build. This API is experimental. */
     await gapi.client.cloudbuild.projects.locations.gitLabConfigs.connectedRepositories.batchCreate(
@@ -1295,7 +1295,7 @@ gapi.load('client', async () => {
             parent: 'Test string',
           },
         ],
-      }
+      },
     );
     /** List all repositories for a given `GitLabConfig`. This API is experimental */
     await gapi.client.cloudbuild.projects.locations.gitLabConfigs.repos.list({
@@ -1308,7 +1308,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.cloudbuild.projects.locations.operations.get({
@@ -1840,7 +1840,7 @@ gapi.load('client', async () => {
           secret: 'Test string',
           state: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a `BuildTrigger` by its project ID and trigger ID. */
     await gapi.client.cloudbuild.projects.locations.triggers.delete({
@@ -2389,7 +2389,7 @@ gapi.load('client', async () => {
           secret: 'Test string',
           state: 'Test string',
         },
-      }
+      },
     );
     /** Runs a `BuildTrigger` at a particular source revision. To run a regional or global trigger, use the POST request that includes the location endpoint in the path (ex. v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The POST request that does not include the location endpoint in the path can only be used when running global triggers. */
     await gapi.client.cloudbuild.projects.locations.triggers.run(
@@ -2411,7 +2411,7 @@ gapi.load('client', async () => {
           tagName: 'Test string',
         },
         triggerId: 'Test string',
-      }
+      },
     );
     /** ReceiveTriggerWebhook [Experimental] is called when the API receives a webhook request targeted at a specific trigger. */
     await gapi.client.cloudbuild.projects.locations.triggers.webhook(
@@ -2429,7 +2429,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Creates a `WorkerPool`. */
     await gapi.client.cloudbuild.projects.locations.workerPools.create(
@@ -2466,7 +2466,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a `WorkerPool`. */
     await gapi.client.cloudbuild.projects.locations.workerPools.delete({
@@ -2520,7 +2520,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new `BuildTrigger`. */
     await gapi.client.cloudbuild.projects.triggers.create(
@@ -3048,7 +3048,7 @@ gapi.load('client', async () => {
           secret: 'Test string',
           state: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a `BuildTrigger` by its project ID and trigger ID. */
     await gapi.client.cloudbuild.projects.triggers.delete({
@@ -3596,7 +3596,7 @@ gapi.load('client', async () => {
           secret: 'Test string',
           state: 'Test string',
         },
-      }
+      },
     );
     /** Runs a `BuildTrigger` at a particular source revision. To run a regional or global trigger, use the POST request that includes the location endpoint in the path (ex. v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The POST request that does not include the location endpoint in the path can only be used when running global triggers. */
     await gapi.client.cloudbuild.projects.triggers.run(
@@ -3616,7 +3616,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         tagName: 'Test string',
-      }
+      },
     );
     /** ReceiveTriggerWebhook [Experimental] is called when the API receives a webhook request targeted at a specific trigger. */
     await gapi.client.cloudbuild.projects.triggers.webhook(
@@ -3634,7 +3634,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** ReceiveWebhook is called when the API receives a GitHub webhook. */
     await gapi.client.cloudbuild.v1.webhook(
@@ -3649,7 +3649,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
   }
 });

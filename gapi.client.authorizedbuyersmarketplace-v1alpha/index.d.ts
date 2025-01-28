@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Authorized Buyers Marketplace API v1alpha */
   function load(
-    urlOrObject: 'https://authorizedbuyersmarketplace.googleapis.com/$discovery/rest?version=v1alpha'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'authorizedbuyersmarketplace',
-    version: 'v1alpha'
+    urlOrObject: 'https://authorizedbuyersmarketplace.googleapis.com/$discovery/rest?version=v1alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'authorizedbuyersmarketplace',
     version: 'v1alpha',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'authorizedbuyersmarketplace',
+    version: 'v1alpha',
+    callback: () => any,
   ): void;
 
   namespace authorizedbuyersmarketplace {
@@ -786,7 +786,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SubscribeAuctionPackageRequest
+        body: SubscribeAuctionPackageRequest,
       ): Request<AuctionPackage>;
       /** Subscribe the specified clients of the buyer to the auction package. If a client in the list does not belong to the buyer, an error response will be returned, and all of the following clients in the list will not be subscribed. Subscribing an already subscribed client will have no effect. */
       subscribeClients(request: {
@@ -844,7 +844,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SubscribeClientsRequest
+        body: SubscribeClientsRequest,
       ): Request<AuctionPackage>;
       /** Unsubscribe from the auction package for the specified buyer. Once unsubscribed, the bidder will no longer receive a call out for the auction package deal ID and the specified buyer. */
       unsubscribe(request: {
@@ -902,7 +902,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UnsubscribeAuctionPackageRequest
+        body: UnsubscribeAuctionPackageRequest,
       ): Request<AuctionPackage>;
       /** Unsubscribe from the auction package for the specified clients of the buyer. Unsubscribing a client that is not subscribed will have no effect. */
       unsubscribeClients(request: {
@@ -960,7 +960,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UnsubscribeClientsRequest
+        body: UnsubscribeClientsRequest,
       ): Request<AuctionPackage>;
     }
     interface UsersResource {
@@ -1020,7 +1020,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ActivateClientUserRequest
+        body: ActivateClientUserRequest,
       ): Request<ClientUser>;
       /** Creates a new client user in "INVITED" state. An email invitation will be sent to the new user, once accepted the user will become active. */
       create(request: {
@@ -1078,7 +1078,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClientUser
+        body: ClientUser,
       ): Request<ClientUser>;
       /** Deactivates an existing client user. The state of the client user will be updated from "ACTIVE" to "INACTIVE". This method has no effect if the client user is already in "INACTIVE" state. An error will be returned if the client user to deactivate is still in "INVITED" state. */
       deactivate(request: {
@@ -1136,7 +1136,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeactivateClientUserRequest
+        body: DeactivateClientUserRequest,
       ): Request<ClientUser>;
       /** Deletes an existing client user. The client user will lose access to the Authorized Buyers UI. Note that if a client user is deleted, the user's access to the UI can't be restored unless a new client user is created and activated. */
       delete(request?: {
@@ -1281,7 +1281,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ActivateClientRequest
+        body: ActivateClientRequest,
       ): Request<Client>;
       /** Creates a new client. */
       create(request: {
@@ -1339,7 +1339,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Client
+        body: Client,
       ): Request<Client>;
       /** Deactivates an existing client. The state of the client will be updated to "INACTIVE". This method has no effect if the client is already in "INACTIVE" state. */
       deactivate(request: {
@@ -1397,7 +1397,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeactivateClientRequest
+        body: DeactivateClientRequest,
       ): Request<Client>;
       /** Gets a client with a given resource name. */
       get(request?: {
@@ -1519,7 +1519,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Client
+        body: Client,
       ): Request<Client>;
       users: UsersResource;
     }
@@ -1580,7 +1580,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ActivateDataSegmentRequest
+        body: ActivateDataSegmentRequest,
       ): Request<DataSegment>;
       /** Creates a data segment owned by the listed curator. The data segment will be created in the `ACTIVE` state, meaning it will be immediately available for buyers to use in preferred deals, private auction deals, and auction packages. */
       create(request: {
@@ -1638,7 +1638,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DataSegment
+        body: DataSegment,
       ): Request<DataSegment>;
       /** Deactivates a data segment. */
       deactivate(request: {
@@ -1696,7 +1696,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeactivateDataSegmentRequest
+        body: DeactivateDataSegmentRequest,
       ): Request<DataSegment>;
       /** Gets a data segment given its name. */
       get(request?: {
@@ -1816,7 +1816,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DataSegment
+        body: DataSegment,
       ): Request<DataSegment>;
     }
     interface FinalizedDealsResource {
@@ -1876,7 +1876,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddCreativeRequest
+        body: AddCreativeRequest,
       ): Request<FinalizedDeal>;
       /** Gets a finalized deal given its name. */
       get(request?: {
@@ -1996,7 +1996,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PauseFinalizedDealRequest
+        body: PauseFinalizedDealRequest,
       ): Request<FinalizedDeal>;
       /** Resumes serving of the given finalized deal. Calling this method for an running deal has no effect. If a deal is initially paused by the seller, calling this method will not resume serving of the deal until the seller also resumes the deal. This method only applies to programmatic guaranteed deals and preferred deals. */
       resume(request: {
@@ -2054,7 +2054,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResumeFinalizedDealRequest
+        body: ResumeFinalizedDealRequest,
       ): Request<FinalizedDeal>;
       /** Sets the given finalized deal as ready to serve. By default, deals are set as ready to serve as soon as they're finalized. If you want to opt out of the default behavior, and manually indicate that deals are ready to serve, ask your Technical Account Manager to add you to the allowlist. If you choose to use this method, finalized deals belonging to the bidder and its child seats don't start serving until after you call `setReadyToServe`, and after the deals become active. For example, you can use this method to delay receiving bid requests until your creative is ready. This method only applies to programmatic guaranteed deals. */
       setReadyToServe(request: {
@@ -2112,7 +2112,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetReadyToServeRequest
+        body: SetReadyToServeRequest,
       ): Request<FinalizedDeal>;
     }
     interface DealsResource {
@@ -2172,7 +2172,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateDealsRequest
+        body: BatchUpdateDealsRequest,
       ): Request<BatchUpdateDealsResponse>;
       /** Gets a deal given its name. The deal is returned at its head revision. */
       get(request?: {
@@ -2292,7 +2292,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Deal
+        body: Deal,
       ): Request<Deal>;
     }
     interface ProposalsResource {
@@ -2352,7 +2352,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AcceptProposalRequest
+        body: AcceptProposalRequest,
       ): Request<Proposal>;
       /** Creates a note for this proposal and sends to the seller. This method is not supported for proposals with DealType set to 'PRIVATE_AUCTION'. */
       addNote(request: {
@@ -2410,7 +2410,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddNoteRequest
+        body: AddNoteRequest,
       ): Request<Proposal>;
       /** Cancels an ongoing negotiation on a proposal. This does not cancel or end serving for the deals if the proposal has been finalized. If the proposal has not been finalized before, calling this method will set the Proposal.state to `TERMINATED` and increment the Proposal.proposal_revision. If the proposal has been finalized before and is under renegotiation now, calling this method will reset the Proposal.state to `FINALIZED` and increment the Proposal.proposal_revision. This method does not support private auction proposals whose Proposal.deal_type is 'PRIVATE_AUCTION'. */
       cancelNegotiation(request: {
@@ -2468,7 +2468,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelNegotiationRequest
+        body: CancelNegotiationRequest,
       ): Request<Proposal>;
       /** Gets a proposal using its resource name. The proposal is returned at the latest revision. */
       get(request?: {
@@ -2590,7 +2590,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Proposal
+        body: Proposal,
       ): Request<Proposal>;
       /** Sends a request for proposal (RFP) to a publisher to initiate the negotiation regarding certain inventory. In the RFP, buyers can specify the deal type, deal terms, start and end dates, targeting, and a message to the publisher. Once the RFP is sent, a proposal in `SELLER_REVIEW_REQUESTED` state will be created and returned in the response. The publisher may review your request and respond with detailed deals in the proposal. */
       sendRfp(request: {
@@ -2648,7 +2648,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SendRfpRequest
+        body: SendRfpRequest,
       ): Request<Proposal>;
       deals: DealsResource;
     }

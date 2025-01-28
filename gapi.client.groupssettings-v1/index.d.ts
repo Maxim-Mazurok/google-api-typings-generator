@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Groups Settings API v1 */
   function load(
-    urlOrObject: 'https://groupssettings.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://groupssettings.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'groupssettings', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'groupssettings',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace groupsSettings {
@@ -520,7 +520,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Groups
+        body: Groups,
       ): Request<Groups>;
       /** Updates an existing resource. */
       update(request: {
@@ -562,7 +562,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Groups
+        body: Groups,
       ): Request<Groups>;
     }
 

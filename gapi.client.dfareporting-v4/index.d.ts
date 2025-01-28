@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Campaign Manager 360 API v4 */
   function load(
-    urlOrObject: 'https://dfareporting.googleapis.com/$discovery/rest?version=v4'
+    urlOrObject: 'https://dfareporting.googleapis.com/$discovery/rest?version=v4',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'dfareporting', version: 'v4'): Promise<void>;
@@ -3691,7 +3691,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Account
+        body: Account,
       ): Request<Account>;
       /** Updates an existing account. */
       update(request: {
@@ -3749,7 +3749,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Account
+        body: Account,
       ): Request<Account>;
     }
     interface AccountUserProfilesResource {
@@ -3838,7 +3838,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountUserProfile
+        body: AccountUserProfile,
       ): Request<AccountUserProfile>;
       /** Retrieves a list of account user profiles, possibly filtered. This method supports paging. */
       list(request?: {
@@ -3945,7 +3945,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountUserProfile
+        body: AccountUserProfile,
       ): Request<AccountUserProfile>;
       /** Updates an existing account user profile. */
       update(request: {
@@ -4003,7 +4003,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountUserProfile
+        body: AccountUserProfile,
       ): Request<AccountUserProfile>;
     }
     interface AdsResource {
@@ -4092,7 +4092,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Ad
+        body: Ad,
       ): Request<Ad>;
       /** Retrieves a list of ads, possibly filtered. This method supports paging. */
       list(request?: {
@@ -4227,7 +4227,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Ad
+        body: Ad,
       ): Request<Ad>;
       /** Updates an existing ad. */
       update(request: {
@@ -4285,7 +4285,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Ad
+        body: Ad,
       ): Request<Ad>;
     }
     interface AdvertiserGroupsResource {
@@ -4403,7 +4403,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AdvertiserGroup
+        body: AdvertiserGroup,
       ): Request<AdvertiserGroup>;
       /** Retrieves a list of advertiser groups, possibly filtered. This method supports paging. */
       list(request?: {
@@ -4504,7 +4504,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AdvertiserGroup
+        body: AdvertiserGroup,
       ): Request<AdvertiserGroup>;
       /** Updates an existing advertiser group. */
       update(request: {
@@ -4562,7 +4562,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AdvertiserGroup
+        body: AdvertiserGroup,
       ): Request<AdvertiserGroup>;
     }
     interface AdvertiserInvoicesResource {
@@ -4688,7 +4688,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LandingPage
+        body: LandingPage,
       ): Request<LandingPage>;
       /** Retrieves a list of landing pages. */
       list(request?: {
@@ -4797,7 +4797,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LandingPage
+        body: LandingPage,
       ): Request<LandingPage>;
       /** Updates an existing landing page. */
       update(request: {
@@ -4855,7 +4855,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LandingPage
+        body: LandingPage,
       ): Request<LandingPage>;
     }
     interface AdvertisersResource {
@@ -4944,7 +4944,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Advertiser
+        body: Advertiser,
       ): Request<Advertiser>;
       /** Retrieves a list of advertisers, possibly filtered. This method supports paging. */
       list(request?: {
@@ -5057,7 +5057,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Advertiser
+        body: Advertiser,
       ): Request<Advertiser>;
       /** Updates an existing advertiser. */
       update(request: {
@@ -5115,7 +5115,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Advertiser
+        body: Advertiser,
       ): Request<Advertiser>;
     }
     interface BillingAssignmentsResource {
@@ -5179,7 +5179,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BillingAssignment
+        body: BillingAssignment,
       ): Request<BillingAssignment>;
       /** Retrieves a list of billing assignments. */
       list(request?: {
@@ -5344,7 +5344,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BillingProfile
+        body: BillingProfile,
       ): Request<BillingProfile>;
     }
     interface BillingRatesResource {
@@ -5468,7 +5468,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CampaignCreativeAssociation
+        body: CampaignCreativeAssociation,
       ): Request<CampaignCreativeAssociation>;
       /** Retrieves the list of creative IDs associated with the specified campaign. This method supports paging. */
       list(request?: {
@@ -5592,7 +5592,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Campaign
+        body: Campaign,
       ): Request<Campaign>;
       /** Retrieves a list of campaigns, possibly filtered. This method supports paging. */
       list(request?: {
@@ -5707,7 +5707,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Campaign
+        body: Campaign,
       ): Request<Campaign>;
       /** Updates an existing campaign. */
       update(request: {
@@ -5765,7 +5765,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Campaign
+        body: Campaign,
       ): Request<Campaign>;
     }
     interface ChangeLogsResource {
@@ -6056,7 +6056,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ContentCategory
+        body: ContentCategory,
       ): Request<ContentCategory>;
       /** Retrieves a list of content categories, possibly filtered. This method supports paging. */
       list(request?: {
@@ -6157,7 +6157,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ContentCategory
+        body: ContentCategory,
       ): Request<ContentCategory>;
       /** Updates an existing content category. */
       update(request: {
@@ -6215,7 +6215,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ContentCategory
+        body: ContentCategory,
       ): Request<ContentCategory>;
     }
     interface ConversionsResource {
@@ -6275,7 +6275,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConversionsBatchInsertRequest
+        body: ConversionsBatchInsertRequest,
       ): Request<ConversionsBatchInsertResponse>;
       /** Updates existing conversions. */
       batchupdate(request: {
@@ -6333,7 +6333,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConversionsBatchUpdateRequest
+        body: ConversionsBatchUpdateRequest,
       ): Request<ConversionsBatchUpdateResponse>;
     }
     interface CountriesResource {
@@ -6455,7 +6455,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreativeAssetMetadata
+        body: CreativeAssetMetadata,
       ): Request<CreativeAssetMetadata>;
     }
     interface CreativeFieldsResource {
@@ -6573,7 +6573,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreativeField
+        body: CreativeField,
       ): Request<CreativeField>;
       /** Retrieves a list of creative fields, possibly filtered. This method supports paging. */
       list(request?: {
@@ -6676,7 +6676,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreativeField
+        body: CreativeField,
       ): Request<CreativeField>;
       /** Updates an existing creative field. */
       update(request: {
@@ -6734,7 +6734,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreativeField
+        body: CreativeField,
       ): Request<CreativeField>;
     }
     interface CreativeFieldValuesResource {
@@ -6860,7 +6860,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreativeFieldValue
+        body: CreativeFieldValue,
       ): Request<CreativeFieldValue>;
       /** Retrieves a list of creative field values, possibly filtered. This method supports paging. */
       list(request?: {
@@ -6967,7 +6967,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreativeFieldValue
+        body: CreativeFieldValue,
       ): Request<CreativeFieldValue>;
       /** Updates an existing creative field value. */
       update(request: {
@@ -7029,7 +7029,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreativeFieldValue
+        body: CreativeFieldValue,
       ): Request<CreativeFieldValue>;
     }
     interface CreativeGroupsResource {
@@ -7118,7 +7118,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreativeGroup
+        body: CreativeGroup,
       ): Request<CreativeGroup>;
       /** Retrieves a list of creative groups, possibly filtered. This method supports paging. */
       list(request?: {
@@ -7223,7 +7223,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreativeGroup
+        body: CreativeGroup,
       ): Request<CreativeGroup>;
       /** Updates an existing creative group. */
       update(request: {
@@ -7281,7 +7281,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreativeGroup
+        body: CreativeGroup,
       ): Request<CreativeGroup>;
     }
     interface CreativesResource {
@@ -7370,7 +7370,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Creative
+        body: Creative,
       ): Request<Creative>;
       /** Retrieves a list of creatives, possibly filtered. This method supports paging. */
       list(request?: {
@@ -7491,7 +7491,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Creative
+        body: Creative,
       ): Request<Creative>;
       /** Updates an existing creative. */
       update(request: {
@@ -7549,7 +7549,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Creative
+        body: Creative,
       ): Request<Creative>;
     }
     interface DimensionValuesResource {
@@ -7617,7 +7617,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DimensionValueRequest
+        body: DimensionValueRequest,
       ): Request<DimensionValueList>;
     }
     interface DirectorySitesResource {
@@ -7706,7 +7706,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DirectorySite
+        body: DirectorySite,
       ): Request<DirectorySite>;
       /** Retrieves a list of directory sites, possibly filtered. This method supports paging. */
       list(request?: {
@@ -7848,7 +7848,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DynamicTargetingKey
+        body: DynamicTargetingKey,
       ): Request<DynamicTargetingKey>;
       /** Retrieves a list of dynamic targeting keys. */
       list(request?: {
@@ -8001,7 +8001,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventTag
+        body: EventTag,
       ): Request<EventTag>;
       /** Retrieves a list of event tags, possibly filtered. */
       list(request?: {
@@ -8110,7 +8110,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventTag
+        body: EventTag,
       ): Request<EventTag>;
       /** Updates an existing event tag. */
       update(request: {
@@ -8168,7 +8168,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventTag
+        body: EventTag,
       ): Request<EventTag>;
     }
     interface FilesResource {
@@ -8383,7 +8383,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FloodlightActivity
+        body: FloodlightActivity,
       ): Request<FloodlightActivity>;
       /** Retrieves a list of floodlight activities, possibly filtered. This method supports paging. */
       list(request?: {
@@ -8498,7 +8498,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FloodlightActivity
+        body: FloodlightActivity,
       ): Request<FloodlightActivity>;
       /** Updates an existing floodlight activity. */
       update(request: {
@@ -8556,7 +8556,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FloodlightActivity
+        body: FloodlightActivity,
       ): Request<FloodlightActivity>;
     }
     interface FloodlightActivityGroupsResource {
@@ -8645,7 +8645,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FloodlightActivityGroup
+        body: FloodlightActivityGroup,
       ): Request<FloodlightActivityGroup>;
       /** Retrieves a list of floodlight activity groups, possibly filtered. This method supports paging. */
       list(request?: {
@@ -8752,7 +8752,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FloodlightActivityGroup
+        body: FloodlightActivityGroup,
       ): Request<FloodlightActivityGroup>;
       /** Updates an existing floodlight activity group. */
       update(request: {
@@ -8810,7 +8810,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FloodlightActivityGroup
+        body: FloodlightActivityGroup,
       ): Request<FloodlightActivityGroup>;
     }
     interface FloodlightConfigurationsResource {
@@ -8932,7 +8932,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FloodlightConfiguration
+        body: FloodlightConfiguration,
       ): Request<FloodlightConfiguration>;
       /** Updates an existing floodlight configuration. */
       update(request: {
@@ -8990,7 +8990,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FloodlightConfiguration
+        body: FloodlightConfiguration,
       ): Request<FloodlightConfiguration>;
     }
     interface InventoryItemsResource {
@@ -9535,7 +9535,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlacementGroup
+        body: PlacementGroup,
       ): Request<PlacementGroup>;
       /** Retrieves a list of placement groups, possibly filtered. This method supports paging. */
       list(request?: {
@@ -9662,7 +9662,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlacementGroup
+        body: PlacementGroup,
       ): Request<PlacementGroup>;
       /** Updates an existing placement group. */
       update(request: {
@@ -9720,7 +9720,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlacementGroup
+        body: PlacementGroup,
       ): Request<PlacementGroup>;
     }
     interface PlacementsResource {
@@ -9842,7 +9842,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Placement
+        body: Placement,
       ): Request<Placement>;
       /** Retrieves a list of placements, possibly filtered. This method supports paging. */
       list(request?: {
@@ -9975,7 +9975,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Placement
+        body: Placement,
       ): Request<Placement>;
       /** Updates an existing placement. */
       update(request: {
@@ -10033,7 +10033,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Placement
+        body: Placement,
       ): Request<Placement>;
     }
     interface PlacementStrategiesResource {
@@ -10151,7 +10151,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlacementStrategy
+        body: PlacementStrategy,
       ): Request<PlacementStrategy>;
       /** Retrieves a list of placement strategies, possibly filtered. This method supports paging. */
       list(request?: {
@@ -10252,7 +10252,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlacementStrategy
+        body: PlacementStrategy,
       ): Request<PlacementStrategy>;
       /** Updates an existing placement strategy. */
       update(request: {
@@ -10310,7 +10310,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlacementStrategy
+        body: PlacementStrategy,
       ): Request<PlacementStrategy>;
     }
     interface PlatformTypesResource {
@@ -10616,7 +10616,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemarketingList
+        body: RemarketingList,
       ): Request<RemarketingList>;
       /** Retrieves a list of remarketing lists, possibly filtered. This method supports paging. */
       list(request?: {
@@ -10721,7 +10721,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemarketingList
+        body: RemarketingList,
       ): Request<RemarketingList>;
       /** Updates an existing remarketing list. */
       update(request: {
@@ -10779,7 +10779,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemarketingList
+        body: RemarketingList,
       ): Request<RemarketingList>;
     }
     interface RemarketingListSharesResource {
@@ -10872,7 +10872,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemarketingListShare
+        body: RemarketingListShare,
       ): Request<RemarketingListShare>;
       /** Updates an existing remarketing list share. */
       update(request: {
@@ -10930,7 +10930,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemarketingListShare
+        body: RemarketingListShare,
       ): Request<RemarketingListShare>;
     }
     interface CompatibleFieldsResource {
@@ -10990,7 +10990,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Report
+        body: Report,
       ): Request<CompatibleFields>;
     }
     interface FilesResource {
@@ -11178,7 +11178,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Report
+        body: Report,
       ): Request<Report>;
       /** Retrieves list of reports. */
       list(request?: {
@@ -11277,7 +11277,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Report
+        body: Report,
       ): Request<Report>;
       /** Runs a report. */
       run(request?: {
@@ -11370,7 +11370,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Report
+        body: Report,
       ): Request<Report>;
       compatibleFields: CompatibleFieldsResource;
       files: FilesResource;
@@ -11461,7 +11461,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Site
+        body: Site,
       ): Request<Site>;
       /** Retrieves a list of sites, possibly filtered. This method supports paging. */
       list(request?: {
@@ -11580,7 +11580,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Site
+        body: Site,
       ): Request<Site>;
       /** Updates an existing site. */
       update(request: {
@@ -11638,7 +11638,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Site
+        body: Site,
       ): Request<Site>;
     }
     interface SizesResource {
@@ -11727,7 +11727,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Size
+        body: Size,
       ): Request<Size>;
       /** Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally unique and may include values not currently in use by your account. Due to this, the list of sizes returned by this method may differ from the list seen in the Trafficking UI. */
       list(request?: {
@@ -11851,7 +11851,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Subaccount
+        body: Subaccount,
       ): Request<Subaccount>;
       /** Gets a list of subaccounts, possibly filtered. This method supports paging. */
       list(request?: {
@@ -11952,7 +11952,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Subaccount
+        body: Subaccount,
       ): Request<Subaccount>;
       /** Updates an existing subaccount. */
       update(request: {
@@ -12010,7 +12010,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Subaccount
+        body: Subaccount,
       ): Request<Subaccount>;
     }
     interface TargetableRemarketingListsResource {
@@ -12171,7 +12171,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TargetingTemplate
+        body: TargetingTemplate,
       ): Request<TargetingTemplate>;
       /** Retrieves a list of targeting templates, optionally filtered. This method supports paging. */
       list(request?: {
@@ -12274,7 +12274,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TargetingTemplate
+        body: TargetingTemplate,
       ): Request<TargetingTemplate>;
       /** Updates an existing targeting template. */
       update(request: {
@@ -12332,7 +12332,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TargetingTemplate
+        body: TargetingTemplate,
       ): Request<TargetingTemplate>;
     }
     interface TvCampaignDetailsResource {
@@ -12688,7 +12688,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UserRole
+        body: UserRole,
       ): Request<UserRole>;
       /** Retrieves a list of user roles, possibly filtered. This method supports paging. */
       list(request?: {
@@ -12793,7 +12793,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UserRole
+        body: UserRole,
       ): Request<UserRole>;
       /** Updates an existing user role. */
       update(request: {
@@ -12851,7 +12851,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UserRole
+        body: UserRole,
       ): Request<UserRole>;
     }
     interface VideoFormatsResource {

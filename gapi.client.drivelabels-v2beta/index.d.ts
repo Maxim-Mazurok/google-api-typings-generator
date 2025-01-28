@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Drive Labels API v2beta */
   function load(
-    urlOrObject: 'https://drivelabels.googleapis.com/$discovery/rest?version=v2beta'
+    urlOrObject: 'https://drivelabels.googleapis.com/$discovery/rest?version=v2beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'drivelabels', version: 'v2beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'drivelabels',
     version: 'v2beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace drivelabels {
@@ -849,7 +849,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAppsDriveLabelsV2betaBatchDeleteLabelPermissionsRequest
+        body: GoogleAppsDriveLabelsV2betaBatchDeleteLabelPermissionsRequest,
       ): Request<{}>;
       /** Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
       batchUpdate(request: {
@@ -907,7 +907,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAppsDriveLabelsV2betaBatchUpdateLabelPermissionsRequest
+        body: GoogleAppsDriveLabelsV2betaBatchUpdateLabelPermissionsRequest,
       ): Request<GoogleAppsDriveLabelsV2betaBatchUpdateLabelPermissionsResponse>;
       /** Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
       create(request: {
@@ -969,7 +969,7 @@ declare namespace gapi.client {
           /** Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access. */
           useAdminAccess?: boolean;
         },
-        body: GoogleAppsDriveLabelsV2betaLabelPermission
+        body: GoogleAppsDriveLabelsV2betaLabelPermission,
       ): Request<GoogleAppsDriveLabelsV2betaLabelPermission>;
       /** Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
       delete(request?: {
@@ -1124,7 +1124,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAppsDriveLabelsV2betaBatchDeleteLabelPermissionsRequest
+        body: GoogleAppsDriveLabelsV2betaBatchDeleteLabelPermissionsRequest,
       ): Request<{}>;
       /** Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
       batchUpdate(request: {
@@ -1182,7 +1182,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAppsDriveLabelsV2betaBatchUpdateLabelPermissionsRequest
+        body: GoogleAppsDriveLabelsV2betaBatchUpdateLabelPermissionsRequest,
       ): Request<GoogleAppsDriveLabelsV2betaBatchUpdateLabelPermissionsResponse>;
       /** Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
       create(request: {
@@ -1244,7 +1244,7 @@ declare namespace gapi.client {
           /** Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access. */
           useAdminAccess?: boolean;
         },
-        body: GoogleAppsDriveLabelsV2betaLabelPermission
+        body: GoogleAppsDriveLabelsV2betaLabelPermission,
       ): Request<GoogleAppsDriveLabelsV2betaLabelPermission>;
       /** Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
       delete(request?: {
@@ -1370,7 +1370,7 @@ declare namespace gapi.client {
           /** Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access. */
           useAdminAccess?: boolean;
         },
-        body: GoogleAppsDriveLabelsV2betaLabelPermission
+        body: GoogleAppsDriveLabelsV2betaLabelPermission,
       ): Request<GoogleAppsDriveLabelsV2betaLabelPermission>;
       locks: LocksResource;
       permissions: PermissionsResource;
@@ -1436,7 +1436,7 @@ declare namespace gapi.client {
           /** Set to `true` in order to use the user's admin privileges. The server will verify the user is an admin before allowing access. */
           useAdminAccess?: boolean;
         },
-        body: GoogleAppsDriveLabelsV2betaLabel
+        body: GoogleAppsDriveLabelsV2betaLabel,
       ): Request<GoogleAppsDriveLabelsV2betaLabel>;
       /** Permanently deletes a Label and related metadata on Drive Items. Once deleted, the Label and related Drive item metadata will be deleted. Only draft Labels, and disabled Labels may be deleted. */
       delete(request?: {
@@ -1525,7 +1525,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAppsDriveLabelsV2betaDeltaUpdateLabelRequest
+        body: GoogleAppsDriveLabelsV2betaDeltaUpdateLabelRequest,
       ): Request<GoogleAppsDriveLabelsV2betaDeltaUpdateLabelResponse>;
       /** Disable a published Label. Disabling a Label will result in a new disabled published revision based on the current published revision. If there is a draft revision, a new disabled draft revision will be created based on the latest draft revision. Older draft revisions will be deleted. Once disabled, a label may be deleted with `DeleteLabel`. */
       disable(request: {
@@ -1583,7 +1583,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAppsDriveLabelsV2betaDisableLabelRequest
+        body: GoogleAppsDriveLabelsV2betaDisableLabelRequest,
       ): Request<GoogleAppsDriveLabelsV2betaLabel>;
       /** Enable a disabled Label and restore it to its published state. This will result in a new published revision based on the current disabled published revision. If there is an existing disabled draft revision, a new revision will be created based on that draft and will be enabled. */
       enable(request: {
@@ -1641,7 +1641,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAppsDriveLabelsV2betaEnableLabelRequest
+        body: GoogleAppsDriveLabelsV2betaEnableLabelRequest,
       ): Request<GoogleAppsDriveLabelsV2betaLabel>;
       /** Get a label by its resource name. Resource name may be any of: * `labels/{id}` - See `labels/{id}@latest` * `labels/{id}@latest` - Gets the latest revision of the label. * `labels/{id}@published` - Gets the current published revision of the label. * `labels/{id}@{revision_id}` - Gets the label at the specified revision ID. */
       get(request?: {
@@ -1773,7 +1773,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAppsDriveLabelsV2betaPublishLabelRequest
+        body: GoogleAppsDriveLabelsV2betaPublishLabelRequest,
       ): Request<GoogleAppsDriveLabelsV2betaLabel>;
       /** Updates a Label's `CopyMode`. Changes to this policy are not revisioned, do not require publishing, and take effect immediately. */
       updateLabelCopyMode(request: {
@@ -1831,7 +1831,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAppsDriveLabelsV2betaUpdateLabelCopyModeRequest
+        body: GoogleAppsDriveLabelsV2betaUpdateLabelCopyModeRequest,
       ): Request<GoogleAppsDriveLabelsV2betaLabel>;
       /** Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
       updatePermissions(request: {
@@ -1893,7 +1893,7 @@ declare namespace gapi.client {
           /** Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access. */
           useAdminAccess?: boolean;
         },
-        body: GoogleAppsDriveLabelsV2betaLabelPermission
+        body: GoogleAppsDriveLabelsV2betaLabelPermission,
       ): Request<GoogleAppsDriveLabelsV2betaLabelPermission>;
       locks: LocksResource;
       permissions: PermissionsResource;

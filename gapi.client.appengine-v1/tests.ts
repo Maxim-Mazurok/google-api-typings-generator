@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://appengine.googleapis.com/$discovery/rest?version=v1'
+    'https://appengine.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.appengine */
 
@@ -71,7 +71,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceAccount: 'Test string',
         servingStatus: 'Test string',
-      }
+      },
     );
     /** Gets information about an application. */
     await gapi.client.appengine.apps.get({
@@ -122,14 +122,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceAccount: 'Test string',
         servingStatus: 'Test string',
-      }
+      },
     );
     /** Recreates the required App Engine features for the specified App Engine application, for example a Cloud Storage bucket or App Engine service account. Use this method if you receive an error message about a missing feature, for example, Error retrieving the App Engine service account. If you have deleted your App Engine service account, this will not be able to recreate it. Instead, you should attempt to use the IAM undelete API if possible at https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts/undelete?apix_params=%7B"name"%3A"projects%2F-%2FserviceAccounts%2Funique_id"%2C"resource"%3A%7B%7D%7D . If the deletion was recent, the numeric ID can be found in the Cloud Console Activity Log. */
     await gapi.client.appengine.apps.repair(
       {
         appsId: 'Test string',
       },
-      {}
+      {},
     );
     /** Uploads the specified SSL certificate. */
     await gapi.client.appengine.apps.authorizedCertificates.create(
@@ -152,7 +152,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
-      }
+      },
     );
     /** Deletes the specified SSL certificate. */
     await gapi.client.appengine.apps.authorizedCertificates.delete({
@@ -195,7 +195,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
-      }
+      },
     );
     /** Lists all domains the user is authorized to administer. */
     await gapi.client.appengine.apps.authorizedDomains.list({
@@ -224,7 +224,7 @@ gapi.load('client', async () => {
           pendingManagedCertificateId: 'Test string',
           sslManagementType: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. */
     await gapi.client.appengine.apps.domainMappings.delete({
@@ -264,7 +264,7 @@ gapi.load('client', async () => {
           pendingManagedCertificateId: 'Test string',
           sslManagementType: 'Test string',
         },
-      }
+      },
     );
     /** Replaces the entire firewall ruleset in one bulk operation. This overrides and replaces the rules of an existing firewall with the new rules.If the final rule does not match traffic with the '*' wildcard IP range, then an "allow all" rule is explicitly added to the end of the list. */
     await gapi.client.appengine.apps.firewall.ingressRules.batchUpdate(
@@ -280,7 +280,7 @@ gapi.load('client', async () => {
             sourceRange: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Creates a firewall rule for the application. */
     await gapi.client.appengine.apps.firewall.ingressRules.create(
@@ -292,7 +292,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         priority: 42,
         sourceRange: 'Test string',
-      }
+      },
     );
     /** Deletes the specified firewall rule. */
     await gapi.client.appengine.apps.firewall.ingressRules.delete({
@@ -323,7 +323,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         priority: 42,
         sourceRange: 'Test string',
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.appengine.apps.locations.get({
@@ -391,7 +391,7 @@ gapi.load('client', async () => {
           },
           shardBy: 'Test string',
         },
-      }
+      },
     );
     /** Deploys code and resource files to a new version. */
     await gapi.client.appengine.apps.services.versions.create(
@@ -607,7 +607,7 @@ gapi.load('client', async () => {
           name: 'Test string',
         },
         zones: ['Test string'],
-      }
+      },
     );
     /** Deletes an existing Version resource. */
     await gapi.client.appengine.apps.services.versions.delete({
@@ -846,7 +846,7 @@ gapi.load('client', async () => {
           name: 'Test string',
         },
         zones: ['Test string'],
-      }
+      },
     );
     /** Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over and determine if another instance should be started.Only applicable for instances in App Engine flexible environment. */
     await gapi.client.appengine.apps.services.versions.instances.debug(
@@ -858,7 +858,7 @@ gapi.load('client', async () => {
       },
       {
         sshKey: 'Test string',
-      }
+      },
     );
     /** Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method. */
     await gapi.client.appengine.apps.services.versions.instances.delete({
@@ -890,7 +890,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         projectsId: 'Test string',
-      }
+      },
     );
     /** Deletes the specified service and all enclosed versions. */
     await gapi.client.appengine.projects.locations.applications.services.delete(
@@ -899,7 +899,7 @@ gapi.load('client', async () => {
         locationsId: 'Test string',
         projectsId: 'Test string',
         servicesId: 'Test string',
-      }
+      },
     );
     /** Deletes an existing Version resource. */
     await gapi.client.appengine.projects.locations.applications.services.versions.delete(
@@ -909,7 +909,7 @@ gapi.load('client', async () => {
         projectsId: 'Test string',
         servicesId: 'Test string',
         versionsId: 'Test string',
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://dfareporting.googleapis.com/$discovery/rest?version=v4'
+    'https://dfareporting.googleapis.com/$discovery/rest?version=v4',
   );
   /** now we can use gapi.client.dfareporting */
 
@@ -107,7 +107,7 @@ gapi.load('client', async () => {
         },
         shareReportsWithTwitter: true,
         teaserSizeLimit: 'Test string',
-      }
+      },
     );
     /** Updates an existing account. */
     await gapi.client.dfareporting.accounts.update(
@@ -141,7 +141,7 @@ gapi.load('client', async () => {
         },
         shareReportsWithTwitter: true,
         teaserSizeLimit: 'Test string',
-      }
+      },
     );
     /** Gets one account user profile by ID. */
     await gapi.client.dfareporting.accountUserProfiles.get({
@@ -186,7 +186,7 @@ gapi.load('client', async () => {
           status: 'Test string',
         },
         userRoleId: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of account user profiles, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.accountUserProfiles.list({
@@ -240,7 +240,7 @@ gapi.load('client', async () => {
           status: 'Test string',
         },
         userRoleId: 'Test string',
-      }
+      },
     );
     /** Updates an existing account user profile. */
     await gapi.client.dfareporting.accountUserProfiles.update(
@@ -280,7 +280,7 @@ gapi.load('client', async () => {
           status: 'Test string',
         },
         userRoleId: 'Test string',
-      }
+      },
     );
     /** Gets one ad by ID. */
     await gapi.client.dfareporting.ads.get({
@@ -595,7 +595,7 @@ gapi.load('client', async () => {
           ],
         },
         type: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of ads, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.ads.list({
@@ -933,7 +933,7 @@ gapi.load('client', async () => {
           ],
         },
         type: 'Test string',
-      }
+      },
     );
     /** Updates an existing ad. */
     await gapi.client.dfareporting.ads.update(
@@ -1243,7 +1243,7 @@ gapi.load('client', async () => {
           ],
         },
         type: 'Test string',
-      }
+      },
     );
     /** Deletes an existing advertiser group. */
     await gapi.client.dfareporting.advertiserGroups.delete({
@@ -1265,7 +1265,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of advertiser groups, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.advertiserGroups.list({
@@ -1288,7 +1288,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Updates an existing advertiser group. */
     await gapi.client.dfareporting.advertiserGroups.update(
@@ -1300,7 +1300,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of invoices for a particular issue month. The api only works if the billing profile invoice level is set to either advertiser or campaign non-consolidated invoice level. */
     await gapi.client.dfareporting.advertiserInvoices.list({
@@ -1342,7 +1342,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of landing pages. */
     await gapi.client.dfareporting.advertiserLandingPages.list({
@@ -1386,7 +1386,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Updates an existing landing page. */
     await gapi.client.dfareporting.advertiserLandingPages.update(
@@ -1415,7 +1415,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Gets one advertiser by ID. */
     await gapi.client.dfareporting.advertisers.get({
@@ -1462,7 +1462,7 @@ gapi.load('client', async () => {
         status: 'Test string',
         subaccountId: 'Test string',
         suspended: true,
-      }
+      },
     );
     /** Retrieves a list of advertisers, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.advertisers.list({
@@ -1521,7 +1521,7 @@ gapi.load('client', async () => {
         status: 'Test string',
         subaccountId: 'Test string',
         suspended: true,
-      }
+      },
     );
     /** Updates an existing advertiser. */
     await gapi.client.dfareporting.advertisers.update(
@@ -1563,7 +1563,7 @@ gapi.load('client', async () => {
         status: 'Test string',
         subaccountId: 'Test string',
         suspended: true,
-      }
+      },
     );
     /** Inserts a new billing assignment and returns the new assignment. Only one of advertiser_id or campaign_id is support per request. If the new assignment has no effect (assigning a campaign to the parent advertiser billing profile or assigning an advertiser to the account billing profile), no assignment will be returned. */
     await gapi.client.dfareporting.billingAssignments.insert(
@@ -1577,7 +1577,7 @@ gapi.load('client', async () => {
         campaignId: 'Test string',
         kind: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of billing assignments. */
     await gapi.client.dfareporting.billingAssignments.list({
@@ -1622,7 +1622,7 @@ gapi.load('client', async () => {
         purchaseOrder: 'Test string',
         secondaryPaymentsCustomerId: 'Test string',
         status: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of billing rates. This method supports paging. */
     await gapi.client.dfareporting.billingRates.list({
@@ -1642,7 +1642,7 @@ gapi.load('client', async () => {
       {
         creativeId: 'Test string',
         kind: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of creative IDs associated with the specified campaign. This method supports paging. */
     await gapi.client.dfareporting.campaignCreativeAssociations.list({
@@ -1775,7 +1775,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         startDate: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of campaigns, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.campaigns.list({
@@ -1913,7 +1913,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         startDate: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Updates an existing campaign. */
     await gapi.client.dfareporting.campaigns.update(
@@ -2033,7 +2033,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         startDate: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Gets one change log by ID. */
     await gapi.client.dfareporting.changeLogs.get({
@@ -2091,7 +2091,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of content categories, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.contentCategories.list({
@@ -2114,7 +2114,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Updates an existing content category. */
     await gapi.client.dfareporting.contentCategories.update(
@@ -2126,7 +2126,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Inserts conversions. */
     await gapi.client.dfareporting.conversions.batchinsert(
@@ -2198,7 +2198,7 @@ gapi.load('client', async () => {
           kind: 'Test string',
         },
         kind: 'Test string',
-      }
+      },
     );
     /** Updates existing conversions. */
     await gapi.client.dfareporting.conversions.batchupdate(
@@ -2270,7 +2270,7 @@ gapi.load('client', async () => {
           kind: 'Test string',
         },
         kind: 'Test string',
-      }
+      },
     );
     /** Gets one country by ID. */
     await gapi.client.dfareporting.countries.get({
@@ -2427,7 +2427,7 @@ gapi.load('client', async () => {
           },
         ],
         warnedValidationRules: ['Test string'],
-      }
+      },
     );
     /** Deletes an existing creative field. */
     await gapi.client.dfareporting.creativeFields.delete({
@@ -2459,7 +2459,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of creative fields, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.creativeFields.list({
@@ -2493,7 +2493,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Updates an existing creative field. */
     await gapi.client.dfareporting.creativeFields.update(
@@ -2515,7 +2515,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Deletes an existing creative field value. */
     await gapi.client.dfareporting.creativeFieldValues.delete({
@@ -2539,7 +2539,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         value: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of creative field values, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.creativeFieldValues.list({
@@ -2563,7 +2563,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         value: 'Test string',
-      }
+      },
     );
     /** Updates an existing creative field value. */
     await gapi.client.dfareporting.creativeFieldValues.update(
@@ -2575,7 +2575,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         value: 'Test string',
-      }
+      },
     );
     /** Gets one creative group by ID. */
     await gapi.client.dfareporting.creativeGroups.get({
@@ -2603,7 +2603,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of creative groups, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.creativeGroups.list({
@@ -2639,7 +2639,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Updates an existing creative group. */
     await gapi.client.dfareporting.creativeGroups.update(
@@ -2662,7 +2662,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Gets one creative by ID. */
     await gapi.client.dfareporting.creatives.get({
@@ -3073,7 +3073,7 @@ gapi.load('client', async () => {
           value: 'Test string',
         },
         version: 42,
-      }
+      },
     );
     /** Retrieves a list of creatives, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.creatives.list({
@@ -3500,7 +3500,7 @@ gapi.load('client', async () => {
           value: 'Test string',
         },
         version: 42,
-      }
+      },
     );
     /** Updates an existing creative. */
     await gapi.client.dfareporting.creatives.update(
@@ -3906,7 +3906,7 @@ gapi.load('client', async () => {
           value: 'Test string',
         },
         version: 42,
-      }
+      },
     );
     /** Retrieves list of report dimension values for a list of filters. */
     await gapi.client.dfareporting.dimensionValues.query(
@@ -3927,7 +3927,7 @@ gapi.load('client', async () => {
         ],
         kind: 'Test string',
         startDate: 'Test string',
-      }
+      },
     );
     /** Gets one directory site by ID. */
     await gapi.client.dfareporting.directorySites.get({
@@ -3967,7 +3967,7 @@ gapi.load('client', async () => {
           interstitialPlacementAccepted: true,
         },
         url: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of directory sites, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.directorySites.list({
@@ -4001,7 +4001,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         objectId: 'Test string',
         objectType: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of dynamic targeting keys. */
     await gapi.client.dfareporting.dynamicTargetingKeys.list({
@@ -4059,7 +4059,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         url: 'Test string',
         urlEscapeLevels: 42,
-      }
+      },
     );
     /** Retrieves a list of event tags, possibly filtered. */
     await gapi.client.dfareporting.eventTags.list({
@@ -4114,7 +4114,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         url: 'Test string',
         urlEscapeLevels: 42,
-      }
+      },
     );
     /** Updates an existing event tag. */
     await gapi.client.dfareporting.eventTags.update(
@@ -4154,7 +4154,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         url: 'Test string',
         urlEscapeLevels: 42,
-      }
+      },
     );
     /** Retrieves a report file by its report ID and file ID. This method supports media download. */
     await gapi.client.dfareporting.files.get({
@@ -4267,7 +4267,7 @@ gapi.load('client', async () => {
         tagFormat: 'Test string',
         tagString: 'Test string',
         userDefinedVariableTypes: ['Test string'],
-      }
+      },
     );
     /** Retrieves a list of floodlight activities, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.floodlightActivities.list({
@@ -4369,7 +4369,7 @@ gapi.load('client', async () => {
         tagFormat: 'Test string',
         tagString: 'Test string',
         userDefinedVariableTypes: ['Test string'],
-      }
+      },
     );
     /** Updates an existing floodlight activity. */
     await gapi.client.dfareporting.floodlightActivities.update(
@@ -4453,7 +4453,7 @@ gapi.load('client', async () => {
         tagFormat: 'Test string',
         tagString: 'Test string',
         userDefinedVariableTypes: ['Test string'],
-      }
+      },
     );
     /** Gets one floodlight activity group by ID. */
     await gapi.client.dfareporting.floodlightActivityGroups.get({
@@ -4499,7 +4499,7 @@ gapi.load('client', async () => {
         subaccountId: 'Test string',
         tagString: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of floodlight activity groups, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.floodlightActivityGroups.list({
@@ -4554,7 +4554,7 @@ gapi.load('client', async () => {
         subaccountId: 'Test string',
         tagString: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Updates an existing floodlight activity group. */
     await gapi.client.dfareporting.floodlightActivityGroups.update(
@@ -4595,7 +4595,7 @@ gapi.load('client', async () => {
         subaccountId: 'Test string',
         tagString: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Gets one floodlight configuration by ID. */
     await gapi.client.dfareporting.floodlightConfigurations.get({
@@ -4675,7 +4675,7 @@ gapi.load('client', async () => {
             variableType: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates an existing floodlight configuration. */
     await gapi.client.dfareporting.floodlightConfigurations.update(
@@ -4744,7 +4744,7 @@ gapi.load('client', async () => {
             variableType: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Gets one inventory item by ID. */
     await gapi.client.dfareporting.inventoryItems.get({
@@ -4933,7 +4933,7 @@ gapi.load('client', async () => {
           value: 'Test string',
         },
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of placement groups, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.placementGroups.list({
@@ -5054,7 +5054,7 @@ gapi.load('client', async () => {
           value: 'Test string',
         },
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Updates an existing placement group. */
     await gapi.client.dfareporting.placementGroups.update(
@@ -5151,7 +5151,7 @@ gapi.load('client', async () => {
           value: 'Test string',
         },
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Generates tags for a placement. */
     await gapi.client.dfareporting.placements.generatetags({
@@ -5368,7 +5368,7 @@ gapi.load('client', async () => {
         },
         vpaidAdapterChoice: 'Test string',
         wrappingOptOut: true,
-      }
+      },
     );
     /** Retrieves a list of placements, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.placements.list({
@@ -5600,7 +5600,7 @@ gapi.load('client', async () => {
         },
         vpaidAdapterChoice: 'Test string',
         wrappingOptOut: true,
-      }
+      },
     );
     /** Updates an existing placement. */
     await gapi.client.dfareporting.placements.update(
@@ -5805,7 +5805,7 @@ gapi.load('client', async () => {
         },
         vpaidAdapterChoice: 'Test string',
         wrappingOptOut: true,
-      }
+      },
     );
     /** Deletes an existing placement strategy. */
     await gapi.client.dfareporting.placementStrategies.delete({
@@ -5827,7 +5827,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of placement strategies, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.placementStrategies.list({
@@ -5850,7 +5850,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Updates an existing placement strategy. */
     await gapi.client.dfareporting.placementStrategies.update(
@@ -5862,7 +5862,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets one platform type by ID. */
     await gapi.client.dfareporting.platformTypes.get({
@@ -5952,7 +5952,7 @@ gapi.load('client', async () => {
         listSource: 'Test string',
         name: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of remarketing lists, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.remarketingLists.list({
@@ -6012,7 +6012,7 @@ gapi.load('client', async () => {
         listSource: 'Test string',
         name: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Updates an existing remarketing list. */
     await gapi.client.dfareporting.remarketingLists.update(
@@ -6059,7 +6059,7 @@ gapi.load('client', async () => {
         listSource: 'Test string',
         name: 'Test string',
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Gets one remarketing list share by remarketing list ID. */
     await gapi.client.dfareporting.remarketingListShares.get({
@@ -6077,7 +6077,7 @@ gapi.load('client', async () => {
         remarketingListId: 'Test string',
         sharedAccountIds: ['Test string'],
         sharedAdvertiserIds: ['Test string'],
-      }
+      },
     );
     /** Updates an existing remarketing list share. */
     await gapi.client.dfareporting.remarketingListShares.update(
@@ -6089,7 +6089,7 @@ gapi.load('client', async () => {
         remarketingListId: 'Test string',
         sharedAccountIds: ['Test string'],
         sharedAdvertiserIds: ['Test string'],
-      }
+      },
     );
     /** Deletes a report by its ID. */
     await gapi.client.dfareporting.reports.delete({
@@ -6421,7 +6421,7 @@ gapi.load('client', async () => {
         },
         subAccountId: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Retrieves list of reports. */
     await gapi.client.dfareporting.reports.list({
@@ -6753,7 +6753,7 @@ gapi.load('client', async () => {
         },
         subAccountId: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Runs a report. */
     await gapi.client.dfareporting.reports.run({
@@ -7082,7 +7082,7 @@ gapi.load('client', async () => {
         },
         subAccountId: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
     await gapi.client.dfareporting.reports.compatibleFields.query(
@@ -7404,7 +7404,7 @@ gapi.load('client', async () => {
         },
         subAccountId: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Retrieves a report file by its report ID and file ID. This method supports media download. */
     await gapi.client.dfareporting.reports.files.get({
@@ -7534,7 +7534,7 @@ gapi.load('client', async () => {
             kind: 'Test string',
           },
         },
-      }
+      },
     );
     /** Retrieves a list of sites, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.sites.list({
@@ -7664,7 +7664,7 @@ gapi.load('client', async () => {
             kind: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates an existing site. */
     await gapi.client.dfareporting.sites.update(
@@ -7774,7 +7774,7 @@ gapi.load('client', async () => {
             kind: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets one size by ID. */
     await gapi.client.dfareporting.sizes.get({
@@ -7792,7 +7792,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         width: 42,
-      }
+      },
     );
     /** Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally unique and may include values not currently in use by your account. Due to this, the list of sizes returned by this method may differ from the list seen in the Trafficking UI. */
     await gapi.client.dfareporting.sizes.list({
@@ -7818,7 +7818,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets a list of subaccounts, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.subaccounts.list({
@@ -7842,7 +7842,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Updates an existing subaccount. */
     await gapi.client.dfareporting.subaccounts.update(
@@ -7855,7 +7855,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets one remarketing list by ID. */
     await gapi.client.dfareporting.targetableRemarketingLists.get({
@@ -8034,7 +8034,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Retrieves a list of targeting templates, optionally filtered. This method supports paging. */
     await gapi.client.dfareporting.targetingTemplates.list({
@@ -8204,7 +8204,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Updates an existing targeting template. */
     await gapi.client.dfareporting.targetingTemplates.update(
@@ -8362,7 +8362,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Gets one TvCampaignDetail by ID. */
     await gapi.client.dfareporting.tvCampaignDetails.get({
@@ -8433,7 +8433,7 @@ gapi.load('client', async () => {
           },
         ],
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of user roles, possibly filtered. This method supports paging. */
     await gapi.client.dfareporting.userRoles.list({
@@ -8470,7 +8470,7 @@ gapi.load('client', async () => {
           },
         ],
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Updates an existing user role. */
     await gapi.client.dfareporting.userRoles.update(
@@ -8494,7 +8494,7 @@ gapi.load('client', async () => {
           },
         ],
         subaccountId: 'Test string',
-      }
+      },
     );
     /** Gets one video format by ID. */
     await gapi.client.dfareporting.videoFormats.get({

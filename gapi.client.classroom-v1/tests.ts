@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://classroom.googleapis.com/$discovery/rest?version=v1'
+    'https://classroom.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.classroom */
 
@@ -146,7 +146,7 @@ gapi.load('client', async () => {
         },
         teacherGroupEmail: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a course. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to delete the requested course or for access errors. * `NOT_FOUND` if no course exists with the requested ID. */
     await gapi.client.classroom.courses.delete({
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
         },
         teacherGroupEmail: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Updates a course. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to modify the requested course or for access errors. * `NOT_FOUND` if no course exists with the requested ID. * `FAILED_PRECONDITION` for the following request errors: * CourseNotModifiable */
     await gapi.client.classroom.courses.update(
@@ -309,7 +309,7 @@ gapi.load('client', async () => {
         },
         teacherGroupEmail: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates an alias for a course. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to create the alias or for access errors. * `NOT_FOUND` if the course does not exist. * `ALREADY_EXISTS` if the alias already exists. * `FAILED_PRECONDITION` if the alias requested does not make sense for the requesting user or course (for example, if a user not in a domain attempts to access a domain-scoped alias). */
     await gapi.client.classroom.courses.aliases.create(
@@ -318,7 +318,7 @@ gapi.load('client', async () => {
       },
       {
         alias: 'Test string',
-      }
+      },
     );
     /** Deletes an alias of a course. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to remove the alias or for access errors. * `NOT_FOUND` if the alias does not exist. * `FAILED_PRECONDITION` if the alias requested does not make sense for the requesting user or course (for example, if a user not in a domain attempts to delete a domain-scoped alias). */
     await gapi.client.classroom.courses.aliases.delete({
@@ -380,7 +380,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         text: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an announcement. This request must be made by the Developer Console project of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the corresponding announcement item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting developer project did not create the corresponding announcement, if the requesting user is not permitted to delete the requested course or for access errors. * `FAILED_PRECONDITION` if the requested announcement has already been deleted. * `NOT_FOUND` if no course exists with the requested ID. */
     await gapi.client.classroom.courses.announcements.delete({
@@ -420,7 +420,7 @@ gapi.load('client', async () => {
           addStudentIds: ['Test string'],
           removeStudentIds: ['Test string'],
         },
-      }
+      },
     );
     /** Updates one or more fields of an announcement. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting developer project did not create the corresponding announcement or for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `FAILED_PRECONDITION` if the requested announcement has already been deleted. * `NOT_FOUND` if the requested course or announcement does not exist */
     await gapi.client.classroom.courses.announcements.patch(
@@ -473,7 +473,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         text: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates an add-on attachment under a post. Requires the add-on to have permission to create new attachments on the post. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.announcements.addOnAttachments.create(
@@ -518,7 +518,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         title: 'Test string',
-      }
+      },
     );
     /** Deletes an add-on attachment. Requires the add-on to have been the original creator of the attachment. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.announcements.addOnAttachments.delete({
@@ -586,7 +586,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         title: 'Test string',
-      }
+      },
     );
     /** Creates course work. The resulting course work (and corresponding student submissions) are associated with the Developer Console project of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to make the request. Classroom API requests to modify course work and student submissions must be made with an OAuth client ID from the associated Developer Console project. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access the requested course, create course work in the requested course, share a Drive attachment, or for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course does not exist. * `FAILED_PRECONDITION` for the following request error: * AttachmentNotVisible */
     await gapi.client.classroom.courses.courseWork.create(
@@ -670,7 +670,7 @@ gapi.load('client', async () => {
         topicId: 'Test string',
         updateTime: 'Test string',
         workType: 'Test string',
-      }
+      },
     );
     /** Deletes a course work. This request must be made by the Developer Console project of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the corresponding course work item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting developer project did not create the corresponding course work, if the requesting user is not permitted to delete the requested course or for access errors. * `FAILED_PRECONDITION` if the requested course work has already been deleted. * `NOT_FOUND` if no course exists with the requested ID. */
     await gapi.client.classroom.courses.courseWork.delete({
@@ -710,7 +710,7 @@ gapi.load('client', async () => {
           addStudentIds: ['Test string'],
           removeStudentIds: ['Test string'],
         },
-      }
+      },
     );
     /** Updates one or more fields of a course work. See google.classroom.v1.CourseWork for details of which fields may be updated and who may change them. This request must be made by the Developer Console project of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the corresponding course work item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting developer project did not create the corresponding course work, if the user is not permitted to make the requested modification to the student submission, or for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `FAILED_PRECONDITION` if the requested course work has already been deleted. * `NOT_FOUND` if the requested course or course work does not exist. */
     await gapi.client.classroom.courses.courseWork.patch(
@@ -796,7 +796,7 @@ gapi.load('client', async () => {
         topicId: 'Test string',
         updateTime: 'Test string',
         workType: 'Test string',
-      }
+      },
     );
     /** Updates a rubric. See google.classroom.v1.Rubric for details of which fields can be updated. Rubric update capabilities are [limited](/classroom/rubrics/limitations) once grading has started. The requesting user and course owner must have rubrics creation capabilities. For details, see [licensing requirements](https://developers.google.com/classroom/rubrics/limitations#license-requirements). This request must be made by the Google Cloud console of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the parent course work item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting developer project didn't create the corresponding course work, if the user isn't permitted to make the requested modification to the rubric, or for access errors. This error code is also returned if grading has already started on the rubric. * `INVALID_ARGUMENT` if the request is malformed and for the following request error: * `RubricCriteriaInvalidFormat` * `NOT_FOUND` if the requested course, course work, or rubric doesn't exist or if the user doesn't have access to the corresponding course work. * `INTERNAL` if grading has already started on the rubric. */
     await gapi.client.classroom.courses.courseWork.updateRubric(
@@ -828,7 +828,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         sourceSpreadsheetId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates an add-on attachment under a post. Requires the add-on to have permission to create new attachments on the post. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.courseWork.addOnAttachments.create(
@@ -873,7 +873,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         title: 'Test string',
-      }
+      },
     );
     /** Deletes an add-on attachment. Requires the add-on to have been the original creator of the attachment. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.courseWork.addOnAttachments.delete({
@@ -941,7 +941,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         title: 'Test string',
-      }
+      },
     );
     /** Returns a student submission for an add-on attachment. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.courseWork.addOnAttachments.studentSubmissions.get(
@@ -951,7 +951,7 @@ gapi.load('client', async () => {
         itemId: 'Test string',
         postId: 'Test string',
         submissionId: 'Test string',
-      }
+      },
     );
     /** Updates data associated with an add-on attachment submission. Requires the add-on to have been the original creator of the attachment and the attachment to have a positive `max_points` value set. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.courseWork.addOnAttachments.studentSubmissions.patch(
@@ -966,7 +966,7 @@ gapi.load('client', async () => {
       {
         pointsEarned: 42,
         postSubmissionState: 'Test string',
-      }
+      },
     );
     /** Creates a rubric. The requesting user and course owner must have rubrics creation capabilities. For details, see [licensing requirements](https://developers.google.com/classroom/rubrics/limitations#license-requirements). For further details, see [Rubrics structure and known limitations](/classroom/rubrics/limitations). This request must be made by the Google Cloud console of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the parent course work item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user isn't permitted to create rubrics for course work in the requested course. * `INTERNAL` if the request has insufficient OAuth scopes. * `INVALID_ARGUMENT` if the request is malformed and for the following request error: * `RubricCriteriaInvalidFormat` * `NOT_FOUND` if the requested course or course work don't exist or the user doesn't have access to the course or course work. * `FAILED_PRECONDITION` for the following request error: * `AttachmentNotVisible` */
     await gapi.client.classroom.courses.courseWork.rubrics.create(
@@ -996,7 +996,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         sourceSpreadsheetId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a rubric. The requesting user and course owner must have rubrics creation capabilities. For details, see [licensing requirements](https://developers.google.com/classroom/rubrics/limitations#license-requirements). This request must be made by the Google Cloud console of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the corresponding rubric. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting developer project didn't create the corresponding rubric, or if the requesting user isn't permitted to delete the requested rubric. * `NOT_FOUND` if no rubric exists with the requested ID or the user does not have access to the course, course work, or rubric. * `INVALID_ARGUMENT` if grading has already started on the rubric. */
     await gapi.client.classroom.courses.courseWork.rubrics.delete({
@@ -1047,7 +1047,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         sourceSpreadsheetId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Returns a student submission. * `PERMISSION_DENIED` if the requesting user is not permitted to access the requested course, course work, or student submission or for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course, course work, or student submission does not exist. */
     await gapi.client.classroom.courses.courseWork.studentSubmissions.get({
@@ -1100,7 +1100,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Updates one or more fields of a student submission. See google.classroom.v1.StudentSubmission for details of which fields may be updated and who may change them. This request must be made by the Developer Console project of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the corresponding course work item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting developer project did not create the corresponding course work, if the user is not permitted to make the requested modification to the student submission, or for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course, course work, or student submission does not exist. */
     await gapi.client.classroom.courses.courseWork.studentSubmissions.patch(
@@ -1189,7 +1189,7 @@ gapi.load('client', async () => {
         ],
         updateTime: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Reclaims a student submission on behalf of the student that owns it. Reclaiming a student submission transfers ownership of attached Drive files to the student and updates the submission state. Only the student that owns the requested student submission may call this method, and only for a student submission that has been turned in. This request must be made by the Developer Console project of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the corresponding course work item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access the requested course or course work, unsubmit the requested student submission, or for access errors. * `FAILED_PRECONDITION` if the student submission has not been turned in. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course, course work, or student submission does not exist. */
     await gapi.client.classroom.courses.courseWork.studentSubmissions.reclaim(
@@ -1198,7 +1198,7 @@ gapi.load('client', async () => {
         courseWorkId: 'Test string',
         id: 'Test string',
       },
-      {}
+      {},
     );
     /** Returns a student submission. Returning a student submission transfers ownership of attached Drive files to the student and may also update the submission state. Unlike the Classroom application, returning a student submission does not set assignedGrade to the draftGrade value. Only a teacher of the course that contains the requested student submission may call this method. This request must be made by the Developer Console project of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the corresponding course work item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access the requested course or course work, return the requested student submission, or for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course, course work, or student submission does not exist. */
     await gapi.client.classroom.courses.courseWork.studentSubmissions.return(
@@ -1207,7 +1207,7 @@ gapi.load('client', async () => {
         courseWorkId: 'Test string',
         id: 'Test string',
       },
-      {}
+      {},
     );
     /** Turns in a student submission. Turning in a student submission transfers ownership of attached Drive files to the teacher and may also update the submission state. This may only be called by the student that owns the specified student submission. This request must be made by the Developer Console project of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the corresponding course work item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access the requested course or course work, turn in the requested student submission, or for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course, course work, or student submission does not exist. */
     await gapi.client.classroom.courses.courseWork.studentSubmissions.turnIn(
@@ -1216,7 +1216,7 @@ gapi.load('client', async () => {
         courseWorkId: 'Test string',
         id: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a course work material. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access the requested course, create course work material in the requested course, share a Drive attachment, or for access errors. * `INVALID_ARGUMENT` if the request is malformed or if more than 20 * materials are provided. * `NOT_FOUND` if the requested course does not exist. * `FAILED_PRECONDITION` for the following request error: * AttachmentNotVisible */
     await gapi.client.classroom.courses.courseWorkMaterials.create(
@@ -1269,7 +1269,7 @@ gapi.load('client', async () => {
         title: 'Test string',
         topicId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a course work material. This request must be made by the Developer Console project of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the corresponding course work material item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting developer project did not create the corresponding course work material, if the requesting user is not permitted to delete the requested course or for access errors. * `FAILED_PRECONDITION` if the requested course work material has already been deleted. * `NOT_FOUND` if no course exists with the requested ID. */
     await gapi.client.classroom.courses.courseWorkMaterials.delete({
@@ -1352,7 +1352,7 @@ gapi.load('client', async () => {
         title: 'Test string',
         topicId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates an add-on attachment under a post. Requires the add-on to have permission to create new attachments on the post. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.courseWorkMaterials.addOnAttachments.create(
@@ -1397,7 +1397,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         title: 'Test string',
-      }
+      },
     );
     /** Deletes an add-on attachment. Requires the add-on to have been the original creator of the attachment. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.courseWorkMaterials.addOnAttachments.delete(
@@ -1406,7 +1406,7 @@ gapi.load('client', async () => {
         courseId: 'Test string',
         itemId: 'Test string',
         postId: 'Test string',
-      }
+      },
     );
     /** Returns an add-on attachment. Requires the add-on requesting the attachment to be the original creator of the attachment. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.courseWorkMaterials.addOnAttachments.get(
@@ -1415,7 +1415,7 @@ gapi.load('client', async () => {
         courseId: 'Test string',
         itemId: 'Test string',
         postId: 'Test string',
-      }
+      },
     );
     /** Returns all attachments created by an add-on under the post. Requires the add-on to have active attachments on the post or have permission to create new attachments on the post. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.courseWorkMaterials.addOnAttachments.list(
@@ -1425,7 +1425,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         postId: 'Test string',
-      }
+      },
     );
     /** Updates an add-on attachment. Requires the add-on to have been the original creator of the attachment. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.courseWorkMaterials.addOnAttachments.patch(
@@ -1471,7 +1471,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         title: 'Test string',
-      }
+      },
     );
     /** Gets metadata for Classroom add-ons in the context of a specific post. To maintain the integrity of its own data and permissions model, an add-on should call this to validate query parameters and the requesting user's role whenever the add-on is opened in an [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview). This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.posts.getAddOnContext({
@@ -1524,7 +1524,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         title: 'Test string',
-      }
+      },
     );
     /** Deletes an add-on attachment. Requires the add-on to have been the original creator of the attachment. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.posts.addOnAttachments.delete({
@@ -1592,7 +1592,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         title: 'Test string',
-      }
+      },
     );
     /** Returns a student submission for an add-on attachment. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.posts.addOnAttachments.studentSubmissions.get(
@@ -1602,7 +1602,7 @@ gapi.load('client', async () => {
         itemId: 'Test string',
         postId: 'Test string',
         submissionId: 'Test string',
-      }
+      },
     );
     /** Updates data associated with an add-on attachment submission. Requires the add-on to have been the original creator of the attachment and the attachment to have a positive `max_points` value set. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the identified resources does not exist. */
     await gapi.client.classroom.courses.posts.addOnAttachments.studentSubmissions.patch(
@@ -1617,7 +1617,7 @@ gapi.load('client', async () => {
       {
         pointsEarned: 42,
         postSubmissionState: 'Test string',
-      }
+      },
     );
     /** Adds a user as a student of a course. Domain administrators are permitted to [directly add](https://developers.google.com/classroom/guides/manage-users) users within their domain as students to courses within their domain. Students are permitted to add themselves to a course using an enrollment code. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to create students in this course or for access errors. * `NOT_FOUND` if the requested course ID does not exist. * `FAILED_PRECONDITION` if the requested user's account is disabled, for the following request errors: * CourseMemberLimitReached * CourseNotModifiable * UserGroupsMembershipLimitReached * InactiveCourseOwner * `ALREADY_EXISTS` if the user is already a student or teacher in the course. */
     await gapi.client.classroom.courses.students.create(
@@ -1649,7 +1649,7 @@ gapi.load('client', async () => {
           title: 'Test string',
         },
         userId: 'Test string',
-      }
+      },
     );
     /** Deletes a student of a course. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to delete students of this course or for access errors. * `NOT_FOUND` if no student of this course has the requested ID or if the course does not exist. */
     await gapi.client.classroom.courses.students.delete({
@@ -1691,7 +1691,7 @@ gapi.load('client', async () => {
           verifiedTeacher: true,
         },
         userId: 'Test string',
-      }
+      },
     );
     /** Removes the specified teacher from the specified course. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to delete teachers of this course or for access errors. * `NOT_FOUND` if no teacher of this course has the requested ID or if the course does not exist. * `FAILED_PRECONDITION` if the requested ID belongs to the primary teacher of this course. * `FAILED_PRECONDITION` if the requested ID belongs to the owner of the course Drive folder. * `FAILED_PRECONDITION` if the course no longer has an active owner. */
     await gapi.client.classroom.courses.teachers.delete({
@@ -1719,7 +1719,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         topicId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a topic. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not allowed to delete the requested topic or for access errors. * `FAILED_PRECONDITION` if the requested topic has already been deleted. * `NOT_FOUND` if no course or topic exists with the requested ID. */
     await gapi.client.classroom.courses.topics.delete({
@@ -1749,7 +1749,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         topicId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Accepts an invitation, removing it and adding the invited user to the teachers or students (as appropriate) of the specified course. Only the invited user may accept an invitation. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to accept the requested invitation or for access errors. * `FAILED_PRECONDITION` for the following request errors: * CourseMemberLimitReached * CourseNotModifiable * CourseTeacherLimitReached * UserGroupsMembershipLimitReached * `NOT_FOUND` if no invitation exists with the requested ID. */
     await gapi.client.classroom.invitations.accept({
@@ -1763,7 +1763,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         role: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Deletes an invitation. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to delete the requested invitation or for access errors. * `NOT_FOUND` if no invitation exists with the requested ID. */
     await gapi.client.classroom.invitations.delete({
@@ -1798,7 +1798,7 @@ gapi.load('client', async () => {
           feedType: 'Test string',
         },
         registrationId: 'Test string',
-      }
+      },
     );
     /** Deletes a `Registration`, causing Classroom to stop sending notifications for that `Registration`. */
     await gapi.client.classroom.registrations.delete({
@@ -1819,7 +1819,7 @@ gapi.load('client', async () => {
         invitedEmailAddress: 'Test string',
         state: 'Test string',
         studentId: 'Test string',
-      }
+      },
     );
     /** Returns a specific guardian invitation. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to view guardian invitations for the student identified by the `student_id`, if guardians are not enabled for the domain in question, or for other access errors. * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot be recognized (it is not an email address, nor a `student_id` from the API, nor the literal string `me`). * `NOT_FOUND` if Classroom cannot find any record of the given student or `invitation_id`. May also be returned if the student exists, but the requesting user does not have access to see that student. */
     await gapi.client.classroom.userProfiles.guardianInvitations.get({
@@ -1847,7 +1847,7 @@ gapi.load('client', async () => {
         invitedEmailAddress: 'Test string',
         state: 'Test string',
         studentId: 'Test string',
-      }
+      },
     );
     /** Deletes a guardian. The guardian will no longer receive guardian notifications and the guardian will no longer be accessible via the API. This method returns the following error codes: * `PERMISSION_DENIED` if no user that matches the provided `student_id` is visible to the requesting user, if the requesting user is not permitted to manage guardians for the student identified by the `student_id`, if guardians are not enabled for the domain in question, or for other access errors. * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot be recognized (it is not an email address, nor a `student_id` from the API). * `NOT_FOUND` if the requesting user is permitted to modify guardians for the requested `student_id`, but no `Guardian` record exists for that student with the provided `guardian_id`. */
     await gapi.client.classroom.userProfiles.guardians.delete({

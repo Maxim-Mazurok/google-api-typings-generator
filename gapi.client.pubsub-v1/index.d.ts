@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Pub/Sub API v1 */
   function load(
-    urlOrObject: 'https://pubsub.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://pubsub.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'pubsub', version: 'v1'): Promise<void>;
@@ -556,7 +556,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommitSchemaRequest
+        body: CommitSchemaRequest,
       ): Request<Schema>;
       /** Creates a schema. */
       create(request: {
@@ -618,7 +618,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Schema
+        body: Schema,
       ): Request<Schema>;
       /** Deletes a schema. */
       delete(request?: {
@@ -856,7 +856,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RollbackSchemaRequest
+        body: RollbackSchemaRequest,
       ): Request<Schema>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -886,7 +886,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -916,7 +916,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Validates a schema. */
       validate(request: {
@@ -974,7 +974,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ValidateSchemaRequest
+        body: ValidateSchemaRequest,
       ): Request<{}>;
       /** Validates a message against a schema. */
       validateMessage(request: {
@@ -1032,7 +1032,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ValidateMessageRequest
+        body: ValidateMessageRequest,
       ): Request<{}>;
     }
     interface SnapshotsResource {
@@ -1092,7 +1092,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateSnapshotRequest
+        body: CreateSnapshotRequest,
       ): Request<Snapshot>;
       /** Removes an existing snapshot. Snapshots are used in [Seek] (https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot. When the snapshot is deleted, all messages retained in the snapshot are immediately dropped. After a snapshot is deleted, a new one may be created with the same name, but the new one has no association with the old snapshot or its subscription, unless the same subscription is specified. */
       delete(request?: {
@@ -1264,7 +1264,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateSnapshotRequest
+        body: UpdateSnapshotRequest,
       ): Request<Snapshot>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1294,7 +1294,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1324,7 +1324,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface SubscriptionsResource {
@@ -1384,7 +1384,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AcknowledgeRequest
+        body: AcknowledgeRequest,
       ): Request<{}>;
       /** Creates a subscription to a given topic. See the [resource name rules] (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). If the subscription already exists, returns `ALREADY_EXISTS`. If the corresponding topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the request, the server will assign a random name for this subscription on the same project as the topic, conforming to the [resource name format] (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The generated name is populated in the returned Subscription object. Note that for REST API requests, you must specify a name in the request. */
       create(request: {
@@ -1442,7 +1442,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Subscription
+        body: Subscription,
       ): Request<Subscription>;
       /** Deletes an existing subscription. All messages retained in the subscription are immediately dropped. Calls to `Pull` after deletion will return `NOT_FOUND`. After a subscription is deleted, a new one may be created with the same name, but the new one has no association with the old subscription or its topic unless the same topic is specified. */
       delete(request?: {
@@ -1641,7 +1641,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModifyAckDeadlineRequest
+        body: ModifyAckDeadlineRequest,
       ): Request<{}>;
       /** Modifies the `PushConfig` for a specified subscription. This may be used to change a push subscription to a pull one (signified by an empty `PushConfig`) or vice versa, or change the endpoint URL and other attributes of a push subscription. Messages will accumulate for delivery continuously through the call regardless of changes to the `PushConfig`. */
       modifyPushConfig(request: {
@@ -1699,7 +1699,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModifyPushConfigRequest
+        body: ModifyPushConfigRequest,
       ): Request<{}>;
       /** Updates an existing subscription by updating the fields specified in the update mask. Note that certain properties of a subscription, such as its topic, are not modifiable. */
       patch(request: {
@@ -1757,7 +1757,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateSubscriptionRequest
+        body: UpdateSubscriptionRequest,
       ): Request<Subscription>;
       /** Pulls messages from the server. */
       pull(request: {
@@ -1815,7 +1815,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PullRequest
+        body: PullRequest,
       ): Request<PullResponse>;
       /** Seeks an existing subscription to a point in time or to a given snapshot, whichever is provided in the request. Snapshots are used in [Seek] (https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot. Note that both the subscription and the snapshot must be on the same topic. */
       seek(request: {
@@ -1873,7 +1873,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SeekRequest
+        body: SeekRequest,
       ): Request<{}>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1903,7 +1903,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1933,7 +1933,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface SnapshotsResource {
@@ -2059,7 +2059,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Topic
+        body: Topic,
       ): Request<Topic>;
       /** Deletes the topic with the given name. Returns `NOT_FOUND` if the topic does not exist. After a topic is deleted, a new topic may be created with the same name; this is an entirely new topic with none of the old configuration or subscriptions. Existing subscriptions to this topic are not deleted, but their `topic` field is set to `_deleted-topic_`. */
       delete(request?: {
@@ -2231,7 +2231,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateTopicRequest
+        body: UpdateTopicRequest,
       ): Request<Topic>;
       /** Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic does not exist. */
       publish(request: {
@@ -2289,7 +2289,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PublishRequest
+        body: PublishRequest,
       ): Request<PublishResponse>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2319,7 +2319,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2349,7 +2349,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       snapshots: SnapshotsResource;
       subscriptions: SubscriptionsResource;

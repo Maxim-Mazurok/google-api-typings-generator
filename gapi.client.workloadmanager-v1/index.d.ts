@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Workload Manager API v1 */
   function load(
-    urlOrObject: 'https://workloadmanager.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://workloadmanager.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'workloadmanager', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'workloadmanager',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace workloadmanager {
@@ -767,7 +767,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunEvaluationRequest
+        body: RunEvaluationRequest,
       ): Request<Operation>;
       results: ResultsResource;
       scannedResources: ScannedResourcesResource;
@@ -837,7 +837,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Evaluation
+        body: Evaluation,
       ): Request<Operation>;
       /** Deletes a single Evaluation. */
       delete(request?: {
@@ -991,7 +991,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WriteInsightRequest
+        body: WriteInsightRequest,
       ): Request<{}>;
     }
     interface OperationsResource {
@@ -1051,7 +1051,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

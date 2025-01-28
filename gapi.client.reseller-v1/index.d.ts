@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Workspace Reseller API v1 */
   function load(
-    urlOrObject: 'https://reseller.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://reseller.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'reseller', version: 'v1'): Promise<void>;
@@ -264,7 +264,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Customer
+        body: Customer,
       ): Request<Customer>;
       /** Updates a customer account's settings. This method supports patch semantics. You cannot update `customerType` via the Reseller API, but a `"team"` customer can verify their domain and become `customerType = "domain"`. For more information, see [Verify your domain to unlock Essentials features](https://support.google.com/a/answer/9122284). */
       patch(request: {
@@ -322,7 +322,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Customer
+        body: Customer,
       ): Request<Customer>;
       /** Updates a customer account's settings. You cannot update `customerType` via the Reseller API, but a `"team"` customer can verify their domain and become `customerType = "domain"`. For more information, see [update a customer's settings](/admin-sdk/reseller/v1/how-tos/manage_customers#update_customer). */
       update(request: {
@@ -380,7 +380,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Customer
+        body: Customer,
       ): Request<Customer>;
     }
     interface ResellernotifyResource {
@@ -554,7 +554,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ChangePlanRequest
+        body: ChangePlanRequest,
       ): Request<Subscription>;
       /** Updates a user license's renewal settings. This is applicable for accounts with annual commitment plans only. For more information, see the description in [manage subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_renewal). */
       changeRenewalSettings(request: {
@@ -616,7 +616,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RenewalSettings
+        body: RenewalSettings,
       ): Request<Subscription>;
       /** Updates a subscription's user license settings. For more information about updating an annual commitment plan or a flexible plan subscription’s licenses, see [Manage Subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_subscription_seat). */
       changeSeats(request: {
@@ -678,7 +678,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Seats
+        body: Seats,
       ): Request<Subscription>;
       /** Cancels, suspends, or transfers a subscription to direct. */
       delete(request?: {
@@ -808,7 +808,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Subscription
+        body: Subscription,
       ): Request<Subscription>;
       /** Lists of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's transferable subscriptions. Optionally, this method can filter the response by a `customerNamePrefix`. For more information, see [manage subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions). */
       list(request?: {

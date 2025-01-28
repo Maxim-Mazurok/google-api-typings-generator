@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Artifact Registry API v1beta2 */
   function load(
-    urlOrObject: 'https://artifactregistry.googleapis.com/$discovery/rest?version=v1beta2'
+    urlOrObject: 'https://artifactregistry.googleapis.com/$discovery/rest?version=v1beta2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'artifactregistry', version: 'v1beta2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'artifactregistry',
     version: 'v1beta2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace artifactregistry {
@@ -403,7 +403,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportAptArtifactsRequest
+        body: ImportAptArtifactsRequest,
       ): Request<Operation>;
       /** Directly uploads an Apt artifact. The returned Operation will complete once the resources are uploaded. Package, Version, and File resources are created based on the imported artifact. Imported artifacts that conflict with existing resources are ignored. */
       upload(request: {
@@ -461,7 +461,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UploadAptArtifactRequest
+        body: UploadAptArtifactRequest,
       ): Request<UploadAptArtifactMediaResponse>;
     }
     interface FilesResource {
@@ -614,7 +614,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Tag
+        body: Tag,
       ): Request<Tag>;
       /** Deletes a tag. */
       delete(request?: {
@@ -763,7 +763,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Tag
+        body: Tag,
       ): Request<Tag>;
     }
     interface VersionsResource {
@@ -1009,7 +1009,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Package
+        body: Package,
       ): Request<Package>;
       tags: TagsResource;
       versions: VersionsResource;
@@ -1071,7 +1071,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportYumArtifactsRequest
+        body: ImportYumArtifactsRequest,
       ): Request<Operation>;
       /** Directly uploads a Yum artifact. The returned Operation will complete once the resources are uploaded. Package, Version, and File resources are created based on the imported artifact. Imported artifacts that conflict with existing resources are ignored. */
       upload(request: {
@@ -1129,7 +1129,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UploadYumArtifactRequest
+        body: UploadYumArtifactRequest,
       ): Request<UploadYumArtifactMediaResponse>;
     }
     interface RepositoriesResource {
@@ -1193,7 +1193,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Repository
+        body: Repository,
       ): Request<Operation>;
       /** Deletes a repository and all of its contents. The returned Operation will finish once the repository has been deleted. It will not have any Operation metadata and will return a google.protobuf.Empty response. */
       delete(request?: {
@@ -1371,7 +1371,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Repository
+        body: Repository,
       ): Request<Repository>;
       /** Updates the IAM policy for a given resource. */
       setIamPolicy(
@@ -1401,7 +1401,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Tests if the caller has a list of permissions on a resource. */
       testIamPermissions(
@@ -1431,7 +1431,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       aptArtifacts: AptArtifactsResource;
       files: FilesResource;
@@ -1590,7 +1590,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProjectSettings
+        body: ProjectSettings,
       ): Request<ProjectSettings>;
       locations: LocationsResource;
     }

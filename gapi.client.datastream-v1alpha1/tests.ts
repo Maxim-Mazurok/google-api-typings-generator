@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://datastream.googleapis.com/$discovery/rest?version=v1alpha1'
+    'https://datastream.googleapis.com/$discovery/rest?version=v1alpha1',
   );
   /** now we can use gapi.client.datastream */
 
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
         },
         staticServiceIpConnectivity: {},
         updateTime: 'Test string',
-      }
+      },
     );
     /** Use this method to delete a connection profile.. */
     await gapi.client.datastream.projects.locations.connectionProfiles.delete({
@@ -216,7 +216,7 @@ gapi.load('client', async () => {
         },
         recursionDepth: 42,
         recursive: true,
-      }
+      },
     );
     /** Use this method to get details about a connection profile. */
     await gapi.client.datastream.projects.locations.connectionProfiles.get({
@@ -286,14 +286,14 @@ gapi.load('client', async () => {
         },
         staticServiceIpConnectivity: {},
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.datastream.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.datastream.projects.locations.operations.delete({
@@ -339,7 +339,7 @@ gapi.load('client', async () => {
           subnet: 'Test string',
           vpcName: 'Test string',
         },
-      }
+      },
     );
     /** Use this method to delete a private connectivity configuration. */
     await gapi.client.datastream.projects.locations.privateConnections.delete({
@@ -376,20 +376,20 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Use this method to delete a route. */
     await gapi.client.datastream.projects.locations.privateConnections.routes.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Use this method to get details about a route. */
     await gapi.client.datastream.projects.locations.privateConnections.routes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Use this method to list routes created for a private connectivity in a project and location. */
     await gapi.client.datastream.projects.locations.privateConnections.routes.list(
@@ -399,7 +399,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Use this method to create a stream. */
     await gapi.client.datastream.projects.locations.streams.create(
@@ -600,7 +600,7 @@ gapi.load('client', async () => {
         },
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Use this method to delete a stream. */
     await gapi.client.datastream.projects.locations.streams.delete({
@@ -612,7 +612,7 @@ gapi.load('client', async () => {
       {
         stream: 'Test string',
       },
-      {}
+      {},
     );
     /** Use this method to get details about a stream. */
     await gapi.client.datastream.projects.locations.streams.get({
@@ -825,7 +825,7 @@ gapi.load('client', async () => {
         },
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Use this method to get details about a stream object. */
     await gapi.client.datastream.projects.locations.streams.objects.get({
@@ -841,13 +841,13 @@ gapi.load('client', async () => {
     await gapi.client.datastream.projects.locations.streams.objects.startBackfillJob(
       {
         object: 'Test string',
-      }
+      },
     );
     /** Stops the backfill job for the specified stream object. */
     await gapi.client.datastream.projects.locations.streams.objects.stopBackfillJob(
       {
         object: 'Test string',
-      }
+      },
     );
   }
 });

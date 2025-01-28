@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebaseml.googleapis.com/$discovery/rest?version=v2beta'
+    'https://firebaseml.googleapis.com/$discovery/rest?version=v2beta',
   );
   /** now we can use gapi.client.firebaseml */
 
@@ -288,7 +288,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Generate content with multimodal inputs. */
     await gapi.client.firebaseml.projects.locations.publishers.models.generateContent(
@@ -569,7 +569,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Generate content with multimodal inputs with streaming support. */
     await gapi.client.firebaseml.projects.locations.publishers.models.streamGenerateContent(
@@ -850,7 +850,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
   }
 });

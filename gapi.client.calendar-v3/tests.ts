@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://calendar-json.googleapis.com/$discovery/rest?version=v3'
+    'https://calendar-json.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.calendar */
 
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
           type: 'Test string',
           value: 'Test string',
         },
-      }
+      },
     );
     /** Returns the rules in the access control list for the calendar. */
     await gapi.client.calendar.acl.list({
@@ -90,7 +90,7 @@ gapi.load('client', async () => {
           type: 'Test string',
           value: 'Test string',
         },
-      }
+      },
     );
     /** Updates an access control rule. */
     await gapi.client.calendar.acl.update(
@@ -108,7 +108,7 @@ gapi.load('client', async () => {
           type: 'Test string',
           value: 'Test string',
         },
-      }
+      },
     );
     /** Watch for changes to ACL resources. */
     await gapi.client.calendar.acl.watch(
@@ -132,7 +132,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Removes a calendar from the user's calendar list. */
     await gapi.client.calendar.calendarList.delete({
@@ -181,7 +181,7 @@ gapi.load('client', async () => {
         summary: 'Test string',
         summaryOverride: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Returns the calendars on the user's calendar list. */
     await gapi.client.calendar.calendarList.list({
@@ -232,7 +232,7 @@ gapi.load('client', async () => {
         summary: 'Test string',
         summaryOverride: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Updates an existing calendar on the user's calendar list. */
     await gapi.client.calendar.calendarList.update(
@@ -274,7 +274,7 @@ gapi.load('client', async () => {
         summary: 'Test string',
         summaryOverride: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Watch for changes to CalendarList resources. */
     await gapi.client.calendar.calendarList.watch(
@@ -299,7 +299,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account. */
     await gapi.client.calendar.calendars.clear({
@@ -327,7 +327,7 @@ gapi.load('client', async () => {
         location: 'Test string',
         summary: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Updates metadata for a calendar. This method supports patch semantics. */
     await gapi.client.calendar.calendars.patch(
@@ -345,7 +345,7 @@ gapi.load('client', async () => {
         location: 'Test string',
         summary: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Updates metadata for a calendar. */
     await gapi.client.calendar.calendars.update(
@@ -363,7 +363,7 @@ gapi.load('client', async () => {
         location: 'Test string',
         summary: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Stop watching resources through this channel */
     await gapi.client.calendar.channels.stop(
@@ -381,7 +381,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Returns the color definitions for calendars and events. */
     await gapi.client.calendar.colors.get();
@@ -591,7 +591,7 @@ gapi.load('client', async () => {
           },
           type: 'Test string',
         },
-      }
+      },
     );
     /** Creates an event. */
     await gapi.client.calendar.events.insert(
@@ -784,7 +784,7 @@ gapi.load('client', async () => {
           },
           type: 'Test string',
         },
-      }
+      },
     );
     /** Returns instances of the specified recurring event. */
     await gapi.client.calendar.events.instances({
@@ -1023,7 +1023,7 @@ gapi.load('client', async () => {
           },
           type: 'Test string',
         },
-      }
+      },
     );
     /** Creates an event based on a simple text string. */
     await gapi.client.calendar.events.quickAdd({
@@ -1225,7 +1225,7 @@ gapi.load('client', async () => {
           },
           type: 'Test string',
         },
-      }
+      },
     );
     /** Watch for changes to Events resources. */
     await gapi.client.calendar.events.watch(
@@ -1263,7 +1263,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Returns free/busy information for a set of calendars. */
     await gapi.client.calendar.freebusy.query(
@@ -1279,7 +1279,7 @@ gapi.load('client', async () => {
         timeMax: 'Test string',
         timeMin: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Returns a single user setting. */
     await gapi.client.calendar.settings.get({
@@ -1311,7 +1311,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
   }
 });

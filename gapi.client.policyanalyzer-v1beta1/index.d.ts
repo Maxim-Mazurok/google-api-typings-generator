@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Policy Analyzer API v1beta1 */
   function load(
-    urlOrObject: 'https://policyanalyzer.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://policyanalyzer.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'policyanalyzer', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'policyanalyzer',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace policyanalyzer {

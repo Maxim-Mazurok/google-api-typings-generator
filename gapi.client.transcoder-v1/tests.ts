@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://transcoder.googleapis.com/$discovery/rest?version=v1'
+    'https://transcoder.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.transcoder */
 
@@ -331,7 +331,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         templateId: 'Test string',
         ttlAfterCompletionDays: 42,
-      }
+      },
     );
     /** Deletes a job. */
     await gapi.client.transcoder.projects.locations.jobs.delete({
@@ -631,7 +631,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a job template. */
     await gapi.client.transcoder.projects.locations.jobTemplates.delete({

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://iap.googleapis.com/$discovery/rest?version=v1'
+    'https://iap.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.iap */
 
@@ -41,7 +41,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         orgInternalOnly: true,
         supportEmail: 'Test string',
-      }
+      },
     );
     /** Retrieves the OAuth brand of the project. */
     await gapi.client.iap.projects.brands.get({
@@ -60,7 +60,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         secret: 'Test string',
-      }
+      },
     );
     /** Deletes an Identity Aware Proxy (IAP) OAuth client. Useful for removing obsolete clients, managing the number of clients in a given project, and cleaning up after tests. Requires that the client is owned by IAP. */
     await gapi.client.iap.projects.brands.identityAwareProxyClients.delete({
@@ -81,7 +81,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new TunnelDestGroup. */
     await gapi.client.iap.projects.iap_tunnel.locations.destGroups.create(
@@ -93,7 +93,7 @@ gapi.load('client', async () => {
         cidrs: ['Test string'],
         fqdns: ['Test string'],
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a TunnelDestGroup. */
     await gapi.client.iap.projects.iap_tunnel.locations.destGroups.delete({
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
         cidrs: ['Test string'],
         fqdns: ['Test string'],
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for an Identity-Aware Proxy protected resource. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api */
     await gapi.client.iap.v1.getIamPolicy(
@@ -130,7 +130,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Gets the IAP settings on a particular IAP protected resource. */
     await gapi.client.iap.v1.getIapSettings({
@@ -158,7 +158,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the Identity-Aware Proxy protected resource. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api */
     await gapi.client.iap.v1.testIamPermissions(
@@ -167,7 +167,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates the IAP settings on a particular IAP protected resource. It replaces all fields unless the `update_mask` is set. */
     await gapi.client.iap.v1.updateIapSettings(
@@ -262,7 +262,7 @@ gapi.load('client', async () => {
           },
         },
         name: 'Test string',
-      }
+      },
     );
     /** Validates that a given CEL expression conforms to IAP restrictions. */
     await gapi.client.iap.v1.validateAttributeExpression({

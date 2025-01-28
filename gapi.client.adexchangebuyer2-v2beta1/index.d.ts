@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Ad Exchange Buyer API II v2beta1 */
   function load(
-    urlOrObject: 'https://adexchangebuyer.googleapis.com/$discovery/rest?version=v2beta1'
+    urlOrObject: 'https://adexchangebuyer.googleapis.com/$discovery/rest?version=v2beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'adexchangebuyer2', version: 'v2beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'adexchangebuyer2',
     version: 'v2beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace adexchangebuyer2 {
@@ -1059,7 +1059,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClientUserInvitation
+        body: ClientUserInvitation,
       ): Request<ClientUserInvitation>;
       /** Retrieves an existing client user invitation. */
       get(request?: {
@@ -1255,7 +1255,7 @@ declare namespace gapi.client {
           /** Numerical identifier of the user to retrieve. (required) */
           userId: string;
         },
-        body: ClientUser
+        body: ClientUser,
       ): Request<ClientUser>;
     }
     interface ClientsResource {
@@ -1315,7 +1315,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Client
+        body: Client,
       ): Request<Client>;
       /** Gets a client buyer with a given client account ID. */
       get(request?: {
@@ -1439,7 +1439,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Client
+        body: Client,
       ): Request<Client>;
       invitations: InvitationsResource;
       users: UsersResource;
@@ -1505,7 +1505,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddDealAssociationRequest
+        body: AddDealAssociationRequest,
       ): Request<{}>;
       /** List all creative-deal associations. */
       list(request?: {
@@ -1602,7 +1602,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveDealAssociationRequest
+        body: RemoveDealAssociationRequest,
       ): Request<{}>;
     }
     interface CreativesResource {
@@ -1666,7 +1666,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Creative
+        body: Creative,
       ): Request<Creative>;
       /** Gets a creative. */
       get(request?: {
@@ -1790,7 +1790,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopWatchingCreativeRequest
+        body: StopWatchingCreativeRequest,
       ): Request<{}>;
       /** Updates a creative. */
       update(request: {
@@ -1852,7 +1852,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Creative
+        body: Creative,
       ): Request<Creative>;
       /** Watches a creative. Will result in push notifications being sent to the topic when the creative changes status. */
       watch(request: {
@@ -1914,7 +1914,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WatchCreativeRequest
+        body: WatchCreativeRequest,
       ): Request<{}>;
       dealAssociations: DealAssociationsResource;
     }
@@ -2014,7 +2014,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PauseProposalDealsRequest
+        body: PauseProposalDealsRequest,
       ): Request<Proposal>;
       /** Update given deals to resume serving. This method will set the `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to false for all listed deals in the request. Currently, this method only applies to PG and PD deals. For PA deals, call accounts.proposals.resume endpoint. It is a no-op to resume running deals or deals paused by the other party. It is an error to call ResumeProposalDeals for deals which are not part of the proposal of proposal_id or which are not finalized or renegotiating. */
       resume(request: {
@@ -2076,7 +2076,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResumeProposalDealsRequest
+        body: ResumeProposalDealsRequest,
       ): Request<Proposal>;
     }
     interface ProductsResource {
@@ -2204,7 +2204,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AcceptProposalRequest
+        body: AcceptProposalRequest,
       ): Request<Proposal>;
       /** Create a new note and attach it to the proposal. The note is assigned a unique ID by the server. The proposal revision number will not increase when associated with a new note. */
       addNote(request: {
@@ -2266,7 +2266,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddNoteRequest
+        body: AddNoteRequest,
       ): Request<Note>;
       /** Cancel an ongoing negotiation on a proposal. This does not cancel or end serving for the deals if the proposal has been finalized, but only cancels a negotiation unilaterally. */
       cancelNegotiation(request: {
@@ -2328,7 +2328,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelNegotiationRequest
+        body: CancelNegotiationRequest,
       ): Request<Proposal>;
       /** You can opt-in to manually update proposals to indicate that setup is complete. By default, proposal setup is automatically completed after their deals are finalized. Contact your Technical Account Manager to opt in. Buyers can call this method when the proposal has been finalized, and all the required creatives have been uploaded using the Creatives API. This call updates the `is_setup_completed` field on the deals in the proposal, and notifies the seller. The server then advances the revision number of the most recent proposal. To mark an individual deal as ready to serve, call `buyers.finalizedDeals.setReadyToServe` in the Marketplace API. */
       completeSetup(request: {
@@ -2390,7 +2390,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CompleteSetupRequest
+        body: CompleteSetupRequest,
       ): Request<Proposal>;
       /** Create the given proposal. Each created proposal and any deals it contains are assigned a unique ID by the server. */
       create(request: {
@@ -2448,7 +2448,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Proposal
+        body: Proposal,
       ): Request<Proposal>;
       /** Gets a proposal given its ID. The proposal is returned at its head revision. */
       get(request?: {
@@ -2574,7 +2574,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PauseProposalRequest
+        body: PauseProposalRequest,
       ): Request<Proposal>;
       /** Update the given proposal to resume serving. This method will set the `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to false for all deals in the proposal. Note that if the `has_seller_paused` bit is also set, serving will not resume until the seller also resumes. It is a no-op to resume an already-running proposal. It is an error to call ResumeProposal for a proposal that is not finalized or renegotiating. */
       resume(request: {
@@ -2636,7 +2636,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResumeProposalRequest
+        body: ResumeProposalRequest,
       ): Request<Proposal>;
       /** Update the given proposal at the client known revision number. If the server revision has advanced since the passed-in `proposal.proposal_revision`, an `ABORTED` error message will be returned. Only the buyer-modifiable fields of the proposal will be updated. Note that the deals in the proposal will be updated to match the passed-in copy. If a passed-in deal does not have a `deal_id`, the server will assign a new unique ID and create the deal. If passed-in deal has a `deal_id`, it will be updated to match the passed-in copy. Any existing deals not present in the passed-in proposal will be deleted. It is an error to pass in a deal with a `deal_id` not present at head. */
       update(request: {
@@ -2698,7 +2698,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Proposal
+        body: Proposal,
       ): Request<Proposal>;
     }
     interface PublisherProfilesResource {
@@ -3168,7 +3168,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FilterSet
+        body: FilterSet,
       ): Request<FilterSet>;
       /** Deletes the requested filter set from the account with the given account ID. */
       delete(request?: {
@@ -3664,7 +3664,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FilterSet
+        body: FilterSet,
       ): Request<FilterSet>;
       /** Deletes the requested filter set from the account with the given account ID. */
       delete(request?: {
@@ -4161,7 +4161,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FilterSet
+        body: FilterSet,
       ): Request<FilterSet>;
       /** Deletes the requested filter set from the account with the given account ID. */
       delete(request?: {

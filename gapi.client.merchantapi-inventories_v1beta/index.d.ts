@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Merchant API inventories_v1beta */
   function load(
-    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=inventories_v1beta'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'merchantapi',
-    version: 'inventories_v1beta'
+    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=inventories_v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'merchantapi',
     version: 'inventories_v1beta',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'merchantapi',
+    version: 'inventories_v1beta',
+    callback: () => any,
   ): void;
 
   namespace merchantapi {
@@ -220,7 +220,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LocalInventory
+        body: LocalInventory,
       ): Request<LocalInventory>;
       /** Lists the `LocalInventory` resources for the given product in your merchant account. The response might contain fewer items than specified by `pageSize`. If `pageToken` was returned in previous request, it can be used to obtain additional results. `LocalInventory` resources are listed per product for a given account. */
       list(request?: {
@@ -338,7 +338,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RegionalInventory
+        body: RegionalInventory,
       ): Request<RegionalInventory>;
       /** Lists the `RegionalInventory` resources for the given product in your merchant account. The response might contain fewer items than specified by `pageSize`. If `pageToken` was returned in previous request, it can be used to obtain additional results. `RegionalInventory` resources are listed per product for a given account. */
       list(request?: {

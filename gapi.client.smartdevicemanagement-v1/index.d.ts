@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Smart Device Management API v1 */
   function load(
-    urlOrObject: 'https://smartdevicemanagement.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://smartdevicemanagement.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'smartdevicemanagement', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'smartdevicemanagement',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace smartdevicemanagement {
@@ -135,7 +135,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest
+        body: GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest,
       ): Request<GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse>;
       /** Gets a device managed by the enterprise. */
       get(request?: {

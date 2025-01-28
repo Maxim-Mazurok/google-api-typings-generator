@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load OS Config API v1 */
   function load(
-    urlOrObject: 'https://osconfig.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://osconfig.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'osconfig', version: 'v1'): Promise<void>;
@@ -1024,7 +1024,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProjectFeatureSettings
+        body: ProjectFeatureSettings,
       ): Request<ProjectFeatureSettings>;
     }
     interface InventoriesResource {
@@ -1282,7 +1282,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -1377,7 +1377,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OSPolicyAssignment
+        body: OSPolicyAssignment,
       ): Request<Operation>;
       /** Delete the OS policy assignment. This method creates a new revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. If the LRO completes and is not cancelled, all revisions associated with the OS policy assignment are deleted. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel). */
       delete(request?: {
@@ -1565,7 +1565,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OSPolicyAssignment
+        body: OSPolicyAssignment,
       ): Request<Operation>;
       operations: OperationsResource;
     }
@@ -1635,7 +1635,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PatchDeployment
+        body: PatchDeployment,
       ): Request<PatchDeployment>;
       /** Delete an OS Config patch deployment. */
       delete(request?: {
@@ -1782,7 +1782,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PatchDeployment
+        body: PatchDeployment,
       ): Request<PatchDeployment>;
       /** Change state of patch deployment to "PAUSED". Patch deployment in paused state doesn't generate patch jobs. */
       pause(request: {
@@ -1840,7 +1840,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PausePatchDeploymentRequest
+        body: PausePatchDeploymentRequest,
       ): Request<PatchDeployment>;
       /** Change state of patch deployment back to "ACTIVE". Patch deployment in active state continues to generate patch jobs. */
       resume(request: {
@@ -1898,7 +1898,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResumePatchDeploymentRequest
+        body: ResumePatchDeploymentRequest,
       ): Request<PatchDeployment>;
     }
     interface InstanceDetailsResource {
@@ -1993,7 +1993,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelPatchJobRequest
+        body: CancelPatchJobRequest,
       ): Request<PatchJob>;
       /** Patch VM instances by creating and running a patch job. */
       execute(request: {
@@ -2051,7 +2051,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExecutePatchJobRequest
+        body: ExecutePatchJobRequest,
       ): Request<PatchJob>;
       /** Get the patch job. This can be used to track the progress of an ongoing patch job or review the details of completed jobs. */
       get(request?: {

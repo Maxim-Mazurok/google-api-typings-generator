@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Profiler API v2 */
   function load(
-    urlOrObject: 'https://cloudprofiler.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://cloudprofiler.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudprofiler', version: 'v2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'cloudprofiler',
     version: 'v2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace cloudprofiler {
@@ -123,7 +123,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateProfileRequest
+        body: CreateProfileRequest,
       ): Request<Profile>;
       /** CreateOfflineProfile creates a new profile resource in the offline mode. The client provides the profile to create along with the profile bytes, the server records it. _Direct use of this API is discouraged, please use a [supported profiler agent](https://cloud.google.com/profiler/docs/about-profiler#profiling_agent) instead for profile collection._ */
       createOffline(request: {
@@ -181,7 +181,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Profile
+        body: Profile,
       ): Request<Profile>;
       /** Lists profiles which have been collected so far and for which the caller has permission to view. */
       list(request?: {
@@ -274,7 +274,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Profile
+        body: Profile,
       ): Request<Profile>;
     }
     interface ProjectsResource {

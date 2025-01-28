@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://driveactivity.googleapis.com/$discovery/rest?version=v2'
+    'https://driveactivity.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.driveactivity */
 
@@ -46,7 +46,7 @@ gapi.load('client', async () => {
         itemName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
   }
 });

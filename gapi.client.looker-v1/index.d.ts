@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Looker (Google Cloud core) API v1 */
   function load(
-    urlOrObject: 'https://looker.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://looker.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'looker', version: 'v1'): Promise<void>;
@@ -387,7 +387,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -417,7 +417,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface InstancesResource {
@@ -481,7 +481,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Delete instance. */
       delete(request?: {
@@ -568,7 +568,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExportInstanceRequest
+        body: ExportInstanceRequest,
       ): Request<Operation>;
       /** Gets details of a single Instance. */
       get(request?: {
@@ -682,7 +682,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportInstanceRequest
+        body: ImportInstanceRequest,
       ): Request<Operation>;
       /** Lists Instances in a given project and location. */
       list(request?: {
@@ -775,7 +775,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Restart instance. */
       restart(request: {
@@ -833,7 +833,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestartInstanceRequest
+        body: RestartInstanceRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -863,7 +863,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -893,7 +893,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       backups: BackupsResource;
     }
@@ -954,7 +954,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

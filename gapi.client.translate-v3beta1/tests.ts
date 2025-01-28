@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://translation.googleapis.com/$discovery/rest?version=v3beta1'
+    'https://translation.googleapis.com/$discovery/rest?version=v3beta1',
   );
   /** now we can use gapi.client.translate */
 
@@ -45,7 +45,7 @@ gapi.load('client', async () => {
         },
         mimeType: 'Test string',
         model: 'Test string',
-      }
+      },
     );
     /** Returns a list of supported languages for translation. */
     await gapi.client.translate.projects.getSupportedLanguages({
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
         model: 'Test string',
         sourceLanguageCode: 'Test string',
         targetLanguageCode: 'Test string',
-      }
+      },
     );
     /** Translates a large volume of document in asynchronous batch mode. This function provides real-time output as the inputs are being processed. If caller cancels a request, the partial results (for an input file, it's all or nothing) may still be available on the specified output location. This call returns immediately and you can use google.longrunning.Operation.name to poll the status of the call. */
     await gapi.client.translate.projects.locations.batchTranslateDocument(
@@ -110,7 +110,7 @@ gapi.load('client', async () => {
         },
         sourceLanguageCode: 'Test string',
         targetLanguageCodes: ['Test string'],
-      }
+      },
     );
     /** Translates a large volume of text in asynchronous batch mode. This function provides real-time output as the inputs are being processed. If caller cancels a request, the partial results (for an input file, it's all or nothing) may still be available on the specified output location. This call returns immediately and you can use google.longrunning.Operation.name to poll the status of the call. */
     await gapi.client.translate.projects.locations.batchTranslateText(
@@ -146,7 +146,7 @@ gapi.load('client', async () => {
         },
         sourceLanguageCode: 'Test string',
         targetLanguageCodes: ['Test string'],
-      }
+      },
     );
     /** Detects the language of text within a request. */
     await gapi.client.translate.projects.locations.detectLanguage(
@@ -160,7 +160,7 @@ gapi.load('client', async () => {
         },
         mimeType: 'Test string',
         model: 'Test string',
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.translate.projects.locations.get({
@@ -213,7 +213,7 @@ gapi.load('client', async () => {
         model: 'Test string',
         sourceLanguageCode: 'Test string',
         targetLanguageCode: 'Test string',
-      }
+      },
     );
     /** Translates input text and returns translated text. */
     await gapi.client.translate.projects.locations.translateText(
@@ -234,7 +234,7 @@ gapi.load('client', async () => {
         model: 'Test string',
         sourceLanguageCode: 'Test string',
         targetLanguageCode: 'Test string',
-      }
+      },
     );
     /** Creates a glossary and returns the long-running operation. Returns NOT_FOUND, if the project doesn't exist. */
     await gapi.client.translate.projects.locations.glossaries.create(
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         submitTime: 'Test string',
-      }
+      },
     );
     /** Deletes a glossary, or cancels glossary construction if the glossary isn't created yet. Returns NOT_FOUND, if the glossary doesn't exist. */
     await gapi.client.translate.projects.locations.glossaries.delete({
@@ -280,7 +280,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.translate.projects.locations.operations.delete({
@@ -304,7 +304,7 @@ gapi.load('client', async () => {
       },
       {
         timeout: 'Test string',
-      }
+      },
     );
   }
 });

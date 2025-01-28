@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Places Insights API v1 */
   function load(
-    urlOrObject: 'https://areainsights.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://areainsights.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'areainsights', version: 'v1'): Promise<void>;
@@ -155,7 +155,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ComputeInsightsRequest
+        body: ComputeInsightsRequest,
       ): Request<ComputeInsightsResponse>;
     }
 

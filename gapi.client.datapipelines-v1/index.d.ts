@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Data pipelines API v1 */
   function load(
-    urlOrObject: 'https://datapipelines.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://datapipelines.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'datapipelines', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'datapipelines',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace datapipelines {
@@ -333,7 +333,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatapipelinesV1Pipeline
+        body: GoogleCloudDatapipelinesV1Pipeline,
       ): Request<GoogleCloudDatapipelinesV1Pipeline>;
       /** Deletes a pipeline. If a scheduler job is attached to the pipeline, it will be deleted. */
       delete(request?: {
@@ -482,7 +482,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatapipelinesV1Pipeline
+        body: GoogleCloudDatapipelinesV1Pipeline,
       ): Request<GoogleCloudDatapipelinesV1Pipeline>;
       /** Creates a job for the specified pipeline directly. You can use this method when the internal scheduler is not configured and you want to trigger the job directly or through an external system. Returns a "NOT_FOUND" error if the pipeline doesn't exist. Returns a "FORBIDDEN" error if the user doesn't have permission to access the pipeline or run jobs for the pipeline. */
       run(request: {
@@ -540,7 +540,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatapipelinesV1RunPipelineRequest
+        body: GoogleCloudDatapipelinesV1RunPipelineRequest,
       ): Request<GoogleCloudDatapipelinesV1RunPipelineResponse>;
       /** Freezes pipeline execution permanently. If there's a corresponding scheduler entry, it's deleted, and the pipeline state is changed to "ARCHIVED". However, pipeline metadata is retained. */
       stop(request: {
@@ -598,7 +598,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatapipelinesV1StopPipelineRequest
+        body: GoogleCloudDatapipelinesV1StopPipelineRequest,
       ): Request<GoogleCloudDatapipelinesV1Pipeline>;
       jobs: JobsResource;
     }

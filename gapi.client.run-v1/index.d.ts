@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Run Admin API v1 */
   function load(
-    urlOrObject: 'https://run.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://run.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'run', version: 'v1'): Promise<void>;
@@ -1549,7 +1549,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DomainMapping
+        body: DomainMapping,
       ): Request<DomainMapping>;
       /** Delete a domain mapping. */
       delete(request?: {
@@ -1712,7 +1712,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelExecutionRequest
+        body: CancelExecutionRequest,
       ): Request<Execution>;
       /** Delete an execution. */
       delete(request?: {
@@ -1873,7 +1873,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       /** Delete a job. */
       delete(request?: {
@@ -2032,7 +2032,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       /** Trigger creation of a new execution of this job. */
       run(request: {
@@ -2090,7 +2090,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunJobRequest
+        body: RunJobRequest,
       ): Request<Execution>;
     }
     interface RevisionsResource {
@@ -2329,7 +2329,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Service
+        body: Service,
       ): Request<Service>;
       /** Deletes the provided service. This will cause the Service to stop serving traffic and will delete all associated Revisions. */
       delete(request?: {
@@ -2494,7 +2494,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Service
+        body: Service,
       ): Request<Service>;
     }
     interface TasksResource {
@@ -2775,7 +2775,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DomainMapping
+        body: DomainMapping,
       ): Request<DomainMapping>;
       /** Delete a domain mapping. */
       delete(request?: {
@@ -2939,7 +2939,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified job. There are no permissions required for making this API call. */
       testIamPermissions(
@@ -2969,7 +2969,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface OperationsResource {
@@ -3116,7 +3116,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningWaitOperationRequest
+        body: GoogleLongrunningWaitOperationRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface RevisionsResource {
@@ -3355,7 +3355,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Service
+        body: Service,
       ): Request<Service>;
       /** Deletes the provided service. This will cause the Service to stop serving traffic and will delete all associated Revisions. */
       delete(request?: {
@@ -3549,7 +3549,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Service
+        body: Service,
       ): Request<Service>;
       /** Sets the IAM Access control policy for the specified Service. Overwrites any existing policy. */
       setIamPolicy(
@@ -3579,7 +3579,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
       testIamPermissions(
@@ -3609,7 +3609,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface LocationsResource {

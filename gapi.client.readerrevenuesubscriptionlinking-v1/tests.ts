@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1'
+    'https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.readerrevenuesubscriptionlinking */
 
@@ -21,19 +21,19 @@ gapi.load('client', async () => {
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Gets a reader of a publication. Returns NOT_FOUND if the reader does not exist. */
     await gapi.client.readerrevenuesubscriptionlinking.publications.readers.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the reader entitlements for a publication reader. - Returns PERMISSION_DENIED if the caller does not have access. - Returns NOT_FOUND if the reader does not exist. */
     await gapi.client.readerrevenuesubscriptionlinking.publications.readers.getEntitlements(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Updates the reader entitlements for a publication reader. The entire reader entitlements will be overwritten by the new reader entitlements in the payload, like a PUT. - Returns PERMISSION_DENIED if the caller does not have access. - Returns NOT_FOUND if the reader does not exist. */
     await gapi.client.readerrevenuesubscriptionlinking.publications.readers.updateEntitlements(
@@ -51,7 +51,7 @@ gapi.load('client', async () => {
           },
         ],
         name: 'Test string',
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://gkehub.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://gkehub.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.gkehub */
 
@@ -132,7 +132,7 @@ gapi.load('client', async () => {
         },
         uniqueId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes a Membership. **This is currently only supported for GKE clusters on Google Cloud**. To unregister other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster. */
     await gapi.client.gkehub.projects.locations.memberships.delete({
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         registry: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** GenerateExclusivityManifest generates the manifests to update the exclusivity artifacts in the cluster if needed. Exclusivity artifacts include the Membership custom resource definition (CRD) and the singleton Membership custom resource (CR). Combined with ValidateExclusivity, exclusivity artifacts guarantee that a Kubernetes cluster is only registered to a single GKE Hub. The Membership CRD is versioned, and may require conversion when the GKE Hub API server begins serving a newer version of the CRD and corresponding CR. The response will be the converted CRD and CR if there are any differences between the versions. */
     await gapi.client.gkehub.projects.locations.memberships.generateExclusivityManifest(
@@ -159,7 +159,7 @@ gapi.load('client', async () => {
         crdManifest: 'Test string',
         crManifest: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets the details of a Membership. */
     await gapi.client.gkehub.projects.locations.memberships.get({
@@ -268,7 +268,7 @@ gapi.load('client', async () => {
         },
         uniqueId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkehub.projects.locations.memberships.setIamPolicy(
@@ -304,7 +304,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkehub.projects.locations.memberships.testIamPermissions(
@@ -313,7 +313,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** ValidateExclusivity validates the state of exclusivity in the cluster. The validation does not depend on an existing Hub membership resource. */
     await gapi.client.gkehub.projects.locations.memberships.validateExclusivity(
@@ -321,14 +321,14 @@ gapi.load('client', async () => {
         crManifest: 'Test string',
         intendedMembership: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.gkehub.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.gkehub.projects.locations.operations.delete({

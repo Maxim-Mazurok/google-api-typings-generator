@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Analytics API v3 */
   function load(
-    urlOrObject: 'https://analytics.googleapis.com/$discovery/rest?version=v3'
+    urlOrObject: 'https://analytics.googleapis.com/$discovery/rest?version=v3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'analytics', version: 'v3'): Promise<void>;
@@ -1821,7 +1821,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: EntityUserLink
+        body: EntityUserLink,
       ): Request<EntityUserLink>;
       /** Lists account-user links for a given account. */
       list(request?: {
@@ -1890,7 +1890,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: EntityUserLink
+        body: EntityUserLink,
       ): Request<EntityUserLink>;
     }
     interface ClientIdResource {
@@ -1930,7 +1930,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: HashClientIdRequest
+        body: HashClientIdRequest,
       ): Request<HashClientIdResponse>;
     }
     interface CustomDataSourcesResource {
@@ -2028,7 +2028,7 @@ declare namespace gapi.client {
           /** Web property ID for the custom dimension to create. */
           webPropertyId: string;
         },
-        body: CustomDimension
+        body: CustomDimension,
       ): Request<CustomDimension>;
       /** Lists custom dimensions to which the user has access. */
       list(request?: {
@@ -2107,7 +2107,7 @@ declare namespace gapi.client {
           /** Web property ID for the custom dimension to update. */
           webPropertyId: string;
         },
-        body: CustomDimension
+        body: CustomDimension,
       ): Request<CustomDimension>;
       /** Updates an existing custom dimension. */
       update(request: {
@@ -2161,7 +2161,7 @@ declare namespace gapi.client {
           /** Web property ID for the custom dimension to update. */
           webPropertyId: string;
         },
-        body: CustomDimension
+        body: CustomDimension,
       ): Request<CustomDimension>;
     }
     interface CustomMetricsResource {
@@ -2232,7 +2232,7 @@ declare namespace gapi.client {
           /** Web property ID for the custom dimension to create. */
           webPropertyId: string;
         },
-        body: CustomMetric
+        body: CustomMetric,
       ): Request<CustomMetric>;
       /** Lists custom metrics to which the user has access. */
       list(request?: {
@@ -2311,7 +2311,7 @@ declare namespace gapi.client {
           /** Web property ID for the custom metric to update. */
           webPropertyId: string;
         },
-        body: CustomMetric
+        body: CustomMetric,
       ): Request<CustomMetric>;
       /** Updates an existing custom metric. */
       update(request: {
@@ -2365,7 +2365,7 @@ declare namespace gapi.client {
           /** Web property ID for the custom metric to update. */
           webPropertyId: string;
         },
-        body: CustomMetric
+        body: CustomMetric,
       ): Request<CustomMetric>;
     }
     interface ExperimentsResource {
@@ -2467,7 +2467,7 @@ declare namespace gapi.client {
           /** Web property ID to create the experiment for. */
           webPropertyId: string;
         },
-        body: Experiment
+        body: Experiment,
       ): Request<Experiment>;
       /** Lists experiments to which the user has access. */
       list(request?: {
@@ -2548,7 +2548,7 @@ declare namespace gapi.client {
           /** Web property ID of the experiment to update. */
           webPropertyId: string;
         },
-        body: Experiment
+        body: Experiment,
       ): Request<Experiment>;
       /** Update an existing experiment. */
       update(request: {
@@ -2602,7 +2602,7 @@ declare namespace gapi.client {
           /** Web property ID of the experiment to update. */
           webPropertyId: string;
         },
-        body: Experiment
+        body: Experiment,
       ): Request<Experiment>;
     }
     interface FiltersResource {
@@ -2688,7 +2688,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Filter
+        body: Filter,
       ): Request<Filter>;
       /** Lists all filters for an account */
       list(request?: {
@@ -2757,7 +2757,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Filter
+        body: Filter,
       ): Request<Filter>;
       /** Updates an existing filter. */
       update(request: {
@@ -2803,7 +2803,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Filter
+        body: Filter,
       ): Request<Filter>;
     }
     interface GoalsResource {
@@ -2880,7 +2880,7 @@ declare namespace gapi.client {
           /** Web property ID to create the goal for. */
           webPropertyId: string;
         },
-        body: Goal
+        body: Goal,
       ): Request<Goal>;
       /** Lists goals to which the user has access. */
       list(request?: {
@@ -2961,7 +2961,7 @@ declare namespace gapi.client {
           /** Web property ID to update the goal. */
           webPropertyId: string;
         },
-        body: Goal
+        body: Goal,
       ): Request<Goal>;
       /** Updates an existing goal. */
       update(request: {
@@ -3015,7 +3015,7 @@ declare namespace gapi.client {
           /** Web property ID to update the goal. */
           webPropertyId: string;
         },
-        body: Goal
+        body: Goal,
       ): Request<Goal>;
     }
     interface ProfileFilterLinksResource {
@@ -3117,7 +3117,7 @@ declare namespace gapi.client {
           /** Web property Id to create profile filter link for. */
           webPropertyId: string;
         },
-        body: ProfileFilterLink
+        body: ProfileFilterLink,
       ): Request<ProfileFilterLink>;
       /** Lists all profile filter links for a profile. */
       list(request?: {
@@ -3198,7 +3198,7 @@ declare namespace gapi.client {
           /** Web property Id to which profile filter link belongs */
           webPropertyId: string;
         },
-        body: ProfileFilterLink
+        body: ProfileFilterLink,
       ): Request<ProfileFilterLink>;
       /** Update an existing profile filter link. */
       update(request: {
@@ -3252,7 +3252,7 @@ declare namespace gapi.client {
           /** Web property Id to which profile filter link belongs */
           webPropertyId: string;
         },
-        body: ProfileFilterLink
+        body: ProfileFilterLink,
       ): Request<ProfileFilterLink>;
     }
     interface ProfilesResource {
@@ -3346,7 +3346,7 @@ declare namespace gapi.client {
           /** Web property ID to create the view (profile) for. */
           webPropertyId: string;
         },
-        body: Profile
+        body: Profile,
       ): Request<Profile>;
       /** Lists views (profiles) to which the user has access. */
       list(request?: {
@@ -3421,7 +3421,7 @@ declare namespace gapi.client {
           /** Web property ID to which the view (profile) belongs */
           webPropertyId: string;
         },
-        body: Profile
+        body: Profile,
       ): Request<Profile>;
       /** Updates an existing view (profile). */
       update(request: {
@@ -3471,7 +3471,7 @@ declare namespace gapi.client {
           /** Web property ID to which the view (profile) belongs */
           webPropertyId: string;
         },
-        body: Profile
+        body: Profile,
       ): Request<Profile>;
     }
     interface ProfileUserLinksResource {
@@ -3548,7 +3548,7 @@ declare namespace gapi.client {
           /** Web Property ID to create the user link for. */
           webPropertyId: string;
         },
-        body: EntityUserLink
+        body: EntityUserLink,
       ): Request<EntityUserLink>;
       /** Lists profile-user links for a given view (profile). */
       list(request?: {
@@ -3629,7 +3629,7 @@ declare namespace gapi.client {
           /** Web Property ID to update the user link for. */
           webPropertyId: string;
         },
-        body: EntityUserLink
+        body: EntityUserLink,
       ): Request<EntityUserLink>;
     }
     interface RemarketingAudienceResource {
@@ -3723,7 +3723,7 @@ declare namespace gapi.client {
           /** Web property ID for which to create the remarketing audience. */
           webPropertyId: string;
         },
-        body: RemarketingAudience
+        body: RemarketingAudience,
       ): Request<RemarketingAudience>;
       /** Lists remarketing audiences to which the user has access. */
       list(request?: {
@@ -3799,7 +3799,7 @@ declare namespace gapi.client {
           /** The web property ID of the remarketing audience to update. */
           webPropertyId: string;
         },
-        body: RemarketingAudience
+        body: RemarketingAudience,
       ): Request<RemarketingAudience>;
       /** Updates an existing remarketing audience. */
       update(request: {
@@ -3849,7 +3849,7 @@ declare namespace gapi.client {
           /** The web property ID of the remarketing audience to update. */
           webPropertyId: string;
         },
-        body: RemarketingAudience
+        body: RemarketingAudience,
       ): Request<RemarketingAudience>;
     }
     interface SegmentsResource {
@@ -3974,7 +3974,7 @@ declare namespace gapi.client {
           /** Web property ID to create the unsampled report for. */
           webPropertyId: string;
         },
-        body: UnsampledReport
+        body: UnsampledReport,
       ): Request<UnsampledReport>;
       /** Lists unsampled reports to which the user has access. */
       list(request?: {
@@ -4053,7 +4053,7 @@ declare namespace gapi.client {
           /** Web property Id for the uploads to be deleted. */
           webPropertyId: string;
         },
-        body: AnalyticsDataimportDeleteUploadDataRequest
+        body: AnalyticsDataimportDeleteUploadDataRequest,
       ): Request<void>;
       /** List uploads to which the user has access. */
       get(request?: {
@@ -4193,7 +4193,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Webproperty
+        body: Webproperty,
       ): Request<Webproperty>;
       /** Lists web properties to which the user has access. */
       list(request?: {
@@ -4262,7 +4262,7 @@ declare namespace gapi.client {
           /** Web property ID */
           webPropertyId: string;
         },
-        body: Webproperty
+        body: Webproperty,
       ): Request<Webproperty>;
       /** Updates an existing web property. */
       update(request: {
@@ -4308,7 +4308,7 @@ declare namespace gapi.client {
           /** Web property ID */
           webPropertyId: string;
         },
-        body: Webproperty
+        body: Webproperty,
       ): Request<Webproperty>;
     }
     interface WebPropertyAdWordsLinksResource {
@@ -4402,7 +4402,7 @@ declare namespace gapi.client {
           /** Web property ID to create the link for. */
           webPropertyId: string;
         },
-        body: EntityAdWordsLink
+        body: EntityAdWordsLink,
       ): Request<EntityAdWordsLink>;
       /** Lists webProperty-Google Ads links for a given web property. */
       list(request?: {
@@ -4477,7 +4477,7 @@ declare namespace gapi.client {
           /** Web property ID to retrieve the Google Ads link for. */
           webPropertyId: string;
         },
-        body: EntityAdWordsLink
+        body: EntityAdWordsLink,
       ): Request<EntityAdWordsLink>;
       /** Updates an existing webProperty-Google Ads link. */
       update(request: {
@@ -4527,7 +4527,7 @@ declare namespace gapi.client {
           /** Web property ID to retrieve the Google Ads link for. */
           webPropertyId: string;
         },
-        body: EntityAdWordsLink
+        body: EntityAdWordsLink,
       ): Request<EntityAdWordsLink>;
     }
     interface WebpropertyUserLinksResource {
@@ -4598,7 +4598,7 @@ declare namespace gapi.client {
           /** Web Property ID to create the user link for. */
           webPropertyId: string;
         },
-        body: EntityUserLink
+        body: EntityUserLink,
       ): Request<EntityUserLink>;
       /** Lists webProperty-user links for a given web property. */
       list(request?: {
@@ -4673,7 +4673,7 @@ declare namespace gapi.client {
           /** Web property ID to update the account-user link for. */
           webPropertyId: string;
         },
-        body: EntityUserLink
+        body: EntityUserLink,
       ): Request<EntityUserLink>;
     }
     interface ManagementResource {
@@ -4759,7 +4759,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: AccountTicket
+        body: AccountTicket,
       ): Request<AccountTicket>;
       /** Provision account. */
       createAccountTree(request: {
@@ -4797,7 +4797,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: AccountTreeRequest
+        body: AccountTreeRequest,
       ): Request<AccountTreeResponse>;
     }
     interface UserDeletionRequestResource {
@@ -4837,7 +4837,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: UserDeletionRequest
+        body: UserDeletionRequest,
       ): Request<UserDeletionRequest>;
     }
     interface UserDeletionResource {

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Scheduler API v1beta1 */
   function load(
-    urlOrObject: 'https://cloudscheduler.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://cloudscheduler.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudscheduler', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'cloudscheduler',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace cloudscheduler {
@@ -252,7 +252,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       /** Deletes a job. */
       delete(request?: {
@@ -405,7 +405,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       /** Pauses a job. If a job is paused then the system will stop executing the job until it is re-enabled via ResumeJob. The state of the job is stored in state; if paused it will be set to Job.State.PAUSED. A job must be in Job.State.ENABLED to be paused. */
       pause(request: {
@@ -463,7 +463,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PauseJobRequest
+        body: PauseJobRequest,
       ): Request<Job>;
       /** Resume a job. This method reenables a job after it has been Job.State.PAUSED. The state of a job is stored in Job.state; after calling this method it will be set to Job.State.ENABLED. A job must be in Job.State.PAUSED to be resumed. */
       resume(request: {
@@ -521,7 +521,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResumeJobRequest
+        body: ResumeJobRequest,
       ): Request<Job>;
       /** Forces a job to run now. When this method is called, Cloud Scheduler will dispatch the job, even if the job is already running. */
       run(request: {
@@ -579,7 +579,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunJobRequest
+        body: RunJobRequest,
       ): Request<Job>;
     }
     interface LocationsResource {

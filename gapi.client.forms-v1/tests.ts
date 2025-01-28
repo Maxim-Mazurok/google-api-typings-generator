@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://forms.googleapis.com/$discovery/rest?version=v1'
+    'https://forms.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.forms */
 
@@ -684,7 +684,7 @@ gapi.load('client', async () => {
           requiredRevisionId: 'Test string',
           targetRevisionId: 'Test string',
         },
-      }
+      },
     );
     /** Create a new form using the title given in the provided form message in the request. *Important:* Only the form.info.title and form.info.document_title fields are copied to the new form. All other fields including the form description, items and settings are disallowed. To create a new form and add items, you must first call forms.create to create an empty form with a title and (optional) document title, and then call forms.update to add the items. */
     await gapi.client.forms.forms.create(
@@ -1000,7 +1000,7 @@ gapi.load('client', async () => {
             isQuiz: true,
           },
         },
-      }
+      },
     );
     /** Get a form. */
     await gapi.client.forms.forms.get({
@@ -1038,7 +1038,7 @@ gapi.load('client', async () => {
           },
         },
         watchId: 'Test string',
-      }
+      },
     );
     /** Delete a watch. */
     await gapi.client.forms.forms.watches.delete({
@@ -1055,7 +1055,7 @@ gapi.load('client', async () => {
         formId: 'Test string',
         watchId: 'Test string',
       },
-      {}
+      {},
     );
   }
 });

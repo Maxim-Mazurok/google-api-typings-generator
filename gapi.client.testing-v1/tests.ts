@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://testing.googleapis.com/$discovery/rest?version=v1'
+    'https://testing.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.testing */
 
@@ -40,14 +40,14 @@ gapi.load('client', async () => {
       },
       {
         gcsPath: 'Test string',
-      }
+      },
     );
     /** POST /v1/projects/{project_id}/deviceSessions/{device_session_id}:cancel Changes the DeviceSession to state FINISHED and terminates all connections. Canceled sessions are not deleted and can be retrieved or listed by the user until they expire based on the 28 day deletion policy. */
     await gapi.client.testing.projects.deviceSessions.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** POST /v1/projects/{project_id}/deviceSessions */
     await gapi.client.testing.projects.deviceSessions.create(
@@ -76,7 +76,7 @@ gapi.load('client', async () => {
           },
         ],
         ttl: 'Test string',
-      }
+      },
     );
     /** GET /v1/projects/{project_id}/deviceSessions/{device_session_id} Return a DeviceSession, which documents the allocation status and whether the device is allocated. Clients making requests from this API must poll GetDeviceSession. */
     await gapi.client.testing.projects.deviceSessions.get({
@@ -117,7 +117,7 @@ gapi.load('client', async () => {
           },
         ],
         ttl: 'Test string',
-      }
+      },
     );
     /** Cancels unfinished test executions in a test matrix. This call returns immediately and cancellation proceeds asynchronously. If the matrix is already final, this operation will have no effect. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Test Matrix does not exist */
     await gapi.client.testing.projects.testMatrices.cancel({
@@ -618,7 +618,7 @@ gapi.load('client', async () => {
           testTimeout: 'Test string',
         },
         timestamp: 'Test string',
-      }
+      },
     );
     /** Checks the status of a test matrix and the executions once they are created. The test matrix will contain the list of test executions to run if and only if the resultStorage.toolResultsExecution fields have been populated. Note: Flaky test executions may be added to the matrix at a later stage. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Test Matrix does not exist */
     await gapi.client.testing.projects.testMatrices.get({

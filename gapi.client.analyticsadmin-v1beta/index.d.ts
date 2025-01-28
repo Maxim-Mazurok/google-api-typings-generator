@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Analytics Admin API v1beta */
   function load(
-    urlOrObject: 'https://analyticsadmin.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://analyticsadmin.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'analyticsadmin', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'analyticsadmin',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace analyticsadmin {
@@ -751,7 +751,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaAccount
+        body: GoogleAnalyticsAdminV1betaAccount,
       ): Request<GoogleAnalyticsAdminV1betaAccount>;
       /** Requests a ticket for creating an account. */
       provisionAccountTicket(request: {
@@ -805,7 +805,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaProvisionAccountTicketRequest
+        body: GoogleAnalyticsAdminV1betaProvisionAccountTicketRequest,
       ): Request<GoogleAnalyticsAdminV1betaProvisionAccountTicketResponse>;
       /** Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. Reports may be requested for any property, but dimensions that aren't related to quota can only be requested on Google Analytics 360 properties. This method is only available to Administrators. These data access records include GA UI Reporting, GA UI Explorations, GA Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents). To give your feedback on this API, complete the [Google Analytics Access Reports feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform) form. */
       runAccessReport(request: {
@@ -863,7 +863,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaRunAccessReportRequest
+        body: GoogleAnalyticsAdminV1betaRunAccessReportRequest,
       ): Request<GoogleAnalyticsAdminV1betaRunAccessReportResponse>;
       /** Searches through all changes to an account or its children given the specified set of filters. Only returns the subset of changes supported by the API. The UI may return additional changes. */
       searchChangeHistoryEvents(request: {
@@ -921,7 +921,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsRequest
+        body: GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsRequest,
       ): Request<GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsResponse>;
     }
     interface AccountSummariesResource {
@@ -1012,7 +1012,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaConversionEvent
+        body: GoogleAnalyticsAdminV1betaConversionEvent,
       ): Request<GoogleAnalyticsAdminV1betaConversionEvent>;
       /** Deprecated: Use `DeleteKeyEvent` instead. Deletes a conversion event in a property. */
       delete(request?: {
@@ -1159,7 +1159,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaConversionEvent
+        body: GoogleAnalyticsAdminV1betaConversionEvent,
       ): Request<GoogleAnalyticsAdminV1betaConversionEvent>;
     }
     interface CustomDimensionsResource {
@@ -1219,7 +1219,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaArchiveCustomDimensionRequest
+        body: GoogleAnalyticsAdminV1betaArchiveCustomDimensionRequest,
       ): Request<{}>;
       /** Creates a CustomDimension. */
       create(request: {
@@ -1277,7 +1277,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaCustomDimension
+        body: GoogleAnalyticsAdminV1betaCustomDimension,
       ): Request<GoogleAnalyticsAdminV1betaCustomDimension>;
       /** Lookup for a single CustomDimension. */
       get(request?: {
@@ -1397,7 +1397,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaCustomDimension
+        body: GoogleAnalyticsAdminV1betaCustomDimension,
       ): Request<GoogleAnalyticsAdminV1betaCustomDimension>;
     }
     interface CustomMetricsResource {
@@ -1457,7 +1457,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaArchiveCustomMetricRequest
+        body: GoogleAnalyticsAdminV1betaArchiveCustomMetricRequest,
       ): Request<{}>;
       /** Creates a CustomMetric. */
       create(request: {
@@ -1515,7 +1515,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaCustomMetric
+        body: GoogleAnalyticsAdminV1betaCustomMetric,
       ): Request<GoogleAnalyticsAdminV1betaCustomMetric>;
       /** Lookup for a single CustomMetric. */
       get(request?: {
@@ -1635,7 +1635,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaCustomMetric
+        body: GoogleAnalyticsAdminV1betaCustomMetric,
       ): Request<GoogleAnalyticsAdminV1betaCustomMetric>;
     }
     interface MeasurementProtocolSecretsResource {
@@ -1695,7 +1695,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaMeasurementProtocolSecret
+        body: GoogleAnalyticsAdminV1betaMeasurementProtocolSecret,
       ): Request<GoogleAnalyticsAdminV1betaMeasurementProtocolSecret>;
       /** Deletes target MeasurementProtocolSecret. */
       delete(request?: {
@@ -1842,7 +1842,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaMeasurementProtocolSecret
+        body: GoogleAnalyticsAdminV1betaMeasurementProtocolSecret,
       ): Request<GoogleAnalyticsAdminV1betaMeasurementProtocolSecret>;
     }
     interface DataStreamsResource {
@@ -1902,7 +1902,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaDataStream
+        body: GoogleAnalyticsAdminV1betaDataStream,
       ): Request<GoogleAnalyticsAdminV1betaDataStream>;
       /** Deletes a DataStream on a property. */
       delete(request?: {
@@ -2049,7 +2049,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaDataStream
+        body: GoogleAnalyticsAdminV1betaDataStream,
       ): Request<GoogleAnalyticsAdminV1betaDataStream>;
       measurementProtocolSecrets: MeasurementProtocolSecretsResource;
     }
@@ -2110,7 +2110,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaFirebaseLink
+        body: GoogleAnalyticsAdminV1betaFirebaseLink,
       ): Request<GoogleAnalyticsAdminV1betaFirebaseLink>;
       /** Deletes a FirebaseLink on a property */
       delete(request?: {
@@ -2228,7 +2228,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaGoogleAdsLink
+        body: GoogleAnalyticsAdminV1betaGoogleAdsLink,
       ): Request<GoogleAnalyticsAdminV1betaGoogleAdsLink>;
       /** Deletes a GoogleAdsLink on a property */
       delete(request?: {
@@ -2348,7 +2348,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaGoogleAdsLink
+        body: GoogleAnalyticsAdminV1betaGoogleAdsLink,
       ): Request<GoogleAnalyticsAdminV1betaGoogleAdsLink>;
     }
     interface KeyEventsResource {
@@ -2408,7 +2408,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaKeyEvent
+        body: GoogleAnalyticsAdminV1betaKeyEvent,
       ): Request<GoogleAnalyticsAdminV1betaKeyEvent>;
       /** Deletes a Key Event. */
       delete(request?: {
@@ -2555,7 +2555,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaKeyEvent
+        body: GoogleAnalyticsAdminV1betaKeyEvent,
       ): Request<GoogleAnalyticsAdminV1betaKeyEvent>;
     }
     interface PropertiesResource {
@@ -2615,7 +2615,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaAcknowledgeUserDataCollectionRequest
+        body: GoogleAnalyticsAdminV1betaAcknowledgeUserDataCollectionRequest,
       ): Request<{}>;
       /** Creates a Google Analytics property with the specified location and attributes. */
       create(request: {
@@ -2669,7 +2669,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaProperty
+        body: GoogleAnalyticsAdminV1betaProperty,
       ): Request<GoogleAnalyticsAdminV1betaProperty>;
       /** Marks target Property as soft-deleted (ie: "trashed") and returns it. This API does not have a method to restore soft-deleted properties. However, they can be restored using the Trash Can UI. If the properties are not restored before the expiration time, the Property and all child resources (eg: GoogleAdsLinks, Streams, AccessBindings) will be permanently purged. https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found. */
       delete(request?: {
@@ -2845,7 +2845,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaProperty
+        body: GoogleAnalyticsAdminV1betaProperty,
       ): Request<GoogleAnalyticsAdminV1betaProperty>;
       /** Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. Reports may be requested for any property, but dimensions that aren't related to quota can only be requested on Google Analytics 360 properties. This method is only available to Administrators. These data access records include GA UI Reporting, GA UI Explorations, GA Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents). To give your feedback on this API, complete the [Google Analytics Access Reports feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform) form. */
       runAccessReport(request: {
@@ -2903,7 +2903,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaRunAccessReportRequest
+        body: GoogleAnalyticsAdminV1betaRunAccessReportRequest,
       ): Request<GoogleAnalyticsAdminV1betaRunAccessReportResponse>;
       /** Updates the singleton data retention settings for this property. */
       updateDataRetentionSettings(request: {
@@ -2965,7 +2965,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1betaDataRetentionSettings
+        body: GoogleAnalyticsAdminV1betaDataRetentionSettings,
       ): Request<GoogleAnalyticsAdminV1betaDataRetentionSettings>;
       conversionEvents: ConversionEventsResource;
       customDimensions: CustomDimensionsResource;

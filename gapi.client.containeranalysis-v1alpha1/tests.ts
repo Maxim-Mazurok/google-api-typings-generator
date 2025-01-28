@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://containeranalysis.googleapis.com/$discovery/rest?version=v1alpha1'
+    'https://containeranalysis.googleapis.com/$discovery/rest?version=v1alpha1',
   );
   /** now we can use gapi.client.containeranalysis */
 
@@ -318,7 +318,7 @@ gapi.load('client', async () => {
           ],
           severity: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the given `Note` from the system. */
     await gapi.client.containeranalysis.projects.notes.delete({
@@ -337,7 +337,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all `Notes` for a given project. */
     await gapi.client.containeranalysis.projects.notes.list({
@@ -633,7 +633,7 @@ gapi.load('client', async () => {
           ],
           severity: 'Test string',
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified `Note` or `Occurrence`. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a `Note` or an `Occurrence`, respectively. Attempting to call this method without these permissions will result in a ` `PERMISSION_DENIED` error. Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences and projects/{projectid}/notes/{noteid} for notes */
     await gapi.client.containeranalysis.projects.notes.setIamPolicy(
@@ -657,7 +657,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns the permissions that a caller has on the specified note or occurrence resource. Requires list permission on the project (for example, "storage.objects.list" on the containing bucket for testing permission of an object). Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for `Occurrences` and `projects/{PROJECT_ID}/notes/{NOTE_ID}` for `Notes` */
     await gapi.client.containeranalysis.projects.notes.testIamPermissions(
@@ -666,7 +666,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists `Occurrences` referencing the specified `Note`. Use this method to get all occurrences referencing your `Note` across all your customer projects. */
     await gapi.client.containeranalysis.projects.notes.occurrences.list({
@@ -1532,7 +1532,7 @@ gapi.load('client', async () => {
             vulnerabilityId: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deletes the given `Occurrence` from the system. Use this when an `Occurrence` is no longer applicable for the given resource. */
     await gapi.client.containeranalysis.projects.occurrences.delete({
@@ -1551,7 +1551,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Gets the `Note` attached to the given `Occurrence`. */
     await gapi.client.containeranalysis.projects.occurrences.getNotes({
@@ -1562,7 +1562,7 @@ gapi.load('client', async () => {
       {
         filter: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists active `Occurrences` for a given project matching the filters. */
     await gapi.client.containeranalysis.projects.occurrences.list({
@@ -2430,7 +2430,7 @@ gapi.load('client', async () => {
             vulnerabilityId: 'Test string',
           },
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified `Note` or `Occurrence`. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a `Note` or an `Occurrence`, respectively. Attempting to call this method without these permissions will result in a ` `PERMISSION_DENIED` error. Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences and projects/{projectid}/notes/{noteid} for notes */
     await gapi.client.containeranalysis.projects.occurrences.setIamPolicy(
@@ -2454,7 +2454,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns the permissions that a caller has on the specified note or occurrence resource. Requires list permission on the project (for example, "storage.objects.list" on the containing bucket for testing permission of an object). Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for `Occurrences` and `projects/{PROJECT_ID}/notes/{NOTE_ID}` for `Notes` */
     await gapi.client.containeranalysis.projects.occurrences.testIamPermissions(
@@ -2463,7 +2463,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new `Operation`. */
     await gapi.client.containeranalysis.projects.operations.create(
@@ -2491,7 +2491,7 @@ gapi.load('client', async () => {
           },
         },
         operationId: 'Test string',
-      }
+      },
     );
     /** Updates an existing operation returns an error if operation does not exist. The only valid operations are to update mark the done bit change the result. */
     await gapi.client.containeranalysis.projects.operations.patch(
@@ -2519,7 +2519,7 @@ gapi.load('client', async () => {
           },
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets a specific scan configuration for a project. */
     await gapi.client.containeranalysis.projects.scanConfigs.get({
@@ -2544,7 +2544,7 @@ gapi.load('client', async () => {
         enabled: true,
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new `Note`. */
     await gapi.client.containeranalysis.providers.notes.create(
@@ -2833,7 +2833,7 @@ gapi.load('client', async () => {
           ],
           severity: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the given `Note` from the system. */
     await gapi.client.containeranalysis.providers.notes.delete({
@@ -2852,7 +2852,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all `Notes` for a given project. */
     await gapi.client.containeranalysis.providers.notes.list({
@@ -3148,7 +3148,7 @@ gapi.load('client', async () => {
           ],
           severity: 'Test string',
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified `Note` or `Occurrence`. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a `Note` or an `Occurrence`, respectively. Attempting to call this method without these permissions will result in a ` `PERMISSION_DENIED` error. Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences and projects/{projectid}/notes/{noteid} for notes */
     await gapi.client.containeranalysis.providers.notes.setIamPolicy(
@@ -3172,7 +3172,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns the permissions that a caller has on the specified note or occurrence resource. Requires list permission on the project (for example, "storage.objects.list" on the containing bucket for testing permission of an object). Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for `Occurrences` and `projects/{PROJECT_ID}/notes/{NOTE_ID}` for `Notes` */
     await gapi.client.containeranalysis.providers.notes.testIamPermissions(
@@ -3181,7 +3181,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists `Occurrences` referencing the specified `Note`. Use this method to get all occurrences referencing your `Note` across all your customer projects. */
     await gapi.client.containeranalysis.providers.notes.occurrences.list({

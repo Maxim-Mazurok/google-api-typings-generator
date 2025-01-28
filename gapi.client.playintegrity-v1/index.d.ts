@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Play Integrity API v1 */
   function load(
-    urlOrObject: 'https://playintegrity.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://playintegrity.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'playintegrity', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'playintegrity',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace playintegrity {
@@ -204,7 +204,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WriteDeviceRecallRequest
+        body: WriteDeviceRecallRequest,
       ): Request<{}>;
     }
     interface V1Resource {
@@ -264,7 +264,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DecodeIntegrityTokenRequest
+        body: DecodeIntegrityTokenRequest,
       ): Request<DecodeIntegrityTokenResponse>;
     }
 

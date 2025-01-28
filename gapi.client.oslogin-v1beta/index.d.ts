@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud OS Login API v1beta */
   function load(
-    urlOrObject: 'https://oslogin.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://oslogin.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'oslogin', version: 'v1beta'): Promise<void>;
@@ -160,7 +160,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SignSshPublicKeyRequest
+        body: SignSshPublicKeyRequest,
       ): Request<SignSshPublicKeyResponse>;
     }
     interface ZonesResource {
@@ -220,7 +220,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SignSshPublicKeyRequest
+        body: SignSshPublicKeyRequest,
       ): Request<SignSshPublicKeyResponse>;
     }
     interface ProjectsResource {
@@ -311,7 +311,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SshPublicKey
+        body: SshPublicKey,
       ): Request<SshPublicKey>;
       /** Deletes an SSH public key. */
       delete(request?: {
@@ -427,7 +427,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SshPublicKey
+        body: SshPublicKey,
       ): Request<SshPublicKey>;
     }
     interface UsersResource {
@@ -532,7 +532,7 @@ declare namespace gapi.client {
           /** The view configures whether to retrieve security keys information. */
           view?: string;
         },
-        body: SshPublicKey
+        body: SshPublicKey,
       ): Request<ImportSshPublicKeyResponse>;
       projects: ProjectsResource;
       sshPublicKeys: SshPublicKeysResource;

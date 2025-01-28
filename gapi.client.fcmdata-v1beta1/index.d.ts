@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Firebase Cloud Messaging Data API v1beta1 */
   function load(
-    urlOrObject: 'https://fcmdata.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://fcmdata.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'fcmdata', version: 'v1beta1'): Promise<void>;

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebaserules.googleapis.com/$discovery/rest?version=v1'
+    'https://firebaserules.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.firebaserules */
 
@@ -76,7 +76,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Create a `Release`. Release names should reflect the developer's deployment practices. For example, the release name may include the environment name, application name, application version, or any other name meaningful to the developer. Once a `Release` refers to a `Ruleset`, the rules can be enforced by Firebase Rules-enabled services. More than one `Release` may be 'live' concurrently. Consider the following three `Release` names for `projects/foo` and the `Ruleset` to which they refer. Release Name -> Ruleset Name * projects/foo/releases/prod -> projects/foo/rulesets/uuid123 * projects/foo/releases/prod/beta -> projects/foo/rulesets/uuid123 * projects/foo/releases/prod/v23 -> projects/foo/rulesets/uuid456 The relationships reflect a `Ruleset` rollout in progress. The `prod` and `prod/beta` releases refer to the same `Ruleset`. However, `prod/v23` refers to a new `Ruleset`. The `Ruleset` reference for a `Release` may be updated using the UpdateRelease method. */
     await gapi.client.firebaserules.projects.releases.create(
@@ -88,7 +88,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         rulesetName: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a `Release` by resource name. */
     await gapi.client.firebaserules.projects.releases.delete({
@@ -123,7 +123,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Create a `Ruleset` from `Source`. The `Ruleset` is given a unique generated name which is returned to the caller. `Source` containing syntactic or semantics errors will result in an error response indicating the first error encountered. For a detailed view of `Source` issues, use TestRuleset. */
     await gapi.client.firebaserules.projects.rulesets.create(
@@ -146,7 +146,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Delete a `Ruleset` by resource name. If the `Ruleset` is referenced by a `Release` the operation will fail. */
     await gapi.client.firebaserules.projects.rulesets.delete({

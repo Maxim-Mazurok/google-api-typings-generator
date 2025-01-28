@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Service Consumer Management API v1beta1 */
   function load(
-    urlOrObject: 'https://serviceconsumermanagement.googleapis.com/$discovery/rest?version=v1beta1'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'serviceconsumermanagement',
-    version: 'v1beta1'
+    urlOrObject: 'https://serviceconsumermanagement.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'serviceconsumermanagement',
     version: 'v1beta1',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'serviceconsumermanagement',
+    version: 'v1beta1',
+    callback: () => any,
   ): void;
 
   namespace serviceconsumermanagement {
@@ -1025,7 +1025,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: V1Beta1QuotaOverride
+        body: V1Beta1QuotaOverride,
       ): Request<Operation>;
       /** Deletes a producer override. */
       delete(request?: {
@@ -1163,7 +1163,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: V1Beta1QuotaOverride
+        body: V1Beta1QuotaOverride,
       ): Request<Operation>;
     }
     interface ProducerQuotaPoliciesResource {
@@ -1235,7 +1235,7 @@ declare namespace gapi.client {
           /** If set to true, validate the request, but do not actually update. */
           validateOnly?: boolean;
         },
-        body: V1Beta1ProducerQuotaPolicy
+        body: V1Beta1ProducerQuotaPolicy,
       ): Request<Operation>;
       /** Deletes a producer quota policy. */
       delete(request?: {
@@ -1373,7 +1373,7 @@ declare namespace gapi.client {
           /** If set to true, validate the request, but do not actually update. */
           validateOnly?: boolean;
         },
-        body: V1Beta1ProducerQuotaPolicy
+        body: V1Beta1ProducerQuotaPolicy,
       ): Request<Operation>;
     }
     interface LimitsResource {
@@ -1495,7 +1495,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: V1Beta1ImportProducerOverridesRequest
+        body: V1Beta1ImportProducerOverridesRequest,
       ): Request<Operation>;
       /** Create or update multiple producer quota policies atomically, all on the same ancestor, but on many different metrics or limits. The name field in the quota policy message should not be set. */
       importProducerQuotaPolicies(request: {
@@ -1553,7 +1553,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: V1Beta1ImportProducerQuotaPoliciesRequest
+        body: V1Beta1ImportProducerQuotaPoliciesRequest,
       ): Request<Operation>;
       /** Retrieves a summary of all quota information about this consumer that is visible to the service producer, for each quota metric defined by the service. Each metric includes information about all of its defined limits. Each limit includes the limit configuration (quota unit, preciseness, default value), the current effective limit value, and all of the overrides applied to the limit. */
       list(request?: {

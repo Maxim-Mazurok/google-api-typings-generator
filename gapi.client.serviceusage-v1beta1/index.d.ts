@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Service Usage API v1beta1 */
   function load(
-    urlOrObject: 'https://serviceusage.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://serviceusage.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'serviceusage', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'serviceusage',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace serviceusage {
@@ -1275,7 +1275,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QuotaOverride
+        body: QuotaOverride,
       ): Request<Operation>;
       /** Deletes an admin override. */
       delete(request?: {
@@ -1407,7 +1407,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QuotaOverride
+        body: QuotaOverride,
       ): Request<Operation>;
     }
     interface ConsumerOverridesResource {
@@ -1475,7 +1475,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QuotaOverride
+        body: QuotaOverride,
       ): Request<Operation>;
       /** Deletes a consumer override. */
       delete(request?: {
@@ -1607,7 +1607,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QuotaOverride
+        body: QuotaOverride,
       ): Request<Operation>;
     }
     interface LimitsResource {
@@ -1729,7 +1729,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportAdminOverridesRequest
+        body: ImportAdminOverridesRequest,
       ): Request<Operation>;
       /** Creates or updates multiple consumer overrides atomically, all on the same consumer, but on many different metrics or limits. The name field in the quota override message should not be set. */
       importConsumerOverrides(request: {
@@ -1787,7 +1787,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportConsumerOverridesRequest
+        body: ImportConsumerOverridesRequest,
       ): Request<Operation>;
       /** Retrieves a summary of all quota information visible to the service consumer, organized by service metric. Each metric includes information about all of its defined limits. Each limit includes the limit configuration (quota unit, preciseness, default value), the current effective limit value, and all of the overrides applied to the limit. */
       list(request?: {
@@ -1881,7 +1881,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchEnableServicesRequest
+        body: BatchEnableServicesRequest,
       ): Request<Operation>;
       /** Disables a service so that it can no longer be used with a project. This prevents unintended usage that may cause unexpected billing charges or security leaks. It is not valid to call the disable method on a service that is not currently enabled. Callers will receive a `FAILED_PRECONDITION` status if the target service is not currently enabled. Operation response type: `google.protobuf.Empty` */
       disable(request: {
@@ -1939,7 +1939,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableServiceRequest
+        body: DisableServiceRequest,
       ): Request<Operation>;
       /** Enables a service so that it can be used with a project. Operation response type: `google.protobuf.Empty` */
       enable(request: {
@@ -1997,7 +1997,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnableServiceRequest
+        body: EnableServiceRequest,
       ): Request<Operation>;
       /** Generates service identity for service. */
       generateServiceIdentity(request?: {

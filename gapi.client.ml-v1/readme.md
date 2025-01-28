@@ -62,7 +62,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 

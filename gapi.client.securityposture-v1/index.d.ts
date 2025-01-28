@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Security Posture API v1 */
   function load(
-    urlOrObject: 'https://securityposture.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://securityposture.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'securityposture', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'securityposture',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace securityposture {
@@ -473,7 +473,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -624,7 +624,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PostureDeployment
+        body: PostureDeployment,
       ): Request<Operation>;
       /** Deletes a PostureDeployment. */
       delete(request?: {
@@ -775,7 +775,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PostureDeployment
+        body: PostureDeployment,
       ): Request<Operation>;
     }
     interface PosturesResource {
@@ -839,7 +839,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Posture
+        body: Posture,
       ): Request<Operation>;
       /** Deletes all revisions of a Posture. You can only delete a posture if none of its revisions are deployed. */
       delete(request?: {
@@ -926,7 +926,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExtractPostureRequest
+        body: ExtractPostureRequest,
       ): Request<Operation>;
       /** Gets a single revision of a Posture. */
       get(request?: {
@@ -1085,7 +1085,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Posture
+        body: Posture,
       ): Request<Operation>;
     }
     interface PostureTemplatesResource {
@@ -1209,7 +1209,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateIaCValidationReportRequest
+        body: CreateIaCValidationReportRequest,
       ): Request<Operation>;
       /** Gets details for a Report. */
       get(request?: {

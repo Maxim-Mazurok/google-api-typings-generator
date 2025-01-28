@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Public Certificate Authority API v1alpha1 */
   function load(
-    urlOrObject: 'https://publicca.googleapis.com/$discovery/rest?version=v1alpha1'
+    urlOrObject: 'https://publicca.googleapis.com/$discovery/rest?version=v1alpha1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'publicca', version: 'v1alpha1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'publicca',
     version: 'v1alpha1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace publicca {
@@ -93,7 +93,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExternalAccountKey
+        body: ExternalAccountKey,
       ): Request<ExternalAccountKey>;
     }
     interface LocationsResource {

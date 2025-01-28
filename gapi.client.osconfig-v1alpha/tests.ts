@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://osconfig.googleapis.com/$discovery/rest?version=v1alpha'
+    'https://osconfig.googleapis.com/$discovery/rest?version=v1alpha',
   );
   /** now we can use gapi.client.osconfig */
 
@@ -35,7 +35,7 @@ gapi.load('client', async () => {
     await gapi.client.osconfig.projects.locations.instanceOSPoliciesCompliances.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List OS policies compliance data for all Compute Engine VM instances in the specified zone. */
     await gapi.client.osconfig.projects.locations.instanceOSPoliciesCompliances.list(
@@ -44,7 +44,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Get inventory data for the specified VM instance. If the VM has no associated inventory, the message `NOT_FOUND` is returned. */
     await gapi.client.osconfig.projects.locations.instances.inventories.get({
@@ -63,7 +63,7 @@ gapi.load('client', async () => {
     await gapi.client.osconfig.projects.locations.instances.osPolicyAssignments.reports.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List OS policy assignment reports for all Compute Engine VM instances in the specified zone. */
     await gapi.client.osconfig.projects.locations.instances.osPolicyAssignments.reports.list(
@@ -72,13 +72,13 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets the vulnerability report for the specified VM instance. Only VMs with inventory data have vulnerability reports associated with them. */
     await gapi.client.osconfig.projects.locations.instances.vulnerabilityReports.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List vulnerability reports for all VM instances in the specified zone. */
     await gapi.client.osconfig.projects.locations.instances.vulnerabilityReports.list(
@@ -87,7 +87,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Create an OS policy assignment. This method also creates the first revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1alpha/projects.locations.osPolicyAssignments.operations/cancel). */
     await gapi.client.osconfig.projects.locations.osPolicyAssignments.create(
@@ -312,7 +312,7 @@ gapi.load('client', async () => {
         },
         rolloutState: 'Test string',
         uid: 'Test string',
-      }
+      },
     );
     /** Delete the OS policy assignment. This method creates a new revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. If the LRO completes and is not cancelled, all revisions associated with the OS policy assignment are deleted. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1alpha/projects.locations.osPolicyAssignments.operations/cancel). */
     await gapi.client.osconfig.projects.locations.osPolicyAssignments.delete({
@@ -335,7 +335,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Update an existing OS policy assignment. This method creates a new revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1alpha/projects.locations.osPolicyAssignments.operations/cancel). */
     await gapi.client.osconfig.projects.locations.osPolicyAssignments.patch(
@@ -561,20 +561,20 @@ gapi.load('client', async () => {
         },
         rolloutState: 'Test string',
         uid: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.osconfig.projects.locations.osPolicyAssignments.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.osconfig.projects.locations.osPolicyAssignments.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
   }
 });

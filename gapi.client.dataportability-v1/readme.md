@@ -30,7 +30,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.dataportability
-  }
+  },
 );
 ```
 
@@ -257,7 +257,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 

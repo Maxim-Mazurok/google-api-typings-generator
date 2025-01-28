@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://bigtableadmin.googleapis.com/$discovery/rest?version=v2'
+    'https://bigtableadmin.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.bigtableadmin */
 
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
         },
         instanceId: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Delete an instance from a project. */
     await gapi.client.bigtableadmin.projects.instances.delete({
@@ -122,7 +122,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists information about instances in a project. */
     await gapi.client.bigtableadmin.projects.instances.list({
@@ -146,7 +146,7 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         state: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on an instance resource. Replaces any existing policy. */
     await gapi.client.bigtableadmin.projects.instances.setIamPolicy(
@@ -182,7 +182,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that the caller has on the specified instance resource. */
     await gapi.client.bigtableadmin.projects.instances.testIamPermissions(
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates an instance within a project. This method updates only the display name and type for an Instance. To update other Instance properties, such as labels, use PartialUpdateInstance. */
     await gapi.client.bigtableadmin.projects.instances.update(
@@ -209,7 +209,7 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         state: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Creates an app profile within an instance. */
     await gapi.client.bigtableadmin.projects.instances.appProfiles.create(
@@ -237,7 +237,7 @@ gapi.load('client', async () => {
         standardIsolation: {
           priority: 'Test string',
         },
-      }
+      },
     );
     /** Deletes an app profile from an instance. */
     await gapi.client.bigtableadmin.projects.instances.appProfiles.delete({
@@ -280,7 +280,7 @@ gapi.load('client', async () => {
         standardIsolation: {
           priority: 'Test string',
         },
-      }
+      },
     );
     /** Creates a cluster within an instance. Note that exactly one of Cluster.serve_nodes and Cluster.cluster_config.cluster_autoscaling_config can be set. If serve_nodes is set to non-zero, then the cluster is manually scaled. If cluster_config.cluster_autoscaling_config is non-empty, then autoscaling is enabled. */
     await gapi.client.bigtableadmin.projects.instances.clusters.create(
@@ -310,7 +310,7 @@ gapi.load('client', async () => {
         nodeScalingFactor: 'Test string',
         serveNodes: 42,
         state: 'Test string',
-      }
+      },
     );
     /** Deletes a cluster from an instance. */
     await gapi.client.bigtableadmin.projects.instances.clusters.delete({
@@ -353,7 +353,7 @@ gapi.load('client', async () => {
         nodeScalingFactor: 'Test string',
         serveNodes: 42,
         state: 'Test string',
-      }
+      },
     );
     /** Updates a cluster within an instance. Note that UpdateCluster does not support updating cluster_config.cluster_autoscaling_config. In order to update it, you must use PartialUpdateCluster. */
     await gapi.client.bigtableadmin.projects.instances.clusters.update(
@@ -382,7 +382,7 @@ gapi.load('client', async () => {
         nodeScalingFactor: 'Test string',
         serveNodes: 42,
         state: 'Test string',
-      }
+      },
     );
     /** Copy a Cloud Bigtable backup to a new backup in the destination cluster located in the destination instance and project. */
     await gapi.client.bigtableadmin.projects.instances.clusters.backups.copy(
@@ -393,7 +393,7 @@ gapi.load('client', async () => {
         backupId: 'Test string',
         expireTime: 'Test string',
         sourceBackup: 'Test string',
-      }
+      },
     );
     /** Starts creating a new Cloud Bigtable Backup. The returned backup long-running operation can be used to track creation of the backup. The metadata field type is CreateBackupMetadata. The response field type is Backup, if successful. Cancelling the returned operation will stop the creation and delete the backup. */
     await gapi.client.bigtableadmin.projects.instances.clusters.backups.create(
@@ -425,7 +425,7 @@ gapi.load('client', async () => {
         sourceTable: 'Test string',
         startTime: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes a pending or completed Cloud Bigtable backup. */
     await gapi.client.bigtableadmin.projects.instances.clusters.backups.delete({
@@ -444,7 +444,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists Cloud Bigtable backups. Returns both completed and pending backups. */
     await gapi.client.bigtableadmin.projects.instances.clusters.backups.list({
@@ -484,7 +484,7 @@ gapi.load('client', async () => {
         sourceTable: 'Test string',
         startTime: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on a Bigtable resource. Replaces any existing policy. */
     await gapi.client.bigtableadmin.projects.instances.clusters.backups.setIamPolicy(
@@ -520,7 +520,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that the caller has on the specified Bigtable resource. */
     await gapi.client.bigtableadmin.projects.instances.clusters.backups.testIamPermissions(
@@ -529,7 +529,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists hot tablets in a cluster, within the time range provided. Hot tablets are ordered based on CPU usage. */
     await gapi.client.bigtableadmin.projects.instances.clusters.hotTablets.list(
@@ -539,7 +539,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         startTime: 'Test string',
-      }
+      },
     );
     /** Checks replication consistency based on a consistency token, that is, if replication has caught up based on the conditions specified in the token and the check request. */
     await gapi.client.bigtableadmin.projects.instances.tables.checkConsistency(
@@ -550,7 +550,7 @@ gapi.load('client', async () => {
         consistencyToken: 'Test string',
         dataBoostReadLocalWrites: {},
         standardReadRemoteWrites: {},
-      }
+      },
     );
     /** Creates a new table in the specified instance. The table can be created with a full set of initial column families, specified in the request. */
     await gapi.client.bigtableadmin.projects.instances.tables.create(
@@ -683,7 +683,7 @@ gapi.load('client', async () => {
           },
         },
         tableId: 'Test string',
-      }
+      },
     );
     /** Permanently deletes a specified table and all of its data. */
     await gapi.client.bigtableadmin.projects.instances.tables.delete({
@@ -697,14 +697,14 @@ gapi.load('client', async () => {
       {
         deleteAllDataFromTable: true,
         rowKeyPrefix: 'Test string',
-      }
+      },
     );
     /** Generates a consistency token for a Table, which can be used in CheckConsistency to check whether mutations to the table that finished before this call started have been replicated. The tokens will be available for 90 days. */
     await gapi.client.bigtableadmin.projects.instances.tables.generateConsistencyToken(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets metadata information about the specified table. */
     await gapi.client.bigtableadmin.projects.instances.tables.get({
@@ -720,7 +720,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all tables served from a specified instance. */
     await gapi.client.bigtableadmin.projects.instances.tables.list({
@@ -881,7 +881,7 @@ gapi.load('client', async () => {
             updateMask: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates a specified table. */
     await gapi.client.bigtableadmin.projects.instances.tables.patch(
@@ -1007,7 +1007,7 @@ gapi.load('client', async () => {
           logicalDataBytes: 'Test string',
           rowCount: 'Test string',
         },
-      }
+      },
     );
     /** Create a new table by restoring from a completed backup. The returned table long-running operation can be used to track the progress of the operation, and to cancel it. The metadata field type is RestoreTableMetadata. The response type is Table, if successful. */
     await gapi.client.bigtableadmin.projects.instances.tables.restore(
@@ -1017,7 +1017,7 @@ gapi.load('client', async () => {
       {
         backup: 'Test string',
         tableId: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on a Bigtable resource. Replaces any existing policy. */
     await gapi.client.bigtableadmin.projects.instances.tables.setIamPolicy(
@@ -1053,7 +1053,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that the caller has on the specified Bigtable resource. */
     await gapi.client.bigtableadmin.projects.instances.tables.testIamPermissions(
@@ -1062,14 +1062,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Restores a specified table which was accidentally deleted. */
     await gapi.client.bigtableadmin.projects.instances.tables.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new AuthorizedView in a table. */
     await gapi.client.bigtableadmin.projects.instances.tables.authorizedViews.create(
@@ -1090,21 +1090,21 @@ gapi.load('client', async () => {
           },
           rowPrefixes: ['Test string'],
         },
-      }
+      },
     );
     /** Permanently deletes a specified AuthorizedView. */
     await gapi.client.bigtableadmin.projects.instances.tables.authorizedViews.delete(
       {
         etag: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets information from a specified AuthorizedView. */
     await gapi.client.bigtableadmin.projects.instances.tables.authorizedViews.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a Bigtable resource. Returns an empty policy if the resource exists but does not have a policy set. */
     await gapi.client.bigtableadmin.projects.instances.tables.authorizedViews.getIamPolicy(
@@ -1115,7 +1115,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all AuthorizedViews from a specific table. */
     await gapi.client.bigtableadmin.projects.instances.tables.authorizedViews.list(
@@ -1124,7 +1124,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Updates an AuthorizedView in a table. */
     await gapi.client.bigtableadmin.projects.instances.tables.authorizedViews.patch(
@@ -1146,7 +1146,7 @@ gapi.load('client', async () => {
           },
           rowPrefixes: ['Test string'],
         },
-      }
+      },
     );
     /** Sets the access control policy on a Bigtable resource. Replaces any existing policy. */
     await gapi.client.bigtableadmin.projects.instances.tables.authorizedViews.setIamPolicy(
@@ -1182,7 +1182,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that the caller has on the specified Bigtable resource. */
     await gapi.client.bigtableadmin.projects.instances.tables.authorizedViews.testIamPermissions(
@@ -1191,7 +1191,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists information about the supported locations for this service. */
     await gapi.client.bigtableadmin.projects.locations.list({

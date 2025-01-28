@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebasestorage.googleapis.com/$discovery/rest?version=v1beta'
+    'https://firebasestorage.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.firebasestorage */
 
@@ -46,7 +46,7 @@ gapi.load('client', async () => {
       {
         bucket: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets a single linked storage bucket. */
     await gapi.client.firebasestorage.projects.buckets.get({
@@ -63,7 +63,7 @@ gapi.load('client', async () => {
       {
         bucket: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a Spark tier-eligible Cloud Storage bucket and links it to your Firebase project. If the default bucket already exists, this method will re-link it to your Firebase project. See https://firebase.google.com/pricing for pricing details. */
     await gapi.client.firebasestorage.projects.defaultBucket.create(
@@ -77,7 +77,7 @@ gapi.load('client', async () => {
         location: 'Test string',
         name: 'Test string',
         storageClass: 'Test string',
-      }
+      },
     );
   }
 });

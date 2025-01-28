@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Essential Contacts API v1 */
   function load(
-    urlOrObject: 'https://essentialcontacts.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://essentialcontacts.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'essentialcontacts', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'essentialcontacts',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace essentialcontacts {
@@ -151,7 +151,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudEssentialcontactsV1Contact
+        body: GoogleCloudEssentialcontactsV1Contact,
       ): Request<GoogleCloudEssentialcontactsV1Contact>;
       /** Deletes a contact. */
       delete(request?: {
@@ -298,7 +298,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudEssentialcontactsV1Contact
+        body: GoogleCloudEssentialcontactsV1Contact,
       ): Request<GoogleCloudEssentialcontactsV1Contact>;
       /** Allows a contact admin to send a test message to contact to verify that it has been configured correctly. */
       sendTestMessage(
@@ -328,7 +328,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudEssentialcontactsV1SendTestMessageRequest
+        body: GoogleCloudEssentialcontactsV1SendTestMessageRequest,
       ): Request<{}>;
     }
     interface FoldersResource {
@@ -424,7 +424,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudEssentialcontactsV1Contact
+        body: GoogleCloudEssentialcontactsV1Contact,
       ): Request<GoogleCloudEssentialcontactsV1Contact>;
       /** Deletes a contact. */
       delete(request?: {
@@ -571,7 +571,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudEssentialcontactsV1Contact
+        body: GoogleCloudEssentialcontactsV1Contact,
       ): Request<GoogleCloudEssentialcontactsV1Contact>;
       /** Allows a contact admin to send a test message to contact to verify that it has been configured correctly. */
       sendTestMessage(
@@ -601,7 +601,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudEssentialcontactsV1SendTestMessageRequest
+        body: GoogleCloudEssentialcontactsV1SendTestMessageRequest,
       ): Request<{}>;
     }
     interface OrganizationsResource {
@@ -697,7 +697,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudEssentialcontactsV1Contact
+        body: GoogleCloudEssentialcontactsV1Contact,
       ): Request<GoogleCloudEssentialcontactsV1Contact>;
       /** Deletes a contact. */
       delete(request?: {
@@ -844,7 +844,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudEssentialcontactsV1Contact
+        body: GoogleCloudEssentialcontactsV1Contact,
       ): Request<GoogleCloudEssentialcontactsV1Contact>;
       /** Allows a contact admin to send a test message to contact to verify that it has been configured correctly. */
       sendTestMessage(
@@ -874,7 +874,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudEssentialcontactsV1SendTestMessageRequest
+        body: GoogleCloudEssentialcontactsV1SendTestMessageRequest,
       ): Request<{}>;
     }
     interface ProjectsResource {

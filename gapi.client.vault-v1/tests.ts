@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://vault.googleapis.com/$discovery/rest?version=v1'
+    'https://vault.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.vault */
 
@@ -45,14 +45,14 @@ gapi.load('client', async () => {
           role: 'Test string',
         },
         sendEmails: true,
-      }
+      },
     );
     /** Closes the specified matter. Returns the matter with updated state. */
     await gapi.client.vault.matters.close(
       {
         matterId: 'Test string',
       },
-      {}
+      {},
     );
     /** Counts the accounts processed by the specified query. */
     await gapi.client.vault.matters.count(
@@ -112,7 +112,7 @@ gapi.load('client', async () => {
           },
         },
         view: 'Test string',
-      }
+      },
     );
     /** Creates a matter with the given name and description. The initial state is open, and the owner is the method caller. Returns the created matter with default view. */
     await gapi.client.vault.matters.create(
@@ -129,7 +129,7 @@ gapi.load('client', async () => {
         matterRegion: 'Test string',
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes the specified matter. Returns the matter with updated state. */
     await gapi.client.vault.matters.delete({
@@ -154,21 +154,21 @@ gapi.load('client', async () => {
       },
       {
         accountId: 'Test string',
-      }
+      },
     );
     /** Reopens the specified matter. Returns the matter with updated state. */
     await gapi.client.vault.matters.reopen(
       {
         matterId: 'Test string',
       },
-      {}
+      {},
     );
     /** Undeletes the specified matter. Returns the matter with updated state. */
     await gapi.client.vault.matters.undelete(
       {
         matterId: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates the specified matter. This updates only the name and description of the matter, identified by matter ID. Changes to any other fields are ignored. Returns the default view of the matter. */
     await gapi.client.vault.matters.update(
@@ -187,7 +187,7 @@ gapi.load('client', async () => {
         matterRegion: 'Test string',
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates an export. */
     await gapi.client.vault.matters.exports.create(
@@ -295,7 +295,7 @@ gapi.load('client', async () => {
           totalArtifactCount: 'Test string',
         },
         status: 'Test string',
-      }
+      },
     );
     /** Deletes an export. */
     await gapi.client.vault.matters.exports.delete({
@@ -322,7 +322,7 @@ gapi.load('client', async () => {
       {
         accountIds: ['Test string'],
         emails: ['Test string'],
-      }
+      },
     );
     /** Creates a hold in the specified matter. */
     await gapi.client.vault.matters.holds.create(
@@ -370,7 +370,7 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes the specified hold and releases the accounts or organizational unit covered by the hold. If the data is not preserved by another hold or retention rule, it might be purged. */
     await gapi.client.vault.matters.holds.delete({
@@ -398,7 +398,7 @@ gapi.load('client', async () => {
       },
       {
         accountIds: ['Test string'],
-      }
+      },
     );
     /** Updates the scope (organizational unit or accounts) and query parameters of a hold. You cannot add accounts to a hold that covers an organizational unit, nor can you add organizational units to a hold that covers individual accounts. If you try, the unsupported values are ignored. */
     await gapi.client.vault.matters.holds.update(
@@ -447,7 +447,7 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Adds an account to a hold. Accounts can be added only to a hold that does not have an organizational unit set. If you try to add an account to an organizational unit-based hold, an error is returned. */
     await gapi.client.vault.matters.holds.accounts.create(
@@ -461,7 +461,7 @@ gapi.load('client', async () => {
         firstName: 'Test string',
         holdTime: 'Test string',
         lastName: 'Test string',
-      }
+      },
     );
     /** Removes an account from a hold. */
     await gapi.client.vault.matters.holds.accounts.delete({
@@ -535,7 +535,7 @@ gapi.load('client', async () => {
           },
         },
         savedQueryId: 'Test string',
-      }
+      },
     );
     /** Deletes the specified saved query. */
     await gapi.client.vault.matters.savedQueries.delete({
@@ -558,7 +558,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.vault.operations.delete({

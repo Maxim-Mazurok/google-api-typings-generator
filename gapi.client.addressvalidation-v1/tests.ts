@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://addressvalidation.googleapis.com/$discovery/rest?version=v1'
+    'https://addressvalidation.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.addressvalidation */
 
@@ -39,7 +39,7 @@ gapi.load('client', async () => {
       {
         conclusion: 'Test string',
         responseId: 'Test string',
-      }
+      },
     );
     /** Validates an address. */
     await gapi.client.addressvalidation.v1.validateAddress(
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
         },
         previousResponseId: 'Test string',
         sessionToken: 'Test string',
-      }
+      },
     );
   }
 });

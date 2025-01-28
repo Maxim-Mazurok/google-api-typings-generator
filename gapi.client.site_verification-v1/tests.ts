@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://siteverification.googleapis.com/$discovery/rest?version=v1'
+    'https://siteverification.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.siteVerification */
 
@@ -50,7 +50,7 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         verificationMethod: 'Test string',
-      }
+      },
     );
     /** Attempt verification of a website or domain. */
     await gapi.client.siteVerification.webResource.insert(
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
           identifier: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Get the list of your verified websites and domains. */
     await gapi.client.siteVerification.webResource.list();
@@ -80,7 +80,7 @@ gapi.load('client', async () => {
           identifier: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Modify the list of owners for your website or domain. */
     await gapi.client.siteVerification.webResource.update(
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
           identifier: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
   }
 });

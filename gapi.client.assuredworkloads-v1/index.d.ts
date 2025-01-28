@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Assured Workloads API v1 */
   function load(
-    urlOrObject: 'https://assuredworkloads.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://assuredworkloads.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'assuredworkloads', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'assuredworkloads',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace assuredworkloads {
@@ -437,7 +437,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest
+        body: GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest,
       ): Request<{}>;
       /** Retrieves Assured Workload Violation based on ID. */
       get(request?: {
@@ -600,7 +600,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAssuredworkloadsV1Workload
+        body: GoogleCloudAssuredworkloadsV1Workload,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes the workload. Make sure that workload's direct children are already in a deleted state, otherwise the request will fail with a FAILED_PRECONDITION error. In addition to assuredworkloads.workload.delete permission, the user should also have orgpolicy.policy.set permission on the deleted folder to remove Assured Workloads OrgPolicies. */
       delete(request?: {
@@ -774,7 +774,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest
+        body: GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest,
       ): Request<GoogleCloudAssuredworkloadsV1Workload>;
       /** Updates an existing workload. Currently allows updating of workload display_name and labels. For force updates don't set etag field in the Workload. Only one update operation per workload can be in progress. */
       patch(request: {
@@ -836,7 +836,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAssuredworkloadsV1Workload
+        body: GoogleCloudAssuredworkloadsV1Workload,
       ): Request<GoogleCloudAssuredworkloadsV1Workload>;
       /** Restrict the list of resources allowed in the Workload environment. The current list of allowed products can be found at https://cloud.google.com/assured-workloads/docs/supported-products In addition to assuredworkloads.workload.update permission, the user should also have orgpolicy.policy.set permission on the folder resource to use this functionality. */
       restrictAllowedResources(request: {
@@ -894,7 +894,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest
+        body: GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest,
       ): Request<{}>;
       violations: ViolationsResource;
     }

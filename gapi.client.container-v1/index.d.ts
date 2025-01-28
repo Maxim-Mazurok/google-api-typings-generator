@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Kubernetes Engine API v1 */
   function load(
-    urlOrObject: 'https://container.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://container.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'container', version: 'v1'): Promise<void>;
@@ -2076,7 +2076,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CompleteNodePoolUpgradeRequest
+        body: CompleteNodePoolUpgradeRequest,
       ): Request<{}>;
       /** Creates a node pool for a cluster. */
       create(request: {
@@ -2134,7 +2134,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateNodePoolRequest
+        body: CreateNodePoolRequest,
       ): Request<Operation>;
       /** Deletes a node pool from a cluster. */
       delete(request?: {
@@ -2295,7 +2295,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RollbackNodePoolUpgradeRequest
+        body: RollbackNodePoolUpgradeRequest,
       ): Request<Operation>;
       /** Sets the autoscaling settings for the specified node pool. */
       setAutoscaling(request: {
@@ -2353,7 +2353,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetNodePoolAutoscalingRequest
+        body: SetNodePoolAutoscalingRequest,
       ): Request<Operation>;
       /** Sets the NodeManagement options for a node pool. */
       setManagement(request: {
@@ -2411,7 +2411,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetNodePoolManagementRequest
+        body: SetNodePoolManagementRequest,
       ): Request<Operation>;
       /** Sets the size for a specific node pool. The new size will be used for all replicas, including future replicas created by modifying NodePool.locations. */
       setSize(request: {
@@ -2469,7 +2469,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetNodePoolSizeRequest
+        body: SetNodePoolSizeRequest,
       ): Request<Operation>;
       /** Updates the version and/or image type for the specified node pool. */
       update(request: {
@@ -2527,7 +2527,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateNodePoolRequest
+        body: UpdateNodePoolRequest,
       ): Request<Operation>;
     }
     interface WellKnownResource {
@@ -2643,7 +2643,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CompleteIPRotationRequest
+        body: CompleteIPRotationRequest,
       ): Request<Operation>;
       /** Creates a cluster, consisting of the specified number and type of Google Compute Engine instances. By default, the cluster is created in the project's [default network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks). One firewall is added for the cluster. After cluster creation, the Kubelet creates routes for each node to allow the containers on that node to communicate with all other instances in the cluster. Finally, an entry is added to the project's global metadata indicating which CIDR range the cluster is using. */
       create(request: {
@@ -2701,7 +2701,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateClusterRequest
+        body: CreateClusterRequest,
       ): Request<Operation>;
       /** Deletes the cluster, including the Kubernetes endpoint and all worker nodes. Firewalls and routes that were configured during cluster creation are also deleted. Other Google Compute Engine resources that might be in use by the cluster, such as load balancer resources, are not deleted if they weren't present when the cluster was initially created. */
       delete(request?: {
@@ -2883,7 +2883,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetAddonsConfigRequest
+        body: SetAddonsConfigRequest,
       ): Request<Operation>;
       /** Enables or disables the ABAC authorization mechanism on a cluster. */
       setLegacyAbac(request: {
@@ -2941,7 +2941,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetLegacyAbacRequest
+        body: SetLegacyAbacRequest,
       ): Request<Operation>;
       /** Sets the locations for a specific cluster. Deprecated. Use [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update) instead. */
       setLocations(request: {
@@ -2999,7 +2999,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetLocationsRequest
+        body: SetLocationsRequest,
       ): Request<Operation>;
       /** Sets the logging service for a specific cluster. */
       setLogging(request: {
@@ -3057,7 +3057,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetLoggingServiceRequest
+        body: SetLoggingServiceRequest,
       ): Request<Operation>;
       /** Sets the maintenance policy for a cluster. */
       setMaintenancePolicy(request: {
@@ -3115,7 +3115,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetMaintenancePolicyRequest
+        body: SetMaintenancePolicyRequest,
       ): Request<Operation>;
       /** Sets master auth materials. Currently supports changing the admin password or a specific cluster, either via password generation or explicitly setting the password. */
       setMasterAuth(request: {
@@ -3173,7 +3173,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetMasterAuthRequest
+        body: SetMasterAuthRequest,
       ): Request<Operation>;
       /** Sets the monitoring service for a specific cluster. */
       setMonitoring(request: {
@@ -3231,7 +3231,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetMonitoringServiceRequest
+        body: SetMonitoringServiceRequest,
       ): Request<Operation>;
       /** Enables or disables Network Policy for a cluster. */
       setNetworkPolicy(request: {
@@ -3289,7 +3289,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetNetworkPolicyRequest
+        body: SetNetworkPolicyRequest,
       ): Request<Operation>;
       /** Sets labels on a cluster. */
       setResourceLabels(request: {
@@ -3347,7 +3347,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetLabelsRequest
+        body: SetLabelsRequest,
       ): Request<Operation>;
       /** Starts master IP rotation. */
       startIpRotation(request: {
@@ -3405,7 +3405,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartIPRotationRequest
+        body: StartIPRotationRequest,
       ): Request<Operation>;
       /** Updates the settings of a specific cluster. */
       update(request: {
@@ -3463,7 +3463,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateClusterRequest
+        body: UpdateClusterRequest,
       ): Request<Operation>;
       /** Updates the master for a specific cluster. */
       updateMaster(request: {
@@ -3521,7 +3521,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateMasterRequest
+        body: UpdateMasterRequest,
       ): Request<Operation>;
       nodePools: NodePoolsResource;
       'well-known': WellKnownResource;
@@ -3583,7 +3583,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the specified operation. */
       get(request?: {
@@ -3754,7 +3754,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: SetNodePoolAutoscalingRequest
+        body: SetNodePoolAutoscalingRequest,
       ): Request<Operation>;
       /** Creates a node pool for a cluster. */
       create(request: {
@@ -3820,7 +3820,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the parent field. */
           zone: string;
         },
-        body: CreateNodePoolRequest
+        body: CreateNodePoolRequest,
       ): Request<Operation>;
       /** Deletes a node pool from a cluster. */
       delete(request?: {
@@ -3993,7 +3993,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: RollbackNodePoolUpgradeRequest
+        body: RollbackNodePoolUpgradeRequest,
       ): Request<Operation>;
       /** Sets the NodeManagement options for a node pool. */
       setManagement(request: {
@@ -4063,7 +4063,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: SetNodePoolManagementRequest
+        body: SetNodePoolManagementRequest,
       ): Request<Operation>;
       /** Sets the size for a specific node pool. The new size will be used for all replicas, including future replicas created by modifying NodePool.locations. */
       setSize(request: {
@@ -4133,7 +4133,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: SetNodePoolSizeRequest
+        body: SetNodePoolSizeRequest,
       ): Request<Operation>;
       /** Updates the version and/or image type for the specified node pool. */
       update(request: {
@@ -4203,7 +4203,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: UpdateNodePoolRequest
+        body: UpdateNodePoolRequest,
       ): Request<Operation>;
     }
     interface ClustersResource {
@@ -4271,7 +4271,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: SetAddonsConfigRequest
+        body: SetAddonsConfigRequest,
       ): Request<Operation>;
       /** Completes master IP rotation. */
       completeIpRotation(request: {
@@ -4337,7 +4337,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: CompleteIPRotationRequest
+        body: CompleteIPRotationRequest,
       ): Request<Operation>;
       /** Creates a cluster, consisting of the specified number and type of Google Compute Engine instances. By default, the cluster is created in the project's [default network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks). One firewall is added for the cluster. After cluster creation, the Kubelet creates routes for each node to allow the containers on that node to communicate with all other instances in the cluster. Finally, an entry is added to the project's global metadata indicating which CIDR range the cluster is using. */
       create(request: {
@@ -4399,7 +4399,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the parent field. */
           zone: string;
         },
-        body: CreateClusterRequest
+        body: CreateClusterRequest,
       ): Request<Operation>;
       /** Deletes the cluster, including the Kubernetes endpoint and all worker nodes. Firewalls and routes that were configured during cluster creation are also deleted. Other Google Compute Engine resources that might be in use by the cluster, such as load balancer resources, are not deleted if they weren't present when the cluster was initially created. */
       delete(request?: {
@@ -4531,7 +4531,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: SetLegacyAbacRequest
+        body: SetLegacyAbacRequest,
       ): Request<Operation>;
       /** Lists all clusters owned by a project in either the specified zone or all zones. */
       list(request?: {
@@ -4628,7 +4628,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: SetLocationsRequest
+        body: SetLocationsRequest,
       ): Request<Operation>;
       /** Sets the logging service for a specific cluster. */
       logging(request: {
@@ -4694,7 +4694,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: SetLoggingServiceRequest
+        body: SetLoggingServiceRequest,
       ): Request<Operation>;
       /** Updates the master for a specific cluster. */
       master(request: {
@@ -4760,7 +4760,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: UpdateMasterRequest
+        body: UpdateMasterRequest,
       ): Request<Operation>;
       /** Sets the monitoring service for a specific cluster. */
       monitoring(request: {
@@ -4826,7 +4826,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: SetMonitoringServiceRequest
+        body: SetMonitoringServiceRequest,
       ): Request<Operation>;
       /** Sets labels on a cluster. */
       resourceLabels(request: {
@@ -4892,7 +4892,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: SetLabelsRequest
+        body: SetLabelsRequest,
       ): Request<Operation>;
       /** Sets the maintenance policy for a cluster. */
       setMaintenancePolicy(request: {
@@ -4958,7 +4958,7 @@ declare namespace gapi.client {
           /** Required. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. */
           zone: string;
         },
-        body: SetMaintenancePolicyRequest
+        body: SetMaintenancePolicyRequest,
       ): Request<Operation>;
       /** Sets master auth materials. Currently supports changing the admin password or a specific cluster, either via password generation or explicitly setting the password. */
       setMasterAuth(request: {
@@ -5024,7 +5024,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: SetMasterAuthRequest
+        body: SetMasterAuthRequest,
       ): Request<Operation>;
       /** Enables or disables Network Policy for a cluster. */
       setNetworkPolicy(request: {
@@ -5090,7 +5090,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: SetNetworkPolicyRequest
+        body: SetNetworkPolicyRequest,
       ): Request<Operation>;
       /** Starts master IP rotation. */
       startIpRotation(request: {
@@ -5156,7 +5156,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: StartIPRotationRequest
+        body: StartIPRotationRequest,
       ): Request<Operation>;
       /** Updates the settings of a specific cluster. */
       update(request: {
@@ -5222,7 +5222,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: UpdateClusterRequest
+        body: UpdateClusterRequest,
       ): Request<Operation>;
       nodePools: NodePoolsResource;
     }
@@ -5291,7 +5291,7 @@ declare namespace gapi.client {
           /** Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the operation resides. This field has been deprecated and replaced by the name field. */
           zone: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the specified operation. */
       get(request?: {

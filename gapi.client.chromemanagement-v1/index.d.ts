@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Chrome Management API v1 */
   function load(
-    urlOrObject: 'https://chromemanagement.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://chromemanagement.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'chromemanagement', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'chromemanagement',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace chromemanagement {
@@ -2123,7 +2123,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromeManagementV1TelemetryNotificationConfig
+        body: GoogleChromeManagementV1TelemetryNotificationConfig,
       ): Request<GoogleChromeManagementV1TelemetryNotificationConfig>;
       /** Delete a telemetry notification config. */
       delete(request?: {

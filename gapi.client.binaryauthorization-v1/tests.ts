@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://binaryauthorization.googleapis.com/$discovery/rest?version=v1'
+    'https://binaryauthorization.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.binaryauthorization */
 
@@ -84,7 +84,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates an attestor, and returns a copy of the new attestor. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed, `ALREADY_EXISTS` if the attestor already exists. */
     await gapi.client.binaryauthorization.projects.attestors.create(
@@ -113,7 +113,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Deletes an attestor. Returns `NOT_FOUND` if the attestor does not exist. */
     await gapi.client.binaryauthorization.projects.attestors.delete({
@@ -156,7 +156,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.binaryauthorization.projects.attestors.testIamPermissions(
@@ -165,7 +165,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates an attestor. Returns `NOT_FOUND` if the attestor does not exist. */
     await gapi.client.binaryauthorization.projects.attestors.update(
@@ -193,7 +193,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Returns whether the given `Attestation` for the given image URI was signed by the given `Attestor` */
     await gapi.client.binaryauthorization.projects.attestors.validateAttestationOccurrence(
@@ -217,7 +217,7 @@ gapi.load('client', async () => {
         },
         occurrenceNote: 'Test string',
         occurrenceResourceUri: 'Test string',
-      }
+      },
     );
     /** Evaluates a Kubernetes object versus a GKE platform policy. Returns `NOT_FOUND` if the policy doesn't exist, `INVALID_ARGUMENT` if the policy or request is malformed and `PERMISSION_DENIED` if the client does not have sufficient permissions. */
     await gapi.client.binaryauthorization.projects.platforms.gke.policies.evaluate(
@@ -228,7 +228,7 @@ gapi.load('client', async () => {
         resource: {
           A: 42,
         },
-      }
+      },
     );
     /** Creates a platform policy, and returns a copy of it. Returns `NOT_FOUND` if the project or platform doesn't exist, `INVALID_ARGUMENT` if the request is malformed, `ALREADY_EXISTS` if the policy already exists, and `INVALID_ARGUMENT` if the policy contains a platform-specific policy that does not match the platform value specified in the URL. */
     await gapi.client.binaryauthorization.projects.platforms.policies.create(
@@ -323,7 +323,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a platform policy. Returns `NOT_FOUND` if the policy doesn't exist. */
     await gapi.client.binaryauthorization.projects.platforms.policies.delete({
@@ -432,7 +432,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
@@ -461,7 +461,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.binaryauthorization.projects.policy.testIamPermissions(
@@ -470,7 +470,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the current system policy in the specified location. */
     await gapi.client.binaryauthorization.systempolicy.getPolicy({

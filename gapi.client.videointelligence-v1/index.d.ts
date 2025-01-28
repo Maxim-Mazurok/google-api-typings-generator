@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Video Intelligence API v1 */
   function load(
-    urlOrObject: 'https://videointelligence.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://videointelligence.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'videointelligence', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'videointelligence',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace videointelligence {
@@ -1717,7 +1717,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunning_CancelOperationRequest
+        body: GoogleLongrunning_CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -1866,7 +1866,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVideointelligenceV1_AnnotateVideoRequest
+        body: GoogleCloudVideointelligenceV1_AnnotateVideoRequest,
       ): Request<GoogleLongrunning_Operation>;
     }
 

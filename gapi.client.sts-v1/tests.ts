@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://sts.googleapis.com/$discovery/rest?version=v1'
+    'https://sts.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.sts */
 
@@ -27,7 +27,7 @@ gapi.load('client', async () => {
         scope: 'Test string',
         subjectToken: 'Test string',
         subjectTokenType: 'Test string',
-      }
+      },
     );
   }
 });

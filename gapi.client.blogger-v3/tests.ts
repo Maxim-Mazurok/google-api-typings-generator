@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://blogger.googleapis.com/$discovery/rest?version=v3'
+    'https://blogger.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.blogger */
 
@@ -152,7 +152,7 @@ gapi.load('client', async () => {
         trashed: 'Test string',
         updated: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Lists pages. */
     await gapi.client.blogger.pages.list({
@@ -194,7 +194,7 @@ gapi.load('client', async () => {
         trashed: 'Test string',
         updated: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Publishes a page. */
     await gapi.client.blogger.pages.publish({
@@ -237,7 +237,7 @@ gapi.load('client', async () => {
         trashed: 'Test string',
         updated: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Gets page views by blog id. */
     await gapi.client.blogger.pageViews.get({
@@ -344,7 +344,7 @@ gapi.load('client', async () => {
         trashed: 'Test string',
         updated: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Lists posts. */
     await gapi.client.blogger.posts.list({
@@ -442,7 +442,7 @@ gapi.load('client', async () => {
         trashed: 'Test string',
         updated: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Publishes a post. */
     await gapi.client.blogger.posts.publish({
@@ -543,7 +543,7 @@ gapi.load('client', async () => {
         trashed: 'Test string',
         updated: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Gets one post and user info pair, by post_id and user_id. */
     await gapi.client.blogger.postUserInfos.get({

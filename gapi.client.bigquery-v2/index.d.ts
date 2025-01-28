@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load BigQuery API v2 */
   function load(
-    urlOrObject: 'https://bigquery.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://bigquery.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'bigquery', version: 'v2'): Promise<void>;
@@ -2853,7 +2853,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Dataset
+        body: Dataset,
       ): Request<Dataset>;
       /** Lists all datasets in the specified project to which the user has been granted the READER dataset role. */
       list(request?: {
@@ -2954,7 +2954,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Dataset
+        body: Dataset,
       ): Request<Dataset>;
       /** Undeletes a dataset which is within time travel window based on datasetId. If a time is specified, the dataset version deleted at that time is undeleted, else the last live version is undeleted. */
       undelete(request: {
@@ -3016,7 +3016,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteDatasetRequest
+        body: UndeleteDatasetRequest,
       ): Request<Dataset>;
       /** Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. */
       update(request: {
@@ -3082,7 +3082,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Dataset
+        body: Dataset,
       ): Request<Dataset>;
     }
     interface JobsResource {
@@ -3276,7 +3276,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       /** Lists all jobs that you started in the specified project. Job information is available for a six month period after creation. The job list is sorted in reverse chronological order, by job creation time. Requires the Can View project role, or the Is Owner project role if you set the allUsers property. */
       list(request?: {
@@ -3377,7 +3377,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryRequest
+        body: QueryRequest,
       ): Request<QueryResponse>;
     }
     interface ModelsResource {
@@ -3540,7 +3540,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Model
+        body: Model,
       ): Request<Model>;
     }
     interface ProjectsResource {
@@ -3694,7 +3694,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Creates a new routine in the dataset. */
       insert(request: {
@@ -3756,7 +3756,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Routine
+        body: Routine,
       ): Request<Routine>;
       /** Lists all routines in the specified dataset. Requires the READER dataset role. */
       list(request?: {
@@ -3823,7 +3823,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Updates information in an existing routine. The update method replaces the entire Routine resource. */
       update(request: {
@@ -3889,7 +3889,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Routine
+        body: Routine,
       ): Request<Routine>;
     }
     interface RowAccessPoliciesResource {
@@ -3921,7 +3921,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists all row access policies on the specified table. */
       list(request?: {
@@ -3986,7 +3986,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface TabledataResource {
@@ -4054,7 +4054,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TableDataInsertAllRequest
+        body: TableDataInsertAllRequest,
       ): Request<TableDataInsertAllResponse>;
       /** List the content of a table in rows. */
       list(request?: {
@@ -4193,7 +4193,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Creates a new, empty table in the dataset. */
       insert(request: {
@@ -4255,7 +4255,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Table
+        body: Table,
       ): Request<Table>;
       /** Lists all tables in the specified dataset. Requires the READER dataset role. */
       list(request?: {
@@ -4358,7 +4358,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Table
+        body: Table,
       ): Request<Table>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -4388,7 +4388,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -4418,7 +4418,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Updates information in an existing table. The update method replaces the entire Table resource, whereas the patch method only replaces fields that are provided in the submitted Table resource. */
       update(request: {
@@ -4488,7 +4488,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Table
+        body: Table,
       ): Request<Table>;
     }
 

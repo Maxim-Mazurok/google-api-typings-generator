@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://businessprofileperformance.googleapis.com/$discovery/rest?version=v1'
+    'https://businessprofileperformance.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.businessprofileperformance */
 
@@ -27,7 +27,7 @@ gapi.load('client', async () => {
         'dailyRange.startDate.month': 42,
         'dailyRange.startDate.year': 42,
         location: 'Test string',
-      }
+      },
     );
     /** Returns the values for each date from a given time range that are associated with the specific daily metric. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345:getDailyMetricsTimeSeries?dailyMetric=WEBSITE_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31` */
     await gapi.client.businessprofileperformance.locations.getDailyMetricsTimeSeries(
@@ -45,7 +45,7 @@ gapi.load('client', async () => {
         'dailySubEntityType.timeOfDay.nanos': 42,
         'dailySubEntityType.timeOfDay.seconds': 42,
         name: 'Test string',
-      }
+      },
     );
     /** Returns the search keywords used to find a business in search or maps. Each search keyword is accompanied by impressions which are aggregated on a monthly basis. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345/searchkeywords/impressions/monthly?monthly_range.start_month.year=2022&monthly_range.start_month.month=1&monthly_range.end_month.year=2022&monthly_range.end_month.month=3` */
     await gapi.client.businessprofileperformance.locations.searchkeywords.impressions.monthly.list(
@@ -59,7 +59,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

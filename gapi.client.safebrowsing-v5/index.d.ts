@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Safe Browsing API v5 */
   function load(
-    urlOrObject: 'https://safebrowsing.googleapis.com/$discovery/rest?version=v5'
+    urlOrObject: 'https://safebrowsing.googleapis.com/$discovery/rest?version=v5',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'safebrowsing', version: 'v5'): Promise<void>;

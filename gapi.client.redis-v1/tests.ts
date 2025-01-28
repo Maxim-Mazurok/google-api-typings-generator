@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://redis.googleapis.com/$discovery/rest?version=v1'
+    'https://redis.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.redis */
 
@@ -57,7 +57,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Exports a specific backup to a customer target Cloud Storage URI. */
     await gapi.client.redis.projects.locations.backupCollections.backups.export(
@@ -66,7 +66,7 @@ gapi.load('client', async () => {
       },
       {
         gcsBucket: 'Test string',
-      }
+      },
     );
     /** Gets the details of a specific backup. */
     await gapi.client.redis.projects.locations.backupCollections.backups.get({
@@ -86,7 +86,7 @@ gapi.load('client', async () => {
       {
         backupId: 'Test string',
         ttl: 'Test string',
-      }
+      },
     );
     /** Creates a Redis cluster based on the specified properties. The creation is executed asynchronously and callers may check the returned operation to track its progress. Once the operation is completed the Redis cluster will be fully functional. The completed longrunning.Operation will contain the new cluster object in the response field. The returned operation is automatically deleted after a few hours, so there is no need to call DeleteOperation. */
     await gapi.client.redis.projects.locations.clusters.create(
@@ -263,7 +263,7 @@ gapi.load('client', async () => {
           mode: 'Test string',
           zone: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a specific Redis cluster. Cluster stops serving and data is deleted. */
     await gapi.client.redis.projects.locations.clusters.delete({
@@ -278,7 +278,7 @@ gapi.load('client', async () => {
     await gapi.client.redis.projects.locations.clusters.getCertificateAuthority(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Redis clusters owned by a project in either the specified location (region) or all locations. The location should have the following format: * `projects/{project_id}/locations/{location_id}` If `location_id` is specified as `-` (wildcard), then all regions available to the project are queried, and the results are aggregated. */
     await gapi.client.redis.projects.locations.clusters.list({
@@ -461,7 +461,7 @@ gapi.load('client', async () => {
           mode: 'Test string',
           zone: 'Test string',
         },
-      }
+      },
     );
     /** Reschedules upcoming maintenance event. */
     await gapi.client.redis.projects.locations.clusters.rescheduleClusterMaintenance(
@@ -471,7 +471,7 @@ gapi.load('client', async () => {
       {
         rescheduleType: 'Test string',
         scheduleTime: 'Test string',
-      }
+      },
     );
     /** Creates a Redis instance based on the specified tier and memory size. By default, the instance is accessible from the project's [default network](https://cloud.google.com/vpc/docs/vpc). The creation is executed asynchronously and callers may check the returned operation to track its progress. Once the operation is completed the Redis instance will be fully functional. Completed longrunning.Operation will contain the new instance object in the response field. The returned operation is automatically deleted after a few hours, so there is no need to call DeleteOperation. */
     await gapi.client.redis.projects.locations.instances.create(
@@ -560,7 +560,7 @@ gapi.load('client', async () => {
         suspensionReasons: ['Test string'],
         tier: 'Test string',
         transitEncryptionMode: 'Test string',
-      }
+      },
     );
     /** Deletes a specific Redis instance. Instance stops serving and data is deleted. */
     await gapi.client.redis.projects.locations.instances.delete({
@@ -577,7 +577,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Initiates a failover of the primary node to current replica node for a specific STANDARD tier Cloud Memorystore for Redis instance. */
     await gapi.client.redis.projects.locations.instances.failover(
@@ -586,7 +586,7 @@ gapi.load('client', async () => {
       },
       {
         dataProtectionMode: 'Test string',
-      }
+      },
     );
     /** Gets the details of a specific Redis instance. */
     await gapi.client.redis.projects.locations.instances.get({
@@ -607,7 +607,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Lists all Redis instances owned by a project in either the specified location (region) or all locations. The location should have the following format: * `projects/{project_id}/locations/{location_id}` If `location_id` is specified as `-` (wildcard), then all regions available to the project are queried, and the results are aggregated. */
     await gapi.client.redis.projects.locations.instances.list({
@@ -702,7 +702,7 @@ gapi.load('client', async () => {
         suspensionReasons: ['Test string'],
         tier: 'Test string',
         transitEncryptionMode: 'Test string',
-      }
+      },
     );
     /** Reschedule maintenance for a given instance in a given project and location. */
     await gapi.client.redis.projects.locations.instances.rescheduleMaintenance(
@@ -712,7 +712,7 @@ gapi.load('client', async () => {
       {
         rescheduleType: 'Test string',
         scheduleTime: 'Test string',
-      }
+      },
     );
     /** Upgrades Redis instance to the newer Redis version specified in the request. */
     await gapi.client.redis.projects.locations.instances.upgrade(
@@ -721,7 +721,7 @@ gapi.load('client', async () => {
       },
       {
         redisVersion: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.redis.projects.locations.operations.cancel({

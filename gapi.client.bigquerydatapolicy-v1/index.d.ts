@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load BigQuery Data Policy API v1 */
   function load(
-    urlOrObject: 'https://bigquerydatapolicy.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://bigquerydatapolicy.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'bigquerydatapolicy', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'bigquerydatapolicy',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace bigquerydatapolicy {
@@ -176,7 +176,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DataPolicy
+        body: DataPolicy,
       ): Request<DataPolicy>;
       /** Deletes the data policy specified by its resource name. */
       delete(request?: {
@@ -262,7 +262,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** List all of the data policies in the specified parent project. */
       list(request?: {
@@ -361,7 +361,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DataPolicy
+        body: DataPolicy,
       ): Request<DataPolicy>;
       /** Renames the id (display name) of the specified data policy. */
       rename(request: {
@@ -419,7 +419,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RenameDataPolicyRequest
+        body: RenameDataPolicyRequest,
       ): Request<DataPolicy>;
       /** Sets the IAM policy for the specified data policy. */
       setIamPolicy(
@@ -449,7 +449,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns the caller's permission on the specified data policy resource. */
       testIamPermissions(
@@ -479,7 +479,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface LocationsResource {

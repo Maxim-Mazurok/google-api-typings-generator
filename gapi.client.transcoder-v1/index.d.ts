@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Transcoder API v1 */
   function load(
-    urlOrObject: 'https://transcoder.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://transcoder.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'transcoder', version: 'v1'): Promise<void>;
@@ -637,7 +637,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       /** Deletes a job. */
       delete(request?: {
@@ -792,7 +792,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: JobTemplate
+        body: JobTemplate,
       ): Request<JobTemplate>;
       /** Deletes a job template. */
       delete(request?: {

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Identity Toolkit API v2 */
   function load(
-    urlOrObject: 'https://identitytoolkit.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://identitytoolkit.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'identitytoolkit', version: 'v2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'identitytoolkit',
     version: 'v2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace identitytoolkit {
@@ -855,7 +855,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitV2FinalizeMfaEnrollmentRequest
+        body: GoogleCloudIdentitytoolkitV2FinalizeMfaEnrollmentRequest,
       ): Request<GoogleCloudIdentitytoolkitV2FinalizeMfaEnrollmentResponse>;
       /** Step one of the MFA enrollment process. In SMS case, this sends an SMS verification code to the user. */
       start(request: {
@@ -909,7 +909,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitV2StartMfaEnrollmentRequest
+        body: GoogleCloudIdentitytoolkitV2StartMfaEnrollmentRequest,
       ): Request<GoogleCloudIdentitytoolkitV2StartMfaEnrollmentResponse>;
       /** Revokes one second factor from the enrolled second factors for an account. */
       withdraw(request: {
@@ -963,7 +963,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitV2WithdrawMfaRequest
+        body: GoogleCloudIdentitytoolkitV2WithdrawMfaRequest,
       ): Request<GoogleCloudIdentitytoolkitV2WithdrawMfaResponse>;
     }
     interface MfaSignInResource {
@@ -1019,7 +1019,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitV2FinalizeMfaSignInRequest
+        body: GoogleCloudIdentitytoolkitV2FinalizeMfaSignInRequest,
       ): Request<GoogleCloudIdentitytoolkitV2FinalizeMfaSignInResponse>;
       /** Sends the MFA challenge */
       start(request: {
@@ -1073,7 +1073,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitV2StartMfaSignInRequest
+        body: GoogleCloudIdentitytoolkitV2StartMfaSignInRequest,
       ): Request<GoogleCloudIdentitytoolkitV2StartMfaSignInResponse>;
     }
     interface AccountsResource {
@@ -1129,7 +1129,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitV2RevokeTokenRequest
+        body: GoogleCloudIdentitytoolkitV2RevokeTokenRequest,
       ): Request<{}>;
       mfaEnrollment: MfaEnrollmentResource;
       mfaSignIn: MfaSignInResource;
@@ -1226,7 +1226,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig
+        body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
       /** Delete a default supported Idp configuration for an Identity Toolkit project. */
       delete(request?: {
@@ -1373,7 +1373,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig
+        body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
     }
     interface IdentityPlatformResource {
@@ -1433,7 +1433,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2InitializeIdentityPlatformRequest
+        body: GoogleCloudIdentitytoolkitAdminV2InitializeIdentityPlatformRequest,
       ): Request<{}>;
     }
     interface InboundSamlConfigsResource {
@@ -1497,7 +1497,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig
+        body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
       /** Delete an inbound SAML configuration for an Identity Toolkit project. */
       delete(request?: {
@@ -1644,7 +1644,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig
+        body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
     }
     interface OauthIdpConfigsResource {
@@ -1708,7 +1708,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig
+        body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
       /** Delete an Oidc Idp configuration for an Identity Toolkit project. */
       delete(request?: {
@@ -1855,7 +1855,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig
+        body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
     }
     interface DefaultSupportedIdpConfigsResource {
@@ -1919,7 +1919,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig
+        body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
       /** Delete a default supported Idp configuration for an Identity Toolkit project. */
       delete(request?: {
@@ -2066,7 +2066,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig
+        body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
     }
     interface InboundSamlConfigsResource {
@@ -2130,7 +2130,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig
+        body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
       /** Delete an inbound SAML configuration for an Identity Toolkit project. */
       delete(request?: {
@@ -2277,7 +2277,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig
+        body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
     }
     interface OauthIdpConfigsResource {
@@ -2341,7 +2341,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig
+        body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
       /** Delete an Oidc Idp configuration for an Identity Toolkit project. */
       delete(request?: {
@@ -2488,7 +2488,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig
+        body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig,
       ): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
     }
     interface TenantsResource {
@@ -2548,7 +2548,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2Tenant
+        body: GoogleCloudIdentitytoolkitAdminV2Tenant,
       ): Request<GoogleCloudIdentitytoolkitAdminV2Tenant>;
       /** Delete a tenant. Requires write permission on the Agent project. */
       delete(request?: {
@@ -2632,7 +2632,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1GetIamPolicyRequest
+        body: GoogleIamV1GetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** List tenants under the given agent project. Requires read permission on the Agent project. */
       list(request?: {
@@ -2725,7 +2725,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2Tenant
+        body: GoogleCloudIdentitytoolkitAdminV2Tenant,
       ): Request<GoogleCloudIdentitytoolkitAdminV2Tenant>;
       /** Sets the access control policy for a resource. If the policy exists, it is replaced. Caller must have the right Google IAM permission on the resource. */
       setIamPolicy(
@@ -2755,7 +2755,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns the caller's permissions on a resource. An error is returned if the resource does not exist. A caller is not required to have Google IAM permission to make this request. */
       testIamPermissions(
@@ -2785,7 +2785,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
       defaultSupportedIdpConfigs: DefaultSupportedIdpConfigsResource;
       inboundSamlConfigs: InboundSamlConfigsResource;
@@ -2879,7 +2879,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIdentitytoolkitAdminV2Config
+        body: GoogleCloudIdentitytoolkitAdminV2Config,
       ): Request<GoogleCloudIdentitytoolkitAdminV2Config>;
       defaultSupportedIdpConfigs: DefaultSupportedIdpConfigsResource;
       identityPlatform: IdentityPlatformResource;

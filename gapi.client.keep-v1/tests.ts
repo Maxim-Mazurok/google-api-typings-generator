@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://keep.googleapis.com/$discovery/rest?version=v1'
+    'https://keep.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.keep */
 
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
         trashed: true,
         trashTime: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a note. Caller must have the `OWNER` role on the note to delete. Deleting a note removes the resource immediately and cannot be undone. Any collaborators will lose access to the note. */
     await gapi.client.keep.notes.delete({
@@ -125,7 +125,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Deletes one or more permissions on the note. The specified entities will immediately lose access. A permission with the `OWNER` role can't be removed. If removing a permission fails, then the entire request fails and no changes are made. Returns a 400 bad request error if a specified permission does not exist on the note. */
     await gapi.client.keep.notes.permissions.batchDelete(
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
       },
       {
         names: ['Test string'],
-      }
+      },
     );
   }
 });

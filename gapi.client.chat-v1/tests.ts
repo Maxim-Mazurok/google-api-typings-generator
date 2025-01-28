@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://chat.googleapis.com/$discovery/rest?version=v1'
+    'https://chat.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.chat */
 
@@ -92,14 +92,14 @@ gapi.load('client', async () => {
       },
       {
         filename: 'Test string',
-      }
+      },
     );
     /** Completes the [import process](https://developers.google.com/workspace/chat/import-data) for the specified space and makes it visible to users. Requires [app authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) and domain-wide delegation. For more information, see [Authorize Google Chat apps to import data](https://developers.google.com/workspace/chat/authorize-import). */
     await gapi.client.chat.spaces.completeImport(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a space. Can be used to create a named space, or a group chat in `Import mode`. For an example, see [Create a space](https://developers.google.com/workspace/chat/create-spaces). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) with [administrator approval](https://support.google.com/a?p=chat-app-auth) in [Developer Preview](https://developers.google.com/workspace/preview) - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) When authenticating as an app, the `space.customer` field must be set in the request. Space membership upon creation depends on whether the space is created in `Import mode`: * **Import mode:** No members are created. * **All other modes:** The calling user is added as a member. This is: * The app itself when using app authentication. * The human user when using user authentication. If you receive the error message `ALREADY_EXISTS` when creating a space, try a different `displayName`. An existing space within the Google Workspace organization might already use this display name. */
     await gapi.client.chat.spaces.create(
@@ -169,7 +169,7 @@ gapi.load('client', async () => {
         spaceUri: 'Test string',
         threaded: true,
         type: 'Test string',
-      }
+      },
     );
     /** Deletes a named space. Always performs a cascading delete, which means that the space's child resources—like messages posted in the space and memberships in the space—are also deleted. For an example, see [Delete a space](https://developers.google.com/workspace/chat/delete-spaces). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) with [administrator approval](https://support.google.com/a?p=chat-app-auth) in [Developer Preview](https://developers.google.com/workspace/preview) - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) You can authenticate and authorize this method with administrator privileges by setting the `use_admin_access` field in the request. */
     await gapi.client.chat.spaces.delete({
@@ -261,7 +261,7 @@ gapi.load('client', async () => {
         spaceUri: 'Test string',
         threaded: true,
         type: 'Test string',
-      }
+      },
     );
     /** Returns a list of spaces in a Google Workspace organization based on an administrator's search. Requires [user authentication with administrator privileges](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user#admin-privileges). In the request, set `use_admin_access` to `true`. */
     await gapi.client.chat.spaces.search({
@@ -359,7 +359,7 @@ gapi.load('client', async () => {
           threaded: true,
           type: 'Test string',
         },
-      }
+      },
     );
     /** Creates a membership for the calling Chat app, a user, or a Google Group. Creating memberships for other Chat apps isn't supported. When creating a membership, if the specified member has their auto-accept policy turned off, then they're invited, and must accept the space invitation before joining. Otherwise, creating a membership adds the member directly to the specified space. Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) with [administrator approval](https://support.google.com/a?p=chat-app-auth) in [Developer Preview](https://developers.google.com/workspace/preview) - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) You can authenticate and authorize this method with administrator privileges by setting the `use_admin_access` field in the request. For example usage, see: - [Invite or add a user to a space](https://developers.google.com/workspace/chat/create-members#create-user-membership). - [Invite or add a Google Group to a space](https://developers.google.com/workspace/chat/create-members#create-group-membership). - [Add the Chat app to a space](https://developers.google.com/workspace/chat/create-members#create-membership-calling-api). */
     await gapi.client.chat.spaces.members.create(
@@ -383,7 +383,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         role: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes a membership. For an example, see [Remove a user or a Google Chat app from a space](https://developers.google.com/workspace/chat/delete-members). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) with [administrator approval](https://support.google.com/a?p=chat-app-auth) in [Developer Preview](https://developers.google.com/workspace/preview) - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) You can authenticate and authorize this method with administrator privileges by setting the `use_admin_access` field in the request. */
     await gapi.client.chat.spaces.members.delete({
@@ -428,7 +428,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         role: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates a message in a Google Chat space. For an example, see [Send a message](https://developers.google.com/workspace/chat/create-messages). The `create()` method requires either [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) or [app authentication](https://developers.google.com/workspace/chat/authorize-import). Chat attributes the message sender differently depending on the type of authentication that you use in your request. The following image shows how Chat attributes a message when you use app authentication. Chat displays the Chat app as the message sender. The content of the message can contain text (`text`), cards (`cardsV2`), and accessory widgets (`accessoryWidgets`). ![Message sent with app authentication](https://developers.google.com/workspace/chat/images/message-app-auth.svg) The following image shows how Chat attributes a message when you use user authentication. Chat displays the user as the message sender and attributes the Chat app to the message by displaying its name. The content of message can only contain text (`text`). ![Message sent with user authentication](https://developers.google.com/workspace/chat/images/message-user-auth.svg) The maximum message size, including the message contents, is 32,000 bytes. For [webhook](https://developers.google.com/workspace/chat/quickstart/webhooks) requests, the response doesn't contain the full message. The response only populates the `name` and `thread.name` fields in addition to the information that was in the request. */
     await gapi.client.chat.spaces.messages.create(
@@ -5379,7 +5379,7 @@ gapi.load('client', async () => {
           threadKey: 'Test string',
         },
         threadReply: true,
-      }
+      },
     );
     /** Deletes a message. For an example, see [Delete a message](https://developers.google.com/workspace/chat/delete-messages). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) When using app authentication, requests can only delete messages created by the calling Chat app. */
     await gapi.client.chat.spaces.messages.delete({
@@ -10346,7 +10346,7 @@ gapi.load('client', async () => {
           threadKey: 'Test string',
         },
         threadReply: true,
-      }
+      },
     );
     /** Updates a message. There's a difference between the `patch` and `update` methods. The `patch` method uses a `patch` request while the `update` method uses a `put` request. We recommend using the `patch` method. For an example, see [Update a message](https://developers.google.com/workspace/chat/update-messages). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) When using app authentication, requests can only update messages created by the calling Chat app. */
     await gapi.client.chat.spaces.messages.update(
@@ -15295,7 +15295,7 @@ gapi.load('client', async () => {
           threadKey: 'Test string',
         },
         threadReply: true,
-      }
+      },
     );
     /** Gets the metadata of a message attachment. The attachment data is fetched using the [media API](https://developers.google.com/workspace/chat/api/reference/rest/v1/media/download). For an example, see [Get metadata about a message attachment](https://developers.google.com/workspace/chat/get-media-attachments). Requires [app authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app). */
     await gapi.client.chat.spaces.messages.attachments.get({
@@ -15321,7 +15321,7 @@ gapi.load('client', async () => {
           name: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a reaction to a message. Only unicode emojis are supported. For an example, see [Delete a reaction](https://developers.google.com/workspace/chat/delete-reactions). Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user). */
     await gapi.client.chat.spaces.messages.reactions.delete({
@@ -15358,7 +15358,7 @@ gapi.load('client', async () => {
       {
         lastReadTime: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Returns details about a user's read state within a thread, used to identify read and unread messages. For an example, see [Get details about a user's thread read state](https://developers.google.com/workspace/chat/get-thread-read-state). Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user). */
     await gapi.client.chat.users.spaces.threads.getThreadReadState({

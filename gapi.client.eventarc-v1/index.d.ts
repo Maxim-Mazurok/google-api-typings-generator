@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Eventarc API v1 */
   function load(
-    urlOrObject: 'https://eventarc.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://eventarc.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'eventarc', version: 'v1'): Promise<void>;
@@ -626,7 +626,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ChannelConnection
+        body: ChannelConnection,
       ): Request<GoogleLongrunningOperation>;
       /** Delete a single ChannelConnection. */
       delete(request?: {
@@ -770,7 +770,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -800,7 +800,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface ChannelsResource {
@@ -868,7 +868,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: Channel
+        body: Channel,
       ): Request<GoogleLongrunningOperation>;
       /** Delete a single channel. */
       delete(request?: {
@@ -1052,7 +1052,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: Channel
+        body: Channel,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1082,7 +1082,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1112,7 +1112,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface EnrollmentsResource {
@@ -1180,7 +1180,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: Enrollment
+        body: Enrollment,
       ): Request<GoogleLongrunningOperation>;
       /** Delete a single Enrollment. */
       delete(request?: {
@@ -1374,7 +1374,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: Enrollment
+        body: Enrollment,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1404,7 +1404,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1434,7 +1434,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface GoogleApiSourcesResource {
@@ -1502,7 +1502,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: GoogleApiSource
+        body: GoogleApiSource,
       ): Request<GoogleLongrunningOperation>;
       /** Delete a single GoogleApiSource. */
       delete(request?: {
@@ -1696,7 +1696,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: GoogleApiSource
+        body: GoogleApiSource,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1726,7 +1726,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1756,7 +1756,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface KafkaSourcesResource {
@@ -1817,7 +1817,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1847,7 +1847,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface MessageBusesResource {
@@ -1915,7 +1915,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: MessageBus
+        body: MessageBus,
       ): Request<GoogleLongrunningOperation>;
       /** Delete a single message bus. */
       delete(request?: {
@@ -2140,7 +2140,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: MessageBus
+        body: MessageBus,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2170,7 +2170,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2200,7 +2200,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface OperationsResource {
@@ -2260,7 +2260,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningCancelOperationRequest
+        body: GoogleLongrunningCancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -2415,7 +2415,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: Pipeline
+        body: Pipeline,
       ): Request<GoogleLongrunningOperation>;
       /** Delete a single pipeline. */
       delete(request?: {
@@ -2609,7 +2609,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: Pipeline
+        body: Pipeline,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2639,7 +2639,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2669,7 +2669,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface ProvidersResource {
@@ -2801,7 +2801,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: Trigger
+        body: Trigger,
       ): Request<GoogleLongrunningOperation>;
       /** Delete a single trigger. */
       delete(request?: {
@@ -2995,7 +2995,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not post it. */
           validateOnly?: boolean;
         },
-        body: Trigger
+        body: Trigger,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -3025,7 +3025,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3055,7 +3055,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface LocationsResource {
@@ -3206,7 +3206,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChannelConfig
+        body: GoogleChannelConfig,
       ): Request<GoogleChannelConfig>;
       channelConnections: ChannelConnectionsResource;
       channels: ChannelsResource;

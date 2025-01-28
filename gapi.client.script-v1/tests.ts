@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://script.googleapis.com/$discovery/rest?version=v1'
+    'https://script.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.script */
 
@@ -98,7 +98,7 @@ gapi.load('client', async () => {
       {
         parentId: 'Test string',
         title: 'Test string',
-      }
+      },
     );
     /** Gets a script project's metadata. */
     await gapi.client.script.projects.get({
@@ -145,7 +145,7 @@ gapi.load('client', async () => {
           },
         ],
         scriptId: 'Test string',
-      }
+      },
     );
     /** Creates a deployment of an Apps Script project. */
     await gapi.client.script.projects.deployments.create(
@@ -157,7 +157,7 @@ gapi.load('client', async () => {
         manifestFileName: 'Test string',
         scriptId: 'Test string',
         versionNumber: 42,
-      }
+      },
     );
     /** Deletes a deployment of an Apps Script project. */
     await gapi.client.script.projects.deployments.delete({
@@ -188,7 +188,7 @@ gapi.load('client', async () => {
           scriptId: 'Test string',
           versionNumber: 42,
         },
-      }
+      },
     );
     /** Creates a new immutable version using the current code, with a unique version number. */
     await gapi.client.script.projects.versions.create(
@@ -200,7 +200,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         scriptId: 'Test string',
         versionNumber: 42,
-      }
+      },
     );
     /** Gets a version of a script project. */
     await gapi.client.script.projects.versions.get({
@@ -223,7 +223,7 @@ gapi.load('client', async () => {
         function: 'Test string',
         parameters: [42],
         sessionState: 'Test string',
-      }
+      },
     );
   }
 });

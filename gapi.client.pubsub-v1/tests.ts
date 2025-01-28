@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://pubsub.googleapis.com/$discovery/rest?version=v1'
+    'https://pubsub.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.pubsub */
 
@@ -46,7 +46,7 @@ gapi.load('client', async () => {
           revisionId: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Creates a schema. */
     await gapi.client.pubsub.projects.schemas.create(
@@ -60,7 +60,7 @@ gapi.load('client', async () => {
         revisionCreateTime: 'Test string',
         revisionId: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Deletes a schema. */
     await gapi.client.pubsub.projects.schemas.delete({
@@ -102,7 +102,7 @@ gapi.load('client', async () => {
       },
       {
         revisionId: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.pubsub.projects.schemas.setIamPolicy(
@@ -126,7 +126,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.pubsub.projects.schemas.testIamPermissions(
@@ -135,7 +135,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Validates a schema. */
     await gapi.client.pubsub.projects.schemas.validate(
@@ -150,7 +150,7 @@ gapi.load('client', async () => {
           revisionId: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Validates a message against a schema. */
     await gapi.client.pubsub.projects.schemas.validateMessage(
@@ -168,7 +168,7 @@ gapi.load('client', async () => {
           revisionId: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Creates a snapshot from the requested subscription. Snapshots are used in [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot. If the snapshot already exists, returns `ALREADY_EXISTS`. If the requested subscription doesn't exist, returns `NOT_FOUND`. If the backlog in the subscription is too old -- and the resulting snapshot would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned. See also the `Snapshot.expire_time` field. If the name is not provided in the request, the server will assign a random name for this snapshot on the same project as the subscription, conforming to the [resource name format] (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The generated name is populated in the returned Snapshot object. Note that for REST API requests, you must specify a name in the request. */
     await gapi.client.pubsub.projects.snapshots.create(
@@ -180,7 +180,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         subscription: 'Test string',
-      }
+      },
     );
     /** Removes an existing snapshot. Snapshots are used in [Seek] (https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot. When the snapshot is deleted, all messages retained in the snapshot are immediately dropped. After a snapshot is deleted, a new one may be created with the same name, but the new one has no association with the old snapshot or its subscription, unless the same subscription is specified. */
     await gapi.client.pubsub.projects.snapshots.delete({
@@ -216,7 +216,7 @@ gapi.load('client', async () => {
           topic: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.pubsub.projects.snapshots.setIamPolicy(
@@ -240,7 +240,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.pubsub.projects.snapshots.testIamPermissions(
@@ -249,7 +249,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Acknowledges the messages associated with the `ack_ids` in the `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages from the subscription. Acknowledging a message whose ack deadline has expired may succeed, but such a message may be redelivered later. Acknowledging a message more than once will not result in an error. */
     await gapi.client.pubsub.projects.subscriptions.acknowledge(
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
       },
       {
         ackIds: ['Test string'],
-      }
+      },
     );
     /** Creates a subscription to a given topic. See the [resource name rules] (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). If the subscription already exists, returns `ALREADY_EXISTS`. If the corresponding topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the request, the server will assign a random name for this subscription on the same project as the topic, conforming to the [resource name format] (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The generated name is populated in the returned Subscription object. Note that for REST API requests, you must specify a name in the request. */
     await gapi.client.pubsub.projects.subscriptions.create(
@@ -334,7 +334,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         topic: 'Test string',
         topicMessageRetentionDuration: 'Test string',
-      }
+      },
     );
     /** Deletes an existing subscription. All messages retained in the subscription are immediately dropped. Calls to `Pull` after deletion will return `NOT_FOUND`. After a subscription is deleted, a new one may be created with the same name, but the new one has no association with the old subscription or its topic unless the same topic is specified. */
     await gapi.client.pubsub.projects.subscriptions.delete({
@@ -367,7 +367,7 @@ gapi.load('client', async () => {
       {
         ackDeadlineSeconds: 42,
         ackIds: ['Test string'],
-      }
+      },
     );
     /** Modifies the `PushConfig` for a specified subscription. This may be used to change a push subscription to a pull one (signified by an empty `PushConfig`) or vice versa, or change the endpoint URL and other attributes of a push subscription. Messages will accumulate for delivery continuously through the call regardless of changes to the `PushConfig`. */
     await gapi.client.pubsub.projects.subscriptions.modifyPushConfig(
@@ -389,7 +389,7 @@ gapi.load('client', async () => {
           pubsubWrapper: {},
           pushEndpoint: 'Test string',
         },
-      }
+      },
     );
     /** Updates an existing subscription by updating the fields specified in the update mask. Note that certain properties of a subscription, such as its topic, are not modifiable. */
     await gapi.client.pubsub.projects.subscriptions.patch(
@@ -468,7 +468,7 @@ gapi.load('client', async () => {
           topicMessageRetentionDuration: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Pulls messages from the server. */
     await gapi.client.pubsub.projects.subscriptions.pull(
@@ -478,7 +478,7 @@ gapi.load('client', async () => {
       {
         maxMessages: 42,
         returnImmediately: true,
-      }
+      },
     );
     /** Seeks an existing subscription to a point in time or to a given snapshot, whichever is provided in the request. Snapshots are used in [Seek] (https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot. Note that both the subscription and the snapshot must be on the same topic. */
     await gapi.client.pubsub.projects.subscriptions.seek(
@@ -488,7 +488,7 @@ gapi.load('client', async () => {
       {
         snapshot: 'Test string',
         time: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.pubsub.projects.subscriptions.setIamPolicy(
@@ -512,7 +512,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.pubsub.projects.subscriptions.testIamPermissions(
@@ -521,7 +521,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates the given topic with the given name. See the [resource name rules] (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). */
     await gapi.client.pubsub.projects.topics.create(
@@ -595,7 +595,7 @@ gapi.load('client', async () => {
           schema: 'Test string',
         },
         state: 'Test string',
-      }
+      },
     );
     /** Deletes the topic with the given name. Returns `NOT_FOUND` if the topic does not exist. After a topic is deleted, a new topic may be created with the same name; this is an entirely new topic with none of the old configuration or subscriptions. Existing subscriptions to this topic are not deleted, but their `topic` field is set to `_deleted-topic_`. */
     await gapi.client.pubsub.projects.topics.delete({
@@ -691,7 +691,7 @@ gapi.load('client', async () => {
           state: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic does not exist. */
     await gapi.client.pubsub.projects.topics.publish(
@@ -710,7 +710,7 @@ gapi.load('client', async () => {
             publishTime: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.pubsub.projects.topics.setIamPolicy(
@@ -734,7 +734,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.pubsub.projects.topics.testIamPermissions(
@@ -743,7 +743,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists the names of the snapshots on this topic. Snapshots are used in [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot. */
     await gapi.client.pubsub.projects.topics.snapshots.list({

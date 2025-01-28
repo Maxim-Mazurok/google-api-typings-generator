@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load My Business Lodging API v1 */
   function load(
-    urlOrObject: 'https://mybusinesslodging.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://mybusinesslodging.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'mybusinesslodging', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'mybusinesslodging',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace mybusinesslodging {
@@ -1417,7 +1417,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Lodging
+        body: Lodging,
       ): Request<Lodging>;
       lodging: LodgingResource;
     }

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://androidenterprise.googleapis.com/$discovery/rest?version=v1'
+    'https://androidenterprise.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.androidenterprise */
 
@@ -63,7 +63,7 @@ gapi.load('client', async () => {
       },
       {
         accountState: 'Test string',
-      }
+      },
     );
     /** Updates the device policy. To ensure the policy is properly enforced, you need to prevent unmanaged accounts from accessing Google Play by setting the allowed_accounts in the managed configuration for the Google Play package. See restrict accounts in Google Play. When provisioning a new device, you should set the device policy using this method before adding the managed Google Play Account to the device, otherwise the policy will not be applied for a short period of time after adding the account to the device. */
     await gapi.client.androidenterprise.devices.update(
@@ -165,7 +165,7 @@ gapi.load('client', async () => {
         },
         retailBrand: 'Test string',
         sdkVersion: 42,
-      }
+      },
     );
     /** Returns a token for device enrollment. The DPC can encode this token within the QR/NFC/zero-touch enrollment payload or fetch it before calling the on-device API to authenticate the user. The token can be generated for each device or reused across multiple devices. */
     await gapi.client.androidenterprise.enrollmentTokens.create(
@@ -176,7 +176,7 @@ gapi.load('client', async () => {
         duration: 'Test string',
         enrollmentTokenType: 'Test string',
         token: 'Test string',
-      }
+      },
     );
     /** Acknowledges notifications that were received from Enterprises.PullNotificationSet to prevent subsequent calls from returning the same notifications. */
     await gapi.client.androidenterprise.enterprises.acknowledgeNotificationSet({
@@ -214,7 +214,7 @@ gapi.load('client', async () => {
         zeroTouch: {
           enabled: true,
         },
-      }
+      },
     );
     /** Enrolls an enterprise with the calling EMM. */
     await gapi.client.androidenterprise.enterprises.enroll(
@@ -234,7 +234,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         name: 'Test string',
         primaryDomain: 'Test string',
-      }
+      },
     );
     /** Generates a sign-up URL. */
     await gapi.client.androidenterprise.enterprises.generateSignupUrl({
@@ -274,7 +274,7 @@ gapi.load('client', async () => {
       },
       {
         accountEmail: 'Test string',
-      }
+      },
     );
     /** Sets the store layout for the enterprise. By default, storeLayoutType is set to "basic" and the basic store layout is enabled. The basic layout only contains apps approved by the admin, and that have been added to the available product set for a user (using the setAvailableProductSet call). Apps on the page are sorted in order of their product ID value. If you create a custom store layout (by setting storeLayoutType = "custom" and setting a homepage), the basic store layout is disabled. */
     await gapi.client.androidenterprise.enterprises.setStoreLayout(
@@ -284,7 +284,7 @@ gapi.load('client', async () => {
       {
         homepageId: 'Test string',
         storeLayoutType: 'Test string',
-      }
+      },
     );
     /** Unenrolls an enterprise from the calling EMM. */
     await gapi.client.androidenterprise.enterprises.unenroll({
@@ -318,7 +318,7 @@ gapi.load('client', async () => {
       {
         productId: 'Test string',
         reason: 'Test string',
-      }
+      },
     );
     /** Retrieves details of an enterprise's group license for a product. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. */
     await gapi.client.androidenterprise.grouplicenses.get({
@@ -366,7 +366,7 @@ gapi.load('client', async () => {
         installState: 'Test string',
         productId: 'Test string',
         versionCode: 42,
-      }
+      },
     );
     /** Removes a per-device managed configuration for an app for the specified device. */
     await gapi.client.androidenterprise.managedconfigurationsfordevice.delete({
@@ -425,7 +425,7 @@ gapi.load('client', async () => {
           },
         ],
         productId: 'Test string',
-      }
+      },
     );
     /** Removes a per-user managed configuration for an app for the specified user. */
     await gapi.client.androidenterprise.managedconfigurationsforuser.delete({
@@ -480,7 +480,7 @@ gapi.load('client', async () => {
           },
         ],
         productId: 'Test string',
-      }
+      },
     );
     /** Lists all the managed configurations settings for the specified app. */
     await gapi.client.androidenterprise.managedconfigurationssettings.list({
@@ -503,7 +503,7 @@ gapi.load('client', async () => {
           approvalUrl: 'Test string',
         },
         approvedPermissions: 'Test string',
-      }
+      },
     );
     /** Generates a URL that can be rendered in an iframe to display the permissions (if any) of a product. An enterprise admin must view these permissions and accept them on behalf of their organization in order to approve that product. Admins should accept the displayed permissions by interacting with a separate UI element in the EMM console, which in turn should trigger the use of this URL as the approvalUrlInfo.approvalUrl property in a Products.approve call to approve the product. This URL can only be used to display permissions for up to 1 day. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. */
     await gapi.client.androidenterprise.products.generateApprovalUrl({
@@ -557,7 +557,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         publicData: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Lists all active credentials for the service account associated with this enterprise. Only the ID and key type are returned. The calling service account must have been retrieved by calling Enterprises.GetServiceAccount and must have been set as the enterprise service account by calling Enterprises.SetAccount. */
     await gapi.client.androidenterprise.serviceaccountkeys.list({
@@ -591,7 +591,7 @@ gapi.load('client', async () => {
         ],
         orderInPage: 'Test string',
         productId: ['Test string'],
-      }
+      },
     );
     /** Retrieves the details of all clusters on the specified page. */
     await gapi.client.androidenterprise.storelayoutclusters.list({
@@ -615,7 +615,7 @@ gapi.load('client', async () => {
         ],
         orderInPage: 'Test string',
         productId: ['Test string'],
-      }
+      },
     );
     /** Deletes a store page. */
     await gapi.client.androidenterprise.storelayoutpages.delete({
@@ -641,7 +641,7 @@ gapi.load('client', async () => {
             text: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the details of all pages in the store. */
     await gapi.client.androidenterprise.storelayoutpages.list({
@@ -662,7 +662,7 @@ gapi.load('client', async () => {
             text: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deleted an EMM-managed user. */
     await gapi.client.androidenterprise.users.delete({
@@ -696,7 +696,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         managementType: 'Test string',
         primaryEmail: 'Test string',
-      }
+      },
     );
     /** Looks up a user by primary email address. This is only supported for Google-managed users. Lookup of the id is not needed for EMM-managed users because the id is already returned in the result of the Users.insert call. */
     await gapi.client.androidenterprise.users.list({
@@ -724,7 +724,7 @@ gapi.load('client', async () => {
             tracks: ['Test string'],
           },
         ],
-      }
+      },
     );
     /** Updates the details of an EMM-managed user. Can be used with EMM-managed users only (not Google managed users). Pass the new details in the Users resource in the request body. Only the displayName field can be changed. Other fields must either be unset or have the currently active value. */
     await gapi.client.androidenterprise.users.update(
@@ -739,7 +739,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         managementType: 'Test string',
         primaryEmail: 'Test string',
-      }
+      },
     );
     /** Deletes an existing web app. */
     await gapi.client.androidenterprise.webapps.delete({
@@ -768,7 +768,7 @@ gapi.load('client', async () => {
         title: 'Test string',
         versionCode: 'Test string',
         webAppId: 'Test string',
-      }
+      },
     );
     /** Retrieves the details of all web apps for a given enterprise. */
     await gapi.client.androidenterprise.webapps.list({
@@ -792,7 +792,7 @@ gapi.load('client', async () => {
         title: 'Test string',
         versionCode: 'Test string',
         webAppId: 'Test string',
-      }
+      },
     );
   }
 });

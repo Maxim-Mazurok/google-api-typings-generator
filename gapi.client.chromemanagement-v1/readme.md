@@ -30,7 +30,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.chromemanagement
-  }
+  },
 );
 ```
 
@@ -74,7 +74,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 

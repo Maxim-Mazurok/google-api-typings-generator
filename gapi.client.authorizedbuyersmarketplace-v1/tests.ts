@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://authorizedbuyersmarketplace.googleapis.com/$discovery/rest?version=v1'
+    'https://authorizedbuyersmarketplace.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.authorizedbuyersmarketplace */
 
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Subscribe the specified clients of the buyer to the auction package. If a client in the list does not belong to the buyer, an error response will be returned, and all of the following clients in the list will not be subscribed. Subscribing an already subscribed client will have no effect. */
     await gapi.client.authorizedbuyersmarketplace.buyers.auctionPackages.subscribeClients(
@@ -73,14 +73,14 @@ gapi.load('client', async () => {
       },
       {
         clients: ['Test string'],
-      }
+      },
     );
     /** Unsubscribe from the auction package for the specified buyer. Once unsubscribed, the bidder will no longer receive a call out for the auction package deal ID and the specified buyer. */
     await gapi.client.authorizedbuyersmarketplace.buyers.auctionPackages.unsubscribe(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Unsubscribe from the auction package for the specified clients of the buyer. Unsubscribing a client that is not subscribed will have no effect. */
     await gapi.client.authorizedbuyersmarketplace.buyers.auctionPackages.unsubscribeClients(
@@ -89,14 +89,14 @@ gapi.load('client', async () => {
       },
       {
         clients: ['Test string'],
-      }
+      },
     );
     /** Activates an existing client. The state of the client will be updated to "ACTIVE". This method has no effect if the client is already in "ACTIVE" state. */
     await gapi.client.authorizedbuyersmarketplace.buyers.clients.activate(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new client. */
     await gapi.client.authorizedbuyersmarketplace.buyers.clients.create(
@@ -110,14 +110,14 @@ gapi.load('client', async () => {
         role: 'Test string',
         sellerVisible: true,
         state: 'Test string',
-      }
+      },
     );
     /** Deactivates an existing client. The state of the client will be updated to "INACTIVE". This method has no effect if the client is already in "INACTIVE" state. */
     await gapi.client.authorizedbuyersmarketplace.buyers.clients.deactivate(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets a client with a given resource name. */
     await gapi.client.authorizedbuyersmarketplace.buyers.clients.get({
@@ -143,14 +143,14 @@ gapi.load('client', async () => {
         role: 'Test string',
         sellerVisible: true,
         state: 'Test string',
-      }
+      },
     );
     /** Activates an existing client user. The state of the client user will be updated from "INACTIVE" to "ACTIVE". This method has no effect if the client user is already in "ACTIVE" state. An error will be returned if the client user to activate is still in "INVITED" state. */
     await gapi.client.authorizedbuyersmarketplace.buyers.clients.users.activate(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new client user in "INVITED" state. An email invitation will be sent to the new user, once accepted the user will become active. */
     await gapi.client.authorizedbuyersmarketplace.buyers.clients.users.create(
@@ -161,14 +161,14 @@ gapi.load('client', async () => {
         email: 'Test string',
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deactivates an existing client user. The state of the client user will be updated from "ACTIVE" to "INACTIVE". This method has no effect if the client user is already in "INACTIVE" state. An error will be returned if the client user to deactivate is still in "INVITED" state. */
     await gapi.client.authorizedbuyersmarketplace.buyers.clients.users.deactivate(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes an existing client user. The client user will lose access to the Authorized Buyers UI. Note that if a client user is deleted, the user's access to the UI can't be restored unless a new client user is created and activated. */
     await gapi.client.authorizedbuyersmarketplace.buyers.clients.users.delete({
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
       },
       {
         creative: 'Test string',
-      }
+      },
     );
     /** Gets a finalized deal given its name. */
     await gapi.client.authorizedbuyersmarketplace.buyers.finalizedDeals.get({
@@ -212,21 +212,21 @@ gapi.load('client', async () => {
       },
       {
         reason: 'Test string',
-      }
+      },
     );
     /** Resumes serving of the given finalized deal. Calling this method for an running deal has no effect. If a deal is initially paused by the seller, calling this method will not resume serving of the deal until the seller also resumes the deal. This method only applies to programmatic guaranteed deals and preferred deals. */
     await gapi.client.authorizedbuyersmarketplace.buyers.finalizedDeals.resume(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Sets the given finalized deal as ready to serve. By default, deals are set as ready to serve as soon as they're finalized. If you want to opt out of the default behavior, and manually indicate that deals are ready to serve, ask your Technical Account Manager to add you to the allowlist. If you choose to use this method, finalized deals belonging to the bidder and its child seats don't start serving until after you call `setReadyToServe`, and after the deals become active. For example, you can use this method to delay receiving bid requests until your creative is ready. This method only applies to programmatic guaranteed deals. */
     await gapi.client.authorizedbuyersmarketplace.buyers.finalizedDeals.setReadyToServe(
       {
         deal: 'Test string',
       },
-      {}
+      {},
     );
     /** Accepts the proposal at the given revision number. If the revision number in the request is behind the latest from the server, an error message will be returned. This call updates the Proposal.state from `BUYER_ACCEPTANCE_REQUESTED` to `FINALIZED`; it has no side effect if the Proposal.state is already `FINALIZED` and throws exception if the Proposal.state is not either `BUYER_ACCEPTANCE_REQUESTED` or `FINALIZED`. Accepting a proposal means the buyer understands and accepts the Proposal.terms_and_conditions proposed by the seller. */
     await gapi.client.authorizedbuyersmarketplace.buyers.proposals.accept(
@@ -235,7 +235,7 @@ gapi.load('client', async () => {
       },
       {
         proposalRevision: 'Test string',
-      }
+      },
     );
     /** Creates a note for this proposal and sends to the seller. This method is not supported for proposals with DealType set to 'PRIVATE_AUCTION'. */
     await gapi.client.authorizedbuyersmarketplace.buyers.proposals.addNote(
@@ -248,14 +248,14 @@ gapi.load('client', async () => {
           creatorRole: 'Test string',
           note: 'Test string',
         },
-      }
+      },
     );
     /** Cancels an ongoing negotiation on a proposal. This does not cancel or end serving for the deals if the proposal has been finalized. If the proposal has not been finalized before, calling this method will set the Proposal.state to `TERMINATED` and increment the Proposal.proposal_revision. If the proposal has been finalized before and is under renegotiation now, calling this method will reset the Proposal.state to `FINALIZED` and increment the Proposal.proposal_revision. This method does not support private auction proposals whose Proposal.deal_type is 'PRIVATE_AUCTION'. */
     await gapi.client.authorizedbuyersmarketplace.buyers.proposals.cancelNegotiation(
       {
         proposal: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets a proposal using its resource name. The proposal is returned at the latest revision. */
     await gapi.client.authorizedbuyersmarketplace.buyers.proposals.get({
@@ -312,7 +312,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         termsAndConditions: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sends a request for proposal (RFP) to a publisher to initiate the negotiation regarding certain inventory. In the RFP, buyers can specify the deal type, deal terms, start and end dates, targeting, and a message to the publisher. Once the RFP is sent, a proposal in `SELLER_REVIEW_REQUESTED` state will be created and returned in the response. The publisher may review your request and respond with detailed deals in the proposal. */
     await gapi.client.authorizedbuyersmarketplace.buyers.proposals.sendRfp(
@@ -382,7 +382,7 @@ gapi.load('client', async () => {
           reservationType: 'Test string',
         },
         publisherProfile: 'Test string',
-      }
+      },
     );
     /** Batch updates multiple deals in the same proposal. */
     await gapi.client.authorizedbuyersmarketplace.buyers.proposals.deals.batchUpdate(
@@ -570,7 +570,7 @@ gapi.load('client', async () => {
             updateMask: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Gets a deal given its name. The deal is returned at its head revision. */
     await gapi.client.authorizedbuyersmarketplace.buyers.proposals.deals.get({
@@ -762,7 +762,7 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the requested publisher profile by name. */
     await gapi.client.authorizedbuyersmarketplace.buyers.publisherProfiles.get({
@@ -775,7 +775,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

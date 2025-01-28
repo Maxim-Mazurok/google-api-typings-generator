@@ -30,7 +30,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.androidpublisher
-  }
+  },
 );
 ```
 
@@ -62,7 +62,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 
@@ -155,7 +155,7 @@ await gapi.client.androidpublisher.edits.validate({
 Creates a new external transaction.
 */
 await gapi.client.androidpublisher.externaltransactions.createexternaltransaction(
-  {parent: 'parent'}
+  {parent: 'parent'},
 );
 
 /*
@@ -169,7 +169,7 @@ await gapi.client.androidpublisher.externaltransactions.getexternaltransaction({
 Refunds or partially refunds an existing external transaction.
 */
 await gapi.client.androidpublisher.externaltransactions.refundexternaltransaction(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*

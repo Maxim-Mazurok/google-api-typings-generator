@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Real-time Bidding API v1 */
   function load(
-    urlOrObject: 'https://realtimebidding.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://realtimebidding.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'realtimebidding', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'realtimebidding',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace realtimebidding {
@@ -644,7 +644,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WatchCreativesRequest
+        body: WatchCreativesRequest,
       ): Request<WatchCreativesResponse>;
     }
     interface EndpointsResource {
@@ -766,7 +766,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Endpoint
+        body: Endpoint,
       ): Request<Endpoint>;
     }
     interface PretargetingConfigsResource {
@@ -826,7 +826,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ActivatePretargetingConfigRequest
+        body: ActivatePretargetingConfigRequest,
       ): Request<PretargetingConfig>;
       /** Adds targeted apps to the pretargeting configuration. */
       addTargetedApps(request: {
@@ -884,7 +884,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddTargetedAppsRequest
+        body: AddTargetedAppsRequest,
       ): Request<PretargetingConfig>;
       /** Adds targeted publishers to the pretargeting config. */
       addTargetedPublishers(request: {
@@ -942,7 +942,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddTargetedPublishersRequest
+        body: AddTargetedPublishersRequest,
       ): Request<PretargetingConfig>;
       /** Adds targeted sites to the pretargeting configuration. */
       addTargetedSites(request: {
@@ -1000,7 +1000,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddTargetedSitesRequest
+        body: AddTargetedSitesRequest,
       ): Request<PretargetingConfig>;
       /** Creates a pretargeting configuration. A pretargeting configuration's state (PretargetingConfig.state) is active upon creation, and it will start to affect traffic shortly after. A bidder may create a maximum of 10 pretargeting configurations. Attempts to exceed this maximum results in a 400 bad request error. */
       create(request: {
@@ -1058,7 +1058,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PretargetingConfig
+        body: PretargetingConfig,
       ): Request<PretargetingConfig>;
       /** Deletes a pretargeting configuration. */
       delete(request?: {
@@ -1205,7 +1205,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PretargetingConfig
+        body: PretargetingConfig,
       ): Request<PretargetingConfig>;
       /** Removes targeted apps from the pretargeting configuration. */
       removeTargetedApps(request: {
@@ -1263,7 +1263,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveTargetedAppsRequest
+        body: RemoveTargetedAppsRequest,
       ): Request<PretargetingConfig>;
       /** Removes targeted publishers from the pretargeting config. */
       removeTargetedPublishers(request: {
@@ -1321,7 +1321,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveTargetedPublishersRequest
+        body: RemoveTargetedPublishersRequest,
       ): Request<PretargetingConfig>;
       /** Removes targeted sites from the pretargeting configuration. */
       removeTargetedSites(request: {
@@ -1379,7 +1379,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveTargetedSitesRequest
+        body: RemoveTargetedSitesRequest,
       ): Request<PretargetingConfig>;
       /** Suspends a pretargeting configuration. */
       suspend(request: {
@@ -1437,7 +1437,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SuspendPretargetingConfigRequest
+        body: SuspendPretargetingConfigRequest,
       ): Request<PretargetingConfig>;
     }
     interface PublisherConnectionsResource {
@@ -1497,7 +1497,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchApprovePublisherConnectionsRequest
+        body: BatchApprovePublisherConnectionsRequest,
       ): Request<BatchApprovePublisherConnectionsResponse>;
       /** Batch rejects multiple publisher connections. */
       batchReject(request: {
@@ -1555,7 +1555,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchRejectPublisherConnectionsRequest
+        body: BatchRejectPublisherConnectionsRequest,
       ): Request<BatchRejectPublisherConnectionsResponse>;
       /** Gets a publisher connection. */
       get(request?: {
@@ -1739,7 +1739,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Creative
+        body: Creative,
       ): Request<Creative>;
       /** Gets a creative. */
       get(request?: {
@@ -1865,7 +1865,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Creative
+        body: Creative,
       ): Request<Creative>;
     }
     interface UserListsResource {
@@ -1925,7 +1925,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CloseUserListRequest
+        body: CloseUserListRequest,
       ): Request<UserList>;
       /** Creates a new user list. */
       create(request: {
@@ -1983,7 +1983,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UserList
+        body: UserList,
       ): Request<UserList>;
       /** Gets a user list by its name. */
       get(request?: {
@@ -2126,7 +2126,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OpenUserListRequest
+        body: OpenUserListRequest,
       ): Request<UserList>;
       /** Updates the given user list. Only user lists with URLRestrictions can be updated. */
       update(request: {
@@ -2184,7 +2184,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UserList
+        body: UserList,
       ): Request<UserList>;
     }
     interface BuyersResource {

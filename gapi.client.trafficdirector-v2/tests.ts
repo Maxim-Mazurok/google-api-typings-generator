@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://trafficdirector.googleapis.com/$discovery/rest?version=v2'
+    'https://trafficdirector.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.trafficdirector */
 
@@ -88,7 +88,7 @@ gapi.load('client', async () => {
             ],
           },
         ],
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://datafusion.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://datafusion.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.datafusion */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
       {
         resource: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new Data Fusion instance in the specified project and location. */
     await gapi.client.datafusion.projects.locations.instances.create(
@@ -142,7 +142,7 @@ gapi.load('client', async () => {
         version: 'Test string',
         workforceIdentityServiceEndpoint: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Deletes a single Data Fusion instance. */
     await gapi.client.datafusion.projects.locations.instances.delete({
@@ -258,14 +258,14 @@ gapi.load('client', async () => {
         version: 'Test string',
         workforceIdentityServiceEndpoint: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Restart a single Data Fusion instance. At the end of an operation instance is fully restarted. */
     await gapi.client.datafusion.projects.locations.instances.restart(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.datafusion.projects.locations.instances.setIamPolicy(
@@ -301,7 +301,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.datafusion.projects.locations.instances.testIamPermissions(
@@ -310,14 +310,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Upgrade a single Data Fusion instance. At the end of an operation instance is fully upgraded. */
     await gapi.client.datafusion.projects.locations.instances.upgrade(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates DNS peering on the given resource. */
     await gapi.client.datafusion.projects.locations.instances.dnsPeerings.create(
@@ -331,13 +331,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         targetNetwork: 'Test string',
         targetProject: 'Test string',
-      }
+      },
     );
     /** Deletes DNS peering on the given resource. */
     await gapi.client.datafusion.projects.locations.instances.dnsPeerings.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists DNS peerings for a given resource. */
     await gapi.client.datafusion.projects.locations.instances.dnsPeerings.list({
@@ -350,7 +350,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** List namespaces in a given instance */
     await gapi.client.datafusion.projects.locations.instances.namespaces.list({
@@ -393,7 +393,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.datafusion.projects.locations.instances.namespaces.testIamPermissions(
@@ -402,14 +402,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.datafusion.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.datafusion.projects.locations.operations.delete({

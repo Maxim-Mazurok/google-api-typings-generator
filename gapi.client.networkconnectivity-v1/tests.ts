@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://networkconnectivity.googleapis.com/$discovery/rest?version=v1'
+    'https://networkconnectivity.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.networkconnectivity */
 
@@ -50,7 +50,7 @@ gapi.load('client', async () => {
       {
         requestId: 'Test string',
         spokeUri: 'Test string',
-      }
+      },
     );
     /** Creates a new Network Connectivity Center hub in the specified project. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.create(
@@ -99,14 +99,14 @@ gapi.load('client', async () => {
         state: 'Test string',
         uniqueId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a Network Connectivity Center hub. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details about a Network Connectivity Center hub. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.get({
@@ -117,7 +117,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists the Network Connectivity Center hubs associated with a given project. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.list({
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         spokeLocations: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Updates the description and/or labels of a Network Connectivity Center hub. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.patch(
@@ -186,7 +186,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uniqueId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Query the Private Service Connect propagation status of a Network Connectivity Center hub. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.queryStatus(
@@ -197,7 +197,7 @@ gapi.load('client', async () => {
         orderBy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Rejects a Network Connectivity Center spoke from being attached to a hub. If the spoke was previously in the `ACTIVE` state, it transitions to the `INACTIVE` state and is no longer able to connect to other spokes that are attached to the hub. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.rejectSpoke(
@@ -208,7 +208,7 @@ gapi.load('client', async () => {
         details: 'Test string',
         requestId: 'Test string',
         spokeUri: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.setIamPolicy(
@@ -244,7 +244,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.testIamPermissions(
@@ -253,20 +253,20 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets details about a Network Connectivity Center group. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.groups.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.groups.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists groups in a given hub. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.groups.list(
@@ -276,7 +276,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a Network Connectivity Center group. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.groups.patch(
@@ -299,7 +299,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.groups.setIamPolicy(
@@ -335,7 +335,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.groups.testIamPermissions(
@@ -344,13 +344,13 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets details about a Network Connectivity Center route table. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.routeTables.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists route tables in a given hub. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.routeTables.list(
@@ -360,13 +360,13 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets details about the specified route. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.routeTables.routes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists routes in a given route table. */
     await gapi.client.networkconnectivity.projects.locations.global.hubs.routeTables.routes.list(
@@ -376,7 +376,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new policy-based route in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.global.policyBasedRoutes.create(
@@ -420,27 +420,27 @@ gapi.load('client', async () => {
             warningMessage: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a single policy-based route. */
     await gapi.client.networkconnectivity.projects.locations.global.policyBasedRoutes.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single policy-based route. */
     await gapi.client.networkconnectivity.projects.locations.global.policyBasedRoutes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.networkconnectivity.projects.locations.global.policyBasedRoutes.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists policy-based routes in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.global.policyBasedRoutes.list(
@@ -450,7 +450,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networkconnectivity.projects.locations.global.policyBasedRoutes.setIamPolicy(
@@ -486,7 +486,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networkconnectivity.projects.locations.global.policyBasedRoutes.testIamPermissions(
@@ -495,7 +495,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new internal range in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.internalRanges.create(
@@ -524,20 +524,20 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         usage: 'Test string',
         users: ['Test string'],
-      }
+      },
     );
     /** Deletes a single internal range. */
     await gapi.client.networkconnectivity.projects.locations.internalRanges.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single internal range. */
     await gapi.client.networkconnectivity.projects.locations.internalRanges.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists internal ranges in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.internalRanges.list(
@@ -547,7 +547,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single internal range. */
     await gapi.client.networkconnectivity.projects.locations.internalRanges.patch(
@@ -576,14 +576,14 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         usage: 'Test string',
         users: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.networkconnectivity.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.networkconnectivity.projects.locations.operations.delete({
@@ -622,20 +622,20 @@ gapi.load('client', async () => {
         subnetwork: 'Test string',
         targetGoogleApi: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single RegionalEndpoint. */
     await gapi.client.networkconnectivity.projects.locations.regionalEndpoints.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single RegionalEndpoint. */
     await gapi.client.networkconnectivity.projects.locations.regionalEndpoints.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists RegionalEndpoints in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.regionalEndpoints.list(
@@ -645,7 +645,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Deletes a single ServiceClass. */
     await gapi.client.networkconnectivity.projects.locations.serviceClasses.delete(
@@ -653,20 +653,20 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single ServiceClass. */
     await gapi.client.networkconnectivity.projects.locations.serviceClasses.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.networkconnectivity.projects.locations.serviceClasses.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists ServiceClasses in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.serviceClasses.list(
@@ -676,7 +676,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single ServiceClass. */
     await gapi.client.networkconnectivity.projects.locations.serviceClasses.patch(
@@ -695,7 +695,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceClass: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networkconnectivity.projects.locations.serviceClasses.setIamPolicy(
@@ -731,7 +731,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networkconnectivity.projects.locations.serviceClasses.testIamPermissions(
@@ -740,7 +740,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new ServiceConnectionMap in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionMaps.create(
@@ -819,7 +819,7 @@ gapi.load('client', async () => {
         serviceClassUri: 'Test string',
         token: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single ServiceConnectionMap. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionMaps.delete(
@@ -827,20 +827,20 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single ServiceConnectionMap. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionMaps.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionMaps.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists ServiceConnectionMaps in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionMaps.list(
@@ -850,7 +850,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single ServiceConnectionMap. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionMaps.patch(
@@ -929,7 +929,7 @@ gapi.load('client', async () => {
         serviceClassUri: 'Test string',
         token: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionMaps.setIamPolicy(
@@ -965,7 +965,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionMaps.testIamPermissions(
@@ -974,7 +974,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new ServiceConnectionPolicy in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionPolicies.create(
@@ -1035,7 +1035,7 @@ gapi.load('client', async () => {
         ],
         serviceClass: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single ServiceConnectionPolicy. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionPolicies.delete(
@@ -1043,20 +1043,20 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single ServiceConnectionPolicy. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionPolicies.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionPolicies.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists ServiceConnectionPolicies in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionPolicies.list(
@@ -1066,7 +1066,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single ServiceConnectionPolicy. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionPolicies.patch(
@@ -1127,7 +1127,7 @@ gapi.load('client', async () => {
         ],
         serviceClass: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionPolicies.setIamPolicy(
@@ -1163,7 +1163,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionPolicies.testIamPermissions(
@@ -1172,7 +1172,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new ServiceConnectionToken in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionTokens.create(
@@ -1193,7 +1193,7 @@ gapi.load('client', async () => {
         network: 'Test string',
         token: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single ServiceConnectionToken. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionTokens.delete(
@@ -1201,13 +1201,13 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single ServiceConnectionToken. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionTokens.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists ServiceConnectionTokens in a given project and location. */
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionTokens.list(
@@ -1217,7 +1217,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a Network Connectivity Center spoke. */
     await gapi.client.networkconnectivity.projects.locations.spokes.create(
@@ -1283,7 +1283,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uniqueId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a Network Connectivity Center spoke. */
     await gapi.client.networkconnectivity.projects.locations.spokes.delete({
@@ -1299,7 +1299,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists the Network Connectivity Center spokes in a specified project and location. */
     await gapi.client.networkconnectivity.projects.locations.spokes.list({
@@ -1373,7 +1373,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uniqueId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networkconnectivity.projects.locations.spokes.setIamPolicy(
@@ -1409,7 +1409,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networkconnectivity.projects.locations.spokes.testIamPermissions(
@@ -1418,7 +1418,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

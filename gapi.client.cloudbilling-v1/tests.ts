@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudbilling.googleapis.com/$discovery/rest?version=v1'
+    'https://cloudbilling.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.cloudbilling */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         open: true,
         parent: 'Test string',
-      }
+      },
     );
     /** Gets information about a billing account. The current authenticated user must be a [viewer of the billing account](https://cloud.google.com/billing/docs/how-to/billing-access). */
     await gapi.client.cloudbilling.billingAccounts.get({
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
       },
       {
         destinationParent: 'Test string',
-      }
+      },
     );
     /** Updates a billing account's fields. Currently the only field that can be edited is `display_name`. The current authenticated user must have the `billing.accounts.update` IAM permission, which is typically given to the [administrator](https://cloud.google.com/billing/docs/how-to/billing-access) of the billing account. */
     await gapi.client.cloudbilling.billingAccounts.patch(
@@ -87,7 +87,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         open: true,
         parent: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy for a billing account. Replaces any existing policy. The caller must have the `billing.accounts.setIamPolicy` permission on the account, which is often given to billing account [administrators](https://cloud.google.com/billing/docs/how-to/billing-access). */
     await gapi.client.cloudbilling.billingAccounts.setIamPolicy(
@@ -123,7 +123,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Tests the access control policy for a billing account. This method takes the resource and a set of permissions as input and returns the subset of the input permissions that the caller is allowed for that resource. */
     await gapi.client.cloudbilling.billingAccounts.testIamPermissions(
@@ -132,7 +132,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists the projects associated with a billing account. The current authenticated user must have the `billing.resourceAssociations.list` IAM permission, which is often given to billing account [viewers](https://cloud.google.com/billing/docs/how-to/billing-access). */
     await gapi.client.cloudbilling.billingAccounts.projects.list({
@@ -152,7 +152,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         open: true,
         parent: 'Test string',
-      }
+      },
     );
     /** Lists the billing accounts that the current authenticated user has permission to [view](https://cloud.google.com/billing/docs/how-to/billing-access). */
     await gapi.client.cloudbilling.billingAccounts.subAccounts.list({
@@ -173,7 +173,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         open: true,
         parent: 'Test string',
-      }
+      },
     );
     /** Lists the billing accounts that the current authenticated user has permission to [view](https://cloud.google.com/billing/docs/how-to/billing-access). */
     await gapi.client.cloudbilling.organizations.billingAccounts.list({
@@ -201,7 +201,7 @@ gapi.load('client', async () => {
         billingEnabled: true,
         name: 'Test string',
         projectId: 'Test string',
-      }
+      },
     );
     /** Lists all public cloud services. */
     await gapi.client.cloudbilling.services.list({

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Analytics Reporting API v4 */
   function load(
-    urlOrObject: 'https://analyticsreporting.googleapis.com/$discovery/rest?version=v4'
+    urlOrObject: 'https://analyticsreporting.googleapis.com/$discovery/rest?version=v4',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'analyticsreporting', version: 'v4'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'analyticsreporting',
     version: 'v4',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace analyticsreporting {
@@ -545,7 +545,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetReportsRequest
+        body: GetReportsRequest,
       ): Request<GetReportsResponse>;
     }
     interface UserActivityResource {
@@ -601,7 +601,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchUserActivityRequest
+        body: SearchUserActivityRequest,
       ): Request<SearchUserActivityResponse>;
     }
 

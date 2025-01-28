@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Play Custom App Publishing API v1 */
   function load(
-    urlOrObject: 'https://playcustomapp.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://playcustomapp.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'playcustomapp', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'playcustomapp',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace playcustomapp {
@@ -101,7 +101,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomApp
+        body: CustomApp,
       ): Request<CustomApp>;
     }
     interface AccountsResource {

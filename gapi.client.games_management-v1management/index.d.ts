@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Google Play Game Management v1management */
   function load(
-    urlOrObject: 'https://gamesmanagement.googleapis.com/$discovery/rest?version=v1management'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'gamesManagement',
-    version: 'v1management'
+    urlOrObject: 'https://gamesmanagement.googleapis.com/$discovery/rest?version=v1management',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'gamesManagement',
     version: 'v1management',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'gamesManagement',
+    version: 'v1management',
+    callback: () => any,
   ): void;
 
   namespace gamesManagement {
@@ -304,7 +304,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AchievementResetMultipleForAllRequest
+        body: AchievementResetMultipleForAllRequest,
       ): Request<void>;
     }
     interface ApplicationsResource {
@@ -497,7 +497,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventsResetMultipleForAllRequest
+        body: EventsResetMultipleForAllRequest,
       ): Request<void>;
     }
     interface PlayersResource {
@@ -717,7 +717,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ScoresResetMultipleForAllRequest
+        body: ScoresResetMultipleForAllRequest,
       ): Request<void>;
     }
 

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud DNS API v1beta2 */
   function load(
-    urlOrObject: 'https://dns.googleapis.com/$discovery/rest?version=v1beta2'
+    urlOrObject: 'https://dns.googleapis.com/$discovery/rest?version=v1beta2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'dns', version: 'v1beta2'): Promise<void>;
@@ -654,7 +654,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Change
+        body: Change,
       ): Request<Change>;
       /** Fetches the representation of an existing Change. */
       get(request?: {
@@ -930,7 +930,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ManagedZone
+        body: ManagedZone,
       ): Request<ManagedZone>;
       /** Deletes a previously created ManagedZone. */
       delete(request?: {
@@ -1022,7 +1022,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1GetIamPolicyRequest
+        body: GoogleIamV1GetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Enumerates ManagedZones that have been created but not yet deleted. */
       list(request?: {
@@ -1121,7 +1121,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ManagedZone
+        body: ManagedZone,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1151,7 +1151,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this returns an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1181,7 +1181,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
       /** Updates an existing ManagedZone. */
       update(request: {
@@ -1247,7 +1247,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ManagedZone
+        body: ManagedZone,
       ): Request<Operation>;
     }
     interface PoliciesResource {
@@ -1311,7 +1311,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Policy
+        body: Policy,
       ): Request<Policy>;
       /** Deletes a previously created Policy. Fails if the policy is still being referenced by a network. */
       delete(request?: {
@@ -1470,7 +1470,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Policy
+        body: Policy,
       ): Request<PoliciesPatchResponse>;
       /** Updates an existing Policy. */
       update(request: {
@@ -1536,7 +1536,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Policy
+        body: Policy,
       ): Request<PoliciesUpdateResponse>;
     }
     interface ProjectsResource {
@@ -1635,7 +1635,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResourceRecordSet
+        body: ResourceRecordSet,
       ): Request<ResourceRecordSet>;
       /** Deletes a previously created ResourceRecordSet. */
       delete(request?: {
@@ -1816,7 +1816,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResourceRecordSet
+        body: ResourceRecordSet,
       ): Request<ResourceRecordSet>;
     }
     interface ResponsePoliciesResource {
@@ -1880,7 +1880,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResponsePolicy
+        body: ResponsePolicy,
       ): Request<ResponsePolicy>;
       /** Deletes a previously created Response Policy. Fails if the response policy is non-empty or still being referenced by a network. */
       delete(request?: {
@@ -2039,7 +2039,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResponsePolicy
+        body: ResponsePolicy,
       ): Request<ResponsePoliciesPatchResponse>;
       /** Updates an existing Response Policy. */
       update(request: {
@@ -2105,7 +2105,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResponsePolicy
+        body: ResponsePolicy,
       ): Request<ResponsePoliciesUpdateResponse>;
     }
     interface ResponsePolicyRulesResource {
@@ -2173,7 +2173,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResponsePolicyRule
+        body: ResponsePolicyRule,
       ): Request<ResponsePolicyRule>;
       /** Deletes a previously created Response Policy Rule. */
       delete(request?: {
@@ -2342,7 +2342,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResponsePolicyRule
+        body: ResponsePolicyRule,
       ): Request<ResponsePolicyRulesPatchResponse>;
       /** Updates an existing Response Policy Rule. */
       update(request: {
@@ -2412,7 +2412,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResponsePolicyRule
+        body: ResponsePolicyRule,
       ): Request<ResponsePolicyRulesUpdateResponse>;
     }
 

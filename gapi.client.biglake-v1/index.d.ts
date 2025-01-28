@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load BigLake API v1 */
   function load(
-    urlOrObject: 'https://biglake.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://biglake.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'biglake', version: 'v1'): Promise<void>;
@@ -181,7 +181,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Table
+        body: Table,
       ): Request<Table>;
       /** Deletes an existing table specified by the table ID. */
       delete(request?: {
@@ -330,7 +330,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Table
+        body: Table,
       ): Request<Table>;
       /** Renames an existing table specified by the table ID. */
       rename(request: {
@@ -388,7 +388,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RenameTableRequest
+        body: RenameTableRequest,
       ): Request<Table>;
     }
     interface DatabasesResource {
@@ -452,7 +452,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Database
+        body: Database,
       ): Request<Database>;
       /** Deletes an existing database specified by the database ID. */
       delete(request?: {
@@ -599,7 +599,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Database
+        body: Database,
       ): Request<Database>;
       tables: TablesResource;
     }
@@ -664,7 +664,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Catalog
+        body: Catalog,
       ): Request<Catalog>;
       /** Deletes an existing catalog specified by the catalog ID. */
       delete(request?: {

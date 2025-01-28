@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://servicenetworking.googleapis.com/$discovery/rest?version=v1'
+    'https://servicenetworking.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.servicenetworking */
 
@@ -38,7 +38,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.servicenetworking.operations.delete({
@@ -88,7 +88,7 @@ gapi.load('client', async () => {
         subnetwork: 'Test string',
         subnetworkUsers: ['Test string'],
         useCustomComputeIdempotencyWindow: true,
-      }
+      },
     );
     /** Disables VPC service controls for a connection. */
     await gapi.client.servicenetworking.services.disableVpcServiceControls(
@@ -97,7 +97,7 @@ gapi.load('client', async () => {
       },
       {
         consumerNetwork: 'Test string',
-      }
+      },
     );
     /** Enables VPC service controls for a connection. */
     await gapi.client.servicenetworking.services.enableVpcServiceControls(
@@ -106,7 +106,7 @@ gapi.load('client', async () => {
       },
       {
         consumerNetwork: 'Test string',
-      }
+      },
     );
     /** Service producers can use this method to find a currently unused range within consumer allocated ranges. This returned range is not reserved, and not guaranteed to remain unused. It will validate previously provided allocated ranges, find non-conflicting sub-range of requested size (expressed in number of leading bits of ipv4 network mask, as in CIDR range notation). */
     await gapi.client.servicenetworking.services.searchRange(
@@ -116,7 +116,7 @@ gapi.load('client', async () => {
       {
         ipPrefixLength: 42,
         network: 'Test string',
-      }
+      },
     );
     /** Service producers use this method to validate if the consumer provided network, project and requested range are valid. This allows them to use a fail-fast mechanism for consumer requests, and not have to wait for AddSubnetwork operation completion to determine if user request is invalid. */
     await gapi.client.servicenetworking.services.validate(
@@ -150,7 +150,7 @@ gapi.load('client', async () => {
           ],
         },
         validateNetwork: true,
-      }
+      },
     );
     /** Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The administrator of the service consumer's VPC network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning subnetworks in the service producer's VPC network. This connection is used for all supported services in the service producer's organization, so it only needs to be invoked once. */
     await gapi.client.servicenetworking.services.connections.create(
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
         peering: 'Test string',
         reservedPeeringRanges: ['Test string'],
         service: 'Test string',
-      }
+      },
     );
     /** Deletes a private service access connection. */
     await gapi.client.servicenetworking.services.connections.deleteConnection(
@@ -171,7 +171,7 @@ gapi.load('client', async () => {
       },
       {
         consumerNetwork: 'Test string',
-      }
+      },
     );
     /** List the private connections that are configured in a service consumer's VPC network. */
     await gapi.client.servicenetworking.services.connections.list({
@@ -190,7 +190,7 @@ gapi.load('client', async () => {
         peering: 'Test string',
         reservedPeeringRanges: ['Test string'],
         service: 'Test string',
-      }
+      },
     );
     /** Service producers can use this method to add DNS record sets to private DNS zones in the shared producer host project. */
     await gapi.client.servicenetworking.services.dnsRecordSets.add(
@@ -206,7 +206,7 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Producers can use this method to retrieve information about the DNS record set added to the private zone inside the shared tenant host project associated with a consumer network. */
     await gapi.client.servicenetworking.services.dnsRecordSets.get({
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Service producers can use this method to update DNS record sets from private DNS zones in the shared producer host project. */
     await gapi.client.servicenetworking.services.dnsRecordSets.update(
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Service producers can use this method to add private DNS zones in the shared producer host project and matching peering zones in the consumer project. */
     await gapi.client.servicenetworking.services.dnsZones.add(
@@ -269,7 +269,7 @@ gapi.load('client', async () => {
         consumerNetwork: 'Test string',
         dnsSuffix: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. */
     await gapi.client.servicenetworking.services.dnsZones.remove(
@@ -279,7 +279,7 @@ gapi.load('client', async () => {
       {
         consumerNetwork: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Service producers use this method to get the configuration of their connection including the import/export of custom routes and subnetwork routes with public IP. */
     await gapi.client.servicenetworking.services.projects.global.networks.get({
@@ -290,7 +290,7 @@ gapi.load('client', async () => {
     await gapi.client.servicenetworking.services.projects.global.networks.getVpcServiceControls(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Service producers use this method to update the configuration of their connection including the import/export of custom routes and subnetwork routes with public IP. */
     await gapi.client.servicenetworking.services.projects.global.networks.updateConsumerConfig(
@@ -325,19 +325,19 @@ gapi.load('client', async () => {
           usedIpRanges: ['Test string'],
           vpcScReferenceArchitectureEnabled: true,
         },
-      }
+      },
     );
     /** Service producers can use this method to retrieve a DNS zone in the shared producer host project and the matching peering zones in consumer project */
     await gapi.client.servicenetworking.services.projects.global.networks.dnsZones.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** * Service producers can use this method to retrieve a list of available DNS zones in the shared producer host project and the matching peering zones in the consumer project. * */
     await gapi.client.servicenetworking.services.projects.global.networks.dnsZones.list(
       {
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a peered DNS domain which sends requests for records in given namespace originating in the service producer VPC network to the consumer VPC network to be resolved. */
     await gapi.client.servicenetworking.services.projects.global.networks.peeredDnsDomains.create(
@@ -347,19 +347,19 @@ gapi.load('client', async () => {
       {
         dnsSuffix: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a peered DNS domain. */
     await gapi.client.servicenetworking.services.projects.global.networks.peeredDnsDomains.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists peered DNS domains for a connection. */
     await gapi.client.servicenetworking.services.projects.global.networks.peeredDnsDomains.list(
       {
         parent: 'Test string',
-      }
+      },
     );
     /** Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within an allowlisted set of roles. Each role is applied at only the granularity specified in the allowlist. */
     await gapi.client.servicenetworking.services.roles.add(
@@ -374,7 +374,7 @@ gapi.load('client', async () => {
             role: 'Test string',
           },
         ],
-      }
+      },
     );
   }
 });

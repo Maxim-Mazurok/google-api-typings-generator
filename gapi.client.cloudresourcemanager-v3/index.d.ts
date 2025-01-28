@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Resource Manager API v3 */
   function load(
-    urlOrObject: 'https://cloudresourcemanager.googleapis.com/$discovery/rest?version=v3'
+    urlOrObject: 'https://cloudresourcemanager.googleapis.com/$discovery/rest?version=v3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudresourcemanager', version: 'v3'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'cloudresourcemanager',
     version: 'v3',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace cloudresourcemanager {
@@ -506,7 +506,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Folder
+        body: Folder,
       ): Request<Operation>;
       /** Requests deletion of a folder. The folder is moved into the DELETE_REQUESTED state immediately, and is deleted approximately 30 days later. This method may only be called on an empty folder, where a folder is empty if it doesn't contain any folders or projects in the ACTIVE state. If called on a folder in DELETE_REQUESTED state the operation will result in a no-op success. The caller must have `resourcemanager.folders.delete` permission on the identified folder. */
       delete(request?: {
@@ -590,7 +590,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists the folders that are direct descendants of supplied parent resource. `list()` provides a strongly consistent view of the folders underneath the specified parent resource. `list()` returns folders sorted based upon the (ascending) lexical ordering of their display_name. The caller must have `resourcemanager.folders.list` permission on the identified parent. */
       list(request?: {
@@ -681,7 +681,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MoveFolderRequest
+        body: MoveFolderRequest,
       ): Request<Operation>;
       /** Updates a folder, changing its `display_name`. Changes to the folder `display_name` will be rejected if they violate either the `display_name` formatting rules or the naming constraints described in the CreateFolder documentation. The folder's `display_name` must start and end with a letter or digit, may contain letters, digits, spaces, hyphens and underscores and can be between 3 and 30 characters. This is captured by the regular expression: `\p{L}\p{N}{1,28}[\p{L}\p{N}]`. The caller must have `resourcemanager.folders.update` permission on the identified folder. If the update fails due to the unique name constraint then a `PreconditionFailure` explaining this violation will be returned in the Status.details field. */
       patch(request: {
@@ -743,7 +743,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Folder
+        body: Folder,
       ): Request<Operation>;
       /** Search for folders that match specific filter criteria. `search()` provides an eventually consistent view of the folders a user has access to which meet the specified filter criteria. This will only return folders on which the caller has the permission `resourcemanager.folders.get`. */
       search(request?: {
@@ -804,7 +804,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified folder. The `resource` field should be the folder's resource name, for example: "folders/1234". There are no permissions required for making this API call. */
       testIamPermissions(
@@ -834,7 +834,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Cancels the deletion request for a folder. This method may be called on a folder in any state. If the folder is in the ACTIVE state the result will be a no-op success. In order to succeed, the folder's parent must be in the ACTIVE state. In addition, reintroducing the folder into the tree must not violate folder naming, height, and fanout constraints described in the CreateFolder documentation. The caller must have `resourcemanager.folders.undelete` permission on the identified folder. */
       undelete(request: {
@@ -892,7 +892,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteFolderRequest
+        body: UndeleteFolderRequest,
       ): Request<Operation>;
     }
     interface LiensResource {
@@ -948,7 +948,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Lien
+        body: Lien,
       ): Request<Lien>;
       /** Delete a Lien by `name`. Callers of this method will require permission on the `parent` resource. For example, a Lien with a `parent` of `projects/1234` requires permission `resourcemanager.projects.updateLiens`. */
       delete(request?: {
@@ -1121,7 +1121,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Searches organization resources that are visible to the user and satisfy the specified filter. This method returns organizations in an unspecified order. New organizations do not necessarily appear at the end of the results, and may take a small amount of time to appear. Search will only return organizations on which the user has the permission `resourcemanager.organizations.get` or has super admin privileges. */
       search(request?: {
@@ -1182,7 +1182,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns the permissions that a caller has on the specified organization. The `resource` field should be the organization's resource name, for example: "organizations/123". There are no permissions required for making this API call. */
       testIamPermissions(
@@ -1212,7 +1212,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface ProjectsResource {
@@ -1268,7 +1268,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Project
+        body: Project,
       ): Request<Operation>;
       /** Marks the project identified by the specified `name` (for example, `projects/415104041262`) for deletion. This method will only affect the project if it has a lifecycle state of ACTIVE. This method changes the Project's lifecycle state from ACTIVE to DELETE_REQUESTED. The deletion starts at an unspecified time, at which point the Project is no longer accessible. Until the deletion completes, you can check the lifecycle state checked by retrieving the project with GetProject, and the project remains visible to ListProjects. However, you cannot update the project. After the deletion completes, the project is not retrievable by the GetProject, ListProjects, and SearchProjects methods. This method behaves idempotently, such that deleting a `DELETE_REQUESTED` project will not cause an error, but also won't do anything. The caller must have `resourcemanager.projects.delete` permissions for this project. */
       delete(request?: {
@@ -1352,7 +1352,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists projects that are direct children of the specified folder or organization resource. `list()` provides a strongly consistent view of the projects underneath the specified parent resource. `list()` returns projects sorted based upon the (ascending) lexical ordering of their `display_name`. The caller must have `resourcemanager.projects.list` permission on the identified parent. */
       list(request?: {
@@ -1443,7 +1443,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MoveProjectRequest
+        body: MoveProjectRequest,
       ): Request<Operation>;
       /** Updates the `display_name` and labels of the project identified by the specified `name` (for example, `projects/415104041262`). Deleting all labels requires an update mask for labels field. The caller must have `resourcemanager.projects.update` permission for this project. */
       patch(request: {
@@ -1505,7 +1505,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Project
+        body: Project,
       ): Request<Operation>;
       /** Search for projects that the caller has the `resourcemanager.projects.get` permission on, and also satisfy the specified query. This method returns projects in an unspecified order. This method is eventually consistent with project mutations; this means that a newly created project may not appear in the results or recent updates to an existing project may not be reflected in the results. To retrieve the latest state of a project, use the GetProject method. */
       search(request?: {
@@ -1566,7 +1566,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified project, in the format `projects/{ProjectIdOrNumber}` e.g. projects/123.. */
       testIamPermissions(
@@ -1596,7 +1596,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Restores the project identified by the specified `name` (for example, `projects/415104041262`). You can only use this method for a project that has a lifecycle state of DELETE_REQUESTED. After deletion starts, the project cannot be restored. The caller must have `resourcemanager.projects.undelete` permission for this project. */
       undelete(request: {
@@ -1654,7 +1654,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteProjectRequest
+        body: UndeleteProjectRequest,
       ): Request<Operation>;
     }
     interface TagBindingsResource {
@@ -1714,7 +1714,7 @@ declare namespace gapi.client {
           /** Optional. Set to true to perform the validations necessary for creating the resource, but not actually perform the action. */
           validateOnly?: boolean;
         },
-        body: TagBinding
+        body: TagBinding,
       ): Request<Operation>;
       /** Deletes a TagBinding. */
       delete(request?: {
@@ -1832,7 +1832,7 @@ declare namespace gapi.client {
           /** Optional. Set to true to perform validations necessary for creating the resource, but not actually perform the action. */
           validateOnly?: boolean;
         },
-        body: TagKey
+        body: TagKey,
       ): Request<Operation>;
       /** Deletes a TagKey. The TagKey cannot be deleted if it has any child TagValues. */
       delete(request?: {
@@ -1920,7 +1920,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Retrieves a TagKey by its namespaced name. This method will return `PERMISSION_DENIED` if the key does not exist or the user does not have permission to view it. */
       getNamespaced(request?: {
@@ -2044,7 +2044,7 @@ declare namespace gapi.client {
           /** Set as true to perform validations necessary for updating the resource, but not actually perform the action. */
           validateOnly?: boolean;
         },
-        body: TagKey
+        body: TagKey,
       ): Request<Operation>;
       /** Sets the access control policy on a TagKey, replacing any existing policy. The `resource` field should be the TagKey's resource name. For example, "tagKeys/1234". The caller must have `resourcemanager.tagKeys.setIamPolicy` permission on the identified tagValue. */
       setIamPolicy(
@@ -2074,7 +2074,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified TagKey. The `resource` field should be the TagKey's resource name. For example, "tagKeys/1234". There are no permissions required for making this API call. */
       testIamPermissions(
@@ -2104,7 +2104,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface TagHoldsResource {
@@ -2168,7 +2168,7 @@ declare namespace gapi.client {
           /** Optional. Set to true to perform the validations necessary for creating the resource, but not actually perform the action. */
           validateOnly?: boolean;
         },
-        body: TagHold
+        body: TagHold,
       ): Request<Operation>;
       /** Deletes a TagHold. */
       delete(request?: {
@@ -2290,7 +2290,7 @@ declare namespace gapi.client {
           /** Optional. Set as true to perform the validations necessary for creating the resource, but not actually perform the action. */
           validateOnly?: boolean;
         },
-        body: TagValue
+        body: TagValue,
       ): Request<Operation>;
       /** Deletes a TagValue. The TagValue cannot have any bindings when it is deleted. */
       delete(request?: {
@@ -2378,7 +2378,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Retrieves a TagValue by its namespaced name. This method will return `PERMISSION_DENIED` if the value does not exist or the user does not have permission to view it. */
       getNamespaced(request?: {
@@ -2502,7 +2502,7 @@ declare namespace gapi.client {
           /** Optional. True to perform validations necessary for updating the resource, but not actually perform the action. */
           validateOnly?: boolean;
         },
-        body: TagValue
+        body: TagValue,
       ): Request<Operation>;
       /** Sets the access control policy on a TagValue, replacing any existing policy. The `resource` field should be the TagValue's resource name. For example: `tagValues/1234`. The caller must have `resourcemanager.tagValues.setIamPolicy` permission on the identified tagValue. */
       setIamPolicy(
@@ -2532,7 +2532,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified TagValue. The `resource` field should be the TagValue's resource name. For example: `tagValues/1234`. There are no permissions required for making this API call. */
       testIamPermissions(
@@ -2562,7 +2562,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       tagHolds: TagHoldsResource;
     }

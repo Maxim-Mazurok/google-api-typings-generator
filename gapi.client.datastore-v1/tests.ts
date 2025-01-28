@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://datastore.googleapis.com/$discovery/rest?version=v1'
+    'https://datastore.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.datastore */
 
@@ -56,7 +56,7 @@ gapi.load('client', async () => {
             ],
           },
         ],
-      }
+      },
     );
     /** Begins a new transaction. */
     await gapi.client.datastore.projects.beginTransaction(
@@ -73,7 +73,7 @@ gapi.load('client', async () => {
             previousTransaction: 'Test string',
           },
         },
-      }
+      },
     );
     /** Commits a transaction, optionally creating, deleting or modifying some entities. */
     await gapi.client.datastore.projects.commit(
@@ -524,7 +524,7 @@ gapi.load('client', async () => {
           },
         },
         transaction: 'Test string',
-      }
+      },
     );
     /** Exports a copy of all or a subset of entities from Google Cloud Datastore to another storage system, such as Google Cloud Storage. Recent updates to entities may not be reflected in the export. The export occurs in the background and its progress can be monitored and managed via the Operation resource that is created. The output of an export may only be used once the associated operation is done. If an export operation is cancelled before completion it may leave partial data behind in Google Cloud Storage. */
     await gapi.client.datastore.projects.export(
@@ -540,7 +540,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         outputUrlPrefix: 'Test string',
-      }
+      },
     );
     /** Imports entities into Google Cloud Datastore. Existing entities with the same key are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportEntities operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Datastore. */
     await gapi.client.datastore.projects.import(
@@ -556,7 +556,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Looks up entities by key. */
     await gapi.client.datastore.projects.lookup(
@@ -597,7 +597,7 @@ gapi.load('client', async () => {
           readTime: 'Test string',
           transaction: 'Test string',
         },
-      }
+      },
     );
     /** Prevents the supplied keys' IDs from being auto-allocated by Cloud Datastore. */
     await gapi.client.datastore.projects.reserveIds(
@@ -622,7 +622,7 @@ gapi.load('client', async () => {
             ],
           },
         ],
-      }
+      },
     );
     /** Rolls back a transaction. */
     await gapi.client.datastore.projects.rollback(
@@ -632,7 +632,7 @@ gapi.load('client', async () => {
       {
         databaseId: 'Test string',
         transaction: 'Test string',
-      }
+      },
     );
     /** Runs an aggregation query. */
     await gapi.client.datastore.projects.runAggregationQuery(
@@ -944,7 +944,7 @@ gapi.load('client', async () => {
           readTime: 'Test string',
           transaction: 'Test string',
         },
-      }
+      },
     );
     /** Queries for entities. */
     await gapi.client.datastore.projects.runQuery(
@@ -1239,7 +1239,7 @@ gapi.load('client', async () => {
           readTime: 'Test string',
           transaction: 'Test string',
         },
-      }
+      },
     );
     /** Creates the specified index. A newly created index's initial state is `CREATING`. On completion of the returned google.longrunning.Operation, the state will be `READY`. If the index already exists, the call will return an `ALREADY_EXISTS` status. During index creation, the process could result in an error, in which case the index will move to the `ERROR` state. The process can be recovered by fixing the data that caused the error, removing the index with delete, then re-creating the index with create. Indexes with a single property cannot be created. */
     await gapi.client.datastore.projects.indexes.create(
@@ -1258,7 +1258,7 @@ gapi.load('client', async () => {
           },
         ],
         state: 'Test string',
-      }
+      },
     );
     /** Deletes an existing index. An index can only be deleted if it is in a `READY` or `ERROR` state. On successful execution of the request, the index will be in a `DELETING` state. And on completion of the returned google.longrunning.Operation, the index will be removed. During index deletion, the process could result in an error, in which case the index will move to the `ERROR` state. The process can be recovered by fixing the data that caused the error, followed by calling delete again. */
     await gapi.client.datastore.projects.indexes.delete({

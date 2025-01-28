@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudasset.googleapis.com/$discovery/rest?version=v1p7beta1'
+    'https://cloudasset.googleapis.com/$discovery/rest?version=v1p7beta1',
   );
   /** now we can use gapi.client.cloudasset */
 
@@ -60,7 +60,7 @@ gapi.load('client', async () => {
         },
         readTime: 'Test string',
         relationshipTypes: ['Test string'],
-      }
+      },
     );
   }
 });

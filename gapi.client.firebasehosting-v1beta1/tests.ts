@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebasehosting.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://firebasehosting.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.firebasehosting */
 
@@ -56,7 +56,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Deletes the specified Hosting Site from the specified parent Firebase project. */
     await gapi.client.firebasehosting.projects.sites.delete({
@@ -90,7 +90,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Sets the Hosting metadata for a specific site. */
     await gapi.client.firebasehosting.projects.sites.updateConfig(
@@ -101,7 +101,7 @@ gapi.load('client', async () => {
       {
         cloudLoggingEnabled: true,
         maxVersions: 'Test string',
-      }
+      },
     );
     /** Creates a new channel in the specified site. */
     await gapi.client.firebasehosting.projects.sites.channels.create(
@@ -194,7 +194,7 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         updateTime: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Deletes the specified channel of the specified site. The `live` channel cannot be deleted. */
     await gapi.client.firebasehosting.projects.sites.channels.delete({
@@ -301,7 +301,7 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         updateTime: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Creates a new release, which makes the content of the specified version actively display on the appropriate URL(s). */
     await gapi.client.firebasehosting.projects.sites.channels.releases.create(
@@ -382,7 +382,7 @@ gapi.load('client', async () => {
           status: 'Test string',
           versionBytes: 'Test string',
         },
-      }
+      },
     );
     /** Gets the specified release for a site or channel. When used to get a release for a site, this can get releases for both the default `live` channel and any active preview channels for the specified site. */
     await gapi.client.firebasehosting.projects.sites.channels.releases.get({
@@ -558,7 +558,7 @@ gapi.load('client', async () => {
           ],
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified `CustomDomain`. */
     await gapi.client.firebasehosting.projects.sites.customDomains.delete({
@@ -743,7 +743,7 @@ gapi.load('client', async () => {
           ],
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Undeletes the specified `CustomDomain` if it has been soft-deleted. Hosting retains soft-deleted custom domains for around 30 days before permanently deleting them. */
     await gapi.client.firebasehosting.projects.sites.customDomains.undelete(
@@ -753,13 +753,13 @@ gapi.load('client', async () => {
       {
         etag: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.firebasehosting.projects.sites.customDomains.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. */
     await gapi.client.firebasehosting.projects.sites.customDomains.operations.list(
@@ -768,7 +768,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates a domain mapping on the specified site. */
     await gapi.client.firebasehosting.projects.sites.domains.create(
@@ -800,7 +800,7 @@ gapi.load('client', async () => {
         site: 'Test string',
         status: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the existing domain mapping on the specified site. */
     await gapi.client.firebasehosting.projects.sites.domains.delete({
@@ -846,7 +846,7 @@ gapi.load('client', async () => {
         site: 'Test string',
         status: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new release, which makes the content of the specified version actively display on the appropriate URL(s). */
     await gapi.client.firebasehosting.projects.sites.releases.create(
@@ -927,7 +927,7 @@ gapi.load('client', async () => {
           status: 'Test string',
           versionBytes: 'Test string',
         },
-      }
+      },
     );
     /** Gets the specified release for a site or channel. When used to get a release for a site, this can get releases for both the default `live` channel and any active preview channels for the specified site. */
     await gapi.client.firebasehosting.projects.sites.releases.get({
@@ -953,7 +953,7 @@ gapi.load('client', async () => {
           regexes: ['Test string'],
         },
         sourceVersion: 'Test string',
-      }
+      },
     );
     /** Creates a new version for the specified site. */
     await gapi.client.firebasehosting.projects.sites.versions.create(
@@ -1025,7 +1025,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         status: 'Test string',
         versionBytes: 'Test string',
-      }
+      },
     );
     /** Deletes the specified version. */
     await gapi.client.firebasehosting.projects.sites.versions.delete({
@@ -1111,7 +1111,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         status: 'Test string',
         versionBytes: 'Test string',
-      }
+      },
     );
     /** Adds content files to the specified version. Each file must be under 2 GB. */
     await gapi.client.firebasehosting.projects.sites.versions.populateFiles(
@@ -1122,7 +1122,7 @@ gapi.load('client', async () => {
         files: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Lists the remaining files to be uploaded for the specified version. */
     await gapi.client.firebasehosting.projects.sites.versions.files.list({
@@ -1144,7 +1144,7 @@ gapi.load('client', async () => {
       {
         cloudLoggingEnabled: true,
         maxVersions: 'Test string',
-      }
+      },
     );
     /** Creates a new channel in the specified site. */
     await gapi.client.firebasehosting.sites.channels.create(
@@ -1237,7 +1237,7 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         updateTime: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Deletes the specified channel of the specified site. The `live` channel cannot be deleted. */
     await gapi.client.firebasehosting.sites.channels.delete({
@@ -1344,7 +1344,7 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         updateTime: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Creates a new release, which makes the content of the specified version actively display on the appropriate URL(s). */
     await gapi.client.firebasehosting.sites.channels.releases.create(
@@ -1425,7 +1425,7 @@ gapi.load('client', async () => {
           status: 'Test string',
           versionBytes: 'Test string',
         },
-      }
+      },
     );
     /** Gets the specified release for a site or channel. When used to get a release for a site, this can get releases for both the default `live` channel and any active preview channels for the specified site. */
     await gapi.client.firebasehosting.sites.channels.releases.get({
@@ -1467,7 +1467,7 @@ gapi.load('client', async () => {
         site: 'Test string',
         status: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the existing domain mapping on the specified site. */
     await gapi.client.firebasehosting.sites.domains.delete({
@@ -1513,7 +1513,7 @@ gapi.load('client', async () => {
         site: 'Test string',
         status: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new release, which makes the content of the specified version actively display on the appropriate URL(s). */
     await gapi.client.firebasehosting.sites.releases.create(
@@ -1594,7 +1594,7 @@ gapi.load('client', async () => {
           status: 'Test string',
           versionBytes: 'Test string',
         },
-      }
+      },
     );
     /** Gets the specified release for a site or channel. When used to get a release for a site, this can get releases for both the default `live` channel and any active preview channels for the specified site. */
     await gapi.client.firebasehosting.sites.releases.get({
@@ -1620,7 +1620,7 @@ gapi.load('client', async () => {
           regexes: ['Test string'],
         },
         sourceVersion: 'Test string',
-      }
+      },
     );
     /** Creates a new version for the specified site. */
     await gapi.client.firebasehosting.sites.versions.create(
@@ -1692,7 +1692,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         status: 'Test string',
         versionBytes: 'Test string',
-      }
+      },
     );
     /** Deletes the specified version. */
     await gapi.client.firebasehosting.sites.versions.delete({
@@ -1778,7 +1778,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         status: 'Test string',
         versionBytes: 'Test string',
-      }
+      },
     );
     /** Adds content files to the specified version. Each file must be under 2 GB. */
     await gapi.client.firebasehosting.sites.versions.populateFiles(
@@ -1789,7 +1789,7 @@ gapi.load('client', async () => {
         files: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Lists the remaining files to be uploaded for the specified version. */
     await gapi.client.firebasehosting.sites.versions.files.list({

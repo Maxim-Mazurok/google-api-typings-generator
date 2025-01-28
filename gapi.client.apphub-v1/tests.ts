@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://apphub.googleapis.com/$discovery/rest?version=v1'
+    'https://apphub.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.apphub */
 
@@ -36,7 +36,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets information about a location. */
     await gapi.client.apphub.projects.locations.get({
@@ -97,7 +97,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an Application in a host project and location. */
     await gapi.client.apphub.projects.locations.applications.delete({
@@ -165,7 +165,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.apphub.projects.locations.applications.setIamPolicy(
@@ -201,7 +201,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apphub.projects.locations.applications.testIamPermissions(
@@ -210,7 +210,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a Service in an Application. */
     await gapi.client.apphub.projects.locations.applications.services.create(
@@ -262,7 +262,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a Service from an Application. */
     await gapi.client.apphub.projects.locations.applications.services.delete({
@@ -331,7 +331,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a Workload in an Application. */
     await gapi.client.apphub.projects.locations.applications.workloads.create(
@@ -383,7 +383,7 @@ gapi.load('client', async () => {
         workloadReference: {
           uri: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a Workload from an Application. */
     await gapi.client.apphub.projects.locations.applications.workloads.delete({
@@ -452,7 +452,7 @@ gapi.load('client', async () => {
         workloadReference: {
           uri: 'Test string',
         },
-      }
+      },
     );
     /** Gets a Discovered Service in a host project and location. */
     await gapi.client.apphub.projects.locations.discoveredServices.get({
@@ -493,7 +493,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.apphub.projects.locations.operations.delete({
@@ -523,14 +523,14 @@ gapi.load('client', async () => {
         serviceProject: 'Test string',
         state: 'Test string',
         uid: 'Test string',
-      }
+      },
     );
     /** Deletes a service project attachment. */
     await gapi.client.apphub.projects.locations.serviceProjectAttachments.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets a service project attachment. */
     await gapi.client.apphub.projects.locations.serviceProjectAttachments.get({

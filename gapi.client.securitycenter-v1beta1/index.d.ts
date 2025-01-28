@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Security Command Center API v1beta1 */
   function load(
-    urlOrObject: 'https://securitycenter.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://securitycenter.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'securitycenter', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'securitycenter',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace securitycenter {
@@ -2585,7 +2585,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GroupAssetsRequest
+        body: GroupAssetsRequest,
       ): Request<GroupAssetsResponse>;
       /** Lists an organization's assets. */
       list(request?: {
@@ -2684,7 +2684,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunAssetDiscoveryRequest
+        body: RunAssetDiscoveryRequest,
       ): Request<Operation>;
       /** Updates security marks. */
       updateSecurityMarks(request: {
@@ -2750,7 +2750,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1beta1SecurityMarks
+        body: GoogleCloudSecuritycenterV1beta1SecurityMarks,
       ): Request<GoogleCloudSecuritycenterV1beta1SecurityMarks>;
     }
     interface OperationsResource {
@@ -2810,7 +2810,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -2961,7 +2961,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1beta1Finding
+        body: GoogleCloudSecuritycenterV1beta1Finding,
       ): Request<GoogleCloudSecuritycenterV1beta1Finding>;
       /** Filters an organization or source's findings and groups them by their specified properties. To group across all sources provide a `-` as the source id. Example: /v1beta1/organizations/{organization_id}/sources/-/findings */
       group(request: {
@@ -3019,7 +3019,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GroupFindingsRequest
+        body: GroupFindingsRequest,
       ): Request<GroupFindingsResponse>;
       /** Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1beta1/organizations/{organization_id}/sources/-/findings */
       list(request?: {
@@ -3120,7 +3120,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1beta1Finding
+        body: GoogleCloudSecuritycenterV1beta1Finding,
       ): Request<GoogleCloudSecuritycenterV1beta1Finding>;
       /** Updates the state of a finding. */
       setState(request: {
@@ -3178,7 +3178,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetFindingStateRequest
+        body: SetFindingStateRequest,
       ): Request<GoogleCloudSecuritycenterV1beta1Finding>;
       /** Updates security marks. */
       updateSecurityMarks(request: {
@@ -3244,7 +3244,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1beta1SecurityMarks
+        body: GoogleCloudSecuritycenterV1beta1SecurityMarks,
       ): Request<GoogleCloudSecuritycenterV1beta1SecurityMarks>;
     }
     interface SourcesResource {
@@ -3304,7 +3304,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Source
+        body: Source,
       ): Request<Source>;
       /** Gets a source. */
       get(request?: {
@@ -3361,7 +3361,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists all sources belonging to an organization. */
       list(request?: {
@@ -3454,7 +3454,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Source
+        body: Source,
       ): Request<Source>;
       /** Sets the access control policy on the specified Source. */
       setIamPolicy(
@@ -3484,7 +3484,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns the permissions that a caller has on the specified source. */
       testIamPermissions(
@@ -3514,7 +3514,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       findings: FindingsResource;
     }
@@ -3606,7 +3606,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OrganizationSettings
+        body: OrganizationSettings,
       ): Request<OrganizationSettings>;
       assets: AssetsResource;
       operations: OperationsResource;

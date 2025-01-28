@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Workstations API v1 */
   function load(
-    urlOrObject: 'https://workstations.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://workstations.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'workstations', version: 'v1'): Promise<void>;
@@ -553,7 +553,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -708,7 +708,7 @@ declare namespace gapi.client {
           /** Required. ID to use for the workstation. */
           workstationId?: string;
         },
-        body: Workstation
+        body: Workstation,
       ): Request<Operation>;
       /** Deletes the specified workstation. */
       delete(request?: {
@@ -797,7 +797,7 @@ declare namespace gapi.client {
           /** Required. Name of the workstation for which the access token should be generated. */
           workstation: string;
         },
-        body: GenerateAccessTokenRequest
+        body: GenerateAccessTokenRequest,
       ): Request<GenerateAccessTokenResponse>;
       /** Returns the requested workstation. */
       get(request?: {
@@ -985,7 +985,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not actually apply it. */
           validateOnly?: boolean;
         },
-        body: Workstation
+        body: Workstation,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1015,7 +1015,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Starts running a workstation so that users can connect to it. */
       start(request: {
@@ -1073,7 +1073,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartWorkstationRequest
+        body: StartWorkstationRequest,
       ): Request<Operation>;
       /** Stops running a workstation, reducing costs. */
       stop(request: {
@@ -1131,7 +1131,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopWorkstationRequest
+        body: StopWorkstationRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1161,7 +1161,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface WorkstationConfigsResource {
@@ -1229,7 +1229,7 @@ declare namespace gapi.client {
           /** Required. ID to use for the workstation configuration. */
           workstationConfigId?: string;
         },
-        body: WorkstationConfig
+        body: WorkstationConfig,
       ): Request<Operation>;
       /** Deletes the specified workstation configuration. */
       delete(request?: {
@@ -1450,7 +1450,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not actually apply it. */
           validateOnly?: boolean;
         },
-        body: WorkstationConfig
+        body: WorkstationConfig,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1480,7 +1480,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1510,7 +1510,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       workstations: WorkstationsResource;
     }
@@ -1579,7 +1579,7 @@ declare namespace gapi.client {
           /** Required. ID to use for the workstation cluster. */
           workstationClusterId?: string;
         },
-        body: WorkstationCluster
+        body: WorkstationCluster,
       ): Request<Operation>;
       /** Deletes the specified workstation cluster. */
       delete(request?: {
@@ -1740,7 +1740,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the review, but do not actually apply it. */
           validateOnly?: boolean;
         },
-        body: WorkstationCluster
+        body: WorkstationCluster,
       ): Request<Operation>;
       workstationConfigs: WorkstationConfigsResource;
     }

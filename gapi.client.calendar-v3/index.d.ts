@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Calendar API v3 */
   function load(
-    urlOrObject: 'https://calendar-json.googleapis.com/$discovery/rest?version=v3'
+    urlOrObject: 'https://calendar-json.googleapis.com/$discovery/rest?version=v3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'calendar', version: 'v3'): Promise<void>;
@@ -881,7 +881,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: AclRule
+        body: AclRule,
       ): Request<AclRule>;
       /** Returns the rules in the access control list for the calendar. */
       list(request?: {
@@ -963,7 +963,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: AclRule
+        body: AclRule,
       ): Request<AclRule>;
       /** Updates an access control rule. */
       update(request: {
@@ -1013,7 +1013,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: AclRule
+        body: AclRule,
       ): Request<AclRule>;
       /** Watch for changes to ACL resources. */
       watch(request: {
@@ -1081,7 +1081,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
     interface CalendarListResource {
@@ -1163,7 +1163,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: CalendarListEntry
+        body: CalendarListEntry,
       ): Request<CalendarListEntry>;
       /** Returns the calendars on the user's calendar list. */
       list(request?: {
@@ -1244,7 +1244,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: CalendarListEntry
+        body: CalendarListEntry,
       ): Request<CalendarListEntry>;
       /** Updates an existing calendar on the user's calendar list. */
       update(request: {
@@ -1290,7 +1290,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: CalendarListEntry
+        body: CalendarListEntry,
       ): Request<CalendarListEntry>;
       /** Watch for changes to CalendarList resources. */
       watch(request: {
@@ -1364,7 +1364,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
     interface CalendarsResource {
@@ -1461,7 +1461,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Calendar
+        body: Calendar,
       ): Request<Calendar>;
       /** Updates metadata for a calendar. This method supports patch semantics. */
       patch(request: {
@@ -1503,7 +1503,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Calendar
+        body: Calendar,
       ): Request<Calendar>;
       /** Updates metadata for a calendar. */
       update(request: {
@@ -1545,7 +1545,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Calendar
+        body: Calendar,
       ): Request<Calendar>;
     }
     interface ChannelsResource {
@@ -1585,7 +1585,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<void>;
     }
     interface ColorsResource {
@@ -1715,7 +1715,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Event
+        body: Event,
       ): Request<Event>;
       /** Creates an event. */
       insert(request: {
@@ -1785,7 +1785,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Event
+        body: Event,
       ): Request<Event>;
       /** Returns instances of the specified recurring event. */
       instances(request?: {
@@ -2018,7 +2018,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Event
+        body: Event,
       ): Request<Event>;
       /** Creates an event based on a simple text string. */
       quickAdd(request?: {
@@ -2125,7 +2125,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Event
+        body: Event,
       ): Request<Event>;
       /** Watch for changes to Events resources. */
       watch(request: {
@@ -2299,7 +2299,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
     interface FreebusyResource {
@@ -2339,7 +2339,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: FreeBusyRequest
+        body: FreeBusyRequest,
       ): Request<FreeBusyResponse>;
     }
     interface SettingsResource {
@@ -2448,7 +2448,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
 

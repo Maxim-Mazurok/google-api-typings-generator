@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Identity API v1beta1 */
   function load(
-    urlOrObject: 'https://cloudidentity.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://cloudidentity.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudidentity', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'cloudidentity',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace cloudidentity {
@@ -1076,7 +1076,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelUserInvitationRequest
+        body: CancelUserInvitationRequest,
       ): Request<Operation>;
       /** Retrieves a UserInvitation resource. **Note:** New consumer accounts with the customer's verified domain created within the previous 48 hours will not appear in the result. This delay also applies to newly-verified domains. */
       get(request?: {
@@ -1223,7 +1223,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SendUserInvitationRequest
+        body: SendUserInvitationRequest,
       ): Request<Operation>;
     }
     interface CustomersResource {
@@ -1323,7 +1323,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClientState
+        body: ClientState,
       ): Request<Operation>;
     }
     interface DeviceUsersResource {
@@ -1383,7 +1383,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApproveDeviceUserRequest
+        body: ApproveDeviceUserRequest,
       ): Request<Operation>;
       /** Blocks device from accessing user data */
       block(request: {
@@ -1441,7 +1441,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BlockDeviceUserRequest
+        body: BlockDeviceUserRequest,
       ): Request<Operation>;
       /** Cancels an unfinished user account wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. */
       cancelWipe(request: {
@@ -1499,7 +1499,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelWipeDeviceUserRequest
+        body: CancelWipeDeviceUserRequest,
       ): Request<Operation>;
       /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
       delete(request?: {
@@ -1689,7 +1689,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WipeDeviceUserRequest
+        body: WipeDeviceUserRequest,
       ): Request<Operation>;
       clientStates: ClientStatesResource;
     }
@@ -1750,7 +1750,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelWipeDeviceRequest
+        body: CancelWipeDeviceRequest,
       ): Request<Operation>;
       /** Creates a device. Only company-owned device may be created. **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise for Education, and Cloud Identity Premium */
       create(request: {
@@ -1804,7 +1804,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateDeviceRequest
+        body: CreateDeviceRequest,
       ): Request<Operation>;
       /** Deletes the specified device. */
       delete(request?: {
@@ -1957,7 +1957,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WipeDeviceRequest
+        body: WipeDeviceRequest,
       ): Request<Operation>;
       deviceUsers: DeviceUsersResource;
     }
@@ -2047,7 +2047,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Membership
+        body: Membership,
       ): Request<Operation>;
       /** Deletes a `Membership`. */
       delete(request?: {
@@ -2252,7 +2252,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModifyMembershipRolesRequest
+        body: ModifyMembershipRolesRequest,
       ): Request<ModifyMembershipRolesResponse>;
       /** Searches direct groups of a member. */
       searchDirectGroups(request?: {
@@ -2411,7 +2411,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Group
+        body: Group,
       ): Request<Operation>;
       /** Deletes a `Group`. */
       delete(request?: {
@@ -2618,7 +2618,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Group
+        body: Group,
       ): Request<Operation>;
       /** Searches for `Group` resources matching a specified query. */
       search(request?: {
@@ -2715,7 +2715,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecuritySettings
+        body: SecuritySettings,
       ): Request<Operation>;
       memberships: MembershipsResource;
     }
@@ -2776,7 +2776,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddIdpCredentialRequest
+        body: AddIdpCredentialRequest,
       ): Request<Operation>;
       /** Deletes an IdpCredential. */
       delete(request?: {
@@ -2917,7 +2917,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InboundSamlSsoProfile
+        body: InboundSamlSsoProfile,
       ): Request<Operation>;
       /** Deletes an InboundSamlSsoProfile. */
       delete(request?: {
@@ -3064,7 +3064,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InboundSamlSsoProfile
+        body: InboundSamlSsoProfile,
       ): Request<Operation>;
       idpCredentials: IdpCredentialsResource;
     }
@@ -3121,7 +3121,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InboundSsoAssignment
+        body: InboundSsoAssignment,
       ): Request<Operation>;
       /** Deletes an InboundSsoAssignment. To disable SSO, Create (or Update) an assignment that has `sso_mode` == `SSO_OFF`. */
       delete(request?: {
@@ -3268,7 +3268,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InboundSsoAssignment
+        body: InboundSsoAssignment,
       ): Request<Operation>;
     }
     interface MembershipsResource {
@@ -3363,7 +3363,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MoveOrgMembershipRequest
+        body: MoveOrgMembershipRequest,
       ): Request<Operation>;
     }
     interface OrgUnitsResource {

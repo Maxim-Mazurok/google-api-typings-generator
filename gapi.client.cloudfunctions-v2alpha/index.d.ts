@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Functions API v2alpha */
   function load(
-    urlOrObject: 'https://cloudfunctions.googleapis.com/$discovery/rest?version=v2alpha'
+    urlOrObject: 'https://cloudfunctions.googleapis.com/$discovery/rest?version=v2alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudfunctions', version: 'v2alpha'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'cloudfunctions',
     version: 'v2alpha',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace cloudfunctions {
@@ -520,7 +520,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AbortFunctionUpgradeRequest
+        body: AbortFunctionUpgradeRequest,
       ): Request<Operation>;
       /** Finalizes the upgrade after which function upgrade can not be rolled back. This is the last step of the multi step process to upgrade 1st Gen functions to 2nd Gen. Deletes all original 1st Gen related configuration and resources. */
       commitFunctionUpgrade(request: {
@@ -578,7 +578,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommitFunctionUpgradeRequest
+        body: CommitFunctionUpgradeRequest,
       ): Request<Operation>;
       /** Creates a new function. If a function with the given name already exists in the specified project, the long running operation will return `ALREADY_EXISTS` error. */
       create(request: {
@@ -642,7 +642,7 @@ declare namespace gapi.client {
           uploadType?: string;
         },
         // eslint-disable-next-line @typescript-eslint/ban-types
-        body: Function
+        body: Function,
       ): Request<Operation>;
       /** Deletes a function with the given name from the specified project. If the given function is used by some trigger, the trigger will be updated to remove this function. */
       delete(request?: {
@@ -727,7 +727,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DetachFunctionRequest
+        body: DetachFunctionRequest,
       ): Request<Operation>;
       /** Returns a signed URL for downloading deployed function source code. The URL is only valid for a limited period and should be used within 30 minutes of generation. For more information about the signed URL usage see: https://cloud.google.com/storage/docs/access-control/signed-urls */
       generateDownloadUrl(request: {
@@ -785,7 +785,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateDownloadUrlRequest
+        body: GenerateDownloadUrlRequest,
       ): Request<GenerateDownloadUrlResponse>;
       /** Returns a signed URL for uploading a function source code. For more information about the signed URL usage see: https://cloud.google.com/storage/docs/access-control/signed-urls. Once the function source code upload is complete, the used signed URL should be provided in CreateFunction or UpdateFunction request as a reference to the function source code. When uploading source code to the generated signed URL, please follow these restrictions: * Source file type should be a zip file. * No credentials should be attached - the signed URLs provide access to the target bucket using internal service identity; if credentials were attached, the identity from the credentials would be used, but that identity does not have permissions to upload files to the URL. When making a HTTP PUT request, specify this header: * `content-type: application/zip` Do not specify this header: * `Authorization: Bearer YOUR_TOKEN` */
       generateUploadUrl(request: {
@@ -843,7 +843,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateUploadUrlRequest
+        body: GenerateUploadUrlRequest,
       ): Request<GenerateUploadUrlResponse>;
       /** Returns a function with the given name from the requested project. */
       get(
@@ -874,7 +874,7 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        }
+        },
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Function>;
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
@@ -1003,7 +1003,7 @@ declare namespace gapi.client {
           uploadType?: string;
         },
         // eslint-disable-next-line @typescript-eslint/ban-types
-        body: Function
+        body: Function,
       ): Request<Operation>;
       /** Changes the traffic target of a function from the original 1st Gen function to the 2nd Gen copy. This is the second step of the multi step process to upgrade 1st Gen functions to 2nd Gen. After this operation, all new traffic will be served by 2nd Gen copy. */
       redirectFunctionUpgradeTraffic(request: {
@@ -1061,7 +1061,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RedirectFunctionUpgradeTrafficRequest
+        body: RedirectFunctionUpgradeTrafficRequest,
       ): Request<Operation>;
       /** Reverts the traffic target of a function from the 2nd Gen copy to the original 1st Gen function. After this operation, all new traffic would be served by the 1st Gen. */
       rollbackFunctionUpgradeTraffic(request: {
@@ -1119,7 +1119,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RollbackFunctionUpgradeTrafficRequest
+        body: RollbackFunctionUpgradeTrafficRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1149,7 +1149,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Creates a 2nd Gen copy of the function configuration based on the 1st Gen function with the given name. This is the first step of the multi step process to upgrade 1st Gen functions to 2nd Gen. Only 2nd Gen configuration is setup as part of this request and traffic continues to be served by 1st Gen. */
       setupFunctionUpgradeConfig(request: {
@@ -1207,7 +1207,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetupFunctionUpgradeConfigRequest
+        body: SetupFunctionUpgradeConfigRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1237,7 +1237,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface OperationsResource {

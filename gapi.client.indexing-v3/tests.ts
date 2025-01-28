@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://indexing.googleapis.com/$discovery/rest?version=v3'
+    'https://indexing.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.indexing */
 
@@ -42,7 +42,7 @@ gapi.load('client', async () => {
         notifyTime: 'Test string',
         type: 'Test string',
         url: 'Test string',
-      }
+      },
     );
   }
 });

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Service Directory API v1beta1 */
   function load(
-    urlOrObject: 'https://servicedirectory.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://servicedirectory.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'servicedirectory', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'servicedirectory',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace servicedirectory {
@@ -225,7 +225,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Endpoint
+        body: Endpoint,
       ): Request<Endpoint>;
       /** Deletes an endpoint. */
       delete(request?: {
@@ -376,7 +376,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Endpoint
+        body: Endpoint,
       ): Request<Endpoint>;
     }
     interface ServicesResource {
@@ -440,7 +440,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Service
+        body: Service,
       ): Request<Service>;
       /** Deletes a service. This also deletes all endpoints associated with the service. */
       delete(request?: {
@@ -524,7 +524,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists all services belonging to a namespace. */
       list(request?: {
@@ -621,7 +621,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Service
+        body: Service,
       ): Request<Service>;
       /** Returns a service and its associated endpoints. Resolving a service is not considered an active developer method. */
       resolve(request: {
@@ -679,7 +679,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResolveServiceRequest
+        body: ResolveServiceRequest,
       ): Request<ResolveServiceResponse>;
       /** Sets the IAM Policy for a resource */
       setIamPolicy(
@@ -709,7 +709,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Tests IAM permissions for a resource (namespace, service or service workload only). */
       testIamPermissions(
@@ -739,7 +739,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       endpoints: EndpointsResource;
     }
@@ -772,7 +772,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Sets the IAM Policy for a resource */
       setIamPolicy(
@@ -802,7 +802,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Tests IAM permissions for a resource (namespace, service or service workload only). */
       testIamPermissions(
@@ -832,7 +832,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface NamespacesResource {
@@ -896,7 +896,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Namespace
+        body: Namespace,
       ): Request<Namespace>;
       /** Deletes a namespace. This also deletes all services and endpoints in the namespace. */
       delete(request?: {
@@ -980,7 +980,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists all namespaces. */
       list(request?: {
@@ -1077,7 +1077,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Namespace
+        body: Namespace,
       ): Request<Namespace>;
       /** Sets the IAM Policy for a resource */
       setIamPolicy(
@@ -1107,7 +1107,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Tests IAM permissions for a resource (namespace, service or service workload only). */
       testIamPermissions(
@@ -1137,7 +1137,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       services: ServicesResource;
       workloads: WorkloadsResource;

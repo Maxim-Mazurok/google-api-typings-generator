@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Security Command Center API v1 */
   function load(
-    urlOrObject: 'https://securitycenter.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://securitycenter.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'securitycenter', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'securitycenter',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace securitycenter {
@@ -2909,7 +2909,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GroupAssetsRequest
+        body: GroupAssetsRequest,
       ): Request<GroupAssetsResponse>;
       /** Lists an organization's assets. */
       list(request?: {
@@ -3016,7 +3016,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityMarks
+        body: SecurityMarks,
       ): Request<SecurityMarks>;
     }
     interface BigQueryExportsResource {
@@ -3080,7 +3080,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1BigQueryExport
+        body: GoogleCloudSecuritycenterV1BigQueryExport,
       ): Request<GoogleCloudSecuritycenterV1BigQueryExport>;
       /** Deletes an existing BigQuery export. */
       delete(request?: {
@@ -3227,7 +3227,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1BigQueryExport
+        body: GoogleCloudSecuritycenterV1BigQueryExport,
       ): Request<GoogleCloudSecuritycenterV1BigQueryExport>;
     }
     interface CustomModulesResource {
@@ -3287,7 +3287,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventThreatDetectionCustomModule
+        body: EventThreatDetectionCustomModule,
       ): Request<EventThreatDetectionCustomModule>;
       /** Deletes the specified Event Threat Detection custom module and all of its descendants in the Resource Manager hierarchy. This method is only supported for resident custom modules. */
       delete(request?: {
@@ -3465,7 +3465,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventThreatDetectionCustomModule
+        body: EventThreatDetectionCustomModule,
       ): Request<EventThreatDetectionCustomModule>;
     }
     interface EffectiveCustomModulesResource {
@@ -3585,7 +3585,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ValidateEventThreatDetectionCustomModuleRequest
+        body: ValidateEventThreatDetectionCustomModuleRequest,
       ): Request<ValidateEventThreatDetectionCustomModuleResponse>;
       customModules: CustomModulesResource;
       effectiveCustomModules: EffectiveCustomModulesResource;
@@ -3647,7 +3647,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkMuteFindingsRequest
+        body: BulkMuteFindingsRequest,
       ): Request<Operation>;
     }
     interface MuteConfigsResource {
@@ -3765,7 +3765,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1MuteConfig
+        body: GoogleCloudSecuritycenterV1MuteConfig,
       ): Request<GoogleCloudSecuritycenterV1MuteConfig>;
     }
     interface LocationsResource {
@@ -3832,7 +3832,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1MuteConfig
+        body: GoogleCloudSecuritycenterV1MuteConfig,
       ): Request<GoogleCloudSecuritycenterV1MuteConfig>;
       /** Deletes an existing mute config. */
       delete(request?: {
@@ -3979,7 +3979,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1MuteConfig
+        body: GoogleCloudSecuritycenterV1MuteConfig,
       ): Request<GoogleCloudSecuritycenterV1MuteConfig>;
     }
     interface NotificationConfigsResource {
@@ -4043,7 +4043,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NotificationConfig
+        body: NotificationConfig,
       ): Request<NotificationConfig>;
       /** Deletes a notification config. */
       delete(request?: {
@@ -4190,7 +4190,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NotificationConfig
+        body: NotificationConfig,
       ): Request<NotificationConfig>;
     }
     interface CustomModulesResource {
@@ -4250,7 +4250,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule,
       ): Request<GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule>;
       /** Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. */
       delete(request?: {
@@ -4428,7 +4428,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule,
       ): Request<GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule>;
       /** Simulates a given SecurityHealthAnalyticsCustomModule and Resource. */
       simulate(request: {
@@ -4486,7 +4486,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SimulateSecurityHealthAnalyticsCustomModuleRequest
+        body: SimulateSecurityHealthAnalyticsCustomModuleRequest,
       ): Request<SimulateSecurityHealthAnalyticsCustomModuleResponse>;
     }
     interface EffectiveCustomModulesResource {
@@ -4614,7 +4614,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1ExternalSystem
+        body: GoogleCloudSecuritycenterV1ExternalSystem,
       ): Request<GoogleCloudSecuritycenterV1ExternalSystem>;
     }
     interface FindingsResource {
@@ -4674,7 +4674,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GroupFindingsRequest
+        body: GroupFindingsRequest,
       ): Request<GroupFindingsResponse>;
       /** Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings */
       list(request?: {
@@ -4777,7 +4777,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Finding
+        body: Finding,
       ): Request<Finding>;
       /** Updates the mute state of a finding. */
       setMute(request: {
@@ -4835,7 +4835,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetMuteRequest
+        body: SetMuteRequest,
       ): Request<Finding>;
       /** Updates the state of a finding. */
       setState(request: {
@@ -4893,7 +4893,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetFindingStateRequest
+        body: SetFindingStateRequest,
       ): Request<Finding>;
       /** Updates security marks. */
       updateSecurityMarks(request: {
@@ -4959,7 +4959,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityMarks
+        body: SecurityMarks,
       ): Request<SecurityMarks>;
       externalSystems: ExternalSystemsResource;
     }
@@ -5065,7 +5065,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GroupAssetsRequest
+        body: GroupAssetsRequest,
       ): Request<GroupAssetsResponse>;
       /** Lists an organization's assets. */
       list(request?: {
@@ -5164,7 +5164,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunAssetDiscoveryRequest
+        body: RunAssetDiscoveryRequest,
       ): Request<Operation>;
       /** Updates security marks. */
       updateSecurityMarks(request: {
@@ -5230,7 +5230,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityMarks
+        body: SecurityMarks,
       ): Request<SecurityMarks>;
     }
     interface AttackPathsResource {
@@ -5329,7 +5329,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1BigQueryExport
+        body: GoogleCloudSecuritycenterV1BigQueryExport,
       ): Request<GoogleCloudSecuritycenterV1BigQueryExport>;
       /** Deletes an existing BigQuery export. */
       delete(request?: {
@@ -5476,7 +5476,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1BigQueryExport
+        body: GoogleCloudSecuritycenterV1BigQueryExport,
       ): Request<GoogleCloudSecuritycenterV1BigQueryExport>;
     }
     interface CustomModulesResource {
@@ -5536,7 +5536,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventThreatDetectionCustomModule
+        body: EventThreatDetectionCustomModule,
       ): Request<EventThreatDetectionCustomModule>;
       /** Deletes the specified Event Threat Detection custom module and all of its descendants in the Resource Manager hierarchy. This method is only supported for resident custom modules. */
       delete(request?: {
@@ -5714,7 +5714,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventThreatDetectionCustomModule
+        body: EventThreatDetectionCustomModule,
       ): Request<EventThreatDetectionCustomModule>;
     }
     interface EffectiveCustomModulesResource {
@@ -5834,7 +5834,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ValidateEventThreatDetectionCustomModuleRequest
+        body: ValidateEventThreatDetectionCustomModuleRequest,
       ): Request<ValidateEventThreatDetectionCustomModuleResponse>;
       customModules: CustomModulesResource;
       effectiveCustomModules: EffectiveCustomModulesResource;
@@ -5896,7 +5896,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkMuteFindingsRequest
+        body: BulkMuteFindingsRequest,
       ): Request<Operation>;
     }
     interface MuteConfigsResource {
@@ -6014,7 +6014,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1MuteConfig
+        body: GoogleCloudSecuritycenterV1MuteConfig,
       ): Request<GoogleCloudSecuritycenterV1MuteConfig>;
     }
     interface LocationsResource {
@@ -6081,7 +6081,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1MuteConfig
+        body: GoogleCloudSecuritycenterV1MuteConfig,
       ): Request<GoogleCloudSecuritycenterV1MuteConfig>;
       /** Deletes an existing mute config. */
       delete(request?: {
@@ -6228,7 +6228,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1MuteConfig
+        body: GoogleCloudSecuritycenterV1MuteConfig,
       ): Request<GoogleCloudSecuritycenterV1MuteConfig>;
     }
     interface NotificationConfigsResource {
@@ -6292,7 +6292,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NotificationConfig
+        body: NotificationConfig,
       ): Request<NotificationConfig>;
       /** Deletes a notification config. */
       delete(request?: {
@@ -6439,7 +6439,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NotificationConfig
+        body: NotificationConfig,
       ): Request<NotificationConfig>;
     }
     interface OperationsResource {
@@ -6615,7 +6615,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreateResourceValueConfigsRequest
+        body: BatchCreateResourceValueConfigsRequest,
       ): Request<BatchCreateResourceValueConfigsResponse>;
       /** Deletes a ResourceValueConfig. */
       delete(request?: {
@@ -6762,7 +6762,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1ResourceValueConfig
+        body: GoogleCloudSecuritycenterV1ResourceValueConfig,
       ): Request<GoogleCloudSecuritycenterV1ResourceValueConfig>;
     }
     interface CustomModulesResource {
@@ -6822,7 +6822,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule,
       ): Request<GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule>;
       /** Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. */
       delete(request?: {
@@ -7000,7 +7000,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule,
       ): Request<GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule>;
       /** Simulates a given SecurityHealthAnalyticsCustomModule and Resource. */
       simulate(request: {
@@ -7058,7 +7058,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SimulateSecurityHealthAnalyticsCustomModuleRequest
+        body: SimulateSecurityHealthAnalyticsCustomModuleRequest,
       ): Request<SimulateSecurityHealthAnalyticsCustomModuleResponse>;
     }
     interface EffectiveCustomModulesResource {
@@ -7429,7 +7429,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1ExternalSystem
+        body: GoogleCloudSecuritycenterV1ExternalSystem,
       ): Request<GoogleCloudSecuritycenterV1ExternalSystem>;
     }
     interface FindingsResource {
@@ -7493,7 +7493,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Finding
+        body: Finding,
       ): Request<Finding>;
       /** Filters an organization or source's findings and groups them by their specified properties. To group across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings, /v1/folders/{folder_id}/sources/-/findings, /v1/projects/{project_id}/sources/-/findings */
       group(request: {
@@ -7551,7 +7551,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GroupFindingsRequest
+        body: GroupFindingsRequest,
       ): Request<GroupFindingsResponse>;
       /** Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings */
       list(request?: {
@@ -7654,7 +7654,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Finding
+        body: Finding,
       ): Request<Finding>;
       /** Updates the mute state of a finding. */
       setMute(request: {
@@ -7712,7 +7712,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetMuteRequest
+        body: SetMuteRequest,
       ): Request<Finding>;
       /** Updates the state of a finding. */
       setState(request: {
@@ -7770,7 +7770,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetFindingStateRequest
+        body: SetFindingStateRequest,
       ): Request<Finding>;
       /** Updates security marks. */
       updateSecurityMarks(request: {
@@ -7836,7 +7836,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityMarks
+        body: SecurityMarks,
       ): Request<SecurityMarks>;
       externalSystems: ExternalSystemsResource;
     }
@@ -7897,7 +7897,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Source
+        body: Source,
       ): Request<Source>;
       /** Gets a source. */
       get(request?: {
@@ -7954,7 +7954,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists all sources belonging to an organization. */
       list(request?: {
@@ -8047,7 +8047,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Source
+        body: Source,
       ): Request<Source>;
       /** Sets the access control policy on the specified Source. */
       setIamPolicy(
@@ -8077,7 +8077,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns the permissions that a caller has on the specified source. */
       testIamPermissions(
@@ -8107,7 +8107,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       findings: FindingsResource;
     }
@@ -8236,7 +8236,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OrganizationSettings
+        body: OrganizationSettings,
       ): Request<OrganizationSettings>;
       assets: AssetsResource;
       attackPaths: AttackPathsResource;
@@ -8310,7 +8310,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GroupAssetsRequest
+        body: GroupAssetsRequest,
       ): Request<GroupAssetsResponse>;
       /** Lists an organization's assets. */
       list(request?: {
@@ -8417,7 +8417,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityMarks
+        body: SecurityMarks,
       ): Request<SecurityMarks>;
     }
     interface BigQueryExportsResource {
@@ -8481,7 +8481,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1BigQueryExport
+        body: GoogleCloudSecuritycenterV1BigQueryExport,
       ): Request<GoogleCloudSecuritycenterV1BigQueryExport>;
       /** Deletes an existing BigQuery export. */
       delete(request?: {
@@ -8628,7 +8628,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1BigQueryExport
+        body: GoogleCloudSecuritycenterV1BigQueryExport,
       ): Request<GoogleCloudSecuritycenterV1BigQueryExport>;
     }
     interface CustomModulesResource {
@@ -8688,7 +8688,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventThreatDetectionCustomModule
+        body: EventThreatDetectionCustomModule,
       ): Request<EventThreatDetectionCustomModule>;
       /** Deletes the specified Event Threat Detection custom module and all of its descendants in the Resource Manager hierarchy. This method is only supported for resident custom modules. */
       delete(request?: {
@@ -8866,7 +8866,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventThreatDetectionCustomModule
+        body: EventThreatDetectionCustomModule,
       ): Request<EventThreatDetectionCustomModule>;
     }
     interface EffectiveCustomModulesResource {
@@ -8986,7 +8986,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ValidateEventThreatDetectionCustomModuleRequest
+        body: ValidateEventThreatDetectionCustomModuleRequest,
       ): Request<ValidateEventThreatDetectionCustomModuleResponse>;
       customModules: CustomModulesResource;
       effectiveCustomModules: EffectiveCustomModulesResource;
@@ -9048,7 +9048,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkMuteFindingsRequest
+        body: BulkMuteFindingsRequest,
       ): Request<Operation>;
     }
     interface MuteConfigsResource {
@@ -9166,7 +9166,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1MuteConfig
+        body: GoogleCloudSecuritycenterV1MuteConfig,
       ): Request<GoogleCloudSecuritycenterV1MuteConfig>;
     }
     interface LocationsResource {
@@ -9233,7 +9233,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1MuteConfig
+        body: GoogleCloudSecuritycenterV1MuteConfig,
       ): Request<GoogleCloudSecuritycenterV1MuteConfig>;
       /** Deletes an existing mute config. */
       delete(request?: {
@@ -9380,7 +9380,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1MuteConfig
+        body: GoogleCloudSecuritycenterV1MuteConfig,
       ): Request<GoogleCloudSecuritycenterV1MuteConfig>;
     }
     interface NotificationConfigsResource {
@@ -9444,7 +9444,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NotificationConfig
+        body: NotificationConfig,
       ): Request<NotificationConfig>;
       /** Deletes a notification config. */
       delete(request?: {
@@ -9591,7 +9591,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NotificationConfig
+        body: NotificationConfig,
       ): Request<NotificationConfig>;
     }
     interface CustomModulesResource {
@@ -9651,7 +9651,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule,
       ): Request<GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule>;
       /** Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. */
       delete(request?: {
@@ -9829,7 +9829,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+        body: GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule,
       ): Request<GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule>;
       /** Simulates a given SecurityHealthAnalyticsCustomModule and Resource. */
       simulate(request: {
@@ -9887,7 +9887,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SimulateSecurityHealthAnalyticsCustomModuleRequest
+        body: SimulateSecurityHealthAnalyticsCustomModuleRequest,
       ): Request<SimulateSecurityHealthAnalyticsCustomModuleResponse>;
     }
     interface EffectiveCustomModulesResource {
@@ -10015,7 +10015,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudSecuritycenterV1ExternalSystem
+        body: GoogleCloudSecuritycenterV1ExternalSystem,
       ): Request<GoogleCloudSecuritycenterV1ExternalSystem>;
     }
     interface FindingsResource {
@@ -10075,7 +10075,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GroupFindingsRequest
+        body: GroupFindingsRequest,
       ): Request<GroupFindingsResponse>;
       /** Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings */
       list(request?: {
@@ -10178,7 +10178,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Finding
+        body: Finding,
       ): Request<Finding>;
       /** Updates the mute state of a finding. */
       setMute(request: {
@@ -10236,7 +10236,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetMuteRequest
+        body: SetMuteRequest,
       ): Request<Finding>;
       /** Updates the state of a finding. */
       setState(request: {
@@ -10294,7 +10294,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetFindingStateRequest
+        body: SetFindingStateRequest,
       ): Request<Finding>;
       /** Updates security marks. */
       updateSecurityMarks(request: {
@@ -10360,7 +10360,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityMarks
+        body: SecurityMarks,
       ): Request<SecurityMarks>;
       externalSystems: ExternalSystemsResource;
     }

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Drive API v3 */
   function load(
-    urlOrObject: 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'
+    urlOrObject: 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'drive', version: 'v3'): Promise<void>;
@@ -1191,7 +1191,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResolveAccessProposalRequest
+        body: ResolveAccessProposalRequest,
       ): Request<void>;
     }
     interface AppsResource {
@@ -1449,7 +1449,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
     interface ChannelsResource {
@@ -1505,7 +1505,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<void>;
     }
     interface CommentsResource {
@@ -1565,7 +1565,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Comment
+        body: Comment,
       ): Request<Comment>;
       /** Deletes a comment. For more information, see [Manage comments and replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/drive/api/guides/fields-parameter). */
       delete(request?: {
@@ -1722,7 +1722,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Comment
+        body: Comment,
       ): Request<Comment>;
     }
     interface DrivesResource {
@@ -1782,7 +1782,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Drive
+        body: Drive,
       ): Request<Drive>;
       /** Permanently deletes a shared drive for which the user is an `organizer`. The shared drive cannot contain any untrashed items. */
       delete(request?: {
@@ -1991,7 +1991,7 @@ declare namespace gapi.client {
           /** Issue the request as a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the shared drive belongs. */
           useDomainAdminAccess?: boolean;
         },
-        body: Drive
+        body: Drive,
       ): Request<Drive>;
     }
     interface FilesResource {
@@ -2083,7 +2083,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: File
+        body: File,
       ): Request<File>;
       /** Creates a new file. This method supports an *‍/upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*‍/*` Note: Specify a valid MIME type, rather than the literal `*‍/*` value. The literal `*‍/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with `files.create` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should specify a file extension in the `name` property when inserting files with the API. For example, an operation to insert a JPEG file should specify something like `"name": "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only `fileExtension` property populated with the extension originally specified in the `title` property. When a Google Drive user requests to download a file, or when the file is downloaded through the sync client, Drive builds a full filename (with extension) based on the title. In cases where the extension is missing, Drive attempts to determine the extension based on the file's MIME type. */
       create(request: {
@@ -2173,7 +2173,7 @@ declare namespace gapi.client {
           /** Whether to use the uploaded content as indexable text. */
           useContentAsIndexableText?: boolean;
         },
-        body: File
+        body: File,
       ): Request<File>;
       /** Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive, the user must be an `organizer` on the parent folder. If the target is a folder, all descendants owned by the user are also deleted. */
       delete(request?: {
@@ -2507,7 +2507,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModifyLabelsRequest
+        body: ModifyLabelsRequest,
       ): Request<ModifyLabelsResponse>;
       /** Updates a file's metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might be changed automatically, such as `modifiedDate`. This method supports patch semantics. This method supports an *‍/upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*‍/*` Note: Specify a valid MIME type, rather than the literal `*‍/*` value. The literal `*‍/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads). */
       update(request: {
@@ -2605,7 +2605,7 @@ declare namespace gapi.client {
           /** Whether to use the uploaded content as indexable text. */
           useContentAsIndexableText?: boolean;
         },
-        body: File
+        body: File,
       ): Request<File>;
       /** Subscribes to changes to a file. */
       watch(request: {
@@ -2683,7 +2683,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
     interface OperationResource {
@@ -2893,7 +2893,7 @@ declare namespace gapi.client {
           /** Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs. */
           useDomainAdminAccess?: boolean;
         },
-        body: Permission
+        body: Permission,
       ): Request<Permission>;
       /** Deletes a permission. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied. */
       delete(request?: {
@@ -3084,7 +3084,7 @@ declare namespace gapi.client {
           /** Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs. */
           useDomainAdminAccess?: boolean;
         },
-        body: Permission
+        body: Permission,
       ): Request<Permission>;
     }
     interface RepliesResource {
@@ -3148,7 +3148,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Reply
+        body: Reply,
       ): Request<Reply>;
       /** Deletes a reply. */
       delete(request?: {
@@ -3313,7 +3313,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Reply
+        body: Reply,
       ): Request<Reply>;
     }
     interface RevisionsResource {
@@ -3468,7 +3468,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Revision
+        body: Revision,
       ): Request<Revision>;
     }
     interface TeamdrivesResource {
@@ -3528,7 +3528,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TeamDrive
+        body: TeamDrive,
       ): Request<TeamDrive>;
       /** Deprecated: Use `drives.delete` instead. */
       delete(request?: {
@@ -3679,7 +3679,7 @@ declare namespace gapi.client {
           /** Issue the request as a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the Team Drive belongs. */
           useDomainAdminAccess?: boolean;
         },
-        body: TeamDrive
+        body: TeamDrive,
       ): Request<TeamDrive>;
     }
 

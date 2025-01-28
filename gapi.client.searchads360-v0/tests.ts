@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://searchads360.googleapis.com/$discovery/rest?version=v0'
+    'https://searchads360.googleapis.com/$discovery/rest?version=v0',
   );
   /** now we can use gapi.client.searchads360 */
 
@@ -53,7 +53,7 @@ gapi.load('client', async () => {
         returnTotalResultsCount: true,
         summaryRowSetting: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Returns just the requested field. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
     await gapi.client.searchads360.searchAds360Fields.get({
@@ -66,7 +66,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         query: 'Test string',
-      }
+      },
     );
   }
 });

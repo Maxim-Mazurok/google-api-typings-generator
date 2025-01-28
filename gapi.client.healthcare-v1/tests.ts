@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://healthcare.googleapis.com/$discovery/rest?version=v1'
+    'https://healthcare.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.healthcare */
 
@@ -56,7 +56,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Creates a new dataset containing de-identified data from the source dataset. The metadata field type is OperationMetadata. If the request is successful, the response field type is DeidentifySummary. If errors occur, error is set. The LRO result may still be successful if de-identification fails for some DICOM instances. The new de-identified dataset will not contain these failed resources. Failed resource totals are tracked in Operation.metadata. Error details are also logged to Cloud Logging. For more information, see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging). */
     await gapi.client.healthcare.projects.locations.datasets.deidentify(
@@ -142,7 +142,7 @@ gapi.load('client', async () => {
         },
         destinationDataset: 'Test string',
         gcsConfigUri: 'Test string',
-      }
+      },
     );
     /** Deletes the specified health dataset and all data contained in the dataset. Deleting a dataset does not affect the sources from which the dataset was imported (if any). */
     await gapi.client.healthcare.projects.locations.datasets.delete({
@@ -175,7 +175,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.healthcare.projects.locations.datasets.setIamPolicy(
@@ -211,7 +211,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.healthcare.projects.locations.datasets.testIamPermissions(
@@ -220,7 +220,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Checks if a particular data_id of a User data mapping in the specified consent store is consented for the specified use. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.checkDataAccess(
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         responseView: 'Test string',
-      }
+      },
     );
     /** Creates a new consent store in the parent dataset. Attempting to create a consent store with the same ID as an existing store fails with an ALREADY_EXISTS error. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.create(
@@ -251,13 +251,13 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified consent store and removes all the consent store's data. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Evaluates the user's Consents for all matching User data mappings. Note: User data mappings are indexed asynchronously, which can cause a slight delay between the time mappings are created or updated and when they are included in EvaluateUserConsents results. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.evaluateUserConsents(
@@ -278,7 +278,7 @@ gapi.load('client', async () => {
         },
         responseView: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Gets the specified consent store. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.get({
@@ -289,7 +289,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists the consent stores in the specified dataset. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.list(
@@ -298,7 +298,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified consent store. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.patch(
@@ -313,7 +313,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Queries all data_ids that are consented for a specified use in the given consent store and writes them to a specified destination. The returned Operation includes a progress counter for the number of User data mappings processed. If the request is successful, a detailed response is returned of type QueryAccessibleDataResponse, contained in the response field when the operation finishes. The metadata field type is OperationMetadata. Errors are logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). For example, the following sample log entry shows a `failed to evaluate consent policy` error that occurred during a QueryAccessibleData call to consent store `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}`. ```json jsonPayload: { @‍type: "type.googleapis.com/google.cloud.healthcare.logging.QueryAccessibleDataLogEntry" error: { code: 9 message: "failed to evaluate consent policy" } resourceName: "projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}/consents/{consent_id}" } logName: "projects/{project_id}/logs/healthcare.googleapis.com%2Fquery_accessible_data" operation: { id: "projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/operations/{operation_id}" producer: "healthcare.googleapis.com/QueryAccessibleData" } receiveTimestamp: "TIMESTAMP" resource: { labels: { consent_store_id: "{consent_store_id}" dataset_id: "{dataset_id}" location: "{location_id}" project_id: "{project_id}" } type: "healthcare_consent_store" } severity: "ERROR" timestamp: "TIMESTAMP" ``` */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.queryAccessibleData(
@@ -330,7 +330,7 @@ gapi.load('client', async () => {
         resourceAttributes: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.setIamPolicy(
@@ -366,7 +366,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.testIamPermissions(
@@ -375,7 +375,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new Attribute definition in the parent consent store. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.attributeDefinitions.create(
@@ -390,19 +390,19 @@ gapi.load('client', async () => {
         dataMappingDefaultValue: 'Test string',
         description: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified Attribute definition. Fails if the Attribute definition is referenced by any User data mapping, or the latest revision of any Consent. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.attributeDefinitions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the specified Attribute definition. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.attributeDefinitions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the Attribute definitions in the specified consent store. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.attributeDefinitions.list(
@@ -411,7 +411,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified Attribute definition. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.attributeDefinitions.patch(
@@ -426,7 +426,7 @@ gapi.load('client', async () => {
         dataMappingDefaultValue: 'Test string',
         description: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Creates a new Consent artifact in the parent consent store. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consentArtifacts.create(
@@ -479,19 +479,19 @@ gapi.load('client', async () => {
           signatureTime: 'Test string',
           userId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified Consent artifact. Fails if the artifact is referenced by the latest revision of any Consent. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consentArtifacts.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the specified Consent artifact. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consentArtifacts.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the Consent artifacts in the specified consent store. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consentArtifacts.list(
@@ -500,7 +500,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Activates the latest revision of the specified Consent by committing a new revision with `state` updated to `ACTIVE`. If the latest revision of the specified Consent is in the `ACTIVE` state, no new revision is committed. A FAILED_PRECONDITION error occurs if the latest revision of the specified Consent is in the `REJECTED` or `REVOKED` state. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consents.activate(
@@ -511,7 +511,7 @@ gapi.load('client', async () => {
         consentArtifact: 'Test string',
         expireTime: 'Test string',
         ttl: 'Test string',
-      }
+      },
     );
     /** Creates a new Consent in the parent consent store. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consents.create(
@@ -546,25 +546,25 @@ gapi.load('client', async () => {
         state: 'Test string',
         ttl: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Deletes the Consent and its revisions. To keep a record of the Consent but mark it inactive, see [RevokeConsent]. To delete a revision of a Consent, see [DeleteConsentRevision]. This operation does not delete the related Consent artifact. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consents.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified revision of a Consent. An INVALID_ARGUMENT error occurs if the specified revision is the latest revision. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consents.deleteRevision(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the specified revision of a Consent, or the latest revision if `revision_id` is not specified in the resource name. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consents.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the Consent in the given consent store, returning each Consent's latest revision. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consents.list(
@@ -573,7 +573,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists the revisions of the specified Consent in reverse chronological order. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consents.listRevisions(
@@ -582,7 +582,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Updates the latest revision of the specified Consent by committing a new revision with the changes. A FAILED_PRECONDITION error occurs if the latest revision of the specified Consent is in the `REJECTED` or `REVOKED` state. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consents.patch(
@@ -618,7 +618,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         ttl: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Rejects the latest revision of the specified Consent by committing a new revision with `state` updated to `REJECTED`. If the latest revision of the specified Consent is in the `REJECTED` state, no new revision is committed. A FAILED_PRECONDITION error occurs if the latest revision of the specified Consent is in the `ACTIVE` or `REVOKED` state. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consents.reject(
@@ -627,7 +627,7 @@ gapi.load('client', async () => {
       },
       {
         consentArtifact: 'Test string',
-      }
+      },
     );
     /** Revokes the latest revision of the specified Consent by committing a new revision with `state` updated to `REVOKED`. If the latest revision of the specified Consent is in the `REVOKED` state, no new revision is committed. A FAILED_PRECONDITION error occurs if the latest revision of the given consent is in `DRAFT` or `REJECTED` state. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.consents.revoke(
@@ -636,14 +636,14 @@ gapi.load('client', async () => {
       },
       {
         consentArtifact: 'Test string',
-      }
+      },
     );
     /** Archives the specified User data mapping. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.userDataMappings.archive(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new User data mapping in the parent consent store. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.userDataMappings.create(
@@ -662,19 +662,19 @@ gapi.load('client', async () => {
           },
         ],
         userId: 'Test string',
-      }
+      },
     );
     /** Deletes the specified User data mapping. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.userDataMappings.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the specified User data mapping. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.userDataMappings.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the User data mappings in the specified consent store. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.userDataMappings.list(
@@ -683,7 +683,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified User data mapping. */
     await gapi.client.healthcare.projects.locations.datasets.consentStores.userDataMappings.patch(
@@ -703,14 +703,14 @@ gapi.load('client', async () => {
           },
         ],
         userId: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.healthcare.projects.locations.datasets.dataMapperWorkspaces.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.healthcare.projects.locations.datasets.dataMapperWorkspaces.setIamPolicy(
@@ -746,7 +746,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.healthcare.projects.locations.datasets.dataMapperWorkspaces.testIamPermissions(
@@ -755,7 +755,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new DICOM store within the parent dataset. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.create(
@@ -781,7 +781,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** De-identifies data from the source store and writes it to the destination store. The metadata field type is OperationMetadata. If the request is successful, the response field type is DeidentifyDicomStoreSummary. If errors occur, error is set. The LRO result may still be successful if de-identification fails for some DICOM instances. The output DICOM store will not contain these failed resources. Failed resource totals are tracked in Operation.metadata. Error details are also logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.deidentify(
@@ -870,13 +870,13 @@ gapi.load('client', async () => {
           resourcePathsGcsUri: 'Test string',
         },
         gcsConfigUri: 'Test string',
-      }
+      },
     );
     /** Deletes the specified DICOM store and removes all images that are contained within it. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Exports data to the specified destination by copying it from the DICOM store. Errors are also logged to Cloud Logging. For more information, see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging). The metadata field type is OperationMetadata. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.export(
@@ -893,7 +893,7 @@ gapi.load('client', async () => {
           mimeType: 'Test string',
           uriPrefix: 'Test string',
         },
-      }
+      },
     );
     /** Gets the specified DICOM store. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.get({
@@ -903,14 +903,14 @@ gapi.load('client', async () => {
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.getDICOMStoreMetrics(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Imports data into the DICOM store by copying it from the specified source. Errors are logged to Cloud Logging. For more information, see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging). The metadata field type is OperationMetadata. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.import(
@@ -924,7 +924,7 @@ gapi.load('client', async () => {
         gcsSource: {
           uri: 'Test string',
         },
-      }
+      },
     );
     /** Lists the DICOM stores in the given dataset. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.list({
@@ -957,28 +957,28 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** SearchForInstances returns a list of matching instances. See [Search Transaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6). For details on the implementation of SearchForInstances, see [Search transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction) in the Cloud Healthcare API conformance statement. For samples that show how to call SearchForInstances, see [Search for DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.searchForInstances(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** SearchForSeries returns a list of matching series. See [Search Transaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6). For details on the implementation of SearchForSeries, see [Search transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction) in the Cloud Healthcare API conformance statement. For samples that show how to call SearchForSeries, see [Search for DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.searchForSeries(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** SearchForStudies returns a list of matching studies. See [Search Transaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6). For details on the implementation of SearchForStudies, see [Search transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction) in the Cloud Healthcare API conformance statement. For samples that show how to call SearchForStudies, see [Search for DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.searchForStudies(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** SetBlobStorageSettings sets the blob storage settings of the specified resources. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.setBlobStorageSettings(
@@ -992,7 +992,7 @@ gapi.load('client', async () => {
         filterConfig: {
           resourcePathsGcsUri: 'Test string',
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.setIamPolicy(
@@ -1028,7 +1028,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** StoreInstances stores DICOM instances associated with study instance unique identifiers (SUID). See [Store Transaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5). For details on the implementation of StoreInstances, see [Store transaction](https://cloud.google.com/healthcare/docs/dicom#store_transaction) in the Cloud Healthcare API conformance statement. For samples that show how to call StoreInstances, see [Store DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#store-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.storeInstances(
@@ -1044,7 +1044,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.testIamPermissions(
@@ -1053,13 +1053,13 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** GetStudyMetrics returns metrics for a study. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.getStudyMetrics(
       {
         study: 'Test string',
-      }
+      },
     );
     /** SetBlobStorageSettings sets the blob storage settings of the specified resources. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.setBlobStorageSettings(
@@ -1073,54 +1073,54 @@ gapi.load('client', async () => {
         filterConfig: {
           resourcePathsGcsUri: 'Test string',
         },
-      }
+      },
     );
     /** GetSeriesMetrics returns metrics for a series. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.getSeriesMetrics(
       {
         series: 'Test string',
-      }
+      },
     );
     /** GetStorageInfo returns the storage info of the specified resource. */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.instances.getStorageInfo(
       {
         resource: 'Test string',
-      }
+      },
     );
     /** DeleteStudy deletes all instances within the given study. Delete requests are equivalent to the GET requests specified in the Retrieve transaction. The method returns an Operation which will be marked successful when the deletion is complete. Warning: Instances cannot be inserted into a study that is being deleted by an operation until the operation completes. For samples that show how to call DeleteStudy, see [Delete a study, series, or instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.delete(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** RetrieveStudyMetadata returns instance associated with the given study presented as metadata with the bulk data removed. See [RetrieveTransaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4). For details on the implementation of RetrieveStudyMetadata, see [Metadata resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources) in the Cloud Healthcare API conformance statement. For samples that show how to call RetrieveStudyMetadata, see [Retrieve metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.retrieveMetadata(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** RetrieveStudy returns all instances within the given study. See [RetrieveTransaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4). For details on the implementation of RetrieveStudy, see [DICOM study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances) in the Cloud Healthcare API conformance statement. For samples that show how to call RetrieveStudy, see [Retrieve DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.retrieveStudy(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** SearchForInstances returns a list of matching instances. See [Search Transaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6). For details on the implementation of SearchForInstances, see [Search transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction) in the Cloud Healthcare API conformance statement. For samples that show how to call SearchForInstances, see [Search for DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.searchForInstances(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** SearchForSeries returns a list of matching series. See [Search Transaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6). For details on the implementation of SearchForSeries, see [Search transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction) in the Cloud Healthcare API conformance statement. For samples that show how to call SearchForSeries, see [Search for DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.searchForSeries(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** StoreInstances stores DICOM instances associated with study instance unique identifiers (SUID). See [Store Transaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5). For details on the implementation of StoreInstances, see [Store transaction](https://cloud.google.com/healthcare/docs/dicom#store_transaction) in the Cloud Healthcare API conformance statement. For samples that show how to call StoreInstances, see [Store DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#store-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.storeInstances(
@@ -1136,77 +1136,77 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** DeleteSeries deletes all instances within the given study and series. Delete requests are equivalent to the GET requests specified in the Retrieve transaction. The method returns an Operation which will be marked successful when the deletion is complete. Warning: Instances cannot be inserted into a series that is being deleted by an operation until the operation completes. For samples that show how to call DeleteSeries, see [Delete a study, series, or instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.series.delete(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** RetrieveSeriesMetadata returns instance associated with the given study and series, presented as metadata with the bulk data removed. See [RetrieveTransaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4). For details on the implementation of RetrieveSeriesMetadata, see [Metadata resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources) in the Cloud Healthcare API conformance statement. For samples that show how to call RetrieveSeriesMetadata, see [Retrieve metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.series.retrieveMetadata(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** RetrieveSeries returns all instances within the given study and series. See [RetrieveTransaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4). For details on the implementation of RetrieveSeries, see [DICOM study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances) in the Cloud Healthcare API conformance statement. For samples that show how to call RetrieveSeries, see [Retrieve DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.series.retrieveSeries(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** SearchForInstances returns a list of matching instances. See [Search Transaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6). For details on the implementation of SearchForInstances, see [Search transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction) in the Cloud Healthcare API conformance statement. For samples that show how to call SearchForInstances, see [Search for DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.series.searchForInstances(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** DeleteInstance deletes an instance associated with the given study, series, and SOP Instance UID. Delete requests are equivalent to the GET requests specified in the Retrieve transaction. Study and series search results can take a few seconds to be updated after an instance is deleted using DeleteInstance. For samples that show how to call DeleteInstance, see [Delete a study, series, or instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.series.instances.delete(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** RetrieveInstance returns instance associated with the given study, series, and SOP Instance UID. See [RetrieveTransaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4). For details on the implementation of RetrieveInstance, see [DICOM study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances) and [DICOM instances](https://cloud.google.com/healthcare/docs/dicom#dicom_instances) in the Cloud Healthcare API conformance statement. For samples that show how to call RetrieveInstance, see [Retrieve an instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-instance). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.series.instances.retrieveInstance(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** RetrieveInstanceMetadata returns instance associated with the given study, series, and SOP Instance UID presented as metadata with the bulk data removed. See [RetrieveTransaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4). For details on the implementation of RetrieveInstanceMetadata, see [Metadata resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources) in the Cloud Healthcare API conformance statement. For samples that show how to call RetrieveInstanceMetadata, see [Retrieve metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.series.instances.retrieveMetadata(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** RetrieveRenderedInstance returns instance associated with the given study, series, and SOP Instance UID in an acceptable Rendered Media Type. See [RetrieveTransaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4). For details on the implementation of RetrieveRenderedInstance, see [Rendered resources](https://cloud.google.com/healthcare/docs/dicom#rendered_resources) in the Cloud Healthcare API conformance statement. For samples that show how to call RetrieveRenderedInstance, see [Retrieve consumer image formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-consumer). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.series.instances.retrieveRendered(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** RetrieveFrames returns instances associated with the given study, series, SOP Instance UID and frame numbers. See [RetrieveTransaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4}. For details on the implementation of RetrieveFrames, see [DICOM frames](https://cloud.google.com/healthcare/docs/dicom#dicom_frames) in the Cloud Healthcare API conformance statement. For samples that show how to call RetrieveFrames, see [Retrieve DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.series.instances.frames.retrieveFrames(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** RetrieveRenderedFrames returns instances associated with the given study, series, SOP Instance UID and frame numbers in an acceptable Rendered Media Type. See [RetrieveTransaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4). For details on the implementation of RetrieveRenderedFrames, see [Rendered resources](https://cloud.google.com/healthcare/docs/dicom#rendered_resources) in the Cloud Healthcare API conformance statement. For samples that show how to call RetrieveRenderedFrames, see [Retrieve consumer image formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-consumer). */
     await gapi.client.healthcare.projects.locations.datasets.dicomStores.studies.series.instances.frames.retrieveRendered(
       {
         dicomWebPath: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Applies the admin Consent resources for the FHIR store and reindexes the underlying resources in the FHIR store according to the aggregate consents. This method also updates the `consent_config.enforced_admin_consents` field of the FhirStore unless `validate_only=true` in ApplyAdminConsentsRequest. Any admin Consent resource change after this operation execution (including deletion) requires you to call ApplyAdminConsents again for the change to take effect. This method returns an Operation that can be used to track the progress of the resources that were reindexed, by calling GetOperation. Upon completion, the ApplyAdminConsentsResponse additionally contains the number of resources that were reindexed. If at least one Consent resource contains an error or fails be be enforced for any reason, the method returns an error instead of an Operation. No resources will be reindexed and the `consent_config.enforced_admin_consents` field will be unchanged. To enforce a consent check for data access, `consent_config.access_enforced` must be set to true for the FhirStore. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.applyAdminConsents(
@@ -1218,7 +1218,7 @@ gapi.load('client', async () => {
           names: ['Test string'],
         },
         validateOnly: true,
-      }
+      },
     );
     /** Apply the Consent resources for the FHIR store and reindex the underlying resources in the FHIR store according to the aggregate consent. The aggregate consent of the patient in scope in this request replaces any previous call of this method. Any Consent resource change after this operation execution (including deletion) requires you to call ApplyConsents again to have effect. This method returns an Operation that can be used to track the progress of the consent resources that were processed by calling GetOperation. Upon completion, the ApplyConsentsResponse additionally contains the number of resources that was reindexed. Errors are logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). To enforce consent check for data access, `consent_config.access_enforced` must be set to true for the FhirStore. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.applyConsents(
@@ -1234,7 +1234,7 @@ gapi.load('client', async () => {
           start: 'Test string',
         },
         validateOnly: true,
-      }
+      },
     );
     /** Creates a new FHIR store within the parent dataset. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.create(
@@ -1379,7 +1379,7 @@ gapi.load('client', async () => {
           enabledImplementationGuides: ['Test string'],
         },
         version: 'Test string',
-      }
+      },
     );
     /** De-identifies data from the source store and writes it to the destination store. The metadata field type is OperationMetadata. If the request is successful, the response field type is DeidentifyFhirStoreSummary. If errors occur, error is set. Error details are also logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.deidentify(
@@ -1471,7 +1471,7 @@ gapi.load('client', async () => {
           },
         },
         skipModifiedResources: true,
-      }
+      },
     );
     /** Deletes the specified FHIR store and removes all resources within it. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.delete({
@@ -1482,7 +1482,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         resourceId: 'Test string',
-      }
+      },
     );
     /** Export resources from the FHIR store to the specified destination. This method returns an Operation that can be used to track the status of the export by calling GetOperation. Immediate fatal errors appear in the error field, errors are also logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). Otherwise, when the operation finishes, a detailed response of type ExportResourcesResponse is returned in the response field. The metadata field type for this operation is OperationMetadata. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.export(
@@ -1508,7 +1508,7 @@ gapi.load('client', async () => {
         gcsDestination: {
           uriPrefix: 'Test string',
         },
-      }
+      },
     );
     /** Gets the configuration of the specified FHIR store. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.get({
@@ -1518,14 +1518,14 @@ gapi.load('client', async () => {
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.getFHIRStoreMetrics(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Imports resources to the FHIR store by loading data from the specified sources. This method is optimized to load large quantities of data using import semantics that ignore some FHIR store configuration options and are not suitable for all use cases. It is primarily intended to load data into an empty FHIR store that is not being used by other clients. In cases where this method is not appropriate, consider using ExecuteBundle to load data. Every resource in the input must contain a client-supplied ID. Each resource is stored using the supplied ID regardless of the enable_update_create setting on the FHIR store. It is strongly advised not to include or encode any sensitive data such as patient identifiers in client-specified resource IDs. Those IDs are part of the FHIR resource path recorded in Cloud Audit Logs and Cloud Pub/Sub notifications. Those IDs can also be contained in reference fields within other resources. The import process does not enforce referential integrity, regardless of the disable_referential_integrity setting on the FHIR store. This allows the import of resources with arbitrary interdependencies without considering grouping or ordering, but if the input data contains invalid references or if some resources fail to be imported, the FHIR store might be left in a state that violates referential integrity. The import process does not trigger Pub/Sub notification or BigQuery streaming update, regardless of how those are configured on the FHIR store. If a resource with the specified ID already exists, the most recent version of the resource is overwritten without creating a new historical version, regardless of the disable_resource_versioning setting on the FHIR store. If transient failures occur during the import, it's possible that successfully imported resources will be overwritten more than once. The import operation is idempotent unless the input data contains multiple valid resources with the same ID but different contents. In that case, after the import completes, the store contains exactly one resource with that ID but there is no ordering guarantee on which version of the contents it will have. The operation result counters do not count duplicate IDs as an error and count one success for each resource in the input, which might result in a success count larger than the number of resources in the FHIR store. This often occurs when importing data organized in bundles produced by Patient-everything where each bundle contains its own copy of a resource such as Practitioner that might be referred to by many patients. If some resources fail to import, for example due to parsing errors, successfully imported resources are not rolled back. The location and format of the input data is specified by the parameters in ImportResourcesRequest. Note that if no format is specified, this method assumes the `BUNDLE` format. When using the `BUNDLE` format this method ignores the `Bundle.type` field, except that `history` bundles are rejected, and does not apply any of the bundle processing semantics for batch or transaction bundles. Unlike in ExecuteBundle, transaction bundles are not executed as a single transaction and bundle-internal references are not rewritten. The bundle is treated as a collection of resources to be written as provided in `Bundle.entry.resource`, ignoring `Bundle.entry.request`. As an example, this allows the import of `searchset` bundles produced by a FHIR search or Patient-everything operation. This method returns an Operation that can be used to track the status of the import by calling GetOperation. Immediate fatal errors appear in the error field, errors are also logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). Otherwise, when the operation finishes, a detailed response of type ImportResourcesResponse is returned in the response field. The metadata field type for this operation is OperationMetadata. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.import(
@@ -1537,7 +1537,7 @@ gapi.load('client', async () => {
         gcsSource: {
           uri: 'Test string',
         },
-      }
+      },
     );
     /** Lists the FHIR stores in the given dataset. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.list({
@@ -1689,7 +1689,7 @@ gapi.load('client', async () => {
           enabledImplementationGuides: ['Test string'],
         },
         version: 'Test string',
-      }
+      },
     );
     /** Rolls back resources from the FHIR store to the specified time. This method returns an Operation that can be used to track the status of the rollback by calling GetOperation. Immediate fatal errors appear in the error field, errors are also logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). Otherwise, when the operation finishes, a detailed response of type RollbackFhirResourcesResponse is returned in the response field. The metadata field type for this operation is OperationMetadata. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.rollback(
@@ -1708,7 +1708,7 @@ gapi.load('client', async () => {
         resultGcsBucket: 'Test string',
         rollbackTime: 'Test string',
         type: ['Test string'],
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.setIamPolicy(
@@ -1744,7 +1744,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.testIamPermissions(
@@ -1753,7 +1753,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a FHIR Binary resource. This method can be used to create a Binary resource either by using one of the accepted FHIR JSON content types, or as a raw data stream. If a resource is created with this method using the FHIR content type this method's behavior is the same as [`fhir.create`](https://cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores.fhir/create). If a resource type other than Binary is used in the request it's treated in the same way as non-FHIR data (e.g., images, zip archives, pdf files, documents). When a non-FHIR content type is used in the request, a Binary resource will be generated, and the uploaded data will be stored in the `content` field (`DSTU2` and `STU3`), or the `data` field (`R4`). The Binary resource's `contentType` will be filled in using the value of the `Content-Type` header, and the `securityContext` field (not present in `DSTU2`) will be populated from the `X-Security-Context` header if it exists. At this time `securityContext` has no special behavior in the Cloud Healthcare API. Note: the limit on data ingested through this method is 1 GB. For best performance, use a non-FHIR data type instead of wrapping the data in a Binary resource. Some of the Healthcare API features, such as [exporting to BigQuery](https://cloud.google.com/healthcare-api/docs/how-tos/fhir-export-bigquery) or [Pub/Sub notifications](https://cloud.google.com/healthcare-api/docs/fhir-pubsub#behavior_when_a_fhir_resource_is_too_large_or_traffic_is_high) with full resource content, do not support Binary resources that are larger than 10 MB. In these cases the resource's `data` field will be omitted. Instead, the "http://hl7.org/fhir/StructureDefinition/data-absent-reason" extension will be present to indicate that including the data is `unsupported`. On success, an empty `201 Created` response is returned. The newly created resource's ID and version are returned in the Location header. Using `Prefer: representation=resource` is not allowed for this method. The definition of the Binary REST API can be found at https://hl7.org/fhir/binary.html#rest. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir[
@@ -1770,7 +1770,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Gets the contents of a FHIR Binary resource. This method can be used to retrieve a Binary resource either by using the FHIR JSON mimetype as the value for the Accept header, or as a raw data stream. If the FHIR Accept type is used this method will return a Binary resource with the data base64-encoded, regardless of how the resource was created. The resource data can be retrieved in base64-decoded form if the Accept type of the request matches the value of the resource's `contentType` field. The definition of the Binary REST API can be found at https://hl7.org/fhir/binary.html#rest. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir[
@@ -1793,7 +1793,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Gets the contents of a version (current or historical) of a FHIR Binary resource by version ID. This method can be used to retrieve a Binary resource version either by using the FHIR JSON mimetype as the value for the Accept header, or as a raw data stream. If the FHIR Accept type is used this method will return a Binary resource with the data base64-encoded, regardless of how the resource version was created. The resource data can be retrieved in base64-decoded form if the Accept type of the request matches the value of the resource version's `contentType` field. The definition of the Binary REST API can be found at https://hl7.org/fhir/binary.html#rest. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir[
@@ -1805,14 +1805,14 @@ gapi.load('client', async () => {
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.capabilities(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a FHIR resource that match an identifier search query. Implements the FHIR standard conditional delete interaction, limited to searching by resource identifier. If multiple resources match, 412 Precondition Failed error will be returned. Search term for identifier should be in the pattern `identifier=system|value` or `identifier=value` - similar to the `search` method on resources with a specific identifier. Note: Unless resource versioning is disabled by setting the disable_resource_versioning flag on the FHIR store, the deleted resource is moved to a history repository that can still be retrieved through vread and related methods, unless they are removed by the purge method. For samples that show how to call `conditionalDelete`, see [Conditionally deleting a FHIR resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#conditionally_deleting_a_fhir_resource). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.conditionalDelete(
       {
         parent: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** If a resource is found with the identifier specified in the query parameters, updates part of that resource by applying the operations specified in a [JSON Patch](http://jsonpatch.com/) document. Implements the FHIR standard conditional patch interaction, limited to searching by resource identifier. DSTU2 doesn't define a conditional patch method, but the server supports it in the same way it supports STU3. Search term for identifier should be in the pattern `identifier=system|value` or `identifier=value` - similar to the `search` method on resources with a specific identifier. If the search criteria identify more than one match, the request returns a `412 Precondition Failed` error. The request body must contain a JSON Patch document, and the request headers must contain `Content-Type: application/json-patch+json`. On success, the response body contains a JSON-encoded representation of the updated resource, including the server-assigned version ID. Errors generated by the FHIR store contain a JSON-encoded `OperationOutcome` resource describing the reason for the error. If the request cannot be mapped to a valid API method on a FHIR store, a generic GCP error might be returned instead. For samples that show how to call `conditionalPatch`, see [Conditionally patching a FHIR resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#conditionally_patching_a_fhir_resource). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.conditionalPatch(
@@ -1828,7 +1828,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** If a resource is found with the identifier specified in the query parameters, updates the entire contents of that resource. Implements the FHIR standard conditional update interaction, limited to searching by resource identifier. Search term for identifier should be in the pattern `identifier=system|value` or `identifier=value` - similar to the `search` method on resources with a specific identifier. If the search criteria identify more than one match, the request returns a `412 Precondition Failed` error. If the search criteria identify zero matches, and the supplied resource body contains an `id`, and the FHIR store has enable_update_create set, creates the resource with the client-specified ID. It is strongly advised not to include or encode any sensitive data such as patient identifiers in client-specified resource IDs. Those IDs are part of the FHIR resource path recorded in Cloud Audit Logs and Pub/Sub notifications. Those IDs can also be contained in reference fields within other resources. If the search criteria identify zero matches, and the supplied resource body does not contain an `id`, the resource is created with a server-assigned ID as per the create method. The request body must contain a JSON-encoded FHIR resource, and the request headers must contain `Content-Type: application/fhir+json`. On success, the response body contains a JSON-encoded representation of the updated resource, including the server-assigned version ID. Errors generated by the FHIR store contain a JSON-encoded `OperationOutcome` resource describing the reason for the error. If the request cannot be mapped to a valid API method on a FHIR store, a generic GCP error might be returned instead. For samples that show how to call `conditionalUpdate`, see [Conditionally updating a FHIR resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#conditionally_updating_a_fhir_resource). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.conditionalUpdate(
@@ -1844,7 +1844,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Returns the consent enforcement status of a single consent resource. On success, the response body contains a JSON-encoded representation of a `Parameters` (http://hl7.org/fhir/parameters.html) FHIR resource, containing the current enforcement status. Does not support DSTU2. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir[
@@ -1866,13 +1866,13 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Deletes a FHIR resource. Implements the FHIR standard delete interaction ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#delete), [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#delete), [R4](http://hl7.org/implement/standards/fhir/R4/http.html#delete)). Note: Unless resource versioning is disabled by setting the disable_resource_versioning flag on the FHIR store, the deleted resources will be moved to a history repository that can still be retrieved through vread and related methods, unless they are removed by the purge method. For samples that show how to call `delete`, see [Deleting a FHIR resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#deleting_a_fhir_resource). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Executes all the requests in the given Bundle. Implements the FHIR standard batch/transaction interaction ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#transaction), [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#transaction), [R4](https://hl7.org/implement/standards/fhir/R4/http.html#transaction)). Supports all interactions within a bundle, except search. This method accepts Bundles of type `batch` and `transaction`, processing them according to the batch processing rules ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.1), [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.1), [R4](https://hl7.org/implement/standards/fhir/R4/http.html#brules)) and transaction processing rules ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.2), [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.2), [R4](https://hl7.org/implement/standards/fhir/R4/http.html#trules)). The request body must contain a JSON-encoded FHIR `Bundle` resource, and the request headers must contain `Content-Type: application/fhir+json`. For a batch bundle or a successful transaction, the response body contains a JSON-encoded representation of a `Bundle` resource of type `batch-response` or `transaction-response` containing one entry for each entry in the request, with the outcome of processing the entry. In the case of an error for a transaction bundle, the response body contains a JSON-encoded `OperationOutcome` resource describing the reason for the error. If the request cannot be mapped to a valid API method on a FHIR store, a generic GCP error might be returned instead. This method checks permissions for each request in the bundle. The `executeBundle` permission is required to call this method, but you must also grant sufficient permissions to execute the individual requests in the bundle. For example, if the bundle contains a request to create a FHIR resource, the caller must also have been granted the `healthcare.fhirResources.create` permission. You can use audit logs to view the permissions for `executeBundle` and each request in the bundle. For more information, see [Viewing Cloud Audit logs](https://cloud.google.com/healthcare-api/docs/how-tos/audit-logging). For samples that show how to call `executeBundle`, see [Managing FHIR resources using FHIR bundles](https://cloud.google.com/healthcare/docs/how-tos/fhir-bundles). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.executeBundle(
@@ -1887,7 +1887,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Lists all the versions of a resource (including the current version and deleted versions) from the FHIR store. Implements the per-resource form of the FHIR standard history interaction ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#history), [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#history), [R4](http://hl7.org/implement/standards/fhir/R4/http.html#history)). On success, the response body contains a JSON-encoded representation of a `Bundle` resource of type `history`, containing the version history sorted from most recent to oldest versions. Errors generated by the FHIR store contain a JSON-encoded `OperationOutcome` resource describing the reason for the error. If the request cannot be mapped to a valid API method on a FHIR store, a generic GCP error might be returned instead. For samples that show how to call `history`, see [Listing FHIR resource versions](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#listing_fhir_resource_versions). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.history(
@@ -1897,7 +1897,7 @@ gapi.load('client', async () => {
         _page_token: 'Test string',
         _since: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Updates part of an existing resource by applying the operations specified in a [JSON Patch](http://jsonpatch.com/) document. Implements the FHIR standard patch interaction ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch), [R4](http://hl7.org/implement/standards/fhir/R4/http.html#patch)). DSTU2 doesn't define a patch method, but the server supports it in the same way it supports STU3. The request body must contain a JSON Patch document, and the request headers must contain `Content-Type: application/json-patch+json`. On success, the response body contains a JSON-encoded representation of the updated resource, including the server-assigned version ID. Errors generated by the FHIR store contain a JSON-encoded `OperationOutcome` resource describing the reason for the error. If the request cannot be mapped to a valid API method on a FHIR store, a generic GCP error might be returned instead. For samples that show how to call `patch`, see [Patching a FHIR resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#patching_a_fhir_resource). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.patch(
@@ -1912,7 +1912,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Returns the consent enforcement status of all consent resources for a patient. On success, the response body contains a JSON-encoded representation of a bundle of `Parameters` (http://hl7.org/fhir/parameters.html) FHIR resources, containing the current enforcement status for each consent resource of the patient. Does not support DSTU2. */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir[
@@ -1938,7 +1938,7 @@ gapi.load('client', async () => {
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.read(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Deletes all the historical versions of a resource (excluding the current version) from the FHIR store. To remove all versions of a resource, first delete the current version and then call this method. This is not a FHIR standard operation. For samples that show how to call `Resource-purge`, see [Deleting historical versions of a FHIR resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#deleting_historical_versions_of_a_fhir_resource). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir[
@@ -1963,7 +1963,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Searches for resources in the given FHIR store according to criteria specified as query parameters. Implements the FHIR standard search interaction ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#search), [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#search), [R4](http://hl7.org/implement/standards/fhir/R4/http.html#search)) using the search semantics described in the FHIR Search specification ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/search.html), [STU3](http://hl7.org/implement/standards/fhir/STU3/search.html), [R4](http://hl7.org/implement/standards/fhir/R4/search.html)). Supports four methods of search defined by the specification: * `GET [base]?[parameters]` to search across all resources. * `GET [base]/[type]?[parameters]` to search resources of a specified type. * `POST [base]/_search?[parameters]` as an alternate form having the same semantics as the `GET` method across all resources. * `POST [base]/[type]/_search?[parameters]` as an alternate form having the same semantics as the `GET` method for the specified type. The `GET` and `POST` methods do not support compartment searches. The `POST` method does not support `application/x-www-form-urlencoded` search parameters. On success, the response body contains a JSON-encoded representation of a `Bundle` resource of type `searchset`, containing the results of the search. Errors generated by the FHIR store contain a JSON-encoded `OperationOutcome` resource describing the reason for the error. If the request cannot be mapped to a valid API method on a FHIR store, a generic GCP error might be returned instead. The server's capability statement, retrieved through capabilities, indicates what search parameters are supported on each FHIR resource. A list of all search parameters defined by the specification can be found in the FHIR Search Parameter Registry ([STU3](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html), [R4](http://hl7.org/implement/standards/fhir/R4/searchparameter-registry.html)). FHIR search parameters for DSTU2 can be found on each resource's definition page. Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`, `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `recurse` (DSTU2 and STU3) or `:iterate` (R4). Supported search result parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`, `_summary=data`, and `_elements`. The maximum number of search results returned defaults to 100, which can be overridden by the `_count` parameter up to a maximum limit of 1000. The server might return fewer resources than requested to prevent excessively large responses. If there are additional results, the returned `Bundle` contains a link of `relation` "next", which has a `_page_token` parameter for an opaque pagination token that can be used to retrieve the next page. Resources with a total size larger than 5MB or a field count larger than 50,000 might not be fully searchable as the server might trim its generated search index in those cases. Note: FHIR resources are indexed asynchronously, so there might be a slight delay between the time a resource is created or changed, and the time when the change reflects in search results. The only exception is resource identifier data, which is indexed synchronously as a special index. As a result, searching using resource identifier is not subject to indexing delay. To use the special synchronous index, the search term for identifier should be in the pattern `identifier=[system]|[value]` or `identifier=[value]`, and any of the following search result parameters can be used: * `_count` * `_include` * `_revinclude` * `_summary` * `_elements` If your query contains any other search parameters, the standard asynchronous index will be used instead. Note that searching against the special index is optimized for resolving a small number of matches. The search isn't optimized if your identifier search criteria matches a large number (i.e. more than 2,000) of resources. For a search query that will match a large number of resources, you can avoiding using the special synchronous index by including an additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you want to keep the default sorting order. Note: The special synchronous identifier index are currently disabled for DocumentReference and DocumentManifest searches. For samples and detailed information, see [Searching for FHIR resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and [Advanced FHIR search features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.search(
@@ -1972,7 +1972,7 @@ gapi.load('client', async () => {
       },
       {
         resourceType: 'Test string',
-      }
+      },
     );
     /** Searches for resources in the given FHIR store according to criteria specified as query parameters. Implements the FHIR standard search interaction ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#search), [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#search), [R4](http://hl7.org/implement/standards/fhir/R4/http.html#search)) using the search semantics described in the FHIR Search specification ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/search.html), [STU3](http://hl7.org/implement/standards/fhir/STU3/search.html), [R4](http://hl7.org/implement/standards/fhir/R4/search.html)). Supports four methods of search defined by the specification: * `GET [base]?[parameters]` to search across all resources. * `GET [base]/[type]?[parameters]` to search resources of a specified type. * `POST [base]/_search?[parameters]` as an alternate form having the same semantics as the `GET` method across all resources. * `POST [base]/[type]/_search?[parameters]` as an alternate form having the same semantics as the `GET` method for the specified type. The `GET` and `POST` methods do not support compartment searches. The `POST` method does not support `application/x-www-form-urlencoded` search parameters. On success, the response body contains a JSON-encoded representation of a `Bundle` resource of type `searchset`, containing the results of the search. Errors generated by the FHIR store contain a JSON-encoded `OperationOutcome` resource describing the reason for the error. If the request cannot be mapped to a valid API method on a FHIR store, a generic GCP error might be returned instead. The server's capability statement, retrieved through capabilities, indicates what search parameters are supported on each FHIR resource. A list of all search parameters defined by the specification can be found in the FHIR Search Parameter Registry ([STU3](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html), [R4](http://hl7.org/implement/standards/fhir/R4/searchparameter-registry.html)). FHIR search parameters for DSTU2 can be found on each resource's definition page. Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`, `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `recurse` (DSTU2 and STU3) or `:iterate` (R4). Supported search result parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`, `_summary=data`, and `_elements`. The maximum number of search results returned defaults to 100, which can be overridden by the `_count` parameter up to a maximum limit of 1000. The server might return fewer resources than requested to prevent excessively large responses. If there are additional results, the returned `Bundle` contains a link of `relation` "next", which has a `_page_token` parameter for an opaque pagination token that can be used to retrieve the next page. Resources with a total size larger than 5MB or a field count larger than 50,000 might not be fully searchable as the server might trim its generated search index in those cases. Note: FHIR resources are indexed asynchronously, so there might be a slight delay between the time a resource is created or changed, and the time when the change reflects in search results. The only exception is resource identifier data, which is indexed synchronously as a special index. As a result, searching using resource identifier is not subject to indexing delay. To use the special synchronous index, the search term for identifier should be in the pattern `identifier=[system]|[value]` or `identifier=[value]`, and any of the following search result parameters can be used: * `_count` * `_include` * `_revinclude` * `_summary` * `_elements` If your query contains any other search parameters, the standard asynchronous index will be used instead. Note that searching against the special index is optimized for resolving a small number of matches. The search isn't optimized if your identifier search criteria matches a large number (i.e. more than 2,000) of resources. For a search query that will match a large number of resources, you can avoiding using the special synchronous index by including an additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you want to keep the default sorting order. Note: The special synchronous identifier index are currently disabled for DocumentReference and DocumentManifest searches. For samples and detailed information, see [Searching for FHIR resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and [Advanced FHIR search features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir[
@@ -1984,7 +1984,7 @@ gapi.load('client', async () => {
       },
       {
         resourceType: 'Test string',
-      }
+      },
     );
     /** Updates the entire contents of a resource. Implements the FHIR standard update interaction ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#update), [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#update), [R4](http://hl7.org/implement/standards/fhir/R4/http.html#update)). If the specified resource does not exist and the FHIR store has enable_update_create set, creates the resource with the client-specified ID. It is strongly advised not to include or encode any sensitive data such as patient identifiers in client-specified resource IDs. Those IDs are part of the FHIR resource path recorded in Cloud Audit Logs and Pub/Sub notifications. Those IDs can also be contained in reference fields within other resources. The request body must contain a JSON-encoded FHIR resource, and the request headers must contain `Content-Type: application/fhir+json`. The resource must contain an `id` element having an identical value to the ID in the REST path of the request. On success, the response body contains a JSON-encoded representation of the updated resource, including the server-assigned version ID. Errors generated by the FHIR store contain a JSON-encoded `OperationOutcome` resource describing the reason for the error. If the request cannot be mapped to a valid API method on a FHIR store, a generic GCP error might be returned instead. For samples that show how to call `update`, see [Updating a FHIR resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.update(
@@ -1999,13 +1999,13 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Gets the contents of a version (current or historical) of a FHIR resource by version ID. Implements the FHIR standard vread interaction ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#vread), [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#vread), [R4](http://hl7.org/implement/standards/fhir/R4/http.html#vread)). On success, the response body contains a JSON-encoded representation of the resource. Errors generated by the FHIR store contain a JSON-encoded `OperationOutcome` resource describing the reason for the error. If the request cannot be mapped to a valid API method on a FHIR store, a generic GCP error might be returned instead. For samples that show how to call `vread`, see [Retrieving a FHIR resource version](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#retrieving_a_fhir_resource_version). */
     await gapi.client.healthcare.projects.locations.datasets.fhirStores.fhir.vread(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Creates a new HL7v2 store within the parent dataset. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.create(
@@ -2088,13 +2088,13 @@ gapi.load('client', async () => {
           version: 'Test string',
         },
         rejectDuplicateMessage: true,
-      }
+      },
     );
     /** Deletes the specified HL7v2 store and removes all messages that it contains. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Exports the messages to a destination. To filter messages to be exported, define a filter using the start and end time, relative to the message generation time (MSH.7). This API returns an Operation that can be used to track the status of the job by calling GetOperation. Immediate fatal errors appear in the error field. Otherwise, when the operation finishes, a detailed response of type ExportMessagesResponse is returned in the response field. The metadata field type for this operation is OperationMetadata. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.export(
@@ -2113,7 +2113,7 @@ gapi.load('client', async () => {
           pubsubTopic: 'Test string',
         },
         startTime: 'Test string',
-      }
+      },
     );
     /** Gets the specified HL7v2 store. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.get({
@@ -2123,14 +2123,14 @@ gapi.load('client', async () => {
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.getHL7v2StoreMetrics(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Import messages to the HL7v2 store by loading data from the specified sources. This method is optimized to load large quantities of data using import semantics that ignore some HL7v2 store configuration options and are not suitable for all use cases. It is primarily intended to load data into an empty HL7v2 store that is not being used by other clients. An existing message will be overwritten if a duplicate message is imported. A duplicate message is a message with the same raw bytes as a message that already exists in this HL7v2 store. When a message is overwritten, its labels will also be overwritten. The import operation is idempotent unless the input data contains multiple valid messages with the same raw bytes but different labels. In that case, after the import completes, the store contains exactly one message with those raw bytes but there is no ordering guarantee on which version of the labels it has. The operation result counters do not count duplicated raw bytes as an error and count one success for each message in the input, which might result in a success count larger than the number of messages in the HL7v2 store. If some messages fail to import, for example due to parsing errors, successfully imported messages are not rolled back. This method returns an Operation that can be used to track the status of the import by calling GetOperation. Immediate fatal errors appear in the error field, errors are also logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). Otherwise, when the operation finishes, a response of type ImportMessagesResponse is returned in the response field. The metadata field type for this operation is OperationMetadata. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.import(
@@ -2141,7 +2141,7 @@ gapi.load('client', async () => {
         gcsSource: {
           uri: 'Test string',
         },
-      }
+      },
     );
     /** Lists the HL7v2 stores in the given dataset. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.list({
@@ -2231,7 +2231,7 @@ gapi.load('client', async () => {
           version: 'Test string',
         },
         rejectDuplicateMessage: true,
-      }
+      },
     );
     /** Rolls back messages from the HL7v2 store to the specified time. This method returns an Operation that can be used to track the status of the rollback by calling GetOperation. Immediate fatal errors appear in the error field, errors are also logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). Otherwise, when the operation finishes, a detailed response of type RollbackHl7V2MessagesResponse is returned in the response field. The metadata field type for this operation is OperationMetadata. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.rollback(
@@ -2248,7 +2248,7 @@ gapi.load('client', async () => {
         inputGcsObject: 'Test string',
         resultGcsBucket: 'Test string',
         rollbackTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.setIamPolicy(
@@ -2284,7 +2284,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.testIamPermissions(
@@ -2293,7 +2293,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Parses and stores an HL7v2 message. This method triggers an asynchronous notification to any Pub/Sub topic configured in Hl7V2Store.Hl7V2NotificationConfig, if the filtering matches the message. If an MLLP adapter is configured to listen to a Pub/Sub topic, the adapter transmits the message when a notification is received. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.messages.create(
@@ -2333,20 +2333,20 @@ gapi.load('client', async () => {
           sendFacility: 'Test string',
           sendTime: 'Test string',
         },
-      }
+      },
     );
     /** Deletes an HL7v2 message. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.messages.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an HL7v2 message. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.messages.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Parses and stores an HL7v2 message. This method triggers an asynchronous notification to any Pub/Sub topic configured in Hl7V2Store.Hl7V2NotificationConfig, if the filtering matches the message. If an MLLP adapter is configured to listen to a Pub/Sub topic, the adapter transmits the message when a notification is received. If the method is successful, it generates a response containing an HL7v2 acknowledgment (`ACK`) message. If the method encounters an error, it returns a negative acknowledgment (`NACK`) message. This behavior is suitable for replying to HL7v2 interface systems that expect these acknowledgments. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.messages.ingest(
@@ -2386,7 +2386,7 @@ gapi.load('client', async () => {
           sendFacility: 'Test string',
           sendTime: 'Test string',
         },
-      }
+      },
     );
     /** Lists all the messages in the given HL7v2 store with support for filtering. Note: HL7v2 messages are indexed asynchronously, so there might be a slight delay between the time a message is created and when it can be found through a filter. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.messages.list(
@@ -2397,7 +2397,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Update the message. The contents of the message in Message.data and data extracted from the contents such as Message.create_time cannot be altered. Only the Message.labels field is allowed to be updated. The labels in the request are merged with the existing set of labels. Existing labels with the same keys are updated. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.messages.patch(
@@ -2436,14 +2436,14 @@ gapi.load('client', async () => {
         },
         sendFacility: 'Test string',
         sendTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.healthcare.projects.locations.datasets.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.healthcare.projects.locations.datasets.operations.get({
@@ -2465,7 +2465,7 @@ gapi.load('client', async () => {
         alternativeOutputFormat: 'Test string',
         documentContent: 'Test string',
         licensedVocabularies: ['Test string'],
-      }
+      },
     );
   }
 });

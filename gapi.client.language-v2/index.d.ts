@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Natural Language API v2 */
   function load(
-    urlOrObject: 'https://language.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://language.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'language', version: 'v2'): Promise<void>;
@@ -1268,7 +1268,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AnalyzeEntitiesRequest
+        body: AnalyzeEntitiesRequest,
       ): Request<AnalyzeEntitiesResponse>;
       /** Analyzes the sentiment of the provided text. */
       analyzeSentiment(request: {
@@ -1322,7 +1322,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AnalyzeSentimentRequest
+        body: AnalyzeSentimentRequest,
       ): Request<AnalyzeSentimentResponse>;
       /** A convenience method that provides all features in one call. */
       annotateText(request: {
@@ -1376,7 +1376,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AnnotateTextRequest
+        body: AnnotateTextRequest,
       ): Request<AnnotateTextResponse>;
       /** Classifies a document into categories. */
       classifyText(request: {
@@ -1430,7 +1430,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClassifyTextRequest
+        body: ClassifyTextRequest,
       ): Request<ClassifyTextResponse>;
       /** Moderates a document for harmful and sensitive categories. */
       moderateText(request: {
@@ -1484,7 +1484,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModerateTextRequest
+        body: ModerateTextRequest,
       ): Request<ModerateTextResponse>;
     }
 

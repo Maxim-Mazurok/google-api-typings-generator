@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://managedidentities.googleapis.com/$discovery/rest?version=v1'
+    'https://managedidentities.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.managedidentities */
 
@@ -61,14 +61,14 @@ gapi.load('client', async () => {
           trustType: 'Test string',
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** CheckMigrationPermission API gets the current state of DomainMigration */
     await gapi.client.managedidentities.projects.locations.global.domains.checkMigrationPermission(
       {
         domain: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a Microsoft AD domain. */
     await gapi.client.managedidentities.projects.locations.global.domains.create(
@@ -106,13 +106,13 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a domain. */
     await gapi.client.managedidentities.projects.locations.global.domains.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Removes an AD trust. */
     await gapi.client.managedidentities.projects.locations.global.domains.detachTrust(
@@ -133,14 +133,14 @@ gapi.load('client', async () => {
           trustType: 'Test string',
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Disable Domain Migration */
     await gapi.client.managedidentities.projects.locations.global.domains.disableMigration(
       {
         domain: 'Test string',
       },
-      {}
+      {},
     );
     /** DomainJoinMachine API joins a Compute Engine VM to the domain */
     await gapi.client.managedidentities.projects.locations.global.domains.domainJoinMachine(
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
         force: true,
         ouName: 'Test string',
         vmIdToken: 'Test string',
-      }
+      },
     );
     /** Enable Domain Migration */
     await gapi.client.managedidentities.projects.locations.global.domains.enableMigration(
@@ -165,7 +165,7 @@ gapi.load('client', async () => {
             domainName: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Extend Schema for Domain */
     await gapi.client.managedidentities.projects.locations.global.domains.extendSchema(
@@ -176,7 +176,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         fileContents: 'Test string',
         gcsPath: 'Test string',
-      }
+      },
     );
     /** Gets information about a domain. */
     await gapi.client.managedidentities.projects.locations.global.domains.get({
@@ -187,13 +187,13 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Gets the domain ldaps settings. */
     await gapi.client.managedidentities.projects.locations.global.domains.getLdapssettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists domains in a project. */
     await gapi.client.managedidentities.projects.locations.global.domains.list({
@@ -239,7 +239,7 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Updates the DNS conditional forwarder. */
     await gapi.client.managedidentities.projects.locations.global.domains.reconfigureTrust(
@@ -249,14 +249,14 @@ gapi.load('client', async () => {
       {
         targetDnsIpAddresses: ['Test string'],
         targetDomainName: 'Test string',
-      }
+      },
     );
     /** Resets a domain's administrator password. */
     await gapi.client.managedidentities.projects.locations.global.domains.resetAdminPassword(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** RestoreDomain restores domain backup mentioned in the RestoreDomainRequest */
     await gapi.client.managedidentities.projects.locations.global.domains.restore(
@@ -265,7 +265,7 @@ gapi.load('client', async () => {
       },
       {
         backupId: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.managedidentities.projects.locations.global.domains.setIamPolicy(
@@ -289,7 +289,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.managedidentities.projects.locations.global.domains.testIamPermissions(
@@ -298,7 +298,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Patches a single ldaps settings. */
     await gapi.client.managedidentities.projects.locations.global.domains.updateLdapssettings(
@@ -319,7 +319,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Validates a trust state, that the target domain is reachable, and that the target domain is able to accept incoming trust requests. */
     await gapi.client.managedidentities.projects.locations.global.domains.validateTrust(
@@ -340,7 +340,7 @@ gapi.load('client', async () => {
           trustType: 'Test string',
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Creates a Backup for a domain. */
     await gapi.client.managedidentities.projects.locations.global.domains.backups.create(
@@ -358,26 +358,26 @@ gapi.load('client', async () => {
         statusMessage: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes identified Backup. */
     await gapi.client.managedidentities.projects.locations.global.domains.backups.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Backup. */
     await gapi.client.managedidentities.projects.locations.global.domains.backups.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.managedidentities.projects.locations.global.domains.backups.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists Backup in a given project. */
     await gapi.client.managedidentities.projects.locations.global.domains.backups.list(
@@ -387,7 +387,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the labels for specified Backup. */
     await gapi.client.managedidentities.projects.locations.global.domains.backups.patch(
@@ -405,7 +405,7 @@ gapi.load('client', async () => {
         statusMessage: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.managedidentities.projects.locations.global.domains.backups.setIamPolicy(
@@ -429,7 +429,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.managedidentities.projects.locations.global.domains.backups.testIamPermissions(
@@ -438,13 +438,13 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets details of a single sqlIntegration. */
     await gapi.client.managedidentities.projects.locations.global.domains.sqlIntegrations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists SqlIntegrations in a given domain. */
     await gapi.client.managedidentities.projects.locations.global.domains.sqlIntegrations.list(
@@ -454,26 +454,26 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.managedidentities.projects.locations.global.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.managedidentities.projects.locations.global.operations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.managedidentities.projects.locations.global.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.managedidentities.projects.locations.global.operations.list(
@@ -482,7 +482,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates a Peering for Managed AD instance. */
     await gapi.client.managedidentities.projects.locations.global.peerings.create(
@@ -501,13 +501,13 @@ gapi.load('client', async () => {
         state: 'Test string',
         statusMessage: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes identified Peering. */
     await gapi.client.managedidentities.projects.locations.global.peerings.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Peering. */
     await gapi.client.managedidentities.projects.locations.global.peerings.get({
@@ -518,7 +518,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists Peerings in a given project. */
     await gapi.client.managedidentities.projects.locations.global.peerings.list(
@@ -528,7 +528,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the labels for specified Peering. */
     await gapi.client.managedidentities.projects.locations.global.peerings.patch(
@@ -547,7 +547,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         statusMessage: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.managedidentities.projects.locations.global.peerings.setIamPolicy(
@@ -571,7 +571,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.managedidentities.projects.locations.global.peerings.testIamPermissions(
@@ -580,7 +580,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

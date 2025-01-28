@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud TPU API v1 */
   function load(
-    urlOrObject: 'https://tpu.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://tpu.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'tpu', version: 'v1'): Promise<void>;
@@ -314,7 +314,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Node
+        body: Node,
       ): Request<Operation>;
       /** Deletes a node. */
       delete(request?: {
@@ -457,7 +457,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReimageNodeRequest
+        body: ReimageNodeRequest,
       ): Request<Operation>;
       /** Starts a node. */
       start(request: {
@@ -515,7 +515,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartNodeRequest
+        body: StartNodeRequest,
       ): Request<Operation>;
       /** Stops a node, this operation is only available with single TPU nodes. */
       stop(request: {
@@ -573,7 +573,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopNodeRequest
+        body: StopNodeRequest,
       ): Request<Operation>;
     }
     interface OperationsResource {

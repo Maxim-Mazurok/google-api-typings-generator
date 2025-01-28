@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Play Android Developer API v3 */
   function load(
-    urlOrObject: 'https://androidpublisher.googleapis.com/$discovery/rest?version=v3'
+    urlOrObject: 'https://androidpublisher.googleapis.com/$discovery/rest?version=v3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'androidpublisher', version: 'v3'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'androidpublisher',
     version: 'v3',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace androidpublisher {
@@ -1826,7 +1826,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeviceTierConfig
+        body: DeviceTierConfig,
       ): Request<DeviceTierConfig>;
       /** Returns a particular device tier config. */
       get(request?: {
@@ -1946,7 +1946,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SafetyLabelsUpdateRequest
+        body: SafetyLabelsUpdateRequest,
       ): Request<{}>;
       deviceTierConfigs: DeviceTierConfigsResource;
     }
@@ -2011,7 +2011,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddTargetingRequest
+        body: AddTargetingRequest,
       ): Request<{}>;
       /** Cancel an already executing app recovery action. Note that this action changes status of the recovery action to CANCELED. */
       cancel(request: {
@@ -2073,7 +2073,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelAppRecoveryRequest
+        body: CancelAppRecoveryRequest,
       ): Request<{}>;
       /** Create an app recovery action with recovery status as DRAFT. Note that this action does not execute the recovery action. */
       create(request: {
@@ -2131,7 +2131,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateDraftAppRecoveryRequest
+        body: CreateDraftAppRecoveryRequest,
       ): Request<AppRecoveryAction>;
       /** Deploy an already created app recovery action with recovery status DRAFT. Note that this action activates the recovery action for all targeted users and changes its status to ACTIVE. */
       deploy(request: {
@@ -2193,7 +2193,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeployAppRecoveryRequest
+        body: DeployAppRecoveryRequest,
       ): Request<{}>;
       /** List all app recovery action resources associated with a particular package name and app version. */
       list(request?: {
@@ -2286,7 +2286,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApksAddExternallyHostedRequest
+        body: ApksAddExternallyHostedRequest,
       ): Request<ApksAddExternallyHostedResponse>;
       /** Lists all current APKs of the app and edit. */
       list(request?: {
@@ -2569,7 +2569,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AppDetails
+        body: AppDetails,
       ): Request<AppDetails>;
       /** Updates details of an app. */
       update(request: {
@@ -2631,7 +2631,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AppDetails
+        body: AppDetails,
       ): Request<AppDetails>;
     }
     interface ExpansionfilesResource {
@@ -2736,7 +2736,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExpansionFile
+        body: ExpansionFile,
       ): Request<ExpansionFile>;
       /** Updates the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
       update(request: {
@@ -2806,7 +2806,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExpansionFile
+        body: ExpansionFile,
       ): Request<ExpansionFile>;
       /** Uploads a new expansion file and attaches to the specified APK. */
       upload(request?: {
@@ -3163,7 +3163,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Listing
+        body: Listing,
       ): Request<Listing>;
       /** Creates or updates a localized store listing. */
       update(request: {
@@ -3229,7 +3229,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Listing
+        body: Listing,
       ): Request<Listing>;
     }
     interface TestersResource {
@@ -3328,7 +3328,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Testers
+        body: Testers,
       ): Request<Testers>;
       /** Updates testers. Note: Testers resource does not support email lists. */
       update(request: {
@@ -3394,7 +3394,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Testers
+        body: Testers,
       ): Request<Testers>;
     }
     interface TracksResource {
@@ -3458,7 +3458,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TrackConfig
+        body: TrackConfig,
       ): Request<Track>;
       /** Gets a track. */
       get(request?: {
@@ -3584,7 +3584,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Track
+        body: Track,
       ): Request<Track>;
       /** Updates a track. */
       update(request: {
@@ -3650,7 +3650,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Track
+        body: Track,
       ): Request<Track>;
     }
     interface EditsResource {
@@ -3799,7 +3799,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AppEdit
+        body: AppEdit,
       ): Request<AppEdit>;
       /** Validates an app edit. */
       validate(request?: {
@@ -3902,7 +3902,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExternalTransaction
+        body: ExternalTransaction,
       ): Request<ExternalTransaction>;
       /** Gets an existing external transaction. */
       getexternaltransaction(request?: {
@@ -3987,7 +3987,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RefundExternalTransactionRequest
+        body: RefundExternalTransactionRequest,
       ): Request<ExternalTransaction>;
     }
     interface GeneratedapksResource {
@@ -4109,7 +4109,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Grant
+        body: Grant,
       ): Request<Grant>;
       /** Removes all access for the user to the given package or developer account. */
       delete(request?: {
@@ -4198,7 +4198,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Grant
+        body: Grant,
       ): Request<Grant>;
     }
     interface InappproductsResource {
@@ -4258,7 +4258,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InappproductsBatchDeleteRequest
+        body: InappproductsBatchDeleteRequest,
       ): Request<void>;
       /** Reads multiple in-app products, which can be managed products or subscriptions. This method should not be used to retrieve subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       batchGet(request?: {
@@ -4345,7 +4345,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InappproductsBatchUpdateRequest
+        body: InappproductsBatchUpdateRequest,
       ): Request<InappproductsBatchUpdateResponse>;
       /** Deletes an in-app product (a managed product or a subscription). This method should no longer be used to delete subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       delete(request?: {
@@ -4467,7 +4467,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InAppProduct
+        body: InAppProduct,
       ): Request<InAppProduct>;
       /** Lists all in-app products - both managed products and subscriptions. If an app has a large number of in-app products, the response may be paginated. In this case the response field `tokenPagination.nextPageToken` will be set and the caller should provide its value as a `token` request parameter to retrieve the next page. This method should no longer be used to retrieve subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       list(request?: {
@@ -4570,7 +4570,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InAppProduct
+        body: InAppProduct,
       ): Request<InAppProduct>;
       /** Updates an in-app product (a managed product or a subscription). This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       update(request: {
@@ -4644,7 +4644,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InAppProduct
+        body: InAppProduct,
       ): Request<InAppProduct>;
     }
     interface InternalappsharingartifactsResource {
@@ -4772,7 +4772,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ActivateSubscriptionOfferRequest
+        body: ActivateSubscriptionOfferRequest,
       ): Request<SubscriptionOffer>;
       /** Reads one or more subscription offers. */
       batchGet(request: {
@@ -4838,7 +4838,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchGetSubscriptionOffersRequest
+        body: BatchGetSubscriptionOffersRequest,
       ): Request<BatchGetSubscriptionOffersResponse>;
       /** Updates a batch of subscription offers. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
       batchUpdate(request: {
@@ -4904,7 +4904,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateSubscriptionOffersRequest
+        body: BatchUpdateSubscriptionOffersRequest,
       ): Request<BatchUpdateSubscriptionOffersResponse>;
       /** Updates a batch of subscription offer states. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
       batchUpdateStates(request: {
@@ -4970,7 +4970,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateSubscriptionOfferStatesRequest
+        body: BatchUpdateSubscriptionOfferStatesRequest,
       ): Request<BatchUpdateSubscriptionOfferStatesResponse>;
       /** Creates a new subscription offer. Only auto-renewing base plans can have subscription offers. The offer state will be DRAFT until it is activated. */
       create(request: {
@@ -5044,7 +5044,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SubscriptionOffer
+        body: SubscriptionOffer,
       ): Request<SubscriptionOffer>;
       /** Deactivates a subscription offer. Once deactivated, existing subscribers will maintain their subscription, but the offer will become unavailable to new subscribers. */
       deactivate(request: {
@@ -5114,7 +5114,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeactivateSubscriptionOfferRequest
+        body: DeactivateSubscriptionOfferRequest,
       ): Request<SubscriptionOffer>;
       /** Deletes a subscription offer. Can only be done for draft offers. This action is irreversible. */
       delete(request?: {
@@ -5301,7 +5301,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SubscriptionOffer
+        body: SubscriptionOffer,
       ): Request<SubscriptionOffer>;
     }
     interface BasePlansResource {
@@ -5369,7 +5369,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ActivateBasePlanRequest
+        body: ActivateBasePlanRequest,
       ): Request<Subscription>;
       /** Batch variant of the MigrateBasePlanPrices endpoint. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
       batchMigratePrices(request: {
@@ -5431,7 +5431,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchMigrateBasePlanPricesRequest
+        body: BatchMigrateBasePlanPricesRequest,
       ): Request<BatchMigrateBasePlanPricesResponse>;
       /** Activates or deactivates base plans across one or multiple subscriptions. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
       batchUpdateStates(request: {
@@ -5493,7 +5493,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateBasePlanStatesRequest
+        body: BatchUpdateBasePlanStatesRequest,
       ): Request<BatchUpdateBasePlanStatesResponse>;
       /** Deactivates a base plan. Once deactivated, the base plan will become unavailable to new subscribers, but existing subscribers will maintain their subscription */
       deactivate(request: {
@@ -5559,7 +5559,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeactivateBasePlanRequest
+        body: DeactivateBasePlanRequest,
       ): Request<Subscription>;
       /** Deletes a base plan. Can only be done for draft base plans. This action is irreversible. */
       delete(request?: {
@@ -5656,7 +5656,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MigrateBasePlanPricesRequest
+        body: MigrateBasePlanPricesRequest,
       ): Request<{}>;
       offers: OffersResource;
     }
@@ -5721,7 +5721,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ArchiveSubscriptionRequest
+        body: ArchiveSubscriptionRequest,
       ): Request<Subscription>;
       /** Reads one or more subscriptions. */
       batchGet(request?: {
@@ -5808,7 +5808,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateSubscriptionsRequest
+        body: BatchUpdateSubscriptionsRequest,
       ): Request<BatchUpdateSubscriptionsResponse>;
       /** Creates a new subscription. Newly added base plans will remain in draft state until activated. */
       create(request: {
@@ -5874,7 +5874,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Subscription
+        body: Subscription,
       ): Request<Subscription>;
       /** Deletes a subscription. A subscription can only be deleted if it has never had a base plan published. */
       delete(request?: {
@@ -6043,7 +6043,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Subscription
+        body: Subscription,
       ): Request<Subscription>;
       basePlans: BasePlansResource;
     }
@@ -6104,7 +6104,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConvertRegionPricesRequest
+        body: ConvertRegionPricesRequest,
       ): Request<ConvertRegionPricesResponse>;
       subscriptions: SubscriptionsResource;
     }
@@ -6206,7 +6206,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProductPurchasesAcknowledgeRequest
+        body: ProductPurchasesAcknowledgeRequest,
       ): Request<void>;
       /** Consumes a purchase for an inapp item. */
       consume(request?: {
@@ -6336,7 +6336,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SubscriptionPurchasesAcknowledgeRequest
+        body: SubscriptionPurchasesAcknowledgeRequest,
       ): Request<void>;
       /** Cancels a user's subscription purchase. The subscription remains valid until its expiration time. */
       cancel(request?: {
@@ -6433,7 +6433,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SubscriptionPurchasesDeferRequest
+        body: SubscriptionPurchasesDeferRequest,
       ): Request<SubscriptionPurchasesDeferResponse>;
       /** Checks whether a user's subscription purchase is valid and returns its expiry time. */
       get(request?: {
@@ -6619,7 +6619,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RevokeSubscriptionPurchaseRequest
+        body: RevokeSubscriptionPurchaseRequest,
       ): Request<{}>;
     }
     interface VoidedpurchasesResource {
@@ -6798,7 +6798,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReviewsReplyRequest
+        body: ReviewsReplyRequest,
       ): Request<ReviewsReplyResponse>;
     }
     interface VariantsResource {
@@ -6862,7 +6862,7 @@ declare namespace gapi.client {
           /** The version code of the App Bundle. */
           versionCode: string;
         },
-        body: Variant
+        body: Variant,
       ): Request<Variant>;
       /** Downloads a previously created system APK which is suitable for inclusion in a system image. */
       download(request?: {
@@ -7016,7 +7016,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: User
+        body: User,
       ): Request<User>;
       /** Removes all access for the user to the given developer account. */
       delete(request?: {
@@ -7136,7 +7136,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: User
+        body: User,
       ): Request<User>;
     }
 

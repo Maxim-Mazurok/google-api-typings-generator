@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firestore.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://firestore.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.firestore */
 
@@ -41,7 +41,7 @@ gapi.load('client', async () => {
       {
         collectionIds: ['Test string'],
         outputUriPrefix: 'Test string',
-      }
+      },
     );
     /** Imports documents into Google Cloud Firestore. Existing documents with the same name are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportDocuments operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Firestore. */
     await gapi.client.firestore.projects.databases.importDocuments(
@@ -51,7 +51,7 @@ gapi.load('client', async () => {
       {
         collectionIds: ['Test string'],
         inputUriPrefix: 'Test string',
-      }
+      },
     );
     /** Gets multiple documents. Documents returned by this method are not guaranteed to be returned in the same order that they were requested. */
     await gapi.client.firestore.projects.databases.documents.batchGet(
@@ -73,7 +73,7 @@ gapi.load('client', async () => {
         },
         readTime: 'Test string',
         transaction: 'Test string',
-      }
+      },
     );
     /** Applies a batch of write operations. The BatchWrite method does not apply the write operations atomically and can apply them out of order. Method does not allow more than one write per document. Each write succeeds or fails independently. See the BatchWriteResponse for the success status of each write. If you require an atomically applied set of writes, use Commit instead. */
     await gapi.client.firestore.projects.databases.documents.batchWrite(
@@ -346,7 +346,7 @@ gapi.load('client', async () => {
             ],
           },
         ],
-      }
+      },
     );
     /** Starts a new transaction. */
     await gapi.client.firestore.projects.databases.documents.beginTransaction(
@@ -362,7 +362,7 @@ gapi.load('client', async () => {
             retryTransaction: 'Test string',
           },
         },
-      }
+      },
     );
     /** Commits a transaction, while optionally updating documents. */
     await gapi.client.firestore.projects.databases.documents.commit(
@@ -633,7 +633,7 @@ gapi.load('client', async () => {
             ],
           },
         ],
-      }
+      },
     );
     /** Creates a new document. */
     await gapi.client.firestore.projects.databases.documents.createDocument(
@@ -669,7 +669,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a document. */
     await gapi.client.firestore.projects.databases.documents.delete({
@@ -705,7 +705,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         readTime: 'Test string',
-      }
+      },
     );
     /** Lists documents. */
     await gapi.client.firestore.projects.databases.documents.listDocuments({
@@ -884,7 +884,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         removeTarget: 42,
-      }
+      },
     );
     /** Partitions a query by returning partition cursors that can be used to run the query in parallel. The returned partition cursors are split points that can be used by RunQuery as starting/end points for the query results. */
     await gapi.client.firestore.projects.databases.documents.partitionQuery(
@@ -1038,7 +1038,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Updates or inserts a document. */
     await gapi.client.firestore.projects.databases.documents.patch(
@@ -1075,7 +1075,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Rolls back a transaction. */
     await gapi.client.firestore.projects.databases.documents.rollback(
@@ -1084,7 +1084,7 @@ gapi.load('client', async () => {
       },
       {
         transaction: 'Test string',
-      }
+      },
     );
     /** Runs an aggregation query. Rather than producing Document results like Firestore.RunQuery, this API allows running an aggregation to produce a series of AggregationResult server-side. High-Level Example: ``` -- Return the number of documents in table given a filter. SELECT COUNT(*) FROM ( SELECT * FROM k where a = true ); ``` */
     await gapi.client.firestore.projects.databases.documents.runAggregationQuery(
@@ -1267,7 +1267,7 @@ gapi.load('client', async () => {
           },
         },
         transaction: 'Test string',
-      }
+      },
     );
     /** Runs a query. */
     await gapi.client.firestore.projects.databases.documents.runQuery(
@@ -1430,7 +1430,7 @@ gapi.load('client', async () => {
           },
         },
         transaction: 'Test string',
-      }
+      },
     );
     /** Streams batches of document updates and deletes, in order. This method is only available via gRPC or WebChannel (not REST). */
     await gapi.client.firestore.projects.databases.documents.write(
@@ -1705,7 +1705,7 @@ gapi.load('client', async () => {
             ],
           },
         ],
-      }
+      },
     );
     /** Creates the specified index. A newly created index's initial state is `CREATING`. On completion of the returned google.longrunning.Operation, the state will be `READY`. If the index already exists, the call will return an `ALREADY_EXISTS` status. During creation, the process could result in an error, in which case the index will move to the `ERROR` state. The process can be recovered by fixing the data that caused the error, removing the index with delete, then re-creating the index with create. Indexes with a single field cannot be created. */
     await gapi.client.firestore.projects.databases.indexes.create(
@@ -1722,7 +1722,7 @@ gapi.load('client', async () => {
         ],
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes an index. */
     await gapi.client.firestore.projects.databases.indexes.delete({

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Docs API v1 */
   function load(
-    urlOrObject: 'https://docs.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://docs.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'docs', version: 'v1'): Promise<void>;
@@ -1669,7 +1669,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateDocumentRequest
+        body: BatchUpdateDocumentRequest,
       ): client.Request<BatchUpdateDocumentResponse>;
       /** Creates a blank document using the title given in the request. Other fields in the request, including any provided content, are ignored. Returns the created document. */
       create(request: {
@@ -1723,7 +1723,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Document
+        body: Document,
       ): client.Request<Document>;
       /** Gets the latest version of the specified document. */
       get(request?: {

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudfunctions.googleapis.com/$discovery/rest?version=v1'
+    'https://cloudfunctions.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.cloudfunctions */
 
@@ -56,7 +56,7 @@ gapi.load('client', async () => {
       },
       {
         data: 'Test string',
-      }
+      },
     );
     /** Creates a new function. If a function with the given name already exists in the specified project, the long running operation will return `ALREADY_EXISTS` error. */
     await gapi.client.cloudfunctions.projects.locations.functions.create(
@@ -140,7 +140,7 @@ gapi.load('client', async () => {
         versionId: 'Test string',
         vpcConnector: 'Test string',
         vpcConnectorEgressSettings: 'Test string',
-      }
+      },
     );
     /** Deletes a function with the given name from the specified project. If the given function is used by some trigger, the trigger will be updated to remove this function. */
     await gapi.client.cloudfunctions.projects.locations.functions.delete({
@@ -153,7 +153,7 @@ gapi.load('client', async () => {
       },
       {
         versionId: 'Test string',
-      }
+      },
     );
     /** Returns a signed URL for uploading a function source code. For more information about the signed URL usage see: https://cloud.google.com/storage/docs/access-control/signed-urls. Once the function source code upload is complete, the used signed URL should be provided in CreateFunction or UpdateFunction request as a reference to the function source code. When uploading source code to the generated signed URL, please follow these restrictions: * Source file type should be a zip file. * Source file size should not exceed 100MB limit. * No credentials should be attached - the signed URLs provide access to the target bucket using internal service identity; if credentials were attached, the identity from the credentials would be used, but that identity does not have permissions to upload files to the URL. When making a HTTP PUT request, these two headers need to be specified: * `content-type: application/zip` * `x-goog-content-length-range: 0,104857600` And this header SHOULD NOT be specified: * `Authorization: Bearer YOUR_TOKEN` */
     await gapi.client.cloudfunctions.projects.locations.functions.generateUploadUrl(
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
       },
       {
         kmsKeyName: 'Test string',
-      }
+      },
     );
     /** Returns a function with the given name from the requested project. */
     await gapi.client.cloudfunctions.projects.locations.functions.get({
@@ -263,7 +263,7 @@ gapi.load('client', async () => {
         versionId: 'Test string',
         vpcConnector: 'Test string',
         vpcConnectorEgressSettings: 'Test string',
-      }
+      },
     );
     /** Sets the IAM access control policy on the specified function. Replaces any existing policy. */
     await gapi.client.cloudfunctions.projects.locations.functions.setIamPolicy(
@@ -299,7 +299,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Tests the specified permissions against the IAM access control policy for a function. If the function does not exist, this will return an empty set of permissions, not a NOT_FOUND error. */
     await gapi.client.cloudfunctions.projects.locations.functions.testIamPermissions(
@@ -308,7 +308,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

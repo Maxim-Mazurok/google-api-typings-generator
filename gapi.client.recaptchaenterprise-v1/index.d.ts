@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load reCAPTCHA Enterprise API v1 */
   function load(
-    urlOrObject: 'https://recaptchaenterprise.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://recaptchaenterprise.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'recaptchaenterprise', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'recaptchaenterprise',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace recaptchaenterprise {
@@ -617,7 +617,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest
+        body: GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest,
       ): Request<{}>;
       /** Creates an Assessment of the likelihood an event is legitimate. */
       create(request: {
@@ -675,7 +675,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecaptchaenterpriseV1Assessment
+        body: GoogleCloudRecaptchaenterpriseV1Assessment,
       ): Request<GoogleCloudRecaptchaenterpriseV1Assessment>;
     }
     interface FirewallpoliciesResource {
@@ -735,7 +735,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecaptchaenterpriseV1FirewallPolicy
+        body: GoogleCloudRecaptchaenterpriseV1FirewallPolicy,
       ): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
       /** Deletes the specified firewall policy. */
       delete(request?: {
@@ -882,7 +882,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecaptchaenterpriseV1FirewallPolicy
+        body: GoogleCloudRecaptchaenterpriseV1FirewallPolicy,
       ): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
       /** Reorders all firewall policies. */
       reorder(request: {
@@ -940,7 +940,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesRequest
+        body: GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesRequest,
       ): Request<{}>;
     }
     interface KeysResource {
@@ -1000,7 +1000,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecaptchaenterpriseV1AddIpOverrideRequest
+        body: GoogleCloudRecaptchaenterpriseV1AddIpOverrideRequest,
       ): Request<{}>;
       /** Creates a new reCAPTCHA Enterprise key. */
       create(request: {
@@ -1058,7 +1058,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecaptchaenterpriseV1Key
+        body: GoogleCloudRecaptchaenterpriseV1Key,
       ): Request<GoogleCloudRecaptchaenterpriseV1Key>;
       /** Deletes the specified key. */
       delete(request?: {
@@ -1259,7 +1259,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest
+        body: GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest,
       ): Request<GoogleCloudRecaptchaenterpriseV1Key>;
       /** Updates the specified key. */
       patch(request: {
@@ -1321,7 +1321,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecaptchaenterpriseV1Key
+        body: GoogleCloudRecaptchaenterpriseV1Key,
       ): Request<GoogleCloudRecaptchaenterpriseV1Key>;
       /** Removes an IP override from a key. The following restrictions hold: * If the IP isn't found in an existing IP override, a `NOT_FOUND` error is returned. * If the IP is found in an existing IP override, but the override type does not match, a `NOT_FOUND` error is returned. */
       removeIpOverride(request: {
@@ -1379,7 +1379,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideRequest
+        body: GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideRequest,
       ): Request<{}>;
       /** Returns the secret key related to the specified public key. You must use the legacy secret key only in a 3rd party integration with legacy reCAPTCHA. */
       retrieveLegacySecretKey(request?: {
@@ -1464,7 +1464,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest
+        body: GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest,
       ): Request<GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse>;
     }
     interface MembershipsResource {

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Traffic Director API v2 */
   function load(
-    urlOrObject: 'https://trafficdirector.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://trafficdirector.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'trafficdirector', version: 'v2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'trafficdirector',
     version: 'v2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace trafficdirector {
@@ -358,7 +358,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClientStatusRequest
+        body: ClientStatusRequest,
       ): Request<ClientStatusResponse>;
     }
 

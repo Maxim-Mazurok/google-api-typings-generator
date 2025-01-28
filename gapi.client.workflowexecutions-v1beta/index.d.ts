@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Workflow Executions API v1beta */
   function load(
-    urlOrObject: 'https://workflowexecutions.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://workflowexecutions.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'workflowexecutions', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'workflowexecutions',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace workflowexecutions {
@@ -152,7 +152,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelExecutionRequest
+        body: CancelExecutionRequest,
       ): Request<Execution>;
       /** Creates a new execution using the latest revision of the given workflow. */
       create(request: {
@@ -210,7 +210,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Execution
+        body: Execution,
       ): Request<Execution>;
       /** Returns an execution of the given name. */
       get(request?: {

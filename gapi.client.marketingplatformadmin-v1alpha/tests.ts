@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://marketingplatformadmin.googleapis.com/$discovery/rest?version=v1alpha'
+    'https://marketingplatformadmin.googleapis.com/$discovery/rest?version=v1alpha',
   );
   /** now we can use gapi.client.marketingplatformadmin */
 
@@ -47,13 +47,13 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         linkVerificationState: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the AnalyticsAccountLink, which detaches the Analytics account from the Google Marketing Platform organization. User needs to be an org user, and admin on the Analytics account in order to delete the link. */
     await gapi.client.marketingplatformadmin.organizations.analyticsAccountLinks.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the Google Analytics accounts link to the specified Google Marketing Platform organization. */
     await gapi.client.marketingplatformadmin.organizations.analyticsAccountLinks.list(
@@ -61,7 +61,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the service level for an Analytics property. */
     await gapi.client.marketingplatformadmin.organizations.analyticsAccountLinks.setPropertyServiceLevel(
@@ -71,7 +71,7 @@ gapi.load('client', async () => {
       {
         analyticsProperty: 'Test string',
         serviceLevel: 'Test string',
-      }
+      },
     );
   }
 });

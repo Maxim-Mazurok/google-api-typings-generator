@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Document AI API v1 */
   function load(
-    urlOrObject: 'https://documentai.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://documentai.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'documentai', version: 'v1'): Promise<void>;
@@ -1968,7 +1968,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1ReviewDocumentRequest
+        body: GoogleCloudDocumentaiV1ReviewDocumentRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface EvaluationsResource {
@@ -2088,7 +2088,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1BatchProcessRequest
+        body: GoogleCloudDocumentaiV1BatchProcessRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes the processor version, all artifacts under the processor version will be deleted. */
       delete(request?: {
@@ -2173,7 +2173,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1DeployProcessorVersionRequest
+        body: GoogleCloudDocumentaiV1DeployProcessorVersionRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Evaluates a ProcessorVersion against annotated documents, producing an Evaluation. */
       evaluateProcessorVersion(request: {
@@ -2231,7 +2231,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest
+        body: GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets a processor version detail. */
       get(request?: {
@@ -2347,7 +2347,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1ProcessRequest
+        body: GoogleCloudDocumentaiV1ProcessRequest,
       ): Request<GoogleCloudDocumentaiV1ProcessResponse>;
       /** Trains a new processor version. Operation metadata is returned as TrainProcessorVersionMetadata. */
       train(request: {
@@ -2405,7 +2405,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1TrainProcessorVersionRequest
+        body: GoogleCloudDocumentaiV1TrainProcessorVersionRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Undeploys the processor version. */
       undeploy(request: {
@@ -2463,7 +2463,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1UndeployProcessorVersionRequest
+        body: GoogleCloudDocumentaiV1UndeployProcessorVersionRequest,
       ): Request<GoogleLongrunningOperation>;
       evaluations: EvaluationsResource;
     }
@@ -2524,7 +2524,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1BatchProcessRequest
+        body: GoogleCloudDocumentaiV1BatchProcessRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates a processor from the ProcessorType provided. The processor will be at `ENABLED` state by default after its creation. Note that this method requires the `documentai.processors.create` permission on the project, which is highly privileged. A user or service account with this permission can create new processors that can interact with any gcs bucket in your project. */
       create(request: {
@@ -2582,7 +2582,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1Processor
+        body: GoogleCloudDocumentaiV1Processor,
       ): Request<GoogleCloudDocumentaiV1Processor>;
       /** Deletes the processor, unloads all deployed model artifacts if it was enabled and then deletes all artifacts associated with this processor. */
       delete(request?: {
@@ -2667,7 +2667,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1DisableProcessorRequest
+        body: GoogleCloudDocumentaiV1DisableProcessorRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Enables a processor */
       enable(request: {
@@ -2725,7 +2725,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1EnableProcessorRequest
+        body: GoogleCloudDocumentaiV1EnableProcessorRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets a processor detail. */
       get(request?: {
@@ -2841,7 +2841,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1ProcessRequest
+        body: GoogleCloudDocumentaiV1ProcessRequest,
       ): Request<GoogleCloudDocumentaiV1ProcessResponse>;
       /** Set the default (active) version of a Processor that will be used in ProcessDocument and BatchProcessDocuments. */
       setDefaultProcessorVersion(request: {
@@ -2899,7 +2899,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest
+        body: GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest,
       ): Request<GoogleLongrunningOperation>;
       humanReviewConfig: HumanReviewConfigResource;
       processorVersions: ProcessorVersionsResource;

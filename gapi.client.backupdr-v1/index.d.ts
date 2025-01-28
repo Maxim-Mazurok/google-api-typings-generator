@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Backup and DR Service API v1 */
   function load(
-    urlOrObject: 'https://backupdr.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://backupdr.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'backupdr', version: 'v1'): Promise<void>;
@@ -1018,7 +1018,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BackupPlanAssociation
+        body: BackupPlanAssociation,
       ): Request<Operation>;
       /** Deletes a single BackupPlanAssociation. */
       delete(request?: {
@@ -1165,7 +1165,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TriggerBackupRequest
+        body: TriggerBackupRequest,
       ): Request<Operation>;
     }
     interface BackupPlansResource {
@@ -1233,7 +1233,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BackupPlan
+        body: BackupPlan,
       ): Request<Operation>;
       /** Deletes a single BackupPlan. */
       delete(request?: {
@@ -1487,7 +1487,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Backup
+        body: Backup,
       ): Request<Operation>;
       /** Restore from a Backup */
       restore(request: {
@@ -1545,7 +1545,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestoreBackupRequest
+        body: RestoreBackupRequest,
       ): Request<Operation>;
     }
     interface DataSourcesResource {
@@ -1605,7 +1605,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AbandonBackupRequest
+        body: AbandonBackupRequest,
       ): Request<Operation>;
       /** Internal only. Fetch access token for a given data source. */
       fetchAccessToken(request: {
@@ -1663,7 +1663,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FetchAccessTokenRequest
+        body: FetchAccessTokenRequest,
       ): Request<FetchAccessTokenResponse>;
       /** Internal only. Finalize a backup that was started by a call to InitiateBackup. */
       finalizeBackup(request: {
@@ -1721,7 +1721,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FinalizeBackupRequest
+        body: FinalizeBackupRequest,
       ): Request<Operation>;
       /** Gets details of a DataSource. */
       get(request?: {
@@ -1806,7 +1806,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InitiateBackupRequest
+        body: InitiateBackupRequest,
       ): Request<InitiateBackupResponse>;
       /** Lists DataSources in a given project and location. */
       list(request?: {
@@ -1911,7 +1911,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DataSource
+        body: DataSource,
       ): Request<Operation>;
       /** Deletes a DataSource. This is a custom method instead of a standard delete method because external clients will not delete DataSources except for BackupDR backup appliances. */
       remove(request: {
@@ -1969,7 +1969,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveDataSourceRequest
+        body: RemoveDataSourceRequest,
       ): Request<Operation>;
       /** Sets the internal status of a DataSource. */
       setInternalStatus(request: {
@@ -2027,7 +2027,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetInternalStatusRequest
+        body: SetInternalStatusRequest,
       ): Request<Operation>;
       backups: BackupsResource;
     }
@@ -2100,7 +2100,7 @@ declare namespace gapi.client {
           /** Optional. Only validate the request, but do not perform mutations. The default is 'false'. */
           validateOnly?: boolean;
         },
-        body: BackupVault
+        body: BackupVault,
       ): Request<Operation>;
       /** Deletes a BackupVault. */
       delete(request?: {
@@ -2314,7 +2314,7 @@ declare namespace gapi.client {
           /** Optional. Only validate the request, but do not perform mutations. The default is 'false'. */
           validateOnly?: boolean;
         },
-        body: BackupVault
+        body: BackupVault,
       ): Request<Operation>;
       /** Returns the caller's permissions on a BackupVault resource. A caller is not required to have Google IAM permission to make this request. */
       testIamPermissions(
@@ -2344,7 +2344,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       dataSources: DataSourcesResource;
     }
@@ -2413,7 +2413,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ManagementServer
+        body: ManagementServer,
       ): Request<Operation>;
       /** Deletes a single ManagementServer. */
       delete(request?: {
@@ -2563,7 +2563,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2593,7 +2593,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface OperationsResource {
@@ -2653,7 +2653,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -2800,7 +2800,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InitializeServiceRequest
+        body: InitializeServiceRequest,
       ): Request<Operation>;
     }
     interface LocationsResource {

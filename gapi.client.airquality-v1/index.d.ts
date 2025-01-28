@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Air Quality API v1 */
   function load(
-    urlOrObject: 'https://airquality.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://airquality.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'airquality', version: 'v1'): Promise<void>;
@@ -277,7 +277,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LookupCurrentConditionsRequest
+        body: LookupCurrentConditionsRequest,
       ): Request<LookupCurrentConditionsResponse>;
     }
     interface ForecastResource {
@@ -333,7 +333,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LookupForecastRequest
+        body: LookupForecastRequest,
       ): Request<LookupForecastResponse>;
     }
     interface HistoryResource {
@@ -389,7 +389,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LookupHistoryRequest
+        body: LookupHistoryRequest,
       ): Request<LookupHistoryResponse>;
     }
     interface HeatmapTilesResource {

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load CSS API v1 */
   function load(
-    urlOrObject: 'https://css.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://css.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'css', version: 'v1'): Promise<void>;
@@ -407,7 +407,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CssProductInput
+        body: CssProductInput,
       ): Request<CssProductInput>;
       /** Updates the existing Css Product input in your CSS Center account. After inserting, updating, or deleting a CSS Product input, it may take several minutes before the processed Css Product can be retrieved. */
       patch(request: {
@@ -469,7 +469,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CssProductInput
+        body: CssProductInput,
       ): Request<CssProductInput>;
     }
     interface CssProductsResource {
@@ -589,7 +589,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountLabel
+        body: AccountLabel,
       ): Request<AccountLabel>;
       /** Deletes a label and removes it from all accounts to which it was assigned. */
       delete(request?: {
@@ -705,7 +705,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountLabel
+        body: AccountLabel,
       ): Request<AccountLabel>;
     }
     interface AccountsResource {
@@ -829,7 +829,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateAccountLabelsRequest
+        body: UpdateAccountLabelsRequest,
       ): Request<Account>;
       cssProductInputs: CssProductInputsResource;
       cssProducts: CssProductsResource;

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Firestore API v1beta1 */
   function load(
-    urlOrObject: 'https://firestore.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://firestore.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firestore', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firestore',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firestore {
@@ -762,7 +762,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchGetDocumentsRequest
+        body: BatchGetDocumentsRequest,
       ): Request<BatchGetDocumentsResponse>;
       /** Applies a batch of write operations. The BatchWrite method does not apply the write operations atomically and can apply them out of order. Method does not allow more than one write per document. Each write succeeds or fails independently. See the BatchWriteResponse for the success status of each write. If you require an atomically applied set of writes, use Commit instead. */
       batchWrite(request: {
@@ -820,7 +820,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchWriteRequest
+        body: BatchWriteRequest,
       ): Request<BatchWriteResponse>;
       /** Starts a new transaction. */
       beginTransaction(request: {
@@ -878,7 +878,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BeginTransactionRequest
+        body: BeginTransactionRequest,
       ): Request<BeginTransactionResponse>;
       /** Commits a transaction, while optionally updating documents. */
       commit(request: {
@@ -936,7 +936,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommitRequest
+        body: CommitRequest,
       ): Request<CommitResponse>;
       /** Creates a new document. */
       createDocument(request: {
@@ -1006,7 +1006,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Document
+        body: Document,
       ): Request<Document>;
       /** Deletes a document. */
       delete(request?: {
@@ -1171,7 +1171,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ListCollectionIdsRequest
+        body: ListCollectionIdsRequest,
       ): Request<ListCollectionIdsResponse>;
       /** Lists documents. */
       listDocuments(request?: {
@@ -1272,7 +1272,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ListenRequest
+        body: ListenRequest,
       ): Request<ListenResponse>;
       /** Partitions a query by returning partition cursors that can be used to run the query in parallel. The returned partition cursors are split points that can be used by RunQuery as starting/end points for the query results. */
       partitionQuery(request: {
@@ -1330,7 +1330,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PartitionQueryRequest
+        body: PartitionQueryRequest,
       ): Request<PartitionQueryResponse>;
       /** Updates or inserts a document. */
       patch(request: {
@@ -1404,7 +1404,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Document
+        body: Document,
       ): Request<Document>;
       /** Rolls back a transaction. */
       rollback(request: {
@@ -1462,7 +1462,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RollbackRequest
+        body: RollbackRequest,
       ): Request<{}>;
       /** Runs an aggregation query. Rather than producing Document results like Firestore.RunQuery, this API allows running an aggregation to produce a series of AggregationResult server-side. High-Level Example: ``` -- Return the number of documents in table given a filter. SELECT COUNT(*) FROM ( SELECT * FROM k where a = true ); ``` */
       runAggregationQuery(request: {
@@ -1520,7 +1520,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunAggregationQueryRequest
+        body: RunAggregationQueryRequest,
       ): Request<RunAggregationQueryResponse>;
       /** Runs a query. */
       runQuery(request: {
@@ -1578,7 +1578,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunQueryRequest
+        body: RunQueryRequest,
       ): Request<RunQueryResponse>;
       /** Streams batches of document updates and deletes, in order. This method is only available via gRPC or WebChannel (not REST). */
       write(request: {
@@ -1636,7 +1636,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WriteRequest
+        body: WriteRequest,
       ): Request<WriteResponse>;
     }
     interface IndexesResource {
@@ -1696,7 +1696,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirestoreAdminV1beta1Index
+        body: GoogleFirestoreAdminV1beta1Index,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes an index. */
       delete(request?: {
@@ -1842,7 +1842,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirestoreAdminV1beta1ExportDocumentsRequest
+        body: GoogleFirestoreAdminV1beta1ExportDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Imports documents into Google Cloud Firestore. Existing documents with the same name are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportDocuments operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Firestore. */
       importDocuments(request: {
@@ -1900,7 +1900,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirestoreAdminV1beta1ImportDocumentsRequest
+        body: GoogleFirestoreAdminV1beta1ImportDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
       documents: DocumentsResource;
       indexes: IndexesResource;

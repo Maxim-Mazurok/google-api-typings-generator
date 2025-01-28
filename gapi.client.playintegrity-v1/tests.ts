@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://playintegrity.googleapis.com/$discovery/rest?version=v1'
+    'https://playintegrity.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.playintegrity */
 
@@ -43,7 +43,7 @@ gapi.load('client', async () => {
           bitSecond: true,
           bitThird: true,
         },
-      }
+      },
     );
     /** Decodes the integrity token and returns the token payload. */
     await gapi.client.playintegrity.v1.decodeIntegrityToken(
@@ -52,7 +52,7 @@ gapi.load('client', async () => {
       },
       {
         integrityToken: 'Test string',
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://gkebackup.googleapis.com/$discovery/rest?version=v1'
+    'https://gkebackup.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.gkebackup */
 
@@ -118,7 +118,7 @@ gapi.load('client', async () => {
         stateReason: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing BackupPlan. */
     await gapi.client.gkebackup.projects.locations.backupPlans.delete({
@@ -218,7 +218,7 @@ gapi.load('client', async () => {
         stateReason: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkebackup.projects.locations.backupPlans.setIamPolicy(
@@ -254,7 +254,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkebackup.projects.locations.backupPlans.testIamPermissions(
@@ -263,7 +263,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a Backup for the given BackupPlan. */
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.create(
@@ -321,7 +321,7 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         volumeCount: 42,
-      }
+      },
     );
     /** Deletes an existing Backup. */
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.delete({
@@ -337,14 +337,14 @@ gapi.load('client', async () => {
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.getBackupIndexDownloadUrl(
       {
         backup: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists the Backups for a given BackupPlan. */
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.list({
@@ -410,7 +410,7 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         volumeCount: 42,
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.setIamPolicy(
@@ -446,7 +446,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.testIamPermissions(
@@ -455,20 +455,20 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Retrieve the details of a single VolumeBackup. */
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.volumeBackups.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.volumeBackups.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists the VolumeBackups for a given Backup. */
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.volumeBackups.list(
@@ -478,7 +478,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.volumeBackups.setIamPolicy(
@@ -514,7 +514,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkebackup.projects.locations.backupPlans.backups.volumeBackups.testIamPermissions(
@@ -523,14 +523,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.gkebackup.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.gkebackup.projects.locations.operations.delete({
@@ -661,7 +661,7 @@ gapi.load('client', async () => {
         stateReason: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing RestorePlan. */
     await gapi.client.gkebackup.projects.locations.restorePlans.delete({
@@ -800,7 +800,7 @@ gapi.load('client', async () => {
         stateReason: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkebackup.projects.locations.restorePlans.setIamPolicy(
@@ -836,7 +836,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkebackup.projects.locations.restorePlans.testIamPermissions(
@@ -845,7 +845,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new Restore for the given RestorePlan. */
     await gapi.client.gkebackup.projects.locations.restorePlans.restores.create(
@@ -1007,7 +1007,7 @@ gapi.load('client', async () => {
           },
         ],
         volumesRestoredCount: 42,
-      }
+      },
     );
     /** Deletes an existing Restore. */
     await gapi.client.gkebackup.projects.locations.restorePlans.restores.delete(
@@ -1015,7 +1015,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the details of a single Restore. */
     await gapi.client.gkebackup.projects.locations.restorePlans.restores.get({
@@ -1026,7 +1026,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists the Restores for a given RestorePlan. */
     await gapi.client.gkebackup.projects.locations.restorePlans.restores.list({
@@ -1196,7 +1196,7 @@ gapi.load('client', async () => {
           },
         ],
         volumesRestoredCount: 42,
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkebackup.projects.locations.restorePlans.restores.setIamPolicy(
@@ -1232,7 +1232,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkebackup.projects.locations.restorePlans.restores.testIamPermissions(
@@ -1241,20 +1241,20 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Retrieve the details of a single VolumeRestore. */
     await gapi.client.gkebackup.projects.locations.restorePlans.restores.volumeRestores.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.gkebackup.projects.locations.restorePlans.restores.volumeRestores.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists the VolumeRestores for a given Restore. */
     await gapi.client.gkebackup.projects.locations.restorePlans.restores.volumeRestores.list(
@@ -1264,7 +1264,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkebackup.projects.locations.restorePlans.restores.volumeRestores.setIamPolicy(
@@ -1300,7 +1300,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkebackup.projects.locations.restorePlans.restores.volumeRestores.testIamPermissions(
@@ -1309,7 +1309,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

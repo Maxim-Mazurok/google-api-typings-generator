@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://identitytoolkit.googleapis.com/$discovery/rest?version=v2'
+    'https://identitytoolkit.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.identitytoolkit */
 
@@ -43,7 +43,7 @@ gapi.load('client', async () => {
         tenantId: 'Test string',
         token: 'Test string',
         tokenType: 'Test string',
-      }
+      },
     );
     /** Finishes enrolling a second factor for the user. */
     await gapi.client.identitytoolkit.accounts.mfaEnrollment.finalize(
@@ -62,7 +62,7 @@ gapi.load('client', async () => {
           sessionInfo: 'Test string',
           verificationCode: 'Test string',
         },
-      }
+      },
     );
     /** Step one of the MFA enrollment process. In SMS case, this sends an SMS verification code to the user. */
     await gapi.client.identitytoolkit.accounts.mfaEnrollment.start(
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
         },
         tenantId: 'Test string',
         totpEnrollmentInfo: {},
-      }
+      },
     );
     /** Revokes one second factor from the enrolled second factors for an account. */
     await gapi.client.identitytoolkit.accounts.mfaEnrollment.withdraw(
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
         idToken: 'Test string',
         mfaEnrollmentId: 'Test string',
         tenantId: 'Test string',
-      }
+      },
     );
     /** Verifies the MFA challenge and performs sign-in */
     await gapi.client.identitytoolkit.accounts.mfaSignIn.finalize(
@@ -112,7 +112,7 @@ gapi.load('client', async () => {
         totpVerificationInfo: {
           verificationCode: 'Test string',
         },
-      }
+      },
     );
     /** Sends the MFA challenge */
     await gapi.client.identitytoolkit.accounts.mfaSignIn.start(
@@ -135,7 +135,7 @@ gapi.load('client', async () => {
           safetyNetToken: 'Test string',
         },
         tenantId: 'Test string',
-      }
+      },
     );
     /** List all default supported Idps. */
     await gapi.client.identitytoolkit.defaultSupportedIdps.list({
@@ -356,7 +356,7 @@ gapi.load('client', async () => {
           },
         },
         subtype: 'Test string',
-      }
+      },
     );
     /** Create a default supported Idp configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.defaultSupportedIdpConfigs.create(
@@ -377,13 +377,13 @@ gapi.load('client', async () => {
         clientSecret: 'Test string',
         enabled: true,
         name: 'Test string',
-      }
+      },
     );
     /** Delete a default supported Idp configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.defaultSupportedIdpConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieve a default supported Idp configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.defaultSupportedIdpConfigs.get({
@@ -414,14 +414,14 @@ gapi.load('client', async () => {
         clientSecret: 'Test string',
         enabled: true,
         name: 'Test string',
-      }
+      },
     );
     /** Initialize Identity Platform for a Cloud project. Identity Platform is an end-to-end authentication system for third-party users to access your apps and services. These could include mobile/web apps, games, APIs and beyond. This is the publicly available variant of EnableIdentityPlatform that is only available to billing-enabled projects. */
     await gapi.client.identitytoolkit.projects.identityPlatform.initializeAuth(
       {
         project: 'Test string',
       },
-      {}
+      {},
     );
     /** Create an inbound SAML configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.inboundSamlConfigs.create(
@@ -453,7 +453,7 @@ gapi.load('client', async () => {
           ],
           spEntityId: 'Test string',
         },
-      }
+      },
     );
     /** Delete an inbound SAML configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.inboundSamlConfigs.delete({
@@ -499,7 +499,7 @@ gapi.load('client', async () => {
           ],
           spEntityId: 'Test string',
         },
-      }
+      },
     );
     /** Create an Oidc Idp configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.oauthIdpConfigs.create(
@@ -519,7 +519,7 @@ gapi.load('client', async () => {
           idToken: true,
           token: true,
         },
-      }
+      },
     );
     /** Delete an Oidc Idp configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.oauthIdpConfigs.delete({
@@ -553,7 +553,7 @@ gapi.load('client', async () => {
           idToken: true,
           token: true,
         },
-      }
+      },
     );
     /** Create a tenant. Requires write permission on the Agent project. */
     await gapi.client.identitytoolkit.projects.tenants.create(
@@ -658,7 +658,7 @@ gapi.load('client', async () => {
         testPhoneNumbers: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Delete a tenant. Requires write permission on the Agent project. */
     await gapi.client.identitytoolkit.projects.tenants.delete({
@@ -677,7 +677,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** List tenants under the given agent project. Requires read permission on the Agent project. */
     await gapi.client.identitytoolkit.projects.tenants.list({
@@ -789,7 +789,7 @@ gapi.load('client', async () => {
         testPhoneNumbers: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Sets the access control policy for a resource. If the policy exists, it is replaced. Caller must have the right Google IAM permission on the resource. */
     await gapi.client.identitytoolkit.projects.tenants.setIamPolicy(
@@ -825,7 +825,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns the caller's permissions on a resource. An error is returned if the resource does not exist. A caller is not required to have Google IAM permission to make this request. */
     await gapi.client.identitytoolkit.projects.tenants.testIamPermissions(
@@ -834,7 +834,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create a default supported Idp configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.tenants.defaultSupportedIdpConfigs.create(
@@ -855,19 +855,19 @@ gapi.load('client', async () => {
         clientSecret: 'Test string',
         enabled: true,
         name: 'Test string',
-      }
+      },
     );
     /** Delete a default supported Idp configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.tenants.defaultSupportedIdpConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieve a default supported Idp configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.tenants.defaultSupportedIdpConfigs.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List all default supported Idp configurations for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.tenants.defaultSupportedIdpConfigs.list(
@@ -875,7 +875,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Update a default supported Idp configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.tenants.defaultSupportedIdpConfigs.patch(
@@ -896,7 +896,7 @@ gapi.load('client', async () => {
         clientSecret: 'Test string',
         enabled: true,
         name: 'Test string',
-      }
+      },
     );
     /** Create an inbound SAML configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.tenants.inboundSamlConfigs.create(
@@ -928,13 +928,13 @@ gapi.load('client', async () => {
           ],
           spEntityId: 'Test string',
         },
-      }
+      },
     );
     /** Delete an inbound SAML configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.tenants.inboundSamlConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieve an inbound SAML configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.tenants.inboundSamlConfigs.get({
@@ -976,7 +976,7 @@ gapi.load('client', async () => {
           ],
           spEntityId: 'Test string',
         },
-      }
+      },
     );
     /** Create an Oidc Idp configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.tenants.oauthIdpConfigs.create(
@@ -996,7 +996,7 @@ gapi.load('client', async () => {
           idToken: true,
           token: true,
         },
-      }
+      },
     );
     /** Delete an Oidc Idp configuration for an Identity Toolkit project. */
     await gapi.client.identitytoolkit.projects.tenants.oauthIdpConfigs.delete({
@@ -1030,7 +1030,7 @@ gapi.load('client', async () => {
           idToken: true,
           token: true,
         },
-      }
+      },
     );
     /** Gets password policy config set on the project or tenant. */
     await gapi.client.identitytoolkit.v2.getPasswordPolicy({

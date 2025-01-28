@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://backupdr.googleapis.com/$discovery/rest?version=v1'
+    'https://backupdr.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.backupdr */
 
@@ -74,14 +74,14 @@ gapi.load('client', async () => {
         ],
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single BackupPlanAssociation. */
     await gapi.client.backupdr.projects.locations.backupPlanAssociations.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single BackupPlanAssociation. */
     await gapi.client.backupdr.projects.locations.backupPlanAssociations.get({
@@ -102,7 +102,7 @@ gapi.load('client', async () => {
       {
         requestId: 'Test string',
         ruleId: 'Test string',
-      }
+      },
     );
     /** Create a BackupPlan */
     await gapi.client.backupdr.projects.locations.backupPlans.create(
@@ -146,7 +146,7 @@ gapi.load('client', async () => {
         resourceType: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single BackupPlan. */
     await gapi.client.backupdr.projects.locations.backupPlans.delete({
@@ -194,7 +194,7 @@ gapi.load('client', async () => {
         totalStoredBytes: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a BackupVault. */
     await gapi.client.backupdr.projects.locations.backupVaults.delete({
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
         totalStoredBytes: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Returns the caller's permissions on a BackupVault resource. A caller is not required to have Google IAM permission to make this request. */
     await gapi.client.backupdr.projects.locations.backupVaults.testIamPermissions(
@@ -267,7 +267,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Internal only. Abandons a backup. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.abandonBackup(
@@ -276,7 +276,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Internal only. Fetch access token for a given data source. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.fetchAccessToken(
@@ -285,7 +285,7 @@ gapi.load('client', async () => {
       },
       {
         generationId: 42,
-      }
+      },
     );
     /** Internal only. Finalize a backup that was started by a call to InitiateBackup. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.finalizeBackup(
@@ -300,7 +300,7 @@ gapi.load('client', async () => {
         recoveryRangeStartTime: 'Test string',
         requestId: 'Test string',
         retentionDuration: 'Test string',
-      }
+      },
     );
     /** Gets details of a DataSource. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.get({
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
       {
         backupId: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Lists DataSources in a given project and location. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.list(
@@ -324,7 +324,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the settings of a DataSource. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.patch(
@@ -395,7 +395,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         totalStoredBytes: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a DataSource. This is a custom method instead of a standard delete method because external clients will not delete DataSources except for BackupDR backup appliances. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.remove(
@@ -404,7 +404,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Sets the internal status of a DataSource. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.setInternalStatus(
@@ -415,21 +415,21 @@ gapi.load('client', async () => {
         backupConfigState: 'Test string',
         requestId: 'Test string',
         value: 'Test string',
-      }
+      },
     );
     /** Deletes a Backup. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.backups.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a Backup. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.backups.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Lists Backups in a given project and location. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.backups.list(
@@ -440,7 +440,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Updates the settings of a Backup. */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.backups.patch(
@@ -639,7 +639,7 @@ gapi.load('client', async () => {
         ],
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Restore from a Backup */
     await gapi.client.backupdr.projects.locations.backupVaults.dataSources.backups.restore(
@@ -818,7 +818,7 @@ gapi.load('client', async () => {
           zone: 'Test string',
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Creates a new ManagementServer in a given project and location. */
     await gapi.client.backupdr.projects.locations.managementServers.create(
@@ -860,7 +860,7 @@ gapi.load('client', async () => {
           firstPartyOauth2ClientId: 'Test string',
           thirdPartyOauth2ClientId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a single ManagementServer. */
     await gapi.client.backupdr.projects.locations.managementServers.delete({
@@ -876,7 +876,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists ManagementServers in a given project and location. */
     await gapi.client.backupdr.projects.locations.managementServers.list({
@@ -920,7 +920,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.backupdr.projects.locations.managementServers.testIamPermissions(
@@ -929,14 +929,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.backupdr.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.backupdr.projects.locations.operations.delete({
@@ -961,7 +961,7 @@ gapi.load('client', async () => {
       {
         requestId: 'Test string',
         resourceType: 'Test string',
-      }
+      },
     );
   }
 });

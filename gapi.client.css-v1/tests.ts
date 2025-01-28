@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://css.googleapis.com/$discovery/rest?version=v1'
+    'https://css.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.css */
 
@@ -52,7 +52,7 @@ gapi.load('client', async () => {
       {
         labelIds: ['Test string'],
         parent: 'Test string',
-      }
+      },
     );
     /** Deletes a CSS Product input from your CSS Center account. After a delete it may take several minutes until the input is no longer available. */
     await gapi.client.css.accounts.cssProductInputs.delete({
@@ -184,7 +184,7 @@ gapi.load('client', async () => {
         freshnessTime: 'Test string',
         name: 'Test string',
         rawProvidedId: 'Test string',
-      }
+      },
     );
     /** Updates the existing Css Product input in your CSS Center account. After inserting, updating, or deleting a CSS Product input, it may take several minutes before the processed Css Product can be retrieved. */
     await gapi.client.css.accounts.cssProductInputs.patch(
@@ -311,7 +311,7 @@ gapi.load('client', async () => {
         freshnessTime: 'Test string',
         name: 'Test string',
         rawProvidedId: 'Test string',
-      }
+      },
     );
     /** Retrieves the processed CSS Product from your CSS Center account. After inserting, updating, or deleting a product input, it may take several minutes before the updated final product can be retrieved. */
     await gapi.client.css.accounts.cssProducts.get({
@@ -335,7 +335,7 @@ gapi.load('client', async () => {
         labelId: 'Test string',
         labelType: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a label and removes it from all accounts to which it was assigned. */
     await gapi.client.css.accounts.labels.delete({
@@ -359,7 +359,7 @@ gapi.load('client', async () => {
         labelId: 'Test string',
         labelType: 'Test string',
         name: 'Test string',
-      }
+      },
     );
   }
 });

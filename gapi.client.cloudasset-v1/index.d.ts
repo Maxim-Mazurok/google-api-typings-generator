@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Asset API v1 */
   function load(
-    urlOrObject: 'https://cloudasset.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://cloudasset.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudasset', version: 'v1'): Promise<void>;
@@ -1423,7 +1423,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateFeedRequest
+        body: CreateFeedRequest,
       ): Request<Feed>;
       /** Deletes an asset feed. */
       delete(request?: {
@@ -1562,7 +1562,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateFeedRequest
+        body: UpdateFeedRequest,
       ): Request<Feed>;
     }
     interface OperationsResource {
@@ -1655,7 +1655,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SavedQuery
+        body: SavedQuery,
       ): Request<SavedQuery>;
       /** Deletes a saved query. */
       delete(request?: {
@@ -1804,7 +1804,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SavedQuery
+        body: SavedQuery,
       ): Request<SavedQuery>;
     }
     interface V1Resource {
@@ -1917,7 +1917,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AnalyzeIamPolicyLongrunningRequest
+        body: AnalyzeIamPolicyLongrunningRequest,
       ): Request<Operation>;
       /** Analyze moving a resource to a specified destination without kicking off the actual move. The analysis is best effort depending on the user's permissions of viewing different hierarchical policies and configurations. The policies and configuration are subject to change before the actual resource migration takes place. */
       analyzeMove(request?: {
@@ -2148,7 +2148,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExportAssetsRequest
+        body: ExportAssetsRequest,
       ): Request<Operation>;
       /** Issue a job that queries assets using a SQL statement compatible with [BigQuery SQL](https://cloud.google.com/bigquery/docs/introduction-sql). If the query execution finishes within timeout and there's no pagination, the full query results will be returned in the `QueryAssetsResponse`. Otherwise, full query results can be obtained by issuing extra requests with the `job_reference` from the a previous `QueryAssets` call. Note, the query result has approximately 10 GB limitation enforced by [BigQuery](https://cloud.google.com/bigquery/docs/best-practices-performance-output). Queries return larger results will result in errors. */
       queryAssets(request: {
@@ -2206,7 +2206,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryAssetsRequest
+        body: QueryAssetsRequest,
       ): Request<QueryAssetsResponse>;
       /** Searches all IAM policies within the specified scope, such as a project, folder, or organization. The caller must be granted the `cloudasset.assets.searchAllIamPolicies` permission on the desired scope, otherwise the request will be rejected. */
       searchAllIamPolicies(request?: {

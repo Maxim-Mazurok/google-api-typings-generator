@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://publicca.googleapis.com/$discovery/rest?version=v1alpha1'
+    'https://publicca.googleapis.com/$discovery/rest?version=v1alpha1',
   );
   /** now we can use gapi.client.publicca */
 
@@ -40,7 +40,7 @@ gapi.load('client', async () => {
         b64MacKey: 'Test string',
         keyId: 'Test string',
         name: 'Test string',
-      }
+      },
     );
   }
 });

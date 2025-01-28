@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Search Console API v1 */
   function load(
-    urlOrObject: 'https://searchconsole.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://searchconsole.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'searchconsole', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'searchconsole',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace searchconsole {
@@ -319,7 +319,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InspectUrlIndexRequest
+        body: InspectUrlIndexRequest,
       ): Request<InspectUrlIndexResponse>;
     }
     interface UrlInspectionResource {
@@ -378,7 +378,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunMobileFriendlyTestRequest
+        body: RunMobileFriendlyTestRequest,
       ): Request<RunMobileFriendlyTestResponse>;
     }
     interface UrlTestingToolsResource {
@@ -685,7 +685,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchAnalyticsQueryRequest
+        body: SearchAnalyticsQueryRequest,
       ): Request<SearchAnalyticsQueryResponse>;
     }
     interface SitemapsResource {

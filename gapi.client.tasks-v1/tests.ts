@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://tasks.googleapis.com/$discovery/rest?version=v1'
+    'https://tasks.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.tasks */
 
@@ -51,7 +51,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         title: 'Test string',
         updated: 'Test string',
-      }
+      },
     );
     /** Returns all the authenticated user's task lists. A user can have up to 2000 lists at a time. */
     await gapi.client.tasks.tasklists.list({
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         title: 'Test string',
         updated: 'Test string',
-      }
+      },
     );
     /** Updates the authenticated user's specified task list. */
     await gapi.client.tasks.tasklists.update(
@@ -84,7 +84,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         title: 'Test string',
         updated: 'Test string',
-      }
+      },
     );
     /** Clears all completed tasks from the specified task list. The affected tasks will be marked as 'hidden' and no longer be returned by default when retrieving all tasks for a task list. */
     await gapi.client.tasks.tasks.clear({
@@ -141,7 +141,7 @@ gapi.load('client', async () => {
         title: 'Test string',
         updated: 'Test string',
         webViewLink: 'Test string',
-      }
+      },
     );
     /** Returns all tasks in the specified task list. Does not return assigned tasks be default (from Docs, Chat Spaces). A user can have up to 20,000 non-hidden tasks per list and up to 100,000 tasks in total at a time. */
     await gapi.client.tasks.tasks.list({
@@ -206,7 +206,7 @@ gapi.load('client', async () => {
         title: 'Test string',
         updated: 'Test string',
         webViewLink: 'Test string',
-      }
+      },
     );
     /** Updates the specified task. */
     await gapi.client.tasks.tasks.update(
@@ -248,7 +248,7 @@ gapi.load('client', async () => {
         title: 'Test string',
         updated: 'Test string',
         webViewLink: 'Test string',
-      }
+      },
     );
   }
 });

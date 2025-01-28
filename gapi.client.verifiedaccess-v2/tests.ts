@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://verifiedaccess.googleapis.com/$discovery/rest?version=v2'
+    'https://verifiedaccess.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.verifiedaccess */
 
@@ -39,7 +39,7 @@ gapi.load('client', async () => {
       {
         challengeResponse: 'Test string',
         expectedIdentity: 'Test string',
-      }
+      },
     );
   }
 });

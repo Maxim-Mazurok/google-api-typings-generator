@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://dfareporting.googleapis.com/$discovery/rest?version=v3.5'
+    'https://dfareporting.googleapis.com/$discovery/rest?version=v3.5',
   );
   /** now we can use gapi.client.dfareporting */
 
@@ -177,7 +177,7 @@ gapi.load('client', async () => {
           },
         ],
         warnedValidationRules: ['Test string'],
-      }
+      },
     );
   }
 });

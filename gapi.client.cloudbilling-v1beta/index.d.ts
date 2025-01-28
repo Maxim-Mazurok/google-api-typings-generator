@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Billing API v1beta */
   function load(
-    urlOrObject: 'https://cloudbilling.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://cloudbilling.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudbilling', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'cloudbilling',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace cloudbilling {
@@ -1081,7 +1081,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EstimateCostScenarioForBillingAccountRequest
+        body: EstimateCostScenarioForBillingAccountRequest,
       ): Request<EstimateCostScenarioForBillingAccountResponse>;
       services: ServicesResource;
       skuGroups: SkuGroupsResource;
@@ -1329,7 +1329,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EstimateCostScenarioWithListPriceRequest
+        body: EstimateCostScenarioWithListPriceRequest,
       ): Request<EstimateCostScenarioWithListPriceResponse>;
     }
 

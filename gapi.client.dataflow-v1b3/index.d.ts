@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Dataflow API v1b3 */
   function load(
-    urlOrObject: 'https://dataflow.googleapis.com/$discovery/rest?version=v1b3'
+    urlOrObject: 'https://dataflow.googleapis.com/$discovery/rest?version=v1b3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'dataflow', version: 'v1b3'): Promise<void>;
@@ -2056,7 +2056,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetDebugConfigRequest
+        body: GetDebugConfigRequest,
       ): Request<GetDebugConfigResponse>;
       /** Send encoded debug capture data for component. */
       sendCapture(request: {
@@ -2118,7 +2118,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SendDebugCaptureRequest
+        body: SendDebugCaptureRequest,
       ): Request<{}>;
     }
     interface MessagesResource {
@@ -2225,7 +2225,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LeaseWorkItemRequest
+        body: LeaseWorkItemRequest,
       ): Request<LeaseWorkItemResponse>;
       /** Reports the status of dataflow WorkItems leased by a worker. */
       reportStatus(request: {
@@ -2287,7 +2287,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportWorkItemStatusRequest
+        body: ReportWorkItemStatusRequest,
       ): Request<ReportWorkItemStatusResponse>;
     }
     interface JobsResource {
@@ -2398,7 +2398,7 @@ declare namespace gapi.client {
           /** The level of information requested in response. */
           view?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       /** Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in `us-central1`. */
       get(request?: {
@@ -2565,7 +2565,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SnapshotJobRequest
+        body: SnapshotJobRequest,
       ): Request<Snapshot>;
       /** Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in `us-central1`. */
       update(request: {
@@ -2635,7 +2635,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       debug: DebugResource;
       messages: MessagesResource;
@@ -2702,7 +2702,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LaunchFlexTemplateRequest
+        body: LaunchFlexTemplateRequest,
       ): Request<LaunchFlexTemplateResponse>;
     }
     interface DebugResource {
@@ -2770,7 +2770,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetDebugConfigRequest
+        body: GetDebugConfigRequest,
       ): Request<GetDebugConfigResponse>;
       /** Send encoded debug capture data for component. */
       sendCapture(request: {
@@ -2836,7 +2836,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SendDebugCaptureRequest
+        body: SendDebugCaptureRequest,
       ): Request<{}>;
     }
     interface MessagesResource {
@@ -3023,7 +3023,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LeaseWorkItemRequest
+        body: LeaseWorkItemRequest,
       ): Request<LeaseWorkItemResponse>;
       /** Reports the status of dataflow WorkItems leased by a worker. */
       reportStatus(request: {
@@ -3089,7 +3089,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportWorkItemStatusRequest
+        body: ReportWorkItemStatusRequest,
       ): Request<ReportWorkItemStatusResponse>;
     }
     interface JobsResource {
@@ -3161,7 +3161,7 @@ declare namespace gapi.client {
           /** The level of information requested in response. */
           view?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       /** Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in `us-central1`. */
       get(request?: {
@@ -3367,7 +3367,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SnapshotJobRequest
+        body: SnapshotJobRequest,
       ): Request<Snapshot>;
       /** Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in `us-central1`. */
       update(request: {
@@ -3437,7 +3437,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       debug: DebugResource;
       messages: MessagesResource;
@@ -3601,7 +3601,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateJobFromTemplateRequest
+        body: CreateJobFromTemplateRequest,
       ): Request<Job>;
       /** Get the template associated with a template. To get the template, we recommend using `projects.locations.templates.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.get` is not recommended, because only templates that are running in `us-central1` are retrieved. */
       get(request?: {
@@ -3712,7 +3712,7 @@ declare namespace gapi.client {
           /** If true, the request is validated but not actually executed. Defaults to false. */
           validateOnly?: boolean;
         },
-        body: LaunchTemplateParameters
+        body: LaunchTemplateParameters,
       ): Request<LaunchTemplateResponse>;
     }
     interface LocationsResource {
@@ -3776,7 +3776,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SendWorkerMessagesRequest
+        body: SendWorkerMessagesRequest,
       ): Request<SendWorkerMessagesResponse>;
       flexTemplates: FlexTemplatesResource;
       jobs: JobsResource;
@@ -3904,7 +3904,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateJobFromTemplateRequest
+        body: CreateJobFromTemplateRequest,
       ): Request<Job>;
       /** Get the template associated with a template. To get the template, we recommend using `projects.locations.templates.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.get` is not recommended, because only templates that are running in `us-central1` are retrieved. */
       get(request?: {
@@ -4015,7 +4015,7 @@ declare namespace gapi.client {
           /** If true, the request is validated but not actually executed. Defaults to false. */
           validateOnly?: boolean;
         },
-        body: LaunchTemplateParameters
+        body: LaunchTemplateParameters,
       ): Request<LaunchTemplateResponse>;
     }
     interface ProjectsResource {
@@ -4106,7 +4106,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SendWorkerMessagesRequest
+        body: SendWorkerMessagesRequest,
       ): Request<SendWorkerMessagesResponse>;
       jobs: JobsResource;
       locations: LocationsResource;

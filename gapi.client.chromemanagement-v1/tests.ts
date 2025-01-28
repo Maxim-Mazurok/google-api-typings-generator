@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://chromemanagement.googleapis.com/$discovery/rest?version=v1'
+    'https://chromemanagement.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.chromemanagement */
 
@@ -55,7 +55,7 @@ gapi.load('client', async () => {
         orgUnitId: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Get a list of users that have requested to install an extension. */
     await gapi.client.chromemanagement.customers.apps.fetchUsersRequestingExtension(
@@ -65,7 +65,7 @@ gapi.load('client', async () => {
         orgUnitId: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Get a specific app for a customer by its resource name. */
     await gapi.client.chromemanagement.customers.apps.android.get({
@@ -100,7 +100,7 @@ gapi.load('client', async () => {
       {
         customer: 'Test string',
         orgUnitId: 'Test string',
-      }
+      },
     );
     /** Get a count of Chrome crash events. */
     await gapi.client.chromemanagement.customers.reports.countChromeCrashEvents(
@@ -109,7 +109,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         orderBy: 'Test string',
         orgUnitId: 'Test string',
-      }
+      },
     );
     /** Generate report of the number of devices expiring in each month of the selected time frame. Devices are grouped by auto update expiration date and model. Further information can be found [here](https://support.google.com/chrome/a/answer/10564947). */
     await gapi.client.chromemanagement.customers.reports.countChromeDevicesReachingAutoExpirationDate(
@@ -118,7 +118,7 @@ gapi.load('client', async () => {
         maxAueDate: 'Test string',
         minAueDate: 'Test string',
         orgUnitId: 'Test string',
-      }
+      },
     );
     /** Counts of ChromeOS devices that have not synced policies or have lacked user activity in the past 28 days, are out of date, or are not complaint. Further information can be found here https://support.google.com/chrome/a/answer/10564947 */
     await gapi.client.chromemanagement.customers.reports.countChromeDevicesThatNeedAttention(
@@ -126,7 +126,7 @@ gapi.load('client', async () => {
         customer: 'Test string',
         orgUnitId: 'Test string',
         readMask: 'Test string',
-      }
+      },
     );
     /** Counts of devices with a specific hardware specification from the requested hardware type (for example model name, processor type). Further information can be found here https://support.google.com/chrome/a/answer/10564947 */
     await gapi.client.chromemanagement.customers.reports.countChromeHardwareFleetDevices(
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
         customer: 'Test string',
         orgUnitId: 'Test string',
         readMask: 'Test string',
-      }
+      },
     );
     /** Generate report of installed Chrome versions. */
     await gapi.client.chromemanagement.customers.reports.countChromeVersions({
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         printerOrgUnitId: 'Test string',
-      }
+      },
     );
     /** Get a summary of printing done by each user. */
     await gapi.client.chromemanagement.customers.reports.countPrintJobsByUser({
@@ -193,7 +193,7 @@ gapi.load('client', async () => {
         orgUnitId: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Get telemetry device. */
     await gapi.client.chromemanagement.customers.telemetry.devices.get({
@@ -234,13 +234,13 @@ gapi.load('client', async () => {
         },
         googleCloudPubsubTopic: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Delete a telemetry notification config. */
     await gapi.client.chromemanagement.customers.telemetry.notificationConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List all telemetry notification configs. */
     await gapi.client.chromemanagement.customers.telemetry.notificationConfigs.list(
@@ -248,7 +248,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Get telemetry user. */
     await gapi.client.chromemanagement.customers.telemetry.users.get({

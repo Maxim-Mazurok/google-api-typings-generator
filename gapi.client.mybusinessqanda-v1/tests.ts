@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://mybusinessqanda.googleapis.com/$discovery/rest?version=v1'
+    'https://mybusinessqanda.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.mybusinessqanda */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
         totalAnswerCount: 42,
         updateTime: 'Test string',
         upvoteCount: 42,
-      }
+      },
     );
     /** Deletes a specific question written by the current user. */
     await gapi.client.mybusinessqanda.locations.questions.delete({
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
         totalAnswerCount: 42,
         updateTime: 'Test string',
         upvoteCount: 42,
-      }
+      },
     );
     /** Deletes the answer written by the current user to a question. */
     await gapi.client.mybusinessqanda.locations.questions.answers.delete({
@@ -125,7 +125,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
           upvoteCount: 42,
         },
-      }
+      },
     );
   }
 });

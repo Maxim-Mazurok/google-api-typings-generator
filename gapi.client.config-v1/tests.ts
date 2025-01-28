@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://config.googleapis.com/$discovery/rest?version=v1'
+    'https://config.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.config */
 
@@ -113,7 +113,7 @@ gapi.load('client', async () => {
         tfVersionConstraint: 'Test string',
         updateTime: 'Test string',
         workerPool: 'Test string',
-      }
+      },
     );
     /** Deletes a Deployment. */
     await gapi.client.config.projects.locations.deployments.delete({
@@ -129,7 +129,7 @@ gapi.load('client', async () => {
       },
       {
         lockId: 'Test string',
-      }
+      },
     );
     /** Exports the lock info on a locked deployment. */
     await gapi.client.config.projects.locations.deployments.exportLock({
@@ -142,7 +142,7 @@ gapi.load('client', async () => {
       },
       {
         draft: true,
-      }
+      },
     );
     /** Gets details about a Deployment. */
     await gapi.client.config.projects.locations.deployments.get({
@@ -160,7 +160,7 @@ gapi.load('client', async () => {
       },
       {
         lockId: 'Test string',
-      }
+      },
     );
     /** Lists Deployments in a given project and location. */
     await gapi.client.config.projects.locations.deployments.list({
@@ -175,7 +175,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates a Deployment. */
     await gapi.client.config.projects.locations.deployments.patch(
@@ -248,7 +248,7 @@ gapi.load('client', async () => {
         tfVersionConstraint: 'Test string',
         updateTime: 'Test string',
         workerPool: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.config.projects.locations.deployments.setIamPolicy(
@@ -284,7 +284,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.config.projects.locations.deployments.testIamPermissions(
@@ -293,7 +293,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Unlocks a locked deployment. */
     await gapi.client.config.projects.locations.deployments.unlock(
@@ -302,14 +302,14 @@ gapi.load('client', async () => {
       },
       {
         lockId: 'Test string',
-      }
+      },
     );
     /** Exports Terraform state file from a given revision. */
     await gapi.client.config.projects.locations.deployments.revisions.exportState(
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets details about a Revision. */
     await gapi.client.config.projects.locations.deployments.revisions.get({
@@ -327,7 +327,7 @@ gapi.load('client', async () => {
     await gapi.client.config.projects.locations.deployments.revisions.resources.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Resources in a given revision. */
     await gapi.client.config.projects.locations.deployments.revisions.resources.list(
@@ -337,14 +337,14 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.config.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.config.projects.locations.operations.delete({
@@ -431,7 +431,7 @@ gapi.load('client', async () => {
         tfVersion: 'Test string',
         tfVersionConstraint: 'Test string',
         workerPool: 'Test string',
-      }
+      },
     );
     /** Deletes a Preview. */
     await gapi.client.config.projects.locations.previews.delete({
@@ -443,7 +443,7 @@ gapi.load('client', async () => {
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets details about a Preview. */
     await gapi.client.config.projects.locations.previews.get({

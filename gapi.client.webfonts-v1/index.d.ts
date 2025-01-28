@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Web Fonts Developer API v1 */
   function load(
-    urlOrObject: 'https://webfonts.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://webfonts.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'webfonts', version: 'v1'): Promise<void>;

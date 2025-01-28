@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Display & Video 360 API v2 */
   function load(
-    urlOrObject: 'https://displayvideo.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://displayvideo.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'displayvideo', version: 'v2'): Promise<void>;
@@ -2812,7 +2812,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateAssetRequest
+        body: CreateAssetRequest,
       ): Request<CreateAssetResponse>;
     }
     interface CampaignsResource {
@@ -2872,7 +2872,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Campaign
+        body: Campaign,
       ): Request<Campaign>;
       /** Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it. **This method regularly experiences high latency.** We recommend [increasing your default timeout](/display-video/api/guides/best-practices/timeouts#client_library_timeout) to avoid errors. */
       delete(request?: {
@@ -3031,7 +3031,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Campaign
+        body: Campaign,
       ): Request<Campaign>;
     }
     interface SitesResource {
@@ -3095,7 +3095,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkEditSitesRequest
+        body: BulkEditSitesRequest,
       ): Request<BulkEditSitesResponse>;
       /** Creates a site in a channel. */
       create(request: {
@@ -3161,7 +3161,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Site
+        body: Site,
       ): Request<Site>;
       /** Deletes a site from a channel. */
       delete(request?: {
@@ -3295,7 +3295,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReplaceSitesRequest
+        body: ReplaceSitesRequest,
       ): Request<ReplaceSitesResponse>;
     }
     interface ChannelsResource {
@@ -3359,7 +3359,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
       /** Gets a channel for a partner or advertiser. */
       get(request?: {
@@ -3497,7 +3497,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
       sites: SitesResource;
     }
@@ -3558,7 +3558,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Creative
+        body: Creative,
       ): Request<Creative>;
       /** Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, before it can be deleted. A ["Standard" user role](//support.google.com/displayvideo/answer/2723011) or greater for the parent advertiser or partner is required to make this request. */
       delete(request?: {
@@ -3717,7 +3717,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Creative
+        body: Creative,
       ): Request<Creative>;
     }
     interface InsertionOrdersResource {
@@ -3777,7 +3777,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InsertionOrder
+        body: InsertionOrder,
       ): Request<InsertionOrder>;
       /** Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it. */
       delete(request?: {
@@ -3936,7 +3936,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InsertionOrder
+        body: InsertionOrder,
       ): Request<InsertionOrder>;
     }
     interface InvoicesResource {
@@ -4070,7 +4070,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AssignedTargetingOption
+        body: AssignedTargetingOption,
       ): Request<AssignedTargetingOption>;
       /** Deletes an assigned targeting option from a line item. Requests to this endpoint cannot be made concurrently with the following requests updating the same line item: * lineItems.bulkEditAssignedTargetingOptions * lineItems.bulkUpdate * lineItems.patch * CreateLineItemAssignedTargetingOption YouTube & Partners line items cannot be created or updated using the API. */
       delete(request?: {
@@ -4238,7 +4238,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkEditAssignedTargetingOptionsRequest
+        body: BulkEditAssignedTargetingOptionsRequest,
       ): Request<BulkEditAssignedTargetingOptionsResponse>;
       /** Lists assigned targeting options for multiple line items across targeting types. */
       bulkListAssignedTargetingOptions(request?: {
@@ -4333,7 +4333,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkUpdateLineItemsRequest
+        body: BulkUpdateLineItemsRequest,
       ): Request<BulkUpdateLineItemsResponse>;
       /** Creates a new line item. Returns the newly created line item if successful. YouTube & Partners line items cannot be created or updated using the API. */
       create(request: {
@@ -4391,7 +4391,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LineItem
+        body: LineItem,
       ): Request<LineItem>;
       /** Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it. YouTube & Partners line items cannot be created or updated using the API. */
       delete(request?: {
@@ -4482,7 +4482,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DuplicateLineItemRequest
+        body: DuplicateLineItemRequest,
       ): Request<DuplicateLineItemResponse>;
       /** Creates a new line item with settings (including targeting) inherited from the insertion order and an `ENTITY_STATUS_DRAFT` entity_status. Returns the newly created line item if successful. There are default values based on the three fields: * The insertion order's insertion_order_type * The insertion order's automation_type * The given line_item_type YouTube & Partners line items cannot be created or updated using the API. */
       generateDefault(request: {
@@ -4540,7 +4540,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateDefaultLineItemRequest
+        body: GenerateDefaultLineItemRequest,
       ): Request<LineItem>;
       /** Gets a line item. */
       get(request?: {
@@ -4670,7 +4670,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LineItem
+        body: LineItem,
       ): Request<LineItem>;
       targetingTypes: TargetingTypesResource;
     }
@@ -4735,7 +4735,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkEditAssignedLocationsRequest
+        body: BulkEditAssignedLocationsRequest,
       ): Request<BulkEditAssignedLocationsResponse>;
       /** Creates an assignment between a location and a location list. */
       create(request: {
@@ -4797,7 +4797,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AssignedLocation
+        body: AssignedLocation,
       ): Request<AssignedLocation>;
       /** Deletes the assignment between a location and a location list. */
       delete(request?: {
@@ -4925,7 +4925,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LocationList
+        body: LocationList,
       ): Request<LocationList>;
       /** Gets a location list. */
       get(request?: {
@@ -5055,7 +5055,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LocationList
+        body: LocationList,
       ): Request<LocationList>;
       assignedLocations: AssignedLocationsResource;
     }
@@ -5120,7 +5120,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ActivateManualTriggerRequest
+        body: ActivateManualTriggerRequest,
       ): Request<ManualTrigger>;
       /** Creates a new manual trigger. Returns the newly created manual trigger if successful. **Warning:** Line Items using manual triggers no longer serve in Display & Video 360. This method will sunset on August 1, 2023. Read our [feature deprecation announcement](/display-video/api/deprecations#features.manual_triggers) for more information. */
       create(request: {
@@ -5178,7 +5178,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ManualTrigger
+        body: ManualTrigger,
       ): Request<ManualTrigger>;
       /** Deactivates a manual trigger. **Warning:** Line Items using manual triggers no longer serve in Display & Video 360. This method will sunset on August 1, 2023. Read our [feature deprecation announcement](/display-video/api/deprecations#features.manual_triggers) for more information. */
       deactivate(request: {
@@ -5240,7 +5240,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeactivateManualTriggerRequest
+        body: DeactivateManualTriggerRequest,
       ): Request<ManualTrigger>;
       /** Gets a manual trigger. **Warning:** Line Items using manual triggers no longer serve in Display & Video 360. This method will sunset on August 1, 2023. Read our [feature deprecation announcement](/display-video/api/deprecations#features.manual_triggers) for more information. */
       get(request?: {
@@ -5370,7 +5370,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ManualTrigger
+        body: ManualTrigger,
       ): Request<ManualTrigger>;
     }
     interface NegativeKeywordsResource {
@@ -5434,7 +5434,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkEditNegativeKeywordsRequest
+        body: BulkEditNegativeKeywordsRequest,
       ): Request<BulkEditNegativeKeywordsResponse>;
       /** Creates a negative keyword in a negative keyword list. */
       create(request: {
@@ -5496,7 +5496,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NegativeKeyword
+        body: NegativeKeyword,
       ): Request<NegativeKeyword>;
       /** Deletes a negative keyword from a negative keyword list. */
       delete(request?: {
@@ -5626,7 +5626,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReplaceNegativeKeywordsRequest
+        body: ReplaceNegativeKeywordsRequest,
       ): Request<ReplaceNegativeKeywordsResponse>;
     }
     interface NegativeKeywordListsResource {
@@ -5686,7 +5686,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NegativeKeywordList
+        body: NegativeKeywordList,
       ): Request<NegativeKeywordList>;
       /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
       delete(request?: {
@@ -5841,7 +5841,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NegativeKeywordList
+        body: NegativeKeywordList,
       ): Request<NegativeKeywordList>;
       negativeKeywords: NegativeKeywordsResource;
     }
@@ -5906,7 +5906,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AssignedTargetingOption
+        body: AssignedTargetingOption,
       ): Request<AssignedTargetingOption>;
       /** Deletes an assigned targeting option from an advertiser. */
       delete(request?: {
@@ -6340,7 +6340,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Advertiser
+        body: Advertiser,
       ): Request<Advertiser>;
       /** Deletes an advertiser. Deleting an advertiser will delete all of its child resources, for example, campaigns, insertion orders and line items. A deleted advertiser cannot be recovered. */
       delete(request?: {
@@ -6425,7 +6425,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkEditAdvertiserAssignedTargetingOptionsRequest
+        body: BulkEditAdvertiserAssignedTargetingOptionsRequest,
       ): Request<BulkEditAdvertiserAssignedTargetingOptionsResponse>;
       /** Gets an advertiser. */
       get(request?: {
@@ -6584,7 +6584,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Advertiser
+        body: Advertiser,
       ): Request<Advertiser>;
       assets: AssetsResource;
       campaigns: CampaignsResource;
@@ -6735,7 +6735,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomBiddingScript
+        body: CustomBiddingScript,
       ): Request<CustomBiddingScript>;
       /** Gets a custom bidding script. */
       get(request?: {
@@ -6861,7 +6861,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomBiddingAlgorithm
+        body: CustomBiddingAlgorithm,
       ): Request<CustomBiddingAlgorithm>;
       /** Gets a custom bidding algorithm. */
       get(request?: {
@@ -6991,7 +6991,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomBiddingAlgorithm
+        body: CustomBiddingAlgorithm,
       ): Request<CustomBiddingAlgorithm>;
       /** Creates a custom bidding script reference object for a script file. The resulting reference object provides a resource path to which the script file should be uploaded. This reference object should be included in when creating a new custom bidding script object. */
       uploadScript(request?: {
@@ -7254,7 +7254,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FloodlightGroup
+        body: FloodlightGroup,
       ): Request<FloodlightGroup>;
       floodlightActivities: FloodlightActivitiesResource;
     }
@@ -7389,7 +7389,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GuaranteedOrder
+        body: GuaranteedOrder,
       ): Request<GuaranteedOrder>;
       /** Edits read advertisers of a guaranteed order. */
       editGuaranteedOrderReadAccessors(request: {
@@ -7447,7 +7447,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EditGuaranteedOrderReadAccessorsRequest
+        body: EditGuaranteedOrderReadAccessorsRequest,
       ): Request<EditGuaranteedOrderReadAccessorsResponse>;
       /** Gets a guaranteed order. */
       get(request?: {
@@ -7585,7 +7585,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GuaranteedOrder
+        body: GuaranteedOrder,
       ): Request<GuaranteedOrder>;
     }
     interface AssignedInventorySourcesResource {
@@ -7645,7 +7645,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkEditAssignedInventorySourcesRequest
+        body: BulkEditAssignedInventorySourcesRequest,
       ): Request<BulkEditAssignedInventorySourcesResponse>;
       /** Creates an assignment between an inventory source and an inventory source group. */
       create(request: {
@@ -7711,7 +7711,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AssignedInventorySource
+        body: AssignedInventorySource,
       ): Request<AssignedInventorySource>;
       /** Deletes the assignment between an inventory source and an inventory source group. */
       delete(request?: {
@@ -7847,7 +7847,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InventorySourceGroup
+        body: InventorySourceGroup,
       ): Request<InventorySourceGroup>;
       /** Deletes an inventory source group. */
       delete(request?: {
@@ -8016,7 +8016,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InventorySourceGroup
+        body: InventorySourceGroup,
       ): Request<InventorySourceGroup>;
       assignedInventorySources: AssignedInventorySourcesResource;
     }
@@ -8081,7 +8081,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InventorySource
+        body: InventorySource,
       ): Request<InventorySource>;
       /** Edits read/write accessors of an inventory source. Returns the updated read_write_accessors for the inventory source. */
       editInventorySourceReadWriteAccessors(request: {
@@ -8139,7 +8139,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EditInventorySourceReadWriteAccessorsRequest
+        body: EditInventorySourceReadWriteAccessorsRequest,
       ): Request<InventorySourceAccessors>;
       /** Gets an inventory source. */
       get(request?: {
@@ -8275,7 +8275,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InventorySource
+        body: InventorySource,
       ): Request<InventorySource>;
     }
     interface MediaResource {
@@ -8362,7 +8362,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleBytestreamMedia
+        body: GoogleBytestreamMedia,
       ): Request<GoogleBytestreamMedia>;
     }
     interface SitesResource {
@@ -8426,7 +8426,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkEditSitesRequest
+        body: BulkEditSitesRequest,
       ): Request<BulkEditSitesResponse>;
       /** Creates a site in a channel. */
       create(request: {
@@ -8492,7 +8492,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Site
+        body: Site,
       ): Request<Site>;
       /** Deletes a site from a channel. */
       delete(request?: {
@@ -8626,7 +8626,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReplaceSitesRequest
+        body: ReplaceSitesRequest,
       ): Request<ReplaceSitesResponse>;
     }
     interface ChannelsResource {
@@ -8690,7 +8690,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
       /** Gets a channel for a partner or advertiser. */
       get(request?: {
@@ -8828,7 +8828,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
       sites: SitesResource;
     }
@@ -8893,7 +8893,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AssignedTargetingOption
+        body: AssignedTargetingOption,
       ): Request<AssignedTargetingOption>;
       /** Deletes an assigned targeting option from a partner. */
       delete(request?: {
@@ -9055,7 +9055,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BulkEditPartnerAssignedTargetingOptionsRequest
+        body: BulkEditPartnerAssignedTargetingOptionsRequest,
       ): Request<BulkEditPartnerAssignedTargetingOptionsResponse>;
       /** Gets a partner. */
       get(request?: {
@@ -9202,7 +9202,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateSdfDownloadTaskRequest
+        body: CreateSdfDownloadTaskRequest,
       ): Request<Operation>;
       operations: OperationsResource;
     }
@@ -9331,7 +9331,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchTargetingOptionsRequest
+        body: SearchTargetingOptionsRequest,
       ): Request<SearchTargetingOptionsResponse>;
     }
     interface TargetingTypesResource {
@@ -9394,7 +9394,7 @@ declare namespace gapi.client {
           /** Required. The ID of the user to which the assigned user roles belong. */
           userId: string;
         },
-        body: BulkEditAssignedUserRolesRequest
+        body: BulkEditAssignedUserRolesRequest,
       ): Request<BulkEditAssignedUserRolesResponse>;
       /** Creates a new user. Returns the newly created user if successful. This method has unique authentication requirements. Read the prerequisites in our [Managing Users guide](/display-video/api/guides/users/overview#prerequisites) before using this method. The "Try this method" feature does not work for this method. */
       create(request: {
@@ -9448,7 +9448,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: User
+        body: User,
       ): Request<User>;
       /** Deletes a user. This method has unique authentication requirements. Read the prerequisites in our [Managing Users guide](/display-video/api/guides/users/overview#prerequisites) before using this method. The "Try this method" feature does not work for this method. */
       delete(request?: {
@@ -9597,7 +9597,7 @@ declare namespace gapi.client {
           /** Output only. The unique ID of the user. Assigned by the system. */
           userId: string;
         },
-        body: User
+        body: User,
       ): Request<User>;
     }
 

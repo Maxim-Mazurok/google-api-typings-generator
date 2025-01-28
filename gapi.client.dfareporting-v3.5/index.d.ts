@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Campaign Manager 360 API v3.5 */
   function load(
-    urlOrObject: 'https://dfareporting.googleapis.com/$discovery/rest?version=v3.5'
+    urlOrObject: 'https://dfareporting.googleapis.com/$discovery/rest?version=v3.5',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'dfareporting', version: 'v3.5'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'dfareporting',
     version: 'v3.5',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace dfareporting {
@@ -209,7 +209,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreativeAssetMetadata
+        body: CreativeAssetMetadata,
       ): Request<CreativeAssetMetadata>;
     }
 

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://alloydb.googleapis.com/$discovery/rest?version=v1beta'
+    'https://alloydb.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.alloydb */
 
@@ -88,7 +88,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Backup. */
     await gapi.client.alloydb.projects.locations.backups.delete({
@@ -156,7 +156,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new Cluster in a given project and location. */
     await gapi.client.alloydb.projects.locations.clusters.create(
@@ -301,7 +301,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a cluster of type SECONDARY in the given location using the primary cluster as the source. */
     await gapi.client.alloydb.projects.locations.clusters.createsecondary(
@@ -446,7 +446,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Cluster. */
     await gapi.client.alloydb.projects.locations.clusters.delete({
@@ -478,7 +478,7 @@ gapi.load('client', async () => {
           schemaOnly: true,
           tables: ['Test string'],
         },
-      }
+      },
     );
     /** Gets details of a single Cluster. */
     await gapi.client.alloydb.projects.locations.clusters.get({
@@ -637,7 +637,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Promotes a SECONDARY cluster. This turns down replication from the PRIMARY cluster and promotes a secondary cluster into its own standalone cluster. Imperative only. */
     await gapi.client.alloydb.projects.locations.clusters.promote(
@@ -648,7 +648,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         requestId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Creates a new Cluster in a given project and location, with a volume restored from the provided source, either a backup ID or a point-in-time and a source cluster. */
     await gapi.client.alloydb.projects.locations.clusters.restore(
@@ -803,7 +803,7 @@ gapi.load('client', async () => {
         },
         requestId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Restores an AlloyDB cluster from a CloudSQL resource. */
     await gapi.client.alloydb.projects.locations.clusters.restoreFromCloudSQL(
@@ -953,7 +953,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         clusterId: 'Test string',
-      }
+      },
     );
     /** Switches the roles of PRIMARY and SECONDARY clusters without any data loss. This promotes the SECONDARY cluster to PRIMARY and sets up the original PRIMARY cluster to replicate from this newly promoted cluster. */
     await gapi.client.alloydb.projects.locations.clusters.switchover(
@@ -963,7 +963,7 @@ gapi.load('client', async () => {
       {
         requestId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Upgrades a single Cluster. Imperative only. */
     await gapi.client.alloydb.projects.locations.clusters.upgrade(
@@ -975,7 +975,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
         validateOnly: true,
         version: 'Test string',
-      }
+      },
     );
     /** Creates a new Instance in a given project and location. */
     await gapi.client.alloydb.projects.locations.clusters.instances.create(
@@ -1075,7 +1075,7 @@ gapi.load('client', async () => {
           state: 'Test string',
           zoneId: 'Test string',
         },
-      }
+      },
     );
     /** Creates a new SECONDARY Instance in a given project and location. */
     await gapi.client.alloydb.projects.locations.clusters.instances.createsecondary(
@@ -1175,7 +1175,7 @@ gapi.load('client', async () => {
           state: 'Test string',
           zoneId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a single Instance. */
     await gapi.client.alloydb.projects.locations.clusters.instances.delete({
@@ -1192,7 +1192,7 @@ gapi.load('client', async () => {
       {
         requestId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Gets details of a single Instance. */
     await gapi.client.alloydb.projects.locations.clusters.instances.get({
@@ -1204,7 +1204,7 @@ gapi.load('client', async () => {
       {
         parent: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Injects fault in an instance. Imperative only. */
     await gapi.client.alloydb.projects.locations.clusters.instances.injectFault(
@@ -1215,7 +1215,7 @@ gapi.load('client', async () => {
         faultType: 'Test string',
         requestId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Lists Instances in a given project and location. */
     await gapi.client.alloydb.projects.locations.clusters.instances.list({
@@ -1324,7 +1324,7 @@ gapi.load('client', async () => {
           state: 'Test string',
           zoneId: 'Test string',
         },
-      }
+      },
     );
     /** Restart an Instance in a cluster. Imperative only. */
     await gapi.client.alloydb.projects.locations.clusters.instances.restart(
@@ -1335,7 +1335,7 @@ gapi.load('client', async () => {
         nodeIds: ['Test string'],
         requestId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Creates a new User in a given project, location, and cluster. */
     await gapi.client.alloydb.projects.locations.clusters.users.create(
@@ -1351,7 +1351,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         password: 'Test string',
         userType: 'Test string',
-      }
+      },
     );
     /** Deletes a single User. */
     await gapi.client.alloydb.projects.locations.clusters.users.delete({
@@ -1386,7 +1386,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         password: 'Test string',
         userType: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.alloydb.projects.locations.operations.cancel({

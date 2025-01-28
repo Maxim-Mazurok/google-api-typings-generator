@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudbilling.googleapis.com/$discovery/rest?version=v1beta'
+    'https://cloudbilling.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.cloudbilling */
 
@@ -380,7 +380,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Gets a Google Cloud service visible to a billing account. */
     await gapi.client.cloudbilling.billingAccounts.services.get({
@@ -809,7 +809,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
   }
 });

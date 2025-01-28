@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://sasportal.googleapis.com/$discovery/rest?version=v1alpha1'
+    'https://sasportal.googleapis.com/$discovery/rest?version=v1alpha1',
   );
   /** now we can use gapi.client.sasportal */
 
@@ -51,7 +51,7 @@ gapi.load('client', async () => {
       {},
       {
         organizationId: 'Test string',
-      }
+      },
     );
     /** Updates an existing customer. */
     await gapi.client.sasportal.customers.patch(
@@ -63,7 +63,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Creates a new SAS deployment through the GCP workflow. Creates a SAS organization if an organization match is not found. */
     await gapi.client.sasportal.customers.provisionDeployment(
@@ -72,14 +72,14 @@ gapi.load('client', async () => {
         newDeploymentDisplayName: 'Test string',
         newOrganizationDisplayName: 'Test string',
         organizationId: 'Test string',
-      }
+      },
     );
     /** Setups the a GCP Project to receive SAS Analytics messages via GCP Pub/Sub with a subscription to BigQuery. All the Pub/Sub topics and BigQuery tables are created automatically as part of this service. */
     await gapi.client.sasportal.customers.setupSasAnalytics(
       {},
       {
         userId: 'Test string',
-      }
+      },
     );
     /** Creates a new deployment. */
     await gapi.client.sasportal.customers.deployments.create(
@@ -91,7 +91,7 @@ gapi.load('client', async () => {
         frns: ['Test string'],
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Deletes a deployment. */
     await gapi.client.sasportal.customers.deployments.delete({
@@ -115,7 +115,7 @@ gapi.load('client', async () => {
       },
       {
         destination: 'Test string',
-      }
+      },
     );
     /** Updates an existing deployment. */
     await gapi.client.sasportal.customers.deployments.patch(
@@ -128,7 +128,7 @@ gapi.load('client', async () => {
         frns: ['Test string'],
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Creates a device under a node or customer. */
     await gapi.client.sasportal.customers.deployments.devices.create(
@@ -265,7 +265,7 @@ gapi.load('client', async () => {
         },
         serialNumber: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates a signed device under a node or customer. */
     await gapi.client.sasportal.customers.deployments.devices.createSigned(
@@ -275,7 +275,7 @@ gapi.load('client', async () => {
       {
         encodedDevice: 'Test string',
         installerId: 'Test string',
-      }
+      },
     );
     /** Lists devices under a node or customer. */
     await gapi.client.sasportal.customers.deployments.devices.list({
@@ -419,7 +419,7 @@ gapi.load('client', async () => {
         },
         serialNumber: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates a signed device under a node or customer. */
     await gapi.client.sasportal.customers.devices.createSigned(
@@ -429,7 +429,7 @@ gapi.load('client', async () => {
       {
         encodedDevice: 'Test string',
         installerId: 'Test string',
-      }
+      },
     );
     /** Deletes a device. */
     await gapi.client.sasportal.customers.devices.delete({
@@ -453,7 +453,7 @@ gapi.load('client', async () => {
       },
       {
         destination: 'Test string',
-      }
+      },
     );
     /** Updates a device. */
     await gapi.client.sasportal.customers.devices.patch(
@@ -591,7 +591,7 @@ gapi.load('client', async () => {
         },
         serialNumber: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Signs a device. */
     await gapi.client.sasportal.customers.devices.signDevice(
@@ -730,7 +730,7 @@ gapi.load('client', async () => {
           serialNumber: 'Test string',
           state: 'Test string',
         },
-      }
+      },
     );
     /** Updates a signed device. */
     await gapi.client.sasportal.customers.devices.updateSigned(
@@ -740,7 +740,7 @@ gapi.load('client', async () => {
       {
         encodedDevice: 'Test string',
         installerId: 'Test string',
-      }
+      },
     );
     /** Creates a new node. */
     await gapi.client.sasportal.customers.nodes.create(
@@ -751,7 +751,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Deletes a node. */
     await gapi.client.sasportal.customers.nodes.delete({
@@ -775,7 +775,7 @@ gapi.load('client', async () => {
       },
       {
         destination: 'Test string',
-      }
+      },
     );
     /** Updates an existing node. */
     await gapi.client.sasportal.customers.nodes.patch(
@@ -787,7 +787,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Creates a new deployment. */
     await gapi.client.sasportal.customers.nodes.deployments.create(
@@ -799,7 +799,7 @@ gapi.load('client', async () => {
         frns: ['Test string'],
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Lists deployments. */
     await gapi.client.sasportal.customers.nodes.deployments.list({
@@ -943,7 +943,7 @@ gapi.load('client', async () => {
         },
         serialNumber: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates a signed device under a node or customer. */
     await gapi.client.sasportal.customers.nodes.devices.createSigned(
@@ -953,7 +953,7 @@ gapi.load('client', async () => {
       {
         encodedDevice: 'Test string',
         installerId: 'Test string',
-      }
+      },
     );
     /** Lists devices under a node or customer. */
     await gapi.client.sasportal.customers.nodes.devices.list({
@@ -971,7 +971,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Lists nodes. */
     await gapi.client.sasportal.customers.nodes.nodes.list({
@@ -999,7 +999,7 @@ gapi.load('client', async () => {
       },
       {
         destination: 'Test string',
-      }
+      },
     );
     /** Updates a device. */
     await gapi.client.sasportal.deployments.devices.patch(
@@ -1137,7 +1137,7 @@ gapi.load('client', async () => {
         },
         serialNumber: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Signs a device. */
     await gapi.client.sasportal.deployments.devices.signDevice(
@@ -1276,7 +1276,7 @@ gapi.load('client', async () => {
           serialNumber: 'Test string',
           state: 'Test string',
         },
-      }
+      },
     );
     /** Updates a signed device. */
     await gapi.client.sasportal.deployments.devices.updateSigned(
@@ -1286,7 +1286,7 @@ gapi.load('client', async () => {
       {
         encodedDevice: 'Test string',
         installerId: 'Test string',
-      }
+      },
     );
     /** Generates a secret to be used with the ValidateInstaller. */
     await gapi.client.sasportal.installer.generateSecret({}, {});
@@ -1297,7 +1297,7 @@ gapi.load('client', async () => {
         encodedSecret: 'Test string',
         installerId: 'Test string',
         secret: 'Test string',
-      }
+      },
     );
     /** Returns a requested node. */
     await gapi.client.sasportal.nodes.get({
@@ -1325,7 +1325,7 @@ gapi.load('client', async () => {
       },
       {
         destination: 'Test string',
-      }
+      },
     );
     /** Updates an existing deployment. */
     await gapi.client.sasportal.nodes.deployments.patch(
@@ -1338,7 +1338,7 @@ gapi.load('client', async () => {
         frns: ['Test string'],
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Creates a device under a node or customer. */
     await gapi.client.sasportal.nodes.deployments.devices.create(
@@ -1475,7 +1475,7 @@ gapi.load('client', async () => {
         },
         serialNumber: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates a signed device under a node or customer. */
     await gapi.client.sasportal.nodes.deployments.devices.createSigned(
@@ -1485,7 +1485,7 @@ gapi.load('client', async () => {
       {
         encodedDevice: 'Test string',
         installerId: 'Test string',
-      }
+      },
     );
     /** Lists devices under a node or customer. */
     await gapi.client.sasportal.nodes.deployments.devices.list({
@@ -1629,7 +1629,7 @@ gapi.load('client', async () => {
         },
         serialNumber: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates a signed device under a node or customer. */
     await gapi.client.sasportal.nodes.devices.createSigned(
@@ -1639,7 +1639,7 @@ gapi.load('client', async () => {
       {
         encodedDevice: 'Test string',
         installerId: 'Test string',
-      }
+      },
     );
     /** Deletes a device. */
     await gapi.client.sasportal.nodes.devices.delete({
@@ -1663,7 +1663,7 @@ gapi.load('client', async () => {
       },
       {
         destination: 'Test string',
-      }
+      },
     );
     /** Updates a device. */
     await gapi.client.sasportal.nodes.devices.patch(
@@ -1801,7 +1801,7 @@ gapi.load('client', async () => {
         },
         serialNumber: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Signs a device. */
     await gapi.client.sasportal.nodes.devices.signDevice(
@@ -1940,7 +1940,7 @@ gapi.load('client', async () => {
           serialNumber: 'Test string',
           state: 'Test string',
         },
-      }
+      },
     );
     /** Updates a signed device. */
     await gapi.client.sasportal.nodes.devices.updateSigned(
@@ -1950,7 +1950,7 @@ gapi.load('client', async () => {
       {
         encodedDevice: 'Test string',
         installerId: 'Test string',
-      }
+      },
     );
     /** Creates a new node. */
     await gapi.client.sasportal.nodes.nodes.create(
@@ -1961,7 +1961,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Deletes a node. */
     await gapi.client.sasportal.nodes.nodes.delete({
@@ -1985,7 +1985,7 @@ gapi.load('client', async () => {
       },
       {
         destination: 'Test string',
-      }
+      },
     );
     /** Updates an existing node. */
     await gapi.client.sasportal.nodes.nodes.patch(
@@ -1997,7 +1997,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Creates a new deployment. */
     await gapi.client.sasportal.nodes.nodes.deployments.create(
@@ -2009,7 +2009,7 @@ gapi.load('client', async () => {
         frns: ['Test string'],
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Lists deployments. */
     await gapi.client.sasportal.nodes.nodes.deployments.list({
@@ -2153,7 +2153,7 @@ gapi.load('client', async () => {
         },
         serialNumber: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates a signed device under a node or customer. */
     await gapi.client.sasportal.nodes.nodes.devices.createSigned(
@@ -2163,7 +2163,7 @@ gapi.load('client', async () => {
       {
         encodedDevice: 'Test string',
         installerId: 'Test string',
-      }
+      },
     );
     /** Lists devices under a node or customer. */
     await gapi.client.sasportal.nodes.nodes.devices.list({
@@ -2181,7 +2181,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         sasUserIds: ['Test string'],
-      }
+      },
     );
     /** Lists nodes. */
     await gapi.client.sasportal.nodes.nodes.nodes.list({
@@ -2195,7 +2195,7 @@ gapi.load('client', async () => {
       {},
       {
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.sasportal.policies.set(
@@ -2212,7 +2212,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
         },
         resource: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.sasportal.policies.test(
@@ -2220,7 +2220,7 @@ gapi.load('client', async () => {
       {
         permissions: ['Test string'],
         resource: 'Test string',
-      }
+      },
     );
   }
 });

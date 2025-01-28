@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Merchant API datasources_v1beta */
   function load(
-    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=datasources_v1beta'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'merchantapi',
-    version: 'datasources_v1beta'
+    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=datasources_v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'merchantapi',
     version: 'datasources_v1beta',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'merchantapi',
+    version: 'datasources_v1beta',
+    callback: () => any,
   ): void;
 
   namespace merchantapi {
@@ -301,7 +301,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DataSource
+        body: DataSource,
       ): Request<DataSource>;
       /** Deletes a data source from your Merchant Center account. */
       delete(request?: {
@@ -386,7 +386,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FetchDataSourceRequest
+        body: FetchDataSourceRequest,
       ): Request<{}>;
       /** Retrieves the data source configuration for the given account. */
       get(request?: {
@@ -506,7 +506,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DataSource
+        body: DataSource,
       ): Request<DataSource>;
       fileUploads: FileUploadsResource;
     }

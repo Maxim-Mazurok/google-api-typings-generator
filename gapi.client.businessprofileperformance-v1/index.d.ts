@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Business Profile Performance API v1 */
   function load(
-    urlOrObject: 'https://businessprofileperformance.googleapis.com/$discovery/rest?version=v1'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'businessprofileperformance',
-    version: 'v1'
+    urlOrObject: 'https://businessprofileperformance.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'businessprofileperformance',
     version: 'v1',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'businessprofileperformance',
+    version: 'v1',
+    callback: () => any,
   ): void;
 
   namespace businessprofileperformance {

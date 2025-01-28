@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://reseller.googleapis.com/$discovery/rest?version=v1'
+    'https://reseller.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.reseller */
 
@@ -66,7 +66,7 @@ gapi.load('client', async () => {
           primaryEmail: 'Test string',
         },
         resourceUiUrl: 'Test string',
-      }
+      },
     );
     /** Updates a customer account's settings. This method supports patch semantics. You cannot update `customerType` via the Reseller API, but a `"team"` customer can verify their domain and become `customerType = "domain"`. For more information, see [Verify your domain to unlock Essentials features](https://support.google.com/a/answer/9122284). */
     await gapi.client.reseller.customers.patch(
@@ -97,7 +97,7 @@ gapi.load('client', async () => {
           primaryEmail: 'Test string',
         },
         resourceUiUrl: 'Test string',
-      }
+      },
     );
     /** Updates a customer account's settings. You cannot update `customerType` via the Reseller API, but a `"team"` customer can verify their domain and become `customerType = "domain"`. For more information, see [update a customer's settings](/admin-sdk/reseller/v1/how-tos/manage_customers#update_customer). */
     await gapi.client.reseller.customers.update(
@@ -128,7 +128,7 @@ gapi.load('client', async () => {
           primaryEmail: 'Test string',
         },
         resourceUiUrl: 'Test string',
-      }
+      },
     );
     /** Returns all the details of the watch corresponding to the reseller. */
     await gapi.client.reseller.resellernotify.getwatchdetails({});
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
           maximumNumberOfSeats: 42,
           numberOfSeats: 42,
         },
-      }
+      },
     );
     /** Updates a user license's renewal settings. This is applicable for accounts with annual commitment plans only. For more information, see the description in [manage subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_renewal). */
     await gapi.client.reseller.subscriptions.changeRenewalSettings(
@@ -173,7 +173,7 @@ gapi.load('client', async () => {
       {
         kind: 'Test string',
         renewalType: 'Test string',
-      }
+      },
     );
     /** Updates a subscription's user license settings. For more information about updating an annual commitment plan or a flexible plan subscription’s licenses, see [Manage Subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_subscription_seat). */
     await gapi.client.reseller.subscriptions.changeSeats(
@@ -186,7 +186,7 @@ gapi.load('client', async () => {
         licensedNumberOfSeats: 42,
         maximumNumberOfSeats: 42,
         numberOfSeats: 42,
-      }
+      },
     );
     /** Cancels, suspends, or transfers a subscription to direct. */
     await gapi.client.reseller.subscriptions.delete({
@@ -248,7 +248,7 @@ gapi.load('client', async () => {
           isInTrial: true,
           trialEndTime: 'Test string',
         },
-      }
+      },
     );
     /** Lists of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's transferable subscriptions. Optionally, this method can filter the response by a `customerNamePrefix`. For more information, see [manage subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions). */
     await gapi.client.reseller.subscriptions.list({

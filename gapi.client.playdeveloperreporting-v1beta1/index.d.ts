@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Google Play Developer Reporting API v1beta1 */
   function load(
-    urlOrObject: 'https://playdeveloperreporting.googleapis.com/$discovery/rest?version=v1beta1'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'playdeveloperreporting',
-    version: 'v1beta1'
+    urlOrObject: 'https://playdeveloperreporting.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'playdeveloperreporting',
     version: 'v1beta1',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'playdeveloperreporting',
+    version: 'v1beta1',
+    callback: () => any,
   ): void;
 
   namespace playdeveloperreporting {
@@ -628,7 +628,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest
+        body: GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest,
       ): Request<GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetResponse>;
     }
     interface CrashrateResource {
@@ -715,7 +715,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest
+        body: GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest,
       ): Request<GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetResponse>;
     }
     interface CountsResource {
@@ -802,7 +802,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest
+        body: GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest,
       ): Request<GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetResponse>;
     }
     interface IssuesResource {
@@ -1048,7 +1048,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest
+        body: GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest,
       ): Request<GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetResponse>;
     }
     interface SlowrenderingrateResource {
@@ -1135,7 +1135,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest
+        body: GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest,
       ): Request<GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetResponse>;
     }
     interface SlowstartrateResource {
@@ -1222,7 +1222,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest
+        body: GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest,
       ): Request<GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetResponse>;
     }
     interface StuckbackgroundwakelockrateResource {
@@ -1309,7 +1309,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetRequest
+        body: GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetRequest,
       ): Request<GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetResponse>;
     }
     interface VitalsResource {

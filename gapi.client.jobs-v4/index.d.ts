@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Talent Solution API v4 */
   function load(
-    urlOrObject: 'https://jobs.googleapis.com/$discovery/rest?version=v4'
+    urlOrObject: 'https://jobs.googleapis.com/$discovery/rest?version=v4',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'jobs', version: 'v4'): Promise<void>;
@@ -639,7 +639,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClientEvent
+        body: ClientEvent,
       ): Request<ClientEvent>;
     }
     interface CompaniesResource {
@@ -699,7 +699,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Company
+        body: Company,
       ): Request<Company>;
       /** Deletes specified company. Prerequisite: The company has no jobs associated with it. */
       delete(request?: {
@@ -848,7 +848,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Company
+        body: Company,
       ): Request<Company>;
     }
     interface JobsResource {
@@ -908,7 +908,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreateJobsRequest
+        body: BatchCreateJobsRequest,
       ): Request<Operation>;
       /** Begins executing a batch delete jobs operation. */
       batchDelete(request: {
@@ -966,7 +966,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchDeleteJobsRequest
+        body: BatchDeleteJobsRequest,
       ): Request<Operation>;
       /** Begins executing a batch update jobs operation. */
       batchUpdate(request: {
@@ -1024,7 +1024,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateJobsRequest
+        body: BatchUpdateJobsRequest,
       ): Request<Operation>;
       /** Creates a new job. Typically, the job becomes searchable within 10 seconds, but it may take up to 5 minutes. */
       create(request: {
@@ -1082,7 +1082,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       /** Deletes the specified job. Typically, the job becomes unsearchable within 10 seconds, but it may take up to 5 minutes. */
       delete(request?: {
@@ -1233,7 +1233,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       /** Searches for jobs using the provided SearchJobsRequest. This call constrains the visibility of jobs present in the database, and only returns jobs that the caller has permission to search against. */
       search(request: {
@@ -1291,7 +1291,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchJobsRequest
+        body: SearchJobsRequest,
       ): Request<SearchJobsResponse>;
       /** Searches for jobs using the provided SearchJobsRequest. This API call is intended for the use case of targeting passive job seekers (for example, job seekers who have signed up to receive email alerts about potential job opportunities), it has different algorithmic adjustments that are designed to specifically target passive job seekers. This call constrains the visibility of jobs present in the database, and only returns jobs the caller has permission to search against. */
       searchForAlert(request: {
@@ -1349,7 +1349,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchJobsRequest
+        body: SearchJobsRequest,
       ): Request<SearchJobsResponse>;
     }
     interface TenantsResource {
@@ -1448,7 +1448,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Tenant
+        body: Tenant,
       ): Request<Tenant>;
       /** Deletes specified tenant. */
       delete(request?: {
@@ -1595,7 +1595,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Tenant
+        body: Tenant,
       ): Request<Tenant>;
       clientEvents: ClientEventsResource;
       companies: CompaniesResource;

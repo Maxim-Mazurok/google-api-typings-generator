@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://datastore.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://datastore.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.datastore */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         outputUrlPrefix: 'Test string',
-      }
+      },
     );
     /** Imports entities into Google Cloud Datastore. Existing entities with the same key are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportEntities operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Datastore. */
     await gapi.client.datastore.projects.import(
@@ -63,7 +63,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
   }
 });

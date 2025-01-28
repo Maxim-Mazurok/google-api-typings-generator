@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Groups Migration API v1 */
   function load(
-    urlOrObject: 'https://groupsmigration.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://groupsmigration.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'groupsmigration', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'groupsmigration',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace groupsmigration {

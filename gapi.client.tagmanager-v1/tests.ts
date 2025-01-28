@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://tagmanager.googleapis.com/$discovery/rest?version=v1'
+    'https://tagmanager.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.tagmanager */
 
@@ -60,7 +60,7 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         name: 'Test string',
         shareData: true,
-      }
+      },
     );
     /** Creates a Container. */
     await gapi.client.tagmanager.accounts.containers.create(
@@ -79,7 +79,7 @@ gapi.load('client', async () => {
         timeZoneCountryId: 'Test string',
         timeZoneId: 'Test string',
         usageContext: ['Test string'],
-      }
+      },
     );
     /** Deletes a Container. */
     await gapi.client.tagmanager.accounts.containers.delete({
@@ -114,7 +114,7 @@ gapi.load('client', async () => {
         timeZoneCountryId: 'Test string',
         timeZoneId: 'Test string',
         usageContext: ['Test string'],
-      }
+      },
     );
     /** Creates a GTM Environment. */
     await gapi.client.tagmanager.accounts.containers.environments.create(
@@ -135,7 +135,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Deletes a GTM Environment. */
     await gapi.client.tagmanager.accounts.containers.environments.delete({
@@ -175,7 +175,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Creates a GTM Folder. */
     await gapi.client.tagmanager.accounts.containers.folders.create(
@@ -189,7 +189,7 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         folderId: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a GTM Folder. */
     await gapi.client.tagmanager.accounts.containers.folders.delete({
@@ -222,7 +222,7 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         folderId: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** List all entities in a GTM Folder. */
     await gapi.client.tagmanager.accounts.containers.folders.entities.list({
@@ -246,7 +246,7 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         folderId: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Re-generates the authorization code for a GTM Environment. */
     await gapi.client.tagmanager.accounts.containers.reauthorize_environments.update(
@@ -268,7 +268,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Creates a GTM Tag. */
     await gapi.client.tagmanager.accounts.containers.tags.create(
@@ -322,7 +322,7 @@ gapi.load('client', async () => {
           },
         ],
         type: 'Test string',
-      }
+      },
     );
     /** Deletes a GTM Tag. */
     await gapi.client.tagmanager.accounts.containers.tags.delete({
@@ -395,7 +395,7 @@ gapi.load('client', async () => {
           },
         ],
         type: 'Test string',
-      }
+      },
     );
     /** Creates a GTM Trigger. */
     await gapi.client.tagmanager.accounts.containers.triggers.create(
@@ -581,7 +581,7 @@ gapi.load('client', async () => {
           type: 'Test string',
           value: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a GTM Trigger. */
     await gapi.client.tagmanager.accounts.containers.triggers.delete({
@@ -786,7 +786,7 @@ gapi.load('client', async () => {
           type: 'Test string',
           value: 'Test string',
         },
-      }
+      },
     );
     /** Creates a GTM Variable. */
     await gapi.client.tagmanager.accounts.containers.variables.create(
@@ -816,7 +816,7 @@ gapi.load('client', async () => {
         scheduleStartMs: 'Test string',
         type: 'Test string',
         variableId: 'Test string',
-      }
+      },
     );
     /** Deletes a GTM Variable. */
     await gapi.client.tagmanager.accounts.containers.variables.delete({
@@ -865,7 +865,7 @@ gapi.load('client', async () => {
         scheduleStartMs: 'Test string',
         type: 'Test string',
         variableId: 'Test string',
-      }
+      },
     );
     /** Creates a Container Version. */
     await gapi.client.tagmanager.accounts.containers.versions.create(
@@ -877,7 +877,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         notes: 'Test string',
         quickPreview: true,
-      }
+      },
     );
     /** Deletes a Container Version. */
     await gapi.client.tagmanager.accounts.containers.versions.delete({
@@ -1259,7 +1259,7 @@ gapi.load('client', async () => {
             variableId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Creates a user's Account & Container Permissions. */
     await gapi.client.tagmanager.accounts.permissions.create(
@@ -1279,7 +1279,7 @@ gapi.load('client', async () => {
         ],
         emailAddress: 'Test string',
         permissionId: 'Test string',
-      }
+      },
     );
     /** Removes a user from the account, revoking access to it and all of its containers. */
     await gapi.client.tagmanager.accounts.permissions.delete({
@@ -1314,7 +1314,7 @@ gapi.load('client', async () => {
         ],
         emailAddress: 'Test string',
         permissionId: 'Test string',
-      }
+      },
     );
   }
 });

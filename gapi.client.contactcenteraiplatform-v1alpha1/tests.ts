@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://contactcenteraiplatform.googleapis.com/$discovery/rest?version=v1alpha1'
+    'https://contactcenteraiplatform.googleapis.com/$discovery/rest?version=v1alpha1',
   );
   /** now we can use gapi.client.contactcenteraiplatform */
 
@@ -46,7 +46,7 @@ gapi.load('client', async () => {
     await gapi.client.contactcenteraiplatform.projects.locations.queryContactCenterQuota(
       {
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new ContactCenter in a given project and location. */
     await gapi.client.contactcenteraiplatform.projects.locations.contactCenters.create(
@@ -130,20 +130,20 @@ gapi.load('client', async () => {
           virtualAgentStreamingServiceUri: 'Test string',
         },
         userEmail: 'Test string',
-      }
+      },
     );
     /** Deletes a single ContactCenter. */
     await gapi.client.contactcenteraiplatform.projects.locations.contactCenters.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single ContactCenter. */
     await gapi.client.contactcenteraiplatform.projects.locations.contactCenters.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists ContactCenters in a given project and location. */
     await gapi.client.contactcenteraiplatform.projects.locations.contactCenters.list(
@@ -153,7 +153,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single ContactCenter. */
     await gapi.client.contactcenteraiplatform.projects.locations.contactCenters.patch(
@@ -237,26 +237,26 @@ gapi.load('client', async () => {
           virtualAgentStreamingServiceUri: 'Test string',
         },
         userEmail: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.contactcenteraiplatform.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.contactcenteraiplatform.projects.locations.operations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.contactcenteraiplatform.projects.locations.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.contactcenteraiplatform.projects.locations.operations.list(
@@ -265,7 +265,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
   }
 });

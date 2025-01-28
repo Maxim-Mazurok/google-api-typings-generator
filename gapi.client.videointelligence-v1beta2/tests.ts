@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://videointelligence.googleapis.com/$discovery/rest?version=v1beta2'
+    'https://videointelligence.googleapis.com/$discovery/rest?version=v1beta2',
   );
   /** now we can use gapi.client.videointelligence */
 
@@ -93,7 +93,7 @@ gapi.load('client', async () => {
             model: 'Test string',
           },
         },
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://securityposture.googleapis.com/$discovery/rest?version=v1'
+    'https://securityposture.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.securityposture */
 
@@ -36,13 +36,13 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.securityposture.organizations.locations.operations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.securityposture.organizations.locations.operations.get({
@@ -79,20 +79,20 @@ gapi.load('client', async () => {
         state: 'Test string',
         targetResource: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a PostureDeployment. */
     await gapi.client.securityposture.organizations.locations.postureDeployments.delete(
       {
         etag: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets details for a PostureDeployment. */
     await gapi.client.securityposture.organizations.locations.postureDeployments.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists every PostureDeployment in a project and location. */
     await gapi.client.securityposture.organizations.locations.postureDeployments.list(
@@ -101,7 +101,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an existing PostureDeployment. To prevent concurrent updates from overwriting each other, always follow the read-modify-write pattern when you update a posture deployment: 1. Call GetPostureDeployment to get the current version of the deployment. 2. Update the fields in the deployment as needed. 3. Call UpdatePostureDeployment to update the deployment. Ensure that your request includes the `etag` value from the GetPostureDeployment response. **Important:** If you omit the `etag` when you call UpdatePostureDeployment, then the updated deployment unconditionally overwrites the existing deployment. */
     await gapi.client.securityposture.organizations.locations.postureDeployments.patch(
@@ -127,7 +127,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         targetResource: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new Posture. */
     await gapi.client.securityposture.organizations.locations.postures.create(
@@ -265,7 +265,7 @@ gapi.load('client', async () => {
         revisionId: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes all revisions of a Posture. You can only delete a posture if none of its revisions are deployed. */
     await gapi.client.securityposture.organizations.locations.postures.delete({
@@ -280,7 +280,7 @@ gapi.load('client', async () => {
       {
         postureId: 'Test string',
         workload: 'Test string',
-      }
+      },
     );
     /** Gets a single revision of a Posture. */
     await gapi.client.securityposture.organizations.locations.postures.get({
@@ -300,7 +300,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Updates a revision of an existing Posture. If the posture revision that you update is currently deployed, then a new revision of the posture is created. To prevent concurrent updates from overwriting each other, always follow the read-modify-write pattern when you update a posture: 1. Call GetPosture to get the current version of the posture. 2. Update the fields in the posture as needed. 3. Call UpdatePosture to update the posture. Ensure that your request includes the `etag` value from the GetPosture response. **Important:** If you omit the `etag` when you call UpdatePosture, then the updated posture unconditionally overwrites the existing posture. */
     await gapi.client.securityposture.organizations.locations.postures.patch(
@@ -439,14 +439,14 @@ gapi.load('client', async () => {
         revisionId: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets a single revision of a PostureTemplate. */
     await gapi.client.securityposture.organizations.locations.postureTemplates.get(
       {
         name: 'Test string',
         revisionId: 'Test string',
-      }
+      },
     );
     /** Lists every PostureTemplate in a given organization and location. */
     await gapi.client.securityposture.organizations.locations.postureTemplates.list(
@@ -455,7 +455,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Validates a specified infrastructure-as-code (IaC) configuration, and creates a Report with the validation results. Only Terraform configurations are supported. Only modified assets are validated. */
     await gapi.client.securityposture.organizations.locations.reports.createIaCValidationReport(
@@ -466,7 +466,7 @@ gapi.load('client', async () => {
         iac: {
           tfPlan: 'Test string',
         },
-      }
+      },
     );
     /** Gets details for a Report. */
     await gapi.client.securityposture.organizations.locations.reports.get({

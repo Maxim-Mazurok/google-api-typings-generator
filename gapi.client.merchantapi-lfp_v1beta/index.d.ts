@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Merchant API lfp_v1beta */
   function load(
-    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=lfp_v1beta'
+    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=lfp_v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'merchantapi', version: 'lfp_v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'merchantapi',
     version: 'lfp_v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace merchantapi {
@@ -206,7 +206,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LfpInventory
+        body: LfpInventory,
       ): Request<LfpInventory>;
     }
     interface LfpSalesResource {
@@ -266,7 +266,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LfpSale
+        body: LfpSale,
       ): Request<LfpSale>;
     }
     interface LfpStoresResource {
@@ -380,7 +380,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LfpStore
+        body: LfpStore,
       ): Request<LfpStore>;
       /** Lists the stores of the target merchant, specified by the filter in `ListLfpStoresRequest`. */
       list(request?: {

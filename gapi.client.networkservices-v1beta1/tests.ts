@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://networkservices.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://networkservices.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.networkservices */
 
@@ -67,14 +67,14 @@ gapi.load('client', async () => {
         timeout: 'Test string',
         updateTime: 'Test string',
         wireFormat: 'Test string',
-      }
+      },
     );
     /** Deletes the specified `AuthzExtension` resource. */
     await gapi.client.networkservices.projects.locations.authzExtensions.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of the specified `AuthzExtension` resource. */
     await gapi.client.networkservices.projects.locations.authzExtensions.get({
@@ -113,7 +113,7 @@ gapi.load('client', async () => {
         timeout: 'Test string',
         updateTime: 'Test string',
         wireFormat: 'Test string',
-      }
+      },
     );
     /** Creates a new EndpointPolicy in a given project and location. */
     await gapi.client.networkservices.projects.locations.endpointPolicies.create(
@@ -147,13 +147,13 @@ gapi.load('client', async () => {
         },
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single EndpointPolicy. */
     await gapi.client.networkservices.projects.locations.endpointPolicies.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single EndpointPolicy. */
     await gapi.client.networkservices.projects.locations.endpointPolicies.get({
@@ -197,7 +197,7 @@ gapi.load('client', async () => {
         },
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new Gateway in a given project and location. */
     await gapi.client.networkservices.projects.locations.gateways.create(
@@ -226,7 +226,7 @@ gapi.load('client', async () => {
         subnetwork: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Gateway. */
     await gapi.client.networkservices.projects.locations.gateways.delete({
@@ -269,13 +269,13 @@ gapi.load('client', async () => {
         subnetwork: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Get a single RouteView of a Gateway. */
     await gapi.client.networkservices.projects.locations.gateways.routeViews.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists RouteViews */
     await gapi.client.networkservices.projects.locations.gateways.routeViews.list(
@@ -283,7 +283,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new GrpcRoute in a given project and location. */
     await gapi.client.networkservices.projects.locations.grpcRoutes.create(
@@ -352,7 +352,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single GrpcRoute. */
     await gapi.client.networkservices.projects.locations.grpcRoutes.delete({
@@ -436,7 +436,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new HttpRoute in a given project and location. */
     await gapi.client.networkservices.projects.locations.httpRoutes.create(
@@ -609,7 +609,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single HttpRoute. */
     await gapi.client.networkservices.projects.locations.httpRoutes.delete({
@@ -797,7 +797,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new `LbRouteExtension` resource in a given project and location. */
     await gapi.client.networkservices.projects.locations.lbRouteExtensions.create(
@@ -841,14 +841,14 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified `LbRouteExtension` resource. */
     await gapi.client.networkservices.projects.locations.lbRouteExtensions.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of the specified `LbRouteExtension` resource. */
     await gapi.client.networkservices.projects.locations.lbRouteExtensions.get({
@@ -862,7 +862,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of the specified `LbRouteExtension` resource. */
     await gapi.client.networkservices.projects.locations.lbRouteExtensions.patch(
@@ -906,7 +906,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new `LbTrafficExtension` resource in a given project and location. */
     await gapi.client.networkservices.projects.locations.lbTrafficExtensions.create(
@@ -950,20 +950,20 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified `LbTrafficExtension` resource. */
     await gapi.client.networkservices.projects.locations.lbTrafficExtensions.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of the specified `LbTrafficExtension` resource. */
     await gapi.client.networkservices.projects.locations.lbTrafficExtensions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists `LbTrafficExtension` resources in a given project and location. */
     await gapi.client.networkservices.projects.locations.lbTrafficExtensions.list(
@@ -973,7 +973,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of the specified `LbTrafficExtension` resource. */
     await gapi.client.networkservices.projects.locations.lbTrafficExtensions.patch(
@@ -1017,7 +1017,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new Mesh in a given project and location. */
     await gapi.client.networkservices.projects.locations.meshes.create(
@@ -1036,7 +1036,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Mesh. */
     await gapi.client.networkservices.projects.locations.meshes.delete({
@@ -1069,7 +1069,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Get a single RouteView of a Mesh. */
     await gapi.client.networkservices.projects.locations.meshes.routeViews.get({
@@ -1081,14 +1081,14 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.networkservices.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.networkservices.projects.locations.operations.delete({
@@ -1121,13 +1121,13 @@ gapi.load('client', async () => {
         service: 'Test string',
         serviceId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single ServiceBinding. */
     await gapi.client.networkservices.projects.locations.serviceBindings.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single ServiceBinding. */
     await gapi.client.networkservices.projects.locations.serviceBindings.get({
@@ -1160,13 +1160,13 @@ gapi.load('client', async () => {
         loadBalancingAlgorithm: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single ServiceLbPolicy. */
     await gapi.client.networkservices.projects.locations.serviceLbPolicies.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single ServiceLbPolicy. */
     await gapi.client.networkservices.projects.locations.serviceLbPolicies.get({
@@ -1178,7 +1178,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single ServiceLbPolicy. */
     await gapi.client.networkservices.projects.locations.serviceLbPolicies.patch(
@@ -1201,7 +1201,7 @@ gapi.load('client', async () => {
         loadBalancingAlgorithm: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new TcpRoute in a given project and location. */
     await gapi.client.networkservices.projects.locations.tcpRoutes.create(
@@ -1241,7 +1241,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single TcpRoute. */
     await gapi.client.networkservices.projects.locations.tcpRoutes.delete({
@@ -1296,7 +1296,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new TlsRoute in a given project and location. */
     await gapi.client.networkservices.projects.locations.tlsRoutes.create(
@@ -1335,7 +1335,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single TlsRoute. */
     await gapi.client.networkservices.projects.locations.tlsRoutes.delete({
@@ -1389,7 +1389,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new `WasmPlugin` resource in a given project and location. */
     await gapi.client.networkservices.projects.locations.wasmPlugins.create(
@@ -1431,7 +1431,7 @@ gapi.load('client', async () => {
             updateTime: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deletes the specified `WasmPlugin` resource. */
     await gapi.client.networkservices.projects.locations.wasmPlugins.delete({
@@ -1488,7 +1488,7 @@ gapi.load('client', async () => {
             updateTime: 'Test string',
           },
         },
-      }
+      },
     );
     /** Creates a new `WasmPluginVersion` resource in a given project and location. */
     await gapi.client.networkservices.projects.locations.wasmPlugins.versions.create(
@@ -1509,19 +1509,19 @@ gapi.load('client', async () => {
         pluginConfigDigest: 'Test string',
         pluginConfigUri: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified `WasmPluginVersion` resource. */
     await gapi.client.networkservices.projects.locations.wasmPlugins.versions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of the specified `WasmPluginVersion` resource. */
     await gapi.client.networkservices.projects.locations.wasmPlugins.versions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists `WasmPluginVersion` resources in a given project and location. */
     await gapi.client.networkservices.projects.locations.wasmPlugins.versions.list(
@@ -1529,7 +1529,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://manufacturers.googleapis.com/$discovery/rest?version=v1'
+    'https://manufacturers.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.manufacturers */
 
@@ -35,13 +35,13 @@ gapi.load('client', async () => {
     await gapi.client.manufacturers.accounts.languages.productCertifications.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a product certification by its name. This method can only be called by certification bodies. */
     await gapi.client.manufacturers.accounts.languages.productCertifications.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists product certifications from a specified certification body. This method can only be called by certification bodies. */
     await gapi.client.manufacturers.accounts.languages.productCertifications.list(
@@ -49,7 +49,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates (or creates if allow_missing = true) a product certification which links certifications with products. This method can only be called by certification bodies. */
     await gapi.client.manufacturers.accounts.languages.productCertifications.patch(
@@ -98,7 +98,7 @@ gapi.load('client', async () => {
         productCode: ['Test string'],
         productType: ['Test string'],
         title: 'Test string',
-      }
+      },
     );
     /** Deletes the product from a Manufacturer Center account. */
     await gapi.client.manufacturers.accounts.products.delete({
@@ -337,7 +337,7 @@ gapi.load('client', async () => {
         title: 'Test string',
         videoLink: ['Test string'],
         virtualModelLink: 'Test string',
-      }
+      },
     );
   }
 });

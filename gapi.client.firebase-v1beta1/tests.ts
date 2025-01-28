@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebase.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://firebase.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.firebase */
 
@@ -53,7 +53,7 @@ gapi.load('client', async () => {
       },
       {
         locationId: 'Test string',
-      }
+      },
     );
     /** Links the specified FirebaseProject with an existing [Google Analytics account](http://www.google.com/analytics/). Using this call, you can either: - Specify an `analyticsAccountId` to provision a new Google Analytics property within the specified account and associate the new property with the `FirebaseProject`. - Specify an existing `analyticsPropertyId` to associate the property with the `FirebaseProject`. Note that when you call `AddGoogleAnalytics`: 1. The first check determines if any existing data streams in the Google Analytics property correspond to any existing Firebase Apps in the `FirebaseProject` (based on the `packageName` or `bundleId` associated with the data stream). Then, as applicable, the data streams and apps are linked. Note that this auto-linking only applies to `AndroidApps` and `IosApps`. 2. If no corresponding data streams are found for the Firebase Apps, new data streams are provisioned in the Google Analytics property for each of the Firebase Apps. Note that a new data stream is always provisioned for a Web App even if it was previously associated with a data stream in the Analytics property. Learn more about the hierarchy and structure of Google Analytics accounts in the [Analytics documentation](https://support.google.com/analytics/answer/9303323). The result of this call is an [`Operation`](../../v1beta1/operations). Poll the `Operation` to track the provisioning process by calling GetOperation until [`done`](../../v1beta1/operations#Operation.FIELDS.done) is `true`. When `done` is `true`, the `Operation` has either succeeded or failed. If the `Operation` succeeded, its [`response`](../../v1beta1/operations#Operation.FIELDS.response) is set to an AnalyticsDetails; if the `Operation` failed, its [`error`](../../v1beta1/operations#Operation.FIELDS.error) is set to a google.rpc.Status. To call `AddGoogleAnalytics`, a project member must be an Owner for the existing `FirebaseProject` and have the [`Edit` permission](https://support.google.com/analytics/answer/2884495) for the Google Analytics account. If the `FirebaseProject` already has Google Analytics enabled, and you call `AddGoogleAnalytics` using an `analyticsPropertyId` that's different from the currently associated property, then the call will fail. Analytics may have already been enabled in the Firebase console or by specifying `timeZone` and `regionCode` in the call to [`AddFirebase`](../../v1beta1/projects/addFirebase). */
     await gapi.client.firebase.projects.addGoogleAnalytics(
@@ -63,7 +63,7 @@ gapi.load('client', async () => {
       {
         analyticsAccountId: 'Test string',
         analyticsPropertyId: 'Test string',
-      }
+      },
     );
     /** Gets the specified FirebaseProject. */
     await gapi.client.firebase.projects.get({
@@ -105,7 +105,7 @@ gapi.load('client', async () => {
           storageBucket: 'Test string',
         },
         state: 'Test string',
-      }
+      },
     );
     /** Unlinks the specified FirebaseProject from its Google Analytics account. This call removes the association of the specified `FirebaseProject` with its current Google Analytics property. However, this call does not delete the Google Analytics resources, such as the Google Analytics property or any data streams. These resources may be re-associated later to the `FirebaseProject` by calling [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) and specifying the same `analyticsPropertyId`. For Android Apps and iOS Apps, this call re-links data streams with their corresponding apps. However, for Web Apps, this call provisions a *new* data stream for each Web App. To call `RemoveAnalytics`, a project member must be an Owner for the `FirebaseProject`. */
     await gapi.client.firebase.projects.removeAnalytics(
@@ -114,7 +114,7 @@ gapi.load('client', async () => {
       },
       {
         analyticsPropertyId: 'Test string',
-      }
+      },
     );
     /** Lists all available Apps for the specified FirebaseProject. This is a convenience method. Typically, interaction with an App should be done using the platform-specific service, but some tool use-cases require a summary of all known Apps (such as for App selector interfaces). */
     await gapi.client.firebase.projects.searchApps({
@@ -141,7 +141,7 @@ gapi.load('client', async () => {
         sha1Hashes: ['Test string'],
         sha256Hashes: ['Test string'],
         state: 'Test string',
-      }
+      },
     );
     /** Gets the specified AndroidApp. */
     await gapi.client.firebase.projects.androidApps.get({
@@ -176,7 +176,7 @@ gapi.load('client', async () => {
         sha1Hashes: ['Test string'],
         sha256Hashes: ['Test string'],
         state: 'Test string',
-      }
+      },
     );
     /** Removes the specified AndroidApp from the FirebaseProject. */
     await gapi.client.firebase.projects.androidApps.remove(
@@ -188,7 +188,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         immediate: true,
         validateOnly: true,
-      }
+      },
     );
     /** Restores the specified AndroidApp to the FirebaseProject. */
     await gapi.client.firebase.projects.androidApps.undelete(
@@ -198,7 +198,7 @@ gapi.load('client', async () => {
       {
         etag: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Adds a ShaCertificate to the specified AndroidApp. */
     await gapi.client.firebase.projects.androidApps.sha.create(
@@ -209,7 +209,7 @@ gapi.load('client', async () => {
         certType: 'Test string',
         name: 'Test string',
         shaHash: 'Test string',
-      }
+      },
     );
     /** Removes a ShaCertificate from the specified AndroidApp. */
     await gapi.client.firebase.projects.androidApps.sha.delete({
@@ -232,7 +232,7 @@ gapi.load('client', async () => {
       },
       {
         locationId: 'Test string',
-      }
+      },
     );
     /** Requests the creation of a new IosApp in the specified FirebaseProject. The result of this call is an `Operation` which can be used to track the provisioning process. The `Operation` is automatically deleted after completion, so there is no need to call `DeleteOperation`. */
     await gapi.client.firebase.projects.iosApps.create(
@@ -251,7 +251,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         state: 'Test string',
         teamId: 'Test string',
-      }
+      },
     );
     /** Gets the specified IosApp. */
     await gapi.client.firebase.projects.iosApps.get({
@@ -286,7 +286,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         state: 'Test string',
         teamId: 'Test string',
-      }
+      },
     );
     /** Removes the specified IosApp from the FirebaseProject. */
     await gapi.client.firebase.projects.iosApps.remove(
@@ -298,7 +298,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         immediate: true,
         validateOnly: true,
-      }
+      },
     );
     /** Restores the specified IosApp to the FirebaseProject. */
     await gapi.client.firebase.projects.iosApps.undelete(
@@ -308,7 +308,7 @@ gapi.load('client', async () => {
       {
         etag: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Requests the creation of a new WebApp in the specified FirebaseProject. The result of this call is an `Operation` which can be used to track the provisioning process. The `Operation` is automatically deleted after completion, so there is no need to call `DeleteOperation`. */
     await gapi.client.firebase.projects.webApps.create(
@@ -326,7 +326,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         state: 'Test string',
         webId: 'Test string',
-      }
+      },
     );
     /** Gets the specified WebApp. */
     await gapi.client.firebase.projects.webApps.get({
@@ -360,7 +360,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         state: 'Test string',
         webId: 'Test string',
-      }
+      },
     );
     /** Removes the specified WebApp from the FirebaseProject. */
     await gapi.client.firebase.projects.webApps.remove(
@@ -372,7 +372,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         immediate: true,
         validateOnly: true,
-      }
+      },
     );
     /** Restores the specified WebApp to the FirebaseProject. */
     await gapi.client.firebase.projects.webApps.undelete(
@@ -382,7 +382,7 @@ gapi.load('client', async () => {
       {
         etag: 'Test string',
         validateOnly: true,
-      }
+      },
     );
   }
 });

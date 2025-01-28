@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load BeyondCorp API v1alpha */
   function load(
-    urlOrObject: 'https://beyondcorp.googleapis.com/$discovery/rest?version=v1alpha'
+    urlOrObject: 'https://beyondcorp.googleapis.com/$discovery/rest?version=v1alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'beyondcorp', version: 'v1alpha'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'beyondcorp',
     version: 'v1alpha',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace beyondcorp {
@@ -1083,7 +1083,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpPartnerservicesV1alphaBrowserDlpRule
+        body: GoogleCloudBeyondcorpPartnerservicesV1alphaBrowserDlpRule,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes an existing BrowserDlpRule. */
       delete(request?: {
@@ -1261,7 +1261,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpPartnerservicesV1alphaBrowserDlpRule
+        body: GoogleCloudBeyondcorpPartnerservicesV1alphaBrowserDlpRule,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1291,7 +1291,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1321,7 +1321,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface ProxyConfigsResource {
@@ -1385,7 +1385,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpPartnerservicesV1alphaProxyConfig
+        body: GoogleCloudBeyondcorpPartnerservicesV1alphaProxyConfig,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a single ProxyConfig. */
       delete(request?: {
@@ -1571,7 +1571,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpPartnerservicesV1alphaProxyConfig
+        body: GoogleCloudBeyondcorpPartnerservicesV1alphaProxyConfig,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1601,7 +1601,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1631,7 +1631,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface PartnerTenantsResource {
@@ -1695,7 +1695,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpPartnerservicesV1alphaPartnerTenant
+        body: GoogleCloudBeyondcorpPartnerservicesV1alphaPartnerTenant,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a single PartnerTenant. */
       delete(request?: {
@@ -1881,7 +1881,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpPartnerservicesV1alphaPartnerTenant
+        body: GoogleCloudBeyondcorpPartnerservicesV1alphaPartnerTenant,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1911,7 +1911,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1941,7 +1941,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
       browserDlpRules: BrowserDlpRulesResource;
       proxyConfigs: ProxyConfigsResource;
@@ -2125,7 +2125,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningCancelOperationRequest
+        body: GoogleLongrunningCancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -2301,7 +2301,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpSaasplatformSubscriptionsV1alphaSubscription
+        body: GoogleCloudBeyondcorpSaasplatformSubscriptionsV1alphaSubscription,
       ): Request<GoogleCloudBeyondcorpSaasplatformSubscriptionsV1alphaSubscription>;
       /** Gets details of a single Subscription. */
       get(request?: {
@@ -2425,7 +2425,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpSaasplatformSubscriptionsV1alphaSubscription
+        body: GoogleCloudBeyondcorpSaasplatformSubscriptionsV1alphaSubscription,
       ): Request<GoogleCloudBeyondcorpSaasplatformSubscriptionsV1alphaSubscription>;
       /** Restarts an existing BeyondCorp Enterprise Subscription in a given organization, that is scheduled for cancellation. Location will always be global as BeyondCorp subscriptions are per organization. Returns the timestamp for when the cancellation will become effective */
       restart(request?: {
@@ -2535,7 +2535,7 @@ declare namespace gapi.client {
           /** Optional. If set, validates request by executing a dry-run which would not alter the resource in any way. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection
+        body: GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a single AppConnection. */
       delete(request?: {
@@ -2731,7 +2731,7 @@ declare namespace gapi.client {
           /** Optional. If set, validates request by executing a dry-run which would not alter the resource in any way. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection
+        body: GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection,
       ): Request<GoogleLongrunningOperation>;
       /** Resolves AppConnections details for a given AppConnector. An internal method called by a connector to find AppConnections to connect to. */
       resolve(request?: {
@@ -2794,7 +2794,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2824,7 +2824,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface AppConnectorsResource {
@@ -2896,7 +2896,7 @@ declare namespace gapi.client {
           /** Optional. If set, validates request by executing a dry-run which would not alter the resource in any way. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector
+        body: GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a single AppConnector. */
       delete(request?: {
@@ -3088,7 +3088,7 @@ declare namespace gapi.client {
           /** Optional. If set, validates request by executing a dry-run which would not alter the resource in any way. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector
+        body: GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector,
       ): Request<GoogleLongrunningOperation>;
       /** Report status for a given connector. */
       reportStatus(request: {
@@ -3146,7 +3146,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpAppconnectorsV1alphaReportStatusRequest
+        body: GoogleCloudBeyondcorpAppconnectorsV1alphaReportStatusRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets instance configuration for a given AppConnector. An internal method called by a AppConnector to get its container config. */
       resolveInstanceConfig(request?: {
@@ -3203,7 +3203,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3233,7 +3233,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface AppGatewaysResource {
@@ -3305,7 +3305,7 @@ declare namespace gapi.client {
           /** Optional. If set, validates request by executing a dry-run which would not alter the resource in any way. */
           validateOnly?: boolean;
         },
-        body: AppGateway
+        body: AppGateway,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a single AppGateway. */
       delete(request?: {
@@ -3457,7 +3457,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Calls the Bouncer method ShouldThrottle to check if a request should be throttled. */
       shouldThrottle(request?: {
@@ -3518,7 +3518,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface ApplicationDomainsResource {
@@ -3579,7 +3579,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3609,7 +3609,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface ApplicationsResource {
@@ -3670,7 +3670,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3700,7 +3700,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface ClientConnectorServicesResource {
@@ -3761,7 +3761,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3791,7 +3791,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface ClientGatewaysResource {
@@ -3852,7 +3852,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3882,7 +3882,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface ConnectionsResource {
@@ -3954,7 +3954,7 @@ declare namespace gapi.client {
           /** Optional. If set, validates request by executing a dry-run which would not alter the resource in any way. */
           validateOnly?: boolean;
         },
-        body: Connection
+        body: Connection,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a single Connection. */
       delete(request?: {
@@ -4150,7 +4150,7 @@ declare namespace gapi.client {
           /** Optional. If set, validates request by executing a dry-run which would not alter the resource in any way. */
           validateOnly?: boolean;
         },
-        body: Connection
+        body: Connection,
       ): Request<GoogleLongrunningOperation>;
       /** Resolves connections details for a given connector. An internal method called by a connector to find connections to connect to. */
       resolve(request?: {
@@ -4213,7 +4213,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -4243,7 +4243,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface ConnectorsResource {
@@ -4315,7 +4315,7 @@ declare namespace gapi.client {
           /** Optional. If set, validates request by executing a dry-run which would not alter the resource in any way. */
           validateOnly?: boolean;
         },
-        body: Connector
+        body: Connector,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a single Connector. */
       delete(request?: {
@@ -4507,7 +4507,7 @@ declare namespace gapi.client {
           /** Optional. If set, validates request by executing a dry-run which would not alter the resource in any way. */
           validateOnly?: boolean;
         },
-        body: Connector
+        body: Connector,
       ): Request<GoogleLongrunningOperation>;
       /** Report status for a given connector. */
       reportStatus(request: {
@@ -4565,7 +4565,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportStatusRequest
+        body: ReportStatusRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets instance configuration for a given connector. An internal method called by a connector to get its container config. */
       resolveInstanceConfig(request?: {
@@ -4622,7 +4622,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -4652,7 +4652,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface ApplicationsResource {
@@ -4720,7 +4720,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpSecuritygatewaysV1alphaApplication
+        body: GoogleCloudBeyondcorpSecuritygatewaysV1alphaApplication,
       ): Request<GoogleLongrunningOperation>;
       /** Updates the parameters of a single Application. */
       patch(request: {
@@ -4786,7 +4786,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpSecuritygatewaysV1alphaApplication
+        body: GoogleCloudBeyondcorpSecuritygatewaysV1alphaApplication,
       ): Request<GoogleLongrunningOperation>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -4816,7 +4816,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface SecurityGatewaysResource {
@@ -5001,7 +5001,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningCancelOperationRequest
+        body: GoogleLongrunningCancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -5242,7 +5242,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
     }
     interface SecurityGatewaysResource {
@@ -5310,7 +5310,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpSecuritygatewaysV1alphaSecurityGateway
+        body: GoogleCloudBeyondcorpSecuritygatewaysV1alphaSecurityGateway,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a single SecurityGateway. */
       delete(request?: {
@@ -5498,7 +5498,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBeyondcorpSecuritygatewaysV1alphaSecurityGateway
+        body: GoogleCloudBeyondcorpSecuritygatewaysV1alphaSecurityGateway,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -5528,7 +5528,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -5558,7 +5558,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
       applications: ApplicationsResource;
     }

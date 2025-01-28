@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://places.googleapis.com/$discovery/rest?version=v1'
+    'https://places.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.places */
 
@@ -98,7 +98,7 @@ gapi.load('client', async () => {
         },
         regionCode: 'Test string',
         sessionToken: 'Test string',
-      }
+      },
     );
     /** Get the details of a place based on its resource name, which is a string in the `places/{place_id}` format. */
     await gapi.client.places.places.get({
@@ -142,7 +142,7 @@ gapi.load('client', async () => {
           routingPreference: 'Test string',
           travelMode: 'Test string',
         },
-      }
+      },
     );
     /** Text query based place search. */
     await gapi.client.places.places.searchText(
@@ -215,7 +215,7 @@ gapi.load('client', async () => {
         },
         strictTypeFiltering: true,
         textQuery: 'Test string',
-      }
+      },
     );
     /** Get a photo media with a photo reference string. */
     await gapi.client.places.places.photos.getMedia({

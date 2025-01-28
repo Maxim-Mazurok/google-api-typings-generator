@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Compute Engine API v1 */
   function load(
-    urlOrObject: 'https://www.googleapis.com/discovery/v1/apis/compute/v1/rest'
+    urlOrObject: 'https://www.googleapis.com/discovery/v1/apis/compute/v1/rest',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'compute', version: 'v1'): Promise<void>;
@@ -11444,7 +11444,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Address
+        body: Address,
       ): Request<Operation>;
       /** Retrieves a list of addresses contained within the specified region. */
       list(request?: {
@@ -11559,7 +11559,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionAddressesMoveRequest
+        body: RegionAddressesMoveRequest,
       ): Request<Operation>;
       /** Sets the labels on an Address. To learn more about labels, read the Labeling Resources documentation. */
       setLabels(
@@ -11597,7 +11597,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetLabelsRequest
+        body: RegionSetLabelsRequest,
       ): Request<Operation>;
     }
     interface AutoscalersResource {
@@ -11780,7 +11780,7 @@ declare namespace gapi.client {
           /** Name of the zone for this request. */
           zone: string;
         },
-        body: Autoscaler
+        body: Autoscaler,
       ): Request<Operation>;
       /** Retrieves a list of autoscalers contained within the specified zone. */
       list(request?: {
@@ -11895,7 +11895,7 @@ declare namespace gapi.client {
           /** Name of the zone for this request. */
           zone: string;
         },
-        body: Autoscaler
+        body: Autoscaler,
       ): Request<Operation>;
       /** Updates an autoscaler in the specified project using the data included in the request. */
       update(request: {
@@ -11969,7 +11969,7 @@ declare namespace gapi.client {
           /** Name of the zone for this request. */
           zone: string;
         },
-        body: Autoscaler
+        body: Autoscaler,
       ): Request<Operation>;
     }
     interface BackendBucketsResource {
@@ -12041,7 +12041,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SignedUrlKey
+        body: SignedUrlKey,
       ): Request<Operation>;
       /** Deletes the specified BackendBucket resource. */
       delete(request?: {
@@ -12239,7 +12239,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: BackendBucket
+        body: BackendBucket,
       ): Request<Operation>;
       /** Retrieves the list of BackendBucket resources available to the specified project. */
       list(request?: {
@@ -12348,7 +12348,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: BackendBucket
+        body: BackendBucket,
       ): Request<Operation>;
       /** Sets the edge security policy for the specified backend bucket. */
       setEdgeSecurityPolicy(request: {
@@ -12418,7 +12418,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SecurityPolicyReference
+        body: SecurityPolicyReference,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -12452,7 +12452,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetPolicyRequest
+        body: GlobalSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -12486,7 +12486,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
       /** Updates the specified BackendBucket resource with the data included in the request. */
       update(request: {
@@ -12556,7 +12556,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: BackendBucket
+        body: BackendBucket,
       ): Request<Operation>;
     }
     interface BackendServicesResource {
@@ -12628,7 +12628,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SignedUrlKey
+        body: SignedUrlKey,
       ): Request<Operation>;
       /** Retrieves the list of all BackendService resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
       aggregatedList(request?: {
@@ -12834,7 +12834,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ResourceGroupReference
+        body: ResourceGroupReference,
       ): Request<BackendServiceGroupHealth>;
       /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
       getIamPolicy(request?: {
@@ -12933,7 +12933,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: BackendService
+        body: BackendService,
       ): Request<Operation>;
       /** Retrieves the list of BackendService resources available to the specified project. */
       list(request?: {
@@ -13081,7 +13081,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: BackendService
+        body: BackendService,
       ): Request<Operation>;
       /** Sets the edge security policy for the specified backend service. */
       setEdgeSecurityPolicy(request: {
@@ -13151,7 +13151,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SecurityPolicyReference
+        body: SecurityPolicyReference,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -13185,7 +13185,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetPolicyRequest
+        body: GlobalSetPolicyRequest,
       ): Request<Policy>;
       /** Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview */
       setSecurityPolicy(request: {
@@ -13255,7 +13255,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SecurityPolicyReference
+        body: SecurityPolicyReference,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -13289,7 +13289,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
       /** Updates the specified BackendService resource with the data included in the request. For more information, see Backend services overview. */
       update(request: {
@@ -13359,7 +13359,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: BackendService
+        body: BackendService,
       ): Request<Operation>;
     }
     interface DisksResource {
@@ -13435,7 +13435,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: DisksAddResourcePoliciesRequest
+        body: DisksAddResourcePoliciesRequest,
       ): Request<Operation>;
       /** Retrieves an aggregated list of persistent disks. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
       aggregatedList(request?: {
@@ -13548,7 +13548,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: BulkInsertDiskResource
+        body: BulkInsertDiskResource,
       ): Request<Operation>;
       /** Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project. */
       createSnapshot(request: {
@@ -13626,7 +13626,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: Snapshot
+        body: Snapshot,
       ): Request<Operation>;
       /** Deletes the specified persistent disk. Deleting a disk removes its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots. */
       delete(request?: {
@@ -13803,7 +13803,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: Disk
+        body: Disk,
       ): Request<Operation>;
       /** Retrieves a list of persistent disks contained within the specified zone. */
       list(request?: {
@@ -13918,7 +13918,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: DisksRemoveResourcePoliciesRequest
+        body: DisksRemoveResourcePoliciesRequest,
       ): Request<Operation>;
       /** Resizes the specified persistent disk. You can only increase the size of the disk. */
       resize(request: {
@@ -13992,7 +13992,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: DisksResizeRequest
+        body: DisksResizeRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -14028,7 +14028,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: ZoneSetPolicyRequest
+        body: ZoneSetPolicyRequest,
       ): Request<Policy>;
       /** Sets the labels on a disk. To learn more about labels, read the Labeling Resources documentation. */
       setLabels(
@@ -14066,7 +14066,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: ZoneSetLabelsRequest
+        body: ZoneSetLabelsRequest,
       ): Request<Operation>;
       /** Starts asynchronous replication. Must be invoked on the primary disk. */
       startAsyncReplication(request: {
@@ -14140,7 +14140,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: DisksStartAsyncReplicationRequest
+        body: DisksStartAsyncReplicationRequest,
       ): Request<Operation>;
       /** Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. */
       stopAsyncReplication(request?: {
@@ -14245,7 +14245,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. This must be the zone of the primary or secondary disks in the consistency group. */
           zone: string;
         },
-        body: DisksStopGroupAsyncReplicationResource
+        body: DisksStopGroupAsyncReplicationResource,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -14281,7 +14281,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
       /** Updates the specified disk with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license. */
       update(request: {
@@ -14361,7 +14361,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: Disk
+        body: Disk,
       ): Request<Operation>;
     }
     interface DiskTypesResource {
@@ -14612,7 +14612,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ExternalVpnGateway
+        body: ExternalVpnGateway,
       ): Request<Operation>;
       /** Retrieves the list of ExternalVpnGateway available to the specified project. */
       list(request?: {
@@ -14685,7 +14685,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetLabelsRequest
+        body: GlobalSetLabelsRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -14719,7 +14719,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface FirewallPoliciesResource {
@@ -14791,7 +14791,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicyAssociation
+        body: FirewallPolicyAssociation,
       ): Request<Operation>;
       /** Inserts a rule into a firewall policy. */
       addRule(request: {
@@ -14857,7 +14857,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicyRule
+        body: FirewallPolicyRule,
       ): Request<Operation>;
       /** Copies rules to the specified firewall policy. */
       cloneRules(request?: {
@@ -15109,7 +15109,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicy
+        body: FirewallPolicy,
       ): Request<Operation>;
       /** Lists all the policies that have been configured for the specified folder or organization. */
       list(request?: {
@@ -15276,7 +15276,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicy
+        body: FirewallPolicy,
       ): Request<Operation>;
       /** Patches a rule of the specified priority. */
       patchRule(request: {
@@ -15346,7 +15346,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicyRule
+        body: FirewallPolicyRule,
       ): Request<Operation>;
       /** Removes an association for the specified firewall policy. */
       removeAssociation(request?: {
@@ -15444,7 +15444,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalOrganizationSetPolicyRequest
+        body: GlobalOrganizationSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -15476,7 +15476,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface FirewallsResource {
@@ -15608,7 +15608,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Firewall
+        body: Firewall,
       ): Request<Operation>;
       /** Retrieves the list of firewall rules available to the specified project. */
       list(request?: {
@@ -15717,7 +15717,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Firewall
+        body: Firewall,
       ): Request<Operation>;
       /** Updates the specified firewall rule with the data included in the request. Note that all fields will be updated if using PUT, even fields that are not specified. To update individual fields, please use PATCH instead. */
       update(request: {
@@ -15787,7 +15787,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Firewall
+        body: Firewall,
       ): Request<Operation>;
     }
     interface ForwardingRulesResource {
@@ -15970,7 +15970,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ForwardingRule
+        body: ForwardingRule,
       ): Request<Operation>;
       /** Retrieves a list of ForwardingRule resources available to the specified project and region. */
       list(request?: {
@@ -16085,7 +16085,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ForwardingRule
+        body: ForwardingRule,
       ): Request<Operation>;
       /** Sets the labels on the specified resource. To learn more about labels, read the Labeling Resources documentation. */
       setLabels(
@@ -16123,7 +16123,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetLabelsRequest
+        body: RegionSetLabelsRequest,
       ): Request<Operation>;
       /** Changes target URL for forwarding rule. The new target should be of the same type as the old target. */
       setTarget(request: {
@@ -16197,7 +16197,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetReference
+        body: TargetReference,
       ): Request<Operation>;
     }
     interface GlobalAddressesResource {
@@ -16329,7 +16329,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Address
+        body: Address,
       ): Request<Operation>;
       /** Retrieves a list of global addresses. */
       list(request?: {
@@ -16438,7 +16438,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalAddressesMoveRequest
+        body: GlobalAddressesMoveRequest,
       ): Request<Operation>;
       /** Sets the labels on a GlobalAddress. To learn more about labels, read the Labeling Resources documentation. */
       setLabels(
@@ -16472,7 +16472,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetLabelsRequest
+        body: GlobalSetLabelsRequest,
       ): Request<Operation>;
     }
     interface GlobalForwardingRulesResource {
@@ -16604,7 +16604,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ForwardingRule
+        body: ForwardingRule,
       ): Request<Operation>;
       /** Retrieves a list of GlobalForwardingRule resources available to the specified project. */
       list(request?: {
@@ -16713,7 +16713,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ForwardingRule
+        body: ForwardingRule,
       ): Request<Operation>;
       /** Sets the labels on the specified resource. To learn more about labels, read the Labeling resources documentation. */
       setLabels(
@@ -16747,7 +16747,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetLabelsRequest
+        body: GlobalSetLabelsRequest,
       ): Request<Operation>;
       /** Changes target URL for the GlobalForwardingRule resource. The new target should be of the same type as the old target. */
       setTarget(request: {
@@ -16817,7 +16817,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetReference
+        body: TargetReference,
       ): Request<Operation>;
     }
     interface GlobalNetworkEndpointGroupsResource {
@@ -16889,7 +16889,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalNetworkEndpointGroupsAttachEndpointsRequest
+        body: GlobalNetworkEndpointGroupsAttachEndpointsRequest,
       ): Request<Operation>;
       /** Deletes the specified network endpoint group.Note that the NEG cannot be deleted if there are backend services referencing it. */
       delete(request?: {
@@ -16992,7 +16992,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalNetworkEndpointGroupsDetachEndpointsRequest
+        body: GlobalNetworkEndpointGroupsDetachEndpointsRequest,
       ): Request<Operation>;
       /** Returns the specified network endpoint group. */
       get(request?: {
@@ -17089,7 +17089,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: NetworkEndpointGroup
+        body: NetworkEndpointGroup,
       ): Request<Operation>;
       /** Retrieves the list of network endpoint groups that are located in the specified project. */
       list(request?: {
@@ -17581,7 +17581,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: PublicDelegatedPrefix
+        body: PublicDelegatedPrefix,
       ): Request<Operation>;
       /** Lists the global PublicDelegatedPrefixes for a project. */
       list(request?: {
@@ -17690,7 +17690,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: PublicDelegatedPrefix
+        body: PublicDelegatedPrefix,
       ): Request<Operation>;
     }
     interface HealthChecksResource {
@@ -17865,7 +17865,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HealthCheck
+        body: HealthCheck,
       ): Request<Operation>;
       /** Retrieves the list of HealthCheck resources available to the specified project. */
       list(request?: {
@@ -17974,7 +17974,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HealthCheck
+        body: HealthCheck,
       ): Request<Operation>;
       /** Updates a HealthCheck resource in the specified project using the data included in the request. */
       update(request: {
@@ -18044,7 +18044,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HealthCheck
+        body: HealthCheck,
       ): Request<Operation>;
     }
     interface HttpHealthChecksResource {
@@ -18176,7 +18176,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HttpHealthCheck
+        body: HttpHealthCheck,
       ): Request<Operation>;
       /** Retrieves the list of HttpHealthCheck resources available to the specified project. */
       list(request?: {
@@ -18285,7 +18285,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HttpHealthCheck
+        body: HttpHealthCheck,
       ): Request<Operation>;
       /** Updates a HttpHealthCheck resource in the specified project using the data included in the request. */
       update(request: {
@@ -18355,7 +18355,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HttpHealthCheck
+        body: HttpHealthCheck,
       ): Request<Operation>;
     }
     interface HttpsHealthChecksResource {
@@ -18487,7 +18487,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HttpsHealthCheck
+        body: HttpsHealthCheck,
       ): Request<Operation>;
       /** Retrieves the list of HttpsHealthCheck resources available to the specified project. */
       list(request?: {
@@ -18596,7 +18596,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HttpsHealthCheck
+        body: HttpsHealthCheck,
       ): Request<Operation>;
       /** Updates a HttpsHealthCheck resource in the specified project using the data included in the request. */
       update(request: {
@@ -18666,7 +18666,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HttpsHealthCheck
+        body: HttpsHealthCheck,
       ): Request<Operation>;
     }
     interface ImageFamilyViewsResource {
@@ -18806,7 +18806,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: DeprecationStatus
+        body: DeprecationStatus,
       ): Request<Operation>;
       /** Returns the specified image. */
       get(request?: {
@@ -18971,7 +18971,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Image
+        body: Image,
       ): Request<Operation>;
       /** Retrieves the list of custom images available to the specified project. Custom images are images you create that belong to your project. This method does not get any images that belong to other projects, including publicly-available images, like Debian 8. If you want to get a list of publicly-available images, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud. */
       list(request?: {
@@ -19080,7 +19080,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Image
+        body: Image,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -19114,7 +19114,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetPolicyRequest
+        body: GlobalSetPolicyRequest,
       ): Request<Policy>;
       /** Sets the labels on an image. To learn more about labels, read the Labeling Resources documentation. */
       setLabels(
@@ -19148,7 +19148,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetLabelsRequest
+        body: GlobalSetLabelsRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -19182,7 +19182,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface InstanceGroupManagerResizeRequestsResource {
@@ -19367,7 +19367,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located and where the resize request will be created. Name should conform to RFC1035. */
           zone: string;
         },
-        body: InstanceGroupManagerResizeRequest
+        body: InstanceGroupManagerResizeRequest,
       ): Request<Operation>;
       /** Retrieves a list of resize requests that are contained in the managed instance group. */
       list(request?: {
@@ -19486,7 +19486,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. */
           zone: string;
         },
-        body: InstanceGroupManagersAbandonInstancesRequest
+        body: InstanceGroupManagersAbandonInstancesRequest,
       ): Request<Operation>;
       /** Retrieves the list of managed instance groups and groups them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
       aggregatedList(request?: {
@@ -19599,7 +19599,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. Should conform to RFC1035. */
           zone: string;
         },
-        body: InstanceGroupManagersApplyUpdatesRequest
+        body: InstanceGroupManagersApplyUpdatesRequest,
       ): Request<Operation>;
       /** Creates instances with per-instance configurations in this managed instance group. Instances are created using the current instance template. The create instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must separately verify the status of the creating or actions with the listmanagedinstances method. */
       createInstances(request: {
@@ -19673,7 +19673,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. It should conform to RFC1035. */
           zone: string;
         },
-        body: InstanceGroupManagersCreateInstancesRequest
+        body: InstanceGroupManagersCreateInstancesRequest,
       ): Request<Operation>;
       /** Deletes the specified managed instance group and all of the instances in that group. Note that the instance group must not belong to a backend service. Read Deleting an instance group for more information. */
       delete(request?: {
@@ -19782,7 +19782,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. */
           zone: string;
         },
-        body: InstanceGroupManagersDeleteInstancesRequest
+        body: InstanceGroupManagersDeleteInstancesRequest,
       ): Request<Operation>;
       /** Deletes selected per-instance configurations for the managed instance group. */
       deletePerInstanceConfigs(request: {
@@ -19852,7 +19852,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. It should conform to RFC1035. */
           zone: string;
         },
-        body: InstanceGroupManagersDeletePerInstanceConfigsReq
+        body: InstanceGroupManagersDeletePerInstanceConfigsReq,
       ): Request<Operation>;
       /** Returns all of the details about the specified managed instance group. */
       get(request?: {
@@ -19955,7 +19955,7 @@ declare namespace gapi.client {
           /** The name of the zone where you want to create the managed instance group. */
           zone: string;
         },
-        body: InstanceGroupManager
+        body: InstanceGroupManager,
       ): Request<Operation>;
       /** Retrieves a list of managed instance groups that are contained within the specified project and zone. */
       list(request?: {
@@ -20199,7 +20199,7 @@ declare namespace gapi.client {
           /** The name of the zone where you want to create the managed instance group. */
           zone: string;
         },
-        body: InstanceGroupManager
+        body: InstanceGroupManager,
       ): Request<Operation>;
       /** Inserts or patches per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
       patchPerInstanceConfigs(request: {
@@ -20273,7 +20273,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. It should conform to RFC1035. */
           zone: string;
         },
-        body: InstanceGroupManagersPatchPerInstanceConfigsReq
+        body: InstanceGroupManagersPatchPerInstanceConfigsReq,
       ): Request<Operation>;
       /** Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more information, see Checking the status of managed instances. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request. */
       recreateInstances(request: {
@@ -20347,7 +20347,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. */
           zone: string;
         },
-        body: InstanceGroupManagersRecreateInstancesRequest
+        body: InstanceGroupManagersRecreateInstancesRequest,
       ): Request<Operation>;
       /** Resizes the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the group deletes instances. The resize operation is marked DONE when the resize actions are scheduled even if the group has not yet added or deleted any instances. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method. When resizing down, the instance group arbitrarily chooses the order in which VMs are deleted. The group takes into account some VM attributes when making the selection including: + The status of the VM instance. + The health of the VM instance. + The instance template version the VM is based on. + For regional managed instance groups, the location of the VM instance. This list is subject to change. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. */
       resize(request?: {
@@ -20458,7 +20458,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. */
           zone: string;
         },
-        body: InstanceGroupManagersResumeInstancesRequest
+        body: InstanceGroupManagersResumeInstancesRequest,
       ): Request<Operation>;
       /** Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change unless you run recreateInstances, run applyUpdatesToInstances, or set the group's updatePolicy.type to PROACTIVE. */
       setInstanceTemplate(request: {
@@ -20532,7 +20532,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. */
           zone: string;
         },
-        body: InstanceGroupManagersSetInstanceTemplateRequest
+        body: InstanceGroupManagersSetInstanceTemplateRequest,
       ): Request<Operation>;
       /** Modifies the target pools to which all instances in this managed instance group are assigned. The target pools automatically apply to all of the instances in the managed instance group. This operation is marked DONE when you make the request even if the instances have not yet been added to their target pools. The change might take some time to apply to all of the instances in the group depending on the size of the group. */
       setTargetPools(request: {
@@ -20606,7 +20606,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. */
           zone: string;
         },
-        body: InstanceGroupManagersSetTargetPoolsRequest
+        body: InstanceGroupManagersSetTargetPoolsRequest,
       ): Request<Operation>;
       /** Flags the specified instances in the managed instance group to be started. This method increases the targetSize and decreases the targetStoppedSize of the managed instance group by the number of instances that you start. The startInstances operation is marked DONE if the startInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STARTING action with the listmanagedinstances method. In this request, you can only specify instances that are stopped. For example, if an instance was previously stopped using the stopInstances method, it can be started using the startInstances method. If a health check is attached to the managed instance group, the specified instances will be verified as healthy after they are started. You can specify a maximum of 1000 instances with this method per request. */
       startInstances(request: {
@@ -20680,7 +20680,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. */
           zone: string;
         },
-        body: InstanceGroupManagersStartInstancesRequest
+        body: InstanceGroupManagersStartInstancesRequest,
       ): Request<Operation>;
       /** Flags the specified instances in the managed instance group to be immediately stopped. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetStoppedSize of the managed instance group by the number of instances that you stop. The stopInstances operation is marked DONE if the stopInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STOPPING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays stopping the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is stopped. Stopped instances can be started using the startInstances method. You can specify a maximum of 1000 instances with this method per request. */
       stopInstances(request: {
@@ -20754,7 +20754,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. */
           zone: string;
         },
-        body: InstanceGroupManagersStopInstancesRequest
+        body: InstanceGroupManagersStopInstancesRequest,
       ): Request<Operation>;
       /** Flags the specified instances in the managed instance group to be immediately suspended. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetSuspendedSize of the managed instance group by the number of instances that you suspend. The suspendInstances operation is marked DONE if the suspendInstances request is successful. The underlying actions take additional time. You must separately verify the status of the SUSPENDING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays suspension of the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is suspended. Suspended instances can be resumed using the resumeInstances method. You can specify a maximum of 1000 instances with this method per request. */
       suspendInstances(request: {
@@ -20828,7 +20828,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. */
           zone: string;
         },
-        body: InstanceGroupManagersSuspendInstancesRequest
+        body: InstanceGroupManagersSuspendInstancesRequest,
       ): Request<Operation>;
       /** Inserts or updates per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
       updatePerInstanceConfigs(request: {
@@ -20902,7 +20902,7 @@ declare namespace gapi.client {
           /** The name of the zone where the managed instance group is located. It should conform to RFC1035. */
           zone: string;
         },
-        body: InstanceGroupManagersUpdatePerInstanceConfigsReq
+        body: InstanceGroupManagersUpdatePerInstanceConfigsReq,
       ): Request<Operation>;
     }
     interface InstanceGroupsResource {
@@ -20978,7 +20978,7 @@ declare namespace gapi.client {
           /** The name of the zone where the instance group is located. */
           zone: string;
         },
-        body: InstanceGroupsAddInstancesRequest
+        body: InstanceGroupsAddInstancesRequest,
       ): Request<Operation>;
       /** Retrieves the list of instance groups and sorts them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
       aggregatedList(request?: {
@@ -21159,7 +21159,7 @@ declare namespace gapi.client {
           /** The name of the zone where you want to create the instance group. */
           zone: string;
         },
-        body: InstanceGroup
+        body: InstanceGroup,
       ): Request<Operation>;
       /** Retrieves the list of zonal instance group resources contained within the specified zone. For managed instance groups, use the instanceGroupManagers or regionInstanceGroupManagers methods instead. */
       list(request?: {
@@ -21290,7 +21290,7 @@ declare namespace gapi.client {
           /** The name of the zone where the instance group is located. */
           zone: string;
         },
-        body: InstanceGroupsListInstancesRequest
+        body: InstanceGroupsListInstancesRequest,
       ): Request<InstanceGroupsListInstances>;
       /** Removes one or more instances from the specified instance group, but does not delete those instances. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration before the VM instance is removed or deleted. */
       removeInstances(request: {
@@ -21364,7 +21364,7 @@ declare namespace gapi.client {
           /** The name of the zone where the instance group is located. */
           zone: string;
         },
-        body: InstanceGroupsRemoveInstancesRequest
+        body: InstanceGroupsRemoveInstancesRequest,
       ): Request<Operation>;
       /** Sets the named ports for the specified instance group. */
       setNamedPorts(request: {
@@ -21438,7 +21438,7 @@ declare namespace gapi.client {
           /** The name of the zone where the instance group is located. */
           zone: string;
         },
-        body: InstanceGroupsSetNamedPortsRequest
+        body: InstanceGroupsSetNamedPortsRequest,
       ): Request<Operation>;
     }
     interface InstancesResource {
@@ -21518,7 +21518,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: AccessConfig
+        body: AccessConfig,
       ): Request<Operation>;
       /** Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live migrations. */
       addResourcePolicies(request: {
@@ -21592,7 +21592,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: InstancesAddResourcePoliciesRequest
+        body: InstancesAddResourcePoliciesRequest,
       ): Request<Operation>;
       /** Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
       aggregatedList(request?: {
@@ -21713,7 +21713,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: AttachedDisk
+        body: AttachedDisk,
       ): Request<Operation>;
       /** Creates multiple instances. Count specifies the number of instances to create. For more information, see About bulk creation of VMs. */
       bulkInsert(request: {
@@ -21783,7 +21783,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: BulkInsertInstanceResource
+        body: BulkInsertInstanceResource,
       ): Request<Operation>;
       /** Deletes the specified Instance resource. For more information, see Deleting an instance. */
       delete(request?: {
@@ -22215,7 +22215,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Retrieves the list of instances contained within the specified zone. */
       list(request?: {
@@ -22408,7 +22408,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: InstancesRemoveResourcePoliciesRequest
+        body: InstancesRemoveResourcePoliciesRequest,
       ): Request<Operation>;
       /** Performs a reset on the instance. This is a hard reset. The VM does not do a graceful shutdown. For more information, see Resetting an instance. */
       reset(request?: {
@@ -22623,7 +22623,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: ZoneSetPolicyRequest
+        body: ZoneSetPolicyRequest,
       ): Request<Policy>;
       /** Sets labels on an instance. To learn more about labels, read the Labeling Resources documentation. */
       setLabels(request: {
@@ -22697,7 +22697,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: InstancesSetLabelsRequest
+        body: InstancesSetLabelsRequest,
       ): Request<Operation>;
       /** Changes the number and/or type of accelerator for a stopped instance to the values specified in the request. */
       setMachineResources(request: {
@@ -22771,7 +22771,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: InstancesSetMachineResourcesRequest
+        body: InstancesSetMachineResourcesRequest,
       ): Request<Operation>;
       /** Changes the machine type for a stopped instance to the machine type specified in the request. */
       setMachineType(request: {
@@ -22845,7 +22845,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: InstancesSetMachineTypeRequest
+        body: InstancesSetMachineTypeRequest,
       ): Request<Operation>;
       /** Sets metadata for the specified instance to the data included in the request. */
       setMetadata(request: {
@@ -22919,7 +22919,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: Metadata
+        body: Metadata,
       ): Request<Operation>;
       /** Changes the minimum CPU platform that this instance should use. This method can only be called on a stopped instance. For more information, read Specifying a Minimum CPU Platform. */
       setMinCpuPlatform(request: {
@@ -22993,7 +22993,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: InstancesSetMinCpuPlatformRequest
+        body: InstancesSetMinCpuPlatformRequest,
       ): Request<Operation>;
       /** Sets name of an instance. */
       setName(request: {
@@ -23067,7 +23067,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: InstancesSetNameRequest
+        body: InstancesSetNameRequest,
       ): Request<Operation>;
       /** Sets an instance's scheduling options. You can only call this method on a stopped instance, that is, a VM instance that is in a `TERMINATED` state. See Instance Life Cycle for more information on the possible instance states. For more information about setting scheduling options for a VM, see Set VM host maintenance policy. */
       setScheduling(request: {
@@ -23141,7 +23141,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: Scheduling
+        body: Scheduling,
       ): Request<Operation>;
       /** Sets the Google Cloud Armor security policy for the specified instance. For more information, see Google Cloud Armor Overview */
       setSecurityPolicy(request: {
@@ -23215,7 +23215,7 @@ declare namespace gapi.client {
           /** Name of the zone scoping this request. */
           zone: string;
         },
-        body: InstancesSetSecurityPolicyRequest
+        body: InstancesSetSecurityPolicyRequest,
       ): Request<Operation>;
       /** Sets the service account on the instance. For more information, read Changing the service account and access scopes for an instance. */
       setServiceAccount(request: {
@@ -23289,7 +23289,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: InstancesSetServiceAccountRequest
+        body: InstancesSetServiceAccountRequest,
       ): Request<Operation>;
       /** Sets the Shielded Instance integrity policy for an instance. You can only use this method on a running instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
       setShieldedInstanceIntegrityPolicy(request: {
@@ -23363,7 +23363,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: ShieldedInstanceIntegrityPolicy
+        body: ShieldedInstanceIntegrityPolicy,
       ): Request<Operation>;
       /** Sets network tags for the specified instance to the data included in the request. */
       setTags(request: {
@@ -23437,7 +23437,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: Tags
+        body: Tags,
       ): Request<Operation>;
       /** Simulates a host maintenance event on a VM. For more information, see Simulate a host maintenance event. */
       simulateMaintenanceEvent(request?: {
@@ -23583,7 +23583,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: InstancesStartWithEncryptionKeyRequest
+        body: InstancesStartWithEncryptionKeyRequest,
       ): Request<Operation>;
       /** Stops a running instance, shutting it down cleanly, and allows you to restart the instance at a later time. Stopped instances do not incur VM usage charges while they are stopped. However, resources that the VM is using, such as persistent disks and static IP addresses, will continue to be charged until they are deleted. For more information, see Stopping an instance. */
       stop(request?: {
@@ -23693,7 +23693,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
       /** Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See Updating a running instance for a list of updatable instance properties. */
       update(request: {
@@ -23775,7 +23775,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Updates the specified access config from an instance's network interface with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
       updateAccessConfig(request: {
@@ -23853,7 +23853,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: AccessConfig
+        body: AccessConfig,
       ): Request<Operation>;
       /** Updates the Display config for a VM instance. You can only use this method on a stopped VM instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
       updateDisplayDevice(request: {
@@ -23927,7 +23927,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: DisplayDevice
+        body: DisplayDevice,
       ): Request<Operation>;
       /** Updates an instance's network interface. This method can only update an interface's alias IP range and attached network. See Modifying alias IP ranges for an existing instance for instructions on changing alias IP ranges. See Migrating a VM between networks for instructions on migrating an interface. This method follows PATCH semantics. */
       updateNetworkInterface(request: {
@@ -24005,7 +24005,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: NetworkInterface
+        body: NetworkInterface,
       ): Request<Operation>;
       /** Updates the Shielded Instance config for an instance. You can only use this method on a stopped instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
       updateShieldedInstanceConfig(request: {
@@ -24079,7 +24079,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: ShieldedInstanceConfig
+        body: ShieldedInstanceConfig,
       ): Request<Operation>;
     }
     interface InstanceSettingsResource {
@@ -24186,7 +24186,7 @@ declare namespace gapi.client {
           /** The zone scoping this request. It should conform to RFC1035. */
           zone: string;
         },
-        body: InstanceSettings
+        body: InstanceSettings,
       ): Request<Operation>;
     }
     interface InstanceTemplatesResource {
@@ -24394,7 +24394,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: InstanceTemplate
+        body: InstanceTemplate,
       ): Request<Operation>;
       /** Retrieves a list of instance templates that are contained within the specified project. */
       list(request?: {
@@ -24467,7 +24467,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetPolicyRequest
+        body: GlobalSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -24501,7 +24501,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface InstantSnapshotsResource {
@@ -24719,7 +24719,7 @@ declare namespace gapi.client {
           /** Name of the zone for this request. */
           zone: string;
         },
-        body: InstantSnapshot
+        body: InstantSnapshot,
       ): Request<Operation>;
       /** Retrieves the list of InstantSnapshot resources contained within the specified zone. */
       list(request?: {
@@ -24796,7 +24796,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: ZoneSetPolicyRequest
+        body: ZoneSetPolicyRequest,
       ): Request<Policy>;
       /** Sets the labels on a instantSnapshot in the given zone. To learn more about labels, read the Labeling Resources documentation. */
       setLabels(
@@ -24834,7 +24834,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: ZoneSetLabelsRequest
+        body: ZoneSetLabelsRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -24870,7 +24870,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface InterconnectAttachmentsResource {
@@ -25057,7 +25057,7 @@ declare namespace gapi.client {
           /** If true, the request will not be committed. */
           validateOnly?: boolean;
         },
-        body: InterconnectAttachment
+        body: InterconnectAttachment,
       ): Request<Operation>;
       /** Retrieves the list of interconnect attachments contained within the specified region. */
       list(request?: {
@@ -25172,7 +25172,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: InterconnectAttachment
+        body: InterconnectAttachment,
       ): Request<Operation>;
       /** Sets the labels on an InterconnectAttachment. To learn more about labels, read the Labeling Resources documentation. */
       setLabels(
@@ -25210,7 +25210,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetLabelsRequest
+        body: RegionSetLabelsRequest,
       ): Request<Operation>;
     }
     interface InterconnectLocationsResource {
@@ -25548,7 +25548,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Interconnect
+        body: Interconnect,
       ): Request<Operation>;
       /** Retrieves the list of Interconnects available to the specified project. */
       list(request?: {
@@ -25657,7 +25657,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Interconnect
+        body: Interconnect,
       ): Request<Operation>;
       /** Sets the labels on an Interconnect. To learn more about labels, read the Labeling Resources documentation. */
       setLabels(
@@ -25691,7 +25691,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetLabelsRequest
+        body: GlobalSetLabelsRequest,
       ): Request<Operation>;
     }
     interface LicenseCodesResource {
@@ -25758,7 +25758,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface LicensesResource {
@@ -25923,7 +25923,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: License
+        body: License,
       ): Request<Operation>;
       /** Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. */
       list(request?: {
@@ -25996,7 +25996,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetPolicyRequest
+        body: GlobalSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. */
       testIamPermissions(
@@ -26030,7 +26030,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface MachineImagesResource {
@@ -26199,7 +26199,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: MachineImage
+        body: MachineImage,
       ): Request<Operation>;
       /** Retrieves a list of machine images that are contained within the specified project. */
       list(request?: {
@@ -26272,7 +26272,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetPolicyRequest
+        body: GlobalSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -26306,7 +26306,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface MachineTypesResource {
@@ -26643,7 +26643,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: NetworkAttachment
+        body: NetworkAttachment,
       ): Request<Operation>;
       /** Lists the NetworkAttachments for a project in the given scope. */
       list(request?: {
@@ -26758,7 +26758,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: NetworkAttachment
+        body: NetworkAttachment,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -26794,7 +26794,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetPolicyRequest
+        body: RegionSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -26830,7 +26830,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface NetworkEdgeSecurityServicesResource {
@@ -27017,7 +27017,7 @@ declare namespace gapi.client {
           /** If true, the request will not be committed. */
           validateOnly?: boolean;
         },
-        body: NetworkEdgeSecurityService
+        body: NetworkEdgeSecurityService,
       ): Request<Operation>;
       /** Patches the specified policy with the data included in the request. */
       patch(request: {
@@ -27097,7 +27097,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: NetworkEdgeSecurityService
+        body: NetworkEdgeSecurityService,
       ): Request<Operation>;
     }
     interface NetworkEndpointGroupsResource {
@@ -27216,7 +27216,7 @@ declare namespace gapi.client {
           /** The name of the zone where the network endpoint group is located. It should comply with RFC1035. */
           zone: string;
         },
-        body: NetworkEndpointGroupsAttachEndpointsRequest
+        body: NetworkEndpointGroupsAttachEndpointsRequest,
       ): Request<Operation>;
       /** Deletes the specified network endpoint group. The network endpoints in the NEG and the VM instances they belong to are not terminated when the NEG is deleted. Note that the NEG cannot be deleted if there are backend services referencing it. */
       delete(request?: {
@@ -27325,7 +27325,7 @@ declare namespace gapi.client {
           /** The name of the zone where the network endpoint group is located. It should comply with RFC1035. */
           zone: string;
         },
-        body: NetworkEndpointGroupsDetachEndpointsRequest
+        body: NetworkEndpointGroupsDetachEndpointsRequest,
       ): Request<Operation>;
       /** Returns the specified network endpoint group. */
       get(request?: {
@@ -27428,7 +27428,7 @@ declare namespace gapi.client {
           /** The name of the zone where you want to create the network endpoint group. It should comply with RFC1035. */
           zone: string;
         },
-        body: NetworkEndpointGroup
+        body: NetworkEndpointGroup,
       ): Request<Operation>;
       /** Retrieves the list of network endpoint groups that are located in the specified project and zone. */
       list(request?: {
@@ -27559,7 +27559,7 @@ declare namespace gapi.client {
           /** The name of the zone where the network endpoint group is located. It should comply with RFC1035. */
           zone: string;
         },
-        body: NetworkEndpointGroupsListEndpointsRequest
+        body: NetworkEndpointGroupsListEndpointsRequest,
       ): Request<NetworkEndpointGroupsListNetworkEndpoints>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -27595,7 +27595,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface NetworkFirewallPoliciesResource {
@@ -27671,7 +27671,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicyAssociation
+        body: FirewallPolicyAssociation,
       ): Request<Operation>;
       /** Inserts a rule into a firewall policy. */
       addRule(request: {
@@ -27749,7 +27749,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicyRule
+        body: FirewallPolicyRule,
       ): Request<Operation>;
       /** Retrieves an aggregated list of network firewall policies, listing network firewall policies from all applicable scopes (global and regional) and grouping the results per scope. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
       aggregatedList(request?: {
@@ -28056,7 +28056,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicy
+        body: FirewallPolicy,
       ): Request<Operation>;
       /** Lists all the policies that have been configured for the specified project. */
       list(request?: {
@@ -28165,7 +28165,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicy
+        body: FirewallPolicy,
       ): Request<Operation>;
       /** Patches a rule of the specified priority. */
       patchRule(request: {
@@ -28239,7 +28239,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicyRule
+        body: FirewallPolicyRule,
       ): Request<Operation>;
       /** Removes an association for the specified firewall policy. */
       removeAssociation(request?: {
@@ -28343,7 +28343,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetPolicyRequest
+        body: GlobalSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -28377,7 +28377,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface NetworkProfilesResource {
@@ -28521,7 +28521,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: NetworksAddPeeringRequest
+        body: NetworksAddPeeringRequest,
       ): Request<Operation>;
       /** Deletes the specified network. */
       delete(request?: {
@@ -28682,7 +28682,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Network
+        body: Network,
       ): Request<Operation>;
       /** Retrieves the list of networks available to the specified project. */
       list(request?: {
@@ -28838,7 +28838,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Network
+        body: Network,
       ): Request<Operation>;
       /** Removes a peering from the specified network. */
       removePeering(request: {
@@ -28908,7 +28908,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: NetworksRemovePeeringRequest
+        body: NetworksRemovePeeringRequest,
       ): Request<Operation>;
       /** Switches the network mode from auto subnet mode to custom subnet mode. */
       switchToCustomMode(request?: {
@@ -29011,7 +29011,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: NetworksUpdatePeeringRequest
+        body: NetworksUpdatePeeringRequest,
       ): Request<Operation>;
     }
     interface NodeGroupsResource {
@@ -29087,7 +29087,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: NodeGroupsAddNodesRequest
+        body: NodeGroupsAddNodesRequest,
       ): Request<Operation>;
       /** Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes for more details about each group. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
       aggregatedList(request?: {
@@ -29239,7 +29239,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: NodeGroupsDeleteNodesRequest
+        body: NodeGroupsDeleteNodesRequest,
       ): Request<Operation>;
       /** Returns the specified NodeGroup. Get a list of available NodeGroups by making a list() request. Note: the "nodes" field should not be used. Use nodeGroups.listNodes instead. */
       get(request?: {
@@ -29381,7 +29381,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: NodeGroup
+        body: NodeGroup,
       ): Request<Operation>;
       /** Retrieves a list of node groups available to the specified project. Note: use nodeGroups.listNodes for more details about each group. */
       list(request?: {
@@ -29539,7 +29539,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: NodeGroup
+        body: NodeGroup,
       ): Request<Operation>;
       /** Perform maintenance on a subset of nodes in the node group. */
       performMaintenance(request: {
@@ -29613,7 +29613,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: NodeGroupsPerformMaintenanceRequest
+        body: NodeGroupsPerformMaintenanceRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -29649,7 +29649,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: ZoneSetPolicyRequest
+        body: ZoneSetPolicyRequest,
       ): Request<Policy>;
       /** Updates the node template of the node group. */
       setNodeTemplate(request: {
@@ -29723,7 +29723,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: NodeGroupsSetNodeTemplateRequest
+        body: NodeGroupsSetNodeTemplateRequest,
       ): Request<Operation>;
       /** Simulates maintenance event on specified nodes from the node group. */
       simulateMaintenanceEvent(request: {
@@ -29797,7 +29797,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: NodeGroupsSimulateMaintenanceEventRequest
+        body: NodeGroupsSimulateMaintenanceEventRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -29833,7 +29833,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface NodeTemplatesResource {
@@ -30051,7 +30051,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: NodeTemplate
+        body: NodeTemplate,
       ): Request<Operation>;
       /** Retrieves a list of node templates available to the specified project. */
       list(request?: {
@@ -30128,7 +30128,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetPolicyRequest
+        body: RegionSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -30164,7 +30164,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface NodeTypesResource {
@@ -30466,7 +30466,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: PacketMirroring
+        body: PacketMirroring,
       ): Request<Operation>;
       /** Retrieves a list of PacketMirroring resources available to the specified project and region. */
       list(request?: {
@@ -30581,7 +30581,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: PacketMirroring
+        body: PacketMirroring,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -30617,7 +30617,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface ProjectsResource {
@@ -30716,7 +30716,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ProjectsDisableXpnResourceRequest
+        body: ProjectsDisableXpnResourceRequest,
       ): Request<Operation>;
       /** Enable this project as a shared VPC host project. */
       enableXpnHost(request?: {
@@ -30813,7 +30813,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ProjectsEnableXpnResourceRequest
+        body: ProjectsEnableXpnResourceRequest,
       ): Request<Operation>;
       /** Returns the specified Project resource. To decrease latency for this method, you can optionally omit any unneeded information from the response by using a field mask. This practice is especially recommended for unused quota information (the `quotas` field). To exclude one or more fields, set your request's `fields` query parameter to only include the fields you need. For example, to only include the `id` and `selfLink` fields, add the query parameter `?fields=id,selfLink` to your request. */
       get(request?: {
@@ -30992,7 +30992,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ProjectsListXpnHostsRequest
+        body: ProjectsListXpnHostsRequest,
       ): Request<XpnHostList>;
       /** Moves a persistent disk from one zone to another. */
       moveDisk(request: {
@@ -31058,7 +31058,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: DiskMoveRequest
+        body: DiskMoveRequest,
       ): Request<Operation>;
       /** Moves an instance and its attached persistent disks from one zone to another. *Note*: Moving VMs or disks by using this method might cause unexpected behavior. For more information, see the [known issue](/compute/docs/troubleshooting/known-issues#moving_vms_or_disks_using_the_moveinstance_api_or_the_causes_unexpected_behavior). [Deprecated] This method is deprecated. See [moving instance across zones](/compute/docs/instances/moving-instance-across-zones) instead. */
       moveInstance(request: {
@@ -31124,7 +31124,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: InstanceMoveRequest
+        body: InstanceMoveRequest,
       ): Request<Operation>;
       /** Sets the Cloud Armor tier of the project. To set ENTERPRISE or above the billing account of the project must be subscribed to Cloud Armor Enterprise. See Subscribing to Cloud Armor Enterprise for more information. */
       setCloudArmorTier(request: {
@@ -31190,7 +31190,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ProjectsSetCloudArmorTierRequest
+        body: ProjectsSetCloudArmorTierRequest,
       ): Request<Operation>;
       /** Sets metadata common to all instances within the specified project using the data included in the request. */
       setCommonInstanceMetadata(request: {
@@ -31256,7 +31256,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Metadata
+        body: Metadata,
       ): Request<Operation>;
       /** Sets the default network tier of the project. The default network tier is used when an address/forwardingRule/instance is created without specifying the network tier field. */
       setDefaultNetworkTier(request: {
@@ -31322,7 +31322,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ProjectsSetDefaultNetworkTierRequest
+        body: ProjectsSetDefaultNetworkTierRequest,
       ): Request<Operation>;
       /** Enables the usage export feature and sets the usage export bucket where reports are stored. If you provide an empty request body using this method, the usage export feature will be disabled. */
       setUsageExportBucket(request: {
@@ -31388,7 +31388,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UsageExportLocation
+        body: UsageExportLocation,
       ): Request<Operation>;
     }
     interface PublicAdvertisedPrefixesResource {
@@ -31553,7 +31553,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: PublicAdvertisedPrefix
+        body: PublicAdvertisedPrefix,
       ): Request<Operation>;
       /** Lists the PublicAdvertisedPrefixes for a project. */
       list(request?: {
@@ -31662,7 +31662,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: PublicAdvertisedPrefix
+        body: PublicAdvertisedPrefix,
       ): Request<Operation>;
       /** Withdraws the specified PublicAdvertisedPrefix */
       withdraw(request?: {
@@ -31913,7 +31913,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: PublicDelegatedPrefix
+        body: PublicDelegatedPrefix,
       ): Request<Operation>;
       /** Lists the PublicDelegatedPrefixes for a project in the given region. */
       list(request?: {
@@ -32028,7 +32028,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: PublicDelegatedPrefix
+        body: PublicDelegatedPrefix,
       ): Request<Operation>;
       /** Withdraws the specified PublicDelegatedPrefix in the given region. */
       withdraw(request?: {
@@ -32203,7 +32203,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Autoscaler
+        body: Autoscaler,
       ): Request<Operation>;
       /** Retrieves a list of autoscalers contained within the specified region. */
       list(request?: {
@@ -32318,7 +32318,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Autoscaler
+        body: Autoscaler,
       ): Request<Operation>;
       /** Updates an autoscaler in the specified project using the data included in the request. */
       update(request: {
@@ -32392,7 +32392,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Autoscaler
+        body: Autoscaler,
       ): Request<Operation>;
     }
     interface RegionBackendServicesResource {
@@ -32530,7 +32530,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ResourceGroupReference
+        body: ResourceGroupReference,
       ): Request<BackendServiceGroupHealth>;
       /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
       getIamPolicy(request?: {
@@ -32635,7 +32635,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: BackendService
+        body: BackendService,
       ): Request<Operation>;
       /** Retrieves the list of regional BackendService resources available to the specified project in the given region. */
       list(request?: {
@@ -32791,7 +32791,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: BackendService
+        body: BackendService,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -32827,7 +32827,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetPolicyRequest
+        body: RegionSetPolicyRequest,
       ): Request<Policy>;
       /** Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview */
       setSecurityPolicy(request: {
@@ -32901,7 +32901,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SecurityPolicyReference
+        body: SecurityPolicyReference,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -32937,7 +32937,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
       /** Updates the specified regional BackendService resource with the data included in the request. For more information, see Backend services overview . */
       update(request: {
@@ -33011,7 +33011,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: BackendService
+        body: BackendService,
       ): Request<Operation>;
     }
     interface RegionCommitmentsResource {
@@ -33159,7 +33159,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Commitment
+        body: Commitment,
       ): Request<Operation>;
       /** Retrieves a list of commitments contained within the specified region. */
       list(request?: {
@@ -33280,7 +33280,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Commitment
+        body: Commitment,
       ): Request<Operation>;
     }
     interface RegionDisksResource {
@@ -33356,7 +33356,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionDisksAddResourcePoliciesRequest
+        body: RegionDisksAddResourcePoliciesRequest,
       ): Request<Operation>;
       /** Bulk create a set of disks. */
       bulkInsert(request: {
@@ -33426,7 +33426,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: BulkInsertDiskResource
+        body: BulkInsertDiskResource,
       ): Request<Operation>;
       /** Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project. */
       createSnapshot(request: {
@@ -33500,7 +33500,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Snapshot
+        body: Snapshot,
       ): Request<Operation>;
       /** Deletes the specified regional persistent disk. Deleting a regional disk removes all the replicas of its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots. */
       delete(request?: {
@@ -33677,7 +33677,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Disk
+        body: Disk,
       ): Request<Operation>;
       /** Retrieves the list of persistent disks contained within the specified region. */
       list(request?: {
@@ -33792,7 +33792,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionDisksRemoveResourcePoliciesRequest
+        body: RegionDisksRemoveResourcePoliciesRequest,
       ): Request<Operation>;
       /** Resizes the specified regional persistent disk. */
       resize(request: {
@@ -33866,7 +33866,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionDisksResizeRequest
+        body: RegionDisksResizeRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -33902,7 +33902,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetPolicyRequest
+        body: RegionSetPolicyRequest,
       ): Request<Policy>;
       /** Sets the labels on the target regional disk. */
       setLabels(
@@ -33940,7 +33940,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetLabelsRequest
+        body: RegionSetLabelsRequest,
       ): Request<Operation>;
       /** Starts asynchronous replication. Must be invoked on the primary disk. */
       startAsyncReplication(request: {
@@ -34014,7 +34014,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionDisksStartAsyncReplicationRequest
+        body: RegionDisksStartAsyncReplicationRequest,
       ): Request<Operation>;
       /** Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. */
       stopAsyncReplication(request?: {
@@ -34119,7 +34119,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: DisksStopGroupAsyncReplicationResource
+        body: DisksStopGroupAsyncReplicationResource,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -34155,7 +34155,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
       /** Update the specified disk with the data included in the request. Update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license. */
       update(request: {
@@ -34235,7 +34235,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Disk
+        body: Disk,
       ): Request<Operation>;
     }
     interface RegionDiskTypesResource {
@@ -34451,7 +34451,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HealthCheck
+        body: HealthCheck,
       ): Request<Operation>;
       /** Retrieves the list of HealthCheck resources available to the specified project. */
       list(request?: {
@@ -34566,7 +34566,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HealthCheck
+        body: HealthCheck,
       ): Request<Operation>;
       /** Updates a HealthCheck resource in the specified project using the data included in the request. */
       update(request: {
@@ -34640,7 +34640,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HealthCheck
+        body: HealthCheck,
       ): Request<Operation>;
     }
     interface RegionHealthCheckServicesResource {
@@ -34780,7 +34780,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HealthCheckService
+        body: HealthCheckService,
       ): Request<Operation>;
       /** Lists all the HealthCheckService resources that have been configured for the specified project in the given region. */
       list(request?: {
@@ -34895,7 +34895,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: HealthCheckService
+        body: HealthCheckService,
       ): Request<Operation>;
     }
     interface RegionInstanceGroupManagersResource {
@@ -34971,7 +34971,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagersAbandonInstancesRequest
+        body: RegionInstanceGroupManagersAbandonInstancesRequest,
       ): Request<Operation>;
       /** Apply updates to selected instances the managed instance group. */
       applyUpdatesToInstances(request: {
@@ -35041,7 +35041,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagersApplyUpdatesRequest
+        body: RegionInstanceGroupManagersApplyUpdatesRequest,
       ): Request<Operation>;
       /** Creates instances with per-instance configurations in this regional managed instance group. Instances are created using the current instance template. The create instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must separately verify the status of the creating or actions with the listmanagedinstances method. */
       createInstances(request: {
@@ -35115,7 +35115,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagersCreateInstancesRequest
+        body: RegionInstanceGroupManagersCreateInstancesRequest,
       ): Request<Operation>;
       /** Deletes the specified managed instance group and all of the instances in that group. */
       delete(request?: {
@@ -35224,7 +35224,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagersDeleteInstancesRequest
+        body: RegionInstanceGroupManagersDeleteInstancesRequest,
       ): Request<Operation>;
       /** Deletes selected per-instance configurations for the managed instance group. */
       deletePerInstanceConfigs(request: {
@@ -35294,7 +35294,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagerDeleteInstanceConfigReq
+        body: RegionInstanceGroupManagerDeleteInstanceConfigReq,
       ): Request<Operation>;
       /** Returns all of the details about the specified managed instance group. */
       get(request?: {
@@ -35397,7 +35397,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: InstanceGroupManager
+        body: InstanceGroupManager,
       ): Request<Operation>;
       /** Retrieves the list of managed instance groups that are contained within the specified region. */
       list(request?: {
@@ -35641,7 +35641,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: InstanceGroupManager
+        body: InstanceGroupManager,
       ): Request<Operation>;
       /** Inserts or patches per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
       patchPerInstanceConfigs(request: {
@@ -35715,7 +35715,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagerPatchInstanceConfigReq
+        body: RegionInstanceGroupManagerPatchInstanceConfigReq,
       ): Request<Operation>;
       /** Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more information, see Checking the status of managed instances. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request. */
       recreateInstances(request: {
@@ -35789,7 +35789,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagersRecreateRequest
+        body: RegionInstanceGroupManagersRecreateRequest,
       ): Request<Operation>;
       /** Changes the intended size of the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the group deletes one or more instances. The resize operation is marked DONE if the resize request is successful. The underlying actions take additional time. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. */
       resize(request?: {
@@ -35900,7 +35900,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagersResumeInstancesRequest
+        body: RegionInstanceGroupManagersResumeInstancesRequest,
       ): Request<Operation>;
       /** Sets the instance template to use when creating new instances or recreating instances in this group. Existing instances are not affected. */
       setInstanceTemplate(request: {
@@ -35974,7 +35974,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagersSetTemplateRequest
+        body: RegionInstanceGroupManagersSetTemplateRequest,
       ): Request<Operation>;
       /** Modifies the target pools to which all new instances in this group are assigned. Existing instances in the group are not affected. */
       setTargetPools(request: {
@@ -36048,7 +36048,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagersSetTargetPoolsRequest
+        body: RegionInstanceGroupManagersSetTargetPoolsRequest,
       ): Request<Operation>;
       /** Flags the specified instances in the managed instance group to be started. This method increases the targetSize and decreases the targetStoppedSize of the managed instance group by the number of instances that you start. The startInstances operation is marked DONE if the startInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STARTING action with the listmanagedinstances method. In this request, you can only specify instances that are stopped. For example, if an instance was previously stopped using the stopInstances method, it can be started using the startInstances method. If a health check is attached to the managed instance group, the specified instances will be verified as healthy after they are started. You can specify a maximum of 1000 instances with this method per request. */
       startInstances(request: {
@@ -36122,7 +36122,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagersStartInstancesRequest
+        body: RegionInstanceGroupManagersStartInstancesRequest,
       ): Request<Operation>;
       /** Flags the specified instances in the managed instance group to be immediately stopped. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetStoppedSize of the managed instance group by the number of instances that you stop. The stopInstances operation is marked DONE if the stopInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STOPPING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays stopping the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is stopped. Stopped instances can be started using the startInstances method. You can specify a maximum of 1000 instances with this method per request. */
       stopInstances(request: {
@@ -36196,7 +36196,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagersStopInstancesRequest
+        body: RegionInstanceGroupManagersStopInstancesRequest,
       ): Request<Operation>;
       /** Flags the specified instances in the managed instance group to be immediately suspended. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetSuspendedSize of the managed instance group by the number of instances that you suspend. The suspendInstances operation is marked DONE if the suspendInstances request is successful. The underlying actions take additional time. You must separately verify the status of the SUSPENDING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays suspension of the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is suspended. Suspended instances can be resumed using the resumeInstances method. You can specify a maximum of 1000 instances with this method per request. */
       suspendInstances(request: {
@@ -36270,7 +36270,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagersSuspendInstancesRequest
+        body: RegionInstanceGroupManagersSuspendInstancesRequest,
       ): Request<Operation>;
       /** Inserts or updates per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
       updatePerInstanceConfigs(request: {
@@ -36344,7 +36344,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupManagerUpdateInstanceConfigReq
+        body: RegionInstanceGroupManagerUpdateInstanceConfigReq,
       ): Request<Operation>;
     }
     interface RegionInstanceGroupsResource {
@@ -36510,7 +36510,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupsListInstancesRequest
+        body: RegionInstanceGroupsListInstancesRequest,
       ): Request<RegionInstanceGroupsListInstances>;
       /** Sets the named ports for the specified regional instance group. */
       setNamedPorts(request: {
@@ -36584,7 +36584,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionInstanceGroupsSetNamedPortsRequest
+        body: RegionInstanceGroupsSetNamedPortsRequest,
       ): Request<Operation>;
     }
     interface RegionInstancesResource {
@@ -36656,7 +36656,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: BulkInsertInstanceResource
+        body: BulkInsertInstanceResource,
       ): Request<Operation>;
     }
     interface RegionInstanceTemplatesResource {
@@ -36796,7 +36796,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: InstanceTemplate
+        body: InstanceTemplate,
       ): Request<Operation>;
       /** Retrieves a list of instance templates that are contained within the specified project and region. */
       list(request?: {
@@ -37012,7 +37012,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: InstantSnapshot
+        body: InstantSnapshot,
       ): Request<Operation>;
       /** Retrieves the list of InstantSnapshot resources contained within the specified region. */
       list(request?: {
@@ -37089,7 +37089,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetPolicyRequest
+        body: RegionSetPolicyRequest,
       ): Request<Policy>;
       /** Sets the labels on a instantSnapshot in the given region. To learn more about labels, read the Labeling Resources documentation. */
       setLabels(
@@ -37127,7 +37127,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetLabelsRequest
+        body: RegionSetLabelsRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -37163,7 +37163,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface RegionNetworkEndpointGroupsResource {
@@ -37239,7 +37239,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionNetworkEndpointGroupsAttachEndpointsRequest
+        body: RegionNetworkEndpointGroupsAttachEndpointsRequest,
       ): Request<Operation>;
       /** Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service. */
       delete(request?: {
@@ -37348,7 +37348,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionNetworkEndpointGroupsDetachEndpointsRequest
+        body: RegionNetworkEndpointGroupsDetachEndpointsRequest,
       ): Request<Operation>;
       /** Returns the specified network endpoint group. */
       get(request?: {
@@ -37451,7 +37451,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: NetworkEndpointGroup
+        body: NetworkEndpointGroup,
       ): Request<Operation>;
       /** Retrieves the list of regional network endpoint groups available to the specified project in the given region. */
       list(request?: {
@@ -37615,7 +37615,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicyAssociation
+        body: FirewallPolicyAssociation,
       ): Request<Operation>;
       /** Inserts a rule into a network firewall policy. */
       addRule(request: {
@@ -37697,7 +37697,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicyRule
+        body: FirewallPolicyRule,
       ): Request<Operation>;
       /** Copies rules to the specified network firewall policy. */
       cloneRules(request?: {
@@ -38010,7 +38010,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicy
+        body: FirewallPolicy,
       ): Request<Operation>;
       /** Lists all the network firewall policies that have been configured for the specified project in the given region. */
       list(request?: {
@@ -38125,7 +38125,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicy
+        body: FirewallPolicy,
       ): Request<Operation>;
       /** Patches a rule of the specified priority. */
       patchRule(request: {
@@ -38203,7 +38203,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: FirewallPolicyRule
+        body: FirewallPolicyRule,
       ): Request<Operation>;
       /** Removes an association for the specified network firewall policy. */
       removeAssociation(request?: {
@@ -38313,7 +38313,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetPolicyRequest
+        body: RegionSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -38349,7 +38349,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface RegionNotificationEndpointsResource {
@@ -38489,7 +38489,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: NotificationEndpoint
+        body: NotificationEndpoint,
       ): Request<Operation>;
       /** Lists the NotificationEndpoints for a project in the given region. */
       list(request?: {
@@ -38820,7 +38820,7 @@ declare namespace gapi.client {
           /** If true, the request will not be committed. */
           validateOnly?: boolean;
         },
-        body: SecurityPolicyRule
+        body: SecurityPolicyRule,
       ): Request<Operation>;
       /** Deletes the specified policy. */
       delete(request?: {
@@ -38997,7 +38997,7 @@ declare namespace gapi.client {
           /** If true, the request will not be committed. */
           validateOnly?: boolean;
         },
-        body: SecurityPolicy
+        body: SecurityPolicy,
       ): Request<Operation>;
       /** List all the policies that have been configured for the specified project and region. */
       list(request?: {
@@ -39116,7 +39116,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SecurityPolicy
+        body: SecurityPolicy,
       ): Request<Operation>;
       /** Patches a rule at the specified priority. To clear fields in the rule, leave the fields empty and specify them in the updateMask. */
       patchRule(request: {
@@ -39198,7 +39198,7 @@ declare namespace gapi.client {
           /** If true, the request will not be committed. */
           validateOnly?: boolean;
         },
-        body: SecurityPolicyRule
+        body: SecurityPolicyRule,
       ): Request<Operation>;
       /** Deletes a rule at the specified priority. */
       removeRule(request?: {
@@ -39271,7 +39271,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetLabelsRequest
+        body: RegionSetLabelsRequest,
       ): Request<Operation>;
     }
     interface RegionSslCertificatesResource {
@@ -39411,7 +39411,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SslCertificate
+        body: SslCertificate,
       ): Request<Operation>;
       /** Retrieves the list of SslCertificate resources available to the specified project in the specified region. */
       list(request?: {
@@ -39592,7 +39592,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SslPolicy
+        body: SslPolicy,
       ): Request<Operation>;
       /** Lists all the SSL policies that have been configured for the specified project and region. */
       list(request?: {
@@ -39748,7 +39748,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SslPolicy
+        body: SslPolicy,
       ): Request<Operation>;
     }
     interface RegionTargetHttpProxiesResource {
@@ -39888,7 +39888,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetHttpProxy
+        body: TargetHttpProxy,
       ): Request<Operation>;
       /** Retrieves the list of TargetHttpProxy resources available to the specified project in the specified region. */
       list(request?: {
@@ -40003,7 +40003,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UrlMapReference
+        body: UrlMapReference,
       ): Request<Operation>;
     }
     interface RegionTargetHttpsProxiesResource {
@@ -40143,7 +40143,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetHttpsProxy
+        body: TargetHttpsProxy,
       ): Request<Operation>;
       /** Retrieves the list of TargetHttpsProxy resources available to the specified project in the specified region. */
       list(request?: {
@@ -40258,7 +40258,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetHttpsProxy
+        body: TargetHttpsProxy,
       ): Request<Operation>;
       /** Replaces SslCertificates for TargetHttpsProxy. */
       setSslCertificates(request: {
@@ -40332,7 +40332,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionTargetHttpsProxiesSetSslCertificatesRequest
+        body: RegionTargetHttpsProxiesSetSslCertificatesRequest,
       ): Request<Operation>;
       /** Changes the URL map for TargetHttpsProxy. */
       setUrlMap(request: {
@@ -40406,7 +40406,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UrlMapReference
+        body: UrlMapReference,
       ): Request<Operation>;
     }
     interface RegionTargetTcpProxiesResource {
@@ -40546,7 +40546,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetTcpProxy
+        body: TargetTcpProxy,
       ): Request<Operation>;
       /** Retrieves a list of TargetTcpProxy resources available to the specified project in a given region. */
       list(request?: {
@@ -40727,7 +40727,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UrlMap
+        body: UrlMap,
       ): Request<Operation>;
       /** Retrieves the list of UrlMap resources available to the specified project in the specified region. */
       list(request?: {
@@ -40842,7 +40842,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UrlMap
+        body: UrlMap,
       ): Request<Operation>;
       /** Updates the specified UrlMap resource with the data included in the request. */
       update(request: {
@@ -40916,7 +40916,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UrlMap
+        body: UrlMap,
       ): Request<Operation>;
       /** Runs static validation for the UrlMap. In particular, the tests of the provided UrlMap will be run. Calling this method does NOT create the UrlMap. */
       validate(request: {
@@ -40986,7 +40986,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionUrlMapsValidateRequest
+        body: RegionUrlMapsValidateRequest,
       ): Request<UrlMapsValidateResponse>;
     }
     interface RegionZonesResource {
@@ -41247,7 +41247,7 @@ declare namespace gapi.client {
           /** Name of the zone for this request. */
           zone: string;
         },
-        body: Reservation
+        body: Reservation,
       ): Request<Operation>;
       /** A list of all the reservations that have been configured for the specified project in specified zone. */
       list(request?: {
@@ -41362,7 +41362,7 @@ declare namespace gapi.client {
           /** Name of the zone for this request. */
           zone: string;
         },
-        body: ReservationsResizeRequest
+        body: ReservationsResizeRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -41398,7 +41398,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: ZoneSetPolicyRequest
+        body: ZoneSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -41434,7 +41434,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
       /** Update share settings of the reservation. */
       update(request: {
@@ -41514,7 +41514,7 @@ declare namespace gapi.client {
           /** Name of the zone for this request. */
           zone: string;
         },
-        body: Reservation
+        body: Reservation,
       ): Request<Operation>;
     }
     interface ResourcePoliciesResource {
@@ -41732,7 +41732,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ResourcePolicy
+        body: ResourcePolicy,
       ): Request<Operation>;
       /** A list all the resource policies that have been configured for the specified project in specified region. */
       list(request?: {
@@ -41851,7 +41851,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ResourcePolicy
+        body: ResourcePolicy,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -41887,7 +41887,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetPolicyRequest
+        body: RegionSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -41923,7 +41923,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface RoutersResource {
@@ -42219,7 +42219,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Router
+        body: Router,
       ): Request<Operation>;
       /** Retrieves a list of Router resources available to the specified project. */
       list(request?: {
@@ -42334,7 +42334,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Router
+        body: Router,
       ): Request<Operation>;
       /** Preview fields auto-generated during router create and update operations. Calling this method does NOT create or update the router. */
       preview(request: {
@@ -42404,7 +42404,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Router
+        body: Router,
       ): Request<RoutersPreviewResponse>;
       /** Updates the specified Router resource with the data included in the request. This method conforms to PUT semantics, which requests that the state of the target resource be created or replaced with the state defined by the representation enclosed in the request message payload. */
       update(request: {
@@ -42478,7 +42478,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Router
+        body: Router,
       ): Request<Operation>;
     }
     interface RoutesResource {
@@ -42610,7 +42610,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Route
+        body: Route,
       ): Request<Operation>;
       /** Retrieves the list of Route resources available to the specified project. */
       list(request?: {
@@ -42721,7 +42721,7 @@ declare namespace gapi.client {
           /** If true, the request will not be committed. */
           validateOnly?: boolean;
         },
-        body: SecurityPolicyRule
+        body: SecurityPolicyRule,
       ): Request<Operation>;
       /** Retrieves the list of all SecurityPolicy resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
       aggregatedList(request?: {
@@ -42931,7 +42931,7 @@ declare namespace gapi.client {
           /** If true, the request will not be committed. */
           validateOnly?: boolean;
         },
-        body: SecurityPolicy
+        body: SecurityPolicy,
       ): Request<Operation>;
       /** List all the policies that have been configured for the specified project. */
       list(request?: {
@@ -43083,7 +43083,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SecurityPolicy
+        body: SecurityPolicy,
       ): Request<Operation>;
       /** Patches a rule at the specified priority. To clear fields in the rule, leave the fields empty and specify them in the updateMask. */
       patchRule(request: {
@@ -43161,7 +43161,7 @@ declare namespace gapi.client {
           /** If true, the request will not be committed. */
           validateOnly?: boolean;
         },
-        body: SecurityPolicyRule
+        body: SecurityPolicyRule,
       ): Request<Operation>;
       /** Deletes a rule at the specified priority. */
       removeRule(request?: {
@@ -43228,7 +43228,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetLabelsRequest
+        body: GlobalSetLabelsRequest,
       ): Request<Operation>;
     }
     interface ServiceAttachmentsResource {
@@ -43446,7 +43446,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ServiceAttachment
+        body: ServiceAttachment,
       ): Request<Operation>;
       /** Lists the ServiceAttachments for a project in the given scope. */
       list(request?: {
@@ -43561,7 +43561,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: ServiceAttachment
+        body: ServiceAttachment,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -43597,7 +43597,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetPolicyRequest
+        body: RegionSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -43633,7 +43633,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface SnapshotsResource {
@@ -43798,7 +43798,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Snapshot
+        body: Snapshot,
       ): Request<Operation>;
       /** Retrieves the list of Snapshot resources contained within the specified project. */
       list(request?: {
@@ -43871,7 +43871,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetPolicyRequest
+        body: GlobalSetPolicyRequest,
       ): Request<Policy>;
       /** Sets the labels on a snapshot. To learn more about labels, read the Labeling Resources documentation. */
       setLabels(
@@ -43905,7 +43905,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: GlobalSetLabelsRequest
+        body: GlobalSetLabelsRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -43939,7 +43939,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface SnapshotSettingsResource {
@@ -44040,7 +44040,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SnapshotSettings
+        body: SnapshotSettings,
       ): Request<Operation>;
     }
     interface SslCertificatesResource {
@@ -44215,7 +44215,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SslCertificate
+        body: SslCertificate,
       ): Request<Operation>;
       /** Retrieves the list of SslCertificate resources available to the specified project. */
       list(request?: {
@@ -44429,7 +44429,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SslPolicy
+        body: SslPolicy,
       ): Request<Operation>;
       /** Lists all the SSL policies that have been configured for the specified project. */
       list(request?: {
@@ -44577,7 +44577,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SslPolicy
+        body: SslPolicy,
       ): Request<Operation>;
     }
     interface StoragePoolsResource {
@@ -44795,7 +44795,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: StoragePool
+        body: StoragePool,
       ): Request<Operation>;
       /** Retrieves a list of storage pools contained within the specified zone. */
       list(request?: {
@@ -44915,7 +44915,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: ZoneSetPolicyRequest
+        body: ZoneSetPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -44951,7 +44951,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
       /** Updates the specified storagePool with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: pool_provisioned_capacity_gb, pool_provisioned_iops and pool_provisioned_throughput. */
       update(request: {
@@ -45029,7 +45029,7 @@ declare namespace gapi.client {
           /** The name of the zone for this request. */
           zone: string;
         },
-        body: StoragePool
+        body: StoragePool,
       ): Request<Operation>;
     }
     interface StoragePoolTypesResource {
@@ -45302,7 +45302,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SubnetworksExpandIpCidrRangeRequest
+        body: SubnetworksExpandIpCidrRangeRequest,
       ): Request<Operation>;
       /** Returns the specified subnetwork. */
       get(request?: {
@@ -45440,7 +45440,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Subnetwork
+        body: Subnetwork,
       ): Request<Operation>;
       /** Retrieves a list of subnetworks available to the specified project. */
       list(request?: {
@@ -45598,7 +45598,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: Subnetwork
+        body: Subnetwork,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -45634,7 +45634,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetPolicyRequest
+        body: RegionSetPolicyRequest,
       ): Request<Policy>;
       /** Set whether VMs in this subnet can access Google services without assigning external IP addresses through Private Google Access. */
       setPrivateIpGoogleAccess(request: {
@@ -45708,7 +45708,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SubnetworksSetPrivateIpGoogleAccessRequest
+        body: SubnetworksSetPrivateIpGoogleAccessRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -45744,7 +45744,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface TargetGrpcProxiesResource {
@@ -45876,7 +45876,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetGrpcProxy
+        body: TargetGrpcProxy,
       ): Request<Operation>;
       /** Lists the TargetGrpcProxies for a project in the given scope. */
       list(request?: {
@@ -45985,7 +45985,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetGrpcProxy
+        body: TargetGrpcProxy,
       ): Request<Operation>;
     }
     interface TargetHttpProxiesResource {
@@ -46160,7 +46160,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetHttpProxy
+        body: TargetHttpProxy,
       ): Request<Operation>;
       /** Retrieves the list of TargetHttpProxy resources available to the specified project. */
       list(request?: {
@@ -46269,7 +46269,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetHttpProxy
+        body: TargetHttpProxy,
       ): Request<Operation>;
       /** Changes the URL map for TargetHttpProxy. */
       setUrlMap(request: {
@@ -46339,7 +46339,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UrlMapReference
+        body: UrlMapReference,
       ): Request<Operation>;
     }
     interface TargetHttpsProxiesResource {
@@ -46514,7 +46514,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetHttpsProxy
+        body: TargetHttpsProxy,
       ): Request<Operation>;
       /** Retrieves the list of TargetHttpsProxy resources available to the specified project. */
       list(request?: {
@@ -46623,7 +46623,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetHttpsProxy
+        body: TargetHttpsProxy,
       ): Request<Operation>;
       /** Changes the Certificate Map for TargetHttpsProxy. */
       setCertificateMap(request: {
@@ -46693,7 +46693,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetHttpsProxiesSetCertificateMapRequest
+        body: TargetHttpsProxiesSetCertificateMapRequest,
       ): Request<Operation>;
       /** Sets the QUIC override policy for TargetHttpsProxy. */
       setQuicOverride(request: {
@@ -46763,7 +46763,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetHttpsProxiesSetQuicOverrideRequest
+        body: TargetHttpsProxiesSetQuicOverrideRequest,
       ): Request<Operation>;
       /** Replaces SslCertificates for TargetHttpsProxy. */
       setSslCertificates(request: {
@@ -46833,7 +46833,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetHttpsProxiesSetSslCertificatesRequest
+        body: TargetHttpsProxiesSetSslCertificatesRequest,
       ): Request<Operation>;
       /** Sets the SSL policy for TargetHttpsProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the HTTPS proxy load balancer. They do not affect the connection between the load balancer and the backends. */
       setSslPolicy(request: {
@@ -46903,7 +46903,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SslPolicyReference
+        body: SslPolicyReference,
       ): Request<Operation>;
       /** Changes the URL map for TargetHttpsProxy. */
       setUrlMap(request: {
@@ -46973,7 +46973,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UrlMapReference
+        body: UrlMapReference,
       ): Request<Operation>;
     }
     interface TargetInstancesResource {
@@ -47156,7 +47156,7 @@ declare namespace gapi.client {
           /** Name of the zone scoping this request. */
           zone: string;
         },
-        body: TargetInstance
+        body: TargetInstance,
       ): Request<Operation>;
       /** Retrieves a list of TargetInstance resources available to the specified project and zone. */
       list(request?: {
@@ -47271,7 +47271,7 @@ declare namespace gapi.client {
           /** Name of the zone scoping this request. */
           zone: string;
         },
-        body: SecurityPolicyReference
+        body: SecurityPolicyReference,
       ): Request<Operation>;
     }
     interface TargetPoolsResource {
@@ -47347,7 +47347,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetPoolsAddHealthCheckRequest
+        body: TargetPoolsAddHealthCheckRequest,
       ): Request<Operation>;
       /** Adds an instance to a target pool. */
       addInstance(request: {
@@ -47421,7 +47421,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetPoolsAddInstanceRequest
+        body: TargetPoolsAddInstanceRequest,
       ): Request<Operation>;
       /** Retrieves an aggregated list of target pools. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
       aggregatedList(request?: {
@@ -47602,7 +47602,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: InstanceReference
+        body: InstanceReference,
       ): Request<TargetPoolInstanceHealth>;
       /** Creates a target pool in the specified project and region using the data included in the request. */
       insert(request: {
@@ -47672,7 +47672,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetPool
+        body: TargetPool,
       ): Request<Operation>;
       /** Retrieves a list of target pools available to the specified project and region. */
       list(request?: {
@@ -47787,7 +47787,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetPoolsRemoveHealthCheckRequest
+        body: TargetPoolsRemoveHealthCheckRequest,
       ): Request<Operation>;
       /** Removes instance URL from a target pool. */
       removeInstance(request: {
@@ -47861,7 +47861,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetPoolsRemoveInstanceRequest
+        body: TargetPoolsRemoveInstanceRequest,
       ): Request<Operation>;
       /** Changes a backup target pool's configurations. */
       setBackup(request: {
@@ -47939,7 +47939,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetReference
+        body: TargetReference,
       ): Request<Operation>;
       /** Sets the Google Cloud Armor security policy for the specified target pool. For more information, see Google Cloud Armor Overview */
       setSecurityPolicy(request: {
@@ -48013,7 +48013,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SecurityPolicyReference
+        body: SecurityPolicyReference,
       ): Request<Operation>;
     }
     interface TargetSslProxiesResource {
@@ -48145,7 +48145,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetSslProxy
+        body: TargetSslProxy,
       ): Request<Operation>;
       /** Retrieves the list of TargetSslProxy resources available to the specified project. */
       list(request?: {
@@ -48254,7 +48254,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetSslProxiesSetBackendServiceRequest
+        body: TargetSslProxiesSetBackendServiceRequest,
       ): Request<Operation>;
       /** Changes the Certificate Map for TargetSslProxy. */
       setCertificateMap(request: {
@@ -48324,7 +48324,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetSslProxiesSetCertificateMapRequest
+        body: TargetSslProxiesSetCertificateMapRequest,
       ): Request<Operation>;
       /** Changes the ProxyHeaderType for TargetSslProxy. */
       setProxyHeader(request: {
@@ -48394,7 +48394,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetSslProxiesSetProxyHeaderRequest
+        body: TargetSslProxiesSetProxyHeaderRequest,
       ): Request<Operation>;
       /** Changes SslCertificates for TargetSslProxy. */
       setSslCertificates(request: {
@@ -48464,7 +48464,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetSslProxiesSetSslCertificatesRequest
+        body: TargetSslProxiesSetSslCertificatesRequest,
       ): Request<Operation>;
       /** Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the load balancer. They do not affect the connection between the load balancer and the backends. */
       setSslPolicy(request: {
@@ -48534,7 +48534,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: SslPolicyReference
+        body: SslPolicyReference,
       ): Request<Operation>;
     }
     interface TargetTcpProxiesResource {
@@ -48709,7 +48709,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetTcpProxy
+        body: TargetTcpProxy,
       ): Request<Operation>;
       /** Retrieves the list of TargetTcpProxy resources available to the specified project. */
       list(request?: {
@@ -48818,7 +48818,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetTcpProxiesSetBackendServiceRequest
+        body: TargetTcpProxiesSetBackendServiceRequest,
       ): Request<Operation>;
       /** Changes the ProxyHeaderType for TargetTcpProxy. */
       setProxyHeader(request: {
@@ -48888,7 +48888,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetTcpProxiesSetProxyHeaderRequest
+        body: TargetTcpProxiesSetProxyHeaderRequest,
       ): Request<Operation>;
     }
     interface TargetVpnGatewaysResource {
@@ -49071,7 +49071,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TargetVpnGateway
+        body: TargetVpnGateway,
       ): Request<Operation>;
       /** Retrieves a list of target VPN gateways available to the specified project and region. */
       list(request?: {
@@ -49150,7 +49150,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetLabelsRequest
+        body: RegionSetLabelsRequest,
       ): Request<Operation>;
     }
     interface UrlMapsResource {
@@ -49325,7 +49325,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UrlMap
+        body: UrlMap,
       ): Request<Operation>;
       /** Initiates a cache invalidation operation, invalidating the specified path, scoped to the specified UrlMap. For more information, see [Invalidating cached content](/cdn/docs/invalidating-cached-content). */
       invalidateCache(request: {
@@ -49395,7 +49395,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: CacheInvalidationRule
+        body: CacheInvalidationRule,
       ): Request<Operation>;
       /** Retrieves the list of UrlMap resources available to the specified project. */
       list(request?: {
@@ -49504,7 +49504,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UrlMap
+        body: UrlMap,
       ): Request<Operation>;
       /** Updates the specified UrlMap resource with the data included in the request. */
       update(request: {
@@ -49574,7 +49574,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UrlMap
+        body: UrlMap,
       ): Request<Operation>;
       /** Runs static validation for the UrlMap. In particular, the tests of the provided UrlMap will be run. Calling this method does NOT create the UrlMap. */
       validate(request: {
@@ -49640,7 +49640,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: UrlMapsValidateRequest
+        body: UrlMapsValidateRequest,
       ): Request<UrlMapsValidateResponse>;
     }
     interface VpnGatewaysResource {
@@ -49856,7 +49856,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: VpnGateway
+        body: VpnGateway,
       ): Request<Operation>;
       /** Retrieves a list of VPN gateways available to the specified project and region. */
       list(request?: {
@@ -49935,7 +49935,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetLabelsRequest
+        body: RegionSetLabelsRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -49971,7 +49971,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
     }
     interface VpnTunnelsResource {
@@ -50154,7 +50154,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: VpnTunnel
+        body: VpnTunnel,
       ): Request<Operation>;
       /** Retrieves a list of VpnTunnel resources contained in the specified project and region. */
       list(request?: {
@@ -50233,7 +50233,7 @@ declare namespace gapi.client {
           /** Legacy name for parameter that has been superseded by `quotaUser`. */
           userIp?: string;
         },
-        body: RegionSetLabelsRequest
+        body: RegionSetLabelsRequest,
       ): Request<Operation>;
     }
     interface ZoneOperationsResource {

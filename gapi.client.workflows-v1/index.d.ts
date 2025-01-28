@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Workflows API v1 */
   function load(
-    urlOrObject: 'https://workflows.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://workflows.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'workflows', version: 'v1'): Promise<void>;
@@ -291,7 +291,7 @@ declare namespace gapi.client {
           /** Required. The ID of the workflow to be created. It has to fulfill the following requirements: * Must contain only letters, numbers, underscores and hyphens. * Must start with a letter. * Must be between 1-64 characters. * Must end with a number or a letter. * Must be unique within the customer project and location. */
           workflowId?: string;
         },
-        body: Workflow
+        body: Workflow,
       ): Request<Operation>;
       /** Deletes a workflow with the specified name. This method also cancels and deletes all running executions of the workflow. */
       delete(request?: {
@@ -475,7 +475,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Workflow
+        body: Workflow,
       ): Request<Operation>;
     }
     interface LocationsResource {

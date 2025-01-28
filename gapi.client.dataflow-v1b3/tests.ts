@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://dataflow.googleapis.com/$discovery/rest?version=v1b3'
+    'https://dataflow.googleapis.com/$discovery/rest?version=v1b3',
   );
   /** now we can use gapi.client.dataflow */
 
@@ -175,7 +175,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** List the jobs of a project across all regions. **Note:** This method doesn't support filtering the list of jobs by name. */
     await gapi.client.dataflow.projects.jobs.aggregated({
@@ -500,7 +500,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         type: 'Test string',
-      }
+      },
     );
     /** Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in `us-central1`. */
     await gapi.client.dataflow.projects.jobs.get({
@@ -537,7 +537,7 @@ gapi.load('client', async () => {
         location: 'Test string',
         snapshotSources: true,
         ttl: 'Test string',
-      }
+      },
     );
     /** Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in `us-central1`. */
     await gapi.client.dataflow.projects.jobs.update(
@@ -852,7 +852,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         type: 'Test string',
-      }
+      },
     );
     /** Get encoded debug configuration for component. Not cacheable. */
     await gapi.client.dataflow.projects.jobs.debug.getConfig(
@@ -864,7 +864,7 @@ gapi.load('client', async () => {
         componentId: 'Test string',
         location: 'Test string',
         workerId: 'Test string',
-      }
+      },
     );
     /** Send encoded debug capture data for component. */
     await gapi.client.dataflow.projects.jobs.debug.sendCapture(
@@ -878,7 +878,7 @@ gapi.load('client', async () => {
         dataFormat: 'Test string',
         location: 'Test string',
         workerId: 'Test string',
-      }
+      },
     );
     /** Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running in `us-central1`. */
     await gapi.client.dataflow.projects.jobs.messages.list({
@@ -908,7 +908,7 @@ gapi.load('client', async () => {
         workerCapabilities: ['Test string'],
         workerId: 'Test string',
         workItemTypes: ['Test string'],
-      }
+      },
     );
     /** Reports the status of dataflow WorkItems leased by a worker. */
     await gapi.client.dataflow.projects.jobs.workItems.reportStatus(
@@ -1316,7 +1316,7 @@ gapi.load('client', async () => {
             workItemId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Send a worker_message to the service. */
     await gapi.client.dataflow.projects.locations.workerMessages(
@@ -1455,7 +1455,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Launch a job with a FlexTemplate. */
     await gapi.client.dataflow.projects.locations.flexTemplates.launch(
@@ -1580,7 +1580,7 @@ gapi.load('client', async () => {
           update: true,
         },
         validateOnly: true,
-      }
+      },
     );
     /** Creates a Cloud Dataflow job. To create a job, we recommend using `projects.locations.jobs.create` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.create` is not recommended, as your job will always start in `us-central1`. Do not enter confidential information when you supply string values using the API. */
     await gapi.client.dataflow.projects.locations.jobs.create(
@@ -1895,7 +1895,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         type: 'Test string',
-      }
+      },
     );
     /** Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in `us-central1`. */
     await gapi.client.dataflow.projects.locations.jobs.get({
@@ -1941,7 +1941,7 @@ gapi.load('client', async () => {
         location: 'Test string',
         snapshotSources: true,
         ttl: 'Test string',
-      }
+      },
     );
     /** Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in `us-central1`. */
     await gapi.client.dataflow.projects.locations.jobs.update(
@@ -2256,7 +2256,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         type: 'Test string',
-      }
+      },
     );
     /** Get encoded debug configuration for component. Not cacheable. */
     await gapi.client.dataflow.projects.locations.jobs.debug.getConfig(
@@ -2269,7 +2269,7 @@ gapi.load('client', async () => {
         componentId: 'Test string',
         location: 'Test string',
         workerId: 'Test string',
-      }
+      },
     );
     /** Send encoded debug capture data for component. */
     await gapi.client.dataflow.projects.locations.jobs.debug.sendCapture(
@@ -2284,7 +2284,7 @@ gapi.load('client', async () => {
         dataFormat: 'Test string',
         location: 'Test string',
         workerId: 'Test string',
-      }
+      },
     );
     /** Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running in `us-central1`. */
     await gapi.client.dataflow.projects.locations.jobs.messages.list({
@@ -2314,7 +2314,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         stageId: 'Test string',
         startTime: 'Test string',
-      }
+      },
     );
     /** Leases a dataflow WorkItem to run. */
     await gapi.client.dataflow.projects.locations.jobs.workItems.lease(
@@ -2334,7 +2334,7 @@ gapi.load('client', async () => {
         workerCapabilities: ['Test string'],
         workerId: 'Test string',
         workItemTypes: ['Test string'],
-      }
+      },
     );
     /** Reports the status of dataflow WorkItems leased by a worker. */
     await gapi.client.dataflow.projects.locations.jobs.workItems.reportStatus(
@@ -2743,7 +2743,7 @@ gapi.load('client', async () => {
             workItemId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a snapshot. */
     await gapi.client.dataflow.projects.locations.snapshots.delete({
@@ -2798,7 +2798,7 @@ gapi.load('client', async () => {
         parameters: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Get the template associated with a template. To get the template, we recommend using `projects.locations.templates.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.get` is not recommended, because only templates that are running in `us-central1` are retrieved. */
     await gapi.client.dataflow.projects.locations.templates.get({
@@ -2848,7 +2848,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         update: true,
-      }
+      },
     );
     /** Gets information about a snapshot. */
     await gapi.client.dataflow.projects.snapshots.get({
@@ -2896,7 +2896,7 @@ gapi.load('client', async () => {
         parameters: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Get the template associated with a template. To get the template, we recommend using `projects.locations.templates.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.get` is not recommended, because only templates that are running in `us-central1` are retrieved. */
     await gapi.client.dataflow.projects.templates.get({
@@ -2946,7 +2946,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         update: true,
-      }
+      },
     );
   }
 });

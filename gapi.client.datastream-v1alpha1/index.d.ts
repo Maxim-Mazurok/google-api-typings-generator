@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Datastream API v1alpha1 */
   function load(
-    urlOrObject: 'https://datastream.googleapis.com/$discovery/rest?version=v1alpha1'
+    urlOrObject: 'https://datastream.googleapis.com/$discovery/rest?version=v1alpha1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'datastream', version: 'v1alpha1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'datastream',
     version: 'v1alpha1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace datastream {
@@ -596,7 +596,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConnectionProfile
+        body: ConnectionProfile,
       ): Request<Operation>;
       /** Use this method to delete a connection profile.. */
       delete(request?: {
@@ -683,7 +683,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DiscoverConnectionProfileRequest
+        body: DiscoverConnectionProfileRequest,
       ): Request<DiscoverConnectionProfileResponse>;
       /** Use this method to get details about a connection profile. */
       get(request?: {
@@ -815,7 +815,7 @@ declare namespace gapi.client {
           /** Optional. Only validate the connection profile, but do not update any resources. The default is false. */
           validateOnly?: boolean;
         },
-        body: ConnectionProfile
+        body: ConnectionProfile,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -875,7 +875,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -1030,7 +1030,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Route
+        body: Route,
       ): Request<Operation>;
       /** Use this method to delete a route. */
       delete(request?: {
@@ -1189,7 +1189,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PrivateConnection
+        body: PrivateConnection,
       ): Request<Operation>;
       /** Use this method to delete a private connectivity configuration. */
       delete(request?: {
@@ -1473,7 +1473,7 @@ declare namespace gapi.client {
           /** Optional. Only validate the stream, but do not create any resources. The default is false. */
           validateOnly?: boolean;
         },
-        body: Stream
+        body: Stream,
       ): Request<Operation>;
       /** Use this method to delete a stream. */
       delete(request?: {
@@ -1560,7 +1560,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FetchErrorsRequest
+        body: FetchErrorsRequest,
       ): Request<Operation>;
       /** Use this method to get details about a stream. */
       get(request?: {
@@ -1696,7 +1696,7 @@ declare namespace gapi.client {
           /** Optional. Only validate the stream with the changes, without actually updating it. The default is false. */
           validateOnly?: boolean;
         },
-        body: Stream
+        body: Stream,
       ): Request<Operation>;
       objects: ObjectsResource;
     }

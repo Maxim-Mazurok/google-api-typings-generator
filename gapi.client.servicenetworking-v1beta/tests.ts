@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://servicenetworking.googleapis.com/$discovery/rest?version=v1beta'
+    'https://servicenetworking.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.servicenetworking */
 
@@ -51,7 +51,7 @@ gapi.load('client', async () => {
         requestedAddress: 'Test string',
         subnetwork: 'Test string',
         subnetworkUsers: ['Test string'],
-      }
+      },
     );
     /** Service producers can use this method to find a currently unused range within consumer allocated ranges. This returned range is not reserved, and not guaranteed to remain unused. It will validate previously provided allocated ranges, find non-conflicting sub-range of requested size (expressed in number of leading bits of ipv4 network mask, as in CIDR range notation). Operation */
     await gapi.client.servicenetworking.services.searchRange(
@@ -61,7 +61,7 @@ gapi.load('client', async () => {
       {
         ipPrefixLength: 42,
         network: 'Test string',
-      }
+      },
     );
     /** Updates the allocated ranges that are assigned to a connection. The response from the `get` operation will be of type `Connection` if the operation successfully completes. */
     await gapi.client.servicenetworking.services.updateConnections(
@@ -75,7 +75,7 @@ gapi.load('client', async () => {
         peering: 'Test string',
         reservedPeeringRanges: ['Test string'],
         service: 'Test string',
-      }
+      },
     );
     /** Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The administrator of the service consumer's VPC network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning subnetworks in the service producer's VPC network. This connection is used for all supported services in the service producer's organization, so it only needs to be invoked once. The response from the `get` operation will be of type `Connection` if the operation successfully completes. */
     await gapi.client.servicenetworking.services.connections.create(
@@ -87,7 +87,7 @@ gapi.load('client', async () => {
         peering: 'Test string',
         reservedPeeringRanges: ['Test string'],
         service: 'Test string',
-      }
+      },
     );
     /** List the private connections that are configured in a service consumer's VPC network. */
     await gapi.client.servicenetworking.services.connections.list({

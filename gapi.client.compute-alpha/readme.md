@@ -30,7 +30,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.compute
-  }
+  },
 );
 ```
 
@@ -77,7 +77,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 
@@ -1809,11 +1809,6 @@ await gapi.client.compute.interconnectAttachments.setLabels({ project: "project"
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.interconnectAttachments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Create Interconnects with redundancy by creating them in a specified interconnect group.
-*/
-await gapi.client.compute.interconnectGroups.createMembers({ interconnectGroup: "interconnectGroup", project: "project",  });
 
 /*
 Deletes the specified InterconnectGroup in the given scope

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Application Integration API v1 */
   function load(
-    urlOrObject: 'https://integrations.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://integrations.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'integrations', version: 'v1'): Promise<void>;
@@ -2983,7 +2983,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectRequest
+        body: GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectRequest,
       ): Request<GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectResponse>;
       /** Links a existing Apps Script project. */
       link(request: {
@@ -3041,7 +3041,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest
+        body: GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest,
       ): Request<GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectResponse>;
     }
     interface AuthConfigsResource {
@@ -3113,7 +3113,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaAuthConfig
+        body: GoogleCloudIntegrationsV1alphaAuthConfig,
       ): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
       /** Deletes an auth config. */
       delete(request?: {
@@ -3276,7 +3276,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaAuthConfig
+        body: GoogleCloudIntegrationsV1alphaAuthConfig,
       ): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
     }
     interface CertificatesResource {
@@ -3336,7 +3336,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaCertificate
+        body: GoogleCloudIntegrationsV1alphaCertificate,
       ): Request<GoogleCloudIntegrationsV1alphaCertificate>;
       /** Delete a certificate */
       delete(request?: {
@@ -3487,7 +3487,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaCertificate
+        body: GoogleCloudIntegrationsV1alphaCertificate,
       ): Request<GoogleCloudIntegrationsV1alphaCertificate>;
     }
     interface ClientsResource {
@@ -3547,7 +3547,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaDeprovisionClientRequest
+        body: GoogleCloudIntegrationsV1alphaDeprovisionClientRequest,
       ): Request<{}>;
       /** Perform the provisioning steps to enable a user GCP project to use IP. If GCP project already registered on IP end via Apigee Integration, provisioning will fail. */
       provision(request: {
@@ -3605,7 +3605,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaProvisionClientRequest
+        body: GoogleCloudIntegrationsV1alphaProvisionClientRequest,
       ): Request<{}>;
       /** Update run-as service account for provisioned client */
       replace(request: {
@@ -3663,7 +3663,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaReplaceServiceAccountRequest
+        body: GoogleCloudIntegrationsV1alphaReplaceServiceAccountRequest,
       ): Request<{}>;
       /** Update client from GMEK to CMEK */
       switch(request: {
@@ -3721,7 +3721,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaSwitchEncryptionRequest
+        body: GoogleCloudIntegrationsV1alphaSwitchEncryptionRequest,
       ): Request<{}>;
       /** Update variable masking for provisioned client */
       switchVariableMasking(request: {
@@ -3779,7 +3779,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaSwitchVariableMaskingRequest
+        body: GoogleCloudIntegrationsV1alphaSwitchVariableMaskingRequest,
       ): Request<{}>;
     }
     interface CloudFunctionsResource {
@@ -3839,7 +3839,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest
+        body: GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest,
       ): Request<GoogleCloudIntegrationsV1alphaCreateCloudFunctionResponse>;
     }
     interface RuntimeActionSchemasResource {
@@ -4035,7 +4035,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaLiftSuspensionRequest
+        body: GoogleCloudIntegrationsV1alphaLiftSuspensionRequest,
       ): Request<GoogleCloudIntegrationsV1alphaLiftSuspensionResponse>;
       /** * Lists suspensions associated with a specific execution. Only those with permissions to resolve the relevant suspensions will be able to view them. */
       list(request?: {
@@ -4128,7 +4128,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest
+        body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest,
       ): Request<{}>;
     }
     interface ExecutionsResource {
@@ -4188,7 +4188,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaCancelExecutionRequest
+        body: GoogleCloudIntegrationsV1alphaCancelExecutionRequest,
       ): Request<GoogleCloudIntegrationsV1alphaCancelExecutionResponse>;
       /** Download the execution. */
       download(request?: {
@@ -4367,7 +4367,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaReplayExecutionRequest
+        body: GoogleCloudIntegrationsV1alphaReplayExecutionRequest,
       ): Request<GoogleCloudIntegrationsV1alphaReplayExecutionResponse>;
       suspensions: SuspensionsResource;
     }
@@ -4432,7 +4432,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaTestCase
+        body: GoogleCloudIntegrationsV1alphaTestCase,
       ): Request<GoogleCloudIntegrationsV1alphaTestCase>;
       /** Deletes a test case */
       delete(request?: {
@@ -4546,7 +4546,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaExecuteTestCasesRequest
+        body: GoogleCloudIntegrationsV1alphaExecuteTestCasesRequest,
       ): Request<GoogleCloudIntegrationsV1alphaExecuteTestCasesResponse>;
       /** Executes functional test */
       executeTest(request: {
@@ -4604,7 +4604,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaExecuteTestCaseRequest
+        body: GoogleCloudIntegrationsV1alphaExecuteTestCaseRequest,
       ): Request<GoogleCloudIntegrationsV1alphaExecuteTestCaseResponse>;
       /** Get a test case */
       get(request?: {
@@ -4769,7 +4769,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaTestCase
+        body: GoogleCloudIntegrationsV1alphaTestCase,
       ): Request<GoogleCloudIntegrationsV1alphaTestCase>;
       /** Clear the lock fields and assign them to current user */
       takeoverEditLock(request: {
@@ -4827,7 +4827,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaTakeoverTestCaseEditLockRequest
+        body: GoogleCloudIntegrationsV1alphaTakeoverTestCaseEditLockRequest,
       ): Request<GoogleCloudIntegrationsV1alphaTestCase>;
       /** Uploads a test case. The content can be a previously downloaded test case. Performs the same function as CreateTestCase, but accepts input in a string format, which holds the complete representation of the TestCase content. */
       upload(request: {
@@ -4885,7 +4885,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaUploadTestCaseRequest
+        body: GoogleCloudIntegrationsV1alphaUploadTestCaseRequest,
       ): Request<GoogleCloudIntegrationsV1alphaUploadTestCaseResponse>;
     }
     interface VersionsResource {
@@ -4953,7 +4953,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaIntegrationVersion
+        body: GoogleCloudIntegrationsV1alphaIntegrationVersion,
       ): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
       /** Soft-deletes the integration. Changes the status of the integration to ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is removed from this snapshot and set to the previous non-ARCHIVED snapshot. The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC throws an exception if the version being deleted is DRAFT, and if the `locked_by` user is not the same as the user performing the Delete. Audit fields updated include last_modified_timestamp, last_modified_by. Any existing lock is released when Deleting a integration. Currently, there is no undelete mechanism. */
       delete(request?: {
@@ -5166,7 +5166,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaIntegrationVersion
+        body: GoogleCloudIntegrationsV1alphaIntegrationVersion,
       ): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
       /** This RPC throws an exception if the integration is in ARCHIVED or ACTIVE state. This RPC throws an exception if the version being published is DRAFT, and if the `locked_by` user is not the same as the user performing the Publish. Audit fields updated include last_published_timestamp, last_published_by, last_modified_timestamp, last_modified_by. Any existing lock is on this integration is released. */
       publish(request: {
@@ -5224,7 +5224,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest
+        body: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest,
       ): Request<{}>;
       /** Sets the status of the ACTIVE integration to SNAPSHOT with a new tag "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the version being snapshot is not ACTIVE. Audit fields added include action, action_by, action_timestamp. */
       unpublish(request: {
@@ -5282,7 +5282,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest
+        body: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest,
       ): Request<{}>;
       /** Uploads an integration. The content can be a previously downloaded integration. Performs the same function as CreateDraftIntegrationVersion, but accepts input in a string format, which holds the complete representation of the IntegrationVersion content. */
       upload(request: {
@@ -5340,7 +5340,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest
+        body: GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest,
       ): Request<GoogleCloudIntegrationsV1alphaUploadIntegrationVersionResponse>;
       testCases: TestCasesResource;
     }
@@ -5428,7 +5428,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest
+        body: GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest,
       ): Request<GoogleCloudIntegrationsV1alphaExecuteIntegrationsResponse>;
       /** Executes an integration on receiving events from Integration Connector triggers, Eventarc or CPS Trigger. Input data to integration is received in body in json format */
       executeEvent(request?: {
@@ -5550,7 +5550,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest
+        body: GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest,
       ): Request<GoogleCloudIntegrationsV1alphaScheduleIntegrationsResponse>;
       /** Execute the integration in draft state */
       test(request: {
@@ -5608,7 +5608,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaTestIntegrationsRequest
+        body: GoogleCloudIntegrationsV1alphaTestIntegrationsRequest,
       ): Request<GoogleCloudIntegrationsV1alphaTestIntegrationsResponse>;
       executions: ExecutionsResource;
       versions: VersionsResource;
@@ -5682,7 +5682,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaAuthConfig
+        body: GoogleCloudIntegrationsV1alphaAuthConfig,
       ): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
       /** Deletes an auth config. */
       delete(request?: {
@@ -5845,7 +5845,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaAuthConfig
+        body: GoogleCloudIntegrationsV1alphaAuthConfig,
       ): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
     }
     interface CertificatesResource {
@@ -5905,7 +5905,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaCertificate
+        body: GoogleCloudIntegrationsV1alphaCertificate,
       ): Request<GoogleCloudIntegrationsV1alphaCertificate>;
       /** Delete a certificate */
       delete(request?: {
@@ -6056,7 +6056,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaCertificate
+        body: GoogleCloudIntegrationsV1alphaCertificate,
       ): Request<GoogleCloudIntegrationsV1alphaCertificate>;
     }
     interface CloudFunctionsResource {
@@ -6116,7 +6116,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest
+        body: GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest,
       ): Request<GoogleCloudIntegrationsV1alphaCreateCloudFunctionResponse>;
     }
     interface SuspensionsResource {
@@ -6176,7 +6176,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaLiftSuspensionRequest
+        body: GoogleCloudIntegrationsV1alphaLiftSuspensionRequest,
       ): Request<GoogleCloudIntegrationsV1alphaLiftSuspensionResponse>;
       /** * Lists suspensions associated with a specific execution. Only those with permissions to resolve the relevant suspensions will be able to view them. */
       list(request?: {
@@ -6269,7 +6269,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest
+        body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest,
       ): Request<{}>;
     }
     interface ExecutionsResource {
@@ -6461,7 +6461,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaIntegrationVersion
+        body: GoogleCloudIntegrationsV1alphaIntegrationVersion,
       ): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
       /** Soft-deletes the integration. Changes the status of the integration to ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is removed from this snapshot and set to the previous non-ARCHIVED snapshot. The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC throws an exception if the version being deleted is DRAFT, and if the `locked_by` user is not the same as the user performing the Delete. Audit fields updated include last_modified_timestamp, last_modified_by. Any existing lock is released when Deleting a integration. Currently, there is no undelete mechanism. */
       delete(request?: {
@@ -6645,7 +6645,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaIntegrationVersion
+        body: GoogleCloudIntegrationsV1alphaIntegrationVersion,
       ): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
       /** This RPC throws an exception if the integration is in ARCHIVED or ACTIVE state. This RPC throws an exception if the version being published is DRAFT, and if the `locked_by` user is not the same as the user performing the Publish. Audit fields updated include last_published_timestamp, last_published_by, last_modified_timestamp, last_modified_by. Any existing lock is on this integration is released. */
       publish(request: {
@@ -6703,7 +6703,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest
+        body: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest,
       ): Request<{}>;
       /** Clears the `locked_by` and `locked_at_timestamp`in the DRAFT version of this integration. It then performs the same action as the CreateDraftIntegrationVersion (i.e., copies the DRAFT version of the integration as a SNAPSHOT and then creates a new DRAFT version with the `locked_by` set to the `user_taking_over` and the `locked_at_timestamp` set to the current timestamp). Both the `locked_by` and `user_taking_over` are notified via email about the takeover. This RPC throws an exception if the integration is not in DRAFT status or if the `locked_by` and `locked_at_timestamp` fields are not set.The TakeoverEdit lock is treated the same as an edit of the integration, and hence shares ACLs with edit. Audit fields updated include last_modified_timestamp, last_modified_by. */
       takeoverEditLock(request: {
@@ -6761,7 +6761,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest
+        body: GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest,
       ): Request<GoogleCloudIntegrationsV1alphaTakeoverEditLockResponse>;
       /** Sets the status of the ACTIVE integration to SNAPSHOT with a new tag "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the version being snapshot is not ACTIVE. Audit fields added include action, action_by, action_timestamp. */
       unpublish(request: {
@@ -6819,7 +6819,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest
+        body: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest,
       ): Request<{}>;
       /** Uploads an integration. The content can be a previously downloaded integration. Performs the same function as CreateDraftIntegrationVersion, but accepts input in a string format, which holds the complete representation of the IntegrationVersion content. */
       upload(request: {
@@ -6877,7 +6877,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest
+        body: GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest,
       ): Request<GoogleCloudIntegrationsV1alphaUploadIntegrationVersionResponse>;
     }
     interface IntegrationsResource {
@@ -6937,7 +6937,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest
+        body: GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest,
       ): Request<GoogleCloudIntegrationsV1alphaExecuteIntegrationsResponse>;
       /** Returns the list of all integrations in the specified project. */
       list(request?: {
@@ -7030,7 +7030,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest
+        body: GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest,
       ): Request<GoogleCloudIntegrationsV1alphaScheduleIntegrationsResponse>;
       /** Execute the integration in draft state */
       test(request: {
@@ -7088,7 +7088,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaTestIntegrationsRequest
+        body: GoogleCloudIntegrationsV1alphaTestIntegrationsRequest,
       ): Request<GoogleCloudIntegrationsV1alphaTestIntegrationsResponse>;
       executions: ExecutionsResource;
       versions: VersionsResource;
@@ -7150,7 +7150,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaSfdcChannel
+        body: GoogleCloudIntegrationsV1alphaSfdcChannel,
       ): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
       /** Deletes an sfdc channel. */
       delete(request?: {
@@ -7301,7 +7301,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaSfdcChannel
+        body: GoogleCloudIntegrationsV1alphaSfdcChannel,
       ): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
     }
     interface SfdcInstancesResource {
@@ -7361,7 +7361,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaSfdcInstance
+        body: GoogleCloudIntegrationsV1alphaSfdcInstance,
       ): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
       /** Deletes an sfdc instance. */
       delete(request?: {
@@ -7512,7 +7512,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaSfdcInstance
+        body: GoogleCloudIntegrationsV1alphaSfdcInstance,
       ): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
       sfdcChannels: SfdcChannelsResource;
     }
@@ -7580,7 +7580,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaSfdcChannel
+        body: GoogleCloudIntegrationsV1alphaSfdcChannel,
       ): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
       /** Deletes an sfdc channel. */
       delete(request?: {
@@ -7731,7 +7731,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaSfdcChannel
+        body: GoogleCloudIntegrationsV1alphaSfdcChannel,
       ): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
     }
     interface SfdcInstancesResource {
@@ -7791,7 +7791,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaSfdcInstance
+        body: GoogleCloudIntegrationsV1alphaSfdcInstance,
       ): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
       /** Deletes an sfdc instance. */
       delete(request?: {
@@ -7942,7 +7942,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaSfdcInstance
+        body: GoogleCloudIntegrationsV1alphaSfdcInstance,
       ): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
       sfdcChannels: SfdcChannelsResource;
     }
@@ -8003,7 +8003,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaTemplate
+        body: GoogleCloudIntegrationsV1alphaTemplate,
       ): Request<GoogleCloudIntegrationsV1alphaTemplate>;
       /** Deletes a template */
       delete(request?: {
@@ -8144,7 +8144,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaImportTemplateRequest
+        body: GoogleCloudIntegrationsV1alphaImportTemplateRequest,
       ): Request<GoogleCloudIntegrationsV1alphaImportTemplateResponse>;
       /** Lists all templates matching the filter. */
       list(request?: {
@@ -8243,7 +8243,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaTemplate
+        body: GoogleCloudIntegrationsV1alphaTemplate,
       ): Request<GoogleCloudIntegrationsV1alphaTemplate>;
       /** Search templates based on user query and filters. This api would query the templates and return a list of templates based on the user filter. */
       search(request?: {
@@ -8338,7 +8338,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaShareTemplateRequest
+        body: GoogleCloudIntegrationsV1alphaShareTemplateRequest,
       ): Request<{}>;
       /** Unshare a template from given clients. Owner of the template can unshare template with clients. Shared client can only unshare the template from itself. PERMISSION_DENIED would be thrown if request is not from owner or for unsharing itself. */
       unshare(request: {
@@ -8396,7 +8396,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaUnshareTemplateRequest
+        body: GoogleCloudIntegrationsV1alphaUnshareTemplateRequest,
       ): Request<{}>;
       /** Uploads a template. The content can be a previously downloaded template. Performs the same function as CreateTemplate, but accepts input in a string format, which holds the complete representation of the Template content. */
       upload(request: {
@@ -8454,7 +8454,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaUploadTemplateRequest
+        body: GoogleCloudIntegrationsV1alphaUploadTemplateRequest,
       ): Request<GoogleCloudIntegrationsV1alphaUploadTemplateResponse>;
       /** Use the template to create integration. This api would keep track of usage_count and last_used_time. PERMISSION_DENIED would be thrown if template is not accessible by client. */
       use(request: {
@@ -8512,7 +8512,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaUseTemplateRequest
+        body: GoogleCloudIntegrationsV1alphaUseTemplateRequest,
       ): Request<GoogleCloudIntegrationsV1alphaUseTemplateResponse>;
     }
     interface LocationsResource {
@@ -8572,7 +8572,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudIntegrationsV1alphaGenerateOpenApiSpecRequest
+        body: GoogleCloudIntegrationsV1alphaGenerateOpenApiSpecRequest,
       ): Request<GoogleCloudIntegrationsV1alphaGenerateOpenApiSpecResponse>;
       /** Gets the client configuration for the given project and location resource name */
       getClients(request?: {

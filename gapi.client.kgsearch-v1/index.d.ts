@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Knowledge Graph Search API v1 */
   function load(
-    urlOrObject: 'https://kgsearch.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://kgsearch.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'kgsearch', version: 'v1'): Promise<void>;

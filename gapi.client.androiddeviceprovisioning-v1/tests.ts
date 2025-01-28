@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://androiddeviceprovisioning.googleapis.com/$discovery/rest?version=v1'
+    'https://androiddeviceprovisioning.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.androiddeviceprovisioning */
 
@@ -38,13 +38,13 @@ gapi.load('client', async () => {
         forcedResetTime: 'Test string',
         isDefault: true,
         name: 'Test string',
-      }
+      },
     );
     /** Deletes an unused configuration. The API call fails if the customer has devices with the configuration applied. */
     await gapi.client.androiddeviceprovisioning.customers.configurations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the details of a configuration. */
     await gapi.client.androiddeviceprovisioning.customers.configurations.get({
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
         forcedResetTime: 'Test string',
         isDefault: true,
         name: 'Test string',
-      }
+      },
     );
     /** Applies a Configuration to the device to register the device for zero-touch enrollment. After applying a configuration to a device, the device automatically provisions itself on first boot, or next factory reset. */
     await gapi.client.androiddeviceprovisioning.customers.devices.applyConfiguration(
@@ -95,7 +95,7 @@ gapi.load('client', async () => {
             serialNumber: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets the details of a device. */
     await gapi.client.androiddeviceprovisioning.customers.devices.get({
@@ -127,7 +127,7 @@ gapi.load('client', async () => {
             serialNumber: 'Test string',
           },
         },
-      }
+      },
     );
     /** Unclaims a device from a customer and removes it from zero-touch enrollment. After removing a device, a customer must contact their reseller to register the device into zero-touch enrollment again. */
     await gapi.client.androiddeviceprovisioning.customers.devices.unclaim(
@@ -149,7 +149,7 @@ gapi.load('client', async () => {
             serialNumber: 'Test string',
           },
         },
-      }
+      },
     );
     /** Lists the DPCs (device policy controllers) that support zero-touch enrollment. */
     await gapi.client.androiddeviceprovisioning.customers.dpcs.list({
@@ -179,7 +179,7 @@ gapi.load('client', async () => {
           skipWelcomeEmail: true,
           termsStatus: 'Test string',
         },
-      }
+      },
     );
     /** Lists the customers that are enrolled to the reseller identified by the `partnerId` argument. This list includes customers that the reseller created and customers that enrolled themselves using the portal. */
     await gapi.client.androiddeviceprovisioning.partners.customers.list({
@@ -215,7 +215,7 @@ gapi.load('client', async () => {
         preProvisioningToken: 'Test string',
         sectionType: 'Test string',
         simlockProfileId: 'Test string',
-      }
+      },
     );
     /** Claims a batch of devices for a customer asynchronously. Adds the devices to zero-touch enrollment. To learn more, read [Long‑running batch operations](/zero-touch/guides/how-it-works#operations). */
     await gapi.client.androiddeviceprovisioning.partners.devices.claimAsync(
@@ -249,7 +249,7 @@ gapi.load('client', async () => {
             simlockProfileId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Finds devices by hardware identifiers, such as IMEI. */
     await gapi.client.androiddeviceprovisioning.partners.devices.findByIdentifier(
@@ -270,7 +270,7 @@ gapi.load('client', async () => {
         },
         limit: 'Test string',
         pageToken: 'Test string',
-      }
+      },
     );
     /** Finds devices claimed for customers. The results only contain devices registered to the reseller that's identified by the `partnerId` argument. The customer's devices purchased from other resellers don't appear in the results. */
     await gapi.client.androiddeviceprovisioning.partners.devices.findByOwner(
@@ -283,7 +283,7 @@ gapi.load('client', async () => {
         limit: 'Test string',
         pageToken: 'Test string',
         sectionType: 'Test string',
-      }
+      },
     );
     /** Gets a device. */
     await gapi.client.androiddeviceprovisioning.partners.devices.get({
@@ -306,7 +306,7 @@ gapi.load('client', async () => {
           model: 'Test string',
           serialNumber: 'Test string',
         },
-      }
+      },
     );
     /** Updates reseller metadata associated with the device. Android devices only. */
     await gapi.client.androiddeviceprovisioning.partners.devices.metadata(
@@ -320,7 +320,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Unclaims a device from a customer and removes it from zero-touch enrollment. */
     await gapi.client.androiddeviceprovisioning.partners.devices.unclaim(
@@ -343,7 +343,7 @@ gapi.load('client', async () => {
         sectionType: 'Test string',
         vacationModeDays: 42,
         vacationModeExpireTime: 'Test string',
-      }
+      },
     );
     /** Unclaims a batch of devices for a customer asynchronously. Removes the devices from zero-touch enrollment. To learn more, read [Long‑running batch operations](/zero-touch/guides/how-it-works#operations). */
     await gapi.client.androiddeviceprovisioning.partners.devices.unclaimAsync(
@@ -370,7 +370,7 @@ gapi.load('client', async () => {
             vacationModeExpireTime: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates the reseller metadata attached to a batch of devices. This method updates devices asynchronously and returns an `Operation` that can be used to track progress. Read [Long‑running batch operations](/zero-touch/guides/how-it-works#operations). Android Devices only. */
     await gapi.client.androiddeviceprovisioning.partners.devices.updateMetadataAsync(
@@ -399,7 +399,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Lists the vendors of the partner. */
     await gapi.client.androiddeviceprovisioning.partners.vendors.list({
@@ -413,7 +413,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

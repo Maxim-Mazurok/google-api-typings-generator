@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Life Sciences API v2beta */
   function load(
-    urlOrObject: 'https://lifesciences.googleapis.com/$discovery/rest?version=v2beta'
+    urlOrObject: 'https://lifesciences.googleapis.com/$discovery/rest?version=v2beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'lifesciences', version: 'v2beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'lifesciences',
     version: 'v2beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace lifesciences {
@@ -406,7 +406,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission: * `lifesciences.operations.get` */
       get(request?: {
@@ -526,7 +526,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunPipelineRequest
+        body: RunPipelineRequest,
       ): Request<Operation>;
     }
     interface LocationsResource {

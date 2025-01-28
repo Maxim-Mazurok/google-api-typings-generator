@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://merchantapi.googleapis.com/$discovery/rest?version=notifications_v1beta'
+    'https://merchantapi.googleapis.com/$discovery/rest?version=notifications_v1beta',
   );
   /** now we can use gapi.client.merchantapi */
 
@@ -42,7 +42,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         registeredEvent: 'Test string',
         targetAccount: 'Test string',
-      }
+      },
     );
     /** Deletes a notification subscription for a merchant. */
     await gapi.client.merchantapi.accounts.notificationsubscriptions.delete({
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         registeredEvent: 'Test string',
         targetAccount: 'Test string',
-      }
+      },
     );
   }
 });

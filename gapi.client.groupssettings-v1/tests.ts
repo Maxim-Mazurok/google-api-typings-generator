@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://groupssettings.googleapis.com/$discovery/rest?version=v1'
+    'https://groupssettings.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.groupsSettings */
 
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
         whoCanUnmarkFavoriteReplyOnAnyTopic: 'Test string',
         whoCanViewGroup: 'Test string',
         whoCanViewMembership: 'Test string',
-      }
+      },
     );
     /** Updates an existing resource. */
     await gapi.client.groupsSettings.groups.update(
@@ -173,7 +173,7 @@ gapi.load('client', async () => {
         whoCanUnmarkFavoriteReplyOnAnyTopic: 'Test string',
         whoCanViewGroup: 'Test string',
         whoCanViewMembership: 'Test string',
-      }
+      },
     );
   }
 });

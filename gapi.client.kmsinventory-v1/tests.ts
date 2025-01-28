@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://kmsinventory.googleapis.com/$discovery/rest?version=v1'
+    'https://kmsinventory.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.kmsinventory */
 
@@ -49,7 +49,7 @@ gapi.load('client', async () => {
     await gapi.client.kmsinventory.projects.locations.keyRings.cryptoKeys.getProtectedResourcesSummary(
       {
         name: 'Test string',
-      }
+      },
     );
   }
 });

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Wallet API v1 */
   function load(
-    urlOrObject: 'https://walletobjects.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://walletobjects.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'walletobjects', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'walletobjects',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace walletobjects {
@@ -2243,7 +2243,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<EventTicketClassAddMessageResponse>;
       /** Returns the event ticket class with the given class ID. */
       get(request?: {
@@ -2324,7 +2324,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventTicketClass
+        body: EventTicketClass,
       ): Request<EventTicketClass>;
       /** Returns a list of all event ticket classes for a given issuer ID. */
       list(request?: {
@@ -2413,7 +2413,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventTicketClass
+        body: EventTicketClass,
       ): Request<EventTicketClass>;
       /** Updates the event ticket class referenced by the given class ID. */
       update(request: {
@@ -2471,7 +2471,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventTicketClass
+        body: EventTicketClass,
       ): Request<EventTicketClass>;
     }
     interface EventticketobjectResource {
@@ -2531,7 +2531,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<EventTicketObjectAddMessageResponse>;
       /** Returns the event ticket object with the given object ID. */
       get(request?: {
@@ -2612,7 +2612,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventTicketObject
+        body: EventTicketObject,
       ): Request<EventTicketObject>;
       /** Returns a list of all event ticket objects for a given issuer ID. */
       list(request?: {
@@ -2701,7 +2701,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModifyLinkedOfferObjectsRequest
+        body: ModifyLinkedOfferObjectsRequest,
       ): Request<EventTicketObject>;
       /** Updates the event ticket object referenced by the given object ID. This method supports patch semantics. */
       patch(request: {
@@ -2759,7 +2759,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventTicketObject
+        body: EventTicketObject,
       ): Request<EventTicketObject>;
       /** Updates the event ticket object referenced by the given object ID. */
       update(request: {
@@ -2817,7 +2817,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventTicketObject
+        body: EventTicketObject,
       ): Request<EventTicketObject>;
     }
     interface FlightclassResource {
@@ -2877,7 +2877,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<FlightClassAddMessageResponse>;
       /** Returns the flight class with the given class ID. */
       get(request?: {
@@ -2958,7 +2958,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FlightClass
+        body: FlightClass,
       ): Request<FlightClass>;
       /** Returns a list of all flight classes for a given issuer ID. */
       list(request?: {
@@ -3047,7 +3047,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FlightClass
+        body: FlightClass,
       ): Request<FlightClass>;
       /** Updates the flight class referenced by the given class ID. */
       update(request: {
@@ -3105,7 +3105,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FlightClass
+        body: FlightClass,
       ): Request<FlightClass>;
     }
     interface FlightobjectResource {
@@ -3165,7 +3165,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<FlightObjectAddMessageResponse>;
       /** Returns the flight object with the given object ID. */
       get(request?: {
@@ -3246,7 +3246,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FlightObject
+        body: FlightObject,
       ): Request<FlightObject>;
       /** Returns a list of all flight objects for a given issuer ID. */
       list(request?: {
@@ -3335,7 +3335,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FlightObject
+        body: FlightObject,
       ): Request<FlightObject>;
       /** Updates the flight object referenced by the given object ID. */
       update(request: {
@@ -3393,7 +3393,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FlightObject
+        body: FlightObject,
       ): Request<FlightObject>;
     }
     interface GenericclassResource {
@@ -3453,7 +3453,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<GenericClassAddMessageResponse>;
       /** Returns the generic class with the given class ID. */
       get(request?: {
@@ -3534,7 +3534,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenericClass
+        body: GenericClass,
       ): Request<GenericClass>;
       /** Returns a list of all generic classes for a given issuer ID. */
       list(request?: {
@@ -3623,7 +3623,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenericClass
+        body: GenericClass,
       ): Request<GenericClass>;
       /** Updates the Generic class referenced by the given class ID. */
       update(request: {
@@ -3681,7 +3681,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenericClass
+        body: GenericClass,
       ): Request<GenericClass>;
     }
     interface GenericobjectResource {
@@ -3741,7 +3741,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<GenericObjectAddMessageResponse>;
       /** Returns the generic object with the given object ID. */
       get(request?: {
@@ -3822,7 +3822,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenericObject
+        body: GenericObject,
       ): Request<GenericObject>;
       /** Returns a list of all generic objects for a given issuer ID. */
       list(request?: {
@@ -3911,7 +3911,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenericObject
+        body: GenericObject,
       ): Request<GenericObject>;
       /** Updates the generic object referenced by the given object ID. */
       update(request: {
@@ -3969,7 +3969,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenericObject
+        body: GenericObject,
       ): Request<GenericObject>;
     }
     interface GiftcardclassResource {
@@ -4029,7 +4029,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<GiftCardClassAddMessageResponse>;
       /** Returns the gift card class with the given class ID. */
       get(request?: {
@@ -4110,7 +4110,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GiftCardClass
+        body: GiftCardClass,
       ): Request<GiftCardClass>;
       /** Returns a list of all gift card classes for a given issuer ID. */
       list(request?: {
@@ -4199,7 +4199,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GiftCardClass
+        body: GiftCardClass,
       ): Request<GiftCardClass>;
       /** Updates the gift card class referenced by the given class ID. */
       update(request: {
@@ -4257,7 +4257,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GiftCardClass
+        body: GiftCardClass,
       ): Request<GiftCardClass>;
     }
     interface GiftcardobjectResource {
@@ -4317,7 +4317,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<GiftCardObjectAddMessageResponse>;
       /** Returns the gift card object with the given object ID. */
       get(request?: {
@@ -4398,7 +4398,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GiftCardObject
+        body: GiftCardObject,
       ): Request<GiftCardObject>;
       /** Returns a list of all gift card objects for a given issuer ID. */
       list(request?: {
@@ -4487,7 +4487,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GiftCardObject
+        body: GiftCardObject,
       ): Request<GiftCardObject>;
       /** Updates the gift card object referenced by the given object ID. */
       update(request: {
@@ -4545,7 +4545,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GiftCardObject
+        body: GiftCardObject,
       ): Request<GiftCardObject>;
     }
     interface IssuerResource {
@@ -4628,7 +4628,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Issuer
+        body: Issuer,
       ): Request<Issuer>;
       /** Returns a list of all issuers shared to the caller. */
       list(request?: {
@@ -4711,7 +4711,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Issuer
+        body: Issuer,
       ): Request<Issuer>;
       /** Updates the issuer referenced by the given issuer ID. */
       update(request: {
@@ -4769,7 +4769,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Issuer
+        body: Issuer,
       ): Request<Issuer>;
     }
     interface JWTResource {
@@ -4825,7 +4825,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: JwtResource
+        body: JwtResource,
       ): Request<JwtInsertResponse>;
     }
     interface LoyaltyclassResource {
@@ -4885,7 +4885,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<LoyaltyClassAddMessageResponse>;
       /** Returns the loyalty class with the given class ID. */
       get(request?: {
@@ -4966,7 +4966,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LoyaltyClass
+        body: LoyaltyClass,
       ): Request<LoyaltyClass>;
       /** Returns a list of all loyalty classes for a given issuer ID. */
       list(request?: {
@@ -5055,7 +5055,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LoyaltyClass
+        body: LoyaltyClass,
       ): Request<LoyaltyClass>;
       /** Updates the loyalty class referenced by the given class ID. */
       update(request: {
@@ -5113,7 +5113,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LoyaltyClass
+        body: LoyaltyClass,
       ): Request<LoyaltyClass>;
     }
     interface LoyaltyobjectResource {
@@ -5173,7 +5173,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<LoyaltyObjectAddMessageResponse>;
       /** Returns the loyalty object with the given object ID. */
       get(request?: {
@@ -5254,7 +5254,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LoyaltyObject
+        body: LoyaltyObject,
       ): Request<LoyaltyObject>;
       /** Returns a list of all loyalty objects for a given issuer ID. */
       list(request?: {
@@ -5343,7 +5343,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModifyLinkedOfferObjectsRequest
+        body: ModifyLinkedOfferObjectsRequest,
       ): Request<LoyaltyObject>;
       /** Updates the loyalty object referenced by the given object ID. This method supports patch semantics. */
       patch(request: {
@@ -5401,7 +5401,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LoyaltyObject
+        body: LoyaltyObject,
       ): Request<LoyaltyObject>;
       /** Updates the loyalty object referenced by the given object ID. */
       update(request: {
@@ -5459,7 +5459,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LoyaltyObject
+        body: LoyaltyObject,
       ): Request<LoyaltyObject>;
     }
     interface MediaResource {
@@ -5546,7 +5546,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TransitObjectUploadRotatingBarcodeValuesRequest
+        body: TransitObjectUploadRotatingBarcodeValuesRequest,
       ): Request<{}>;
     }
     interface OfferclassResource {
@@ -5606,7 +5606,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<OfferClassAddMessageResponse>;
       /** Returns the offer class with the given class ID. */
       get(request?: {
@@ -5687,7 +5687,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OfferClass
+        body: OfferClass,
       ): Request<OfferClass>;
       /** Returns a list of all offer classes for a given issuer ID. */
       list(request?: {
@@ -5776,7 +5776,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OfferClass
+        body: OfferClass,
       ): Request<OfferClass>;
       /** Updates the offer class referenced by the given class ID. */
       update(request: {
@@ -5834,7 +5834,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OfferClass
+        body: OfferClass,
       ): Request<OfferClass>;
     }
     interface OfferobjectResource {
@@ -5894,7 +5894,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<OfferObjectAddMessageResponse>;
       /** Returns the offer object with the given object ID. */
       get(request?: {
@@ -5975,7 +5975,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OfferObject
+        body: OfferObject,
       ): Request<OfferObject>;
       /** Returns a list of all offer objects for a given issuer ID. */
       list(request?: {
@@ -6064,7 +6064,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OfferObject
+        body: OfferObject,
       ): Request<OfferObject>;
       /** Updates the offer object referenced by the given object ID. */
       update(request: {
@@ -6122,7 +6122,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OfferObject
+        body: OfferObject,
       ): Request<OfferObject>;
     }
     interface PermissionsResource {
@@ -6209,7 +6209,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Permissions
+        body: Permissions,
       ): Request<Permissions>;
     }
     interface SmarttapResource {
@@ -6265,7 +6265,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SmartTap
+        body: SmartTap,
       ): Request<SmartTap>;
     }
     interface TransitclassResource {
@@ -6325,7 +6325,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<TransitClassAddMessageResponse>;
       /** Returns the transit class with the given class ID. */
       get(request?: {
@@ -6406,7 +6406,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TransitClass
+        body: TransitClass,
       ): Request<TransitClass>;
       /** Returns a list of all transit classes for a given issuer ID. */
       list(request?: {
@@ -6495,7 +6495,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TransitClass
+        body: TransitClass,
       ): Request<TransitClass>;
       /** Updates the transit class referenced by the given class ID. */
       update(request: {
@@ -6553,7 +6553,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TransitClass
+        body: TransitClass,
       ): Request<TransitClass>;
     }
     interface TransitobjectResource {
@@ -6613,7 +6613,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMessageRequest
+        body: AddMessageRequest,
       ): Request<TransitObjectAddMessageResponse>;
       /** Returns the transit object with the given object ID. */
       get(request?: {
@@ -6694,7 +6694,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TransitObject
+        body: TransitObject,
       ): Request<TransitObject>;
       /** Returns a list of all transit objects for a given issuer ID. */
       list(request?: {
@@ -6783,7 +6783,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TransitObject
+        body: TransitObject,
       ): Request<TransitObject>;
       /** Updates the transit object referenced by the given object ID. */
       update(request: {
@@ -6841,7 +6841,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TransitObject
+        body: TransitObject,
       ): Request<TransitObject>;
     }
 

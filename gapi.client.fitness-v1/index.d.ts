@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Fitness API v1 */
   function load(
-    urlOrObject: 'https://fitness.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://fitness.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'fitness', version: 'v1'): Promise<void>;
@@ -289,7 +289,7 @@ declare namespace gapi.client {
           /** Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
           userId: string;
         },
-        body: AggregateRequest
+        body: AggregateRequest,
       ): Request<AggregateResponse>;
     }
     interface DataPointChangesResource {
@@ -458,7 +458,7 @@ declare namespace gapi.client {
           /** Patch a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
           userId: string;
         },
-        body: Dataset
+        body: Dataset,
       ): Request<Dataset>;
     }
     interface DataSourcesResource {
@@ -518,7 +518,7 @@ declare namespace gapi.client {
           /** Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
           userId: string;
         },
-        body: DataSource
+        body: DataSource,
       ): Request<DataSource>;
       /** Deletes the specified data source. The request will fail if the data source contains any data points. */
       delete(request?: {
@@ -667,7 +667,7 @@ declare namespace gapi.client {
           /** Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
           userId: string;
         },
-        body: DataSource
+        body: DataSource,
       ): Request<DataSource>;
       dataPointChanges: DataPointChangesResource;
       datasets: DatasetsResource;
@@ -799,7 +799,7 @@ declare namespace gapi.client {
           /** Create sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
           userId: string;
         },
-        body: Session
+        body: Session,
       ): Request<Session>;
     }
     interface UsersResource {

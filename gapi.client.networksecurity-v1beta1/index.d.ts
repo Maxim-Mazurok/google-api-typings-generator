@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Network Security API v1beta1 */
   function load(
-    urlOrObject: 'https://networksecurity.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://networksecurity.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'networksecurity', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'networksecurity',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace networksecurity {
@@ -990,7 +990,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddAddressGroupItemsRequest
+        body: AddAddressGroupItemsRequest,
       ): Request<Operation>;
       /** Clones items from one address group to another. */
       cloneItems(request: {
@@ -1048,7 +1048,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CloneAddressGroupItemsRequest
+        body: CloneAddressGroupItemsRequest,
       ): Request<Operation>;
       /** Creates a new address group in a given project and location. */
       create(request: {
@@ -1114,7 +1114,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddressGroup
+        body: AddressGroup,
       ): Request<Operation>;
       /** Deletes an address group. */
       delete(request?: {
@@ -1298,7 +1298,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddressGroup
+        body: AddressGroup,
       ): Request<Operation>;
       /** Removes items from an address group. */
       removeItems(request: {
@@ -1356,7 +1356,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveAddressGroupItemsRequest
+        body: RemoveAddressGroupItemsRequest,
       ): Request<Operation>;
     }
     interface FirewallEndpointsResource {
@@ -1424,7 +1424,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FirewallEndpoint
+        body: FirewallEndpoint,
       ): Request<Operation>;
       /** Deletes a single Endpoint. */
       delete(request?: {
@@ -1581,7 +1581,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FirewallEndpoint
+        body: FirewallEndpoint,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -1641,7 +1641,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -1792,7 +1792,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityProfileGroup
+        body: SecurityProfileGroup,
       ): Request<Operation>;
       /** Deletes a single SecurityProfileGroup. */
       delete(request?: {
@@ -1941,7 +1941,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityProfileGroup
+        body: SecurityProfileGroup,
       ): Request<Operation>;
     }
     interface SecurityProfilesResource {
@@ -2005,7 +2005,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityProfile
+        body: SecurityProfile,
       ): Request<Operation>;
       /** Deletes a single SecurityProfile. */
       delete(request?: {
@@ -2154,7 +2154,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityProfile
+        body: SecurityProfile,
       ): Request<Operation>;
     }
     interface LocationsResource {
@@ -2224,7 +2224,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddAddressGroupItemsRequest
+        body: AddAddressGroupItemsRequest,
       ): Request<Operation>;
       /** Clones items from one address group to another. */
       cloneItems(request: {
@@ -2282,7 +2282,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CloneAddressGroupItemsRequest
+        body: CloneAddressGroupItemsRequest,
       ): Request<Operation>;
       /** Creates a new address group in a given project and location. */
       create(request: {
@@ -2348,7 +2348,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddressGroup
+        body: AddressGroup,
       ): Request<Operation>;
       /** Deletes a single address group. */
       delete(request?: {
@@ -2561,7 +2561,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddressGroup
+        body: AddressGroup,
       ): Request<Operation>;
       /** Removes items from an address group. */
       removeItems(request: {
@@ -2619,7 +2619,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveAddressGroupItemsRequest
+        body: RemoveAddressGroupItemsRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2649,7 +2649,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2679,7 +2679,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface AuthorizationPoliciesResource {
@@ -2743,7 +2743,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AuthorizationPolicy
+        body: AuthorizationPolicy,
       ): Request<Operation>;
       /** Deletes a single AuthorizationPolicy. */
       delete(request?: {
@@ -2919,7 +2919,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AuthorizationPolicy
+        body: AuthorizationPolicy,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2949,7 +2949,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2979,7 +2979,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface AuthzPoliciesResource {
@@ -3047,7 +3047,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AuthzPolicy
+        body: AuthzPolicy,
       ): Request<Operation>;
       /** Deletes a single AuthzPolicy. */
       delete(request?: {
@@ -3233,7 +3233,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AuthzPolicy
+        body: AuthzPolicy,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -3263,7 +3263,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3293,7 +3293,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface ClientTlsPoliciesResource {
@@ -3357,7 +3357,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClientTlsPolicy
+        body: ClientTlsPolicy,
       ): Request<Operation>;
       /** Deletes a single ClientTlsPolicy. */
       delete(request?: {
@@ -3533,7 +3533,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClientTlsPolicy
+        body: ClientTlsPolicy,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -3563,7 +3563,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3593,7 +3593,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface FirewallEndpointAssociationsResource {
@@ -3661,7 +3661,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FirewallEndpointAssociation
+        body: FirewallEndpointAssociation,
       ): Request<Operation>;
       /** Deletes a single FirewallEndpointAssociation. */
       delete(request?: {
@@ -3818,7 +3818,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FirewallEndpointAssociation
+        body: FirewallEndpointAssociation,
       ): Request<Operation>;
     }
     interface RulesResource {
@@ -3882,7 +3882,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GatewaySecurityPolicyRule
+        body: GatewaySecurityPolicyRule,
       ): Request<Operation>;
       /** Deletes a single GatewaySecurityPolicyRule. */
       delete(request?: {
@@ -4029,7 +4029,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GatewaySecurityPolicyRule
+        body: GatewaySecurityPolicyRule,
       ): Request<Operation>;
     }
     interface GatewaySecurityPoliciesResource {
@@ -4093,7 +4093,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GatewaySecurityPolicy
+        body: GatewaySecurityPolicy,
       ): Request<Operation>;
       /** Deletes a single GatewaySecurityPolicy. */
       delete(request?: {
@@ -4240,7 +4240,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GatewaySecurityPolicy
+        body: GatewaySecurityPolicy,
       ): Request<Operation>;
       rules: RulesResource;
     }
@@ -4309,7 +4309,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InterceptDeploymentGroup
+        body: InterceptDeploymentGroup,
       ): Request<Operation>;
       /** Deletes a single InterceptDeploymentGroup. */
       delete(request?: {
@@ -4466,7 +4466,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InterceptDeploymentGroup
+        body: InterceptDeploymentGroup,
       ): Request<Operation>;
     }
     interface InterceptDeploymentsResource {
@@ -4534,7 +4534,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InterceptDeployment
+        body: InterceptDeployment,
       ): Request<Operation>;
       /** Deletes a single InterceptDeployment. */
       delete(request?: {
@@ -4691,7 +4691,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InterceptDeployment
+        body: InterceptDeployment,
       ): Request<Operation>;
     }
     interface InterceptEndpointGroupAssociationsResource {
@@ -4759,7 +4759,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InterceptEndpointGroupAssociation
+        body: InterceptEndpointGroupAssociation,
       ): Request<Operation>;
       /** Deletes a single InterceptEndpointGroupAssociation. */
       delete(request?: {
@@ -4916,7 +4916,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InterceptEndpointGroupAssociation
+        body: InterceptEndpointGroupAssociation,
       ): Request<Operation>;
     }
     interface InterceptEndpointGroupsResource {
@@ -4984,7 +4984,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InterceptEndpointGroup
+        body: InterceptEndpointGroup,
       ): Request<Operation>;
       /** Deletes a single InterceptEndpointGroup. */
       delete(request?: {
@@ -5141,7 +5141,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InterceptEndpointGroup
+        body: InterceptEndpointGroup,
       ): Request<Operation>;
     }
     interface MirroringDeploymentGroupsResource {
@@ -5209,7 +5209,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MirroringDeploymentGroup
+        body: MirroringDeploymentGroup,
       ): Request<Operation>;
       /** Deletes a single MirroringDeploymentGroup. */
       delete(request?: {
@@ -5366,7 +5366,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MirroringDeploymentGroup
+        body: MirroringDeploymentGroup,
       ): Request<Operation>;
     }
     interface MirroringDeploymentsResource {
@@ -5434,7 +5434,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MirroringDeployment
+        body: MirroringDeployment,
       ): Request<Operation>;
       /** Deletes a single MirroringDeployment. */
       delete(request?: {
@@ -5591,7 +5591,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MirroringDeployment
+        body: MirroringDeployment,
       ): Request<Operation>;
     }
     interface MirroringEndpointGroupAssociationsResource {
@@ -5659,7 +5659,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MirroringEndpointGroupAssociation
+        body: MirroringEndpointGroupAssociation,
       ): Request<Operation>;
       /** Deletes a single MirroringEndpointGroupAssociation. */
       delete(request?: {
@@ -5816,7 +5816,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MirroringEndpointGroupAssociation
+        body: MirroringEndpointGroupAssociation,
       ): Request<Operation>;
     }
     interface MirroringEndpointGroupsResource {
@@ -5884,7 +5884,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MirroringEndpointGroup
+        body: MirroringEndpointGroup,
       ): Request<Operation>;
       /** Deletes a single MirroringEndpointGroup. */
       delete(request?: {
@@ -6041,7 +6041,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MirroringEndpointGroup
+        body: MirroringEndpointGroup,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -6101,7 +6101,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -6252,7 +6252,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ServerTlsPolicy
+        body: ServerTlsPolicy,
       ): Request<Operation>;
       /** Deletes a single ServerTlsPolicy. */
       delete(request?: {
@@ -6428,7 +6428,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ServerTlsPolicy
+        body: ServerTlsPolicy,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -6458,7 +6458,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -6488,7 +6488,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
     }
     interface TlsInspectionPoliciesResource {
@@ -6552,7 +6552,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TlsInspectionPolicy
+        body: TlsInspectionPolicy,
       ): Request<Operation>;
       /** Deletes a single TlsInspectionPolicy. */
       delete(request?: {
@@ -6701,7 +6701,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TlsInspectionPolicy
+        body: TlsInspectionPolicy,
       ): Request<Operation>;
     }
     interface UrlListsResource {
@@ -6765,7 +6765,7 @@ declare namespace gapi.client {
           /** Required. Short name of the UrlList resource to be created. This value should be 1-63 characters long, containing only letters, numbers, hyphens, and underscores, and should not start with a number. E.g. "url_list". */
           urlListId?: string;
         },
-        body: UrlList
+        body: UrlList,
       ): Request<Operation>;
       /** Deletes a single UrlList. */
       delete(request?: {
@@ -6912,7 +6912,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UrlList
+        body: UrlList,
       ): Request<Operation>;
     }
     interface LocationsResource {

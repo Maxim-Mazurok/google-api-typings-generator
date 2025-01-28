@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Dataproc API v1 */
   function load(
-    urlOrObject: 'https://dataproc.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://dataproc.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'dataproc', version: 'v1'): Promise<void>;
@@ -2452,7 +2452,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AutoscalingPolicy
+        body: AutoscalingPolicy,
       ): Request<AutoscalingPolicy>;
       /** Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. */
       delete(request?: {
@@ -2536,7 +2536,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists autoscaling policies in the project. */
       list(request?: {
@@ -2597,7 +2597,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2627,7 +2627,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. */
       update(request: {
@@ -2685,7 +2685,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AutoscalingPolicy
+        body: AutoscalingPolicy,
       ): Request<AutoscalingPolicy>;
     }
     interface SparkApplicationsResource {
@@ -3386,7 +3386,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WriteSparkApplicationContextRequest
+        body: WriteSparkApplicationContextRequest,
       ): Request<{}>;
     }
     interface BatchesResource {
@@ -3446,7 +3446,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AnalyzeBatchRequest
+        body: AnalyzeBatchRequest,
       ): Request<Operation>;
       /** Creates a batch workload that executes asynchronously. */
       create(request: {
@@ -3512,7 +3512,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Batch
+        body: Batch,
       ): Request<Operation>;
       /** Deletes the batch workload resource. If the batch is not in a CANCELLED, SUCCEEDED or FAILED State, the delete operation fails and the response returns FAILED_PRECONDITION. */
       delete(request?: {
@@ -4419,7 +4419,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WriteSessionSparkApplicationContextRequest
+        body: WriteSessionSparkApplicationContextRequest,
       ): Request<{}>;
     }
     interface SessionsResource {
@@ -4487,7 +4487,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Session
+        body: Session,
       ): Request<Operation>;
       /** Deletes the interactive session resource. If the session is not in terminal state, it is terminated, and then deleted. */
       delete(request?: {
@@ -4634,7 +4634,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TerminateSessionRequest
+        body: TerminateSessionRequest,
       ): Request<Operation>;
       sparkApplications: SparkApplicationsResource;
     }
@@ -4695,7 +4695,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SessionTemplate
+        body: SessionTemplate,
       ): Request<SessionTemplate>;
       /** Deletes a session template. */
       delete(request?: {
@@ -4840,7 +4840,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SessionTemplate
+        body: SessionTemplate,
       ): Request<SessionTemplate>;
     }
     interface WorkflowTemplatesResource {
@@ -4900,7 +4900,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WorkflowTemplate
+        body: WorkflowTemplate,
       ): Request<WorkflowTemplate>;
       /** Deletes a workflow template. It does not cancel in-progress workflows. */
       delete(request?: {
@@ -4988,7 +4988,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
       instantiate(request: {
@@ -5046,7 +5046,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InstantiateWorkflowTemplateRequest
+        body: InstantiateWorkflowTemplateRequest,
       ): Request<Operation>;
       /** Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
       instantiateInline(request: {
@@ -5108,7 +5108,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WorkflowTemplate
+        body: WorkflowTemplate,
       ): Request<Operation>;
       /** Lists workflows that match the specified filter in the request. */
       list(request?: {
@@ -5169,7 +5169,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -5199,7 +5199,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Updates (replaces) workflow template. The updated template must contain version that matches the current server version. */
       update(request: {
@@ -5257,7 +5257,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WorkflowTemplate
+        body: WorkflowTemplate,
       ): Request<WorkflowTemplate>;
     }
     interface LocationsResource {
@@ -5325,7 +5325,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AutoscalingPolicy
+        body: AutoscalingPolicy,
       ): Request<AutoscalingPolicy>;
       /** Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. */
       delete(request?: {
@@ -5409,7 +5409,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists autoscaling policies in the project. */
       list(request?: {
@@ -5470,7 +5470,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -5500,7 +5500,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. */
       update(request: {
@@ -5558,7 +5558,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AutoscalingPolicy
+        body: AutoscalingPolicy,
       ): Request<AutoscalingPolicy>;
     }
     interface NodeGroupsResource {
@@ -5630,7 +5630,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NodeGroup
+        body: NodeGroup,
       ): Request<Operation>;
       /** Gets the resource representation for a node group in a cluster. */
       get(request?: {
@@ -5715,7 +5715,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RepairNodeGroupRequest
+        body: RepairNodeGroupRequest,
       ): Request<Operation>;
       /** Resizes a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata). */
       resize(request: {
@@ -5773,7 +5773,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResizeNodeGroupRequest
+        body: ResizeNodeGroupRequest,
       ): Request<Operation>;
     }
     interface ClustersResource {
@@ -5845,7 +5845,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       /** Deletes a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). */
       delete(request?: {
@@ -5948,7 +5948,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DiagnoseClusterRequest
+        body: DiagnoseClusterRequest,
       ): Request<Operation>;
       /** Gets the resource representation for a cluster in a project. */
       get(request?: {
@@ -6009,7 +6009,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Inject encrypted credentials into all of the VMs in a cluster.The target cluster must be a personal auth cluster assigned to the user who is issuing the RPC. */
       injectCredentials(request: {
@@ -6075,7 +6075,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InjectCredentialsRequest
+        body: InjectCredentialsRequest,
       ): Request<Operation>;
       /** Lists all regions/{region}/clusters in a project alphabetically. */
       list(request?: {
@@ -6188,7 +6188,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       /** Repairs a cluster. */
       repair(request: {
@@ -6254,7 +6254,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RepairClusterRequest
+        body: RepairClusterRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
       setIamPolicy(
@@ -6284,7 +6284,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Starts a cluster in a project. */
       start(request: {
@@ -6350,7 +6350,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartClusterRequest
+        body: StartClusterRequest,
       ): Request<Operation>;
       /** Stops a cluster in a project. */
       stop(request: {
@@ -6416,7 +6416,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopClusterRequest
+        body: StopClusterRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -6446,7 +6446,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       nodeGroups: NodeGroupsResource;
     }
@@ -6515,7 +6515,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelJobRequest
+        body: CancelJobRequest,
       ): Request<Job>;
       /** Deletes the job from the project. If the job is active, the delete fails, and the response returns FAILED_PRECONDITION. */
       delete(request?: {
@@ -6607,7 +6607,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists regions/{region}/jobs in a project. */
       list(request?: {
@@ -6716,7 +6716,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Job
+        body: Job,
       ): Request<Job>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
       setIamPolicy(
@@ -6746,7 +6746,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Submits a job to a cluster. */
       submit(request: {
@@ -6808,7 +6808,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SubmitJobRequest
+        body: SubmitJobRequest,
       ): Request<Job>;
       /** Submits job to a cluster. */
       submitAsOperation(request: {
@@ -6870,7 +6870,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SubmitJobRequest
+        body: SubmitJobRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -6900,7 +6900,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface OperationsResource {
@@ -7013,7 +7013,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED. */
       list(request?: {
@@ -7076,7 +7076,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -7106,7 +7106,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface WorkflowTemplatesResource {
@@ -7166,7 +7166,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WorkflowTemplate
+        body: WorkflowTemplate,
       ): Request<WorkflowTemplate>;
       /** Deletes a workflow template. It does not cancel in-progress workflows. */
       delete(request?: {
@@ -7254,7 +7254,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
       instantiate(request: {
@@ -7312,7 +7312,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InstantiateWorkflowTemplateRequest
+        body: InstantiateWorkflowTemplateRequest,
       ): Request<Operation>;
       /** Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
       instantiateInline(request: {
@@ -7374,7 +7374,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WorkflowTemplate
+        body: WorkflowTemplate,
       ): Request<Operation>;
       /** Lists workflows that match the specified filter in the request. */
       list(request?: {
@@ -7435,7 +7435,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -7465,7 +7465,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Updates (replaces) workflow template. The updated template must contain version that matches the current server version. */
       update(request: {
@@ -7523,7 +7523,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WorkflowTemplate
+        body: WorkflowTemplate,
       ): Request<WorkflowTemplate>;
     }
     interface RegionsResource {

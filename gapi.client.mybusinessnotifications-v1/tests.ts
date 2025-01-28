@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://mybusinessnotifications.googleapis.com/$discovery/rest?version=v1'
+    'https://mybusinessnotifications.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.mybusinessnotifications */
 
@@ -30,7 +30,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         notificationTypes: ['Test string'],
         pubsubTopic: 'Test string',
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebaseappcheck.googleapis.com/$discovery/rest?version=v1beta'
+    'https://firebaseappcheck.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.firebaseappcheck */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
         assertion: 'Test string',
         challenge: 'Test string',
         limitedUse: true,
-      }
+      },
     );
     /** Accepts an App Attest CBOR attestation and verifies it with Apple using your preconfigured team and bundle IDs. If valid, returns an attestation artifact that can later be exchanged for an AppCheckToken using ExchangeAppAttestAssertion. For convenience and performance, this method's response object will also contain an AppCheckToken (if the verification is successful). */
     await gapi.client.firebaseappcheck.oauthClients.exchangeAppAttestAttestation(
@@ -59,7 +59,7 @@ gapi.load('client', async () => {
         challenge: 'Test string',
         keyId: 'Test string',
         limitedUse: true,
-      }
+      },
     );
     /** Validates a debug token secret that you have previously created using CreateDebugToken. If valid, returns an AppCheckToken. Note that a restrictive quota is enforced on this method to prevent accidental exposure of the app to abuse. */
     await gapi.client.firebaseappcheck.oauthClients.exchangeDebugToken(
@@ -69,14 +69,14 @@ gapi.load('client', async () => {
       {
         debugToken: 'Test string',
         limitedUse: true,
-      }
+      },
     );
     /** Generates a challenge that protects the integrity of an immediately following call to ExchangeAppAttestAttestation or ExchangeAppAttestAssertion. A challenge should not be reused for multiple calls. */
     await gapi.client.firebaseappcheck.oauthClients.generateAppAttestChallenge(
       {
         app: 'Test string',
       },
-      {}
+      {},
     );
     /** Verifies the given App Check token and returns token usage signals that callers may act upon. This method currently only supports App Check tokens exchanged from the following attestation providers: * Play Integrity API * App Attest * DeviceCheck (`DCDevice` tokens) * reCAPTCHA Enterprise * reCAPTCHA v3 * Custom providers App Check tokens exchanged from debug secrets are also supported. Calling this method on an otherwise valid App Check token with an unsupported provider will cause an HTTP 400 error to be returned. Returns whether this token was already consumed before this call. If this is the first time this method has seen the given App Check token, the field `already_consumed` in the response will be absent. The given token will then be marked as `already_consumed` (set to `true`) for all future invocations of this method for that token. Note that if the given App Check token is invalid, an HTTP 403 error is returned instead of a response object, regardless whether the token was already consumed. Currently, when evaluating whether an App Check token was already consumed, only calls to this exact method are counted. Use of the App Check token elsewhere will not mark the token as being already consumed. The caller must have the [`firebaseappcheck.appCheckTokens.verify`](https://firebase.google.com/docs/projects/iam/permissions#app-check) permission to call this method. This permission is part of the [Firebase App Check Token Verifier role](https://firebase.google.com/docs/projects/iam/roles-predefined-product#app-check). */
     await gapi.client.firebaseappcheck.projects.verifyAppCheckToken(
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
       },
       {
         appCheckToken: 'Test string',
-      }
+      },
     );
     /** Accepts an App Attest assertion and an artifact previously obtained from ExchangeAppAttestAttestation and verifies those with Apple. If valid, returns an AppCheckToken. */
     await gapi.client.firebaseappcheck.projects.apps.exchangeAppAttestAssertion(
@@ -97,7 +97,7 @@ gapi.load('client', async () => {
         assertion: 'Test string',
         challenge: 'Test string',
         limitedUse: true,
-      }
+      },
     );
     /** Accepts an App Attest CBOR attestation and verifies it with Apple using your preconfigured team and bundle IDs. If valid, returns an attestation artifact that can later be exchanged for an AppCheckToken using ExchangeAppAttestAssertion. For convenience and performance, this method's response object will also contain an AppCheckToken (if the verification is successful). */
     await gapi.client.firebaseappcheck.projects.apps.exchangeAppAttestAttestation(
@@ -109,7 +109,7 @@ gapi.load('client', async () => {
         challenge: 'Test string',
         keyId: 'Test string',
         limitedUse: true,
-      }
+      },
     );
     /** Validates a custom token signed using your project's Admin SDK service account credentials. If valid, returns an AppCheckToken. */
     await gapi.client.firebaseappcheck.projects.apps.exchangeCustomToken(
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
       {
         customToken: 'Test string',
         limitedUse: true,
-      }
+      },
     );
     /** Validates a debug token secret that you have previously created using CreateDebugToken. If valid, returns an AppCheckToken. Note that a restrictive quota is enforced on this method to prevent accidental exposure of the app to abuse. */
     await gapi.client.firebaseappcheck.projects.apps.exchangeDebugToken(
@@ -129,7 +129,7 @@ gapi.load('client', async () => {
       {
         debugToken: 'Test string',
         limitedUse: true,
-      }
+      },
     );
     /** Accepts a [`device_token`](https://developer.apple.com/documentation/devicecheck/dcdevice) issued by DeviceCheck, and attempts to validate it with Apple. If valid, returns an AppCheckToken. */
     await gapi.client.firebaseappcheck.projects.apps.exchangeDeviceCheckToken(
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
       {
         deviceToken: 'Test string',
         limitedUse: true,
-      }
+      },
     );
     /** Validates an [integrity verdict response token from Play Integrity](https://developer.android.com/google/play/integrity/verdict#decrypt-verify). If valid, returns an AppCheckToken. */
     await gapi.client.firebaseappcheck.projects.apps.exchangePlayIntegrityToken(
@@ -149,7 +149,7 @@ gapi.load('client', async () => {
       {
         limitedUse: true,
         playIntegrityToken: 'Test string',
-      }
+      },
     );
     /** Validates a [reCAPTCHA Enterprise response token](https://cloud.google.com/recaptcha-enterprise/docs/create-assessment#retrieve_token). If valid, returns an App Check token AppCheckToken. */
     await gapi.client.firebaseappcheck.projects.apps.exchangeRecaptchaEnterpriseToken(
@@ -159,7 +159,7 @@ gapi.load('client', async () => {
       {
         limitedUse: true,
         recaptchaEnterpriseToken: 'Test string',
-      }
+      },
     );
     /** Validates a [reCAPTCHA v3 response token](https://developers.google.com/recaptcha/docs/v3). If valid, returns an AppCheckToken. */
     await gapi.client.firebaseappcheck.projects.apps.exchangeRecaptchaToken(
@@ -168,7 +168,7 @@ gapi.load('client', async () => {
       },
       {
         recaptchaToken: 'Test string',
-      }
+      },
     );
     /** Validates a [reCAPTCHA v3 response token](https://developers.google.com/recaptcha/docs/v3). If valid, returns an AppCheckToken. */
     await gapi.client.firebaseappcheck.projects.apps.exchangeRecaptchaV3Token(
@@ -178,7 +178,7 @@ gapi.load('client', async () => {
       {
         limitedUse: true,
         recaptchaV3Token: 'Test string',
-      }
+      },
     );
     /** Validates a [SafetyNet token](https://developer.android.com/training/safetynet/attestation#request-attestation-step). If valid, returns an AppCheckToken. */
     await gapi.client.firebaseappcheck.projects.apps.exchangeSafetyNetToken(
@@ -187,21 +187,21 @@ gapi.load('client', async () => {
       },
       {
         safetyNetToken: 'Test string',
-      }
+      },
     );
     /** Generates a challenge that protects the integrity of an immediately following call to ExchangeAppAttestAttestation or ExchangeAppAttestAssertion. A challenge should not be reused for multiple calls. */
     await gapi.client.firebaseappcheck.projects.apps.generateAppAttestChallenge(
       {
         app: 'Test string',
       },
-      {}
+      {},
     );
     /** Generates a challenge that protects the integrity of an immediately following integrity verdict request to the Play Integrity API. The next call to ExchangePlayIntegrityToken using the resulting integrity token will verify the presence and validity of the challenge. A challenge should not be reused for multiple calls. */
     await gapi.client.firebaseappcheck.projects.apps.generatePlayIntegrityChallenge(
       {
         app: 'Test string',
       },
-      {}
+      {},
     );
     /** Atomically gets the AppAttestConfigs for the specified list of apps. */
     await gapi.client.firebaseappcheck.projects.apps.appAttestConfig.batchGet({
@@ -221,7 +221,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         tokenTtl: 'Test string',
-      }
+      },
     );
     /** Creates a new DebugToken for the specified app. For security reasons, after the creation operation completes, the `token` field cannot be updated or retrieved, but you can revoke the debug token using DeleteDebugToken. Each app can have a maximum of 20 debug tokens. */
     await gapi.client.firebaseappcheck.projects.apps.debugTokens.create(
@@ -233,7 +233,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         token: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified DebugToken. A deleted debug token cannot be used to exchange for an App Check token. Use this method when you suspect the secret `token` has been compromised or when you no longer need the debug token. */
     await gapi.client.firebaseappcheck.projects.apps.debugTokens.delete({
@@ -260,14 +260,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         token: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Atomically gets the DeviceCheckConfigs for the specified list of apps. For security reasons, the `private_key` field is never populated in the response. */
     await gapi.client.firebaseappcheck.projects.apps.deviceCheckConfig.batchGet(
       {
         names: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets the DeviceCheckConfig for the specified app. For security reasons, the `private_key` field is never populated in the response. */
     await gapi.client.firebaseappcheck.projects.apps.deviceCheckConfig.get({
@@ -285,14 +285,14 @@ gapi.load('client', async () => {
         privateKey: 'Test string',
         privateKeySet: true,
         tokenTtl: 'Test string',
-      }
+      },
     );
     /** Atomically gets the PlayIntegrityConfigs for the specified list of apps. */
     await gapi.client.firebaseappcheck.projects.apps.playIntegrityConfig.batchGet(
       {
         names: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets the PlayIntegrityConfig for the specified app. */
     await gapi.client.firebaseappcheck.projects.apps.playIntegrityConfig.get({
@@ -307,7 +307,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         tokenTtl: 'Test string',
-      }
+      },
     );
     /** Atomically gets the RecaptchaConfigs for the specified list of apps. For security reasons, the `site_secret` field is never populated in the response. */
     await gapi.client.firebaseappcheck.projects.apps.recaptchaConfig.batchGet({
@@ -329,20 +329,20 @@ gapi.load('client', async () => {
         siteSecret: 'Test string',
         siteSecretSet: true,
         tokenTtl: 'Test string',
-      }
+      },
     );
     /** Atomically gets the RecaptchaEnterpriseConfigs for the specified list of apps. */
     await gapi.client.firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.batchGet(
       {
         names: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets the RecaptchaEnterpriseConfig for the specified app. */
     await gapi.client.firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Updates the RecaptchaEnterpriseConfig for the specified app. While this configuration is incomplete or invalid, the app will be unable to exchange reCAPTCHA Enterprise tokens for App Check tokens. */
     await gapi.client.firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.patch(
@@ -354,14 +354,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         siteKey: 'Test string',
         tokenTtl: 'Test string',
-      }
+      },
     );
     /** Atomically gets the RecaptchaV3Configs for the specified list of apps. For security reasons, the `site_secret` field is never populated in the response. */
     await gapi.client.firebaseappcheck.projects.apps.recaptchaV3Config.batchGet(
       {
         names: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets the RecaptchaV3Config for the specified app. For security reasons, the `site_secret` field is never populated in the response. */
     await gapi.client.firebaseappcheck.projects.apps.recaptchaV3Config.get({
@@ -378,7 +378,7 @@ gapi.load('client', async () => {
         siteSecret: 'Test string',
         siteSecretSet: true,
         tokenTtl: 'Test string',
-      }
+      },
     );
     /** Atomically gets the SafetyNetConfigs for the specified list of apps. */
     await gapi.client.firebaseappcheck.projects.apps.safetyNetConfig.batchGet({
@@ -398,7 +398,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         tokenTtl: 'Test string',
-      }
+      },
     );
     /** Atomically updates the specified Service configurations. */
     await gapi.client.firebaseappcheck.projects.services.batchUpdate(
@@ -418,7 +418,7 @@ gapi.load('client', async () => {
           },
         ],
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets the Service configuration for the specified service name. */
     await gapi.client.firebaseappcheck.projects.services.get({
@@ -441,7 +441,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Atomically updates the specified ResourcePolicy configurations. */
     await gapi.client.firebaseappcheck.projects.services.resourcePolicies.batchUpdate(
@@ -462,7 +462,7 @@ gapi.load('client', async () => {
           },
         ],
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates the specified ResourcePolicy configuration. */
     await gapi.client.firebaseappcheck.projects.services.resourcePolicies.create(
@@ -475,14 +475,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         targetResource: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified ResourcePolicy configuration. */
     await gapi.client.firebaseappcheck.projects.services.resourcePolicies.delete(
       {
         etag: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets the requested ResourcePolicy configuration. */
     await gapi.client.firebaseappcheck.projects.services.resourcePolicies.get({
@@ -507,7 +507,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         targetResource: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
   }
 });

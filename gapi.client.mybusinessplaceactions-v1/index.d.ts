@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load My Business Place Actions API v1 */
   function load(
-    urlOrObject: 'https://mybusinessplaceactions.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://mybusinessplaceactions.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'mybusinessplaceactions', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'mybusinessplaceactions',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace mybusinessplaceactions {
@@ -122,7 +122,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlaceActionLink
+        body: PlaceActionLink,
       ): Request<PlaceActionLink>;
       /** Deletes a place action link from the specified location. */
       delete(request?: {
@@ -271,7 +271,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlaceActionLink
+        body: PlaceActionLink,
       ): Request<PlaceActionLink>;
     }
     interface LocationsResource {

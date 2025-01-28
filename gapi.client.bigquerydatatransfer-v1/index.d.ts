@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load BigQuery Data Transfer API v1 */
   function load(
-    urlOrObject: 'https://bigquerydatatransfer.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://bigquerydatatransfer.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'bigquerydatatransfer', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'bigquerydatatransfer',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace bigquerydatatransfer {
@@ -370,7 +370,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CheckValidCredsRequest
+        body: CheckValidCredsRequest,
       ): Request<CheckValidCredsResponse>;
       /** Retrieves a supported data source and returns its settings. */
       get(request?: {
@@ -488,7 +488,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CheckValidCredsRequest
+        body: CheckValidCredsRequest,
       ): Request<CheckValidCredsResponse>;
       /** Retrieves a supported data source and returns its settings. */
       get(request?: {
@@ -745,7 +745,7 @@ declare namespace gapi.client {
           /** Optional version info. This parameter replaces `authorization_code` which is no longer used in any data sources. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' *or* new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to create the transfer config. */
           versionInfo?: string;
         },
-        body: TransferConfig
+        body: TransferConfig,
       ): Request<TransferConfig>;
       /** Deletes a data transfer configuration, including any associated transfer runs and logs. */
       delete(request?: {
@@ -906,7 +906,7 @@ declare namespace gapi.client {
           /** Optional version info. This parameter replaces `authorization_code` which is no longer used in any data sources. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' *or* new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to update the transfer config. */
           versionInfo?: string;
         },
-        body: TransferConfig
+        body: TransferConfig,
       ): Request<TransferConfig>;
       /** Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one transfer run is created. Note that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead. */
       scheduleRuns(request: {
@@ -964,7 +964,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ScheduleTransferRunsRequest
+        body: ScheduleTransferRunsRequest,
       ): Request<ScheduleTransferRunsResponse>;
       /** Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the run_time is between start_time (inclusive) and end_time (exclusive), or for a specific run_time. */
       startManualRuns(request: {
@@ -1022,7 +1022,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartManualTransferRunsRequest
+        body: StartManualTransferRunsRequest,
       ): Request<StartManualTransferRunsResponse>;
       runs: RunsResource;
     }
@@ -1083,7 +1083,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnrollDataSourcesRequest
+        body: EnrollDataSourcesRequest,
       ): Request<{}>;
       /** Gets information about a location. */
       get(request?: {
@@ -1201,7 +1201,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UnenrollDataSourcesRequest
+        body: UnenrollDataSourcesRequest,
       ): Request<{}>;
       dataSources: DataSourcesResource;
       transferConfigs: TransferConfigsResource;
@@ -1402,7 +1402,7 @@ declare namespace gapi.client {
           /** Optional version info. This parameter replaces `authorization_code` which is no longer used in any data sources. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' *or* new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to create the transfer config. */
           versionInfo?: string;
         },
-        body: TransferConfig
+        body: TransferConfig,
       ): Request<TransferConfig>;
       /** Deletes a data transfer configuration, including any associated transfer runs and logs. */
       delete(request?: {
@@ -1563,7 +1563,7 @@ declare namespace gapi.client {
           /** Optional version info. This parameter replaces `authorization_code` which is no longer used in any data sources. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' *or* new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to update the transfer config. */
           versionInfo?: string;
         },
-        body: TransferConfig
+        body: TransferConfig,
       ): Request<TransferConfig>;
       /** Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one transfer run is created. Note that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead. */
       scheduleRuns(request: {
@@ -1621,7 +1621,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ScheduleTransferRunsRequest
+        body: ScheduleTransferRunsRequest,
       ): Request<ScheduleTransferRunsResponse>;
       /** Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the run_time is between start_time (inclusive) and end_time (exclusive), or for a specific run_time. */
       startManualRuns(request: {
@@ -1679,7 +1679,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartManualTransferRunsRequest
+        body: StartManualTransferRunsRequest,
       ): Request<StartManualTransferRunsResponse>;
       runs: RunsResource;
     }
@@ -1740,7 +1740,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnrollDataSourcesRequest
+        body: EnrollDataSourcesRequest,
       ): Request<{}>;
       dataSources: DataSourcesResource;
       locations: LocationsResource;

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Vision API v1 */
   function load(
-    urlOrObject: 'https://vision.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://vision.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'vision', version: 'v1'): Promise<void>;
@@ -2458,7 +2458,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchAnnotateFilesRequest
+        body: BatchAnnotateFilesRequest,
       ): Request<BatchAnnotateFilesResponse>;
       /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
       asyncBatchAnnotate(request: {
@@ -2512,7 +2512,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AsyncBatchAnnotateFilesRequest
+        body: AsyncBatchAnnotateFilesRequest,
       ): Request<Operation>;
     }
     interface ImagesResource {
@@ -2568,7 +2568,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchAnnotateImagesRequest
+        body: BatchAnnotateImagesRequest,
       ): Request<BatchAnnotateImagesResponse>;
       /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
       asyncBatchAnnotate(request: {
@@ -2622,7 +2622,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AsyncBatchAnnotateImagesRequest
+        body: AsyncBatchAnnotateImagesRequest,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -2714,7 +2714,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -2861,7 +2861,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchAnnotateFilesRequest
+        body: BatchAnnotateFilesRequest,
       ): Request<BatchAnnotateFilesResponse>;
       /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
       asyncBatchAnnotate(request: {
@@ -2919,7 +2919,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AsyncBatchAnnotateFilesRequest
+        body: AsyncBatchAnnotateFilesRequest,
       ): Request<Operation>;
     }
     interface ImagesResource {
@@ -2979,7 +2979,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchAnnotateImagesRequest
+        body: BatchAnnotateImagesRequest,
       ): Request<BatchAnnotateImagesResponse>;
       /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
       asyncBatchAnnotate(request: {
@@ -3037,7 +3037,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AsyncBatchAnnotateImagesRequest
+        body: AsyncBatchAnnotateImagesRequest,
       ): Request<Operation>;
     }
     interface FilesResource {
@@ -3097,7 +3097,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchAnnotateFilesRequest
+        body: BatchAnnotateFilesRequest,
       ): Request<BatchAnnotateFilesResponse>;
       /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
       asyncBatchAnnotate(request: {
@@ -3155,7 +3155,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AsyncBatchAnnotateFilesRequest
+        body: AsyncBatchAnnotateFilesRequest,
       ): Request<Operation>;
     }
     interface ImagesResource {
@@ -3215,7 +3215,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchAnnotateImagesRequest
+        body: BatchAnnotateImagesRequest,
       ): Request<BatchAnnotateImagesResponse>;
       /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
       asyncBatchAnnotate(request: {
@@ -3273,7 +3273,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AsyncBatchAnnotateImagesRequest
+        body: AsyncBatchAnnotateImagesRequest,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -3366,7 +3366,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReferenceImage
+        body: ReferenceImage,
       ): Request<ReferenceImage>;
       /** Permanently deletes a reference image. The image metadata will be deleted right away, but search queries against ProductSets containing the image may still work until all related caches are refreshed. The actual image files are not deleted from Google Cloud Storage. */
       delete(request?: {
@@ -3515,7 +3515,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Product
+        body: Product,
       ): Request<Product>;
       /** Permanently deletes a product and its reference images. Metadata of the product and all its images will be deleted right away, but search queries against ProductSets containing the product may still work until all related caches are refreshed. */
       delete(request?: {
@@ -3662,7 +3662,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Product
+        body: Product,
       ): Request<Product>;
       /** Asynchronous API to delete all Products in a ProductSet or all Products that are in no ProductSet. If a Product is a member of the specified ProductSet in addition to other ProductSets, the Product will still be deleted. It is recommended to not delete the specified ProductSet until after this operation has completed. It is also recommended to not add any of the Products involved in the batch delete to a new ProductSet while this operation is running because those Products may still end up deleted. It's not possible to undo the PurgeProducts operation. Therefore, it is recommended to keep the csv files used in ImportProductSets (if that was how you originally built the Product Set) before starting PurgeProducts, in case you need to re-import the data after deletion. If the plan is to purge all of the Products from a ProductSet and then re-use the empty ProductSet to re-import new Products into the empty ProductSet, you must wait until the PurgeProducts operation has finished for that ProductSet. The google.longrunning.Operation API can be used to keep track of the progress and results of the request. `Operation.metadata` contains `BatchOperationMetadata`. (progress) */
       purge(request: {
@@ -3720,7 +3720,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PurgeProductsRequest
+        body: PurgeProductsRequest,
       ): Request<Operation>;
       referenceImages: ReferenceImagesResource;
     }
@@ -3814,7 +3814,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddProductToProductSetRequest
+        body: AddProductToProductSetRequest,
       ): Request<{}>;
       /** Creates and returns a new ProductSet resource. Possible errors: * Returns INVALID_ARGUMENT if display_name is missing, or is longer than 4096 characters. */
       create(request: {
@@ -3876,7 +3876,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProductSet
+        body: ProductSet,
       ): Request<ProductSet>;
       /** Permanently deletes a ProductSet. Products and ReferenceImages in the ProductSet are not deleted. The actual image files are not deleted from Google Cloud Storage. */
       delete(request?: {
@@ -3988,7 +3988,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportProductSetsRequest
+        body: ImportProductSetsRequest,
       ): Request<Operation>;
       /** Lists ProductSets in an unspecified order. Possible errors: * Returns INVALID_ARGUMENT if page_size is greater than 100, or less than 1. */
       list(request?: {
@@ -4081,7 +4081,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProductSet
+        body: ProductSet,
       ): Request<ProductSet>;
       /** Removes a Product from the specified ProductSet. */
       removeProduct(request: {
@@ -4139,7 +4139,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveProductFromProductSetRequest
+        body: RemoveProductFromProductSetRequest,
       ): Request<{}>;
       products: ProductsResource;
     }

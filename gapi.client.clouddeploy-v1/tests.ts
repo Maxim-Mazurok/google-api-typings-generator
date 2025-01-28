@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://clouddeploy.googleapis.com/$discovery/rest?version=v1'
+    'https://clouddeploy.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.clouddeploy */
 
@@ -91,7 +91,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single CustomTargetType. */
     await gapi.client.clouddeploy.projects.locations.customTargetTypes.delete({
@@ -110,7 +110,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists CustomTargetTypes in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.customTargetTypes.list({
@@ -166,7 +166,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.clouddeploy.projects.locations.customTargetTypes.setIamPolicy(
@@ -202,7 +202,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates a new DeliveryPipeline in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.create(
@@ -326,7 +326,7 @@ gapi.load('client', async () => {
         suspended: true,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single DeliveryPipeline. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.delete({
@@ -346,7 +346,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists DeliveryPipelines in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.list({
@@ -479,7 +479,7 @@ gapi.load('client', async () => {
         suspended: true,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a `Rollout` to roll back the specified target. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.rollbackTarget(
@@ -652,7 +652,7 @@ gapi.load('client', async () => {
         rolloutToRollBack: 'Test string',
         targetId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.setIamPolicy(
@@ -688,7 +688,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.testIamPermissions(
@@ -697,20 +697,20 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Cancels an AutomationRun. The `state` of the `AutomationRun` after cancelling is `CANCELLED`. `CancelAutomationRun` can be called on AutomationRun in the state `IN_PROGRESS` and `PENDING`; AutomationRun in a different state returns an `FAILED_PRECONDITION` error. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automationRuns.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets details of a single AutomationRun. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automationRuns.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists AutomationRuns in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automationRuns.list(
@@ -720,7 +720,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new Automation in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.create(
@@ -859,7 +859,7 @@ gapi.load('client', async () => {
         suspended: true,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Automation resource. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.delete(
@@ -869,13 +869,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         requestId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Gets details of a single Automation. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Automations in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.list(
@@ -885,7 +885,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single Automation resource. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.patch(
@@ -1025,14 +1025,14 @@ gapi.load('client', async () => {
         suspended: true,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Abandons a Release in the Delivery Pipeline. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.abandon(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new Release in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.create(
@@ -1344,13 +1344,13 @@ gapi.load('client', async () => {
           },
         ],
         uid: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Release. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Releases in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.list(
@@ -1360,7 +1360,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Advances a Rollout in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.advance(
@@ -1370,7 +1370,7 @@ gapi.load('client', async () => {
       {
         overrideDeployPolicy: ['Test string'],
         phaseId: 'Test string',
-      }
+      },
     );
     /** Approves a Rollout. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.approve(
@@ -1380,7 +1380,7 @@ gapi.load('client', async () => {
       {
         approved: true,
         overrideDeployPolicy: ['Test string'],
-      }
+      },
     );
     /** Cancels a Rollout in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.cancel(
@@ -1389,7 +1389,7 @@ gapi.load('client', async () => {
       },
       {
         overrideDeployPolicy: ['Test string'],
-      }
+      },
     );
     /** Creates a new Rollout in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.create(
@@ -1556,13 +1556,13 @@ gapi.load('client', async () => {
         state: 'Test string',
         targetId: 'Test string',
         uid: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Rollout. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Ignores the specified Job in a Rollout. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.ignoreJob(
@@ -1573,7 +1573,7 @@ gapi.load('client', async () => {
         jobId: 'Test string',
         overrideDeployPolicy: ['Test string'],
         phaseId: 'Test string',
-      }
+      },
     );
     /** Lists Rollouts in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.list(
@@ -1583,7 +1583,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Retries the specified Job in a Rollout. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.retryJob(
@@ -1594,13 +1594,13 @@ gapi.load('client', async () => {
         jobId: 'Test string',
         overrideDeployPolicy: ['Test string'],
         phaseId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single JobRun. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists JobRuns in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.list(
@@ -1610,7 +1610,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Terminates a Job Run in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.terminate(
@@ -1619,7 +1619,7 @@ gapi.load('client', async () => {
       },
       {
         overrideDeployPolicy: ['Test string'],
-      }
+      },
     );
     /** Creates a new DeployPolicy in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deployPolicies.create(
@@ -1714,7 +1714,7 @@ gapi.load('client', async () => {
         suspended: true,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single DeployPolicy. */
     await gapi.client.clouddeploy.projects.locations.deployPolicies.delete({
@@ -1733,7 +1733,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists DeployPolicies in a given project and location. */
     await gapi.client.clouddeploy.projects.locations.deployPolicies.list({
@@ -1837,7 +1837,7 @@ gapi.load('client', async () => {
         suspended: true,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.clouddeploy.projects.locations.deployPolicies.setIamPolicy(
@@ -1873,14 +1873,14 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.clouddeploy.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.clouddeploy.projects.locations.operations.delete({
@@ -1977,7 +1977,7 @@ gapi.load('client', async () => {
         targetId: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Target. */
     await gapi.client.clouddeploy.projects.locations.targets.delete({
@@ -2085,7 +2085,7 @@ gapi.load('client', async () => {
         targetId: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.clouddeploy.projects.locations.targets.setIamPolicy(
@@ -2121,7 +2121,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.clouddeploy.projects.locations.targets.testIamPermissions(
@@ -2130,7 +2130,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

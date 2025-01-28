@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Web Search Indexing API v3 */
   function load(
-    urlOrObject: 'https://indexing.googleapis.com/$discovery/rest?version=v3'
+    urlOrObject: 'https://indexing.googleapis.com/$discovery/rest?version=v3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'indexing', version: 'v3'): Promise<void>;
@@ -124,7 +124,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UrlNotification
+        body: UrlNotification,
       ): Request<PublishUrlNotificationResponse>;
     }
 

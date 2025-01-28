@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://datalabeling.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://datalabeling.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.datalabeling */
 
@@ -50,7 +50,7 @@ gapi.load('client', async () => {
           displayName: 'Test string',
           name: 'Test string',
         },
-      }
+      },
     );
     /** Deletes an annotation spec set by resource name. */
     await gapi.client.datalabeling.projects.annotationSpecSets.delete({
@@ -101,7 +101,7 @@ gapi.load('client', async () => {
           lastMigrateTime: 'Test string',
           name: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a dataset by resource name. */
     await gapi.client.datalabeling.projects.datasets.delete({
@@ -125,7 +125,7 @@ gapi.load('client', async () => {
           },
         },
         userEmailAddress: 'Test string',
-      }
+      },
     );
     /** Gets dataset by resource name. */
     await gapi.client.datalabeling.projects.datasets.get({
@@ -155,7 +155,7 @@ gapi.load('client', async () => {
           },
         },
         userEmailAddress: 'Test string',
-      }
+      },
     );
     /** Lists datasets under a project. Pagination is supported. */
     await gapi.client.datalabeling.projects.datasets.list({
@@ -183,7 +183,7 @@ gapi.load('client', async () => {
     await gapi.client.datalabeling.projects.datasets.annotatedDatasets.dataItems.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported. */
     await gapi.client.datalabeling.projects.datasets.annotatedDatasets.dataItems.list(
@@ -192,14 +192,14 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets an example by resource name, including both data and annotation. */
     await gapi.client.datalabeling.projects.datasets.annotatedDatasets.examples.get(
       {
         filter: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Lists examples in an annotated dataset. Pagination is supported. */
     await gapi.client.datalabeling.projects.datasets.annotatedDatasets.examples.list(
@@ -208,19 +208,19 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Delete a FeedbackThread. */
     await gapi.client.datalabeling.projects.datasets.annotatedDatasets.feedbackThreads.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get a FeedbackThread object. */
     await gapi.client.datalabeling.projects.datasets.annotatedDatasets.feedbackThreads.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List FeedbackThreads with pagination. */
     await gapi.client.datalabeling.projects.datasets.annotatedDatasets.feedbackThreads.list(
@@ -228,7 +228,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Create a FeedbackMessage object. */
     await gapi.client.datalabeling.projects.datasets.annotatedDatasets.feedbackThreads.feedbackMessages.create(
@@ -242,19 +242,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         operatorFeedbackMetadata: {},
         requesterFeedbackMetadata: {},
-      }
+      },
     );
     /** Delete a FeedbackMessage. */
     await gapi.client.datalabeling.projects.datasets.annotatedDatasets.feedbackThreads.feedbackMessages.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get a FeedbackMessage object. */
     await gapi.client.datalabeling.projects.datasets.annotatedDatasets.feedbackThreads.feedbackMessages.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List FeedbackMessages with pagination. */
     await gapi.client.datalabeling.projects.datasets.annotatedDatasets.feedbackThreads.feedbackMessages.list(
@@ -262,7 +262,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets a data item in a dataset by resource name. This API can be called after data are imported into dataset. */
     await gapi.client.datalabeling.projects.datasets.dataItems.get({
@@ -287,7 +287,7 @@ gapi.load('client', async () => {
       {
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Starts a labeling task for image. The type of image labeling task is configured by feature in the request. */
     await gapi.client.datalabeling.projects.datasets.image.label(
@@ -324,7 +324,7 @@ gapi.load('client', async () => {
           annotationSpecSet: 'Test string',
           instructionMessage: 'Test string',
         },
-      }
+      },
     );
     /** Starts a labeling task for text. The type of text labeling task is configured by feature in the request. */
     await gapi.client.datalabeling.projects.datasets.text.label(
@@ -354,7 +354,7 @@ gapi.load('client', async () => {
         textEntityExtractionConfig: {
           annotationSpecSet: 'Test string',
         },
-      }
+      },
     );
     /** Starts a labeling task for video. The type of video labeling task is configured by feature in the request. */
     await gapi.client.datalabeling.projects.datasets.video.label(
@@ -397,7 +397,7 @@ gapi.load('client', async () => {
           ],
           applyShotDetection: true,
         },
-      }
+      },
     );
     /** Creates an evaluation job. */
     await gapi.client.datalabeling.projects.evaluationJobs.create(
@@ -491,7 +491,7 @@ gapi.load('client', async () => {
           schedule: 'Test string',
           state: 'Test string',
         },
-      }
+      },
     );
     /** Stops and deletes an evaluation job. */
     await gapi.client.datalabeling.projects.evaluationJobs.delete({
@@ -599,21 +599,21 @@ gapi.load('client', async () => {
         name: 'Test string',
         schedule: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Pauses an evaluation job. Pausing an evaluation job that is already in a `PAUSED` state is a no-op. */
     await gapi.client.datalabeling.projects.evaluationJobs.pause(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Resumes a paused evaluation job. A deleted evaluation job can't be resumed. Resuming a running or scheduled evaluation job is a no-op. */
     await gapi.client.datalabeling.projects.evaluationJobs.resume(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Searches evaluations within a project. */
     await gapi.client.datalabeling.projects.evaluations.search({
@@ -643,7 +643,7 @@ gapi.load('client', async () => {
           },
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Deletes an instruction object by resource name. */
     await gapi.client.datalabeling.projects.instructions.delete({

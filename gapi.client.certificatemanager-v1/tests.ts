@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://certificatemanager.googleapis.com/$discovery/rest?version=v1'
+    'https://certificatemanager.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.certificatemanager */
 
@@ -64,19 +64,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         rotationWindowPercentage: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single CertificateIssuanceConfig. */
     await gapi.client.certificatemanager.projects.locations.certificateIssuanceConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single CertificateIssuanceConfig. */
     await gapi.client.certificatemanager.projects.locations.certificateIssuanceConfigs.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists CertificateIssuanceConfigs in a given project and location. */
     await gapi.client.certificatemanager.projects.locations.certificateIssuanceConfigs.list(
@@ -86,7 +86,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a CertificateIssuanceConfig. */
     await gapi.client.certificatemanager.projects.locations.certificateIssuanceConfigs.patch(
@@ -110,7 +110,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         rotationWindowPercentage: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new CertificateMap in a given project and location. */
     await gapi.client.certificatemanager.projects.locations.certificateMaps.create(
@@ -138,19 +138,19 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single CertificateMap. A Certificate Map can't be deleted if it contains Certificate Map Entries. Remove all the entries from the map before calling this method. */
     await gapi.client.certificatemanager.projects.locations.certificateMaps.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single CertificateMap. */
     await gapi.client.certificatemanager.projects.locations.certificateMaps.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists CertificateMaps in a given project and location. */
     await gapi.client.certificatemanager.projects.locations.certificateMaps.list(
@@ -160,7 +160,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a CertificateMap. */
     await gapi.client.certificatemanager.projects.locations.certificateMaps.patch(
@@ -188,7 +188,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new CertificateMapEntry in a given project and location. */
     await gapi.client.certificatemanager.projects.locations.certificateMaps.certificateMapEntries.create(
@@ -208,19 +208,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single CertificateMapEntry. */
     await gapi.client.certificatemanager.projects.locations.certificateMaps.certificateMapEntries.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single CertificateMapEntry. */
     await gapi.client.certificatemanager.projects.locations.certificateMaps.certificateMapEntries.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists CertificateMapEntries in a given project and location. */
     await gapi.client.certificatemanager.projects.locations.certificateMaps.certificateMapEntries.list(
@@ -230,7 +230,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a CertificateMapEntry. */
     await gapi.client.certificatemanager.projects.locations.certificateMaps.certificateMapEntries.patch(
@@ -250,7 +250,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new Certificate in a given project and location. */
     await gapi.client.certificatemanager.projects.locations.certificates.create(
@@ -292,13 +292,13 @@ gapi.load('client', async () => {
           pemPrivateKey: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Certificate. */
     await gapi.client.certificatemanager.projects.locations.certificates.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Certificate. */
     await gapi.client.certificatemanager.projects.locations.certificates.get({
@@ -352,7 +352,7 @@ gapi.load('client', async () => {
           pemPrivateKey: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new DnsAuthorization in a given project and location. */
     await gapi.client.certificatemanager.projects.locations.dnsAuthorizations.create(
@@ -375,19 +375,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single DnsAuthorization. */
     await gapi.client.certificatemanager.projects.locations.dnsAuthorizations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single DnsAuthorization. */
     await gapi.client.certificatemanager.projects.locations.dnsAuthorizations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists DnsAuthorizations in a given project and location. */
     await gapi.client.certificatemanager.projects.locations.dnsAuthorizations.list(
@@ -397,7 +397,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a DnsAuthorization. */
     await gapi.client.certificatemanager.projects.locations.dnsAuthorizations.patch(
@@ -420,14 +420,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.certificatemanager.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.certificatemanager.projects.locations.operations.delete({
@@ -478,14 +478,14 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single TrustConfig. */
     await gapi.client.certificatemanager.projects.locations.trustConfigs.delete(
       {
         etag: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single TrustConfig. */
     await gapi.client.certificatemanager.projects.locations.trustConfigs.get({
@@ -533,7 +533,7 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
   }
 });

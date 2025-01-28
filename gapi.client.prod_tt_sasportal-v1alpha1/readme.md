@@ -29,7 +29,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.prod_tt_sasportal
-  }
+  },
 );
 ```
 
@@ -64,7 +64,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 

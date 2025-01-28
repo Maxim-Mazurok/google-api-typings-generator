@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://osconfig.googleapis.com/$discovery/rest?version=v2beta'
+    'https://osconfig.googleapis.com/$discovery/rest?version=v2beta',
   );
   /** now we can use gapi.client.osconfig */
 
@@ -316,7 +316,7 @@ gapi.load('client', async () => {
         reconciling: true,
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing policy orchestrator resource, parented by a folder. */
     await gapi.client.osconfig.folders.locations.global.policyOrchestrators.delete(
@@ -324,13 +324,13 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Retrieves an existing policy orchestrator, parented by a folder. */
     await gapi.client.osconfig.folders.locations.global.policyOrchestrators.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the policy orchestrators under the given parent folder resource. */
     await gapi.client.osconfig.folders.locations.global.policyOrchestrators.list(
@@ -340,7 +340,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an existing policy orchestrator, parented by a folder. */
     await gapi.client.osconfig.folders.locations.global.policyOrchestrators.patch(
@@ -626,14 +626,14 @@ gapi.load('client', async () => {
         reconciling: true,
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.osconfig.folders.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.osconfig.folders.locations.operations.delete({
@@ -935,7 +935,7 @@ gapi.load('client', async () => {
         reconciling: true,
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing policy orchestrator resource, parented by an organization. */
     await gapi.client.osconfig.organizations.locations.global.policyOrchestrators.delete(
@@ -943,13 +943,13 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Retrieves an existing policy orchestrator, parented by an organization. */
     await gapi.client.osconfig.organizations.locations.global.policyOrchestrators.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the policy orchestrators under the given parent organization resource. */
     await gapi.client.osconfig.organizations.locations.global.policyOrchestrators.list(
@@ -959,7 +959,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an existing policy orchestrator, parented by an organization. */
     await gapi.client.osconfig.organizations.locations.global.policyOrchestrators.patch(
@@ -1245,14 +1245,14 @@ gapi.load('client', async () => {
         reconciling: true,
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.osconfig.organizations.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.osconfig.organizations.locations.operations.delete({
@@ -1554,7 +1554,7 @@ gapi.load('client', async () => {
         reconciling: true,
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing policy orchestrator resource, parented by a project. */
     await gapi.client.osconfig.projects.locations.global.policyOrchestrators.delete(
@@ -1562,13 +1562,13 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Retrieves an existing policy orchestrator, parented by a project. */
     await gapi.client.osconfig.projects.locations.global.policyOrchestrators.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the policy orchestrators under the given parent project resource. */
     await gapi.client.osconfig.projects.locations.global.policyOrchestrators.list(
@@ -1578,7 +1578,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an existing policy orchestrator, parented by a project. */
     await gapi.client.osconfig.projects.locations.global.policyOrchestrators.patch(
@@ -1864,14 +1864,14 @@ gapi.load('client', async () => {
         reconciling: true,
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.osconfig.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.osconfig.projects.locations.operations.delete({

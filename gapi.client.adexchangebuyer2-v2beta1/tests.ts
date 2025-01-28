@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://adexchangebuyer.googleapis.com/$discovery/rest?version=v2beta1'
+    'https://adexchangebuyer.googleapis.com/$discovery/rest?version=v2beta1',
   );
   /** now we can use gapi.client.adexchangebuyer2 */
 
@@ -46,7 +46,7 @@ gapi.load('client', async () => {
         role: 'Test string',
         status: 'Test string',
         visibleToSeller: true,
-      }
+      },
     );
     /** Gets a client buyer with a given client account ID. */
     await gapi.client.adexchangebuyer2.accounts.clients.get({
@@ -76,7 +76,7 @@ gapi.load('client', async () => {
         role: 'Test string',
         status: 'Test string',
         visibleToSeller: true,
-      }
+      },
     );
     /** Creates and sends out an email invitation to access an Ad Exchange client buyer account. */
     await gapi.client.adexchangebuyer2.accounts.clients.invitations.create(
@@ -88,7 +88,7 @@ gapi.load('client', async () => {
         clientAccountId: 'Test string',
         email: 'Test string',
         invitationId: 'Test string',
-      }
+      },
     );
     /** Retrieves an existing client user invitation. */
     await gapi.client.adexchangebuyer2.accounts.clients.invitations.get({
@@ -128,7 +128,7 @@ gapi.load('client', async () => {
         email: 'Test string',
         status: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Creates a creative. */
     await gapi.client.adexchangebuyer2.accounts.creatives.create(
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
           videoUrl: 'Test string',
           videoVastXml: 'Test string',
         },
-      }
+      },
     );
     /** Gets a creative. */
     await gapi.client.adexchangebuyer2.accounts.creatives.get({
@@ -278,7 +278,7 @@ gapi.load('client', async () => {
         accountId: 'Test string',
         creativeId: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates a creative. */
     await gapi.client.adexchangebuyer2.accounts.creatives.update(
@@ -408,7 +408,7 @@ gapi.load('client', async () => {
           videoUrl: 'Test string',
           videoVastXml: 'Test string',
         },
-      }
+      },
     );
     /** Watches a creative. Will result in push notifications being sent to the topic when the creative changes status. */
     await gapi.client.adexchangebuyer2.accounts.creatives.watch(
@@ -418,7 +418,7 @@ gapi.load('client', async () => {
       },
       {
         topic: 'Test string',
-      }
+      },
     );
     /** Associate an existing deal with a creative. */
     await gapi.client.adexchangebuyer2.accounts.creatives.dealAssociations.add(
@@ -432,7 +432,7 @@ gapi.load('client', async () => {
           creativeId: 'Test string',
           dealsId: 'Test string',
         },
-      }
+      },
     );
     /** List all creative-deal associations. */
     await gapi.client.adexchangebuyer2.accounts.creatives.dealAssociations.list(
@@ -442,7 +442,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         query: 'Test string',
-      }
+      },
     );
     /** Remove the association between a deal and a creative. */
     await gapi.client.adexchangebuyer2.accounts.creatives.dealAssociations.remove(
@@ -456,7 +456,7 @@ gapi.load('client', async () => {
           creativeId: 'Test string',
           dealsId: 'Test string',
         },
-      }
+      },
     );
     /** List finalized proposals, regardless if a proposal is being renegotiated. A filter expression (PQL query) may be specified to filter the results. The notes will not be returned. */
     await gapi.client.adexchangebuyer2.accounts.finalizedProposals.list({
@@ -475,7 +475,7 @@ gapi.load('client', async () => {
       {
         externalDealIds: ['Test string'],
         reason: 'Test string',
-      }
+      },
     );
     /** Update given deals to resume serving. This method will set the `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to false for all listed deals in the request. Currently, this method only applies to PG and PD deals. For PA deals, call accounts.proposals.resume endpoint. It is a no-op to resume running deals or deals paused by the other party. It is an error to call ResumeProposalDeals for deals which are not part of the proposal of proposal_id or which are not finalized or renegotiating. */
     await gapi.client.adexchangebuyer2.accounts.finalizedProposals.resume(
@@ -485,7 +485,7 @@ gapi.load('client', async () => {
       },
       {
         externalDealIds: ['Test string'],
-      }
+      },
     );
     /** Gets the requested product by ID. */
     await gapi.client.adexchangebuyer2.accounts.products.get({
@@ -507,7 +507,7 @@ gapi.load('client', async () => {
       },
       {
         proposalRevision: 'Test string',
-      }
+      },
     );
     /** Create a new note and attach it to the proposal. The note is assigned a unique ID by the server. The proposal revision number will not increase when associated with a new note. */
     await gapi.client.adexchangebuyer2.accounts.proposals.addNote(
@@ -523,7 +523,7 @@ gapi.load('client', async () => {
           noteId: 'Test string',
           proposalRevision: 'Test string',
         },
-      }
+      },
     );
     /** Cancel an ongoing negotiation on a proposal. This does not cancel or end serving for the deals if the proposal has been finalized, but only cancels a negotiation unilaterally. */
     await gapi.client.adexchangebuyer2.accounts.proposals.cancelNegotiation(
@@ -531,7 +531,7 @@ gapi.load('client', async () => {
         accountId: 'Test string',
         proposalId: 'Test string',
       },
-      {}
+      {},
     );
     /** You can opt-in to manually update proposals to indicate that setup is complete. By default, proposal setup is automatically completed after their deals are finalized. Contact your Technical Account Manager to opt in. Buyers can call this method when the proposal has been finalized, and all the required creatives have been uploaded using the Creatives API. This call updates the `is_setup_completed` field on the deals in the proposal, and notifies the seller. The server then advances the revision number of the most recent proposal. To mark an individual deal as ready to serve, call `buyers.finalizedDeals.setReadyToServe` in the Marketplace API. */
     await gapi.client.adexchangebuyer2.accounts.proposals.completeSetup(
@@ -539,7 +539,7 @@ gapi.load('client', async () => {
         accountId: 'Test string',
         proposalId: 'Test string',
       },
-      {}
+      {},
     );
     /** Create the given proposal. Each created proposal and any deals it contains are assigned a unique ID by the server. */
     await gapi.client.adexchangebuyer2.accounts.proposals.create(
@@ -884,7 +884,7 @@ gapi.load('client', async () => {
         ],
         termsAndConditions: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets a proposal given its ID. The proposal is returned at its head revision. */
     await gapi.client.adexchangebuyer2.accounts.proposals.get({
@@ -907,7 +907,7 @@ gapi.load('client', async () => {
       },
       {
         reason: 'Test string',
-      }
+      },
     );
     /** Update the given proposal to resume serving. This method will set the `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to false for all deals in the proposal. Note that if the `has_seller_paused` bit is also set, serving will not resume until the seller also resumes. It is a no-op to resume an already-running proposal. It is an error to call ResumeProposal for a proposal that is not finalized or renegotiating. */
     await gapi.client.adexchangebuyer2.accounts.proposals.resume(
@@ -915,7 +915,7 @@ gapi.load('client', async () => {
         accountId: 'Test string',
         proposalId: 'Test string',
       },
-      {}
+      {},
     );
     /** Update the given proposal at the client known revision number. If the server revision has advanced since the passed-in `proposal.proposal_revision`, an `ABORTED` error message will be returned. Only the buyer-modifiable fields of the proposal will be updated. Note that the deals in the proposal will be updated to match the passed-in copy. If a passed-in deal does not have a `deal_id`, the server will assign a new unique ID and create the deal. If passed-in deal has a `deal_id`, it will be updated to match the passed-in copy. Any existing deals not present in the passed-in proposal will be deleted. It is an error to pass in a deal with a `deal_id` not present at head. */
     await gapi.client.adexchangebuyer2.accounts.proposals.update(
@@ -1261,7 +1261,7 @@ gapi.load('client', async () => {
         ],
         termsAndConditions: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the requested publisher profile by id. */
     await gapi.client.adexchangebuyer2.accounts.publisherProfiles.get({
@@ -1311,7 +1311,7 @@ gapi.load('client', async () => {
         },
         sellerNetworkIds: [42],
         timeSeriesGranularity: 'Test string',
-      }
+      },
     );
     /** Deletes the requested filter set from the account with the given account ID. */
     await gapi.client.adexchangebuyer2.bidders.accounts.filterSets.delete({
@@ -1333,7 +1333,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all errors that occurred in bid responses, with the number of bid responses affected for each reason. */
     await gapi.client.adexchangebuyer2.bidders.accounts.filterSets.bidResponseErrors.list(
@@ -1341,7 +1341,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons for which bid responses were considered to have no applicable bids, with the number of bid responses affected for each reason. */
     await gapi.client.adexchangebuyer2.bidders.accounts.filterSets.bidResponsesWithoutBids.list(
@@ -1349,7 +1349,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons that caused a bid request not to be sent for an impression, with the number of bid requests not sent for each reason. */
     await gapi.client.adexchangebuyer2.bidders.accounts.filterSets.filteredBidRequests.list(
@@ -1357,7 +1357,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons for which bids were filtered, with the number of bids filtered for each reason. */
     await gapi.client.adexchangebuyer2.bidders.accounts.filterSets.filteredBids.list(
@@ -1365,7 +1365,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all creatives associated with a specific reason for which bids were filtered, with the number of bids filtered for each creative. */
     await gapi.client.adexchangebuyer2.bidders.accounts.filterSets.filteredBids.creatives.list(
@@ -1374,7 +1374,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all details associated with a specific reason for which bids were filtered, with the number of bids filtered for each detail. */
     await gapi.client.adexchangebuyer2.bidders.accounts.filterSets.filteredBids.details.list(
@@ -1383,7 +1383,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Lists all metrics that are measured in terms of number of impressions. */
     await gapi.client.adexchangebuyer2.bidders.accounts.filterSets.impressionMetrics.list(
@@ -1391,7 +1391,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons for which bids lost in the auction, with the number of bids that lost for each reason. */
     await gapi.client.adexchangebuyer2.bidders.accounts.filterSets.losingBids.list(
@@ -1399,7 +1399,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons for which winning bids were not billable, with the number of bids not billed for each reason. */
     await gapi.client.adexchangebuyer2.bidders.accounts.filterSets.nonBillableWinningBids.list(
@@ -1407,7 +1407,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates the specified filter set for the account with the given account ID. */
     await gapi.client.adexchangebuyer2.bidders.filterSets.create(
@@ -1446,7 +1446,7 @@ gapi.load('client', async () => {
         },
         sellerNetworkIds: [42],
         timeSeriesGranularity: 'Test string',
-      }
+      },
     );
     /** Deletes the requested filter set from the account with the given account ID. */
     await gapi.client.adexchangebuyer2.bidders.filterSets.delete({
@@ -1474,7 +1474,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons for which bid responses were considered to have no applicable bids, with the number of bid responses affected for each reason. */
     await gapi.client.adexchangebuyer2.bidders.filterSets.bidResponsesWithoutBids.list(
@@ -1482,7 +1482,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons that caused a bid request not to be sent for an impression, with the number of bid requests not sent for each reason. */
     await gapi.client.adexchangebuyer2.bidders.filterSets.filteredBidRequests.list(
@@ -1490,7 +1490,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons for which bids were filtered, with the number of bids filtered for each reason. */
     await gapi.client.adexchangebuyer2.bidders.filterSets.filteredBids.list({
@@ -1505,7 +1505,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all details associated with a specific reason for which bids were filtered, with the number of bids filtered for each detail. */
     await gapi.client.adexchangebuyer2.bidders.filterSets.filteredBids.details.list(
@@ -1514,7 +1514,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Lists all metrics that are measured in terms of number of impressions. */
     await gapi.client.adexchangebuyer2.bidders.filterSets.impressionMetrics.list(
@@ -1522,7 +1522,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons for which bids lost in the auction, with the number of bids that lost for each reason. */
     await gapi.client.adexchangebuyer2.bidders.filterSets.losingBids.list({
@@ -1536,7 +1536,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates the specified filter set for the account with the given account ID. */
     await gapi.client.adexchangebuyer2.buyers.filterSets.create(
@@ -1575,7 +1575,7 @@ gapi.load('client', async () => {
         },
         sellerNetworkIds: [42],
         timeSeriesGranularity: 'Test string',
-      }
+      },
     );
     /** Deletes the requested filter set from the account with the given account ID. */
     await gapi.client.adexchangebuyer2.buyers.filterSets.delete({
@@ -1603,7 +1603,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons for which bid responses were considered to have no applicable bids, with the number of bid responses affected for each reason. */
     await gapi.client.adexchangebuyer2.buyers.filterSets.bidResponsesWithoutBids.list(
@@ -1611,7 +1611,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons that caused a bid request not to be sent for an impression, with the number of bid requests not sent for each reason. */
     await gapi.client.adexchangebuyer2.buyers.filterSets.filteredBidRequests.list(
@@ -1619,7 +1619,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons for which bids were filtered, with the number of bids filtered for each reason. */
     await gapi.client.adexchangebuyer2.buyers.filterSets.filteredBids.list({
@@ -1634,7 +1634,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all details associated with a specific reason for which bids were filtered, with the number of bids filtered for each detail. */
     await gapi.client.adexchangebuyer2.buyers.filterSets.filteredBids.details.list(
@@ -1643,7 +1643,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Lists all metrics that are measured in terms of number of impressions. */
     await gapi.client.adexchangebuyer2.buyers.filterSets.impressionMetrics.list(
@@ -1651,7 +1651,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List all reasons for which bids lost in the auction, with the number of bids that lost for each reason. */
     await gapi.client.adexchangebuyer2.buyers.filterSets.losingBids.list({
@@ -1665,7 +1665,7 @@ gapi.load('client', async () => {
         filterSetName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
   }
 });

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load AdMob API v1 */
   function load(
-    urlOrObject: 'https://admob.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://admob.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'admob', version: 'v1'): Promise<void>;
@@ -365,7 +365,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateMediationReportRequest
+        body: GenerateMediationReportRequest,
       ): Request<GenerateMediationReportResponse>;
     }
     interface NetworkReportResource {
@@ -425,7 +425,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateNetworkReportRequest
+        body: GenerateNetworkReportRequest,
       ): Request<GenerateNetworkReportResponse>;
     }
     interface AccountsResource {

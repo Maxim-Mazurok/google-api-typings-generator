@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://policysimulator.googleapis.com/$discovery/rest?version=v1'
+    'https://policysimulator.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.policysimulator */
 
@@ -35,7 +35,7 @@ gapi.load('client', async () => {
     await gapi.client.policysimulator.folders.locations.orgPolicyViolationsPreviews.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Creates and starts a Replay using the given ReplayConfig. */
     await gapi.client.policysimulator.folders.locations.replays.create(
@@ -93,7 +93,7 @@ gapi.load('client', async () => {
           unchangedCount: 42,
         },
         state: 'Test string',
-      }
+      },
     );
     /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
     await gapi.client.policysimulator.folders.locations.replays.get({
@@ -110,7 +110,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Lists the results of running a Replay. */
     await gapi.client.policysimulator.folders.locations.replays.results.list({
@@ -133,7 +133,7 @@ gapi.load('client', async () => {
     await gapi.client.policysimulator.organizations.locations.orgPolicyViolationsPreviews.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Creates and starts a Replay using the given ReplayConfig. */
     await gapi.client.policysimulator.organizations.locations.replays.create(
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
           unchangedCount: 42,
         },
         state: 'Test string',
-      }
+      },
     );
     /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
     await gapi.client.policysimulator.organizations.locations.replays.get({
@@ -201,7 +201,7 @@ gapi.load('client', async () => {
     await gapi.client.policysimulator.organizations.locations.replays.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.policysimulator.organizations.locations.replays.operations.list(
@@ -210,7 +210,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Lists the results of running a Replay. */
     await gapi.client.policysimulator.organizations.locations.replays.results.list(
@@ -218,13 +218,13 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.policysimulator.projects.locations.orgPolicyViolationsPreviews.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Creates and starts a Replay using the given ReplayConfig. */
     await gapi.client.policysimulator.projects.locations.replays.create(
@@ -282,7 +282,7 @@ gapi.load('client', async () => {
           unchangedCount: 42,
         },
         state: 'Test string',
-      }
+      },
     );
     /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
     await gapi.client.policysimulator.projects.locations.replays.get({
@@ -292,7 +292,7 @@ gapi.load('client', async () => {
     await gapi.client.policysimulator.projects.locations.replays.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.policysimulator.projects.locations.replays.operations.list(
@@ -301,7 +301,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Lists the results of running a Replay. */
     await gapi.client.policysimulator.projects.locations.replays.results.list({

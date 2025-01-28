@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://rapidmigrationassessment.googleapis.com/$discovery/rest?version=v1'
+    'https://rapidmigrationassessment.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.rapidmigrationassessment */
 
@@ -56,13 +56,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Annotation. */
     await gapi.client.rapidmigrationassessment.projects.locations.annotations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Create a Collector to manage the on-prem appliance which collects information about Customer assets. */
     await gapi.client.rapidmigrationassessment.projects.locations.collectors.create(
@@ -93,20 +93,20 @@ gapi.load('client', async () => {
         vsphereScan: {
           coreSource: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a single Collector - changes state of collector to "Deleting". Background jobs does final deletion thorugh producer api. */
     await gapi.client.rapidmigrationassessment.projects.locations.collectors.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Collector. */
     await gapi.client.rapidmigrationassessment.projects.locations.collectors.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Collectors in a given project and location. */
     await gapi.client.rapidmigrationassessment.projects.locations.collectors.list(
@@ -116,7 +116,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single Collector. */
     await gapi.client.rapidmigrationassessment.projects.locations.collectors.patch(
@@ -147,7 +147,7 @@ gapi.load('client', async () => {
         vsphereScan: {
           coreSource: 'Test string',
         },
-      }
+      },
     );
     /** Pauses the given collector. */
     await gapi.client.rapidmigrationassessment.projects.locations.collectors.pause(
@@ -156,7 +156,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Registers the given collector. */
     await gapi.client.rapidmigrationassessment.projects.locations.collectors.register(
@@ -165,7 +165,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Resumes the given collector. */
     await gapi.client.rapidmigrationassessment.projects.locations.collectors.resume(
@@ -174,26 +174,26 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.rapidmigrationassessment.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.rapidmigrationassessment.projects.locations.operations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.rapidmigrationassessment.projects.locations.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.rapidmigrationassessment.projects.locations.operations.list(
@@ -202,7 +202,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
   }
 });

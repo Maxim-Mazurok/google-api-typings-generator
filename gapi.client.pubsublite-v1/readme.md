@@ -29,7 +29,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.pubsublite
-  }
+  },
 );
 ```
 
@@ -61,7 +61,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 

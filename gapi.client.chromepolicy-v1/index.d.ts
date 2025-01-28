@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Chrome Policy API v1 */
   function load(
-    urlOrObject: 'https://chromepolicy.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://chromepolicy.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'chromepolicy', version: 'v1'): Promise<void>;
@@ -464,7 +464,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1BatchDeleteGroupPoliciesRequest
+        body: GoogleChromePolicyVersionsV1BatchDeleteGroupPoliciesRequest,
       ): Request<{}>;
       /** Modify multiple policy values that are applied to a specific group. All targets must have the same target format. That is to say that they must point to the same target resource and must have the same keys specified in `additionalTargetKeyNames`, though the values for those keys may be different. On failure the request will return the error details as part of the google.rpc.Status. */
       batchModify(request: {
@@ -522,7 +522,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1BatchModifyGroupPoliciesRequest
+        body: GoogleChromePolicyVersionsV1BatchModifyGroupPoliciesRequest,
       ): Request<{}>;
       /** Retrieve a group priority ordering for an app. The target app must be supplied in `additionalTargetKeyNames` in the PolicyTargetKey. On failure the request will return the error details as part of the google.rpc.Status. */
       listGroupPriorityOrdering(request: {
@@ -580,7 +580,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1ListGroupPriorityOrderingRequest
+        body: GoogleChromePolicyVersionsV1ListGroupPriorityOrderingRequest,
       ): Request<GoogleChromePolicyVersionsV1ListGroupPriorityOrderingResponse>;
       /** Update a group priority ordering for an app. The target app must be supplied in `additionalTargetKeyNames` in the PolicyTargetKey. On failure the request will return the error details as part of the google.rpc.Status. */
       updateGroupPriorityOrdering(request: {
@@ -638,7 +638,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1UpdateGroupPriorityOrderingRequest
+        body: GoogleChromePolicyVersionsV1UpdateGroupPriorityOrderingRequest,
       ): Request<{}>;
     }
     interface NetworksResource {
@@ -698,7 +698,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1DefineCertificateRequest
+        body: GoogleChromePolicyVersionsV1DefineCertificateRequest,
       ): Request<GoogleChromePolicyVersionsV1DefineCertificateResponse>;
       /** Define a new network. */
       defineNetwork(request: {
@@ -756,7 +756,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1DefineNetworkRequest
+        body: GoogleChromePolicyVersionsV1DefineNetworkRequest,
       ): Request<GoogleChromePolicyVersionsV1DefineNetworkResponse>;
       /** Remove an existing certificate by guid. */
       removeCertificate(request: {
@@ -814,7 +814,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1RemoveCertificateRequest
+        body: GoogleChromePolicyVersionsV1RemoveCertificateRequest,
       ): Request<{}>;
       /** Remove an existing network by guid. */
       removeNetwork(request: {
@@ -872,7 +872,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1RemoveNetworkRequest
+        body: GoogleChromePolicyVersionsV1RemoveNetworkRequest,
       ): Request<{}>;
     }
     interface OrgunitsResource {
@@ -932,7 +932,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1BatchInheritOrgUnitPoliciesRequest
+        body: GoogleChromePolicyVersionsV1BatchInheritOrgUnitPoliciesRequest,
       ): Request<{}>;
       /** Modify multiple policy values that are applied to a specific org unit. All targets must have the same target format. That is to say that they must point to the same target resource and must have the same keys specified in `additionalTargetKeyNames`, though the values for those keys may be different. On failure the request will return the error details as part of the google.rpc.Status. */
       batchModify(request: {
@@ -990,7 +990,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1BatchModifyOrgUnitPoliciesRequest
+        body: GoogleChromePolicyVersionsV1BatchModifyOrgUnitPoliciesRequest,
       ): Request<{}>;
     }
     interface PoliciesResource {
@@ -1050,7 +1050,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1ResolveRequest
+        body: GoogleChromePolicyVersionsV1ResolveRequest,
       ): Request<GoogleChromePolicyVersionsV1ResolveResponse>;
       groups: GroupsResource;
       networks: NetworksResource;
@@ -1179,7 +1179,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChromePolicyVersionsV1UploadPolicyFileRequest
+        body: GoogleChromePolicyVersionsV1UploadPolicyFileRequest,
       ): Request<GoogleChromePolicyVersionsV1UploadPolicyFileResponse>;
     }
 

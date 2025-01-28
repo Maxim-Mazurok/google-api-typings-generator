@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://ml.googleapis.com/$discovery/rest?version=v1'
+    'https://ml.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.ml */
 
@@ -48,7 +48,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Get the service account information associated with your project. You need this information in order to grant the service account permissions for the Google Cloud Storage location where you put your model training code for training the model with Google Cloud Machine Learning. */
     await gapi.client.ml.projects.getConfig({
@@ -69,14 +69,14 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Cancels a running job. */
     await gapi.client.ml.projects.jobs.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a training or a batch prediction job. */
     await gapi.client.ml.projects.jobs.create(
@@ -268,7 +268,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Describes a job. */
     await gapi.client.ml.projects.jobs.get({
@@ -477,7 +477,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.ml.projects.jobs.setIamPolicy(
@@ -513,7 +513,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.ml.projects.jobs.testIamPermissions(
@@ -522,7 +522,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Get the complete list of CMLE capabilities in a location, along with their location-specific properties. */
     await gapi.client.ml.projects.locations.get({
@@ -601,7 +601,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Deletes a study. */
     await gapi.client.ml.projects.locations.studies.delete({
@@ -631,14 +631,14 @@ gapi.load('client', async () => {
           ],
           stepCount: 'Test string',
         },
-      }
+      },
     );
     /** Checks whether a trial should stop or not. Returns a long-running operation. When the operation is successful, it will contain a CheckTrialEarlyStoppingStateResponse. */
     await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Marks a trial as complete. */
     await gapi.client.ml.projects.locations.studies.trials.complete(
@@ -658,7 +658,7 @@ gapi.load('client', async () => {
         },
         infeasibleReason: 'Test string',
         trialInfeasible: true,
-      }
+      },
     );
     /** Adds a user provided trial to a study. */
     await gapi.client.ml.projects.locations.studies.trials.create(
@@ -703,7 +703,7 @@ gapi.load('client', async () => {
         startTime: 'Test string',
         state: 'Test string',
         trialInfeasible: true,
-      }
+      },
     );
     /** Deletes a trial. */
     await gapi.client.ml.projects.locations.studies.trials.delete({
@@ -722,14 +722,14 @@ gapi.load('client', async () => {
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Stops a trial. */
     await gapi.client.ml.projects.locations.studies.trials.stop(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When this long-running operation succeeds, it will contain a SuggestTrialsResponse. */
     await gapi.client.ml.projects.locations.studies.trials.suggest(
@@ -739,7 +739,7 @@ gapi.load('client', async () => {
       {
         clientId: 'Test string',
         suggestionCount: 42,
-      }
+      },
     );
     /** Creates a model which will later contain one or more versions. You must add at least one version before you can request predictions from the model. Add versions by calling projects.models.versions.create. */
     await gapi.client.ml.projects.models.create(
@@ -831,7 +831,7 @@ gapi.load('client', async () => {
         onlinePredictionConsoleLogging: true,
         onlinePredictionLogging: true,
         regions: ['Test string'],
-      }
+      },
     );
     /** Deletes a model. You can only delete a model if there are no versions in it. You can delete versions by calling projects.models.versions.delete. */
     await gapi.client.ml.projects.models.delete({
@@ -944,7 +944,7 @@ gapi.load('client', async () => {
         onlinePredictionConsoleLogging: true,
         onlinePredictionLogging: true,
         regions: ['Test string'],
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.ml.projects.models.setIamPolicy(
@@ -980,7 +980,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.ml.projects.models.testIamPermissions(
@@ -989,7 +989,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new version of a model from a trained TensorFlow model. If the version created in the cloud by this call is the first deployed version of the specified model, it will be made the default version of the model. When you add a version to a model that already has one or more versions, the default version does not automatically change. If you want a new version to be the default, you must call projects.models.versions.setDefault. */
     await gapi.client.ml.projects.models.versions.create(
@@ -1070,7 +1070,7 @@ gapi.load('client', async () => {
         runtimeVersion: 'Test string',
         serviceAccount: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes a model version. Each model can have multiple versions deployed and in use at any given time. Use this method to remove a single version. Note: You cannot delete the version that is set as the default version of the model unless it is the only remaining version. */
     await gapi.client.ml.projects.models.versions.delete({
@@ -1167,14 +1167,14 @@ gapi.load('client', async () => {
         runtimeVersion: 'Test string',
         serviceAccount: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Designates a version to be the default for the model. The default version is used for prediction requests made against the model that don't specify a version. The first version to be created for a model is automatically set as the default. You must make any subsequent changes to the default version setting manually using this method. */
     await gapi.client.ml.projects.models.versions.setDefault(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.ml.projects.operations.cancel({

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://acceleratedmobilepageurl.googleapis.com/$discovery/rest?version=v1'
+    'https://acceleratedmobilepageurl.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.acceleratedmobilepageurl */
 
@@ -22,7 +22,7 @@ gapi.load('client', async () => {
       {
         lookupStrategy: 'Test string',
         urls: ['Test string'],
-      }
+      },
     );
   }
 });

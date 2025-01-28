@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://gkeonprem.googleapis.com/$discovery/rest?version=v1'
+    'https://gkeonprem.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.gkeonprem */
 
@@ -217,7 +217,7 @@ gapi.load('client', async () => {
             ],
           },
         },
-      }
+      },
     );
     /** Enrolls an existing bare metal admin cluster to the Anthos On-Prem API within a given project and location. Through enrollment, an existing admin cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster will be expected to be performed through the API. */
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.enroll(
@@ -227,7 +227,7 @@ gapi.load('client', async () => {
       {
         bareMetalAdminClusterId: 'Test string',
         membership: 'Test string',
-      }
+      },
     );
     /** Gets details of a single bare metal admin cluster. */
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.get({
@@ -240,7 +240,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists bare metal admin clusters in a given project and location. */
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.list({
@@ -424,14 +424,14 @@ gapi.load('client', async () => {
             ],
           },
         },
-      }
+      },
     );
     /** Queries the bare metal admin cluster version config. */
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.queryVersionConfig(
       {
         parent: 'Test string',
         'upgradeConfig.clusterName': 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.setIamPolicy(
@@ -455,7 +455,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.testIamPermissions(
@@ -464,7 +464,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Unenrolls an existing bare metal admin cluster from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients. */
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.unenroll(
@@ -474,13 +474,13 @@ gapi.load('client', async () => {
         ignoreErrors: true,
         name: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.operations.list(
@@ -489,7 +489,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates a new bare metal cluster in a given project and location. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.create(
@@ -765,7 +765,7 @@ gapi.load('client', async () => {
             ],
           },
         },
-      }
+      },
     );
     /** Deletes a single bare metal Cluster. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.delete({
@@ -785,7 +785,7 @@ gapi.load('client', async () => {
         adminClusterMembership: 'Test string',
         bareMetalClusterId: 'Test string',
         localName: 'Test string',
-      }
+      },
     );
     /** Gets details of a single bare metal Cluster. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.get({
@@ -798,7 +798,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists bare metal clusters in a given project and location. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.list({
@@ -1083,7 +1083,7 @@ gapi.load('client', async () => {
             ],
           },
         },
-      }
+      },
     );
     /** Queries the bare metal user cluster version config. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.queryVersionConfig(
@@ -1092,7 +1092,7 @@ gapi.load('client', async () => {
         'createConfig.adminClusterName': 'Test string',
         parent: 'Test string',
         'upgradeConfig.clusterName': 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.setIamPolicy(
@@ -1116,7 +1116,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.testIamPermissions(
@@ -1125,7 +1125,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Unenrolls an existing bare metal user cluster and its node pools from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters and node pools will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.unenroll({
@@ -1208,7 +1208,7 @@ gapi.load('client', async () => {
             minimumAvailableNodes: 42,
           },
         },
-      }
+      },
     );
     /** Deletes a single bare metal node pool. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.delete(
@@ -1218,7 +1218,7 @@ gapi.load('client', async () => {
         ignoreErrors: true,
         name: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Enrolls an existing bare metal node pool to the Anthos On-Prem API within a given project and location. Through enrollment, an existing node pool will become Anthos On-Prem API managed. The corresponding GCP resources will be created. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.enroll(
@@ -1228,21 +1228,21 @@ gapi.load('client', async () => {
       {
         bareMetalNodePoolId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Gets details of a single bare metal node pool. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists bare metal node pools in a given project, location and bare metal cluster. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.list(
@@ -1251,7 +1251,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single bare metal node pool. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.patch(
@@ -1327,7 +1327,7 @@ gapi.load('client', async () => {
             minimumAvailableNodes: 42,
           },
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.setIamPolicy(
@@ -1351,7 +1351,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.testIamPermissions(
@@ -1360,7 +1360,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Unenrolls a bare metal node pool from Anthos On-Prem API. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.unenroll(
@@ -1369,13 +1369,13 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.operations.list(
@@ -1384,13 +1384,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.operations.list(
@@ -1399,14 +1399,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.gkeonprem.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.gkeonprem.projects.locations.operations.delete({
@@ -1654,7 +1654,7 @@ gapi.load('client', async () => {
           resourcePool: 'Test string',
           storagePolicyName: 'Test string',
         },
-      }
+      },
     );
     /** Enrolls an existing VMware admin cluster to the Anthos On-Prem API within a given project and location. Through enrollment, an existing admin cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster will be expected to be performed through the API. */
     await gapi.client.gkeonprem.projects.locations.vmwareAdminClusters.enroll(
@@ -1664,7 +1664,7 @@ gapi.load('client', async () => {
       {
         membership: 'Test string',
         vmwareAdminClusterId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single VMware admin cluster. */
     await gapi.client.gkeonprem.projects.locations.vmwareAdminClusters.get({
@@ -1677,7 +1677,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists VMware admin clusters in a given project and location. */
     await gapi.client.gkeonprem.projects.locations.vmwareAdminClusters.list({
@@ -1917,7 +1917,7 @@ gapi.load('client', async () => {
           resourcePool: 'Test string',
           storagePolicyName: 'Test string',
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkeonprem.projects.locations.vmwareAdminClusters.setIamPolicy(
@@ -1941,7 +1941,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkeonprem.projects.locations.vmwareAdminClusters.testIamPermissions(
@@ -1950,7 +1950,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Unenrolls an existing VMware admin cluster from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients. */
     await gapi.client.gkeonprem.projects.locations.vmwareAdminClusters.unenroll(
@@ -1959,13 +1959,13 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.gkeonprem.projects.locations.vmwareAdminClusters.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.gkeonprem.projects.locations.vmwareAdminClusters.operations.list(
@@ -1974,7 +1974,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates a new VMware user cluster in a given project and location. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.create(
@@ -2179,7 +2179,7 @@ gapi.load('client', async () => {
           storagePolicyName: 'Test string',
         },
         vmTrackingEnabled: true,
-      }
+      },
     );
     /** Deletes a single VMware Cluster. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.delete({
@@ -2200,7 +2200,7 @@ gapi.load('client', async () => {
         localName: 'Test string',
         validateOnly: true,
         vmwareClusterId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single VMware Cluster. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.get({
@@ -2424,7 +2424,7 @@ gapi.load('client', async () => {
           storagePolicyName: 'Test string',
         },
         vmTrackingEnabled: true,
-      }
+      },
     );
     /** Queries the VMware user cluster version config. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.queryVersionConfig(
@@ -2433,7 +2433,7 @@ gapi.load('client', async () => {
         'createConfig.adminClusterName': 'Test string',
         parent: 'Test string',
         'upgradeConfig.clusterName': 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.setIamPolicy(
@@ -2457,7 +2457,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.testIamPermissions(
@@ -2466,7 +2466,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Unenrolls an existing VMware user cluster and its node pools from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters and node pools will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or UI. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.unenroll({
@@ -2480,7 +2480,7 @@ gapi.load('client', async () => {
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.operations.list(
@@ -2489,7 +2489,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates a new VMware node pool in a given project, location and VMWare cluster. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.create(
@@ -2566,7 +2566,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single VMware node pool. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.delete(
@@ -2576,7 +2576,7 @@ gapi.load('client', async () => {
         ignoreErrors: true,
         name: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Enrolls a VMware node pool to Anthos On-Prem API */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.enroll(
@@ -2585,21 +2585,21 @@ gapi.load('client', async () => {
       },
       {
         vmwareNodePoolId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single VMware node pool. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists VMware node pools in a given project, location and VMWare cluster. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.list(
@@ -2608,7 +2608,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single VMware node pool. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.patch(
@@ -2685,7 +2685,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.setIamPolicy(
@@ -2709,7 +2709,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.testIamPermissions(
@@ -2718,7 +2718,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Unenrolls a VMware node pool to Anthos On-Prem API */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.unenroll(
@@ -2727,13 +2727,13 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.operations.list(
@@ -2742,7 +2742,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
   }
 });

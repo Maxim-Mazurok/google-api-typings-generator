@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://chromepolicy.googleapis.com/$discovery/rest?version=v1'
+    'https://chromepolicy.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.chromepolicy */
 
@@ -48,7 +48,7 @@ gapi.load('client', async () => {
           },
           targetResource: 'Test string',
         },
-      }
+      },
     );
     /** Delete multiple policy values that are applied to a specific group. All targets must have the same target format. That is to say that they must point to the same target resource and must have the same keys specified in `additionalTargetKeyNames`, though the values for those keys may be different. On failure the request will return the error details as part of the google.rpc.Status. */
     await gapi.client.chromepolicy.customers.policies.groups.batchDelete(
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Modify multiple policy values that are applied to a specific group. All targets must have the same target format. That is to say that they must point to the same target resource and must have the same keys specified in `additionalTargetKeyNames`, though the values for those keys may be different. On failure the request will return the error details as part of the google.rpc.Status. */
     await gapi.client.chromepolicy.customers.policies.groups.batchModify(
@@ -92,7 +92,7 @@ gapi.load('client', async () => {
             updateMask: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieve a group priority ordering for an app. The target app must be supplied in `additionalTargetKeyNames` in the PolicyTargetKey. On failure the request will return the error details as part of the google.rpc.Status. */
     await gapi.client.chromepolicy.customers.policies.groups.listGroupPriorityOrdering(
@@ -108,7 +108,7 @@ gapi.load('client', async () => {
           },
           targetResource: 'Test string',
         },
-      }
+      },
     );
     /** Update a group priority ordering for an app. The target app must be supplied in `additionalTargetKeyNames` in the PolicyTargetKey. On failure the request will return the error details as part of the google.rpc.Status. */
     await gapi.client.chromepolicy.customers.policies.groups.updateGroupPriorityOrdering(
@@ -125,7 +125,7 @@ gapi.load('client', async () => {
           },
           targetResource: 'Test string',
         },
-      }
+      },
     );
     /** Creates a certificate at a specified OU for a customer. */
     await gapi.client.chromepolicy.customers.policies.networks.defineCertificate(
@@ -144,7 +144,7 @@ gapi.load('client', async () => {
           },
         ],
         targetResource: 'Test string',
-      }
+      },
     );
     /** Define a new network. */
     await gapi.client.chromepolicy.customers.policies.networks.defineNetwork(
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
           },
         ],
         targetResource: 'Test string',
-      }
+      },
     );
     /** Remove an existing certificate by guid. */
     await gapi.client.chromepolicy.customers.policies.networks.removeCertificate(
@@ -172,7 +172,7 @@ gapi.load('client', async () => {
       {
         networkId: 'Test string',
         targetResource: 'Test string',
-      }
+      },
     );
     /** Remove an existing network by guid. */
     await gapi.client.chromepolicy.customers.policies.networks.removeNetwork(
@@ -182,7 +182,7 @@ gapi.load('client', async () => {
       {
         networkId: 'Test string',
         targetResource: 'Test string',
-      }
+      },
     );
     /** Modify multiple policy values that are applied to a specific org unit so that they now inherit the value from a parent (if applicable). All targets must have the same target format. That is to say that they must point to the same target resource and must have the same keys specified in `additionalTargetKeyNames`, though the values for those keys may be different. On failure the request will return the error details as part of the google.rpc.Status. */
     await gapi.client.chromepolicy.customers.policies.orgunits.batchInherit(
@@ -201,7 +201,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Modify multiple policy values that are applied to a specific org unit. All targets must have the same target format. That is to say that they must point to the same target resource and must have the same keys specified in `additionalTargetKeyNames`, though the values for those keys may be different. On failure the request will return the error details as part of the google.rpc.Status. */
     await gapi.client.chromepolicy.customers.policies.orgunits.batchModify(
@@ -226,7 +226,7 @@ gapi.load('client', async () => {
             updateMask: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Get a specific policy schema for a customer by its resource name. */
     await gapi.client.chromepolicy.customers.policySchemas.get({
@@ -246,7 +246,7 @@ gapi.load('client', async () => {
       },
       {
         policyField: 'Test string',
-      }
+      },
     );
   }
 });

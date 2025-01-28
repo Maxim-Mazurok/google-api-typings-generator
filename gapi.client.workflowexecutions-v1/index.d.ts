@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Workflow Executions API v1 */
   function load(
-    urlOrObject: 'https://workflowexecutions.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://workflowexecutions.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'workflowexecutions', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'workflowexecutions',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace workflowexecutions {
@@ -379,7 +379,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelExecutionRequest
+        body: CancelExecutionRequest,
       ): Request<Execution>;
       /** Creates a new execution using the latest revision of the given workflow. For more information, see Execute a workflow. */
       create(request: {
@@ -437,7 +437,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Execution
+        body: Execution,
       ): Request<Execution>;
       /** Deletes all step entries for an execution. */
       deleteExecutionHistory(request: {
@@ -495,7 +495,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeleteExecutionHistoryRequest
+        body: DeleteExecutionHistoryRequest,
       ): Request<{}>;
       /** Returns all metadata stored about an execution, excluding most data that is already accessible using other API methods. */
       exportData(request?: {
@@ -650,7 +650,7 @@ declare namespace gapi.client {
           /** Required. Name of the workflow for which an execution should be created. Format: projects/{project}/locations/{location}/workflows/{workflow} */
           workflow: string;
         },
-        body: TriggerPubsubExecutionRequest
+        body: TriggerPubsubExecutionRequest,
       ): Request<Execution>;
       executions: ExecutionsResource;
     }

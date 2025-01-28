@@ -30,7 +30,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.analyticsadmin
-  }
+  },
 );
 ```
 
@@ -71,7 +71,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 
@@ -163,7 +163,7 @@ await gapi.client.analyticsadmin.properties.deleteConnectedSiteTag({});
 Fetches the opt out status for the automated GA4 setup process for a UA property. Note: this has no effect on GA4 property.
 */
 await gapi.client.analyticsadmin.properties.fetchAutomatedGa4ConfigurationOptOut(
-  {}
+  {},
 );
 
 /*
@@ -226,7 +226,7 @@ await gapi.client.analyticsadmin.properties.runAccessReport({entity: 'entity'});
 Sets the opt out status for the automated GA4 setup process for a UA property. Note: this has no effect on GA4 property.
 */
 await gapi.client.analyticsadmin.properties.setAutomatedGa4ConfigurationOptOut(
-  {}
+  {},
 );
 
 /*

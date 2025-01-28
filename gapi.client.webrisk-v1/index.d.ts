@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Web Risk API v1 */
   function load(
-    urlOrObject: 'https://webrisk.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://webrisk.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'webrisk', version: 'v1'): Promise<void>;
@@ -218,7 +218,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningCancelOperationRequest
+        body: GoogleLongrunningCancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -365,7 +365,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudWebriskV1Submission
+        body: GoogleCloudWebriskV1Submission,
       ): Request<GoogleCloudWebriskV1Submission>;
     }
     interface ProjectsResource {

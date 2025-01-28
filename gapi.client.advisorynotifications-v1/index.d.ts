@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Advisory Notifications API v1 */
   function load(
-    urlOrObject: 'https://advisorynotifications.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://advisorynotifications.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'advisorynotifications', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'advisorynotifications',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace advisorynotifications {
@@ -254,7 +254,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAdvisorynotificationsV1Settings
+        body: GoogleCloudAdvisorynotificationsV1Settings,
       ): Request<GoogleCloudAdvisorynotificationsV1Settings>;
       notifications: NotificationsResource;
     }
@@ -411,7 +411,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAdvisorynotificationsV1Settings
+        body: GoogleCloudAdvisorynotificationsV1Settings,
       ): Request<GoogleCloudAdvisorynotificationsV1Settings>;
       notifications: NotificationsResource;
     }

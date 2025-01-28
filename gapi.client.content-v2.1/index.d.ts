@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Content API for Shopping v2.1 */
   function load(
-    urlOrObject: 'https://shoppingcontent.googleapis.com/$discovery/rest?version=v2.1'
+    urlOrObject: 'https://shoppingcontent.googleapis.com/$discovery/rest?version=v2.1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'content', version: 'v2.1'): Promise<void>;
@@ -3623,7 +3623,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountCredentials
+        body: AccountCredentials,
       ): Request<AccountCredentials>;
     }
     interface LabelsResource {
@@ -3683,7 +3683,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountLabel
+        body: AccountLabel,
       ): Request<AccountLabel>;
       /** Deletes a label and removes it from all accounts to which it was assigned. */
       delete(request?: {
@@ -3805,7 +3805,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountLabel
+        body: AccountLabel,
       ): Request<AccountLabel>;
     }
     interface ReturncarrierResource {
@@ -3865,7 +3865,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountReturnCarrier
+        body: AccountReturnCarrier,
       ): Request<AccountReturnCarrier>;
       /** Delete a return carrier in the merchant account. */
       delete(request?: {
@@ -3983,7 +3983,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountReturnCarrier
+        body: AccountReturnCarrier,
       ): Request<AccountReturnCarrier>;
     }
     interface AccountsResource {
@@ -4095,7 +4095,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountsCustomBatchRequest
+        body: AccountsCustomBatchRequest,
       ): Request<AccountsCustomBatchResponse>;
       /** Deletes a Merchant Center sub-account. */
       delete(request?: {
@@ -4215,7 +4215,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Account
+        body: Account,
       ): Request<Account>;
       /** Performs an action on a link between two Merchant Center accounts, namely accountId and linkedAccountId. */
       link(request: {
@@ -4277,7 +4277,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountsLinkRequest
+        body: AccountsLinkRequest,
       ): Request<AccountsLinkResponse>;
       /** Lists the sub-accounts in your Merchant Center account. */
       list(request?: {
@@ -4409,7 +4409,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RequestPhoneVerificationRequest
+        body: RequestPhoneVerificationRequest,
       ): Request<RequestPhoneVerificationResponse>;
       /** Updates a Merchant Center account. Any fields that are not provided are deleted from the resource. */
       update(request: {
@@ -4471,7 +4471,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Account
+        body: Account,
       ): Request<Account>;
       /** Updates labels that are assigned to the Merchant Center account by CSS user. */
       updatelabels(request: {
@@ -4533,7 +4533,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountsUpdateLabelsRequest
+        body: AccountsUpdateLabelsRequest,
       ): Request<AccountsUpdateLabelsResponse>;
       /** Validates verification code to verify phone number for the account. If successful this will overwrite the value of `accounts.businessinformation.phoneNumber`. Only verified phone number will replace an existing verified phone number. */
       verifyphonenumber(request: {
@@ -4595,7 +4595,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VerifyPhoneNumberRequest
+        body: VerifyPhoneNumberRequest,
       ): Request<VerifyPhoneNumberResponse>;
       credentials: CredentialsResource;
       labels: LabelsResource;
@@ -4654,7 +4654,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountstatusesCustomBatchRequest
+        body: AccountstatusesCustomBatchRequest,
       ): Request<AccountstatusesCustomBatchResponse>;
       /** Retrieves the status of a Merchant Center account. No itemLevelIssues are returned for multi-client accounts. */
       get(request?: {
@@ -4776,7 +4776,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccounttaxCustomBatchRequest
+        body: AccounttaxCustomBatchRequest,
       ): Request<AccounttaxCustomBatchResponse>;
       /** Retrieves the tax settings of the account. */
       get(request?: {
@@ -4898,7 +4898,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccountTax
+        body: AccountTax,
       ): Request<AccountTax>;
     }
     interface CollectionsResource {
@@ -4958,7 +4958,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Collection
+        body: Collection,
       ): Request<Collection>;
       /** Deletes a collection from your Merchant Center account. */
       delete(request?: {
@@ -5169,7 +5169,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConversionSource
+        body: ConversionSource,
       ): Request<ConversionSource>;
       /** Archives an existing conversion source. It will be recoverable for 30 days. This archiving behavior is not typical in the Content API and unique to this service. */
       delete(request?: {
@@ -5326,7 +5326,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConversionSource
+        body: ConversionSource,
       ): Request<ConversionSource>;
       /** Re-enables an archived conversion source. */
       undelete(request: {
@@ -5388,7 +5388,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteConversionSourceRequest
+        body: UndeleteConversionSourceRequest,
       ): Request<void>;
     }
     interface CssesResource {
@@ -5512,7 +5512,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LabelIds
+        body: LabelIds,
       ): Request<Css>;
     }
     interface DatafeedsResource {
@@ -5568,7 +5568,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DatafeedsCustomBatchRequest
+        body: DatafeedsCustomBatchRequest,
       ): Request<DatafeedsCustomBatchResponse>;
       /** Deletes a datafeed configuration from your Merchant Center account. */
       delete(request?: {
@@ -5713,7 +5713,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Datafeed
+        body: Datafeed,
       ): Request<Datafeed>;
       /** Lists the configurations for datafeeds in your Merchant Center account. */
       list(request?: {
@@ -5806,7 +5806,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Datafeed
+        body: Datafeed,
       ): Request<Datafeed>;
     }
     interface DatafeedstatusesResource {
@@ -5862,7 +5862,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DatafeedstatusesCustomBatchRequest
+        body: DatafeedstatusesCustomBatchRequest,
       ): Request<DatafeedstatusesCustomBatchResponse>;
       /** Retrieves the status of a datafeed from your Merchant Center account. */
       get(request?: {
@@ -6042,7 +6042,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InsertCheckoutSettingsRequest
+        body: InsertCheckoutSettingsRequest,
       ): Request<CheckoutSettings>;
     }
     interface FreelistingsprogramResource {
@@ -6129,7 +6129,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RequestReviewFreeListingsRequest
+        body: RequestReviewFreeListingsRequest,
       ): Request<void>;
       checkoutsettings: CheckoutsettingsResource;
     }
@@ -6186,7 +6186,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LiasettingsCustomBatchRequest
+        body: LiasettingsCustomBatchRequest,
       ): Request<LiasettingsCustomBatchResponse>;
       /** Retrieves the LIA settings of the account. */
       get(request?: {
@@ -6531,7 +6531,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LiaSettings
+        body: LiaSettings,
       ): Request<LiaSettings>;
     }
     interface LocalinventoryResource {
@@ -6587,7 +6587,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LocalinventoryCustomBatchRequest
+        body: LocalinventoryCustomBatchRequest,
       ): Request<LocalinventoryCustomBatchResponse>;
       /** Updates the local inventory of a product in your Merchant Center account. */
       insert(request: {
@@ -6649,7 +6649,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LocalInventory
+        body: LocalInventory,
       ): Request<LocalInventory>;
     }
     interface MerchantsupportResource {
@@ -6717,7 +6717,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RenderAccountIssuesRequestPayload
+        body: RenderAccountIssuesRequestPayload,
       ): Request<RenderAccountIssuesResponse>;
       /** Provide a list of issues for merchant's product with a support content and available actions. This content and actions are meant to be rendered and shown in third-party applications. */
       renderproductissues(request: {
@@ -6787,7 +6787,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RenderProductIssuesRequestPayload
+        body: RenderProductIssuesRequestPayload,
       ): Request<RenderProductIssuesResponse>;
       /** Start an action. The action can be requested by merchants in third-party application. Before merchants can request the action, the third-party application needs to show them action specific content and display a user input form. The action can be successfully started only once all `required` inputs are provided. If any `required` input is missing, or invalid value was provided, the service will return 400 error. Validation errors will contain Ids for all problematic field together with translated, human readable error messages that can be shown to the user. */
       triggeraction(request: {
@@ -6849,7 +6849,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TriggerActionPayload
+        body: TriggerActionPayload,
       ): Request<TriggerActionResponse>;
     }
     interface OrdertrackingsignalsResource {
@@ -6909,7 +6909,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OrderTrackingSignal
+        body: OrderTrackingSignal,
       ): Request<OrderTrackingSignal>;
     }
     interface PosResource {
@@ -6965,7 +6965,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PosCustomBatchRequest
+        body: PosCustomBatchRequest,
       ): Request<PosCustomBatchResponse>;
       /** Deletes a store for the given merchant. */
       delete(request?: {
@@ -7089,7 +7089,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PosStore
+        body: PosStore,
       ): Request<PosStore>;
       /** Submit inventory for the given merchant. */
       inventory(request: {
@@ -7151,7 +7151,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PosInventoryRequest
+        body: PosInventoryRequest,
       ): Request<PosInventoryResponse>;
       /** Lists the stores of the target merchant. */
       list(request?: {
@@ -7242,7 +7242,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PosSaleRequest
+        body: PosSaleRequest,
       ): Request<PosSaleResponse>;
     }
     interface ProductdeliverytimeResource {
@@ -7302,7 +7302,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProductDeliveryTime
+        body: ProductDeliveryTime,
       ): Request<ProductDeliveryTime>;
       /** Deletes the delivery time of a product. */
       delete(request?: {
@@ -7416,7 +7416,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProductsCustomBatchRequest
+        body: ProductsCustomBatchRequest,
       ): Request<ProductsCustomBatchResponse>;
       /** Deletes a product from your Merchant Center account. */
       delete(request?: {
@@ -7538,7 +7538,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Product
+        body: Product,
       ): Request<Product>;
       /** Lists the products in your Merchant Center account. The response might contain fewer items than specified by maxResults. Rely on nextPageToken to determine if there are more items to be requested. */
       list(request?: {
@@ -7635,7 +7635,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Product
+        body: Product,
       ): Request<Product>;
     }
     interface ProductstatusesResource {
@@ -7691,7 +7691,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProductstatusesCustomBatchRequest
+        body: ProductstatusesCustomBatchRequest,
       ): Request<ProductstatusesCustomBatchResponse>;
       /** Gets the status of a product from your Merchant Center account. */
       get(request?: {
@@ -7815,7 +7815,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Promotion
+        body: Promotion,
       ): Request<Promotion>;
       /** Retrieves a promotion from your Merchant Center account. */
       get(request?: {
@@ -7966,7 +7966,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PubsubNotificationSettings
+        body: PubsubNotificationSettings,
       ): Request<PubsubNotificationSettings>;
     }
     interface QuotasResource {
@@ -8090,7 +8090,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportInteractionRequest
+        body: ReportInteractionRequest,
       ): Request<void>;
     }
     interface RegionalinventoryResource {
@@ -8146,7 +8146,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RegionalinventoryCustomBatchRequest
+        body: RegionalinventoryCustomBatchRequest,
       ): Request<RegionalinventoryCustomBatchResponse>;
       /** Updates the regional inventory of a product in your Merchant Center account. If a regional inventory with the same region ID already exists, this method updates that entry. */
       insert(request: {
@@ -8208,7 +8208,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RegionalInventory
+        body: RegionalInventory,
       ): Request<RegionalInventory>;
     }
     interface RegionsResource {
@@ -8272,7 +8272,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Region
+        body: Region,
       ): Request<Region>;
       /** Deletes a region definition from your Merchant Center account. */
       delete(request?: {
@@ -8427,7 +8427,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Region
+        body: Region,
       ): Request<Region>;
     }
     interface ReportsResource {
@@ -8487,7 +8487,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchRequest
+        body: SearchRequest,
       ): Request<SearchResponse>;
     }
     interface ReturnaddressResource {
@@ -8543,7 +8543,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReturnaddressCustomBatchRequest
+        body: ReturnaddressCustomBatchRequest,
       ): Request<ReturnaddressCustomBatchResponse>;
       /** Deletes a return address for the given Merchant Center account. */
       delete(request?: {
@@ -8659,7 +8659,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReturnAddress
+        body: ReturnAddress,
       ): Request<ReturnAddress>;
       /** Lists the return addresses of the Merchant Center account. */
       list(request?: {
@@ -8748,7 +8748,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReturnpolicyCustomBatchRequest
+        body: ReturnpolicyCustomBatchRequest,
       ): Request<ReturnpolicyCustomBatchResponse>;
       /** Deletes a return policy for the given Merchant Center account. */
       delete(request?: {
@@ -8864,7 +8864,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReturnPolicy
+        body: ReturnPolicy,
       ): Request<ReturnPolicy>;
       /** Lists the return policies of the Merchant Center account. */
       list(request?: {
@@ -8951,7 +8951,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReturnPolicyOnline
+        body: ReturnPolicyOnline,
       ): Request<ReturnPolicyOnline>;
       /** Deletes an existing return policy. */
       delete(request?: {
@@ -9098,7 +9098,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReturnPolicyOnline
+        body: ReturnPolicyOnline,
       ): Request<ReturnPolicyOnline>;
     }
     interface ShippingsettingsResource {
@@ -9154,7 +9154,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ShippingsettingsCustomBatchRequest
+        body: ShippingsettingsCustomBatchRequest,
       ): Request<ShippingsettingsCustomBatchResponse>;
       /** Retrieves the shipping settings of the account. */
       get(request?: {
@@ -9357,7 +9357,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ShippingSettings
+        body: ShippingSettings,
       ): Request<ShippingSettings>;
     }
     interface ShoppingadsprogramResource {
@@ -9444,7 +9444,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RequestReviewShoppingAdsRequest
+        body: RequestReviewShoppingAdsRequest,
       ): Request<void>;
     }
 

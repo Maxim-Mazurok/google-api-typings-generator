@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Tool Results API v1beta3 */
   function load(
-    urlOrObject: 'https://toolresults.googleapis.com/$discovery/rest?version=v1beta3'
+    urlOrObject: 'https://toolresults.googleapis.com/$discovery/rest?version=v1beta3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'toolresults', version: 'v1beta3'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'toolresults',
     version: 'v1beta3',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace toolresults {
@@ -1032,7 +1032,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PerfMetricsSummary
+        body: PerfMetricsSummary,
       ): Request<PerfMetricsSummary>;
     }
     interface SamplesResource {
@@ -1108,7 +1108,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreatePerfSamplesRequest
+        body: BatchCreatePerfSamplesRequest,
       ): Request<BatchCreatePerfSamplesResponse>;
       /** Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples; and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size, submit a subsequent request including the page token to return the rest of the samples up to the page limit May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The containing PerfSampleSeries does not exist */
       list(request?: {
@@ -1219,7 +1219,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PerfSampleSeries
+        body: PerfSampleSeries,
       ): Request<PerfSampleSeries>;
       /** Gets a PerfSampleSeries. May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist */
       get(request?: {
@@ -1504,7 +1504,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Step
+        body: Step,
       ): Request<Step>;
       /** Gets a Step. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Step does not exist */
       get(request?: {
@@ -1679,7 +1679,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Step
+        body: Step,
       ): Request<Step>;
       /** Publish xml files to an existing Step. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal, e.g. try to upload a duplicate xml file or a file too large. - NOT_FOUND - if the containing Execution does not exist */
       publishXunitXmlFiles(request: {
@@ -1749,7 +1749,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PublishXunitXmlFilesRequest
+        body: PublishXunitXmlFilesRequest,
       ): Request<Step>;
       perfMetricsSummary: PerfMetricsSummaryResource;
       perfSampleSeries: PerfSampleSeriesResource;
@@ -1821,7 +1821,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Execution
+        body: Execution,
       ): Request<Execution>;
       /** Gets an Execution. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Execution does not exist */
       get(request?: {
@@ -1955,7 +1955,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Execution
+        body: Execution,
       ): Request<Execution>;
       clusters: ClustersResource;
       environments: EnvironmentsResource;
@@ -2022,7 +2022,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: History
+        body: History,
       ): Request<History>;
       /** Gets a History. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the History does not exist */
       get(request?: {

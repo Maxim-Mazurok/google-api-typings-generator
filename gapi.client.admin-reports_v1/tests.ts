@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://admin.googleapis.com/$discovery/rest?version=reports_v1'
+    'https://admin.googleapis.com/$discovery/rest?version=reports_v1',
   );
   /** now we can use gapi.client.admin, gapi.client.reports */
 
@@ -49,7 +49,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of activities for a specific customer's account and application such as the Admin console application or the Google Drive application. For more information, see the guides for administrator and Google Drive activity reports. For more information about the activity report's parameters, see the activity parameters reference guides. */
     await gapi.client.reports.activities.list({
@@ -95,7 +95,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Retrieves a report which is a collection of properties and statistics for a specific customer's account. For more information, see the Customers Usage Report guide. For more information about the customer report's parameters, see the Customers Usage parameters reference guides. */
     await gapi.client.reports.customerUsageReports.get({

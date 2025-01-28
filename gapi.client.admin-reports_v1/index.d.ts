@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Admin SDK API reports_v1 */
   function load(
-    urlOrObject: 'https://admin.googleapis.com/$discovery/rest?version=reports_v1'
+    urlOrObject: 'https://admin.googleapis.com/$discovery/rest?version=reports_v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'admin', version: 'reports_v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'admin',
     version: 'reports_v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace admin {
@@ -253,7 +253,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<void>;
     }
 
@@ -582,7 +582,7 @@ declare namespace gapi.client {
           /** Represents the profile ID or the user email for which the data should be filtered. Can be `all` for all information, or `userKey` for a user's unique Google Workspace profile ID or their primary email address. Must not be a deleted user. For a deleted user, call `users.list` in Directory API with `showDeleted=true`, then use the returned `ID` as the `userKey`. */
           userKey: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
     interface CustomerUsageReportsResource {

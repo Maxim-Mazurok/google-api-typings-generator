@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://osconfig.googleapis.com/$discovery/rest?version=v1beta'
+    'https://osconfig.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.osconfig */
 
@@ -192,7 +192,7 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete an OS Config guest policy. */
     await gapi.client.osconfig.projects.guestPolicies.delete({
@@ -369,7 +369,7 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Create an OS Config patch deployment. */
     await gapi.client.osconfig.projects.patchDeployments.create(
@@ -509,7 +509,7 @@ gapi.load('client', async () => {
         },
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete an OS Config patch deployment. */
     await gapi.client.osconfig.projects.patchDeployments.delete({
@@ -663,28 +663,28 @@ gapi.load('client', async () => {
         },
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Change state of patch deployment to "PAUSED". Patch deployment in paused state doesn't generate patch jobs. */
     await gapi.client.osconfig.projects.patchDeployments.pause(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Change state of patch deployment back to "ACTIVE". Patch deployment in active state continues to generate patch jobs. */
     await gapi.client.osconfig.projects.patchDeployments.resume(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Cancel a patch job. The patch job must be active. Canceled patch jobs cannot be restarted. */
     await gapi.client.osconfig.projects.patchJobs.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Patch VM instances by creating and running a patch job. */
     await gapi.client.osconfig.projects.patchJobs.execute(
@@ -789,7 +789,7 @@ gapi.load('client', async () => {
           },
           mode: 'Test string',
         },
-      }
+      },
     );
     /** Get the patch job. This can be used to track the progress of an ongoing patch job or review the details of completed jobs. */
     await gapi.client.osconfig.projects.patchJobs.get({
@@ -818,7 +818,7 @@ gapi.load('client', async () => {
         osArchitecture: 'Test string',
         osShortName: 'Test string',
         osVersion: 'Test string',
-      }
+      },
     );
   }
 });

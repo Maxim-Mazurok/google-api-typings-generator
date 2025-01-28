@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Memorystore for Memcached API v1beta2 */
   function load(
-    urlOrObject: 'https://memcache.googleapis.com/$discovery/rest?version=v1beta2'
+    urlOrObject: 'https://memcache.googleapis.com/$discovery/rest?version=v1beta2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'memcache', version: 'v1beta2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'memcache',
     version: 'v1beta2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace memcache {
@@ -571,7 +571,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApplyParametersRequest
+        body: ApplyParametersRequest,
       ): Request<Operation>;
       /** Updates software on the selected nodes of the Instance. */
       applySoftwareUpdate(request: {
@@ -629,7 +629,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApplySoftwareUpdateRequest
+        body: ApplySoftwareUpdateRequest,
       ): Request<Operation>;
       /** Creates a new Instance in a given location. */
       create(request: {
@@ -691,7 +691,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Deletes a single Instance. */
       delete(request?: {
@@ -842,7 +842,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Performs the apply phase of the RescheduleMaintenance verb. */
       rescheduleMaintenance(request: {
@@ -900,7 +900,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RescheduleMaintenanceRequest
+        body: RescheduleMaintenanceRequest,
       ): Request<Operation>;
       /** Updates the defined Memcached parameters for an existing instance. This method only stages the parameters, it must be followed by `ApplyParameters` to apply the parameters to nodes of the Memcached instance. */
       updateParameters(request: {
@@ -958,7 +958,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateParametersRequest
+        body: UpdateParametersRequest,
       ): Request<Operation>;
       /** Upgrades the Memcache instance to a newer memcached engine version specified in the request. */
       upgrade(request: {
@@ -1016,7 +1016,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMemcacheV1beta2UpgradeInstanceRequest
+        body: GoogleCloudMemcacheV1beta2UpgradeInstanceRequest,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -1076,7 +1076,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

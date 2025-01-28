@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://metastore.googleapis.com/$discovery/rest?version=v2'
+    'https://metastore.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.metastore */
 
@@ -39,7 +39,7 @@ gapi.load('client', async () => {
       {
         locationUri: 'Test string',
         resourceName: 'Test string',
-      }
+      },
     );
     /** Alter metadata table properties. */
     await gapi.client.metastore.projects.locations.services.alterTableProperties(
@@ -52,7 +52,7 @@ gapi.load('client', async () => {
         },
         tableName: 'Test string',
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates a metastore service in a project and location. */
     await gapi.client.metastore.projects.locations.services.create(
@@ -121,7 +121,7 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         warehouseGcsUri: 'Test string',
-      }
+      },
     );
     /** Deletes a single service. */
     await gapi.client.metastore.projects.locations.services.delete({
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
         databaseDumpType: 'Test string',
         destinationGcsFolder: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets the details of a single service. */
     await gapi.client.metastore.projects.locations.services.get({
@@ -155,7 +155,7 @@ gapi.load('client', async () => {
         },
         description: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Lists services in a project and location. */
     await gapi.client.metastore.projects.locations.services.list({
@@ -174,7 +174,7 @@ gapi.load('client', async () => {
         dbName: 'Test string',
         destinationDbName: 'Test string',
         tableName: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single service. */
     await gapi.client.metastore.projects.locations.services.patch(
@@ -243,7 +243,7 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         warehouseGcsUri: 'Test string',
-      }
+      },
     );
     /** Query Dataproc Metastore metadata. */
     await gapi.client.metastore.projects.locations.services.queryMetadata(
@@ -252,7 +252,7 @@ gapi.load('client', async () => {
       },
       {
         query: 'Test string',
-      }
+      },
     );
     /** Restores a service from a backup. */
     await gapi.client.metastore.projects.locations.services.restore(
@@ -264,7 +264,7 @@ gapi.load('client', async () => {
         backupLocation: 'Test string',
         requestId: 'Test string',
         restoreType: 'Test string',
-      }
+      },
     );
     /** Creates a new backup in a given project and location. */
     await gapi.client.metastore.projects.locations.services.backups.create(
@@ -341,7 +341,7 @@ gapi.load('client', async () => {
           warehouseGcsUri: 'Test string',
         },
         state: 'Test string',
-      }
+      },
     );
     /** Deletes a single backup. */
     await gapi.client.metastore.projects.locations.services.backups.delete({

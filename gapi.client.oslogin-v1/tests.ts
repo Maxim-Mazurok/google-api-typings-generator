@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://oslogin.googleapis.com/$discovery/rest?version=v1'
+    'https://oslogin.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.oslogin */
 
@@ -55,7 +55,7 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         key: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a POSIX account. */
     await gapi.client.oslogin.users.projects.delete({
@@ -71,7 +71,7 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         key: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes an SSH public key. */
     await gapi.client.oslogin.users.sshPublicKeys.delete({
@@ -92,7 +92,7 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         key: 'Test string',
         name: 'Test string',
-      }
+      },
     );
   }
 });

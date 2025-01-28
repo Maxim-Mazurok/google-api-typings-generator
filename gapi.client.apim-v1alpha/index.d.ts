@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load API Management API v1alpha */
   function load(
-    urlOrObject: 'https://apim.googleapis.com/$discovery/rest?version=v1alpha'
+    urlOrObject: 'https://apim.googleapis.com/$discovery/rest?version=v1alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'apim', version: 'v1alpha'): Promise<void>;
@@ -373,7 +373,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchEditTagsApiObservationsRequest
+        body: BatchEditTagsApiObservationsRequest,
       ): Request<BatchEditTagsApiObservationsResponse>;
       /** GetApiObservation retrieves a single ApiObservation by name. */
       get(request?: {
@@ -500,7 +500,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ObservationJob
+        body: ObservationJob,
       ): Request<Operation>;
       /** DeleteObservationJob deletes an ObservationJob. This method will fail if the observation job is currently being used by any ObservationSource, even if not enabled. */
       delete(request?: {
@@ -585,7 +585,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableObservationJobRequest
+        body: DisableObservationJobRequest,
       ): Request<Operation>;
       /** Enables the given ObservationJob. */
       enable(request: {
@@ -643,7 +643,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnableObservationJobRequest
+        body: EnableObservationJobRequest,
       ): Request<Operation>;
       /** GetObservationJob retrieves a single ObservationJob by name. */
       get(request?: {
@@ -770,7 +770,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ObservationSource
+        body: ObservationSource,
       ): Request<Operation>;
       /** DeleteObservationSource deletes an observation source. This method will fail if the observation source is currently being used by any ObservationJob, even if not enabled. */
       delete(request?: {
@@ -915,7 +915,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://kgsearch.googleapis.com/$discovery/rest?version=v1'
+    'https://kgsearch.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.kgsearch */
 

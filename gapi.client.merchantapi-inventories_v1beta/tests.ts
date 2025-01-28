@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://merchantapi.googleapis.com/$discovery/rest?version=inventories_v1beta'
+    'https://merchantapi.googleapis.com/$discovery/rest?version=inventories_v1beta',
   );
   /** now we can use gapi.client.merchantapi */
 
@@ -68,7 +68,7 @@ gapi.load('client', async () => {
           startTime: 'Test string',
         },
         storeCode: 'Test string',
-      }
+      },
     );
     /** Lists the `LocalInventory` resources for the given product in your merchant account. The response might contain fewer items than specified by `pageSize`. If `pageToken` was returned in previous request, it can be used to obtain additional results. `LocalInventory` resources are listed per product for a given account. */
     await gapi.client.merchantapi.accounts.products.localInventories.list({
@@ -109,7 +109,7 @@ gapi.load('client', async () => {
           endTime: 'Test string',
           startTime: 'Test string',
         },
-      }
+      },
     );
     /** Lists the `RegionalInventory` resources for the given product in your merchant account. The response might contain fewer items than specified by `pageSize`. If `pageToken` was returned in previous request, it can be used to obtain additional results. `RegionalInventory` resources are listed per product for a given account. */
     await gapi.client.merchantapi.accounts.products.regionalInventories.list({

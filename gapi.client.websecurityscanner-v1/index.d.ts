@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Web Security Scanner API v1 */
   function load(
-    urlOrObject: 'https://websecurityscanner.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://websecurityscanner.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'websecurityscanner', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'websecurityscanner',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace websecurityscanner {
@@ -511,7 +511,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopScanRunRequest
+        body: StopScanRunRequest,
       ): Request<ScanRun>;
       crawledUrls: CrawledUrlsResource;
       findings: FindingsResource;
@@ -574,7 +574,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ScanConfig
+        body: ScanConfig,
       ): Request<ScanConfig>;
       /** Deletes an existing ScanConfig and its child resources. */
       delete(request?: {
@@ -721,7 +721,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ScanConfig
+        body: ScanConfig,
       ): Request<ScanConfig>;
       /** Start a ScanRun according to the given ScanConfig. */
       start(request: {
@@ -779,7 +779,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartScanRunRequest
+        body: StartScanRunRequest,
       ): Request<ScanRun>;
       scanRuns: ScanRunsResource;
     }

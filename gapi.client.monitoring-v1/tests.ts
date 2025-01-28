@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://monitoring.googleapis.com/$discovery/rest?version=v1'
+    'https://monitoring.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.monitoring */
 
@@ -45,7 +45,7 @@ gapi.load('client', async () => {
     await gapi.client.monitoring.locations.global.metricsScopes.listMetricsScopesByMonitoredProject(
       {
         monitoredResourceContainer: 'Test string',
-      }
+      },
     );
     /** Adds a MonitoredProject with the given project ID to the specified Metrics Scope. */
     await gapi.client.monitoring.locations.global.metricsScopes.projects.create(
@@ -55,13 +55,13 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a MonitoredProject from the specified Metrics Scope. */
     await gapi.client.monitoring.locations.global.metricsScopes.projects.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.monitoring.operations.get({
@@ -2409,7 +2409,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Deletes an existing custom dashboard.This method requires the monitoring.dashboards.delete permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam). */
     await gapi.client.monitoring.projects.dashboards.delete({
@@ -4767,7 +4767,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Lists labels for metrics. */
     await gapi.client.monitoring.projects.location.prometheus.api.v1.labels(
@@ -4779,7 +4779,7 @@ gapi.load('client', async () => {
         end: 'Test string',
         match: 'Test string',
         start: 'Test string',
-      }
+      },
     );
     /** Evaluate a PromQL query at a single point in time. */
     await gapi.client.monitoring.projects.location.prometheus.api.v1.query(
@@ -4791,7 +4791,7 @@ gapi.load('client', async () => {
         query: 'Test string',
         time: 'Test string',
         timeout: 'Test string',
-      }
+      },
     );
     /** Lists exemplars relevant to a given PromQL query, */
     await gapi.client.monitoring.projects.location.prometheus.api.v1.query_exemplars(
@@ -4803,7 +4803,7 @@ gapi.load('client', async () => {
         end: 'Test string',
         query: 'Test string',
         start: 'Test string',
-      }
+      },
     );
     /** Evaluate a PromQL query with start, end time range. */
     await gapi.client.monitoring.projects.location.prometheus.api.v1.query_range(
@@ -4817,7 +4817,7 @@ gapi.load('client', async () => {
         start: 'Test string',
         step: 'Test string',
         timeout: 'Test string',
-      }
+      },
     );
     /** Lists metadata for metrics. */
     await gapi.client.monitoring.projects.location.prometheus.api.v1.series(
@@ -4828,7 +4828,7 @@ gapi.load('client', async () => {
       {
         end: 'Test string',
         start: 'Test string',
-      }
+      },
     );
     /** Lists possible values for a given label name. */
     await gapi.client.monitoring.projects.location.prometheus.api.v1.label.values(
@@ -4839,7 +4839,7 @@ gapi.load('client', async () => {
         match: 'Test string',
         name: 'Test string',
         start: 'Test string',
-      }
+      },
     );
     /** Lists metadata for metrics. */
     await gapi.client.monitoring.projects.location.prometheus.api.v1.metadata.list(
@@ -4848,7 +4848,7 @@ gapi.load('client', async () => {
         location: 'Test string',
         metric: 'Test string',
         name: 'Test string',
-      }
+      },
     );
   }
 });

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Shell API v1 */
   function load(
-    urlOrObject: 'https://cloudshell.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://cloudshell.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudshell', version: 'v1'): Promise<void>;
@@ -170,7 +170,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -317,7 +317,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddPublicKeyRequest
+        body: AddPublicKeyRequest,
       ): Request<Operation>;
       /** Sends OAuth credentials to a running environment on behalf of a user. When this completes, the environment will be authorized to run various Google Cloud command line tools without requiring the user to manually authenticate. */
       authorize(request: {
@@ -375,7 +375,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AuthorizeEnvironmentRequest
+        body: AuthorizeEnvironmentRequest,
       ): Request<Operation>;
       /** Gets an environment. Returns NOT_FOUND if the environment does not exist. */
       get(request?: {
@@ -460,7 +460,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemovePublicKeyRequest
+        body: RemovePublicKeyRequest,
       ): Request<Operation>;
       /** Starts an existing environment, allowing clients to connect to it. The returned operation will contain an instance of StartEnvironmentMetadata in its metadata field. Users can wait for the environment to start by polling this operation via GetOperation. Once the environment has finished starting and is ready to accept connections, the operation will contain a StartEnvironmentResponse in its response field. */
       start(request: {
@@ -518,7 +518,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartEnvironmentRequest
+        body: StartEnvironmentRequest,
       ): Request<Operation>;
     }
     interface UsersResource {

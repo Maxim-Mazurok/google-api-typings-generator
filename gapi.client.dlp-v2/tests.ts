@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://dlp.googleapis.com/$discovery/rest?version=v2'
+    'https://dlp.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.dlp */
 
@@ -899,7 +899,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         templateId: 'Test string',
-      }
+      },
     );
     /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
     await gapi.client.dlp.organizations.deidentifyTemplates.delete({
@@ -1770,7 +1770,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
     await gapi.client.dlp.organizations.inspectTemplates.create(
@@ -1948,7 +1948,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         templateId: 'Test string',
-      }
+      },
     );
     /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
     await gapi.client.dlp.organizations.inspectTemplates.delete({
@@ -2141,7 +2141,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets a column data profile. */
     await gapi.client.dlp.organizations.locations.columnDataProfiles.get({
@@ -2190,7 +2190,7 @@ gapi.load('client', async () => {
           name: 'Test string',
           state: 'Test string',
         },
-      }
+      },
     );
     /** Delete a Connection. */
     await gapi.client.dlp.organizations.locations.connections.delete({
@@ -2243,7 +2243,7 @@ gapi.load('client', async () => {
           state: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Searches for Connections in a parent. */
     await gapi.client.dlp.organizations.locations.connections.search({
@@ -3106,7 +3106,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         templateId: 'Test string',
-      }
+      },
     );
     /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
     await gapi.client.dlp.organizations.locations.deidentifyTemplates.delete({
@@ -3977,7 +3977,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates a config for discovery to scan and profile storage. */
     await gapi.client.dlp.organizations.locations.discoveryConfigs.create(
@@ -4235,7 +4235,7 @@ gapi.load('client', async () => {
           ],
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a discovery configuration. */
     await gapi.client.dlp.organizations.locations.discoveryConfigs.delete({
@@ -4508,7 +4508,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Lists DlpJobs that match the specified filter in the request. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
     await gapi.client.dlp.organizations.locations.dlpJobs.list({
@@ -4712,7 +4712,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         templateId: 'Test string',
-      }
+      },
     );
     /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
     await gapi.client.dlp.organizations.locations.inspectTemplates.delete({
@@ -4905,7 +4905,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates a job trigger to run DLP actions such as scanning storage for sensitive information on a set schedule. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
     await gapi.client.dlp.organizations.locations.jobTriggers.create(
@@ -5221,7 +5221,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         triggerId: 'Test string',
-      }
+      },
     );
     /** Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
     await gapi.client.dlp.organizations.locations.jobTriggers.delete({
@@ -5554,7 +5554,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets a project data profile. */
     await gapi.client.dlp.organizations.locations.projectDataProfiles.get({
@@ -5610,7 +5610,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         storedInfoTypeId: 'Test string',
-      }
+      },
     );
     /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
     await gapi.client.dlp.organizations.locations.storedInfoTypes.delete({
@@ -5669,7 +5669,7 @@ gapi.load('client', async () => {
           },
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Delete a TableDataProfile. Will not prevent the profile from being regenerated if the table is still included in a discovery configuration. */
     await gapi.client.dlp.organizations.locations.tableDataProfiles.delete({
@@ -5729,7 +5729,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         storedInfoTypeId: 'Test string',
-      }
+      },
     );
     /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
     await gapi.client.dlp.organizations.storedInfoTypes.delete({
@@ -5788,7 +5788,7 @@ gapi.load('client', async () => {
           },
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** De-identifies potentially sensitive info from a ContentItem. This method has limits on input size and output size. See https://cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data to learn more. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. */
     await gapi.client.dlp.projects.content.deidentify(
@@ -6838,7 +6838,7 @@ gapi.load('client', async () => {
           value: 'Test string',
         },
         locationId: 'Test string',
-      }
+      },
     );
     /** Finds potentially sensitive info in content. This method has limits on input size, processing time, and output size. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. For how to guides, see https://cloud.google.com/sensitive-data-protection/docs/inspecting-images and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text, */
     await gapi.client.dlp.projects.content.inspect(
@@ -7048,7 +7048,7 @@ gapi.load('client', async () => {
           value: 'Test string',
         },
         locationId: 'Test string',
-      }
+      },
     );
     /** Re-identifies content that has been de-identified. See https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example to learn more. */
     await gapi.client.dlp.projects.content.reidentify(
@@ -8098,7 +8098,7 @@ gapi.load('client', async () => {
           },
         },
         reidentifyTemplateName: 'Test string',
-      }
+      },
     );
     /** Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
     await gapi.client.dlp.projects.deidentifyTemplates.create(
@@ -8954,7 +8954,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         templateId: 'Test string',
-      }
+      },
     );
     /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
     await gapi.client.dlp.projects.deidentifyTemplates.delete({
@@ -9825,14 +9825,14 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running DlpJob. The server makes a best effort to cancel the DlpJob, but success is not guaranteed. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
     await gapi.client.dlp.projects.dlpJobs.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new job to inspect storage or calculate risk metrics. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. */
     await gapi.client.dlp.projects.dlpJobs.create(
@@ -10272,7 +10272,7 @@ gapi.load('client', async () => {
             tableId: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be canceled if possible. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
     await gapi.client.dlp.projects.dlpJobs.delete({
@@ -10482,7 +10482,7 @@ gapi.load('client', async () => {
           ],
         },
         locationId: 'Test string',
-      }
+      },
     );
     /** Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
     await gapi.client.dlp.projects.inspectTemplates.create(
@@ -10660,7 +10660,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         templateId: 'Test string',
-      }
+      },
     );
     /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
     await gapi.client.dlp.projects.inspectTemplates.delete({
@@ -10853,14 +10853,14 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Activate a job trigger. Causes the immediate execute of a trigger instead of waiting on the trigger event to occur. */
     await gapi.client.dlp.projects.jobTriggers.activate(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a job trigger to run DLP actions such as scanning storage for sensitive information on a set schedule. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
     await gapi.client.dlp.projects.jobTriggers.create(
@@ -11176,7 +11176,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         triggerId: 'Test string',
-      }
+      },
     );
     /** Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
     await gapi.client.dlp.projects.jobTriggers.delete({
@@ -11509,7 +11509,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets a column data profile. */
     await gapi.client.dlp.projects.locations.columnDataProfiles.get({
@@ -11558,7 +11558,7 @@ gapi.load('client', async () => {
           name: 'Test string',
           state: 'Test string',
         },
-      }
+      },
     );
     /** Delete a Connection. */
     await gapi.client.dlp.projects.locations.connections.delete({
@@ -11611,7 +11611,7 @@ gapi.load('client', async () => {
           state: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Searches for Connections in a parent. */
     await gapi.client.dlp.projects.locations.connections.search({
@@ -12668,7 +12668,7 @@ gapi.load('client', async () => {
           value: 'Test string',
         },
         locationId: 'Test string',
-      }
+      },
     );
     /** Finds potentially sensitive info in content. This method has limits on input size, processing time, and output size. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. For how to guides, see https://cloud.google.com/sensitive-data-protection/docs/inspecting-images and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text, */
     await gapi.client.dlp.projects.locations.content.inspect(
@@ -12878,7 +12878,7 @@ gapi.load('client', async () => {
           value: 'Test string',
         },
         locationId: 'Test string',
-      }
+      },
     );
     /** Re-identifies content that has been de-identified. See https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example to learn more. */
     await gapi.client.dlp.projects.locations.content.reidentify(
@@ -13928,7 +13928,7 @@ gapi.load('client', async () => {
           },
         },
         reidentifyTemplateName: 'Test string',
-      }
+      },
     );
     /** Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
     await gapi.client.dlp.projects.locations.deidentifyTemplates.create(
@@ -14784,7 +14784,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         templateId: 'Test string',
-      }
+      },
     );
     /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
     await gapi.client.dlp.projects.locations.deidentifyTemplates.delete({
@@ -15655,7 +15655,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates a config for discovery to scan and profile storage. */
     await gapi.client.dlp.projects.locations.discoveryConfigs.create(
@@ -15913,7 +15913,7 @@ gapi.load('client', async () => {
           ],
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a discovery configuration. */
     await gapi.client.dlp.projects.locations.discoveryConfigs.delete({
@@ -16186,14 +16186,14 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running DlpJob. The server makes a best effort to cancel the DlpJob, but success is not guaranteed. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
     await gapi.client.dlp.projects.locations.dlpJobs.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new job to inspect storage or calculate risk metrics. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. */
     await gapi.client.dlp.projects.locations.dlpJobs.create(
@@ -16633,7 +16633,7 @@ gapi.load('client', async () => {
             tableId: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be canceled if possible. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
     await gapi.client.dlp.projects.locations.dlpJobs.delete({
@@ -16644,7 +16644,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running DlpJob. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
     await gapi.client.dlp.projects.locations.dlpJobs.get({
@@ -16720,7 +16720,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         },
-      }
+      },
     );
     /** Lists DlpJobs that match the specified filter in the request. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
     await gapi.client.dlp.projects.locations.dlpJobs.list({
@@ -16938,7 +16938,7 @@ gapi.load('client', async () => {
           ],
         },
         locationId: 'Test string',
-      }
+      },
     );
     /** Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
     await gapi.client.dlp.projects.locations.inspectTemplates.create(
@@ -17116,7 +17116,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         templateId: 'Test string',
-      }
+      },
     );
     /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
     await gapi.client.dlp.projects.locations.inspectTemplates.delete({
@@ -17309,14 +17309,14 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Activate a job trigger. Causes the immediate execute of a trigger instead of waiting on the trigger event to occur. */
     await gapi.client.dlp.projects.locations.jobTriggers.activate(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a job trigger to run DLP actions such as scanning storage for sensitive information on a set schedule. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
     await gapi.client.dlp.projects.locations.jobTriggers.create(
@@ -17632,7 +17632,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         triggerId: 'Test string',
-      }
+      },
     );
     /** Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
     await gapi.client.dlp.projects.locations.jobTriggers.delete({
@@ -17712,7 +17712,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         },
-      }
+      },
     );
     /** Lists job triggers. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
     await gapi.client.dlp.projects.locations.jobTriggers.list({
@@ -18037,7 +18037,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets a project data profile. */
     await gapi.client.dlp.projects.locations.projectDataProfiles.get({
@@ -18093,7 +18093,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         storedInfoTypeId: 'Test string',
-      }
+      },
     );
     /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
     await gapi.client.dlp.projects.locations.storedInfoTypes.delete({
@@ -18152,7 +18152,7 @@ gapi.load('client', async () => {
           },
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Delete a TableDataProfile. Will not prevent the profile from being regenerated if the table is still included in a discovery configuration. */
     await gapi.client.dlp.projects.locations.tableDataProfiles.delete({
@@ -18212,7 +18212,7 @@ gapi.load('client', async () => {
         },
         locationId: 'Test string',
         storedInfoTypeId: 'Test string',
-      }
+      },
     );
     /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
     await gapi.client.dlp.projects.storedInfoTypes.delete({
@@ -18271,7 +18271,7 @@ gapi.load('client', async () => {
           },
         },
         updateMask: 'Test string',
-      }
+      },
     );
   }
 });

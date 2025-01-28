@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Google Marketing Platform Admin API v1alpha */
   function load(
-    urlOrObject: 'https://marketingplatformadmin.googleapis.com/$discovery/rest?version=v1alpha'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'marketingplatformadmin',
-    version: 'v1alpha'
+    urlOrObject: 'https://marketingplatformadmin.googleapis.com/$discovery/rest?version=v1alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'marketingplatformadmin',
     version: 'v1alpha',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'marketingplatformadmin',
+    version: 'v1alpha',
+    callback: () => any,
   ): void;
 
   namespace marketingplatformadmin {
@@ -118,7 +118,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AnalyticsAccountLink
+        body: AnalyticsAccountLink,
       ): Request<AnalyticsAccountLink>;
       /** Deletes the AnalyticsAccountLink, which detaches the Analytics account from the Google Marketing Platform organization. User needs to be an org user, and admin on the Analytics account in order to delete the link. */
       delete(request?: {
@@ -234,7 +234,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetPropertyServiceLevelRequest
+        body: SetPropertyServiceLevelRequest,
       ): Request<{}>;
     }
     interface OrganizationsResource {

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Deployment Manager V2 API v2beta */
   function load(
-    urlOrObject: 'https://deploymentmanager.googleapis.com/$discovery/rest?version=v2beta'
+    urlOrObject: 'https://deploymentmanager.googleapis.com/$discovery/rest?version=v2beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'deploymentmanager', version: 'v2beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'deploymentmanager',
     version: 'v2beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace deploymentmanager {
@@ -797,7 +797,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CompositeType
+        body: CompositeType,
       ): Request<Operation>;
       /** Lists all composite types for Deployment Manager. */
       list(request?: {
@@ -896,7 +896,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CompositeType
+        body: CompositeType,
       ): Request<Operation>;
       /** Updates a composite type. */
       update(request: {
@@ -960,7 +960,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CompositeType
+        body: CompositeType,
       ): Request<Operation>;
     }
     interface DeploymentsResource {
@@ -1024,7 +1024,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeploymentsCancelPreviewRequest
+        body: DeploymentsCancelPreviewRequest,
       ): Request<Operation>;
       /** Deletes a deployment and all of the resources in the deployment. */
       delete(request?: {
@@ -1186,7 +1186,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Deployment
+        body: Deployment,
       ): Request<Operation>;
       /** Lists all deployments for a given project. */
       list(request?: {
@@ -1297,7 +1297,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Deployment
+        body: Deployment,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       setIamPolicy(
@@ -1329,7 +1329,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GlobalSetPolicyRequest
+        body: GlobalSetPolicyRequest,
       ): Request<Policy>;
       /** Stops an ongoing operation. This does not roll back any work that has already been completed, but prevents any new work from being started. */
       stop(request: {
@@ -1391,7 +1391,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeploymentsStopRequest
+        body: DeploymentsStopRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. */
       testIamPermissions(
@@ -1424,7 +1424,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestPermissionsRequest
+        body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
       /** Updates a deployment and all of the resources described by the deployment manifest. */
       update(request: {
@@ -1500,7 +1500,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Deployment
+        body: Deployment,
       ): Request<Operation>;
     }
     interface ManifestsResource {
@@ -1863,7 +1863,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TypeProvider
+        body: TypeProvider,
       ): Request<Operation>;
       /** Lists all resource type providers for Deployment Manager. */
       list(request?: {
@@ -1999,7 +1999,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TypeProvider
+        body: TypeProvider,
       ): Request<Operation>;
       /** Updates a type provider. */
       update(request: {
@@ -2063,7 +2063,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TypeProvider
+        body: TypeProvider,
       ): Request<Operation>;
     }
     interface TypesResource {

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://mybusinessverifications.googleapis.com/$discovery/rest?version=v1'
+    'https://mybusinessverifications.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.mybusinessverifications */
 
@@ -38,13 +38,13 @@ gapi.load('client', async () => {
           },
         },
         languageCode: 'Test string',
-      }
+      },
     );
     /** Gets the VoiceOfMerchant state. */
     await gapi.client.mybusinessverifications.locations.getVoiceOfMerchantState(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Starts the verification process for a location. */
     await gapi.client.mybusinessverifications.locations.verify(
@@ -75,7 +75,7 @@ gapi.load('client', async () => {
         token: {
           tokenString: 'Test string',
         },
-      }
+      },
     );
     /** Completes a `PENDING` verification. It is only necessary for non `AUTO` verification methods. `AUTO` verification request is instantly `VERIFIED` upon creation. */
     await gapi.client.mybusinessverifications.locations.verifications.complete(
@@ -84,7 +84,7 @@ gapi.load('client', async () => {
       },
       {
         pin: 'Test string',
-      }
+      },
     );
     /** List verifications of a location, ordered by create time. */
     await gapi.client.mybusinessverifications.locations.verifications.list({

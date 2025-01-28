@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Firebase Data Connect API v1beta */
   function load(
-    urlOrObject: 'https://firebasedataconnect.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://firebasedataconnect.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firebasedataconnect', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firebasedataconnect',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firebasedataconnect {
@@ -337,7 +337,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -496,7 +496,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the Connector, but do not actually create it. */
           validateOnly?: boolean;
         },
-        body: Connector
+        body: Connector,
       ): Request<Operation>;
       /** Deletes a single Connector. */
       delete(request?: {
@@ -591,7 +591,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExecuteMutationRequest
+        body: ExecuteMutationRequest,
       ): Request<ExecuteMutationResponse>;
       /** Execute a predefined query in a Connector. */
       executeQuery(request: {
@@ -649,7 +649,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExecuteQueryRequest
+        body: ExecuteQueryRequest,
       ): Request<ExecuteQueryResponse>;
       /** Gets details of a single Connector. */
       get(request?: {
@@ -785,7 +785,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the Connector, but do not actually update it. */
           validateOnly?: boolean;
         },
-        body: Connector
+        body: Connector,
       ): Request<Operation>;
     }
     interface SchemasResource {
@@ -857,7 +857,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the Schema, but do not actually update it. */
           validateOnly?: boolean;
         },
-        body: Schema
+        body: Schema,
       ): Request<Operation>;
       /** Deletes a single Schema. Because the schema and connectors must be compatible at all times, if this is called while any connectors are active, this will result in an error. */
       delete(request?: {
@@ -1030,7 +1030,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the Schema, but do not actually update it. */
           validateOnly?: boolean;
         },
-        body: Schema
+        body: Schema,
       ): Request<Operation>;
     }
     interface ServicesResource {
@@ -1102,7 +1102,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the Service, but do not actually create it. */
           validateOnly?: boolean;
         },
-        body: Service
+        body: Service,
       ): Request<Operation>;
       /** Deletes a single Service. */
       delete(request?: {
@@ -1197,7 +1197,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GraphqlRequest
+        body: GraphqlRequest,
       ): Request<GraphqlResponse>;
       /** Execute any GraphQL query against the Firebase Data Connect's generated GraphQL schema. Grants full read to the connected data sources. `ExecuteGraphqlRead` is identical to `ExecuteGraphql` except it only accepts read-only query. */
       executeGraphqlRead(request: {
@@ -1255,7 +1255,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GraphqlRequest
+        body: GraphqlRequest,
       ): Request<GraphqlResponse>;
       /** Gets details of a single Service. */
       get(request?: {
@@ -1391,7 +1391,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request and preview the Service, but do not actually update it. */
           validateOnly?: boolean;
         },
-        body: Service
+        body: Service,
       ): Request<Operation>;
       connectors: ConnectorsResource;
       schemas: SchemasResource;

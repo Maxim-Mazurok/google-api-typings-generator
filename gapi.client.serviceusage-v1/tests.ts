@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://serviceusage.googleapis.com/$discovery/rest?version=v1'
+    'https://serviceusage.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.serviceusage */
 
@@ -40,7 +40,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.serviceusage.operations.delete({
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
       },
       {
         serviceIds: ['Test string'],
-      }
+      },
     );
     /** Returns the service configurations and enabled states for a given list of services. */
     await gapi.client.serviceusage.services.batchGet({
@@ -79,14 +79,14 @@ gapi.load('client', async () => {
       {
         checkIfServiceHasUsage: 'Test string',
         disableDependentServices: true,
-      }
+      },
     );
     /** Enable a service so that it can be used with a project. */
     await gapi.client.serviceusage.services.enable(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Returns the service configuration and enabled state for a given service. */
     await gapi.client.serviceusage.services.get({

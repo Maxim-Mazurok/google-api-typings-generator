@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Play EMM API v1 */
   function load(
-    urlOrObject: 'https://androidenterprise.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://androidenterprise.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'androidenterprise', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'androidenterprise',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace androidenterprise {
@@ -914,7 +914,7 @@ declare namespace gapi.client {
           /** The ID of the user. */
           userId: string;
         },
-        body: DeviceState
+        body: DeviceState,
       ): Request<DeviceState>;
       /** Updates the device policy. To ensure the policy is properly enforced, you need to prevent unmanaged accounts from accessing Google Play by setting the allowed_accounts in the managed configuration for the Google Play package. See restrict accounts in Google Play. When provisioning a new device, you should set the device policy using this method before adding the managed Google Play Account to the device, otherwise the policy will not be applied for a short period of time after adding the account to the device. */
       update(request: {
@@ -984,7 +984,7 @@ declare namespace gapi.client {
           /** The ID of the user. */
           userId: string;
         },
-        body: Device
+        body: Device,
       ): Request<Device>;
     }
     interface EnrollmentTokensResource {
@@ -1044,7 +1044,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnrollmentToken
+        body: EnrollmentToken,
       ): Request<EnrollmentToken>;
     }
     interface EnterprisesResource {
@@ -1160,7 +1160,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AdministratorWebTokenSpec
+        body: AdministratorWebTokenSpec,
       ): Request<AdministratorWebToken>;
       /** Enrolls an enterprise with the calling EMM. */
       enroll(request: {
@@ -1218,7 +1218,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Enterprise
+        body: Enterprise,
       ): Request<Enterprise>;
       /** Generates a sign-up URL. */
       generateSignupUrl(request?: {
@@ -1471,7 +1471,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnterpriseAccount
+        body: EnterpriseAccount,
       ): Request<EnterpriseAccount>;
       /** Sets the store layout for the enterprise. By default, storeLayoutType is set to "basic" and the basic store layout is enabled. The basic layout only contains apps approved by the admin, and that have been added to the available product set for a user (using the setAvailableProductSet call). Apps on the page are sorted in order of their product ID value. If you create a custom store layout (by setting storeLayoutType = "custom" and setting a homepage), the basic store layout is disabled. */
       setStoreLayout(request: {
@@ -1529,7 +1529,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StoreLayout
+        body: StoreLayout,
       ): Request<StoreLayout>;
       /** Unenrolls an enterprise from the calling EMM. */
       unenroll(request?: {
@@ -1719,7 +1719,7 @@ declare namespace gapi.client {
           /** The ID of the user. */
           userId: string;
         },
-        body: Entitlement
+        body: Entitlement,
       ): Request<Entitlement>;
     }
     interface GrouplicensesResource {
@@ -1977,7 +1977,7 @@ declare namespace gapi.client {
           /** The ID of the user. */
           userId: string;
         },
-        body: Install
+        body: Install,
       ): Request<Install>;
     }
     interface ManagedconfigurationsfordeviceResource {
@@ -2146,7 +2146,7 @@ declare namespace gapi.client {
           /** The ID of the user. */
           userId: string;
         },
-        body: ManagedConfiguration
+        body: ManagedConfiguration,
       ): Request<ManagedConfiguration>;
     }
     interface ManagedconfigurationsforuserResource {
@@ -2305,7 +2305,7 @@ declare namespace gapi.client {
           /** The ID of the user. */
           userId: string;
         },
-        body: ManagedConfiguration
+        body: ManagedConfiguration,
       ): Request<ManagedConfiguration>;
     }
     interface ManagedconfigurationssettingsResource {
@@ -2431,7 +2431,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProductsApproveRequest
+        body: ProductsApproveRequest,
       ): Request<void>;
       /** Generates a URL that can be rendered in an iframe to display the permissions (if any) of a product. An enterprise admin must view these permissions and accept them on behalf of their organization in order to approve that product. Admins should accept the displayed permissions by interacting with a separate UI element in the EMM console, which in turn should trigger the use of this URL as the approvalUrlInfo.approvalUrl property in a Products.approve call to approve the product. This URL can only be used to display permissions for up to 1 day. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. */
       generateApprovalUrl(request?: {
@@ -2708,7 +2708,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ServiceAccountKey
+        body: ServiceAccountKey,
       ): Request<ServiceAccountKey>;
       /** Lists all active credentials for the service account associated with this enterprise. Only the ID and key type are returned. The calling service account must have been retrieved by calling Enterprises.GetServiceAccount and must have been set as the enterprise service account by calling Enterprises.SetAccount. */
       list(request?: {
@@ -2861,7 +2861,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StoreCluster
+        body: StoreCluster,
       ): Request<StoreCluster>;
       /** Retrieves the details of all clusters on the specified page. */
       list(request?: {
@@ -2956,7 +2956,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StoreCluster
+        body: StoreCluster,
       ): Request<StoreCluster>;
     }
     interface StorelayoutpagesResource {
@@ -3074,7 +3074,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StorePage
+        body: StorePage,
       ): Request<StorePage>;
       /** Retrieves the details of all pages in the store. */
       list(request?: {
@@ -3163,7 +3163,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StorePage
+        body: StorePage,
       ): Request<StorePage>;
     }
     interface UsersResource {
@@ -3339,7 +3339,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: User
+        body: User,
       ): Request<User>;
       /** Looks up a user by primary email address. This is only supported for Google-managed users. Lookup of the id is not needed for EMM-managed users because the id is already returned in the result of the Users.insert call. */
       list(request?: {
@@ -3459,7 +3459,7 @@ declare namespace gapi.client {
           /** The ID of the user. */
           userId: string;
         },
-        body: ProductSet
+        body: ProductSet,
       ): Request<ProductSet>;
       /** Updates the details of an EMM-managed user. Can be used with EMM-managed users only (not Google managed users). Pass the new details in the Users resource in the request body. Only the displayName field can be changed. Other fields must either be unset or have the currently active value. */
       update(request: {
@@ -3521,7 +3521,7 @@ declare namespace gapi.client {
           /** The ID of the user. */
           userId: string;
         },
-        body: User
+        body: User,
       ): Request<User>;
     }
     interface WebappsResource {
@@ -3639,7 +3639,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WebApp
+        body: WebApp,
       ): Request<WebApp>;
       /** Retrieves the details of all web apps for a given enterprise. */
       list(request?: {
@@ -3728,7 +3728,7 @@ declare namespace gapi.client {
           /** The ID of the web app. */
           webAppId: string;
         },
-        body: WebApp
+        body: WebApp,
       ): Request<WebApp>;
     }
 

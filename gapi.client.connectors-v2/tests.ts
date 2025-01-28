@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://connectors.googleapis.com/$discovery/rest?version=v2'
+    'https://connectors.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.connectors */
 
@@ -50,7 +50,7 @@ gapi.load('client', async () => {
           pkceVerifier: 'Test string',
           redirectUri: 'Test string',
         },
-      }
+      },
     );
     /** Executes a SQL statement specified in the body of the request. An example of this SQL statement in the case of Salesforce connector would be 'select * from Account a, Order o where a.Id = o.AccountId'. */
     await gapi.client.connectors.projects.locations.connections.executeSqlQuery(
@@ -69,7 +69,7 @@ gapi.load('client', async () => {
           ],
           timeout: 'Test string',
         },
-      }
+      },
     );
     /** RefreshAccessToken exchanges the OAuth refresh token (and other necessary data) for a new access token (and new associated credentials). */
     await gapi.client.connectors.projects.locations.connections.refreshAccessToken(
@@ -78,7 +78,7 @@ gapi.load('client', async () => {
       },
       {
         refreshToken: 'Test string',
-      }
+      },
     );
     /** Executes an action with the name specified in the request. The input parameters for executing the action are passed through the body of the ExecuteAction request. */
     await gapi.client.connectors.projects.locations.connections.actions.execute(
@@ -89,7 +89,7 @@ gapi.load('client', async () => {
         parameters: {
           A: 42,
         },
-      }
+      },
     );
     /** Gets the schema of the given action. */
     await gapi.client.connectors.projects.locations.connections.actions.get({
@@ -106,7 +106,7 @@ gapi.load('client', async () => {
     await gapi.client.connectors.projects.locations.connections.entityTypes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists metadata related to all entity types present in the external system. */
     await gapi.client.connectors.projects.locations.connections.entityTypes.list(
@@ -115,7 +115,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Creates a new entity row of the specified entity type in the external system. The field values for creating the row are contained in the body of the request. The response message contains a `Entity` message object returned as a response by the external system. */
     await gapi.client.connectors.projects.locations.connections.entityTypes.entities.create(
@@ -127,26 +127,26 @@ gapi.load('client', async () => {
           A: 42,
         },
         name: 'Test string',
-      }
+      },
     );
     /** Deletes an existing entity row matching the entity type and entity id specified in the request. */
     await gapi.client.connectors.projects.locations.connections.entityTypes.entities.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Deletes entities based on conditions specified in the request and not on entity id. */
     await gapi.client.connectors.projects.locations.connections.entityTypes.entities.deleteEntitiesWithConditions(
       {
         conditions: 'Test string',
         entityType: 'Test string',
-      }
+      },
     );
     /** Gets a single entity row matching the entity type and entity id specified in the request. */
     await gapi.client.connectors.projects.locations.connections.entityTypes.entities.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists entity rows of a particular entity type contained in the request. Note: 1. Currently, only max of one 'sort_by' column is supported. 2. If no 'sort_by' column is provided, the primary key of the table is used. If zero or more than one primary key is available, we default to the unpaginated list entities logic which only returns the first page. 3. The values of the 'sort_by' columns must uniquely identify an entity row, otherwise undefined behaviors may be observed during pagination. 4. Since transactions are not supported, any updates, inserts or deletes during pagination can lead to stale data being returned or other unexpected behaviors. */
     await gapi.client.connectors.projects.locations.connections.entityTypes.entities.list(
@@ -156,7 +156,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         sortBy: 'Test string',
-      }
+      },
     );
     /** Updates an existing entity row matching the entity type and entity id specified in the request. The fields in the entity row that need to be modified are contained in the body of the request. All unspecified fields are left unchanged. The response message contains a `Entity` message object returned as a response by the external system. */
     await gapi.client.connectors.projects.locations.connections.entityTypes.entities.patch(
@@ -168,7 +168,7 @@ gapi.load('client', async () => {
           A: 42,
         },
         name: 'Test string',
-      }
+      },
     );
     /** Updates entities based on conditions specified in the request and not on entity id. */
     await gapi.client.connectors.projects.locations.connections.entityTypes.entities.updateEntitiesWithConditions(
@@ -181,7 +181,7 @@ gapi.load('client', async () => {
           A: 42,
         },
         name: 'Test string',
-      }
+      },
     );
   }
 });

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Firebase ML API v2beta */
   function load(
-    urlOrObject: 'https://firebaseml.googleapis.com/$discovery/rest?version=v2beta'
+    urlOrObject: 'https://firebaseml.googleapis.com/$discovery/rest?version=v2beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firebaseml', version: 'v2beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firebaseml',
     version: 'v2beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firebaseml {
@@ -634,7 +634,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAiplatformV1beta1CountTokensRequest
+        body: GoogleCloudAiplatformV1beta1CountTokensRequest,
       ): Request<GoogleCloudAiplatformV1beta1CountTokensResponse>;
       /** Generate content with multimodal inputs. */
       generateContent(request: {
@@ -692,7 +692,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAiplatformV1beta1GenerateContentRequest
+        body: GoogleCloudAiplatformV1beta1GenerateContentRequest,
       ): Request<GoogleCloudAiplatformV1beta1GenerateContentResponse>;
       /** Generate content with multimodal inputs with streaming support. */
       streamGenerateContent(request: {
@@ -750,7 +750,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAiplatformV1beta1GenerateContentRequest
+        body: GoogleCloudAiplatformV1beta1GenerateContentRequest,
       ): Request<GoogleCloudAiplatformV1beta1GenerateContentResponse>;
     }
     interface PublishersResource {

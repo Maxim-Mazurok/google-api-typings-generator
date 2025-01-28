@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load App Engine Admin API v1beta */
   function load(
-    urlOrObject: 'https://appengine.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://appengine.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'appengine', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'appengine',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace appengine {
@@ -944,7 +944,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AuthorizedCertificate
+        body: AuthorizedCertificate,
       ): Request<AuthorizedCertificate>;
       /** Deletes the specified SSL certificate. */
       delete(request?: {
@@ -1103,7 +1103,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AuthorizedCertificate
+        body: AuthorizedCertificate,
       ): Request<AuthorizedCertificate>;
     }
     interface AuthorizedDomainsResource {
@@ -1200,7 +1200,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DomainMapping
+        body: DomainMapping,
       ): Request<Operation>;
       /** Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. */
       delete(request?: {
@@ -1355,7 +1355,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DomainMapping
+        body: DomainMapping,
       ): Request<Operation>;
     }
     interface IngressRulesResource {
@@ -1415,7 +1415,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateIngressRulesRequest
+        body: BatchUpdateIngressRulesRequest,
       ): Request<BatchUpdateIngressRulesResponse>;
       /** Creates a firewall rule for the application. */
       create(request: {
@@ -1473,7 +1473,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FirewallRule
+        body: FirewallRule,
       ): Request<FirewallRule>;
       /** Deletes the specified firewall rule. */
       delete(request?: {
@@ -1630,7 +1630,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FirewallRule
+        body: FirewallRule,
       ): Request<FirewallRule>;
     }
     interface FirewallResource {
@@ -1833,7 +1833,7 @@ declare namespace gapi.client {
           /** Part of `name`. See documentation of `appsId`. */
           versionsId: string;
         },
-        body: DebugInstanceRequest
+        body: DebugInstanceRequest,
       ): Request<Operation>;
       /** Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method. */
       delete(request?: {
@@ -1998,7 +1998,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Version
+        body: Version,
       ): Request<Operation>;
       /** Deletes an existing Version resource. */
       delete(request?: {
@@ -2169,7 +2169,7 @@ declare namespace gapi.client {
           /** Part of `name`. See documentation of `appsId`. */
           versionsId: string;
         },
-        body: Version
+        body: Version,
       ): Request<Operation>;
       instances: InstancesResource;
     }
@@ -2333,7 +2333,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Service
+        body: Service,
       ): Request<Operation>;
       versions: VersionsResource;
     }
@@ -2390,7 +2390,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Application
+        body: Application,
       ): Request<Operation>;
       /** Gets information about an application. */
       get(request?: {
@@ -2510,7 +2510,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Application
+        body: Application,
       ): Request<Operation>;
       /** Recreates the required App Engine features for the specified App Engine application, for example a Cloud Storage bucket or App Engine service account. Use this method if you receive an error message about a missing feature, for example, Error retrieving the App Engine service account. If you have deleted your App Engine service account, this will not be able to recreate it. Instead, you should attempt to use the IAM undelete API if possible at https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts/undelete?apix_params=%7B"name"%3A"projects%2F-%2FserviceAccounts%2Funique_id"%2C"resource"%3A%7B%7D%7D . If the deletion was recent, the numeric ID can be found in the Cloud Console Activity Log. */
       repair(request: {
@@ -2568,7 +2568,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RepairApplicationRequest
+        body: RepairApplicationRequest,
       ): Request<Operation>;
       authorizedCertificates: AuthorizedCertificatesResource;
       authorizedDomains: AuthorizedDomainsResource;

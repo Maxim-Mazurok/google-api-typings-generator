@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://iap.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://iap.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.iap */
 
@@ -40,7 +40,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Sets the access control policy for an Identity-Aware Proxy protected resource. Replaces any existing policy. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api */
     await gapi.client.iap.v1beta1.setIamPolicy(
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the Identity-Aware Proxy protected resource. If the resource does not exist or the caller does not have Identity-Aware Proxy permissions a [google.rpc.Code.PERMISSION_DENIED] will be returned. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api */
     await gapi.client.iap.v1beta1.testIamPermissions(
@@ -73,7 +73,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://metastore.googleapis.com/$discovery/rest?version=v1alpha'
+    'https://metastore.googleapis.com/$discovery/rest?version=v1alpha',
   );
   /** now we can use gapi.client.metastore */
 
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Deletes a single federation. */
     await gapi.client.metastore.projects.locations.federations.delete({
@@ -116,7 +116,7 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.metastore.projects.locations.federations.setIamPolicy(
@@ -152,7 +152,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.metastore.projects.locations.federations.testIamPermissions(
@@ -161,14 +161,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
     await gapi.client.metastore.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. */
     await gapi.client.metastore.projects.locations.operations.delete({
@@ -193,7 +193,7 @@ gapi.load('client', async () => {
       {
         locationUri: 'Test string',
         resourceName: 'Test string',
-      }
+      },
     );
     /** Alter metadata table properties. */
     await gapi.client.metastore.projects.locations.services.alterTableProperties(
@@ -206,21 +206,21 @@ gapi.load('client', async () => {
         },
         tableName: 'Test string',
         updateMask: 'Test string',
-      }
+      },
     );
     /** Cancels the ongoing Managed Migration process. */
     await gapi.client.metastore.projects.locations.services.cancelMigration(
       {
         service: 'Test string',
       },
-      {}
+      {},
     );
     /** Completes the managed migration process. The Dataproc Metastore service will switch to using its own backend database after successful migration. */
     await gapi.client.metastore.projects.locations.services.completeMigration(
       {
         service: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a metastore service in a project and location. */
     await gapi.client.metastore.projects.locations.services.create(
@@ -370,7 +370,7 @@ gapi.load('client', async () => {
         tier: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single service. */
     await gapi.client.metastore.projects.locations.services.delete({
@@ -386,7 +386,7 @@ gapi.load('client', async () => {
         databaseDumpType: 'Test string',
         destinationGcsFolder: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets the details of a single service. */
     await gapi.client.metastore.projects.locations.services.get({
@@ -414,7 +414,7 @@ gapi.load('client', async () => {
         dbName: 'Test string',
         destinationDbName: 'Test string',
         tableName: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single service. */
     await gapi.client.metastore.projects.locations.services.patch(
@@ -564,7 +564,7 @@ gapi.load('client', async () => {
         tier: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Query Dataproc Metastore metadata. */
     await gapi.client.metastore.projects.locations.services.queryMetadata(
@@ -573,7 +573,7 @@ gapi.load('client', async () => {
       },
       {
         query: 'Test string',
-      }
+      },
     );
     /** Removes the attached IAM policies for a resource */
     await gapi.client.metastore.projects.locations.services.removeIamPolicy(
@@ -582,7 +582,7 @@ gapi.load('client', async () => {
       },
       {
         asynchronous: true,
-      }
+      },
     );
     /** Restores a service from a backup. */
     await gapi.client.metastore.projects.locations.services.restore(
@@ -594,7 +594,7 @@ gapi.load('client', async () => {
         backupLocation: 'Test string',
         requestId: 'Test string',
         restoreType: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.metastore.projects.locations.services.setIamPolicy(
@@ -630,7 +630,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Starts the Managed Migration process. */
     await gapi.client.metastore.projects.locations.services.startMigration(
@@ -668,7 +668,7 @@ gapi.load('client', async () => {
           stateMessage: 'Test string',
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.metastore.projects.locations.services.testIamPermissions(
@@ -677,7 +677,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new backup in a given project and location. */
     await gapi.client.metastore.projects.locations.services.backups.create(
@@ -835,7 +835,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         state: 'Test string',
-      }
+      },
     );
     /** Deletes a single backup. */
     await gapi.client.metastore.projects.locations.services.backups.delete({
@@ -851,7 +851,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists backups in a service. */
     await gapi.client.metastore.projects.locations.services.backups.list({
@@ -895,7 +895,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.metastore.projects.locations.services.backups.testIamPermissions(
@@ -904,14 +904,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.metastore.projects.locations.services.databases.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.metastore.projects.locations.services.databases.setIamPolicy(
@@ -947,7 +947,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.metastore.projects.locations.services.databases.testIamPermissions(
@@ -956,14 +956,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.metastore.projects.locations.services.databases.tables.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.metastore.projects.locations.services.databases.tables.setIamPolicy(
@@ -999,7 +999,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.metastore.projects.locations.services.databases.tables.testIamPermissions(
@@ -1008,7 +1008,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new MetadataImport in a given project and location. */
     await gapi.client.metastore.projects.locations.services.metadataImports.create(
@@ -1030,13 +1030,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets details of a single import. */
     await gapi.client.metastore.projects.locations.services.metadataImports.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists imports in a service. */
     await gapi.client.metastore.projects.locations.services.metadataImports.list(
@@ -1046,7 +1046,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a single import. Only the description field of MetadataImport is supported to be updated. */
     await gapi.client.metastore.projects.locations.services.metadataImports.patch(
@@ -1068,20 +1068,20 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single migration execution. */
     await gapi.client.metastore.projects.locations.services.migrationExecutions.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single migration execution. */
     await gapi.client.metastore.projects.locations.services.migrationExecutions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists migration executions on a service. */
     await gapi.client.metastore.projects.locations.services.migrationExecutions.list(
@@ -1091,7 +1091,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

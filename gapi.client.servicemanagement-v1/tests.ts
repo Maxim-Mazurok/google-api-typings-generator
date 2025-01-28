@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://servicemanagement.googleapis.com/$discovery/rest?version=v1'
+    'https://servicemanagement.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.servicemanagement */
 
@@ -54,7 +54,7 @@ gapi.load('client', async () => {
       {
         producerProjectId: 'Test string',
         serviceName: 'Test string',
-      }
+      },
     );
     /** Deletes a managed service. This method will change the service to the `Soft-Delete` state for 30 days. Within this period, service producers may call UndeleteService to restore the service. After 30 days, the service will be permanently deleted. Operation */
     await gapi.client.servicemanagement.services.delete({
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
         oldConfig: {
           A: 42,
         },
-      }
+      },
     );
     /** Gets a managed service. Authentication is required unless the service is public. */
     await gapi.client.servicemanagement.services.get({
@@ -91,7 +91,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists managed services. Returns all public services. For authenticated users, also returns all services the calling user has "servicemanagement.services.get" permission for. */
     await gapi.client.servicemanagement.services.list({
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.servicemanagement.services.testIamPermissions(
@@ -143,7 +143,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Revives a previously deleted managed service. The method restores the service using the configuration at the time the service was deleted. The target service must exist and must have been deleted within the last 30 days. Operation */
     await gapi.client.servicemanagement.services.undelete({
@@ -728,7 +728,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Gets a service configuration (version) for a managed service. */
     await gapi.client.servicemanagement.services.configs.get({
@@ -759,7 +759,7 @@ gapi.load('client', async () => {
           id: 'Test string',
         },
         validateOnly: true,
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.servicemanagement.services.consumers.getIamPolicy(
@@ -770,7 +770,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.servicemanagement.services.consumers.setIamPolicy(
@@ -806,7 +806,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.servicemanagement.services.consumers.testIamPermissions(
@@ -815,7 +815,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest will be deleted eventually. Operation */
     await gapi.client.servicemanagement.services.rollouts.create(
@@ -834,7 +834,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         },
-      }
+      },
     );
     /** Gets a service configuration rollout. */
     await gapi.client.servicemanagement.services.rollouts.get({

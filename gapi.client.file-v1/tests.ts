@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://file.googleapis.com/$discovery/rest?version=v1'
+    'https://file.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.file */
 
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
         tags: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a backup. */
     await gapi.client.file.projects.locations.backups.delete({
@@ -115,7 +115,7 @@ gapi.load('client', async () => {
         tags: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Creates an instance. When creating from a backup, the capacity of the new instance needs to be equal to or larger than the capacity of the backup (and also equal to or larger than the minimum capacity of the tier). */
     await gapi.client.file.projects.locations.instances.create(
@@ -196,7 +196,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         tier: 'Test string',
-      }
+      },
     );
     /** Deletes an instance. */
     await gapi.client.file.projects.locations.instances.delete({
@@ -294,14 +294,14 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         tier: 'Test string',
-      }
+      },
     );
     /** Promote the standby instance (replica). */
     await gapi.client.file.projects.locations.instances.promoteReplica(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Restores an existing instance's file share from a backup. The capacity of the instance needs to be equal to or larger than the capacity of the backup (and also equal to or larger than the minimum capacity of the tier). */
     await gapi.client.file.projects.locations.instances.restore(
@@ -311,7 +311,7 @@ gapi.load('client', async () => {
       {
         fileShare: 'Test string',
         sourceBackup: 'Test string',
-      }
+      },
     );
     /** Revert an existing instance's file system to a specified snapshot. */
     await gapi.client.file.projects.locations.instances.revert(
@@ -320,7 +320,7 @@ gapi.load('client', async () => {
       },
       {
         targetSnapshotId: 'Test string',
-      }
+      },
     );
     /** Creates a snapshot. */
     await gapi.client.file.projects.locations.instances.snapshots.create(
@@ -340,7 +340,7 @@ gapi.load('client', async () => {
         tags: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a snapshot. */
     await gapi.client.file.projects.locations.instances.snapshots.delete({
@@ -377,14 +377,14 @@ gapi.load('client', async () => {
         tags: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.file.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.file.projects.locations.operations.delete({

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://bigqueryconnection.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://bigqueryconnection.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.bigqueryconnection */
 
@@ -56,7 +56,7 @@ gapi.load('client', async () => {
         hasCredential: true,
         lastModifiedTime: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes connection and associated credential. */
     await gapi.client.bigqueryconnection.projects.locations.connections.delete({
@@ -75,7 +75,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Returns a list of connections in the given project. */
     await gapi.client.bigqueryconnection.projects.locations.connections.list({
@@ -106,7 +106,7 @@ gapi.load('client', async () => {
         hasCredential: true,
         lastModifiedTime: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.bigqueryconnection.projects.locations.connections.setIamPolicy(
@@ -142,7 +142,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.bigqueryconnection.projects.locations.connections.testIamPermissions(
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Sets the credential for the specified connection. */
     await gapi.client.bigqueryconnection.projects.locations.connections.updateCredential(
@@ -163,7 +163,7 @@ gapi.load('client', async () => {
           password: 'Test string',
           username: 'Test string',
         },
-      }
+      },
     );
   }
 });

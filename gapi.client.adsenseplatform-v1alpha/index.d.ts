@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load AdSense Platform API v1alpha */
   function load(
-    urlOrObject: 'https://adsenseplatform.googleapis.com/$discovery/rest?version=v1alpha'
+    urlOrObject: 'https://adsenseplatform.googleapis.com/$discovery/rest?version=v1alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'adsenseplatform', version: 'v1alpha'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'adsenseplatform',
     version: 'v1alpha',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace adsenseplatform {
@@ -252,7 +252,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlatformChildSite
+        body: PlatformChildSite,
       ): Request<PlatformChildSite>;
     }
     interface ChildAccountsResource {
@@ -413,7 +413,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Event
+        body: Event,
       ): Request<Event>;
     }
     interface SitesResource {
@@ -473,7 +473,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Site
+        body: Site,
       ): Request<Site>;
       /** Deletes a site from a specified account. */
       delete(request?: {
@@ -645,7 +645,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CloseAccountRequest
+        body: CloseAccountRequest,
       ): Request<{}>;
       /** Creates a sub-account. */
       create(request: {
@@ -703,7 +703,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Account
+        body: Account,
       ): Request<Account>;
       /** Gets information about the selected sub-account. */
       get(request?: {

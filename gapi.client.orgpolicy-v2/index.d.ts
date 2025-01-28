@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Organization Policy API v2 */
   function load(
-    urlOrObject: 'https://orgpolicy.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://orgpolicy.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'orgpolicy', version: 'v2'): Promise<void>;
@@ -269,7 +269,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudOrgpolicyV2Policy
+        body: GoogleCloudOrgpolicyV2Policy,
       ): Request<GoogleCloudOrgpolicyV2Policy>;
       /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
       delete(request?: {
@@ -445,7 +445,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudOrgpolicyV2Policy
+        body: GoogleCloudOrgpolicyV2Policy,
       ): Request<GoogleCloudOrgpolicyV2Policy>;
     }
     interface FoldersResource {
@@ -542,7 +542,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudOrgpolicyV2CustomConstraint
+        body: GoogleCloudOrgpolicyV2CustomConstraint,
       ): Request<GoogleCloudOrgpolicyV2CustomConstraint>;
       /** Deletes a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. */
       delete(request?: {
@@ -685,7 +685,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudOrgpolicyV2CustomConstraint
+        body: GoogleCloudOrgpolicyV2CustomConstraint,
       ): Request<GoogleCloudOrgpolicyV2CustomConstraint>;
     }
     interface PoliciesResource {
@@ -745,7 +745,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudOrgpolicyV2Policy
+        body: GoogleCloudOrgpolicyV2Policy,
       ): Request<GoogleCloudOrgpolicyV2Policy>;
       /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
       delete(request?: {
@@ -921,7 +921,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudOrgpolicyV2Policy
+        body: GoogleCloudOrgpolicyV2Policy,
       ): Request<GoogleCloudOrgpolicyV2Policy>;
     }
     interface OrganizationsResource {
@@ -1019,7 +1019,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudOrgpolicyV2Policy
+        body: GoogleCloudOrgpolicyV2Policy,
       ): Request<GoogleCloudOrgpolicyV2Policy>;
       /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
       delete(request?: {
@@ -1195,7 +1195,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudOrgpolicyV2Policy
+        body: GoogleCloudOrgpolicyV2Policy,
       ): Request<GoogleCloudOrgpolicyV2Policy>;
     }
     interface ProjectsResource {

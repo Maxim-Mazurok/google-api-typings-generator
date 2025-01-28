@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://pubsub.googleapis.com/$discovery/rest?version=v1beta1a'
+    'https://pubsub.googleapis.com/$discovery/rest?version=v1beta1a',
   );
   /** now we can use gapi.client.pubsub */
 
@@ -39,7 +39,7 @@ gapi.load('client', async () => {
       {
         ackId: ['Test string'],
         subscription: 'Test string',
-      }
+      },
     );
     /** Creates a subscription on a given topic for a given subscriber. If the subscription already exists, returns ALREADY_EXISTS. If the corresponding topic doesn't exist, returns NOT_FOUND. If the name is not provided in the request, the server will assign a random name for this subscription on the same project as the topic. */
     await gapi.client.pubsub.subscriptions.create(
@@ -51,7 +51,7 @@ gapi.load('client', async () => {
           pushEndpoint: 'Test string',
         },
         topic: 'Test string',
-      }
+      },
     );
     /** Deletes an existing subscription. All pending messages in the subscription are immediately dropped. Calls to Pull after deletion will return NOT_FOUND. */
     await gapi.client.pubsub.subscriptions.delete({
@@ -75,7 +75,7 @@ gapi.load('client', async () => {
         ackId: 'Test string',
         ackIds: ['Test string'],
         subscription: 'Test string',
-      }
+      },
     );
     /** Modifies the PushConfig for a specified subscription. This method can be used to suspend the flow of messages to an endpoint by clearing the PushConfig field in the request. Messages will be accumulated for delivery even if no push configuration is defined or while the configuration is modified. */
     await gapi.client.pubsub.subscriptions.modifyPushConfig(
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
           pushEndpoint: 'Test string',
         },
         subscription: 'Test string',
-      }
+      },
     );
     /** Pulls a single message from the server. If return_immediately is true, and no messages are available in the subscription, this method returns FAILED_PRECONDITION. The system is free to return an UNAVAILABLE error if no messages are available in a reasonable amount of time (to reduce system load). */
     await gapi.client.pubsub.subscriptions.pull(
@@ -93,7 +93,7 @@ gapi.load('client', async () => {
       {
         returnImmediately: true,
         subscription: 'Test string',
-      }
+      },
     );
     /** Pulls messages from the server. Returns an empty list if there are no messages available in the backlog. The system is free to return UNAVAILABLE if there are too many pull requests outstanding for the given subscription. */
     await gapi.client.pubsub.subscriptions.pullBatch(
@@ -102,14 +102,14 @@ gapi.load('client', async () => {
         maxEvents: 42,
         returnImmediately: true,
         subscription: 'Test string',
-      }
+      },
     );
     /** Creates the given topic with the given name. */
     await gapi.client.pubsub.topics.create(
       {},
       {
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the topic with the given name. Returns NOT_FOUND if the topic does not exist. After a topic is deleted, a new topic may be created with the same name. */
     await gapi.client.pubsub.topics.delete({
@@ -142,7 +142,7 @@ gapi.load('client', async () => {
           publishTime: 'Test string',
         },
         topic: 'Test string',
-      }
+      },
     );
     /** Adds one or more messages to the topic. Returns NOT_FOUND if the topic does not exist. */
     await gapi.client.pubsub.topics.publishBatch(
@@ -163,7 +163,7 @@ gapi.load('client', async () => {
           },
         ],
         topic: 'Test string',
-      }
+      },
     );
   }
 });

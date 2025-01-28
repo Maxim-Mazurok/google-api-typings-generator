@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Parallelstore API v1beta */
   function load(
-    urlOrObject: 'https://parallelstore.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://parallelstore.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'parallelstore', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'parallelstore',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace parallelstore {
@@ -228,7 +228,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Deletes a single instance. */
       delete(request?: {
@@ -315,7 +315,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExportDataRequest
+        body: ExportDataRequest,
       ): Request<Operation>;
       /** Gets details of a single instance. */
       get(request?: {
@@ -400,7 +400,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportDataRequest
+        body: ImportDataRequest,
       ): Request<Operation>;
       /** Lists all instances in a given project and location. */
       list(request?: {
@@ -501,7 +501,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
     }
     interface OperationsResource {

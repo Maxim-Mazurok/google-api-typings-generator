@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Oracle Database@Google Cloud API v1 */
   function load(
-    urlOrObject: 'https://oracledatabase.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://oracledatabase.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'oracledatabase', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'oracledatabase',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace oracledatabase {
@@ -923,7 +923,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AutonomousDatabase
+        body: AutonomousDatabase,
       ): Request<Operation>;
       /** Deletes a single Autonomous Database. */
       delete(request?: {
@@ -1010,7 +1010,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateAutonomousDatabaseWalletRequest
+        body: GenerateAutonomousDatabaseWalletRequest,
       ): Request<GenerateAutonomousDatabaseWalletResponse>;
       /** Gets the details of a single Autonomous Database. */
       get(request?: {
@@ -1130,7 +1130,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestoreAutonomousDatabaseRequest
+        body: RestoreAutonomousDatabaseRequest,
       ): Request<Operation>;
     }
     interface AutonomousDbVersionsResource {
@@ -1264,7 +1264,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CloudExadataInfrastructure
+        body: CloudExadataInfrastructure,
       ): Request<Operation>;
       /** Deletes a single Exadata Infrastructure. */
       delete(request?: {
@@ -1455,7 +1455,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CloudVmCluster
+        body: CloudVmCluster,
       ): Request<Operation>;
       /** Deletes a single VM Cluster. */
       delete(request?: {
@@ -1706,7 +1706,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

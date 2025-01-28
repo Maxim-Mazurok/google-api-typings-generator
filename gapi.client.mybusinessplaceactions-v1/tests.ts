@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://mybusinessplaceactions.googleapis.com/$discovery/rest?version=v1'
+    'https://mybusinessplaceactions.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.mybusinessplaceactions */
 
@@ -30,7 +30,7 @@ gapi.load('client', async () => {
         providerType: 'Test string',
         updateTime: 'Test string',
         uri: 'Test string',
-      }
+      },
     );
     /** Deletes a place action link from the specified location. */
     await gapi.client.mybusinessplaceactions.locations.placeActionLinks.delete({
@@ -62,7 +62,7 @@ gapi.load('client', async () => {
         providerType: 'Test string',
         updateTime: 'Test string',
         uri: 'Test string',
-      }
+      },
     );
     /** Returns the list of available place action types for a location or country. */
     await gapi.client.mybusinessplaceactions.placeActionTypeMetadata.list({

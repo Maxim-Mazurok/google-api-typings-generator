@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Firebase Rules API v1 */
   function load(
-    urlOrObject: 'https://firebaserules.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://firebaserules.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firebaserules', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firebaserules',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firebaserules {
@@ -266,7 +266,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Release
+        body: Release,
       ): Request<Release>;
       /** Delete a `Release` by resource name. */
       delete(request?: {
@@ -440,7 +440,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateReleaseRequest
+        body: UpdateReleaseRequest,
       ): Request<Release>;
     }
     interface RulesetsResource {
@@ -500,7 +500,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Ruleset
+        body: Ruleset,
       ): Request<Ruleset>;
       /** Delete a `Ruleset` by resource name. If the `Ruleset` is referenced by a `Release` the operation will fail. */
       delete(request?: {
@@ -647,7 +647,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestRulesetRequest
+        body: TestRulesetRequest,
       ): Request<TestRulesetResponse>;
       releases: ReleasesResource;
       rulesets: RulesetsResource;

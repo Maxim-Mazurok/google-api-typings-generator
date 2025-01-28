@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Developer Connect API v1 */
   function load(
-    urlOrObject: 'https://developerconnect.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://developerconnect.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'developerconnect', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'developerconnect',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace developerconnect {
@@ -383,7 +383,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request, but do not actually post it. */
           validateOnly?: boolean;
         },
-        body: GitRepositoryLink
+        body: GitRepositoryLink,
       ): Request<Operation>;
       /** Deletes a single GitRepositoryLink. */
       delete(request?: {
@@ -507,7 +507,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FetchReadTokenRequest
+        body: FetchReadTokenRequest,
       ): Request<FetchReadTokenResponse>;
       /** Fetches read/write token of a given gitRepositoryLink. */
       fetchReadWriteToken(request: {
@@ -565,7 +565,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FetchReadWriteTokenRequest
+        body: FetchReadWriteTokenRequest,
       ): Request<FetchReadWriteTokenResponse>;
       /** Gets details of a single GitRepositoryLink. */
       get(request?: {
@@ -685,7 +685,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProcessGitLabEnterpriseWebhookRequest
+        body: ProcessGitLabEnterpriseWebhookRequest,
       ): Request<{}>;
       /** ProcessGitLabWebhook is called by the GitLab.com for notifying events. */
       processGitLabWebhook(request: {
@@ -743,7 +743,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProcessGitLabWebhookRequest
+        body: ProcessGitLabWebhookRequest,
       ): Request<{}>;
     }
     interface ConnectionsResource {
@@ -815,7 +815,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request, but do not actually post it. */
           validateOnly?: boolean;
         },
-        body: Connection
+        body: Connection,
       ): Request<Operation>;
       /** Deletes a single Connection. */
       delete(request?: {
@@ -1042,7 +1042,7 @@ declare namespace gapi.client {
           /** Optional. If set, validate the request, but do not actually post it. */
           validateOnly?: boolean;
         },
-        body: Connection
+        body: Connection,
       ): Request<Operation>;
       /** ProcessGitHubEnterpriseWebhook is called by the external GitHub Enterprise instances for notifying events. */
       processGitHubEnterpriseWebhook(request: {
@@ -1100,7 +1100,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProcessGitHubEnterpriseWebhookRequest
+        body: ProcessGitHubEnterpriseWebhookRequest,
       ): Request<{}>;
       gitRepositoryLinks: GitRepositoryLinksResource;
     }
@@ -1161,7 +1161,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://recaptchaenterprise.googleapis.com/$discovery/rest?version=v1'
+    'https://recaptchaenterprise.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.recaptchaenterprise */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
           reason: 'Test string',
           value: 42,
         },
-      }
+      },
     );
     /** Creates an Assessment of the likelihood an event is legitimate. */
     await gapi.client.recaptchaenterprise.projects.assessments.create(
@@ -239,7 +239,7 @@ gapi.load('client', async () => {
           iosBundleId: 'Test string',
           valid: true,
         },
-      }
+      },
     );
     /** Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA Enterprise actions can be executed. A project may have a maximum of 1000 policies. */
     await gapi.client.recaptchaenterprise.projects.firewallpolicies.create(
@@ -266,7 +266,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         name: 'Test string',
         path: 'Test string',
-      }
+      },
     );
     /** Deletes the specified firewall policy. */
     await gapi.client.recaptchaenterprise.projects.firewallpolicies.delete({
@@ -308,7 +308,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         name: 'Test string',
         path: 'Test string',
-      }
+      },
     );
     /** Reorders all firewall policies. */
     await gapi.client.recaptchaenterprise.projects.firewallpolicies.reorder(
@@ -317,7 +317,7 @@ gapi.load('client', async () => {
       },
       {
         names: ['Test string'],
-      }
+      },
     );
     /** Adds an IP override to a key. The following restrictions hold: * The maximum number of IP overrides per key is 100. * For any conflict (such as IP already exists or IP part of an existing IP range), an error is returned. */
     await gapi.client.recaptchaenterprise.projects.keys.addIpOverride(
@@ -329,7 +329,7 @@ gapi.load('client', async () => {
           ip: 'Test string',
           overrideType: 'Test string',
         },
-      }
+      },
     );
     /** Creates a new reCAPTCHA Enterprise key. */
     await gapi.client.recaptchaenterprise.projects.keys.create(
@@ -373,7 +373,7 @@ gapi.load('client', async () => {
           challengeSecurityPreference: 'Test string',
           integrationType: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified key. */
     await gapi.client.recaptchaenterprise.projects.keys.delete({
@@ -406,7 +406,7 @@ gapi.load('client', async () => {
       },
       {
         skipBillingCheck: true,
-      }
+      },
     );
     /** Updates the specified key. */
     await gapi.client.recaptchaenterprise.projects.keys.patch(
@@ -451,7 +451,7 @@ gapi.load('client', async () => {
           challengeSecurityPreference: 'Test string',
           integrationType: 'Test string',
         },
-      }
+      },
     );
     /** Removes an IP override from a key. The following restrictions hold: * If the IP isn't found in an existing IP override, a `NOT_FOUND` error is returned. * If the IP is found in an existing IP override, but the override type does not match, a `NOT_FOUND` error is returned. */
     await gapi.client.recaptchaenterprise.projects.keys.removeIpOverride(
@@ -463,13 +463,13 @@ gapi.load('client', async () => {
           ip: 'Test string',
           overrideType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the secret key related to the specified public key. You must use the legacy secret key only in a 3rd party integration with legacy reCAPTCHA. */
     await gapi.client.recaptchaenterprise.projects.keys.retrieveLegacySecretKey(
       {
         key: 'Test string',
-      }
+      },
     );
     /** Search group memberships related to a given account. */
     await gapi.client.recaptchaenterprise.projects.relatedaccountgroupmemberships.search(
@@ -481,7 +481,7 @@ gapi.load('client', async () => {
         hashedAccountId: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** List groups of related accounts. */
     await gapi.client.recaptchaenterprise.projects.relatedaccountgroups.list({
@@ -495,7 +495,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

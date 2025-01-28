@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Gmail Postmaster Tools API v1beta1 */
   function load(
-    urlOrObject: 'https://gmailpostmastertools.googleapis.com/$discovery/rest?version=v1beta1'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'gmailpostmastertools',
-    version: 'v1beta1'
+    urlOrObject: 'https://gmailpostmastertools.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'gmailpostmastertools',
     version: 'v1beta1',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'gmailpostmastertools',
+    version: 'v1beta1',
+    callback: () => any,
   ): void;
 
   namespace gmailpostmastertools {

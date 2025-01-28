@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://netapp.googleapis.com/$discovery/rest?version=v1'
+    'https://netapp.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.netapp */
 
@@ -73,7 +73,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         stateDetails: 'Test string',
         username: 'Test string',
-      }
+      },
     );
     /** Delete the active directory specified in the request. */
     await gapi.client.netapp.projects.locations.activeDirectories.delete({
@@ -122,7 +122,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         stateDetails: 'Test string',
         username: 'Test string',
-      }
+      },
     );
     /** Creates new backup policy */
     await gapi.client.netapp.projects.locations.backupPolicies.create(
@@ -143,7 +143,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         weeklyBackupLimit: 42,
-      }
+      },
     );
     /** Warning! This operation will permanently delete the backup policy. */
     await gapi.client.netapp.projects.locations.backupPolicies.delete({
@@ -180,7 +180,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         weeklyBackupLimit: 42,
-      }
+      },
     );
     /** Creates new backup vault */
     await gapi.client.netapp.projects.locations.backupVaults.create(
@@ -196,7 +196,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Warning! This operation will permanently delete the backup vault. */
     await gapi.client.netapp.projects.locations.backupVaults.delete({
@@ -228,7 +228,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates a backup from the volume specified in the request The backup can be created from the given snapshot if specified in the request. If no snapshot specified, there'll be a new snapshot taken to initiate the backup creation. */
     await gapi.client.netapp.projects.locations.backupVaults.backups.create(
@@ -251,7 +251,7 @@ gapi.load('client', async () => {
         sourceVolume: 'Test string',
         state: 'Test string',
         volumeUsageBytes: 'Test string',
-      }
+      },
     );
     /** Warning! This operation will permanently delete the backup. */
     await gapi.client.netapp.projects.locations.backupVaults.backups.delete({
@@ -290,7 +290,7 @@ gapi.load('client', async () => {
         sourceVolume: 'Test string',
         state: 'Test string',
         volumeUsageBytes: 'Test string',
-      }
+      },
     );
     /** Creates a new KMS config. */
     await gapi.client.netapp.projects.locations.kmsConfigs.create(
@@ -310,7 +310,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         state: 'Test string',
         stateDetails: 'Test string',
-      }
+      },
     );
     /** Warning! This operation will permanently delete the Kms config. */
     await gapi.client.netapp.projects.locations.kmsConfigs.delete({
@@ -321,7 +321,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Returns the description of the specified KMS config by kms_config_id. */
     await gapi.client.netapp.projects.locations.kmsConfigs.get({
@@ -353,21 +353,21 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         state: 'Test string',
         stateDetails: 'Test string',
-      }
+      },
     );
     /** Verifies KMS config reachability. */
     await gapi.client.netapp.projects.locations.kmsConfigs.verify(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.netapp.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.netapp.projects.locations.operations.delete({
@@ -415,7 +415,7 @@ gapi.load('client', async () => {
         volumeCapacityGib: 'Test string',
         volumeCount: 42,
         zone: 'Test string',
-      }
+      },
     );
     /** Warning! This operation will permanently delete the storage pool. */
     await gapi.client.netapp.projects.locations.storagePools.delete({
@@ -464,14 +464,14 @@ gapi.load('client', async () => {
         volumeCapacityGib: 'Test string',
         volumeCount: 42,
         zone: 'Test string',
-      }
+      },
     );
     /** This operation will switch the active/replica zone for a regional storagePool. */
     await gapi.client.netapp.projects.locations.storagePools.switch(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** ValidateDirectoryService does a connectivity check for a directory service policy attached to the storage pool. */
     await gapi.client.netapp.projects.locations.storagePools.validateDirectoryService(
@@ -480,7 +480,7 @@ gapi.load('client', async () => {
       },
       {
         directoryServiceType: 'Test string',
-      }
+      },
     );
     /** Creates a new Volume in a given project and location. */
     await gapi.client.netapp.projects.locations.volumes.create(
@@ -598,7 +598,7 @@ gapi.load('client', async () => {
         unixPermissions: 'Test string',
         usedGib: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Deletes a single Volume. */
     await gapi.client.netapp.projects.locations.volumes.delete({
@@ -733,7 +733,7 @@ gapi.load('client', async () => {
         unixPermissions: 'Test string',
         usedGib: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Revert an existing volume to a specified snapshot. Warning! This operation will permanently revert all changes made after the snapshot was created. */
     await gapi.client.netapp.projects.locations.volumes.revert(
@@ -742,7 +742,7 @@ gapi.load('client', async () => {
       },
       {
         snapshotId: 'Test string',
-      }
+      },
     );
     /** Creates a new quota rule. */
     await gapi.client.netapp.projects.locations.volumes.quotaRules.create(
@@ -762,7 +762,7 @@ gapi.load('client', async () => {
         stateDetails: 'Test string',
         target: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Deletes a quota rule. */
     await gapi.client.netapp.projects.locations.volumes.quotaRules.delete({
@@ -798,7 +798,7 @@ gapi.load('client', async () => {
         stateDetails: 'Test string',
         target: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Create a new replication for a volume. */
     await gapi.client.netapp.projects.locations.volumes.replications.create(
@@ -852,7 +852,7 @@ gapi.load('client', async () => {
           transferBytes: 'Test string',
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a replication. */
     await gapi.client.netapp.projects.locations.volumes.replications.delete({
@@ -868,7 +868,7 @@ gapi.load('client', async () => {
         peerIpAddresses: ['Test string'],
         peerSvmName: 'Test string',
         peerVolumeName: 'Test string',
-      }
+      },
     );
     /** Describe a replication for a volume. */
     await gapi.client.netapp.projects.locations.volumes.replications.get({
@@ -934,21 +934,21 @@ gapi.load('client', async () => {
           transferBytes: 'Test string',
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Resume Cross Region Replication. */
     await gapi.client.netapp.projects.locations.volumes.replications.resume(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Reverses direction of replication. Source becomes destination and destination becomes source. */
     await gapi.client.netapp.projects.locations.volumes.replications.reverseDirection(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Stop Cross Region Replication. */
     await gapi.client.netapp.projects.locations.volumes.replications.stop(
@@ -957,14 +957,14 @@ gapi.load('client', async () => {
       },
       {
         force: true,
-      }
+      },
     );
     /** Syncs the replication. This will invoke one time volume data transfer from source to destination. */
     await gapi.client.netapp.projects.locations.volumes.replications.sync(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Create a new snapshot for a volume. */
     await gapi.client.netapp.projects.locations.volumes.snapshots.create(
@@ -982,7 +982,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         stateDetails: 'Test string',
         usedBytes: 42,
-      }
+      },
     );
     /** Deletes a snapshot. */
     await gapi.client.netapp.projects.locations.volumes.snapshots.delete({
@@ -1016,7 +1016,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         stateDetails: 'Test string',
         usedBytes: 42,
-      }
+      },
     );
   }
 });

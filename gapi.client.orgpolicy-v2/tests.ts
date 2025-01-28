@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://orgpolicy.googleapis.com/$discovery/rest?version=v2'
+    'https://orgpolicy.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.orgpolicy */
 
@@ -126,7 +126,7 @@ gapi.load('client', async () => {
           ],
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
     await gapi.client.orgpolicy.folders.policies.delete({
@@ -237,7 +237,7 @@ gapi.load('client', async () => {
           ],
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Lists constraints that could be applied on the specified resource. */
     await gapi.client.orgpolicy.organizations.constraints.list({
@@ -259,7 +259,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         resourceTypes: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. */
     await gapi.client.orgpolicy.organizations.customConstraints.delete({
@@ -289,7 +289,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         resourceTypes: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the policy already exists on the given Google Cloud resource. */
     await gapi.client.orgpolicy.organizations.policies.create(
@@ -380,7 +380,7 @@ gapi.load('client', async () => {
           ],
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
     await gapi.client.orgpolicy.organizations.policies.delete({
@@ -491,7 +491,7 @@ gapi.load('client', async () => {
           ],
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Lists constraints that could be applied on the specified resource. */
     await gapi.client.orgpolicy.projects.constraints.list({
@@ -588,7 +588,7 @@ gapi.load('client', async () => {
           ],
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
     await gapi.client.orgpolicy.projects.policies.delete({
@@ -699,7 +699,7 @@ gapi.load('client', async () => {
           ],
           updateTime: 'Test string',
         },
-      }
+      },
     );
   }
 });

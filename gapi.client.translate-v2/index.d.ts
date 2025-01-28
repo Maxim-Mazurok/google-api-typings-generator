@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Cloud Translation API v2 */
   function load(
-    urlOrObject: 'https://translation.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://translation.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'translate', version: 'v2'): Promise<void>;
@@ -168,7 +168,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DetectLanguageRequest
+        body: DetectLanguageRequest,
       ): Request<DetectionsListResponse>;
       /** Detects the language of text within a request. */
       list(request?: {
@@ -362,7 +362,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TranslateTextRequest
+        body: TranslateTextRequest,
       ): Request<TranslationsListResponse>;
     }
 

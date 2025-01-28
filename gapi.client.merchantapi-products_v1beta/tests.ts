@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://merchantapi.googleapis.com/$discovery/rest?version=products_v1beta'
+    'https://merchantapi.googleapis.com/$discovery/rest?version=products_v1beta',
   );
   /** now we can use gapi.client.merchantapi */
 
@@ -311,7 +311,7 @@ gapi.load('client', async () => {
         offerId: 'Test string',
         product: 'Test string',
         versionNumber: 'Test string',
-      }
+      },
     );
     /** Retrieves the processed product from your Merchant Center account. After inserting, updating, or deleting a product input, it may take several minutes before the updated final product can be retrieved. */
     await gapi.client.merchantapi.accounts.products.get({

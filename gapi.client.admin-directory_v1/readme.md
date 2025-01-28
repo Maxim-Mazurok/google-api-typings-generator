@@ -31,7 +31,7 @@ gapi.client.load(
     // now we can use:
     // gapi.client.admin
     // gapi.client.directory
-  }
+  },
 );
 ```
 
@@ -148,7 +148,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 

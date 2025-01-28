@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://contentwarehouse.googleapis.com/$discovery/rest?version=v1'
+    'https://contentwarehouse.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.contentwarehouse */
 
@@ -44,7 +44,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Sets the access control policy for a resource. Replaces any existing policy. */
     await gapi.client.contentwarehouse.projects.setAcl(
@@ -86,7 +86,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Get the project status. */
     await gapi.client.contentwarehouse.projects.locations.getStatus({
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
         documentCreatorDefaultRole: 'Test string',
         enableCalUserEmailLogging: true,
         kmsKey: 'Test string',
-      }
+      },
     );
     /** Run a predefined pipeline. */
     await gapi.client.contentwarehouse.projects.locations.runPipeline(
@@ -220,7 +220,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Creates a document. */
     await gapi.client.contentwarehouse.projects.locations.documents.create(
@@ -1282,7 +1282,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deletes a document. Returns NOT_FOUND if the document does not exist. */
     await gapi.client.contentwarehouse.projects.locations.documents.delete(
@@ -1296,7 +1296,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns NOT_FOUND error if the resource does not exist. Returns an empty policy if the resource exists but does not have a policy set. */
     await gapi.client.contentwarehouse.projects.locations.documents.fetchAcl(
@@ -1311,7 +1311,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets a document. Returns NOT_FOUND if the document does not exist. */
     await gapi.client.contentwarehouse.projects.locations.documents.get(
@@ -1325,7 +1325,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Return all source document-links from the document. */
     await gapi.client.contentwarehouse.projects.locations.documents.linkedSources(
@@ -1341,7 +1341,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Return all target document-links from the document. */
     await gapi.client.contentwarehouse.projects.locations.documents.linkedTargets(
@@ -1355,7 +1355,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Lock the document so the document cannot be updated by other users. */
     await gapi.client.contentwarehouse.projects.locations.documents.lock(
@@ -1368,7 +1368,7 @@ gapi.load('client', async () => {
           groupIds: ['Test string'],
           id: 'Test string',
         },
-      }
+      },
     );
     /** Updates a document. Returns INVALID_ARGUMENT if the name of the document is non-empty and does not equal the existing name. */
     await gapi.client.contentwarehouse.projects.locations.documents.patch(
@@ -2410,7 +2410,7 @@ gapi.load('client', async () => {
           updateMask: 'Test string',
           updateType: 'Test string',
         },
-      }
+      },
     );
     /** Searches for documents using provided SearchDocumentsRequest. This call only returns documents that the caller has permission to search against. */
     await gapi.client.contentwarehouse.projects.locations.documents.search(
@@ -2478,7 +2478,7 @@ gapi.load('client', async () => {
         },
         requireTotalSize: true,
         totalResultSize: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy for a resource. Replaces any existing policy. */
     await gapi.client.contentwarehouse.projects.locations.documents.setAcl(
@@ -2520,7 +2520,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Create a link between a source document and a target document. */
     await gapi.client.contentwarehouse.projects.locations.documents.documentLinks.create(
@@ -2563,7 +2563,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Remove the link between the source and target documents. */
     await gapi.client.contentwarehouse.projects.locations.documents.documentLinks.delete(
@@ -2577,7 +2577,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deletes a document. Returns NOT_FOUND if the document does not exist. */
     await gapi.client.contentwarehouse.projects.locations.documents.referenceId.delete(
@@ -2591,7 +2591,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets a document. Returns NOT_FOUND if the document does not exist. */
     await gapi.client.contentwarehouse.projects.locations.documents.referenceId.get(
@@ -2605,7 +2605,7 @@ gapi.load('client', async () => {
             id: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates a document. Returns INVALID_ARGUMENT if the name of the document is non-empty and does not equal the existing name. */
     await gapi.client.contentwarehouse.projects.locations.documents.referenceId.patch(
@@ -3647,7 +3647,7 @@ gapi.load('client', async () => {
           updateMask: 'Test string',
           updateType: 'Test string',
         },
-      }
+      },
     );
     /** Creates a document schema. */
     await gapi.client.contentwarehouse.projects.locations.documentSchemas.create(
@@ -3692,13 +3692,13 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a document schema. Returns NOT_FOUND if the document schema does not exist. Returns BAD_REQUEST if the document schema has documents depending on it. */
     await gapi.client.contentwarehouse.projects.locations.documentSchemas.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a document schema. Returns NOT_FOUND if the document schema does not exist. */
     await gapi.client.contentwarehouse.projects.locations.documentSchemas.get({
@@ -3755,7 +3755,7 @@ gapi.load('client', async () => {
           ],
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.contentwarehouse.projects.locations.operations.get({
@@ -3837,7 +3837,7 @@ gapi.load('client', async () => {
           },
         ],
         source: 'Test string',
-      }
+      },
     );
     /** Deletes a ruleset. Returns NOT_FOUND if the document does not exist. */
     await gapi.client.contentwarehouse.projects.locations.ruleSets.delete({
@@ -3931,7 +3931,7 @@ gapi.load('client', async () => {
           ],
           source: 'Test string',
         },
-      }
+      },
     );
     /** Creates a SynonymSet for a single context. Throws an ALREADY_EXISTS exception if a synonymset already exists for the context. */
     await gapi.client.contentwarehouse.projects.locations.synonymSets.create(
@@ -3946,7 +3946,7 @@ gapi.load('client', async () => {
             words: ['Test string'],
           },
         ],
-      }
+      },
     );
     /** Deletes a SynonymSet for a given context. Throws a NOT_FOUND exception if the SynonymSet is not found. */
     await gapi.client.contentwarehouse.projects.locations.synonymSets.delete({
@@ -3975,7 +3975,7 @@ gapi.load('client', async () => {
             words: ['Test string'],
           },
         ],
-      }
+      },
     );
   }
 });

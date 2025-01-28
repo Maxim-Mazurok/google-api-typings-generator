@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Monitoring API v3 */
   function load(
-    urlOrObject: 'https://monitoring.googleapis.com/$discovery/rest?version=v3'
+    urlOrObject: 'https://monitoring.googleapis.com/$discovery/rest?version=v3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'monitoring', version: 'v3'): Promise<void>;
@@ -1321,7 +1321,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AlertPolicy
+        body: AlertPolicy,
       ): Request<AlertPolicy>;
       /** Deletes an alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy. */
       delete(request?: {
@@ -1472,7 +1472,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AlertPolicy
+        body: AlertPolicy,
       ): Request<AlertPolicy>;
     }
     interface CollectdTimeSeriesResource {
@@ -1532,7 +1532,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateCollectdTimeSeriesRequest
+        body: CreateCollectdTimeSeriesRequest,
       ): Request<CreateCollectdTimeSeriesResponse>;
     }
     interface MembersResource {
@@ -1635,7 +1635,7 @@ declare namespace gapi.client {
           /** If true, validate this request but do not create the group. */
           validateOnly?: boolean;
         },
-        body: Group
+        body: Group,
       ): Request<Group>;
       /** Deletes an existing group. */
       delete(request?: {
@@ -1790,7 +1790,7 @@ declare namespace gapi.client {
           /** If true, validate this request but do not update the existing group. */
           validateOnly?: boolean;
         },
-        body: Group
+        body: Group,
       ): Request<Group>;
       members: MembersResource;
     }
@@ -1851,7 +1851,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MetricDescriptor
+        body: MetricDescriptor,
       ): Request<MetricDescriptor>;
       /** Deletes a metric descriptor. Only user-created custom metrics (https://cloud.google.com/monitoring/custom-metrics) can be deleted. */
       delete(request?: {
@@ -2122,7 +2122,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NotificationChannel
+        body: NotificationChannel,
       ): Request<NotificationChannel>;
       /** Deletes a notification channel.Design your application to single-thread API calls that modify the state of notification channels in a single project. This includes calls to CreateNotificationChannel, DeleteNotificationChannel and UpdateNotificationChannel. */
       delete(request?: {
@@ -2236,7 +2236,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetNotificationChannelVerificationCodeRequest
+        body: GetNotificationChannelVerificationCodeRequest,
       ): Request<GetNotificationChannelVerificationCodeResponse>;
       /** Lists the notification channels that have been created for the project. To list the types of notification channels that are supported, use the ListNotificationChannelDescriptors method. */
       list(request?: {
@@ -2333,7 +2333,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NotificationChannel
+        body: NotificationChannel,
       ): Request<NotificationChannel>;
       /** Causes a verification code to be delivered to the channel. The code can then be supplied in VerifyNotificationChannel to verify the channel. */
       sendVerificationCode(request: {
@@ -2391,7 +2391,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SendNotificationChannelVerificationCodeRequest
+        body: SendNotificationChannelVerificationCodeRequest,
       ): Request<{}>;
       /** Verifies a NotificationChannel by proving receipt of the code delivered to the channel as a result of calling SendNotificationChannelVerificationCode. */
       verify(request: {
@@ -2449,7 +2449,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VerifyNotificationChannelRequest
+        body: VerifyNotificationChannelRequest,
       ): Request<NotificationChannel>;
     }
     interface SnoozesResource {
@@ -2509,7 +2509,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Snooze
+        body: Snooze,
       ): Request<Snooze>;
       /** Retrieves a Snooze by name. */
       get(request?: {
@@ -2631,7 +2631,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Snooze
+        body: Snooze,
       ): Request<Snooze>;
     }
     interface TimeSeriesResource {
@@ -2691,7 +2691,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateTimeSeriesRequest
+        body: CreateTimeSeriesRequest,
       ): Request<{}>;
       /** Creates or adds data to one or more service time series. A service time series is a time series for a metric from a Google Cloud service. The response is empty if all time series in the request were written. If any time series could not be written, a corresponding failure message is included in the error response. This endpoint rejects writes to user-defined metrics. This method is only for use by Google Cloud services. Use projects.timeSeries.create instead. */
       createService(request: {
@@ -2749,7 +2749,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateTimeSeriesRequest
+        body: CreateTimeSeriesRequest,
       ): Request<{}>;
       /** Lists time series that match a filter. */
       list(request?: {
@@ -2864,7 +2864,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryTimeSeriesRequest
+        body: QueryTimeSeriesRequest,
       ): Request<QueryTimeSeriesResponse>;
     }
     interface UptimeCheckConfigsResource {
@@ -2924,7 +2924,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UptimeCheckConfig
+        body: UptimeCheckConfig,
       ): Request<UptimeCheckConfig>;
       /** Deletes an Uptime check configuration. Note that this method will fail if the Uptime check configuration is referenced by an alert policy or other dependent configs that would be rendered invalid by the deletion. */
       delete(request?: {
@@ -3073,7 +3073,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UptimeCheckConfig
+        body: UptimeCheckConfig,
       ): Request<UptimeCheckConfig>;
     }
     interface ProjectsResource {
@@ -3149,7 +3149,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ServiceLevelObjective
+        body: ServiceLevelObjective,
       ): Request<ServiceLevelObjective>;
       /** Delete the given ServiceLevelObjective. */
       delete(request?: {
@@ -3302,7 +3302,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ServiceLevelObjective
+        body: ServiceLevelObjective,
       ): Request<ServiceLevelObjective>;
     }
     interface ServicesResource {
@@ -3366,7 +3366,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Service
+        body: Service,
       ): Request<Service>;
       /** Soft delete this Service. */
       delete(request?: {
@@ -3515,7 +3515,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Service
+        body: Service,
       ): Request<Service>;
       serviceLevelObjectives: ServiceLevelObjectivesResource;
     }

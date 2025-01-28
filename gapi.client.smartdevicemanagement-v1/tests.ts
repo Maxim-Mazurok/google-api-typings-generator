@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://smartdevicemanagement.googleapis.com/$discovery/rest?version=v1'
+    'https://smartdevicemanagement.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.smartdevicemanagement */
 
@@ -41,7 +41,7 @@ gapi.load('client', async () => {
         params: {
           A: 42,
         },
-      }
+      },
     );
     /** Gets a device managed by the enterprise. */
     await gapi.client.smartdevicemanagement.enterprises.devices.get({

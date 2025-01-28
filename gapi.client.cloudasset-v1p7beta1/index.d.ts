@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Asset API v1p7beta1 */
   function load(
-    urlOrObject: 'https://cloudasset.googleapis.com/$discovery/rest?version=v1p7beta1'
+    urlOrObject: 'https://cloudasset.googleapis.com/$discovery/rest?version=v1p7beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudasset', version: 'v1p7beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'cloudasset',
     version: 'v1p7beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace cloudasset {
@@ -508,7 +508,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAssetV1p7beta1ExportAssetsRequest
+        body: GoogleCloudAssetV1p7beta1ExportAssetsRequest,
       ): Request<Operation>;
     }
 

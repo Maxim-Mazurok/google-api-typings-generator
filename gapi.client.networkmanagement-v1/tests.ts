@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://networkmanagement.googleapis.com/$discovery/rest?version=v1'
+    'https://networkmanagement.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.networkmanagement */
 
@@ -708,26 +708,26 @@ gapi.load('client', async () => {
           redisInstance: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a specific `ConnectivityTest`. */
     await gapi.client.networkmanagement.projects.locations.global.connectivityTests.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the details of a specific Connectivity Test. */
     await gapi.client.networkmanagement.projects.locations.global.connectivityTests.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.networkmanagement.projects.locations.global.connectivityTests.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists all Connectivity Tests owned by a project. */
     await gapi.client.networkmanagement.projects.locations.global.connectivityTests.list(
@@ -737,7 +737,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the configuration of an existing `ConnectivityTest`. After you update a test, the reachability analysis is performed as part of the long running operation, which completes when the analysis completes. The Reachability state in the test resource is updated with the new result. If the endpoint specifications in `ConnectivityTest` are invalid (for example, they contain non-existent resources in the network, or the user does not have read permissions to the network configurations of listed projects), then the reachability result returns a value of UNKNOWN. If the endpoint specifications in `ConnectivityTest` are incomplete, the reachability result returns a value of `AMBIGUOUS`. See the documentation in `ConnectivityTest` for more details. */
     await gapi.client.networkmanagement.projects.locations.global.connectivityTests.patch(
@@ -1405,14 +1405,14 @@ gapi.load('client', async () => {
           redisInstance: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Rerun an existing `ConnectivityTest`. After the user triggers the rerun, the reachability analysis is performed as part of the long running operation, which completes when the analysis completes. Even though the test configuration remains the same, the reachability result may change due to underlying network configuration changes. If the endpoint specifications in `ConnectivityTest` become invalid (for example, specified resources are deleted in the network, or you lost read permissions to the network configurations of listed projects), then the reachability result returns a value of `UNKNOWN`. */
     await gapi.client.networkmanagement.projects.locations.global.connectivityTests.rerun(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networkmanagement.projects.locations.global.connectivityTests.setIamPolicy(
@@ -1448,7 +1448,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networkmanagement.projects.locations.global.connectivityTests.testIamPermissions(
@@ -1457,26 +1457,26 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.networkmanagement.projects.locations.global.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.networkmanagement.projects.locations.global.operations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.networkmanagement.projects.locations.global.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.networkmanagement.projects.locations.global.operations.list(
@@ -1485,7 +1485,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates a new `VpcFlowLogsConfig`. If a configuration with the exact same settings already exists (even if the ID is different), the creation fails. Notes: 1. Creating a configuration with state=DISABLED will fail 2. The following fields are not considered as `settings` for the purpose of the check mentioned above, therefore - creating another configuration with the same fields but different values for the following fields will fail as well: * name * create_time * update_time * labels * description */
     await gapi.client.networkmanagement.projects.locations.vpcFlowLogsConfigs.create(
@@ -1510,19 +1510,19 @@ gapi.load('client', async () => {
         targetResourceState: 'Test string',
         updateTime: 'Test string',
         vpnTunnel: 'Test string',
-      }
+      },
     );
     /** Deletes a specific `VpcFlowLogsConfig`. */
     await gapi.client.networkmanagement.projects.locations.vpcFlowLogsConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the details of a specific `VpcFlowLogsConfig`. */
     await gapi.client.networkmanagement.projects.locations.vpcFlowLogsConfigs.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all `VpcFlowLogsConfigs` in a given project. */
     await gapi.client.networkmanagement.projects.locations.vpcFlowLogsConfigs.list(
@@ -1532,7 +1532,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an existing `VpcFlowLogsConfig`. If a configuration with the exact same settings already exists (even if the ID is different), the creation fails. Notes: 1. Updating a configuration with state=DISABLED will fail. 2. The following fields are not considered as `settings` for the purpose of the check mentioned above, therefore - updating another configuration with the same fields but different values for the following fields will fail as well: * name * create_time * update_time * labels * description */
     await gapi.client.networkmanagement.projects.locations.vpcFlowLogsConfigs.patch(
@@ -1557,7 +1557,7 @@ gapi.load('client', async () => {
         targetResourceState: 'Test string',
         updateTime: 'Test string',
         vpnTunnel: 'Test string',
-      }
+      },
     );
   }
 });

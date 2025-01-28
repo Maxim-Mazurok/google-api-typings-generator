@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Composer API v1beta1 */
   function load(
-    urlOrObject: 'https://composer.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://composer.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'composer', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'composer',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace composer {
@@ -618,7 +618,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UserWorkloadsConfigMap
+        body: UserWorkloadsConfigMap,
       ): Request<UserWorkloadsConfigMap>;
       /** Deletes a user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
       delete(request?: {
@@ -761,7 +761,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UserWorkloadsConfigMap
+        body: UserWorkloadsConfigMap,
       ): Request<UserWorkloadsConfigMap>;
     }
     interface UserWorkloadsSecretsResource {
@@ -821,7 +821,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UserWorkloadsSecret
+        body: UserWorkloadsSecret,
       ): Request<UserWorkloadsSecret>;
       /** Deletes a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
       delete(request?: {
@@ -964,7 +964,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UserWorkloadsSecret
+        body: UserWorkloadsSecret,
       ): Request<UserWorkloadsSecret>;
     }
     interface WorkloadsResource {
@@ -1059,7 +1059,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CheckUpgradeRequest
+        body: CheckUpgradeRequest,
       ): Request<Operation>;
       /** Create a new environment. */
       create(request: {
@@ -1117,7 +1117,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Environment
+        body: Environment,
       ): Request<Operation>;
       /** Triggers database failover (only for highly resilient environments). */
       databaseFailover(request: {
@@ -1175,7 +1175,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DatabaseFailoverRequest
+        body: DatabaseFailoverRequest,
       ): Request<Operation>;
       /** Delete an environment. */
       delete(request?: {
@@ -1260,7 +1260,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExecuteAirflowCommandRequest
+        body: ExecuteAirflowCommandRequest,
       ): Request<ExecuteAirflowCommandResponse>;
       /** Fetches database properties. */
       fetchDatabaseProperties(request?: {
@@ -1403,7 +1403,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LoadSnapshotRequest
+        body: LoadSnapshotRequest,
       ): Request<Operation>;
       /** Update an environment. */
       patch(request: {
@@ -1465,7 +1465,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Environment
+        body: Environment,
       ): Request<Operation>;
       /** Polls Airflow CLI command execution and fetches logs. */
       pollAirflowCommand(request: {
@@ -1523,7 +1523,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PollAirflowCommandRequest
+        body: PollAirflowCommandRequest,
       ): Request<PollAirflowCommandResponse>;
       /** Restart Airflow web server. */
       restartWebServer(request: {
@@ -1581,7 +1581,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestartWebServerRequest
+        body: RestartWebServerRequest,
       ): Request<Operation>;
       /** Creates a snapshots of a Cloud Composer environment. As a result of this operation, snapshot of environment's state is stored in a location specified in the SaveSnapshotRequest. */
       saveSnapshot(request: {
@@ -1639,7 +1639,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SaveSnapshotRequest
+        body: SaveSnapshotRequest,
       ): Request<Operation>;
       /** Stops Airflow CLI command execution. */
       stopAirflowCommand(request: {
@@ -1697,7 +1697,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopAirflowCommandRequest
+        body: StopAirflowCommandRequest,
       ): Request<StopAirflowCommandResponse>;
       userWorkloadsConfigMaps: UserWorkloadsConfigMapsResource;
       userWorkloadsSecrets: UserWorkloadsSecretsResource;

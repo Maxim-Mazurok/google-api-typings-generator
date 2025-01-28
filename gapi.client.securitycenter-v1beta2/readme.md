@@ -30,7 +30,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.securitycenter
-  }
+  },
 );
 ```
 
@@ -62,7 +62,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 
@@ -87,7 +87,7 @@ await gapi.client.securitycenter.folders.getEventThreatDetectionSettings({
 Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetRapidVulnerabilityDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateRapidVulnerabilityDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.folders.getRapidVulnerabilityDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -108,7 +108,7 @@ await gapi.client.securitycenter.folders.getSecurityHealthAnalyticsSettings({
 Get the VirtualMachineThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetVirtualMachineThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateVirtualMachineThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.folders.getVirtualMachineThreatDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -122,7 +122,7 @@ await gapi.client.securitycenter.folders.getWebSecurityScannerSettings({
 Update the ContainerThreatDetectionSettings resource.
 */
 await gapi.client.securitycenter.folders.updateContainerThreatDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -136,7 +136,7 @@ await gapi.client.securitycenter.folders.updateEventThreatDetectionSettings({
 Update the RapidVulnerabilityDetectionSettings resource.
 */
 await gapi.client.securitycenter.folders.updateRapidVulnerabilityDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -150,7 +150,7 @@ await gapi.client.securitycenter.folders.updateSecurityHealthAnalyticsSettings({
 Update the VirtualMachineThreatDetectionSettings resource.
 */
 await gapi.client.securitycenter.folders.updateVirtualMachineThreatDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -164,7 +164,7 @@ await gapi.client.securitycenter.folders.updateWebSecurityScannerSettings({
 Get the ContainerThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetContainerThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateContainerThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.organizations.getContainerThreatDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -178,7 +178,7 @@ await gapi.client.securitycenter.organizations.getEventThreatDetectionSettings({
 Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetRapidVulnerabilityDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateRapidVulnerabilityDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.organizations.getRapidVulnerabilityDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -192,7 +192,7 @@ await gapi.client.securitycenter.organizations.getSecurityCenterSettings({
 Get the SecurityHealthAnalyticsSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetSecurityHealthAnalyticsSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateSecurityHealthAnalyticsSettings for this purpose.
 */
 await gapi.client.securitycenter.organizations.getSecurityHealthAnalyticsSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -204,7 +204,7 @@ await gapi.client.securitycenter.organizations.getSubscription({name: 'name'});
 Get the VirtualMachineThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetVirtualMachineThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateVirtualMachineThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.organizations.getVirtualMachineThreatDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -218,42 +218,42 @@ await gapi.client.securitycenter.organizations.getWebSecurityScannerSettings({
 Update the ContainerThreatDetectionSettings resource.
 */
 await gapi.client.securitycenter.organizations.updateContainerThreatDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
 Update the EventThreatDetectionSettings resource.
 */
 await gapi.client.securitycenter.organizations.updateEventThreatDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
 Update the RapidVulnerabilityDetectionSettings resource.
 */
 await gapi.client.securitycenter.organizations.updateRapidVulnerabilityDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
 Update the SecurityHealthAnalyticsSettings resource.
 */
 await gapi.client.securitycenter.organizations.updateSecurityHealthAnalyticsSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
 Update the VirtualMachineThreatDetectionSettings resource.
 */
 await gapi.client.securitycenter.organizations.updateVirtualMachineThreatDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
 Update the WebSecurityScannerSettings resource.
 */
 await gapi.client.securitycenter.organizations.updateWebSecurityScannerSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -274,7 +274,7 @@ await gapi.client.securitycenter.projects.getEventThreatDetectionSettings({
 Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetRapidVulnerabilityDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateRapidVulnerabilityDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.projects.getRapidVulnerabilityDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -295,7 +295,7 @@ await gapi.client.securitycenter.projects.getSecurityHealthAnalyticsSettings({
 Get the VirtualMachineThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetVirtualMachineThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateVirtualMachineThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.projects.getVirtualMachineThreatDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -309,7 +309,7 @@ await gapi.client.securitycenter.projects.getWebSecurityScannerSettings({
 Update the ContainerThreatDetectionSettings resource.
 */
 await gapi.client.securitycenter.projects.updateContainerThreatDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
@@ -323,21 +323,21 @@ await gapi.client.securitycenter.projects.updateEventThreatDetectionSettings({
 Update the RapidVulnerabilityDetectionSettings resource.
 */
 await gapi.client.securitycenter.projects.updateRapidVulnerabilityDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
 Update the SecurityHealthAnalyticsSettings resource.
 */
 await gapi.client.securitycenter.projects.updateSecurityHealthAnalyticsSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*
 Update the VirtualMachineThreatDetectionSettings resource.
 */
 await gapi.client.securitycenter.projects.updateVirtualMachineThreatDetectionSettings(
-  {name: 'name'}
+  {name: 'name'},
 );
 
 /*

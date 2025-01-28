@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://logging.googleapis.com/$discovery/rest?version=v2'
+    'https://logging.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.logging */
 
@@ -59,7 +59,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an exclusion in the _Default sink. */
     await gapi.client.logging.billingAccounts.exclusions.delete({
@@ -88,7 +88,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.logging.billingAccounts.locations.get({
@@ -130,7 +130,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a log bucket asynchronously that can be used to store log entries.After a bucket has been created, the bucket's location cannot be changed. */
     await gapi.client.logging.billingAccounts.locations.buckets.createAsync(
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. */
     await gapi.client.logging.billingAccounts.locations.buckets.delete({
@@ -206,14 +206,14 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. */
     await gapi.client.logging.billingAccounts.locations.buckets.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates a log bucket asynchronously.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. */
     await gapi.client.logging.billingAccounts.locations.buckets.updateAsync(
@@ -244,7 +244,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Asynchronously creates a linked dataset in BigQuery which makes it possible to use BigQuery to read the logs stored in the log bucket. A log bucket may currently only contain one link. */
     await gapi.client.logging.billingAccounts.locations.buckets.links.create(
@@ -260,7 +260,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         lifecycleState: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a link. This will also delete the corresponding BigQuery linked dataset. */
     await gapi.client.logging.billingAccounts.locations.buckets.links.delete({
@@ -288,7 +288,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. */
     await gapi.client.logging.billingAccounts.locations.buckets.views.delete({
@@ -316,7 +316,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
     await gapi.client.logging.billingAccounts.locations.buckets.views.logs.list(
@@ -325,14 +325,14 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         resourceNames: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
     await gapi.client.logging.billingAccounts.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.logging.billingAccounts.locations.operations.get({
@@ -378,7 +378,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes an existing SavedQuery that was created by the user making the request. */
     await gapi.client.logging.billingAccounts.locations.savedQueries.delete({
@@ -421,7 +421,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted. */
     await gapi.client.logging.billingAccounts.logs.delete({
@@ -468,7 +468,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
     await gapi.client.logging.billingAccounts.sinks.delete({
@@ -520,7 +520,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. */
     await gapi.client.logging.billingAccounts.sinks.update(
@@ -557,7 +557,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Copies a set of log entries from a log bucket to a Cloud Storage bucket. */
     await gapi.client.logging.entries.copy(
@@ -566,7 +566,7 @@ gapi.load('client', async () => {
         destination: 'Test string',
         filter: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Lists log entries. Use this method to retrieve log entries that originated from a project/folder/organization/billing account. For ways to export log entries, see Exporting Logs (https://cloud.google.com/logging/docs/export). */
     await gapi.client.logging.entries.list(
@@ -578,7 +578,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         projectIds: ['Test string'],
         resourceNames: ['Test string'],
-      }
+      },
     );
     /** Streaming read of log entries as they are received. Until the stream is terminated, it will continue reading logs. */
     await gapi.client.logging.entries.tail(
@@ -587,7 +587,7 @@ gapi.load('client', async () => {
         bufferWindow: 'Test string',
         filter: 'Test string',
         resourceNames: ['Test string'],
-      }
+      },
     );
     /** Writes log entries to Logging. This API method is the only way to send log entries to Logging. This method is used, directly or indirectly, by the Logging agent (fluentd) and all logging libraries configured to use Logging. A single request may contain log entries for a maximum of 1000 different resource names (projects, organizations, billing accounts or folders), where the resource name for a log entry is determined from its logName field. */
     await gapi.client.logging.entries.write(
@@ -679,7 +679,7 @@ gapi.load('client', async () => {
           },
           type: 'Test string',
         },
-      }
+      },
     );
     /** Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. */
     await gapi.client.logging.exclusions.create(
@@ -693,7 +693,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an exclusion in the _Default sink. */
     await gapi.client.logging.exclusions.delete({
@@ -722,7 +722,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log Router can be configured for Google Cloud projects, folders, organizations, and billing accounts. Once configured for an organization, it applies to all projects and folders in the Google Cloud organization.See Enabling CMEK for Log Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information. */
     await gapi.client.logging.folders.getCmekSettings({
@@ -759,7 +759,7 @@ gapi.load('client', async () => {
         loggingServiceAccountId: 'Test string',
         name: 'Test string',
         storageLocation: 'Test string',
-      }
+      },
     );
     /** Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. */
     await gapi.client.logging.folders.exclusions.create(
@@ -773,7 +773,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an exclusion in the _Default sink. */
     await gapi.client.logging.folders.exclusions.delete({
@@ -802,7 +802,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.logging.folders.locations.get({
@@ -844,7 +844,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a log bucket asynchronously that can be used to store log entries.After a bucket has been created, the bucket's location cannot be changed. */
     await gapi.client.logging.folders.locations.buckets.createAsync(
@@ -875,7 +875,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. */
     await gapi.client.logging.folders.locations.buckets.delete({
@@ -920,14 +920,14 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. */
     await gapi.client.logging.folders.locations.buckets.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates a log bucket asynchronously.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. */
     await gapi.client.logging.folders.locations.buckets.updateAsync(
@@ -958,7 +958,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Asynchronously creates a linked dataset in BigQuery which makes it possible to use BigQuery to read the logs stored in the log bucket. A log bucket may currently only contain one link. */
     await gapi.client.logging.folders.locations.buckets.links.create(
@@ -974,7 +974,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         lifecycleState: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a link. This will also delete the corresponding BigQuery linked dataset. */
     await gapi.client.logging.folders.locations.buckets.links.delete({
@@ -1002,7 +1002,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. */
     await gapi.client.logging.folders.locations.buckets.views.delete({
@@ -1021,7 +1021,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists views on a log bucket. */
     await gapi.client.logging.folders.locations.buckets.views.list({
@@ -1041,7 +1041,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.logging.folders.locations.buckets.views.setIamPolicy(
@@ -1077,7 +1077,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.logging.folders.locations.buckets.views.testIamPermissions(
@@ -1086,7 +1086,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
     await gapi.client.logging.folders.locations.buckets.views.logs.list({
@@ -1107,7 +1107,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         resourceNames: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a log scope. */
     await gapi.client.logging.folders.locations.logScopes.delete({
@@ -1135,14 +1135,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         resourceNames: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
     await gapi.client.logging.folders.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.logging.folders.locations.operations.get({
@@ -1188,7 +1188,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes an existing SavedQuery that was created by the user making the request. */
     await gapi.client.logging.folders.locations.savedQueries.delete({
@@ -1231,7 +1231,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted. */
     await gapi.client.logging.folders.logs.delete({
@@ -1278,7 +1278,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
     await gapi.client.logging.folders.sinks.delete({
@@ -1330,7 +1330,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. */
     await gapi.client.logging.folders.sinks.update(
@@ -1367,7 +1367,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.logging.locations.get({
@@ -1409,7 +1409,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a log bucket asynchronously that can be used to store log entries.After a bucket has been created, the bucket's location cannot be changed. */
     await gapi.client.logging.locations.buckets.createAsync(
@@ -1440,7 +1440,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. */
     await gapi.client.logging.locations.buckets.delete({
@@ -1485,14 +1485,14 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. */
     await gapi.client.logging.locations.buckets.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates a log bucket asynchronously.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. */
     await gapi.client.logging.locations.buckets.updateAsync(
@@ -1523,7 +1523,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Asynchronously creates a linked dataset in BigQuery which makes it possible to use BigQuery to read the logs stored in the log bucket. A log bucket may currently only contain one link. */
     await gapi.client.logging.locations.buckets.links.create(
@@ -1539,7 +1539,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         lifecycleState: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a link. This will also delete the corresponding BigQuery linked dataset. */
     await gapi.client.logging.locations.buckets.links.delete({
@@ -1567,7 +1567,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. */
     await gapi.client.logging.locations.buckets.views.delete({
@@ -1586,7 +1586,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists views on a log bucket. */
     await gapi.client.logging.locations.buckets.views.list({
@@ -1606,7 +1606,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.logging.locations.buckets.views.setIamPolicy(
@@ -1642,7 +1642,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.logging.locations.buckets.views.testIamPermissions(
@@ -1651,14 +1651,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
     await gapi.client.logging.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.logging.locations.operations.get({
@@ -1706,7 +1706,7 @@ gapi.load('client', async () => {
         kmsKeyVersionName: 'Test string',
         name: 'Test string',
         serviceAccountId: 'Test string',
-      }
+      },
     );
     /** Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings fails when any of the following are true: The value of storage_location either isn't supported by Logging or violates the location OrgPolicy. The default_sink_config field is set, but it has an unspecified filter write mode. The value of kms_key_name is invalid. The associated service account doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access to the key is disabled.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information. */
     await gapi.client.logging.organizations.updateSettings(
@@ -1735,7 +1735,7 @@ gapi.load('client', async () => {
         loggingServiceAccountId: 'Test string',
         name: 'Test string',
         storageLocation: 'Test string',
-      }
+      },
     );
     /** Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. */
     await gapi.client.logging.organizations.exclusions.create(
@@ -1749,7 +1749,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an exclusion in the _Default sink. */
     await gapi.client.logging.organizations.exclusions.delete({
@@ -1778,7 +1778,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.logging.organizations.locations.get({
@@ -1820,7 +1820,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a log bucket asynchronously that can be used to store log entries.After a bucket has been created, the bucket's location cannot be changed. */
     await gapi.client.logging.organizations.locations.buckets.createAsync(
@@ -1851,7 +1851,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. */
     await gapi.client.logging.organizations.locations.buckets.delete({
@@ -1896,14 +1896,14 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. */
     await gapi.client.logging.organizations.locations.buckets.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates a log bucket asynchronously.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. */
     await gapi.client.logging.organizations.locations.buckets.updateAsync(
@@ -1934,7 +1934,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Asynchronously creates a linked dataset in BigQuery which makes it possible to use BigQuery to read the logs stored in the log bucket. A log bucket may currently only contain one link. */
     await gapi.client.logging.organizations.locations.buckets.links.create(
@@ -1950,7 +1950,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         lifecycleState: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a link. This will also delete the corresponding BigQuery linked dataset. */
     await gapi.client.logging.organizations.locations.buckets.links.delete({
@@ -1978,7 +1978,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. */
     await gapi.client.logging.organizations.locations.buckets.views.delete({
@@ -1997,7 +1997,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists views on a log bucket. */
     await gapi.client.logging.organizations.locations.buckets.views.list({
@@ -2017,7 +2017,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.logging.organizations.locations.buckets.views.setIamPolicy(
@@ -2053,7 +2053,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.logging.organizations.locations.buckets.views.testIamPermissions(
@@ -2062,7 +2062,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
     await gapi.client.logging.organizations.locations.buckets.views.logs.list({
@@ -2083,7 +2083,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         resourceNames: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a log scope. */
     await gapi.client.logging.organizations.locations.logScopes.delete({
@@ -2111,14 +2111,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         resourceNames: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
     await gapi.client.logging.organizations.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.logging.organizations.locations.operations.get({
@@ -2164,7 +2164,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes an existing SavedQuery that was created by the user making the request. */
     await gapi.client.logging.organizations.locations.savedQueries.delete({
@@ -2207,7 +2207,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted. */
     await gapi.client.logging.organizations.logs.delete({
@@ -2254,7 +2254,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
     await gapi.client.logging.organizations.sinks.delete({
@@ -2306,7 +2306,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. */
     await gapi.client.logging.organizations.sinks.update(
@@ -2343,7 +2343,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log Router can be configured for Google Cloud projects, folders, organizations, and billing accounts. Once configured for an organization, it applies to all projects and folders in the Google Cloud organization.See Enabling CMEK for Log Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information. */
     await gapi.client.logging.projects.getCmekSettings({
@@ -2365,7 +2365,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an exclusion in the _Default sink. */
     await gapi.client.logging.projects.exclusions.delete({
@@ -2394,7 +2394,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.logging.projects.locations.get({
@@ -2436,7 +2436,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a log bucket asynchronously that can be used to store log entries.After a bucket has been created, the bucket's location cannot be changed. */
     await gapi.client.logging.projects.locations.buckets.createAsync(
@@ -2467,7 +2467,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. */
     await gapi.client.logging.projects.locations.buckets.delete({
@@ -2512,14 +2512,14 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. */
     await gapi.client.logging.projects.locations.buckets.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates a log bucket asynchronously.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. */
     await gapi.client.logging.projects.locations.buckets.updateAsync(
@@ -2550,7 +2550,7 @@ gapi.load('client', async () => {
         restrictedFields: ['Test string'],
         retentionDays: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Asynchronously creates a linked dataset in BigQuery which makes it possible to use BigQuery to read the logs stored in the log bucket. A log bucket may currently only contain one link. */
     await gapi.client.logging.projects.locations.buckets.links.create(
@@ -2566,7 +2566,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         lifecycleState: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a link. This will also delete the corresponding BigQuery linked dataset. */
     await gapi.client.logging.projects.locations.buckets.links.delete({
@@ -2594,7 +2594,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. */
     await gapi.client.logging.projects.locations.buckets.views.delete({
@@ -2613,7 +2613,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists views on a log bucket. */
     await gapi.client.logging.projects.locations.buckets.views.list({
@@ -2633,7 +2633,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.logging.projects.locations.buckets.views.setIamPolicy(
@@ -2669,7 +2669,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.logging.projects.locations.buckets.views.testIamPermissions(
@@ -2678,7 +2678,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
     await gapi.client.logging.projects.locations.buckets.views.logs.list({
@@ -2699,7 +2699,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         resourceNames: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a log scope. */
     await gapi.client.logging.projects.locations.logScopes.delete({
@@ -2727,14 +2727,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         resourceNames: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
     await gapi.client.logging.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.logging.projects.locations.operations.get({
@@ -2780,7 +2780,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes an existing SavedQuery that was created by the user making the request. */
     await gapi.client.logging.projects.locations.savedQueries.delete({
@@ -2823,7 +2823,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted. */
     await gapi.client.logging.projects.logs.delete({
@@ -2894,7 +2894,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         valueExtractor: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Deletes a logs-based metric. */
     await gapi.client.logging.projects.metrics.delete({
@@ -2968,7 +2968,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         valueExtractor: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Creates a sink that exports specified log entries to a destination. The export begins upon ingress, unless the sink's writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink. */
     await gapi.client.logging.projects.sinks.create(
@@ -3004,7 +3004,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
     await gapi.client.logging.projects.sinks.delete({
@@ -3056,7 +3056,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. */
     await gapi.client.logging.projects.sinks.update(
@@ -3093,7 +3093,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Creates a sink that exports specified log entries to a destination. The export begins upon ingress, unless the sink's writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink. */
     await gapi.client.logging.sinks.create(
@@ -3129,7 +3129,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
     await gapi.client.logging.sinks.delete({
@@ -3181,7 +3181,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log Router can be configured for Google Cloud projects, folders, organizations, and billing accounts. Once configured for an organization, it applies to all projects and folders in the Google Cloud organization.See Enabling CMEK for Log Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information. */
     await gapi.client.logging.v2.getCmekSettings({
@@ -3202,7 +3202,7 @@ gapi.load('client', async () => {
         kmsKeyVersionName: 'Test string',
         name: 'Test string',
         serviceAccountId: 'Test string',
-      }
+      },
     );
     /** Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings fails when any of the following are true: The value of storage_location either isn't supported by Logging or violates the location OrgPolicy. The default_sink_config field is set, but it has an unspecified filter write mode. The value of kms_key_name is invalid. The associated service account doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access to the key is disabled.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information. */
     await gapi.client.logging.v2.updateSettings(
@@ -3231,7 +3231,7 @@ gapi.load('client', async () => {
         loggingServiceAccountId: 'Test string',
         name: 'Test string',
         storageLocation: 'Test string',
-      }
+      },
     );
   }
 });

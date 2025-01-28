@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://workflows.googleapis.com/$discovery/rest?version=v1'
+    'https://workflows.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.workflows */
 
@@ -92,7 +92,7 @@ gapi.load('client', async () => {
         userEnvVars: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a workflow with the specified name. This method also cancels and deletes all running executions of the workflow. */
     await gapi.client.workflows.projects.locations.workflows.delete({
@@ -152,7 +152,7 @@ gapi.load('client', async () => {
         userEnvVars: {
           A: 'Test string',
         },
-      }
+      },
     );
   }
 });

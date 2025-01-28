@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Checks API v1alpha */
   function load(
-    urlOrObject: 'https://checks.googleapis.com/$discovery/rest?version=v1alpha'
+    urlOrObject: 'https://checks.googleapis.com/$discovery/rest?version=v1alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'checks', version: 'v1alpha'): Promise<void>;
@@ -503,7 +503,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -648,7 +648,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WaitOperationRequest
+        body: WaitOperationRequest,
       ): Request<Operation>;
     }
     interface ReportsResource {
@@ -865,7 +865,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChecksRepoScanV1alphaGenerateScanRequest
+        body: GoogleChecksRepoScanV1alphaGenerateScanRequest,
       ): Request<Operation>;
       /** Gets a repo scan. By default, only the name and results_uri fields are returned. You can include other fields by listing them in the `fields` URL query parameter. For example, `?fields=name,sources` will return the name and sources fields. */
       get(request?: {
@@ -989,7 +989,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChecksAisafetyV1alphaClassifyContentRequest
+        body: GoogleChecksAisafetyV1alphaClassifyContentRequest,
       ): Request<GoogleChecksAisafetyV1alphaClassifyContentResponse>;
     }
     interface MediaResource {
@@ -1049,7 +1049,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleChecksReportV1alphaAnalyzeUploadRequest
+        body: GoogleChecksReportV1alphaAnalyzeUploadRequest,
       ): Request<Operation>;
     }
 

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load API Gateway API v1 */
   function load(
-    urlOrObject: 'https://apigateway.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://apigateway.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'apigateway', version: 'v1'): Promise<void>;
@@ -307,7 +307,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewayApiConfig
+        body: ApigatewayApiConfig,
       ): Request<ApigatewayOperation>;
       /** Deletes a single ApiConfig. */
       delete(request?: {
@@ -489,7 +489,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewayApiConfig
+        body: ApigatewayApiConfig,
       ): Request<ApigatewayOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -519,7 +519,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewaySetIamPolicyRequest
+        body: ApigatewaySetIamPolicyRequest,
       ): Request<ApigatewayPolicy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -549,7 +549,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewayTestIamPermissionsRequest
+        body: ApigatewayTestIamPermissionsRequest,
       ): Request<ApigatewayTestIamPermissionsResponse>;
     }
     interface ApisResource {
@@ -613,7 +613,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewayApi
+        body: ApigatewayApi,
       ): Request<ApigatewayOperation>;
       /** Deletes a single Api. */
       delete(request?: {
@@ -793,7 +793,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewayApi
+        body: ApigatewayApi,
       ): Request<ApigatewayOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -823,7 +823,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewaySetIamPolicyRequest
+        body: ApigatewaySetIamPolicyRequest,
       ): Request<ApigatewayPolicy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -853,7 +853,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewayTestIamPermissionsRequest
+        body: ApigatewayTestIamPermissionsRequest,
       ): Request<ApigatewayTestIamPermissionsResponse>;
       configs: ConfigsResource;
     }
@@ -918,7 +918,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewayGateway
+        body: ApigatewayGateway,
       ): Request<ApigatewayOperation>;
       /** Deletes a single Gateway. */
       delete(request?: {
@@ -1098,7 +1098,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewayGateway
+        body: ApigatewayGateway,
       ): Request<ApigatewayOperation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1128,7 +1128,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewaySetIamPolicyRequest
+        body: ApigatewaySetIamPolicyRequest,
       ): Request<ApigatewayPolicy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1158,7 +1158,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewayTestIamPermissionsRequest
+        body: ApigatewayTestIamPermissionsRequest,
       ): Request<ApigatewayTestIamPermissionsResponse>;
     }
     interface OperationsResource {
@@ -1218,7 +1218,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApigatewayCancelOperationRequest
+        body: ApigatewayCancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

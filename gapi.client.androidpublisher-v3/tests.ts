@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://androidpublisher.googleapis.com/$discovery/rest?version=v3'
+    'https://androidpublisher.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.androidpublisher */
 
@@ -38,7 +38,7 @@ gapi.load('client', async () => {
       },
       {
         safetyLabels: 'Test string',
-      }
+      },
     );
     /** Creates a new device tier config for an app. */
     await gapi.client.androidpublisher.applications.deviceTierConfigs.create(
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
             name: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Returns a particular device tier config. */
     await gapi.client.androidpublisher.applications.deviceTierConfigs.get({
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
             regionCode: ['Test string'],
           },
         },
-      }
+      },
     );
     /** Cancel an already executing app recovery action. Note that this action changes status of the recovery action to CANCELED. */
     await gapi.client.androidpublisher.apprecovery.cancel(
@@ -142,7 +142,7 @@ gapi.load('client', async () => {
         appRecoveryId: 'Test string',
         packageName: 'Test string',
       },
-      {}
+      {},
     );
     /** Create an app recovery action with recovery status as DRAFT. Note that this action does not execute the recovery action. */
     await gapi.client.androidpublisher.apprecovery.create(
@@ -171,7 +171,7 @@ gapi.load('client', async () => {
             versionCodeStart: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deploy an already created app recovery action with recovery status DRAFT. Note that this action activates the recovery action for all targeted users and changes its status to ACTIVE. */
     await gapi.client.androidpublisher.apprecovery.deploy(
@@ -179,7 +179,7 @@ gapi.load('client', async () => {
         appRecoveryId: 'Test string',
         packageName: 'Test string',
       },
-      {}
+      {},
     );
     /** List all app recovery action resources associated with a particular package name and app version. */
     await gapi.client.androidpublisher.apprecovery.list({
@@ -210,7 +210,7 @@ gapi.load('client', async () => {
       {
         expiryTimeSeconds: 'Test string',
         id: 'Test string',
-      }
+      },
     );
     /** Validates an app edit. */
     await gapi.client.androidpublisher.edits.validate({
@@ -246,7 +246,7 @@ gapi.load('client', async () => {
           versionCode: 42,
           versionName: 'Test string',
         },
-      }
+      },
     );
     /** Lists all current APKs of the app and edit. */
     await gapi.client.androidpublisher.edits.apks.list({
@@ -299,7 +299,7 @@ gapi.load('client', async () => {
         contactPhone: 'Test string',
         contactWebsite: 'Test string',
         defaultLanguage: 'Test string',
-      }
+      },
     );
     /** Updates details of an app. */
     await gapi.client.androidpublisher.edits.details.update(
@@ -312,7 +312,7 @@ gapi.load('client', async () => {
         contactPhone: 'Test string',
         contactWebsite: 'Test string',
         defaultLanguage: 'Test string',
-      }
+      },
     );
     /** Fetches the expansion file configuration for the specified APK. */
     await gapi.client.androidpublisher.edits.expansionfiles.get({
@@ -332,7 +332,7 @@ gapi.load('client', async () => {
       {
         fileSize: 'Test string',
         referencesVersion: 42,
-      }
+      },
     );
     /** Updates the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
     await gapi.client.androidpublisher.edits.expansionfiles.update(
@@ -345,7 +345,7 @@ gapi.load('client', async () => {
       {
         fileSize: 'Test string',
         referencesVersion: 42,
-      }
+      },
     );
     /** Uploads a new expansion file and attaches to the specified APK. */
     await gapi.client.androidpublisher.edits.expansionfiles.upload({
@@ -418,7 +418,7 @@ gapi.load('client', async () => {
         shortDescription: 'Test string',
         title: 'Test string',
         video: 'Test string',
-      }
+      },
     );
     /** Creates or updates a localized store listing. */
     await gapi.client.androidpublisher.edits.listings.update(
@@ -433,7 +433,7 @@ gapi.load('client', async () => {
         shortDescription: 'Test string',
         title: 'Test string',
         video: 'Test string',
-      }
+      },
     );
     /** Gets testers. Note: Testers resource does not support email lists. */
     await gapi.client.androidpublisher.edits.testers.get({
@@ -450,7 +450,7 @@ gapi.load('client', async () => {
       },
       {
         googleGroups: ['Test string'],
-      }
+      },
     );
     /** Updates testers. Note: Testers resource does not support email lists. */
     await gapi.client.androidpublisher.edits.testers.update(
@@ -461,7 +461,7 @@ gapi.load('client', async () => {
       },
       {
         googleGroups: ['Test string'],
-      }
+      },
     );
     /** Creates a new track. */
     await gapi.client.androidpublisher.edits.tracks.create(
@@ -473,7 +473,7 @@ gapi.load('client', async () => {
         formFactor: 'Test string',
         track: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Gets a track. */
     await gapi.client.androidpublisher.edits.tracks.get({
@@ -514,7 +514,7 @@ gapi.load('client', async () => {
           },
         ],
         track: 'Test string',
-      }
+      },
     );
     /** Updates a track. */
     await gapi.client.androidpublisher.edits.tracks.update(
@@ -544,7 +544,7 @@ gapi.load('client', async () => {
           },
         ],
         track: 'Test string',
-      }
+      },
     );
     /** Creates a new external transaction. */
     await gapi.client.androidpublisher.externaltransactions.createexternaltransaction(
@@ -592,13 +592,13 @@ gapi.load('client', async () => {
           administrativeArea: 'Test string',
           regionCode: 'Test string',
         },
-      }
+      },
     );
     /** Gets an existing external transaction. */
     await gapi.client.androidpublisher.externaltransactions.getexternaltransaction(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Refunds or partially refunds an existing external transaction. */
     await gapi.client.androidpublisher.externaltransactions.refundexternaltransaction(
@@ -615,7 +615,7 @@ gapi.load('client', async () => {
           },
         },
         refundTime: 'Test string',
-      }
+      },
     );
     /** Downloads a single signed APK generated from an app bundle. */
     await gapi.client.androidpublisher.generatedapks.download({
@@ -637,7 +637,7 @@ gapi.load('client', async () => {
         appLevelPermissions: ['Test string'],
         name: 'Test string',
         packageName: 'Test string',
-      }
+      },
     );
     /** Removes all access for the user to the given package or developer account. */
     await gapi.client.androidpublisher.grants.delete({
@@ -653,7 +653,7 @@ gapi.load('client', async () => {
         appLevelPermissions: ['Test string'],
         name: 'Test string',
         packageName: 'Test string',
-      }
+      },
     );
     /** Deletes in-app products (managed products or subscriptions). Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. This method should not be used to delete subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
     await gapi.client.androidpublisher.inappproducts.batchDelete(
@@ -668,7 +668,7 @@ gapi.load('client', async () => {
             sku: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Reads multiple in-app products, which can be managed products or subscriptions. This method should not be used to retrieve subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
     await gapi.client.androidpublisher.inappproducts.batchGet({
@@ -739,7 +739,7 @@ gapi.load('client', async () => {
             sku: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes an in-app product (a managed product or a subscription). This method should no longer be used to delete subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
     await gapi.client.androidpublisher.inappproducts.delete({
@@ -806,7 +806,7 @@ gapi.load('client', async () => {
           },
         },
         trialPeriod: 'Test string',
-      }
+      },
     );
     /** Lists all in-app products - both managed products and subscriptions. If an app has a large number of in-app products, the response may be paginated. In this case the response field `tokenPagination.nextPageToken` will be set and the caller should provide its value as a `token` request parameter to retrieve the next page. This method should no longer be used to retrieve subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
     await gapi.client.androidpublisher.inappproducts.list({
@@ -871,7 +871,7 @@ gapi.load('client', async () => {
           },
         },
         trialPeriod: 'Test string',
-      }
+      },
     );
     /** Updates an in-app product (a managed product or a subscription). This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
     await gapi.client.androidpublisher.inappproducts.update(
@@ -930,7 +930,7 @@ gapi.load('client', async () => {
           },
         },
         trialPeriod: 'Test string',
-      }
+      },
     );
     /** Uploads an APK to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java. */
     await gapi.client.androidpublisher.internalappsharingartifacts.uploadapk({
@@ -940,7 +940,7 @@ gapi.load('client', async () => {
     await gapi.client.androidpublisher.internalappsharingartifacts.uploadbundle(
       {
         packageName: 'Test string',
-      }
+      },
     );
     /** Calculates the region prices, using today's exchange rate and country-specific pricing patterns, based on the price in the request for a set of regions. */
     await gapi.client.androidpublisher.monetization.convertRegionPrices(
@@ -953,7 +953,7 @@ gapi.load('client', async () => {
           nanos: 42,
           units: 'Test string',
         },
-      }
+      },
     );
     /** Deprecated: subscription archiving is not supported. */
     await gapi.client.androidpublisher.monetization.subscriptions.archive(
@@ -961,7 +961,7 @@ gapi.load('client', async () => {
         packageName: 'Test string',
         productId: 'Test string',
       },
-      {}
+      {},
     );
     /** Reads one or more subscriptions. */
     await gapi.client.androidpublisher.monetization.subscriptions.batchGet({
@@ -1068,7 +1068,7 @@ gapi.load('client', async () => {
             updateMask: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Creates a new subscription. Newly added base plans will remain in draft state until activated. */
     await gapi.client.androidpublisher.monetization.subscriptions.create(
@@ -1160,7 +1160,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Deletes a subscription. A subscription can only be deleted if it has never had a base plan published. */
     await gapi.client.androidpublisher.monetization.subscriptions.delete({
@@ -1272,7 +1272,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Activates a base plan. Once activated, base plans will be available to new subscribers. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.activate(
@@ -1286,7 +1286,7 @@ gapi.load('client', async () => {
         latencyTolerance: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
-      }
+      },
     );
     /** Batch variant of the MigrateBasePlanPrices endpoint. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.batchMigratePrices(
@@ -1313,7 +1313,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Activates or deactivates base plans across one or multiple subscriptions. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.batchUpdateStates(
@@ -1338,7 +1338,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Deactivates a base plan. Once deactivated, the base plan will become unavailable to new subscribers, but existing subscribers will maintain their subscription */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.deactivate(
@@ -1352,7 +1352,7 @@ gapi.load('client', async () => {
         latencyTolerance: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
-      }
+      },
     );
     /** Deletes a base plan. Can only be done for draft base plans. This action is irreversible. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.delete(
@@ -1360,7 +1360,7 @@ gapi.load('client', async () => {
         basePlanId: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
-      }
+      },
     );
     /** Migrates subscribers from one or more legacy price cohorts to the current price. Requests result in Google Play notifying affected subscribers. Only up to 250 simultaneous legacy price cohorts are supported. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.migratePrices(
@@ -1384,7 +1384,7 @@ gapi.load('client', async () => {
         regionsVersion: {
           version: 'Test string',
         },
-      }
+      },
     );
     /** Activates a subscription offer. Once activated, subscription offers will be available to new subscribers. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.offers.activate(
@@ -1400,7 +1400,7 @@ gapi.load('client', async () => {
         offerId: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
-      }
+      },
     );
     /** Reads one or more subscription offers. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.offers.batchGet(
@@ -1418,7 +1418,7 @@ gapi.load('client', async () => {
             productId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates a batch of subscription offers. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.offers.batchUpdate(
@@ -1528,7 +1528,7 @@ gapi.load('client', async () => {
             updateMask: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates a batch of subscription offer states. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.offers.batchUpdateStates(
@@ -1556,7 +1556,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Creates a new subscription offer. Only auto-renewing base plans can have subscription offers. The offer state will be DRAFT until it is activated. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.offers.create(
@@ -1656,7 +1656,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Deactivates a subscription offer. Once deactivated, existing subscribers will maintain their subscription, but the offer will become unavailable to new subscribers. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.offers.deactivate(
@@ -1672,7 +1672,7 @@ gapi.load('client', async () => {
         offerId: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
-      }
+      },
     );
     /** Deletes a subscription offer. Can only be done for draft offers. This action is irreversible. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.offers.delete(
@@ -1681,7 +1681,7 @@ gapi.load('client', async () => {
         offerId: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
-      }
+      },
     );
     /** Reads a single offer */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.offers.get(
@@ -1690,7 +1690,7 @@ gapi.load('client', async () => {
         offerId: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
-      }
+      },
     );
     /** Lists all offers under a given subscription. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.offers.list(
@@ -1700,7 +1700,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         productId: 'Test string',
-      }
+      },
     );
     /** Updates an existing subscription offer. */
     await gapi.client.androidpublisher.monetization.subscriptions.basePlans.offers.patch(
@@ -1803,7 +1803,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Refunds a user's subscription or in-app purchase order. Orders older than 3 years cannot be refunded. */
     await gapi.client.androidpublisher.orders.refund({
@@ -1820,7 +1820,7 @@ gapi.load('client', async () => {
       },
       {
         developerPayload: 'Test string',
-      }
+      },
     );
     /** Consumes a purchase for an inapp item. */
     await gapi.client.androidpublisher.purchases.products.consume({
@@ -1843,7 +1843,7 @@ gapi.load('client', async () => {
       },
       {
         developerPayload: 'Test string',
-      }
+      },
     );
     /** Cancels a user's subscription purchase. The subscription remains valid until its expiration time. */
     await gapi.client.androidpublisher.purchases.subscriptions.cancel({
@@ -1863,7 +1863,7 @@ gapi.load('client', async () => {
           desiredExpiryTimeMillis: 'Test string',
           expectedExpiryTimeMillis: 'Test string',
         },
-      }
+      },
     );
     /** Checks whether a user's subscription purchase is valid and returns its expiry time. */
     await gapi.client.androidpublisher.purchases.subscriptions.get({
@@ -1899,7 +1899,7 @@ gapi.load('client', async () => {
           fullRefund: {},
           proratedRefund: {},
         },
-      }
+      },
     );
     /** Lists the purchases that were canceled, refunded or charged-back. */
     await gapi.client.androidpublisher.purchases.voidedpurchases.list({
@@ -1934,7 +1934,7 @@ gapi.load('client', async () => {
       },
       {
         replyText: 'Test string',
-      }
+      },
     );
     /** Creates an APK which is suitable for inclusion in a system image from an already uploaded Android App Bundle. */
     await gapi.client.androidpublisher.systemapks.variants.create(
@@ -1954,7 +1954,7 @@ gapi.load('client', async () => {
           uncompressedNativeLibraries: true,
         },
         variantId: 42,
-      }
+      },
     );
     /** Downloads a previously created system APK which is suitable for inclusion in a system image. */
     await gapi.client.androidpublisher.systemapks.variants.download({
@@ -1992,7 +1992,7 @@ gapi.load('client', async () => {
         ],
         name: 'Test string',
         partial: true,
-      }
+      },
     );
     /** Removes all access for the user to the given developer account. */
     await gapi.client.androidpublisher.users.delete({
@@ -2024,7 +2024,7 @@ gapi.load('client', async () => {
         ],
         name: 'Test string',
         partial: true,
-      }
+      },
     );
   }
 });

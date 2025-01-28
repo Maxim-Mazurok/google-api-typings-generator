@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://texttospeech.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://texttospeech.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.texttospeech */
 
@@ -79,7 +79,7 @@ gapi.load('client', async () => {
             voiceCloningKey: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.texttospeech.projects.locations.operations.get({
@@ -141,7 +141,7 @@ gapi.load('client', async () => {
             voiceCloningKey: 'Test string',
           },
         },
-      }
+      },
     );
     /** Returns a list of Voice supported for synthesis. */
     await gapi.client.texttospeech.voices.list({

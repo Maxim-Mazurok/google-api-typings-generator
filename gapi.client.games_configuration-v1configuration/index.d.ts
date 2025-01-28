@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Google Play Game Services Publishing API v1configuration */
   function load(
-    urlOrObject: 'https://gamesconfiguration.googleapis.com/$discovery/rest?version=v1configuration'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'gamesConfiguration',
-    version: 'v1configuration'
+    urlOrObject: 'https://gamesconfiguration.googleapis.com/$discovery/rest?version=v1configuration',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'gamesConfiguration',
     version: 'v1configuration',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'gamesConfiguration',
+    version: 'v1configuration',
+    callback: () => any,
   ): void;
 
   namespace gamesConfiguration {
@@ -257,7 +257,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AchievementConfiguration
+        body: AchievementConfiguration,
       ): Request<AchievementConfiguration>;
       /** Returns a list of the achievement configurations in this application. */
       list(request?: {
@@ -346,7 +346,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AchievementConfiguration
+        body: AchievementConfiguration,
       ): Request<AchievementConfiguration>;
     }
     interface LeaderboardConfigurationsResource {
@@ -460,7 +460,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LeaderboardConfiguration
+        body: LeaderboardConfiguration,
       ): Request<LeaderboardConfiguration>;
       /** Returns a list of the leaderboard configurations in this application. */
       list(request?: {
@@ -549,7 +549,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LeaderboardConfiguration
+        body: LeaderboardConfiguration,
       ): Request<LeaderboardConfiguration>;
     }
 

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://apikeys.googleapis.com/$discovery/rest?version=v2'
+    'https://apikeys.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.apikeys */
 
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
         serviceAccountEmail: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an API key. Deleted key can be retrieved within 30 days of deletion. Afterward, key will be purged from the project. NOTE: Key is a global resource; hence the only supported value for location is `global`. */
     await gapi.client.apikeys.projects.locations.keys.delete({
@@ -151,14 +151,14 @@ gapi.load('client', async () => {
         serviceAccountEmail: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Undeletes an API key which was deleted within 30 days. NOTE: Key is a global resource; hence the only supported value for location is `global`. */
     await gapi.client.apikeys.projects.locations.keys.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
   }
 });

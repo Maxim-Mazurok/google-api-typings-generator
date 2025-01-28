@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://recommender.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://recommender.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.recommender */
 
@@ -42,7 +42,7 @@ gapi.load('client', async () => {
     await gapi.client.recommender.billingAccounts.locations.insightTypes.getConfig(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Updates an InsightTypeConfig change. This will create a new revision of the config. */
     await gapi.client.recommender.billingAccounts.locations.insightTypes.updateConfig(
@@ -65,13 +65,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         revisionId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the requested insight. Requires the recommender.*.get IAM permission for the specified insight type. */
     await gapi.client.recommender.billingAccounts.locations.insightTypes.insights.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type. */
     await gapi.client.recommender.billingAccounts.locations.insightTypes.insights.list(
@@ -80,7 +80,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Marks the Insight State as Accepted. Users can use this method to indicate to the Recommender API that they have applied some action based on the insight. This stops the insight content from being updated. MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the recommender.*.update IAM permission for the specified insight. */
     await gapi.client.recommender.billingAccounts.locations.insightTypes.insights.markAccepted(
@@ -92,13 +92,13 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Gets the requested Recommender Config. There is only one instance of the config for each Recommender. */
     await gapi.client.recommender.billingAccounts.locations.recommenders.getConfig(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Updates a Recommender Config. This will create a new revision of the config. */
     await gapi.client.recommender.billingAccounts.locations.recommenders.updateConfig(
@@ -121,13 +121,13 @@ gapi.load('client', async () => {
         },
         revisionId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the requested recommendation. Requires the recommender.*.get IAM permission for the specified recommender. */
     await gapi.client.recommender.billingAccounts.locations.recommenders.recommendations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender. */
     await gapi.client.recommender.billingAccounts.locations.recommenders.recommendations.list(
@@ -136,7 +136,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Marks the Recommendation State as Claimed. Users can use this method to indicate to the Recommender API that they are starting to apply the recommendation themselves. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationClaimed can be applied to recommendations in CLAIMED or ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.billingAccounts.locations.recommenders.recommendations.markClaimed(
@@ -148,7 +148,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.billingAccounts.locations.recommenders.recommendations.markDismissed(
@@ -157,7 +157,7 @@ gapi.load('client', async () => {
       },
       {
         etag: 'Test string',
-      }
+      },
     );
     /** Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.billingAccounts.locations.recommenders.recommendations.markFailed(
@@ -169,7 +169,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.billingAccounts.locations.recommenders.recommendations.markSucceeded(
@@ -181,7 +181,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Lists locations with recommendations or insights. */
     await gapi.client.recommender.folders.locations.list({
@@ -211,13 +211,13 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Gets the requested recommendation. Requires the recommender.*.get IAM permission for the specified recommender. */
     await gapi.client.recommender.folders.locations.recommenders.recommendations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender. */
     await gapi.client.recommender.folders.locations.recommenders.recommendations.list(
@@ -226,7 +226,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Marks the Recommendation State as Claimed. Users can use this method to indicate to the Recommender API that they are starting to apply the recommendation themselves. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationClaimed can be applied to recommendations in CLAIMED or ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.folders.locations.recommenders.recommendations.markClaimed(
@@ -238,7 +238,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.folders.locations.recommenders.recommendations.markDismissed(
@@ -247,7 +247,7 @@ gapi.load('client', async () => {
       },
       {
         etag: 'Test string',
-      }
+      },
     );
     /** Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.folders.locations.recommenders.recommendations.markFailed(
@@ -259,7 +259,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.folders.locations.recommenders.recommendations.markSucceeded(
@@ -271,7 +271,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Lists available InsightTypes. No IAM permissions are required. */
     await gapi.client.recommender.insightTypes.list({
@@ -289,7 +289,7 @@ gapi.load('client', async () => {
     await gapi.client.recommender.organizations.locations.insightTypes.getConfig(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Updates an InsightTypeConfig change. This will create a new revision of the config. */
     await gapi.client.recommender.organizations.locations.insightTypes.updateConfig(
@@ -312,13 +312,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         revisionId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the requested insight. Requires the recommender.*.get IAM permission for the specified insight type. */
     await gapi.client.recommender.organizations.locations.insightTypes.insights.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type. */
     await gapi.client.recommender.organizations.locations.insightTypes.insights.list(
@@ -327,7 +327,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Marks the Insight State as Accepted. Users can use this method to indicate to the Recommender API that they have applied some action based on the insight. This stops the insight content from being updated. MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the recommender.*.update IAM permission for the specified insight. */
     await gapi.client.recommender.organizations.locations.insightTypes.insights.markAccepted(
@@ -339,13 +339,13 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Gets the requested Recommender Config. There is only one instance of the config for each Recommender. */
     await gapi.client.recommender.organizations.locations.recommenders.getConfig(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Updates a Recommender Config. This will create a new revision of the config. */
     await gapi.client.recommender.organizations.locations.recommenders.updateConfig(
@@ -368,13 +368,13 @@ gapi.load('client', async () => {
         },
         revisionId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the requested recommendation. Requires the recommender.*.get IAM permission for the specified recommender. */
     await gapi.client.recommender.organizations.locations.recommenders.recommendations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender. */
     await gapi.client.recommender.organizations.locations.recommenders.recommendations.list(
@@ -383,7 +383,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Marks the Recommendation State as Claimed. Users can use this method to indicate to the Recommender API that they are starting to apply the recommendation themselves. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationClaimed can be applied to recommendations in CLAIMED or ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.organizations.locations.recommenders.recommendations.markClaimed(
@@ -395,7 +395,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.organizations.locations.recommenders.recommendations.markDismissed(
@@ -404,7 +404,7 @@ gapi.load('client', async () => {
       },
       {
         etag: 'Test string',
-      }
+      },
     );
     /** Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.organizations.locations.recommenders.recommendations.markFailed(
@@ -416,7 +416,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.organizations.locations.recommenders.recommendations.markSucceeded(
@@ -428,7 +428,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Lists locations with recommendations or insights. */
     await gapi.client.recommender.projects.locations.list({
@@ -462,7 +462,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         revisionId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the requested insight. Requires the recommender.*.get IAM permission for the specified insight type. */
     await gapi.client.recommender.projects.locations.insightTypes.insights.get({
@@ -475,7 +475,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Marks the Insight State as Accepted. Users can use this method to indicate to the Recommender API that they have applied some action based on the insight. This stops the insight content from being updated. MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the recommender.*.update IAM permission for the specified insight. */
     await gapi.client.recommender.projects.locations.insightTypes.insights.markAccepted(
@@ -487,7 +487,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Gets the requested Recommender Config. There is only one instance of the config for each Recommender. */
     await gapi.client.recommender.projects.locations.recommenders.getConfig({
@@ -514,13 +514,13 @@ gapi.load('client', async () => {
         },
         revisionId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the requested recommendation. Requires the recommender.*.get IAM permission for the specified recommender. */
     await gapi.client.recommender.projects.locations.recommenders.recommendations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender. */
     await gapi.client.recommender.projects.locations.recommenders.recommendations.list(
@@ -529,7 +529,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Marks the Recommendation State as Claimed. Users can use this method to indicate to the Recommender API that they are starting to apply the recommendation themselves. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationClaimed can be applied to recommendations in CLAIMED or ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.projects.locations.recommenders.recommendations.markClaimed(
@@ -541,7 +541,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.projects.locations.recommenders.recommendations.markDismissed(
@@ -550,7 +550,7 @@ gapi.load('client', async () => {
       },
       {
         etag: 'Test string',
-      }
+      },
     );
     /** Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.projects.locations.recommenders.recommendations.markFailed(
@@ -562,7 +562,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
     await gapi.client.recommender.projects.locations.recommenders.recommendations.markSucceeded(
@@ -574,7 +574,7 @@ gapi.load('client', async () => {
         stateMetadata: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Lists all available Recommenders. No IAM permissions are required. */
     await gapi.client.recommender.recommenders.list({

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Places API (New) v1 */
   function load(
-    urlOrObject: 'https://places.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://places.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'places', version: 'v1'): Promise<void>;
@@ -820,7 +820,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleMapsPlacesV1AutocompletePlacesRequest
+        body: GoogleMapsPlacesV1AutocompletePlacesRequest,
       ): Request<GoogleMapsPlacesV1AutocompletePlacesResponse>;
       /** Get the details of a place based on its resource name, which is a string in the `places/{place_id}` format. */
       get(request?: {
@@ -907,7 +907,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleMapsPlacesV1SearchNearbyRequest
+        body: GoogleMapsPlacesV1SearchNearbyRequest,
       ): Request<GoogleMapsPlacesV1SearchNearbyResponse>;
       /** Text query based place search. */
       searchText(request: {
@@ -961,7 +961,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleMapsPlacesV1SearchTextRequest
+        body: GoogleMapsPlacesV1SearchTextRequest,
       ): Request<GoogleMapsPlacesV1SearchTextResponse>;
       photos: PhotosResource;
     }

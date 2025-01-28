@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Service Control API v2 */
   function load(
-    urlOrObject: 'https://servicecontrol.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://servicecontrol.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'servicecontrol', version: 'v2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'servicecontrol',
     version: 'v2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace servicecontrol {
@@ -481,7 +481,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CheckRequest
+        body: CheckRequest,
       ): client.Request<CheckResponse>;
       /** Private Preview. This feature is only available for approved services. This method provides telemetry reporting for services that are integrated with [Service Infrastructure](https://cloud.google.com/service-infrastructure). It reports a list of operations that have occurred on a service. It must be called after the operations have been executed. For more information, see [Telemetry Reporting](https://cloud.google.com/service-infrastructure/docs/telemetry-reporting). NOTE: The telemetry reporting has a hard limit of 1000 operations and 1MB per Report call. It is recommended to have no more than 100 operations per call. This method requires the `servicemanagement.services.report` permission on the specified service. For more information, see [Service Control API Access Control](https://cloud.google.com/service-infrastructure/docs/service-control/access-control). */
       report(request: {
@@ -539,7 +539,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportRequest
+        body: ReportRequest,
       ): client.Request<ReportResponse>;
     }
 

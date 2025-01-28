@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Trace API v2beta1 */
   function load(
-    urlOrObject: 'https://cloudtrace.googleapis.com/$discovery/rest?version=v2beta1'
+    urlOrObject: 'https://cloudtrace.googleapis.com/$discovery/rest?version=v2beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudtrace', version: 'v2beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'cloudtrace',
     version: 'v2beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace cloudtrace {
@@ -104,7 +104,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TraceSink
+        body: TraceSink,
       ): Request<TraceSink>;
       /** Deletes a sink. */
       delete(request?: {
@@ -251,7 +251,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TraceSink
+        body: TraceSink,
       ): Request<TraceSink>;
     }
     interface ProjectsResource {

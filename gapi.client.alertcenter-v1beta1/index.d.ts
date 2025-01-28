@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Workspace Alert Center API v1beta1 */
   function load(
-    urlOrObject: 'https://alertcenter.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://alertcenter.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'alertcenter', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'alertcenter',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace alertcenter {
@@ -695,7 +695,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AlertFeedback
+        body: AlertFeedback,
       ): Request<AlertFeedback>;
       /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
       list(request?: {
@@ -782,7 +782,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchDeleteAlertsRequest
+        body: BatchDeleteAlertsRequest,
       ): Request<BatchDeleteAlertsResponse>;
       /** Performs batch undelete operation on alerts. */
       batchUndelete(request: {
@@ -836,7 +836,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUndeleteAlertsRequest
+        body: BatchUndeleteAlertsRequest,
       ): Request<BatchUndeleteAlertsResponse>;
       /** Marks the specified alert for deletion. An alert that has been marked for deletion is removed from Alert Center after 30 days. Marking an alert for deletion has no effect on an alert which has already been marked for deletion. Attempting to mark a nonexistent alert for deletion results in a `NOT_FOUND` error. */
       delete(request?: {
@@ -1016,7 +1016,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteAlertRequest
+        body: UndeleteAlertRequest,
       ): Request<Alert>;
       feedback: FeedbackResource;
     }
@@ -1104,7 +1104,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Settings
+        body: Settings,
       ): Request<Settings>;
     }
 

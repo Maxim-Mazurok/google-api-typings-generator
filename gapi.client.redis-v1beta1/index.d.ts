@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Cloud Memorystore for Redis API v1beta1 */
   function load(
-    urlOrObject: 'https://redis.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://redis.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'redis', version: 'v1beta1'): Promise<void>;
@@ -964,7 +964,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExportBackupRequest
+        body: ExportBackupRequest,
       ): Request<Operation>;
       /** Gets the details of a specific backup. */
       get(request?: {
@@ -1143,7 +1143,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BackupClusterRequest
+        body: BackupClusterRequest,
       ): Request<Operation>;
       /** Creates a Redis cluster based on the specified properties. The creation is executed asynchronously and callers may check the returned operation to track its progress. Once the operation is completed the Redis cluster will be fully functional. The completed longrunning.Operation will contain the new cluster object in the response field. The returned operation is automatically deleted after a few hours, so there is no need to call DeleteOperation. */
       create(request: {
@@ -1209,7 +1209,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       /** Deletes a specific Redis cluster. Cluster stops serving and data is deleted. */
       delete(request?: {
@@ -1389,7 +1389,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       /** Reschedules upcoming maintenance event. */
       rescheduleClusterMaintenance(request: {
@@ -1447,7 +1447,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RescheduleClusterMaintenanceRequest
+        body: RescheduleClusterMaintenanceRequest,
       ): Request<Operation>;
     }
     interface InstancesResource {
@@ -1511,7 +1511,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Deletes a specific Redis instance. Instance stops serving and data is deleted. */
       delete(request?: {
@@ -1596,7 +1596,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExportInstanceRequest
+        body: ExportInstanceRequest,
       ): Request<Operation>;
       /** Initiates a failover of the primary node to current replica node for a specific STANDARD tier Cloud Memorystore for Redis instance. */
       failover(request: {
@@ -1654,7 +1654,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FailoverInstanceRequest
+        body: FailoverInstanceRequest,
       ): Request<Operation>;
       /** Gets the details of a specific Redis instance. */
       get(request?: {
@@ -1766,7 +1766,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportInstanceRequest
+        body: ImportInstanceRequest,
       ): Request<Operation>;
       /** Lists all Redis instances owned by a project in either the specified location (region) or all locations. The location should have the following format: * `projects/{project_id}/locations/{location_id}` If `location_id` is specified as `-` (wildcard), then all regions available to the project are queried, and the results are aggregated. */
       list(request?: {
@@ -1859,7 +1859,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Reschedule maintenance for a given instance in a given project and location. */
       rescheduleMaintenance(request: {
@@ -1917,7 +1917,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RescheduleMaintenanceRequest
+        body: RescheduleMaintenanceRequest,
       ): Request<Operation>;
       /** Upgrades Redis instance to the newer Redis version specified in the request. */
       upgrade(request: {
@@ -1975,7 +1975,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpgradeInstanceRequest
+        body: UpgradeInstanceRequest,
       ): Request<Operation>;
     }
     interface OperationsResource {

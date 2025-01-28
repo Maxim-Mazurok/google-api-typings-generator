@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Search API v1 */
   function load(
-    urlOrObject: 'https://cloudsearch.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://cloudsearch.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudsearch', version: 'v1'): Promise<void>;
@@ -1956,7 +1956,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Principal
+        body: Principal,
       ): Request<CheckAccessResponse>;
       /** Fetches the item whose viewUrl exactly matches that of the URL provided in the request. **Note:** This API requires an admin account to execute. */
       searchByViewUrl(request: {
@@ -2014,7 +2014,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchItemsByViewUrlRequest
+        body: SearchItemsByViewUrlRequest,
       ): Request<SearchItemsByViewUrlResponse>;
       unmappedids: UnmappedidsResource;
     }
@@ -2195,7 +2195,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeleteQueueItemsRequest
+        body: DeleteQueueItemsRequest,
       ): Request<Operation>;
       /** Gets Item resource by item name. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       get(request?: {
@@ -2284,7 +2284,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: IndexItemRequest
+        body: IndexItemRequest,
       ): Request<Operation>;
       /** Lists all or a subset of Item resources. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       list(request?: {
@@ -2379,7 +2379,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PollItemsRequest
+        body: PollItemsRequest,
       ): Request<PollItemsResponse>;
       /** Pushes an item onto a queue for later polling and updating. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       push(request: {
@@ -2437,7 +2437,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PushItemRequest
+        body: PushItemRequest,
       ): Request<Item>;
       /** Unreserves all items from a queue, making them all eligible to be polled. This method is useful for resetting the indexing queue after a connector has been restarted. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       unreserve(request: {
@@ -2495,7 +2495,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UnreserveItemsRequest
+        body: UnreserveItemsRequest,
       ): Request<Operation>;
       /** Creates an upload session for uploading item content. For items smaller than 100 KB, it's easier to embed the content inline within an index request. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       upload(request: {
@@ -2553,7 +2553,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartUploadItemRequest
+        body: StartUploadItemRequest,
       ): Request<UploadItemRef>;
     }
     interface DatasourcesResource {
@@ -2671,7 +2671,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateSchemaRequest
+        body: UpdateSchemaRequest,
       ): Request<Operation>;
       items: ItemsResource;
     }
@@ -2735,7 +2735,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Media
+        body: Media,
       ): Request<Media>;
     }
     interface LroResource {
@@ -2893,7 +2893,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchRequest
+        body: SearchRequest,
       ): Request<DebugResponse>;
       /** Provides functionality to remove logged activity for a user. Currently to be used only for Chat 1p clients **Note:** This API requires a standard end user account to execute. A service account can't perform Remove Activity requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/). */
       removeActivity(request: {
@@ -2947,7 +2947,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveActivityRequest
+        body: RemoveActivityRequest,
       ): Request<{}>;
       /** The Cloud Search Query API provides the search method, which returns the most relevant results from a user query. The results can come from Google Workspace apps, such as Gmail or Google Drive, or they can come from data that you have indexed from a third party. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/). */
       search(request: {
@@ -3001,7 +3001,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchRequest
+        body: SearchRequest,
       ): Request<SearchResponse>;
       /** Provides suggestions for autocompleting the query. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/). */
       suggest(request: {
@@ -3055,7 +3055,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SuggestRequest
+        body: SuggestRequest,
       ): Request<SuggestResponse>;
       sources: SourcesResource;
     }
@@ -3112,7 +3112,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DataSource
+        body: DataSource,
       ): Request<Operation>;
       /** Deletes a datasource. **Note:** This API requires an admin account to execute. */
       delete(request?: {
@@ -3267,7 +3267,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DataSource
+        body: DataSource,
       ): Request<Operation>;
       /** Updates a datasource. **Note:** This API requires an admin account to execute. */
       update(request: {
@@ -3325,7 +3325,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateDataSourceRequest
+        body: UpdateDataSourceRequest,
       ): Request<Operation>;
     }
     interface SearchapplicationsResource {
@@ -3381,7 +3381,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchApplication
+        body: SearchApplication,
       ): Request<Operation>;
       /** Deletes a search application. **Note:** This API requires an admin account to execute. */
       delete(request?: {
@@ -3532,7 +3532,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchApplication
+        body: SearchApplication,
       ): Request<Operation>;
       /** Resets a search application to default settings. This will return an empty response. **Note:** This API requires an admin account to execute. */
       reset(request: {
@@ -3590,7 +3590,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetSearchApplicationRequest
+        body: ResetSearchApplicationRequest,
       ): Request<Operation>;
       /** Updates a search application. **Note:** This API requires an admin account to execute. */
       update(request: {
@@ -3652,7 +3652,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchApplication
+        body: SearchApplication,
       ): Request<Operation>;
     }
     interface SettingsResource {
@@ -3737,7 +3737,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomerSettings
+        body: CustomerSettings,
       ): Request<Operation>;
       datasources: DatasourcesResource;
       searchapplications: SearchapplicationsResource;
@@ -4162,7 +4162,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InitializeCustomerRequest
+        body: InitializeCustomerRequest,
       ): Request<Operation>;
     }
 

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Dialogflow API v2 */
   function load(
-    urlOrObject: 'https://dialogflow.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://dialogflow.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'dialogflow', version: 'v2'): Promise<void>;
@@ -4767,7 +4767,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchCreateEntitiesRequest
+        body: GoogleCloudDialogflowV2BatchCreateEntitiesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes entities in the specified entity type. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       batchDelete(request: {
@@ -4825,7 +4825,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchDeleteEntitiesRequest
+        body: GoogleCloudDialogflowV2BatchDeleteEntitiesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates or creates multiple entities in the specified entity type. This method does not affect entities in the entity type that aren't explicitly specified in the request. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       batchUpdate(request: {
@@ -4883,7 +4883,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchUpdateEntitiesRequest
+        body: GoogleCloudDialogflowV2BatchUpdateEntitiesRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface EntityTypesResource {
@@ -4943,7 +4943,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest
+        body: GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates/Creates multiple entity types in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: BatchUpdateEntityTypesResponse Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       batchUpdate(request: {
@@ -5001,7 +5001,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest
+        body: GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates an entity type in the specified agent. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       create(request: {
@@ -5063,7 +5063,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2EntityType
+        body: GoogleCloudDialogflowV2EntityType,
       ): Request<GoogleCloudDialogflowV2EntityType>;
       /** Deletes the specified entity type. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       delete(request?: {
@@ -5218,7 +5218,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2EntityType
+        body: GoogleCloudDialogflowV2EntityType,
       ): Request<GoogleCloudDialogflowV2EntityType>;
       entities: EntitiesResource;
     }
@@ -5316,7 +5316,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Context
+        body: GoogleCloudDialogflowV2Context,
       ): Request<GoogleCloudDialogflowV2Context>;
       /** Deletes the specified context. */
       delete(request?: {
@@ -5463,7 +5463,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Context
+        body: GoogleCloudDialogflowV2Context,
       ): Request<GoogleCloudDialogflowV2Context>;
     }
     interface EntityTypesResource {
@@ -5523,7 +5523,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SessionEntityType
+        body: GoogleCloudDialogflowV2SessionEntityType,
       ): Request<GoogleCloudDialogflowV2SessionEntityType>;
       /** Deletes the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
       delete(request?: {
@@ -5670,7 +5670,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SessionEntityType
+        body: GoogleCloudDialogflowV2SessionEntityType,
       ): Request<GoogleCloudDialogflowV2SessionEntityType>;
     }
     interface SessionsResource {
@@ -5757,7 +5757,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2DetectIntentRequest
+        body: GoogleCloudDialogflowV2DetectIntentRequest,
       ): Request<GoogleCloudDialogflowV2DetectIntentResponse>;
       contexts: ContextsResource;
       entityTypes: EntityTypesResource;
@@ -5826,7 +5826,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Environment
+        body: GoogleCloudDialogflowV2Environment,
       ): Request<GoogleCloudDialogflowV2Environment>;
       /** Deletes the specified agent environment. */
       delete(request?: {
@@ -6008,7 +6008,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Environment
+        body: GoogleCloudDialogflowV2Environment,
       ): Request<GoogleCloudDialogflowV2Environment>;
       intents: IntentsResource;
       users: UsersResource;
@@ -6070,7 +6070,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchDeleteIntentsRequest
+        body: GoogleCloudDialogflowV2BatchDeleteIntentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates/Creates multiple intents in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: BatchUpdateIntentsResponse Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       batchUpdate(request: {
@@ -6128,7 +6128,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchUpdateIntentsRequest
+        body: GoogleCloudDialogflowV2BatchUpdateIntentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates an intent in the specified agent. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       create(request: {
@@ -6194,7 +6194,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Intent
+        body: GoogleCloudDialogflowV2Intent,
       ): Request<GoogleCloudDialogflowV2Intent>;
       /** Deletes the specified intent and its direct or indirect followup intents. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       delete(request?: {
@@ -6357,7 +6357,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Intent
+        body: GoogleCloudDialogflowV2Intent,
       ): Request<GoogleCloudDialogflowV2Intent>;
     }
     interface DocumentsResource {
@@ -6417,7 +6417,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Document
+        body: GoogleCloudDialogflowV2Document,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes the specified document. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) */
       delete(request?: {
@@ -6566,7 +6566,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Document
+        body: GoogleCloudDialogflowV2Document,
       ): Request<GoogleLongrunningOperation>;
       /** Reloads the specified document from its specified source, content_uri or content. The previously loaded content of the document will be deleted. Note: Even when the content of the document has not changed, there still may be side effects because of internal implementation changes. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: Document Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
       reload(request: {
@@ -6624,7 +6624,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ReloadDocumentRequest
+        body: GoogleCloudDialogflowV2ReloadDocumentRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface KnowledgeBasesResource {
@@ -6684,7 +6684,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2KnowledgeBase
+        body: GoogleCloudDialogflowV2KnowledgeBase,
       ): Request<GoogleCloudDialogflowV2KnowledgeBase>;
       /** Deletes the specified knowledge base. */
       delete(request?: {
@@ -6835,7 +6835,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2KnowledgeBase
+        body: GoogleCloudDialogflowV2KnowledgeBase,
       ): Request<GoogleCloudDialogflowV2KnowledgeBase>;
       documents: DocumentsResource;
     }
@@ -6896,7 +6896,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Context
+        body: GoogleCloudDialogflowV2Context,
       ): Request<GoogleCloudDialogflowV2Context>;
       /** Deletes the specified context. */
       delete(request?: {
@@ -7043,7 +7043,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Context
+        body: GoogleCloudDialogflowV2Context,
       ): Request<GoogleCloudDialogflowV2Context>;
     }
     interface EntityTypesResource {
@@ -7103,7 +7103,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SessionEntityType
+        body: GoogleCloudDialogflowV2SessionEntityType,
       ): Request<GoogleCloudDialogflowV2SessionEntityType>;
       /** Deletes the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
       delete(request?: {
@@ -7250,7 +7250,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SessionEntityType
+        body: GoogleCloudDialogflowV2SessionEntityType,
       ): Request<GoogleCloudDialogflowV2SessionEntityType>;
     }
     interface SessionsResource {
@@ -7337,7 +7337,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2DetectIntentRequest
+        body: GoogleCloudDialogflowV2DetectIntentRequest,
       ): Request<GoogleCloudDialogflowV2DetectIntentResponse>;
       contexts: ContextsResource;
       entityTypes: EntityTypesResource;
@@ -7399,7 +7399,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Version
+        body: GoogleCloudDialogflowV2Version,
       ): Request<GoogleCloudDialogflowV2Version>;
       /** Delete the specified agent version. */
       delete(request?: {
@@ -7546,7 +7546,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Version
+        body: GoogleCloudDialogflowV2Version,
       ): Request<GoogleCloudDialogflowV2Version>;
     }
     interface AgentResource {
@@ -7606,7 +7606,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ExportAgentRequest
+        body: GoogleCloudDialogflowV2ExportAgentRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Retrieves the fulfillment. */
       getFulfillment(request?: {
@@ -7720,7 +7720,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ImportAgentRequest
+        body: GoogleCloudDialogflowV2ImportAgentRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Restores the specified agent from a ZIP file. Replaces the current agent version with a new one. All the intents and entity types in the older version are deleted. After the restore, the restored draft agent will be trained automatically (unless disabled in agent settings). However, once the restore is done, training may not be completed yet. Please call TrainAgent and wait for the operation it returns in order to train explicitly. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) The operation only tracks when restoring is complete, not when it is done training. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       restore(request: {
@@ -7778,7 +7778,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2RestoreAgentRequest
+        body: GoogleCloudDialogflowV2RestoreAgentRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Returns the list of agents. Since there is at most one conversational agent per project, this method is useful primarily for listing all agents across projects the caller has access to. One can achieve that with a wildcard project collection id "-". Refer to [List Sub-Collections](https://cloud.google.com/apis/design/design_patterns#list_sub-collections). */
       search(request?: {
@@ -7867,7 +7867,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2TrainAgentRequest
+        body: GoogleCloudDialogflowV2TrainAgentRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates the fulfillment. */
       updateFulfillment(request: {
@@ -7929,7 +7929,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Fulfillment
+        body: GoogleCloudDialogflowV2Fulfillment,
       ): Request<GoogleCloudDialogflowV2Fulfillment>;
       entityTypes: EntityTypesResource;
       environments: EnvironmentsResource;
@@ -8032,7 +8032,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2AnswerRecord
+        body: GoogleCloudDialogflowV2AnswerRecord,
       ): Request<GoogleCloudDialogflowV2AnswerRecord>;
     }
     interface ConversationDatasetsResource {
@@ -8119,7 +8119,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ImportConversationDataRequest
+        body: GoogleCloudDialogflowV2ImportConversationDataRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Returns the list of all conversation datasets in the specified project and location. */
       list(request?: {
@@ -8270,7 +8270,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ConversationModel
+        body: GoogleCloudDialogflowV2ConversationModel,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a model. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: DeleteConversationModelOperationMetadata - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) */
       delete(request?: {
@@ -8355,7 +8355,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2DeployConversationModelRequest
+        body: GoogleCloudDialogflowV2DeployConversationModelRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets conversation model. */
       get(request?: {
@@ -8471,7 +8471,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2UndeployConversationModelRequest
+        body: GoogleCloudDialogflowV2UndeployConversationModelRequest,
       ): Request<GoogleLongrunningOperation>;
       evaluations: EvaluationsResource;
     }
@@ -8532,7 +8532,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ClearSuggestionFeatureConfigRequest
+        body: GoogleCloudDialogflowV2ClearSuggestionFeatureConfigRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates a conversation profile in the specified project. ConversationProfile.create_time and ConversationProfile.update_time aren't populated in the response. You can retrieve them via GetConversationProfile API. */
       create(request: {
@@ -8590,7 +8590,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ConversationProfile
+        body: GoogleCloudDialogflowV2ConversationProfile,
       ): Request<GoogleCloudDialogflowV2ConversationProfile>;
       /** Deletes the specified conversation profile. */
       delete(request?: {
@@ -8737,7 +8737,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ConversationProfile
+        body: GoogleCloudDialogflowV2ConversationProfile,
       ): Request<GoogleCloudDialogflowV2ConversationProfile>;
       /** Adds or updates a suggestion feature in a conversation profile. If the conversation profile contains the type of suggestion feature for the participant role, it will update it. Otherwise it will insert the suggestion feature. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: SetSuggestionFeatureConfigOperationMetadata - `response`: ConversationProfile If a long running operation to add or update suggestion feature config for the same conversation profile, participant role and suggestion feature type exists, please cancel the existing long running operation before sending such request, otherwise the request will be rejected. */
       setSuggestionFeatureConfig(request: {
@@ -8795,7 +8795,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SetSuggestionFeatureConfigRequest
+        body: GoogleCloudDialogflowV2SetSuggestionFeatureConfigRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface MessagesResource {
@@ -8890,7 +8890,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SuggestArticlesRequest
+        body: GoogleCloudDialogflowV2SuggestArticlesRequest,
       ): Request<GoogleCloudDialogflowV2SuggestArticlesResponse>;
       /** Gets suggested faq answers for a participant based on specific historical messages. */
       suggestFaqAnswers(request: {
@@ -8948,7 +8948,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SuggestFaqAnswersRequest
+        body: GoogleCloudDialogflowV2SuggestFaqAnswersRequest,
       ): Request<GoogleCloudDialogflowV2SuggestFaqAnswersResponse>;
       /** Gets knowledge assist suggestions based on historical messages. */
       suggestKnowledgeAssist(request: {
@@ -9006,7 +9006,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SuggestKnowledgeAssistRequest
+        body: GoogleCloudDialogflowV2SuggestKnowledgeAssistRequest,
       ): Request<GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse>;
       /** Gets smart replies for a participant based on specific historical messages. */
       suggestSmartReplies(request: {
@@ -9064,7 +9064,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SuggestSmartRepliesRequest
+        body: GoogleCloudDialogflowV2SuggestSmartRepliesRequest,
       ): Request<GoogleCloudDialogflowV2SuggestSmartRepliesResponse>;
     }
     interface ParticipantsResource {
@@ -9124,7 +9124,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2AnalyzeContentRequest
+        body: GoogleCloudDialogflowV2AnalyzeContentRequest,
       ): Request<GoogleCloudDialogflowV2AnalyzeContentResponse>;
       /** Creates a new participant in a conversation. */
       create(request: {
@@ -9182,7 +9182,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Participant
+        body: GoogleCloudDialogflowV2Participant,
       ): Request<GoogleCloudDialogflowV2Participant>;
       /** Retrieves a conversation participant. */
       get(request?: {
@@ -9302,7 +9302,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Participant
+        body: GoogleCloudDialogflowV2Participant,
       ): Request<GoogleCloudDialogflowV2Participant>;
       suggestions: SuggestionsResource;
     }
@@ -9363,7 +9363,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SearchKnowledgeRequest
+        body: GoogleCloudDialogflowV2SearchKnowledgeRequest,
       ): Request<GoogleCloudDialogflowV2SearchKnowledgeResponse>;
       /** Suggests summary for a conversation based on specific historical messages. The range of the messages to be used for summary can be specified in the request. */
       suggestConversationSummary(request: {
@@ -9421,7 +9421,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SuggestConversationSummaryRequest
+        body: GoogleCloudDialogflowV2SuggestConversationSummaryRequest,
       ): Request<GoogleCloudDialogflowV2SuggestConversationSummaryResponse>;
     }
     interface ConversationsResource {
@@ -9481,7 +9481,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2CompleteConversationRequest
+        body: GoogleCloudDialogflowV2CompleteConversationRequest,
       ): Request<GoogleCloudDialogflowV2Conversation>;
       /** Creates a new conversation. Conversations are auto-completed after 24 hours. Conversation Lifecycle: There are two stages during a conversation: Automated Agent Stage and Assist Stage. For Automated Agent Stage, there will be a dialogflow agent responding to user queries. For Assist Stage, there's no dialogflow agent responding to user queries. But we will provide suggestions which are generated from conversation. If Conversation.conversation_profile is configured for a dialogflow agent, conversation will start from `Automated Agent Stage`, otherwise, it will start from `Assist Stage`. And during `Automated Agent Stage`, once an Intent with Intent.live_agent_handoff is triggered, conversation will transfer to Assist Stage. */
       create(request: {
@@ -9543,7 +9543,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Conversation
+        body: GoogleCloudDialogflowV2Conversation,
       ): Request<GoogleCloudDialogflowV2Conversation>;
       /** Retrieves the specific conversation. */
       get(request?: {
@@ -9670,7 +9670,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Generator
+        body: GoogleCloudDialogflowV2Generator,
       ): Request<GoogleCloudDialogflowV2Generator>;
       /** Lists generators. */
       list(request?: {
@@ -9761,7 +9761,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Document
+        body: GoogleCloudDialogflowV2Document,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes the specified document. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) */
       delete(request?: {
@@ -9846,7 +9846,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ExportDocumentRequest
+        body: GoogleCloudDialogflowV2ExportDocumentRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Retrieves the specified document. */
       get(request?: {
@@ -9931,7 +9931,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ImportDocumentsRequest
+        body: GoogleCloudDialogflowV2ImportDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Returns the list of all documents of the knowledge base. */
       list(request?: {
@@ -10026,7 +10026,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Document
+        body: GoogleCloudDialogflowV2Document,
       ): Request<GoogleLongrunningOperation>;
       /** Reloads the specified document from its specified source, content_uri or content. The previously loaded content of the document will be deleted. Note: Even when the content of the document has not changed, there still may be side effects because of internal implementation changes. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: Document Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
       reload(request: {
@@ -10084,7 +10084,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ReloadDocumentRequest
+        body: GoogleCloudDialogflowV2ReloadDocumentRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface KnowledgeBasesResource {
@@ -10144,7 +10144,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2KnowledgeBase
+        body: GoogleCloudDialogflowV2KnowledgeBase,
       ): Request<GoogleCloudDialogflowV2KnowledgeBase>;
       /** Deletes the specified knowledge base. */
       delete(request?: {
@@ -10295,7 +10295,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2KnowledgeBase
+        body: GoogleCloudDialogflowV2KnowledgeBase,
       ): Request<GoogleCloudDialogflowV2KnowledgeBase>;
       documents: DocumentsResource;
     }
@@ -10356,7 +10356,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchCreateEntitiesRequest
+        body: GoogleCloudDialogflowV2BatchCreateEntitiesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes entities in the specified entity type. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       batchDelete(request: {
@@ -10414,7 +10414,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchDeleteEntitiesRequest
+        body: GoogleCloudDialogflowV2BatchDeleteEntitiesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates or creates multiple entities in the specified entity type. This method does not affect entities in the entity type that aren't explicitly specified in the request. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       batchUpdate(request: {
@@ -10472,7 +10472,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchUpdateEntitiesRequest
+        body: GoogleCloudDialogflowV2BatchUpdateEntitiesRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface EntityTypesResource {
@@ -10532,7 +10532,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest
+        body: GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates/Creates multiple entity types in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: BatchUpdateEntityTypesResponse Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       batchUpdate(request: {
@@ -10590,7 +10590,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest
+        body: GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates an entity type in the specified agent. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       create(request: {
@@ -10652,7 +10652,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2EntityType
+        body: GoogleCloudDialogflowV2EntityType,
       ): Request<GoogleCloudDialogflowV2EntityType>;
       /** Deletes the specified entity type. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       delete(request?: {
@@ -10807,7 +10807,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2EntityType
+        body: GoogleCloudDialogflowV2EntityType,
       ): Request<GoogleCloudDialogflowV2EntityType>;
       entities: EntitiesResource;
     }
@@ -10905,7 +10905,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Context
+        body: GoogleCloudDialogflowV2Context,
       ): Request<GoogleCloudDialogflowV2Context>;
       /** Deletes the specified context. */
       delete(request?: {
@@ -11052,7 +11052,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Context
+        body: GoogleCloudDialogflowV2Context,
       ): Request<GoogleCloudDialogflowV2Context>;
     }
     interface EntityTypesResource {
@@ -11112,7 +11112,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SessionEntityType
+        body: GoogleCloudDialogflowV2SessionEntityType,
       ): Request<GoogleCloudDialogflowV2SessionEntityType>;
       /** Deletes the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
       delete(request?: {
@@ -11259,7 +11259,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SessionEntityType
+        body: GoogleCloudDialogflowV2SessionEntityType,
       ): Request<GoogleCloudDialogflowV2SessionEntityType>;
     }
     interface SessionsResource {
@@ -11346,7 +11346,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2DetectIntentRequest
+        body: GoogleCloudDialogflowV2DetectIntentRequest,
       ): Request<GoogleCloudDialogflowV2DetectIntentResponse>;
       contexts: ContextsResource;
       entityTypes: EntityTypesResource;
@@ -11415,7 +11415,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Environment
+        body: GoogleCloudDialogflowV2Environment,
       ): Request<GoogleCloudDialogflowV2Environment>;
       /** Deletes the specified agent environment. */
       delete(request?: {
@@ -11597,7 +11597,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Environment
+        body: GoogleCloudDialogflowV2Environment,
       ): Request<GoogleCloudDialogflowV2Environment>;
       intents: IntentsResource;
       users: UsersResource;
@@ -11659,7 +11659,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchDeleteIntentsRequest
+        body: GoogleCloudDialogflowV2BatchDeleteIntentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates/Creates multiple intents in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: BatchUpdateIntentsResponse Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       batchUpdate(request: {
@@ -11717,7 +11717,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2BatchUpdateIntentsRequest
+        body: GoogleCloudDialogflowV2BatchUpdateIntentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates an intent in the specified agent. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       create(request: {
@@ -11783,7 +11783,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Intent
+        body: GoogleCloudDialogflowV2Intent,
       ): Request<GoogleCloudDialogflowV2Intent>;
       /** Deletes the specified intent and its direct or indirect followup intents. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       delete(request?: {
@@ -11946,7 +11946,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Intent
+        body: GoogleCloudDialogflowV2Intent,
       ): Request<GoogleCloudDialogflowV2Intent>;
     }
     interface ContextsResource {
@@ -12006,7 +12006,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Context
+        body: GoogleCloudDialogflowV2Context,
       ): Request<GoogleCloudDialogflowV2Context>;
       /** Deletes the specified context. */
       delete(request?: {
@@ -12153,7 +12153,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Context
+        body: GoogleCloudDialogflowV2Context,
       ): Request<GoogleCloudDialogflowV2Context>;
     }
     interface EntityTypesResource {
@@ -12213,7 +12213,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SessionEntityType
+        body: GoogleCloudDialogflowV2SessionEntityType,
       ): Request<GoogleCloudDialogflowV2SessionEntityType>;
       /** Deletes the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
       delete(request?: {
@@ -12360,7 +12360,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SessionEntityType
+        body: GoogleCloudDialogflowV2SessionEntityType,
       ): Request<GoogleCloudDialogflowV2SessionEntityType>;
     }
     interface SessionsResource {
@@ -12447,7 +12447,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2DetectIntentRequest
+        body: GoogleCloudDialogflowV2DetectIntentRequest,
       ): Request<GoogleCloudDialogflowV2DetectIntentResponse>;
       contexts: ContextsResource;
       entityTypes: EntityTypesResource;
@@ -12509,7 +12509,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Version
+        body: GoogleCloudDialogflowV2Version,
       ): Request<GoogleCloudDialogflowV2Version>;
       /** Delete the specified agent version. */
       delete(request?: {
@@ -12656,7 +12656,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Version
+        body: GoogleCloudDialogflowV2Version,
       ): Request<GoogleCloudDialogflowV2Version>;
     }
     interface AgentResource {
@@ -12716,7 +12716,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ExportAgentRequest
+        body: GoogleCloudDialogflowV2ExportAgentRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Retrieves the fulfillment. */
       getFulfillment(request?: {
@@ -12830,7 +12830,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ImportAgentRequest
+        body: GoogleCloudDialogflowV2ImportAgentRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Restores the specified agent from a ZIP file. Replaces the current agent version with a new one. All the intents and entity types in the older version are deleted. After the restore, the restored draft agent will be trained automatically (unless disabled in agent settings). However, once the restore is done, training may not be completed yet. Please call TrainAgent and wait for the operation it returns in order to train explicitly. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) The operation only tracks when restoring is complete, not when it is done training. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
       restore(request: {
@@ -12888,7 +12888,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2RestoreAgentRequest
+        body: GoogleCloudDialogflowV2RestoreAgentRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Returns the list of agents. Since there is at most one conversational agent per project, this method is useful primarily for listing all agents across projects the caller has access to. One can achieve that with a wildcard project collection id "-". Refer to [List Sub-Collections](https://cloud.google.com/apis/design/design_patterns#list_sub-collections). */
       search(request?: {
@@ -12977,7 +12977,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2TrainAgentRequest
+        body: GoogleCloudDialogflowV2TrainAgentRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates the fulfillment. */
       updateFulfillment(request: {
@@ -13039,7 +13039,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Fulfillment
+        body: GoogleCloudDialogflowV2Fulfillment,
       ): Request<GoogleCloudDialogflowV2Fulfillment>;
       entityTypes: EntityTypesResource;
       environments: EnvironmentsResource;
@@ -13141,7 +13141,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2AnswerRecord
+        body: GoogleCloudDialogflowV2AnswerRecord,
       ): Request<GoogleCloudDialogflowV2AnswerRecord>;
     }
     interface ConversationDatasetsResource {
@@ -13201,7 +13201,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ConversationDataset
+        body: GoogleCloudDialogflowV2ConversationDataset,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes the specified conversation dataset. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: DeleteConversationDatasetOperationMetadata - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) */
       delete(request?: {
@@ -13313,7 +13313,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ImportConversationDataRequest
+        body: GoogleCloudDialogflowV2ImportConversationDataRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Returns the list of all conversation datasets in the specified project and location. */
       list(request?: {
@@ -13404,7 +13404,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2CreateConversationModelEvaluationRequest
+        body: GoogleCloudDialogflowV2CreateConversationModelEvaluationRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets an evaluation of conversation model. */
       get(request?: {
@@ -13522,7 +13522,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ConversationModel
+        body: GoogleCloudDialogflowV2ConversationModel,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a model. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: DeleteConversationModelOperationMetadata - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) */
       delete(request?: {
@@ -13607,7 +13607,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2DeployConversationModelRequest
+        body: GoogleCloudDialogflowV2DeployConversationModelRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets conversation model. */
       get(request?: {
@@ -13723,7 +13723,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2UndeployConversationModelRequest
+        body: GoogleCloudDialogflowV2UndeployConversationModelRequest,
       ): Request<GoogleLongrunningOperation>;
       evaluations: EvaluationsResource;
     }
@@ -13784,7 +13784,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ClearSuggestionFeatureConfigRequest
+        body: GoogleCloudDialogflowV2ClearSuggestionFeatureConfigRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates a conversation profile in the specified project. ConversationProfile.create_time and ConversationProfile.update_time aren't populated in the response. You can retrieve them via GetConversationProfile API. */
       create(request: {
@@ -13842,7 +13842,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ConversationProfile
+        body: GoogleCloudDialogflowV2ConversationProfile,
       ): Request<GoogleCloudDialogflowV2ConversationProfile>;
       /** Deletes the specified conversation profile. */
       delete(request?: {
@@ -13989,7 +13989,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ConversationProfile
+        body: GoogleCloudDialogflowV2ConversationProfile,
       ): Request<GoogleCloudDialogflowV2ConversationProfile>;
       /** Adds or updates a suggestion feature in a conversation profile. If the conversation profile contains the type of suggestion feature for the participant role, it will update it. Otherwise it will insert the suggestion feature. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: SetSuggestionFeatureConfigOperationMetadata - `response`: ConversationProfile If a long running operation to add or update suggestion feature config for the same conversation profile, participant role and suggestion feature type exists, please cancel the existing long running operation before sending such request, otherwise the request will be rejected. */
       setSuggestionFeatureConfig(request: {
@@ -14047,7 +14047,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SetSuggestionFeatureConfigRequest
+        body: GoogleCloudDialogflowV2SetSuggestionFeatureConfigRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface MessagesResource {
@@ -14142,7 +14142,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SuggestArticlesRequest
+        body: GoogleCloudDialogflowV2SuggestArticlesRequest,
       ): Request<GoogleCloudDialogflowV2SuggestArticlesResponse>;
       /** Gets suggested faq answers for a participant based on specific historical messages. */
       suggestFaqAnswers(request: {
@@ -14200,7 +14200,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SuggestFaqAnswersRequest
+        body: GoogleCloudDialogflowV2SuggestFaqAnswersRequest,
       ): Request<GoogleCloudDialogflowV2SuggestFaqAnswersResponse>;
       /** Gets knowledge assist suggestions based on historical messages. */
       suggestKnowledgeAssist(request: {
@@ -14258,7 +14258,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SuggestKnowledgeAssistRequest
+        body: GoogleCloudDialogflowV2SuggestKnowledgeAssistRequest,
       ): Request<GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse>;
       /** Gets smart replies for a participant based on specific historical messages. */
       suggestSmartReplies(request: {
@@ -14316,7 +14316,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SuggestSmartRepliesRequest
+        body: GoogleCloudDialogflowV2SuggestSmartRepliesRequest,
       ): Request<GoogleCloudDialogflowV2SuggestSmartRepliesResponse>;
     }
     interface ParticipantsResource {
@@ -14376,7 +14376,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2AnalyzeContentRequest
+        body: GoogleCloudDialogflowV2AnalyzeContentRequest,
       ): Request<GoogleCloudDialogflowV2AnalyzeContentResponse>;
       /** Creates a new participant in a conversation. */
       create(request: {
@@ -14434,7 +14434,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Participant
+        body: GoogleCloudDialogflowV2Participant,
       ): Request<GoogleCloudDialogflowV2Participant>;
       /** Retrieves a conversation participant. */
       get(request?: {
@@ -14554,7 +14554,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Participant
+        body: GoogleCloudDialogflowV2Participant,
       ): Request<GoogleCloudDialogflowV2Participant>;
       suggestions: SuggestionsResource;
     }
@@ -14615,7 +14615,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SearchKnowledgeRequest
+        body: GoogleCloudDialogflowV2SearchKnowledgeRequest,
       ): Request<GoogleCloudDialogflowV2SearchKnowledgeResponse>;
       /** Suggests summary for a conversation based on specific historical messages. The range of the messages to be used for summary can be specified in the request. */
       suggestConversationSummary(request: {
@@ -14673,7 +14673,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SuggestConversationSummaryRequest
+        body: GoogleCloudDialogflowV2SuggestConversationSummaryRequest,
       ): Request<GoogleCloudDialogflowV2SuggestConversationSummaryResponse>;
     }
     interface ConversationsResource {
@@ -14733,7 +14733,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2CompleteConversationRequest
+        body: GoogleCloudDialogflowV2CompleteConversationRequest,
       ): Request<GoogleCloudDialogflowV2Conversation>;
       /** Creates a new conversation. Conversations are auto-completed after 24 hours. Conversation Lifecycle: There are two stages during a conversation: Automated Agent Stage and Assist Stage. For Automated Agent Stage, there will be a dialogflow agent responding to user queries. For Assist Stage, there's no dialogflow agent responding to user queries. But we will provide suggestions which are generated from conversation. If Conversation.conversation_profile is configured for a dialogflow agent, conversation will start from `Automated Agent Stage`, otherwise, it will start from `Assist Stage`. And during `Automated Agent Stage`, once an Intent with Intent.live_agent_handoff is triggered, conversation will transfer to Assist Stage. */
       create(request: {
@@ -14795,7 +14795,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Conversation
+        body: GoogleCloudDialogflowV2Conversation,
       ): Request<GoogleCloudDialogflowV2Conversation>;
       /** Retrieves the specific conversation. */
       get(request?: {
@@ -14918,7 +14918,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2InitializeEncryptionSpecRequest
+        body: GoogleCloudDialogflowV2InitializeEncryptionSpecRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface GeneratorsResource {
@@ -14982,7 +14982,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Generator
+        body: GoogleCloudDialogflowV2Generator,
       ): Request<GoogleCloudDialogflowV2Generator>;
       /** Deletes a generator. */
       delete(request?: {
@@ -15129,7 +15129,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Generator
+        body: GoogleCloudDialogflowV2Generator,
       ): Request<GoogleCloudDialogflowV2Generator>;
     }
     interface DocumentsResource {
@@ -15189,7 +15189,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Document
+        body: GoogleCloudDialogflowV2Document,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes the specified document. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) */
       delete(request?: {
@@ -15274,7 +15274,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ExportDocumentRequest
+        body: GoogleCloudDialogflowV2ExportDocumentRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Retrieves the specified document. */
       get(request?: {
@@ -15359,7 +15359,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ImportDocumentsRequest
+        body: GoogleCloudDialogflowV2ImportDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Returns the list of all documents of the knowledge base. */
       list(request?: {
@@ -15454,7 +15454,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Document
+        body: GoogleCloudDialogflowV2Document,
       ): Request<GoogleLongrunningOperation>;
       /** Reloads the specified document from its specified source, content_uri or content. The previously loaded content of the document will be deleted. Note: Even when the content of the document has not changed, there still may be side effects because of internal implementation changes. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: Document Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
       reload(request: {
@@ -15512,7 +15512,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2ReloadDocumentRequest
+        body: GoogleCloudDialogflowV2ReloadDocumentRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface KnowledgeBasesResource {
@@ -15572,7 +15572,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2KnowledgeBase
+        body: GoogleCloudDialogflowV2KnowledgeBase,
       ): Request<GoogleCloudDialogflowV2KnowledgeBase>;
       /** Deletes the specified knowledge base. */
       delete(request?: {
@@ -15723,7 +15723,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2KnowledgeBase
+        body: GoogleCloudDialogflowV2KnowledgeBase,
       ): Request<GoogleCloudDialogflowV2KnowledgeBase>;
       documents: DocumentsResource;
     }
@@ -15873,7 +15873,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2GenerateStatelessSuggestionRequest
+        body: GoogleCloudDialogflowV2GenerateStatelessSuggestionRequest,
       ): Request<GoogleCloudDialogflowV2GenerateStatelessSuggestionResponse>;
     }
     interface SuggestionsResource {
@@ -15933,7 +15933,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2GenerateStatelessSummaryRequest
+        body: GoogleCloudDialogflowV2GenerateStatelessSummaryRequest,
       ): Request<GoogleCloudDialogflowV2GenerateStatelessSummaryResponse>;
       /** Get answers for the given query based on knowledge documents. */
       searchKnowledge(request: {
@@ -15991,7 +15991,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SearchKnowledgeRequest
+        body: GoogleCloudDialogflowV2SearchKnowledgeRequest,
       ): Request<GoogleCloudDialogflowV2SearchKnowledgeResponse>;
     }
     interface LocationsResource {
@@ -16196,7 +16196,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Agent
+        body: GoogleCloudDialogflowV2Agent,
       ): Request<GoogleCloudDialogflowV2Agent>;
       agent: AgentResource;
       answerRecords: AnswerRecordsResource;
@@ -16357,7 +16357,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2GenerateStatelessSummaryRequest
+        body: GoogleCloudDialogflowV2GenerateStatelessSummaryRequest,
       ): Request<GoogleCloudDialogflowV2GenerateStatelessSummaryResponse>;
       /** Get answers for the given query based on knowledge documents. */
       searchKnowledge(request: {
@@ -16415,7 +16415,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2SearchKnowledgeRequest
+        body: GoogleCloudDialogflowV2SearchKnowledgeRequest,
       ): Request<GoogleCloudDialogflowV2SearchKnowledgeResponse>;
     }
     interface ProjectsResource {
@@ -16533,7 +16533,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDialogflowV2Agent
+        body: GoogleCloudDialogflowV2Agent,
       ): Request<GoogleCloudDialogflowV2Agent>;
       agent: AgentResource;
       answerRecords: AnswerRecordsResource;

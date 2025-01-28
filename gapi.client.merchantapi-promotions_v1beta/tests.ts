@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://merchantapi.googleapis.com/$discovery/rest?version=promotions_v1beta'
+    'https://merchantapi.googleapis.com/$discovery/rest?version=promotions_v1beta',
   );
   /** now we can use gapi.client.merchantapi */
 
@@ -131,7 +131,7 @@ gapi.load('client', async () => {
           targetCountry: 'Test string',
           versionNumber: 'Test string',
         },
-      }
+      },
     );
     /** Lists the promotions in your Merchant Center account. The response might contain fewer items than specified by `pageSize`. Rely on `pageToken` to determine if there are more items to be requested. After inserting or updating a promotion, it may take several minutes before the updated processed promotion can be retrieved. */
     await gapi.client.merchantapi.accounts.promotions.list({

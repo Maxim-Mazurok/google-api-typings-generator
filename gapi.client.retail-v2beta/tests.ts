@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://retail.googleapis.com/$discovery/rest?version=v2beta'
+    'https://retail.googleapis.com/$discovery/rest?version=v2beta',
   );
   /** now we can use gapi.client.retail */
 
@@ -54,7 +54,7 @@ gapi.load('client', async () => {
           },
         ],
         name: 'Test string',
-      }
+      },
     );
     /** Completes the specified prefix with keyword suggestions. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
     await gapi.client.retail.projects.locations.catalogs.completeQuery({
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
             outputUriPrefix: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets an AttributesConfig. */
     await gapi.client.retail.projects.locations.catalogs.getAttributesConfig({
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
     await gapi.client.retail.projects.locations.catalogs.getGenerativeQuestionFeature(
       {
         catalog: 'Test string',
-      }
+      },
     );
     /** Lists all the Catalogs associated with the project. */
     await gapi.client.retail.projects.locations.catalogs.list({
@@ -141,7 +141,7 @@ gapi.load('client', async () => {
           ingestionProductType: 'Test string',
           merchantCenterProductIdField: 'Test string',
         },
-      }
+      },
     );
     /** Set a specified branch id as default branch. API methods such as SearchService.Search, ProductService.GetProduct, ProductService.ListProducts will treat requests using "default_branch" to the actual branch id set as default. For example, if `projects/*‍/locations/*‍/catalogs/*‍/branches/1` is set as default, setting SearchRequest.branch to `projects/*‍/locations/*‍/catalogs/*‍/branches/default_branch` is equivalent to setting SearchRequest.branch to `projects/*‍/locations/*‍/catalogs/*‍/branches/1`. Using multiple branches can be useful when developers would like to have a staging branch to test and verify for future usage. When it becomes ready, developers switch on the staging branch using this API while keeping using `projects/*‍/locations/*‍/catalogs/*‍/branches/default_branch` as SearchRequest.branch to route the traffic to this staging branch. CAUTION: If you have live predict/search traffic, switching the default branch could potentially cause outages if the ID space of the new branch is very different from the old one. More specifically: * PredictionService will only return product IDs from branch {newBranch}. * SearchService will only return product IDs from branch {newBranch} (if branch is not explicitly set). * UserEventService will only join events with products from branch {newBranch}. */
     await gapi.client.retail.projects.locations.catalogs.setDefaultBranch(
@@ -152,7 +152,7 @@ gapi.load('client', async () => {
         branchId: 'Test string',
         force: true,
         note: 'Test string',
-      }
+      },
     );
     /** Updates the AttributesConfig. The catalog attributes in the request will be updated in the catalog, or inserted if they do not exist. Existing catalog attributes not included in the request will remain unchanged. Attributes that are assigned to products, but do not exist at the catalog level, are always included in the response. The product attribute is assigned default values for missing catalog attribute fields, e.g., searchable and dynamic facetable options. */
     await gapi.client.retail.projects.locations.catalogs.updateAttributesConfig(
@@ -206,7 +206,7 @@ gapi.load('client', async () => {
           },
         },
         name: 'Test string',
-      }
+      },
     );
     /** Updates the CompletionConfigs. */
     await gapi.client.retail.projects.locations.catalogs.updateCompletionConfig(
@@ -265,7 +265,7 @@ gapi.load('client', async () => {
             tableId: 'Test string',
           },
         },
-      }
+      },
     );
     /** Allows management of individual questions. */
     await gapi.client.retail.projects.locations.catalogs.updateGenerativeQuestion(
@@ -281,7 +281,7 @@ gapi.load('client', async () => {
         finalQuestion: 'Test string',
         frequency: 42,
         generatedQuestion: 'Test string',
-      }
+      },
     );
     /** Manages overal generative question feature state -- enables toggling feature on and off. */
     await gapi.client.retail.projects.locations.catalogs.updateGenerativeQuestionFeature(
@@ -293,7 +293,7 @@ gapi.load('client', async () => {
         catalog: 'Test string',
         featureEnabled: true,
         minimumProducts: 42,
-      }
+      },
     );
     /** Adds the specified CatalogAttribute to the AttributesConfig. If the CatalogAttribute to add already exists, an ALREADY_EXISTS error is returned. */
     await gapi.client.retail.projects.locations.catalogs.attributesConfig.addCatalogAttribute(
@@ -342,7 +342,7 @@ gapi.load('client', async () => {
           searchableOption: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Removes all specified CatalogAttributes from the AttributesConfig. */
     await gapi.client.retail.projects.locations.catalogs.attributesConfig.batchRemoveCatalogAttributes(
@@ -351,7 +351,7 @@ gapi.load('client', async () => {
       },
       {
         attributeKeys: ['Test string'],
-      }
+      },
     );
     /** Removes the specified CatalogAttribute from the AttributesConfig. If the CatalogAttribute to remove does not exist, a NOT_FOUND error is returned. */
     await gapi.client.retail.projects.locations.catalogs.attributesConfig.removeCatalogAttribute(
@@ -360,7 +360,7 @@ gapi.load('client', async () => {
       },
       {
         key: 'Test string',
-      }
+      },
     );
     /** Replaces the specified CatalogAttribute in the AttributesConfig by updating the catalog attribute with the same CatalogAttribute.key. If the CatalogAttribute to replace does not exist, a NOT_FOUND error is returned. */
     await gapi.client.retail.projects.locations.catalogs.attributesConfig.replaceCatalogAttribute(
@@ -410,13 +410,13 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.retail.projects.locations.catalogs.branches.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** We recommend that you use the ProductService.AddLocalInventories method instead of the ProductService.AddFulfillmentPlaces method. ProductService.AddLocalInventories achieves the same results but provides more fine-grained control over ingesting local inventory data. Incrementally adds place IDs to Product.fulfillment_info.place_ids. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, the added place IDs are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.addFulfillmentPlaces(
@@ -428,7 +428,7 @@ gapi.load('client', async () => {
         allowMissing: true,
         placeIds: ['Test string'],
         type: 'Test string',
-      }
+      },
     );
     /** Updates local inventory information for a Product at a list of places, while respecting the last update timestamps of each inventory field. This process is asynchronous and does not require the Product to exist before updating inventory information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, updates are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. Local inventory information can only be modified using this method. ProductService.CreateProduct and ProductService.UpdateProduct has no effect on local inventories. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.addLocalInventories(
@@ -476,7 +476,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Creates a Product. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.create(
@@ -608,13 +608,13 @@ gapi.load('client', async () => {
         type: 'Test string',
         uri: 'Test string',
         variants: undefined,
-      }
+      },
     );
     /** Deletes a Product. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Exports multiple Products. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.export(
@@ -633,7 +633,7 @@ gapi.load('client', async () => {
             outputUriPrefix: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets a Product. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.get({
@@ -799,7 +799,7 @@ gapi.load('client', async () => {
         reconciliationMode: 'Test string',
         requestId: 'Test string',
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets a list of Products. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.list(
@@ -809,7 +809,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         readMask: 'Test string',
-      }
+      },
     );
     /** Updates a Product. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.patch(
@@ -942,7 +942,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         uri: 'Test string',
         variants: undefined,
-      }
+      },
     );
     /** Permanently deletes all selected Products under a branch. This process is asynchronous. If the request is valid, the removal will be enqueued and processed offline. Depending on the number of Products, this operation could take hours to complete. Before the operation completes, some Products may still be returned by ProductService.GetProduct or ProductService.ListProducts. Depending on the number of Products, this operation could take hours to complete. To get a sample of Products that would be deleted, set PurgeProductsRequest.force to false. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.purge(
@@ -952,7 +952,7 @@ gapi.load('client', async () => {
       {
         filter: 'Test string',
         force: true,
-      }
+      },
     );
     /** We recommend that you use the ProductService.RemoveLocalInventories method instead of the ProductService.RemoveFulfillmentPlaces method. ProductService.RemoveLocalInventories achieves the same results but provides more fine-grained control over ingesting local inventory data. Incrementally removes place IDs from a Product.fulfillment_info.place_ids. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, the removed place IDs are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.removeFulfillmentPlaces(
@@ -964,7 +964,7 @@ gapi.load('client', async () => {
         placeIds: ['Test string'],
         removeTime: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Remove local inventory information for a Product at a list of places at a removal timestamp. This process is asynchronous. If the request is valid, the removal will be enqueued and processed downstream. As a consequence, when a response is returned, removals are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. Local inventory information can only be removed using this method. ProductService.CreateProduct and ProductService.UpdateProduct has no effect on local inventories. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.removeLocalInventories(
@@ -975,7 +975,7 @@ gapi.load('client', async () => {
         allowMissing: true,
         placeIds: ['Test string'],
         removeTime: 'Test string',
-      }
+      },
     );
     /** Updates inventory information for a Product while respecting the last update timestamps of each inventory field. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update is enqueued and processed downstream. As a consequence, when a response is returned, updates are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. When inventory is updated with ProductService.CreateProduct and ProductService.UpdateProduct, the specified inventory field value(s) overwrite any existing value(s) while ignoring the last update time for this field. Furthermore, the last update times for the specified inventory fields are overwritten by the times of the ProductService.CreateProduct or ProductService.UpdateProduct request. If no inventory fields are set in CreateProductRequest.product, then any pre-existing inventory information for this product is used. If no inventory fields are set in SetInventoryRequest.set_mask, then any existing inventory information is preserved. Pre-existing inventory information can only be updated with ProductService.SetInventory, ProductService.AddFulfillmentPlaces, and ProductService.RemoveFulfillmentPlaces. The returned Operations is obsolete after one day, and the GetOperation API returns `NOT_FOUND` afterwards. If conflicting updates are issued, the Operations associated with the stale updates are not marked as done until they are obsolete. */
     await gapi.client.retail.projects.locations.catalogs.branches.products.setInventory(
@@ -1111,7 +1111,7 @@ gapi.load('client', async () => {
         },
         setMask: 'Test string',
         setTime: 'Test string',
-      }
+      },
     );
     /** Bulk import of processed completion dataset. Request processing is asynchronous. Partial updating is not supported. The operation is successfully finished only after the imported suggestions are indexed successfully and ready for serving. The process takes hours. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
     await gapi.client.retail.projects.locations.catalogs.completionData.import(
@@ -1134,7 +1134,7 @@ gapi.load('client', async () => {
           },
         },
         notificationPubsubTopic: 'Test string',
-      }
+      },
     );
     /** Creates a Control. If the Control to create already exists, an ALREADY_EXISTS error is returned. */
     await gapi.client.retail.projects.locations.catalogs.controls.create(
@@ -1235,7 +1235,7 @@ gapi.load('client', async () => {
         },
         searchSolutionUseCase: ['Test string'],
         solutionTypes: ['Test string'],
-      }
+      },
     );
     /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
     await gapi.client.retail.projects.locations.catalogs.controls.delete({
@@ -1351,7 +1351,7 @@ gapi.load('client', async () => {
         },
         searchSolutionUseCase: ['Test string'],
         solutionTypes: ['Test string'],
-      }
+      },
     );
     /** Allows management of multiple questions. */
     await gapi.client.retail.projects.locations.catalogs.generativeQuestion.batchUpdate(
@@ -1373,13 +1373,13 @@ gapi.load('client', async () => {
             updateMask: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Returns all questions for a given catalog. */
     await gapi.client.retail.projects.locations.catalogs.generativeQuestions.list(
       {
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new model. */
     await gapi.client.retail.projects.locations.catalogs.models.create(
@@ -1411,7 +1411,7 @@ gapi.load('client', async () => {
         tuningOperation: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing model. */
     await gapi.client.retail.projects.locations.catalogs.models.delete({
@@ -1457,28 +1457,28 @@ gapi.load('client', async () => {
         tuningOperation: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Pauses the training of an existing model. */
     await gapi.client.retail.projects.locations.catalogs.models.pause(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Resumes the training of an existing model. */
     await gapi.client.retail.projects.locations.catalogs.models.resume(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Tunes an existing model. */
     await gapi.client.retail.projects.locations.catalogs.models.tune(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.retail.projects.locations.catalogs.operations.get({
@@ -1681,7 +1681,7 @@ gapi.load('client', async () => {
           visitorId: 'Test string',
         },
         validateOnly: true,
-      }
+      },
     );
     /** Performs a search. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
     await gapi.client.retail.projects.locations.catalogs.placements.search(
@@ -1798,7 +1798,7 @@ gapi.load('client', async () => {
         },
         variantRollupKeys: ['Test string'],
         visitorId: 'Test string',
-      }
+      },
     );
     /** Enables a Control on the specified ServingConfig. The control is added in the last position of the list of controls it belongs to (e.g. if it's a facet spec control it will be applied in the last position of servingConfig.facetSpecIds) Returns a ALREADY_EXISTS error if the control has already been applied. Returns a FAILED_PRECONDITION error if the addition could exceed maximum number of control allowed for that type of control. */
     await gapi.client.retail.projects.locations.catalogs.servingConfigs.addControl(
@@ -1807,7 +1807,7 @@ gapi.load('client', async () => {
       },
       {
         controlId: 'Test string',
-      }
+      },
     );
     /** Creates a ServingConfig. A maximum of 100 ServingConfigs are allowed in a Catalog, otherwise a FAILED_PRECONDITION error is returned. */
     await gapi.client.retail.projects.locations.catalogs.servingConfigs.create(
@@ -1840,7 +1840,7 @@ gapi.load('client', async () => {
         replacementControlIds: ['Test string'],
         solutionTypes: ['Test string'],
         twowaySynonymsControlIds: ['Test string'],
-      }
+      },
     );
     /** Deletes a ServingConfig. Returns a NotFound error if the ServingConfig does not exist. */
     await gapi.client.retail.projects.locations.catalogs.servingConfigs.delete({
@@ -1887,7 +1887,7 @@ gapi.load('client', async () => {
         replacementControlIds: ['Test string'],
         solutionTypes: ['Test string'],
         twowaySynonymsControlIds: ['Test string'],
-      }
+      },
     );
     /** Makes a recommendation prediction. */
     await gapi.client.retail.projects.locations.catalogs.servingConfigs.predict(
@@ -2079,7 +2079,7 @@ gapi.load('client', async () => {
           visitorId: 'Test string',
         },
         validateOnly: true,
-      }
+      },
     );
     /** Disables a Control on the specified ServingConfig. The control is removed from the ServingConfig. Returns a NOT_FOUND error if the Control is not enabled for the ServingConfig. */
     await gapi.client.retail.projects.locations.catalogs.servingConfigs.removeControl(
@@ -2088,7 +2088,7 @@ gapi.load('client', async () => {
       },
       {
         controlId: 'Test string',
-      }
+      },
     );
     /** Performs a search. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
     await gapi.client.retail.projects.locations.catalogs.servingConfigs.search(
@@ -2205,7 +2205,7 @@ gapi.load('client', async () => {
         },
         variantRollupKeys: ['Test string'],
         visitorId: 'Test string',
-      }
+      },
     );
     /** Writes a single user event from the browser. For larger user event payload over 16 KB, the POST method should be used instead, otherwise a 400 Bad Request error is returned. This method is used only by the Retail API JavaScript pixel and Google Tag Manager. Users should not call this method directly. */
     await gapi.client.retail.projects.locations.catalogs.userEvents.collect(
@@ -2218,7 +2218,7 @@ gapi.load('client', async () => {
         rawJson: 'Test string',
         uri: 'Test string',
         userEvent: 'Test string',
-      }
+      },
     );
     /** Exports user events. `Operation.response` is of type `ExportResponse`. `Operation.metadata` is of type `ExportMetadata`. */
     await gapi.client.retail.projects.locations.catalogs.userEvents.export(
@@ -2237,7 +2237,7 @@ gapi.load('client', async () => {
             outputUriPrefix: 'Test string',
           },
         },
-      }
+      },
     );
     /** Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. `Operation.response` is of type `ImportResponse`. Note that it is possible for a subset of the items to be successfully inserted. `Operation.metadata` is of type `ImportMetadata`. */
     await gapi.client.retail.projects.locations.catalogs.userEvents.import(
@@ -2444,7 +2444,7 @@ gapi.load('client', async () => {
             ],
           },
         },
-      }
+      },
     );
     /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
     await gapi.client.retail.projects.locations.catalogs.userEvents.purge(
@@ -2454,7 +2454,7 @@ gapi.load('client', async () => {
       {
         filter: 'Test string',
         force: true,
-      }
+      },
     );
     /** Starts a user-event rejoin operation with latest product catalog. Events are not annotated with detailed product information for products that are missing from the catalog when the user event is ingested. These events are stored as unjoined events with limited usage on training and serving. You can use this method to start a join operation on specified events with the latest version of product catalog. You can also use this method to correct events joined with the wrong product catalog. A rejoin operation can take hours or days to complete. */
     await gapi.client.retail.projects.locations.catalogs.userEvents.rejoin(
@@ -2463,7 +2463,7 @@ gapi.load('client', async () => {
       },
       {
         userEventRejoinScope: 'Test string',
-      }
+      },
     );
     /** Writes a single user event. */
     await gapi.client.retail.projects.locations.catalogs.userEvents.write(
@@ -2644,7 +2644,7 @@ gapi.load('client', async () => {
           userId: 'Test string',
         },
         visitorId: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.retail.projects.locations.operations.get({

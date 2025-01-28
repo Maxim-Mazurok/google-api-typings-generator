@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://searchconsole.googleapis.com/$discovery/rest?version=v1'
+    'https://searchconsole.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.searchconsole, gapi.client.webmasters */
 
@@ -40,7 +40,7 @@ gapi.load('client', async () => {
         inspectionUrl: 'Test string',
         languageCode: 'Test string',
         siteUrl: 'Test string',
-      }
+      },
     );
     /** Runs Mobile-Friendly Test for a given URL. */
     await gapi.client.searchconsole.urlTestingTools.mobileFriendlyTest.run(
@@ -48,7 +48,7 @@ gapi.load('client', async () => {
       {
         requestScreenshot: true,
         url: 'Test string',
-      }
+      },
     );
     /** Query your data with filters and parameters that you define. Returns zero or more rows grouped by the row keys that you define. You must define a date range of one or more days. When date is one of the group by values, any days without data are omitted from the result list. If you need to know which days have data, issue a broad date range query grouped by date for any metric, and see which day rows are returned. */
     await gapi.client.webmasters.searchanalytics.query(
@@ -77,7 +77,7 @@ gapi.load('client', async () => {
         startDate: 'Test string',
         startRow: 42,
         type: 'Test string',
-      }
+      },
     );
     /** Deletes a sitemap from the Sitemaps report. Does not stop Google from crawling this sitemap or the URLs that were previously crawled in the deleted sitemap. */
     await gapi.client.webmasters.sitemaps.delete({

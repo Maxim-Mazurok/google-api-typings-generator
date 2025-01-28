@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Admin SDK API directory_v1 */
   function load(
-    urlOrObject: 'https://admin.googleapis.com/$discovery/rest?version=directory_v1'
+    urlOrObject: 'https://admin.googleapis.com/$discovery/rest?version=directory_v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'admin', version: 'directory_v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'admin',
     version: 'directory_v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace admin {
@@ -1549,7 +1549,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<void>;
     }
     interface CommandsResource {
@@ -1642,7 +1642,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchChangeChromeOsDeviceStatusRequest
+        body: BatchChangeChromeOsDeviceStatusRequest,
       ): Request<BatchChangeChromeOsDeviceStatusResponse>;
       /** Issues a command for the device to execute. */
       issueCommand(request: {
@@ -1704,7 +1704,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DirectoryChromeosdevicesIssueCommandRequest
+        body: DirectoryChromeosdevicesIssueCommandRequest,
       ): Request<DirectoryChromeosdevicesIssueCommandResponse>;
       commands: CommandsResource;
     }
@@ -1771,7 +1771,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreatePrintersRequest
+        body: BatchCreatePrintersRequest,
       ): Request<BatchCreatePrintersResponse>;
       /** Deletes printers in batch. */
       batchDeletePrinters(request: {
@@ -1829,7 +1829,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchDeletePrintersRequest
+        body: BatchDeletePrintersRequest,
       ): Request<BatchDeletePrintersResponse>;
       /** Creates a printer under given Organization Unit. */
       create(request: {
@@ -1887,7 +1887,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Printer
+        body: Printer,
       ): Request<Printer>;
       /** Deletes a `Printer`. */
       delete(request?: {
@@ -2077,7 +2077,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Printer
+        body: Printer,
       ): Request<Printer>;
     }
     interface PrintServersResource {
@@ -2137,7 +2137,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreatePrintServersRequest
+        body: BatchCreatePrintServersRequest,
       ): Request<BatchCreatePrintServersResponse>;
       /** Deletes multiple print servers. */
       batchDeletePrintServers(request: {
@@ -2195,7 +2195,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchDeletePrintServersRequest
+        body: BatchDeletePrintServersRequest,
       ): Request<BatchDeletePrintServersResponse>;
       /** Creates a print server. */
       create(request: {
@@ -2253,7 +2253,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PrintServer
+        body: PrintServer,
       ): Request<PrintServer>;
       /** Deletes a print server. */
       delete(request?: {
@@ -2406,7 +2406,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PrintServer
+        body: PrintServer,
       ): Request<PrintServer>;
     }
     interface ChromeResource {
@@ -4040,7 +4040,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ChromeOsDeviceAction
+        body: ChromeOsDeviceAction,
       ): Request<void>;
       /** Retrieves a Chrome OS device's properties. */
       get(request?: {
@@ -4176,7 +4176,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ChromeOsMoveDevicesToOu
+        body: ChromeOsMoveDevicesToOu,
       ): Request<void>;
       /** Updates a device's updatable properties, such as `annotatedUser`, `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
       patch(request: {
@@ -4242,7 +4242,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ChromeOsDevice
+        body: ChromeOsDevice,
       ): Request<ChromeOsDevice>;
       /** Updates a device's updatable properties, such as `annotatedUser`, `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`. */
       update(request: {
@@ -4308,7 +4308,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ChromeOsDevice
+        body: ChromeOsDevice,
       ): Request<ChromeOsDevice>;
     }
     interface CustomersResource {
@@ -4395,7 +4395,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Customer
+        body: Customer,
       ): Request<Customer>;
       /** Updates a customer. */
       update(request: {
@@ -4453,7 +4453,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Customer
+        body: Customer,
       ): Request<Customer>;
     }
     interface DomainAliasesResource {
@@ -4571,7 +4571,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DomainAlias
+        body: DomainAlias,
       ): Request<DomainAlias>;
       /** Lists the domain aliases of the customer. */
       list(request?: {
@@ -4718,7 +4718,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Domains
+        body: Domains,
       ): Request<Domains>;
       /** Lists the domains of the customer. */
       list(request?: {
@@ -4834,7 +4834,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Alias
+        body: Alias,
       ): Request<Alias>;
       /** Lists all aliases for a group. */
       list(request?: {
@@ -4971,7 +4971,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Group
+        body: Group,
       ): Request<Group>;
       /** Retrieves all groups of a domain or of a user given a userKey (paginated). */
       list(request?: {
@@ -5070,7 +5070,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Group
+        body: Group,
       ): Request<Group>;
       /** Updates a group's properties. */
       update(request: {
@@ -5128,7 +5128,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Group
+        body: Group,
       ): Request<Group>;
       aliases: AliasesResource;
     }
@@ -5276,7 +5276,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Member
+        body: Member,
       ): Request<Member>;
       /** Retrieves a paginated list of all members in a group. This method times out after 60 minutes. For more information, see [Troubleshoot error codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes). */
       list(request?: {
@@ -5373,7 +5373,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Member
+        body: Member,
       ): Request<Member>;
       /** Updates the membership of a user in the specified group. */
       update(request: {
@@ -5435,7 +5435,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Member
+        body: Member,
       ): Request<Member>;
     }
     interface MobiledevicesResource {
@@ -5499,7 +5499,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MobileDeviceAction
+        body: MobileDeviceAction,
       ): Request<void>;
       /** Removes a mobile device. */
       delete(request?: {
@@ -5716,7 +5716,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OrgUnit
+        body: OrgUnit,
       ): Request<OrgUnit>;
       /** Retrieves a list of all organizational units for an account. */
       list(request?: {
@@ -5809,7 +5809,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OrgUnit
+        body: OrgUnit,
       ): Request<OrgUnit>;
       /** Updates an organizational unit. */
       update(request: {
@@ -5871,7 +5871,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OrgUnit
+        body: OrgUnit,
       ): Request<OrgUnit>;
     }
     interface PrivilegesResource {
@@ -6022,7 +6022,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Building
+        body: Building,
       ): Request<Building>;
       /** Retrieves a list of buildings for an account. */
       list(request?: {
@@ -6119,7 +6119,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Building
+        body: Building,
       ): Request<Building>;
       /** Updates a building. */
       update(request: {
@@ -6185,7 +6185,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Building
+        body: Building,
       ): Request<Building>;
     }
     interface CalendarsResource {
@@ -6303,7 +6303,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CalendarResource
+        body: CalendarResource,
       ): Request<CalendarResource>;
       /** Retrieves a list of calendar resources for an account. */
       list(request?: {
@@ -6400,7 +6400,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CalendarResource
+        body: CalendarResource,
       ): Request<CalendarResource>;
       /** Updates a calendar resource. This method supports patch semantics, meaning you only need to include the fields you wish to update. Fields that are not present in the request will be preserved. */
       update(request: {
@@ -6462,7 +6462,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CalendarResource
+        body: CalendarResource,
       ): Request<CalendarResource>;
     }
     interface FeaturesResource {
@@ -6580,7 +6580,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Feature
+        body: Feature,
       ): Request<Feature>;
       /** Retrieves a list of features for an account. */
       list(request?: {
@@ -6673,7 +6673,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Feature
+        body: Feature,
       ): Request<Feature>;
       /** Renames a feature. */
       rename(request: {
@@ -6735,7 +6735,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FeatureRename
+        body: FeatureRename,
       ): Request<void>;
       /** Updates a feature. */
       update(request: {
@@ -6797,7 +6797,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Feature
+        body: Feature,
       ): Request<Feature>;
     }
     interface ResourcesResource {
@@ -6920,7 +6920,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RoleAssignment
+        body: RoleAssignment,
       ): Request<RoleAssignment>;
       /** Retrieves a paginated list of all roleAssignments. */
       list(request?: {
@@ -7075,7 +7075,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Role
+        body: Role,
       ): Request<Role>;
       /** Retrieves a paginated list of all the roles in a domain. */
       list(request?: {
@@ -7168,7 +7168,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Role
+        body: Role,
       ): Request<Role>;
       /** Updates a role. */
       update(request: {
@@ -7230,7 +7230,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Role
+        body: Role,
       ): Request<Role>;
     }
     interface SchemasResource {
@@ -7348,7 +7348,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Schema
+        body: Schema,
       ): Request<Schema>;
       /** Retrieves all schemas for a customer. */
       list(request?: {
@@ -7437,7 +7437,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Schema
+        body: Schema,
       ): Request<Schema>;
       /** Updates a schema. */
       update(request: {
@@ -7499,7 +7499,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Schema
+        body: Schema,
       ): Request<Schema>;
     }
     interface TokensResource {
@@ -7704,7 +7704,7 @@ declare namespace gapi.client {
           /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
           userKey: string;
         },
-        body: Alias
+        body: Alias,
       ): Request<Alias>;
       /** Lists all aliases for a user. */
       list(request?: {
@@ -7795,7 +7795,7 @@ declare namespace gapi.client {
           /** Email or immutable ID of the user */
           userKey: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
     interface PhotosResource {
@@ -7909,7 +7909,7 @@ declare namespace gapi.client {
           /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
           userKey: string;
         },
-        body: UserPhoto
+        body: UserPhoto,
       ): Request<UserPhoto>;
       /** Adds a photo for the user. */
       update(request: {
@@ -7967,7 +7967,7 @@ declare namespace gapi.client {
           /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
           userKey: string;
         },
-        body: UserPhoto
+        body: UserPhoto,
       ): Request<UserPhoto>;
     }
     interface UsersResource {
@@ -8087,7 +8087,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: User
+        body: User,
       ): Request<User>;
       /** Retrieves a paginated list of either deleted users or all users in a domain. */
       list(request?: {
@@ -8194,7 +8194,7 @@ declare namespace gapi.client {
           /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
           userKey: string;
         },
-        body: UserMakeAdmin
+        body: UserMakeAdmin,
       ): Request<void>;
       /** Updates a user using patch semantics. The update method should be used instead, because it also supports patch semantics and has better performance. If you're mapping an external identity to a Google identity, use the [`update`](https://developers.google.com/admin-sdk/directory/v1/reference/users/update) method instead of the `patch` method. This method is unable to clear fields that contain repeated objects (`addresses`, `phones`, etc). Use the update method instead. */
       patch(request: {
@@ -8252,7 +8252,7 @@ declare namespace gapi.client {
           /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
           userKey: string;
         },
-        body: User
+        body: User,
       ): Request<User>;
       /** Signs a user out of all web and device sessions and reset their sign-in cookies. User will have to sign in by authenticating again. */
       signOut(request?: {
@@ -8337,7 +8337,7 @@ declare namespace gapi.client {
           /** The immutable id of the user */
           userKey: string;
         },
-        body: UserUndelete
+        body: UserUndelete,
       ): Request<void>;
       /** Updates a user. This method supports patch semantics, meaning that you only need to include the fields you wish to update. Fields that are not present in the request will be preserved, and fields set to `null` will be cleared. For repeating fields that contain arrays, individual items in the array can't be patched piecemeal; they must be supplied in the request body with the desired values for all items. See the [user accounts guide](https://developers.google.com/admin-sdk/directory/v1/guides/manage-users#update_user) for more information. */
       update(request: {
@@ -8395,7 +8395,7 @@ declare namespace gapi.client {
           /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
           userKey: string;
         },
-        body: User
+        body: User,
       ): Request<User>;
       /** Watches for changes in users list. */
       watch(request: {
@@ -8497,7 +8497,7 @@ declare namespace gapi.client {
           /** Whether to fetch the administrator-only or domain-wide public view of the user. For more information, see [Retrieve a user as a non-administrator](/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin). */
           viewType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
       aliases: AliasesResource;
       photos: PhotosResource;

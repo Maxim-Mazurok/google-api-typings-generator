@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://contactcenterinsights.googleapis.com/$discovery/rest?version=v1'
+    'https://contactcenterinsights.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.contactcenterinsights */
 
@@ -50,7 +50,7 @@ gapi.load('client', async () => {
         maxDownloadCount: 42,
         parent: 'Test string',
         templateQaScorecardId: ['Test string'],
-      }
+      },
     );
     /** Upload feedback labels in bulk. */
     await gapi.client.contactcenterinsights.projects.locations.bulkUploadFeedbackLabels(
@@ -63,13 +63,13 @@ gapi.load('client', async () => {
           objectUri: 'Test string',
         },
         validateOnly: true,
-      }
+      },
     );
     /** Gets location-level encryption key specification. */
     await gapi.client.contactcenterinsights.projects.locations.getEncryptionSpec(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets project-level settings. */
     await gapi.client.contactcenterinsights.projects.locations.getSettings({
@@ -82,7 +82,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Query metrics. */
     await gapi.client.contactcenterinsights.projects.locations.queryMetrics(
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         measureMask: 'Test string',
         timeGranularity: 'Test string',
-      }
+      },
     );
     /** Updates project-level settings. */
     await gapi.client.contactcenterinsights.projects.locations.updateSettings(
@@ -169,7 +169,7 @@ gapi.load('client', async () => {
           speechRecognizer: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a analysis rule. */
     await gapi.client.contactcenterinsights.projects.locations.analysisRules.create(
@@ -206,19 +206,19 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a analysis rule. */
     await gapi.client.contactcenterinsights.projects.locations.analysisRules.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get a analysis rule. */
     await gapi.client.contactcenterinsights.projects.locations.analysisRules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists analysis rules. */
     await gapi.client.contactcenterinsights.projects.locations.analysisRules.list(
@@ -226,7 +226,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a analysis rule. */
     await gapi.client.contactcenterinsights.projects.locations.analysisRules.patch(
@@ -264,7 +264,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Query metrics. */
     await gapi.client.contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.queryMetrics(
@@ -301,14 +301,14 @@ gapi.load('client', async () => {
         filter: 'Test string',
         measureMask: 'Test string',
         timeGranularity: 'Test string',
-      }
+      },
     );
     /** Gets conversation statistics. */
     await gapi.client.contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.calculateStats(
       {
         filter: 'Test string',
         location: 'Test string',
-      }
+      },
     );
     /** Analyzes multiple conversations in a single request. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.bulkAnalyze(
@@ -341,7 +341,7 @@ gapi.load('client', async () => {
         },
         filter: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Deletes multiple conversations in a single request. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.bulkDelete(
@@ -353,14 +353,14 @@ gapi.load('client', async () => {
         force: true,
         maxDeleteCount: 42,
         parent: 'Test string',
-      }
+      },
     );
     /** Gets conversation statistics. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.calculateStats(
       {
         filter: 'Test string',
         location: 'Test string',
-      }
+      },
     );
     /** Creates a conversation. Note that this method does not support audio transcription or redaction. Use `conversations.upload` instead. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.create(
@@ -733,21 +733,21 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         turnCount: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a conversation. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Gets a conversation. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Imports conversations and processes them according to the user's configuration. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.ingest(
@@ -778,7 +778,7 @@ gapi.load('client', async () => {
         transcriptObjectConfig: {
           medium: 'Test string',
         },
-      }
+      },
     );
     /** Lists conversations. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.list(
@@ -789,7 +789,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Updates a conversation. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.patch(
@@ -1162,7 +1162,7 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         turnCount: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Create a long-running conversation upload operation. This method differs from `CreateConversation` by allowing audio transcription and optional DLP redaction. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.upload(
@@ -1545,7 +1545,7 @@ gapi.load('client', async () => {
         speechConfig: {
           speechRecognizer: 'Test string',
         },
-      }
+      },
     );
     /** Creates an analysis. The long running operation is done when the analysis has completed. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.analyses.create(
@@ -1743,19 +1743,19 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         name: 'Test string',
         requestTime: 'Test string',
-      }
+      },
     );
     /** Deletes an analysis. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.analyses.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an analysis. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.analyses.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists analyses. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.analyses.list(
@@ -1764,7 +1764,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Create feedback label. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.feedbackLabels.create(
@@ -1788,19 +1788,19 @@ gapi.load('client', async () => {
           strValue: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete feedback label. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.feedbackLabels.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get feedback label. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.feedbackLabels.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List feedback labels. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.feedbackLabels.list(
@@ -1809,7 +1809,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Update feedback label. */
     await gapi.client.contactcenterinsights.projects.locations.conversations.feedbackLabels.patch(
@@ -1833,7 +1833,7 @@ gapi.load('client', async () => {
           strValue: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Initializes a location-level encryption key specification. An error will result if the location has resources already created before the initialization. After the encryption specification is initialized at a location, it is immutable and all newly created resources under the location will be encrypted with the existing specification. */
     await gapi.client.contactcenterinsights.projects.locations.encryptionSpec.initialize(
@@ -1845,7 +1845,7 @@ gapi.load('client', async () => {
           kmsKey: 'Test string',
           name: 'Test string',
         },
-      }
+      },
     );
     /** Export insights data to a destination defined in the request body. */
     await gapi.client.contactcenterinsights.projects.locations.insightsdata.export(
@@ -1862,13 +1862,13 @@ gapi.load('client', async () => {
         kmsKey: 'Test string',
         parent: 'Test string',
         writeDisposition: 'Test string',
-      }
+      },
     );
     /** Gets an issue model's statistics. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.calculateIssueModelStats(
       {
         issueModel: 'Test string',
-      }
+      },
     );
     /** Creates an issue model. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.create(
@@ -1900,13 +1900,13 @@ gapi.load('client', async () => {
           unclassifiedConversationsCount: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an issue model. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Deploys an issue model. Returns an error if a model is already deployed. An issue model can only be used in analysis after it has been deployed. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.deploy(
@@ -1915,7 +1915,7 @@ gapi.load('client', async () => {
       },
       {
         name: 'Test string',
-      }
+      },
     );
     /** Exports an issue model to the provided destination. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.export(
@@ -1927,7 +1927,7 @@ gapi.load('client', async () => {
           objectUri: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Gets an issue model. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.get({
@@ -1944,13 +1944,13 @@ gapi.load('client', async () => {
           objectUri: 'Test string',
         },
         parent: 'Test string',
-      }
+      },
     );
     /** Lists issue models. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.list(
       {
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an issue model. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.patch(
@@ -1983,7 +1983,7 @@ gapi.load('client', async () => {
           unclassifiedConversationsCount: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Undeploys an issue model. An issue model can not be used in analysis after it has been undeployed. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.undeploy(
@@ -1992,7 +1992,7 @@ gapi.load('client', async () => {
       },
       {
         name: 'Test string',
-      }
+      },
     );
     /** Creates an issue. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.issues.create(
@@ -2006,25 +2006,25 @@ gapi.load('client', async () => {
         name: 'Test string',
         sampleUtterances: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an issue. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.issues.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an issue. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.issues.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists issues. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.issues.list(
       {
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an issue. */
     await gapi.client.contactcenterinsights.projects.locations.issueModels.issues.patch(
@@ -2039,13 +2039,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         sampleUtterances: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.contactcenterinsights.projects.locations.operations.cancel(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.contactcenterinsights.projects.locations.operations.get({
@@ -2090,19 +2090,19 @@ gapi.load('client', async () => {
         type: 'Test string',
         updateTime: 'Test string',
         versionTag: 'Test string',
-      }
+      },
     );
     /** Deletes a phrase matcher. */
     await gapi.client.contactcenterinsights.projects.locations.phraseMatchers.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a phrase matcher. */
     await gapi.client.contactcenterinsights.projects.locations.phraseMatchers.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists phrase matchers. */
     await gapi.client.contactcenterinsights.projects.locations.phraseMatchers.list(
@@ -2111,7 +2111,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a phrase matcher. */
     await gapi.client.contactcenterinsights.projects.locations.phraseMatchers.patch(
@@ -2146,7 +2146,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         updateTime: 'Test string',
         versionTag: 'Test string',
-      }
+      },
     );
     /** Create a QaScorecard. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.create(
@@ -2160,20 +2160,20 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a QaScorecard. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Gets a QaScorecard. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists QaScorecards. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.list(
@@ -2181,7 +2181,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a QaScorecard. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.patch(
@@ -2195,7 +2195,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a QaScorecardRevision. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.create(
@@ -2215,27 +2215,27 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         state: 'Test string',
-      }
+      },
     );
     /** Deletes a QaScorecardRevision. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Deploy a QaScorecardRevision. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.deploy(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets a QaScorecardRevision. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all revisions under the parent QaScorecard. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.list(
@@ -2244,7 +2244,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Fine tune one or more QaModels. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.tuneQaScorecardRevision(
@@ -2254,14 +2254,14 @@ gapi.load('client', async () => {
       {
         filter: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Undeploy a QaScorecardRevision. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.undeploy(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Create a QaQuestion. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.qaQuestions.create(
@@ -2296,19 +2296,19 @@ gapi.load('client', async () => {
           tuningError: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a QaQuestion. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.qaQuestions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a QaQuestion. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.qaQuestions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists QaQuestions. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.qaQuestions.list(
@@ -2316,7 +2316,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a QaQuestion. */
     await gapi.client.contactcenterinsights.projects.locations.qaScorecards.revisions.qaQuestions.patch(
@@ -2351,7 +2351,7 @@ gapi.load('client', async () => {
           tuningError: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a view. */
     await gapi.client.contactcenterinsights.projects.locations.views.create(
@@ -2364,7 +2364,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         updateTime: 'Test string',
         value: 'Test string',
-      }
+      },
     );
     /** Deletes a view. */
     await gapi.client.contactcenterinsights.projects.locations.views.delete({
@@ -2392,7 +2392,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         updateTime: 'Test string',
         value: 'Test string',
-      }
+      },
     );
   }
 });

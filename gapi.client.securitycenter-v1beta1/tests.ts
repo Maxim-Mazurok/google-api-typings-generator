@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://securitycenter.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://securitycenter.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.securitycenter */
 
@@ -48,7 +48,7 @@ gapi.load('client', async () => {
         },
         enableAssetDiscovery: true,
         name: 'Test string',
-      }
+      },
     );
     /** Filters an organization's assets and groups them by their specified properties. */
     await gapi.client.securitycenter.organizations.assets.group(
@@ -62,7 +62,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         readTime: 'Test string',
-      }
+      },
     );
     /** Lists an organization's assets. */
     await gapi.client.securitycenter.organizations.assets.list({
@@ -80,7 +80,7 @@ gapi.load('client', async () => {
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates security marks. */
     await gapi.client.securitycenter.organizations.assets.updateSecurityMarks(
@@ -94,14 +94,14 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.securitycenter.organizations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.securitycenter.organizations.operations.delete({
@@ -127,7 +127,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets a source. */
     await gapi.client.securitycenter.organizations.sources.get({
@@ -142,7 +142,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all sources belonging to an organization. */
     await gapi.client.securitycenter.organizations.sources.list({
@@ -160,7 +160,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified Source. */
     await gapi.client.securitycenter.organizations.sources.setIamPolicy(
@@ -196,7 +196,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns the permissions that a caller has on the specified source. */
     await gapi.client.securitycenter.organizations.sources.testIamPermissions(
@@ -205,7 +205,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a finding. The corresponding source must exist for finding creation to succeed. */
     await gapi.client.securitycenter.organizations.sources.findings.create(
@@ -231,7 +231,7 @@ gapi.load('client', async () => {
           A: 42,
         },
         state: 'Test string',
-      }
+      },
     );
     /** Filters an organization or source's findings and groups them by their specified properties. To group across all sources provide a `-` as the source id. Example: /v1beta1/organizations/{organization_id}/sources/-/findings */
     await gapi.client.securitycenter.organizations.sources.findings.group(
@@ -244,7 +244,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         readTime: 'Test string',
-      }
+      },
     );
     /** Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1beta1/organizations/{organization_id}/sources/-/findings */
     await gapi.client.securitycenter.organizations.sources.findings.list({
@@ -280,7 +280,7 @@ gapi.load('client', async () => {
           A: 42,
         },
         state: 'Test string',
-      }
+      },
     );
     /** Updates the state of a finding. */
     await gapi.client.securitycenter.organizations.sources.findings.setState(
@@ -290,7 +290,7 @@ gapi.load('client', async () => {
       {
         startTime: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Updates security marks. */
     await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks(
@@ -304,7 +304,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
   }
 });

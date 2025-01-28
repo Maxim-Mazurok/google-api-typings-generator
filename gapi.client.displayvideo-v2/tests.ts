@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://displayvideo.googleapis.com/$discovery/rest?version=v2'
+    'https://displayvideo.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.displayvideo */
 
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
           exemptTvFromViewabilityTargeting: true,
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an advertiser. Deleting an advertiser will delete all of its child resources, for example, campaigns, insertion orders and line items. A deleted advertiser cannot be recovered. */
     await gapi.client.displayvideo.advertisers.delete({
@@ -391,7 +391,7 @@ gapi.load('client', async () => {
             targetingType: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Gets an advertiser. */
     await gapi.client.displayvideo.advertisers.get({
@@ -468,7 +468,7 @@ gapi.load('client', async () => {
           exemptTvFromViewabilityTargeting: true,
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP files, and 1 GB for videos. Must be used within the [multipart media upload process](/display-video/api/guides/how-tos/upload#multipart). Examples using provided client libraries can be found in our [Creating Creatives guide](/display-video/api/guides/creating-creatives/overview#upload_an_asset). */
     await gapi.client.displayvideo.advertisers.assets.upload(
@@ -477,7 +477,7 @@ gapi.load('client', async () => {
       },
       {
         filename: 'Test string',
-      }
+      },
     );
     /** Creates a new campaign. Returns the newly created campaign if successful. */
     await gapi.client.displayvideo.advertisers.campaigns.create(
@@ -554,7 +554,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it. **This method regularly experiences high latency.** We recommend [increasing your default timeout](/display-video/api/guides/best-practices/timeouts#client_library_timeout) to avoid errors. */
     await gapi.client.displayvideo.advertisers.campaigns.delete({
@@ -651,7 +651,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new channel. Returns the newly created channel if successful. */
     await gapi.client.displayvideo.advertisers.channels.create(
@@ -667,7 +667,7 @@ gapi.load('client', async () => {
         negativelyTargetedLineItemCount: 'Test string',
         partnerId: 'Test string',
         positivelyTargetedLineItemCount: 'Test string',
-      }
+      },
     );
     /** Gets a channel for a partner or advertiser. */
     await gapi.client.displayvideo.advertisers.channels.get({
@@ -700,7 +700,7 @@ gapi.load('client', async () => {
         negativelyTargetedLineItemCount: 'Test string',
         partnerId: 'Test string',
         positivelyTargetedLineItemCount: 'Test string',
-      }
+      },
     );
     /** Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites provided in BulkEditSitesRequest.created_sites. */
     await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit(
@@ -718,7 +718,7 @@ gapi.load('client', async () => {
         ],
         deletedSites: ['Test string'],
         partnerId: 'Test string',
-      }
+      },
     );
     /** Creates a site in a channel. */
     await gapi.client.displayvideo.advertisers.channels.sites.create(
@@ -730,7 +730,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         urlOrAppId: 'Test string',
-      }
+      },
     );
     /** Deletes a site from a channel. */
     await gapi.client.displayvideo.advertisers.channels.sites.delete({
@@ -764,7 +764,7 @@ gapi.load('client', async () => {
           },
         ],
         partnerId: 'Test string',
-      }
+      },
     );
     /** Creates a new creative. Returns the newly created creative if successful. A ["Standard" user role](//support.google.com/displayvideo/answer/2723011) or greater for the parent advertiser or partner is required to make this request. */
     await gapi.client.displayvideo.advertisers.creatives.create(
@@ -913,7 +913,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         vastTagUrl: 'Test string',
         vpaid: true,
-      }
+      },
     );
     /** Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, before it can be deleted. A ["Standard" user role](//support.google.com/displayvideo/answer/2723011) or greater for the parent advertiser or partner is required to make this request. */
     await gapi.client.displayvideo.advertisers.creatives.delete({
@@ -1082,7 +1082,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         vastTagUrl: 'Test string',
         vpaid: true,
-      }
+      },
     );
     /** Creates a new insertion order. Returns the newly created insertion order if successful. */
     await gapi.client.displayvideo.advertisers.insertionOrders.create(
@@ -1172,7 +1172,7 @@ gapi.load('client', async () => {
         },
         reservationType: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it. */
     await gapi.client.displayvideo.advertisers.insertionOrders.delete({
@@ -1282,7 +1282,7 @@ gapi.load('client', async () => {
         },
         reservationType: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Lists invoices posted for an advertiser in a given month. Invoices generated by billing profiles with a "Partner" invoice level are not retrievable through this method. */
     await gapi.client.displayvideo.advertisers.invoices.list({
@@ -1589,7 +1589,7 @@ gapi.load('client', async () => {
           },
         ],
         lineItemIds: ['Test string'],
-      }
+      },
     );
     /** Lists assigned targeting options for multiple line items across targeting types. */
     await gapi.client.displayvideo.advertisers.lineItems.bulkListAssignedTargetingOptions(
@@ -1600,7 +1600,7 @@ gapi.load('client', async () => {
         orderBy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Updates multiple line items. Requests to this endpoint cannot be made concurrently with the following requests updating the same line item: * BulkEditAssignedTargetingOptions * UpdateLineItem * assignedTargetingOptions.create * assignedTargetingOptions.delete YouTube & Partners line items cannot be created or updated using the API. */
     await gapi.client.displayvideo.advertisers.lineItems.bulkUpdate(
@@ -1780,7 +1780,7 @@ gapi.load('client', async () => {
           },
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates a new line item. Returns the newly created line item if successful. YouTube & Partners line items cannot be created or updated using the API. */
     await gapi.client.displayvideo.advertisers.lineItems.create(
@@ -1956,7 +1956,7 @@ gapi.load('client', async () => {
             unlimited: true,
           },
         },
-      }
+      },
     );
     /** Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it. YouTube & Partners line items cannot be created or updated using the API. */
     await gapi.client.displayvideo.advertisers.lineItems.delete({
@@ -1971,7 +1971,7 @@ gapi.load('client', async () => {
       },
       {
         targetDisplayName: 'Test string',
-      }
+      },
     );
     /** Creates a new line item with settings (including targeting) inherited from the insertion order and an `ENTITY_STATUS_DRAFT` entity_status. Returns the newly created line item if successful. There are default values based on the three fields: * The insertion order's insertion_order_type * The insertion order's automation_type * The given line_item_type YouTube & Partners line items cannot be created or updated using the API. */
     await gapi.client.displayvideo.advertisers.lineItems.generateDefault(
@@ -1988,7 +1988,7 @@ gapi.load('client', async () => {
           platform: 'Test string',
           publisher: 'Test string',
         },
-      }
+      },
     );
     /** Gets a line item. */
     await gapi.client.displayvideo.advertisers.lineItems.get({
@@ -2179,7 +2179,7 @@ gapi.load('client', async () => {
             unlimited: true,
           },
         },
-      }
+      },
     );
     /** Assigns a targeting option to a line item. Returns the assigned targeting option if successful. Requests to this endpoint cannot be made concurrently with the following requests updating the same line item: * lineItems.bulkEditAssignedTargetingOptions * lineItems.bulkUpdate * lineItems.patch * DeleteLineItemAssignedTargetingOption YouTube & Partners line items cannot be created or updated using the API. */
     await gapi.client.displayvideo.advertisers.lineItems.targetingTypes.assignedTargetingOptions.create(
@@ -2459,7 +2459,7 @@ gapi.load('client', async () => {
           negative: true,
           videoId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes an assigned targeting option from a line item. Requests to this endpoint cannot be made concurrently with the following requests updating the same line item: * lineItems.bulkEditAssignedTargetingOptions * lineItems.bulkUpdate * lineItems.patch * CreateLineItemAssignedTargetingOption YouTube & Partners line items cannot be created or updated using the API. */
     await gapi.client.displayvideo.advertisers.lineItems.targetingTypes.assignedTargetingOptions.delete(
@@ -2468,7 +2468,7 @@ gapi.load('client', async () => {
         assignedTargetingOptionId: 'Test string',
         lineItemId: 'Test string',
         targetingType: 'Test string',
-      }
+      },
     );
     /** Gets a single targeting option assigned to a line item. */
     await gapi.client.displayvideo.advertisers.lineItems.targetingTypes.assignedTargetingOptions.get(
@@ -2477,7 +2477,7 @@ gapi.load('client', async () => {
         assignedTargetingOptionId: 'Test string',
         lineItemId: 'Test string',
         targetingType: 'Test string',
-      }
+      },
     );
     /** Lists the targeting options assigned to a line item. */
     await gapi.client.displayvideo.advertisers.lineItems.targetingTypes.assignedTargetingOptions.list(
@@ -2489,7 +2489,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         targetingType: 'Test string',
-      }
+      },
     );
     /** Creates a new location list. Returns the newly created location list if successful. */
     await gapi.client.displayvideo.advertisers.locationLists.create(
@@ -2502,7 +2502,7 @@ gapi.load('client', async () => {
         locationListId: 'Test string',
         locationType: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets a location list. */
     await gapi.client.displayvideo.advertisers.locationLists.get({
@@ -2530,7 +2530,7 @@ gapi.load('client', async () => {
         locationListId: 'Test string',
         locationType: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in deletedAssignedLocations and then create the assigned locations provided in createdAssignedLocations. */
     await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit(
@@ -2547,7 +2547,7 @@ gapi.load('client', async () => {
           },
         ],
         deletedAssignedLocations: ['Test string'],
-      }
+      },
     );
     /** Creates an assignment between a location and a location list. */
     await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create(
@@ -2559,7 +2559,7 @@ gapi.load('client', async () => {
         assignedLocationId: 'Test string',
         name: 'Test string',
         targetingOptionId: 'Test string',
-      }
+      },
     );
     /** Deletes the assignment between a location and a location list. */
     await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete(
@@ -2567,7 +2567,7 @@ gapi.load('client', async () => {
         advertiserId: 'Test string',
         assignedLocationId: 'Test string',
         locationListId: 'Test string',
-      }
+      },
     );
     /** Lists locations assigned to a location list. */
     await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list(
@@ -2578,7 +2578,7 @@ gapi.load('client', async () => {
         orderBy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Activates a manual trigger. Each activation of the manual trigger must be at least 5 minutes apart, otherwise an error will be returned. **Warning:** Line Items using manual triggers no longer serve in Display & Video 360. This method will sunset on August 1, 2023. Read our [feature deprecation announcement](/display-video/api/deprecations#features.manual_triggers) for more information. */
     await gapi.client.displayvideo.advertisers.manualTriggers.activate(
@@ -2586,7 +2586,7 @@ gapi.load('client', async () => {
         advertiserId: 'Test string',
         triggerId: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new manual trigger. Returns the newly created manual trigger if successful. **Warning:** Line Items using manual triggers no longer serve in Display & Video 360. This method will sunset on August 1, 2023. Read our [feature deprecation announcement](/display-video/api/deprecations#features.manual_triggers) for more information. */
     await gapi.client.displayvideo.advertisers.manualTriggers.create(
@@ -2601,7 +2601,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         triggerId: 'Test string',
-      }
+      },
     );
     /** Deactivates a manual trigger. **Warning:** Line Items using manual triggers no longer serve in Display & Video 360. This method will sunset on August 1, 2023. Read our [feature deprecation announcement](/display-video/api/deprecations#features.manual_triggers) for more information. */
     await gapi.client.displayvideo.advertisers.manualTriggers.deactivate(
@@ -2609,7 +2609,7 @@ gapi.load('client', async () => {
         advertiserId: 'Test string',
         triggerId: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets a manual trigger. **Warning:** Line Items using manual triggers no longer serve in Display & Video 360. This method will sunset on August 1, 2023. Read our [feature deprecation announcement](/display-video/api/deprecations#features.manual_triggers) for more information. */
     await gapi.client.displayvideo.advertisers.manualTriggers.get({
@@ -2639,7 +2639,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         triggerId: 'Test string',
-      }
+      },
     );
     /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
     await gapi.client.displayvideo.advertisers.negativeKeywordLists.create(
@@ -2652,7 +2652,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         negativeKeywordListId: 'Test string',
         targetedLineItemCount: 'Test string',
-      }
+      },
     );
     /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
     await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
@@ -2683,7 +2683,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         negativeKeywordListId: 'Test string',
         targetedLineItemCount: 'Test string',
-      }
+      },
     );
     /** Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or partial failure. */
     await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit(
@@ -2699,7 +2699,7 @@ gapi.load('client', async () => {
           },
         ],
         deletedNegativeKeywords: ['Test string'],
-      }
+      },
     );
     /** Creates a negative keyword in a negative keyword list. */
     await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create(
@@ -2710,7 +2710,7 @@ gapi.load('client', async () => {
       {
         keywordValue: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a negative keyword from a negative keyword list. */
     await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete(
@@ -2718,7 +2718,7 @@ gapi.load('client', async () => {
         advertiserId: 'Test string',
         keywordValue: 'Test string',
         negativeKeywordListId: 'Test string',
-      }
+      },
     );
     /** Lists negative keywords in a negative keyword list. */
     await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list(
@@ -2729,7 +2729,7 @@ gapi.load('client', async () => {
         orderBy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keyword list with keywords provided in ReplaceNegativeKeywordsRequest.new_negative_keywords. */
     await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace(
@@ -2744,7 +2744,7 @@ gapi.load('client', async () => {
             name: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Assigns a targeting option to an advertiser. Returns the assigned targeting option if successful. */
     await gapi.client.displayvideo.advertisers.targetingTypes.assignedTargetingOptions.create(
@@ -3023,7 +3023,7 @@ gapi.load('client', async () => {
           negative: true,
           videoId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes an assigned targeting option from an advertiser. */
     await gapi.client.displayvideo.advertisers.targetingTypes.assignedTargetingOptions.delete(
@@ -3031,7 +3031,7 @@ gapi.load('client', async () => {
         advertiserId: 'Test string',
         assignedTargetingOptionId: 'Test string',
         targetingType: 'Test string',
-      }
+      },
     );
     /** Gets a single targeting option assigned to an advertiser. */
     await gapi.client.displayvideo.advertisers.targetingTypes.assignedTargetingOptions.get(
@@ -3039,7 +3039,7 @@ gapi.load('client', async () => {
         advertiserId: 'Test string',
         assignedTargetingOptionId: 'Test string',
         targetingType: 'Test string',
-      }
+      },
     );
     /** Lists the targeting options assigned to an advertiser. */
     await gapi.client.displayvideo.advertisers.targetingTypes.assignedTargetingOptions.list(
@@ -3050,7 +3050,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         targetingType: 'Test string',
-      }
+      },
     );
     /** Gets a YouTube ad group ad. */
     await gapi.client.displayvideo.advertisers.youtubeAdGroupAds.get({
@@ -3074,7 +3074,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         youtubeAdGroupIds: 'Test string',
-      }
+      },
     );
     /** Gets a YouTube ad group. */
     await gapi.client.displayvideo.advertisers.youtubeAdGroups.get({
@@ -3096,7 +3096,7 @@ gapi.load('client', async () => {
         assignedTargetingOptionId: 'Test string',
         targetingType: 'Test string',
         youtubeAdGroupId: 'Test string',
-      }
+      },
     );
     /** Lists the targeting options assigned to a YouTube ad group. Inherited assigned targeting options are not included. */
     await gapi.client.displayvideo.advertisers.youtubeAdGroups.targetingTypes.assignedTargetingOptions.list(
@@ -3108,7 +3108,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         targetingType: 'Test string',
         youtubeAdGroupId: 'Test string',
-      }
+      },
     );
     /** Gets a combined audience. */
     await gapi.client.displayvideo.combinedAudiences.get({
@@ -3144,7 +3144,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         partnerId: 'Test string',
         sharedAdvertiserIds: ['Test string'],
-      }
+      },
     );
     /** Gets a custom bidding algorithm. */
     await gapi.client.displayvideo.customBiddingAlgorithms.get({
@@ -3183,7 +3183,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         partnerId: 'Test string',
         sharedAdvertiserIds: ['Test string'],
-      }
+      },
     );
     /** Creates a custom bidding script reference object for a script file. The resulting reference object provides a resource path to which the script file should be uploaded. This reference object should be included in when creating a new custom bidding script object. */
     await gapi.client.displayvideo.customBiddingAlgorithms.uploadScript({
@@ -3216,7 +3216,7 @@ gapi.load('client', async () => {
           resourceName: 'Test string',
         },
         state: 'Test string',
-      }
+      },
     );
     /** Gets a custom bidding script. */
     await gapi.client.displayvideo.customBiddingAlgorithms.scripts.get({
@@ -3278,7 +3278,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         webTagType: 'Test string',
-      }
+      },
     );
     /** Gets a Floodlight activity. */
     await gapi.client.displayvideo.floodlightGroups.floodlightActivities.get({
@@ -3334,7 +3334,7 @@ gapi.load('client', async () => {
           entityStatus: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Edits read advertisers of a guaranteed order. */
     await gapi.client.displayvideo.guaranteedOrders.editGuaranteedOrderReadAccessors(
@@ -3346,7 +3346,7 @@ gapi.load('client', async () => {
         partnerId: 'Test string',
         readAccessInherited: true,
         removedAdvertisers: ['Test string'],
-      }
+      },
     );
     /** Gets a guaranteed order. */
     await gapi.client.displayvideo.guaranteedOrders.get({
@@ -3390,7 +3390,7 @@ gapi.load('client', async () => {
           entityStatus: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new inventory source group. Returns the newly created inventory source group if successful. */
     await gapi.client.displayvideo.inventorySourceGroups.create(
@@ -3402,7 +3402,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         inventorySourceGroupId: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes an inventory source group. */
     await gapi.client.displayvideo.inventorySourceGroups.delete({
@@ -3437,7 +3437,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         inventorySourceGroupId: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Bulk edits multiple assignments between inventory sources and a single inventory source group. The operation will delete the assigned inventory sources provided in BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources and then create the assigned inventory sources provided in BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources. */
     await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit(
@@ -3455,7 +3455,7 @@ gapi.load('client', async () => {
         ],
         deletedAssignedInventorySources: ['Test string'],
         partnerId: 'Test string',
-      }
+      },
     );
     /** Creates an assignment between an inventory source and an inventory source group. */
     await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.create(
@@ -3468,7 +3468,7 @@ gapi.load('client', async () => {
         assignedInventorySourceId: 'Test string',
         inventorySourceId: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the assignment between an inventory source and an inventory source group. */
     await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.delete(
@@ -3477,7 +3477,7 @@ gapi.load('client', async () => {
         assignedInventorySourceId: 'Test string',
         inventorySourceGroupId: 'Test string',
         partnerId: 'Test string',
-      }
+      },
     );
     /** Lists inventory sources assigned to an inventory source group. */
     await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.list(
@@ -3489,7 +3489,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         partnerId: 'Test string',
-      }
+      },
     );
     /** Creates a new inventory source. Returns the newly created inventory source if successful. */
     await gapi.client.displayvideo.inventorySources.create(
@@ -3559,7 +3559,7 @@ gapi.load('client', async () => {
           startTime: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Edits read/write accessors of an inventory source. Returns the updated read_write_accessors for the inventory source. */
     await gapi.client.displayvideo.inventorySources.editInventorySourceReadWriteAccessors(
@@ -3573,7 +3573,7 @@ gapi.load('client', async () => {
         },
         assignPartner: true,
         partnerId: 'Test string',
-      }
+      },
     );
     /** Gets an inventory source. */
     await gapi.client.displayvideo.inventorySources.get({
@@ -3659,7 +3659,7 @@ gapi.load('client', async () => {
           startTime: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Downloads media. Download is supported on the URI `/download/{resource_name=**}?alt=media.` **Note**: Download requests will not be successful without including `alt=media` query string. */
     await gapi.client.displayvideo.media.download({
@@ -3672,7 +3672,7 @@ gapi.load('client', async () => {
       },
       {
         resourceName: 'Test string',
-      }
+      },
     );
     /** Edits targeting options under a single partner. The operation will delete the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.deleteRequests and then create the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.createRequests . */
     await gapi.client.displayvideo.partners.editAssignedTargetingOptions(
@@ -3965,7 +3965,7 @@ gapi.load('client', async () => {
             targetingType: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Gets a partner. */
     await gapi.client.displayvideo.partners.get({
@@ -3992,7 +3992,7 @@ gapi.load('client', async () => {
         negativelyTargetedLineItemCount: 'Test string',
         partnerId: 'Test string',
         positivelyTargetedLineItemCount: 'Test string',
-      }
+      },
     );
     /** Gets a channel for a partner or advertiser. */
     await gapi.client.displayvideo.partners.channels.get({
@@ -4025,7 +4025,7 @@ gapi.load('client', async () => {
         negativelyTargetedLineItemCount: 'Test string',
         partnerId: 'Test string',
         positivelyTargetedLineItemCount: 'Test string',
-      }
+      },
     );
     /** Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites provided in BulkEditSitesRequest.created_sites. */
     await gapi.client.displayvideo.partners.channels.sites.bulkEdit(
@@ -4043,7 +4043,7 @@ gapi.load('client', async () => {
         ],
         deletedSites: ['Test string'],
         partnerId: 'Test string',
-      }
+      },
     );
     /** Creates a site in a channel. */
     await gapi.client.displayvideo.partners.channels.sites.create(
@@ -4055,7 +4055,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         urlOrAppId: 'Test string',
-      }
+      },
     );
     /** Deletes a site from a channel. */
     await gapi.client.displayvideo.partners.channels.sites.delete({
@@ -4089,7 +4089,7 @@ gapi.load('client', async () => {
           },
         ],
         partnerId: 'Test string',
-      }
+      },
     );
     /** Assigns a targeting option to a partner. Returns the assigned targeting option if successful. */
     await gapi.client.displayvideo.partners.targetingTypes.assignedTargetingOptions.create(
@@ -4368,7 +4368,7 @@ gapi.load('client', async () => {
           negative: true,
           videoId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes an assigned targeting option from a partner. */
     await gapi.client.displayvideo.partners.targetingTypes.assignedTargetingOptions.delete(
@@ -4376,7 +4376,7 @@ gapi.load('client', async () => {
         assignedTargetingOptionId: 'Test string',
         partnerId: 'Test string',
         targetingType: 'Test string',
-      }
+      },
     );
     /** Gets a single targeting option assigned to a partner. */
     await gapi.client.displayvideo.partners.targetingTypes.assignedTargetingOptions.get(
@@ -4384,7 +4384,7 @@ gapi.load('client', async () => {
         assignedTargetingOptionId: 'Test string',
         partnerId: 'Test string',
         targetingType: 'Test string',
-      }
+      },
     );
     /** Lists the targeting options assigned to a partner. */
     await gapi.client.displayvideo.partners.targetingTypes.assignedTargetingOptions.list(
@@ -4395,7 +4395,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         partnerId: 'Test string',
         targetingType: 'Test string',
-      }
+      },
     );
     /** Creates an SDF Download Task. Returns an Operation. An SDF Download Task is a long-running, asynchronous operation. The metadata type of this operation is SdfDownloadTaskMetadata. If the request is successful, the response type of the operation is SdfDownloadTask. The response will not include the download files, which must be retrieved with media.download. The state of operation can be retrieved with sdfdownloadtask.operations.get. Any errors can be found in the error.message. Note that error.details is expected to be empty. */
     await gapi.client.displayvideo.sdfdownloadtasks.create(
@@ -4420,7 +4420,7 @@ gapi.load('client', async () => {
         },
         partnerId: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of an asynchronous SDF download task operation. Clients should poll this method at intervals of 30 seconds. */
     await gapi.client.displayvideo.sdfdownloadtasks.operations.get({
@@ -4460,7 +4460,7 @@ gapi.load('client', async () => {
         poiSearchTerms: {
           poiQuery: 'Test string',
         },
-      }
+      },
     );
     /** Bulk edits user roles for a user. The operation will delete the assigned user roles provided in BulkEditAssignedUserRolesRequest.deletedAssignedUserRoles and then assign the user roles provided in BulkEditAssignedUserRolesRequest.createdAssignedUserRoles. This method has unique authentication requirements. Read the prerequisites in our [Managing Users guide](/display-video/api/guides/users/overview#prerequisites) before using this method. The "Try this method" feature does not work for this method. */
     await gapi.client.displayvideo.users.bulkEditAssignedUserRoles(
@@ -4477,7 +4477,7 @@ gapi.load('client', async () => {
           },
         ],
         deletedAssignedUserRoles: ['Test string'],
-      }
+      },
     );
     /** Creates a new user. Returns the newly created user if successful. This method has unique authentication requirements. Read the prerequisites in our [Managing Users guide](/display-video/api/guides/users/overview#prerequisites) before using this method. The "Try this method" feature does not work for this method. */
     await gapi.client.displayvideo.users.create(
@@ -4496,7 +4496,7 @@ gapi.load('client', async () => {
         lastLoginTime: 'Test string',
         name: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Deletes a user. This method has unique authentication requirements. Read the prerequisites in our [Managing Users guide](/display-video/api/guides/users/overview#prerequisites) before using this method. The "Try this method" feature does not work for this method. */
     await gapi.client.displayvideo.users.delete({
@@ -4533,7 +4533,7 @@ gapi.load('client', async () => {
         lastLoginTime: 'Test string',
         name: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
   }
 });

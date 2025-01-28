@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://admob.googleapis.com/$discovery/rest?version=v1beta'
+    'https://admob.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.admob */
 
@@ -74,7 +74,7 @@ gapi.load('client', async () => {
             parent: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Creates an ad unit under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access. */
     await gapi.client.admob.accounts.adUnits.create(
@@ -92,7 +92,7 @@ gapi.load('client', async () => {
           unitAmount: 'Test string',
           unitType: 'Test string',
         },
-      }
+      },
     );
     /** List the ad units under the specified AdMob account. */
     await gapi.client.admob.accounts.adUnits.list({
@@ -113,7 +113,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** List ad unit mappings under the specified AdMob account and ad unit. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access. */
     await gapi.client.admob.accounts.adUnits.adUnitMappings.list({
@@ -140,7 +140,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         platform: 'Test string',
-      }
+      },
     );
     /** List the apps under the specified AdMob account. */
     await gapi.client.admob.accounts.apps.list({
@@ -171,7 +171,7 @@ gapi.load('client', async () => {
           languageCode: 'Test string',
           metrics: ['Test string'],
         },
-      }
+      },
     );
     /** Create a mediation group under the specific AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access. */
     await gapi.client.admob.accounts.mediationGroups.create(
@@ -206,7 +206,7 @@ gapi.load('client', async () => {
           platform: 'Test string',
           targetedRegionCodes: ['Test string'],
         },
-      }
+      },
     );
     /** List mediation groups under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access. */
     await gapi.client.admob.accounts.mediationGroups.list({
@@ -249,7 +249,7 @@ gapi.load('client', async () => {
           platform: 'Test string',
           targetedRegionCodes: ['Test string'],
         },
-      }
+      },
     );
     /** Create an A/B testing experiment for a specified AdMob account and a mediation group. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access. */
     await gapi.client.admob.accounts.mediationGroups.mediationAbExperiments.create(
@@ -298,7 +298,7 @@ gapi.load('client', async () => {
         ],
         treatmentTrafficPercentage: 'Test string',
         variantLeader: 'Test string',
-      }
+      },
     );
     /** Stop the mediation A/B experiment and choose a variant. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access. */
     await gapi.client.admob.accounts.mediationGroups.mediationAbExperiments.stop(
@@ -307,7 +307,7 @@ gapi.load('client', async () => {
       },
       {
         variantChoice: 'Test string',
-      }
+      },
     );
     /** Generates an AdMob Mediation report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses. */
     await gapi.client.admob.accounts.mediationReport.generate(
@@ -352,7 +352,7 @@ gapi.load('client', async () => {
           ],
           timeZone: 'Test string',
         },
-      }
+      },
     );
     /** Generates an AdMob Network report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses. */
     await gapi.client.admob.accounts.networkReport.generate(
@@ -397,7 +397,7 @@ gapi.load('client', async () => {
           ],
           timeZone: 'Test string',
         },
-      }
+      },
     );
   }
 });

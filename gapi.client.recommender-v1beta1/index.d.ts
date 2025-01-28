@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Recommender API v1beta1 */
   function load(
-    urlOrObject: 'https://recommender.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://recommender.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'recommender', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'recommender',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace recommender {
@@ -425,7 +425,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkInsightAcceptedRequest
+        body: GoogleCloudRecommenderV1beta1MarkInsightAcceptedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Insight>;
     }
     interface InsightTypesResource {
@@ -520,7 +520,7 @@ declare namespace gapi.client {
           /** If true, validate the request and preview the change, but do not actually update it. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudRecommenderV1beta1InsightTypeConfig
+        body: GoogleCloudRecommenderV1beta1InsightTypeConfig,
       ): Request<GoogleCloudRecommenderV1beta1InsightTypeConfig>;
       insights: InsightsResource;
     }
@@ -641,7 +641,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markDismissed(request: {
@@ -699,7 +699,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationDismissedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationDismissedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markFailed(request: {
@@ -757,7 +757,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markSucceeded(request: {
@@ -815,7 +815,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
     }
     interface RecommendersResource {
@@ -910,7 +910,7 @@ declare namespace gapi.client {
           /** If true, validate the request and preview the change, but do not actually update it. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudRecommenderV1beta1RecommenderConfig
+        body: GoogleCloudRecommenderV1beta1RecommenderConfig,
       ): Request<GoogleCloudRecommenderV1beta1RecommenderConfig>;
       recommendations: RecommendationsResource;
     }
@@ -1071,7 +1071,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkInsightAcceptedRequest
+        body: GoogleCloudRecommenderV1beta1MarkInsightAcceptedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Insight>;
     }
     interface InsightTypesResource {
@@ -1194,7 +1194,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markDismissed(request: {
@@ -1252,7 +1252,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationDismissedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationDismissedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markFailed(request: {
@@ -1310,7 +1310,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markSucceeded(request: {
@@ -1368,7 +1368,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
     }
     interface RecommendersResource {
@@ -1562,7 +1562,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkInsightAcceptedRequest
+        body: GoogleCloudRecommenderV1beta1MarkInsightAcceptedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Insight>;
     }
     interface InsightTypesResource {
@@ -1657,7 +1657,7 @@ declare namespace gapi.client {
           /** If true, validate the request and preview the change, but do not actually update it. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudRecommenderV1beta1InsightTypeConfig
+        body: GoogleCloudRecommenderV1beta1InsightTypeConfig,
       ): Request<GoogleCloudRecommenderV1beta1InsightTypeConfig>;
       insights: InsightsResource;
     }
@@ -1778,7 +1778,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markDismissed(request: {
@@ -1836,7 +1836,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationDismissedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationDismissedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markFailed(request: {
@@ -1894,7 +1894,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markSucceeded(request: {
@@ -1952,7 +1952,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
     }
     interface RecommendersResource {
@@ -2047,7 +2047,7 @@ declare namespace gapi.client {
           /** If true, validate the request and preview the change, but do not actually update it. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudRecommenderV1beta1RecommenderConfig
+        body: GoogleCloudRecommenderV1beta1RecommenderConfig,
       ): Request<GoogleCloudRecommenderV1beta1RecommenderConfig>;
       recommendations: RecommendationsResource;
     }
@@ -2208,7 +2208,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkInsightAcceptedRequest
+        body: GoogleCloudRecommenderV1beta1MarkInsightAcceptedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Insight>;
     }
     interface InsightTypesResource {
@@ -2303,7 +2303,7 @@ declare namespace gapi.client {
           /** If true, validate the request and preview the change, but do not actually update it. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudRecommenderV1beta1InsightTypeConfig
+        body: GoogleCloudRecommenderV1beta1InsightTypeConfig,
       ): Request<GoogleCloudRecommenderV1beta1InsightTypeConfig>;
       insights: InsightsResource;
     }
@@ -2424,7 +2424,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markDismissed(request: {
@@ -2482,7 +2482,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationDismissedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationDismissedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markFailed(request: {
@@ -2540,7 +2540,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
       /** Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. */
       markSucceeded(request: {
@@ -2598,7 +2598,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest
+        body: GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest,
       ): Request<GoogleCloudRecommenderV1beta1Recommendation>;
     }
     interface RecommendersResource {
@@ -2693,7 +2693,7 @@ declare namespace gapi.client {
           /** If true, validate the request and preview the change, but do not actually update it. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudRecommenderV1beta1RecommenderConfig
+        body: GoogleCloudRecommenderV1beta1RecommenderConfig,
       ): Request<GoogleCloudRecommenderV1beta1RecommenderConfig>;
       recommendations: RecommendationsResource;
     }

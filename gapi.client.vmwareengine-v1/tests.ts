@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://vmwareengine.googleapis.com/$discovery/rest?version=v1'
+    'https://vmwareengine.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.vmwareengine */
 
@@ -57,7 +57,7 @@ gapi.load('client', async () => {
           user: 'Test string',
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Revokes the bind permission from the customer provided principal(user / service account) on the intranet VPC associated with the consumer project. DnsBindPermission is a global resource and location can only be global. */
     await gapi.client.vmwareengine.projects.locations.dnsBindPermission.revoke(
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
           user: 'Test string',
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Creates a new network peering between the peer network and VMware Engine network provided in a `NetworkPeering` resource. NetworkPeering is a global resource and location can only be global. */
     await gapi.client.vmwareengine.projects.locations.networkPeerings.create(
@@ -96,7 +96,7 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         vmwareEngineNetwork: 'Test string',
-      }
+      },
     );
     /** Deletes a `NetworkPeering` resource. When a network peering is deleted for a VMware Engine network, the peer network becomes inaccessible to that VMware Engine network. NetworkPeering is a global resource and location can only be global. */
     await gapi.client.vmwareengine.projects.locations.networkPeerings.delete({
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         vmwareEngineNetwork: 'Test string',
-      }
+      },
     );
     /** Lists the network peering routes exchanged over a peering connection. NetworkPeering is a global resource and location can only be global. */
     await gapi.client.vmwareengine.projects.locations.networkPeerings.peeringRoutes.list(
@@ -148,7 +148,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new network policy in a given VMware Engine network of a project and location (region). A new network policy cannot be created if another network policy already exists in the same scope. */
     await gapi.client.vmwareengine.projects.locations.networkPolicies.create(
@@ -174,7 +174,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         vmwareEngineNetwork: 'Test string',
         vmwareEngineNetworkCanonical: 'Test string',
-      }
+      },
     );
     /** Deletes a `NetworkPolicy` resource. A network policy cannot be deleted when `NetworkService.state` is set to `RECONCILING` for either its external IP or internet access service. */
     await gapi.client.vmwareengine.projects.locations.networkPolicies.delete({
@@ -187,7 +187,7 @@ gapi.load('client', async () => {
         networkPolicy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Retrieves a `NetworkPolicy` resource by its resource name. */
     await gapi.client.vmwareengine.projects.locations.networkPolicies.get({
@@ -225,7 +225,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         vmwareEngineNetwork: 'Test string',
         vmwareEngineNetworkCanonical: 'Test string',
-      }
+      },
     );
     /** Creates a new external access rule in a given network policy. */
     await gapi.client.vmwareengine.projects.locations.networkPolicies.externalAccessRules.create(
@@ -260,20 +260,20 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single external access rule. */
     await gapi.client.vmwareengine.projects.locations.networkPolicies.externalAccessRules.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single external access rule. */
     await gapi.client.vmwareengine.projects.locations.networkPolicies.externalAccessRules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists `ExternalAccessRule` resources in the specified network policy. */
     await gapi.client.vmwareengine.projects.locations.networkPolicies.externalAccessRules.list(
@@ -283,7 +283,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single external access rule. Only fields specified in `update_mask` are applied. */
     await gapi.client.vmwareengine.projects.locations.networkPolicies.externalAccessRules.patch(
@@ -318,7 +318,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets details of a single `NodeType`. */
     await gapi.client.vmwareengine.projects.locations.nodeTypes.get({
@@ -402,7 +402,7 @@ gapi.load('client', async () => {
           state: 'Test string',
           version: 'Test string',
         },
-      }
+      },
     );
     /** Schedules a `PrivateCloud` resource for deletion. A `PrivateCloud` resource scheduled for deletion has `PrivateCloud.state` set to `DELETED` and `expireTime` set to the time when deletion is final and can no longer be reversed. The delete operation is marked as done as soon as the `PrivateCloud` is successfully scheduled for deletion (this also applies when `delayHours` is set to zero), and the operation is not kept in pending state until `PrivateCloud` is purged. `PrivateCloud` can be restored using `UndeletePrivateCloud` method before the `expireTime` elapses. When `expireTime` is reached, deletion is final and all private cloud resources are irreversibly removed and billing stops. During the final removal process, `PrivateCloud.state` is set to `PURGING`. `PrivateCloud` can be polled using standard `GET` method for the whole period of deletion and purging. It will not be returned only when it is completely purged. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.delete({
@@ -419,14 +419,14 @@ gapi.load('client', async () => {
     await gapi.client.vmwareengine.projects.locations.privateClouds.getDnsForwarding(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists `PrivateCloud` resources in a given project and location. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.list({
@@ -491,7 +491,7 @@ gapi.load('client', async () => {
           state: 'Test string',
           version: 'Test string',
         },
-      }
+      },
     );
     /** Resets credentials of the NSX appliance. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.resetNsxCredentials(
@@ -500,7 +500,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Resets credentials of the Vcenter appliance. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.resetVcenterCredentials(
@@ -510,7 +510,7 @@ gapi.load('client', async () => {
       {
         requestId: 'Test string',
         username: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.setIamPolicy(
@@ -546,20 +546,20 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets details of credentials for NSX appliance. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.showNsxCredentials(
       {
         privateCloud: 'Test string',
-      }
+      },
     );
     /** Gets details of credentials for Vcenter appliance. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.showVcenterCredentials(
       {
         privateCloud: 'Test string',
         username: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.testIamPermissions(
@@ -568,7 +568,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Restores a private cloud that was previously scheduled for deletion by `DeletePrivateCloud`. A `PrivateCloud` resource scheduled for deletion has `PrivateCloud.state` set to `DELETED` and `PrivateCloud.expireTime` set to the time when deletion can no longer be reversed. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.undelete(
@@ -577,7 +577,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of the `DnsForwarding` config, like associated domains. Only fields specified in `update_mask` are applied. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.updateDnsForwarding(
@@ -596,7 +596,7 @@ gapi.load('client', async () => {
         ],
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new cluster in a given private cloud. Creating a new cluster provides additional nodes for use in the parent private cloud and requires sufficient [node quota](https://cloud.google.com/vmware-engine/quotas). */
     await gapi.client.vmwareengine.projects.locations.privateClouds.clusters.create(
@@ -650,27 +650,27 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a `Cluster` resource. To avoid unintended data loss, migrate or gracefully shut down any workloads running on the cluster before deletion. You cannot delete the management cluster of a private cloud using this method. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.clusters.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Retrieves a `Cluster` resource by its resource name. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.clusters.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.clusters.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists `Cluster` resources in a given private cloud. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.clusters.list(
@@ -680,7 +680,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Modifies a `Cluster` resource. Only fields specified in `updateMask` are applied. During operation processing, the resource is temporarily in the `ACTIVE` state before the operation fully completes. For that period of time, you can't update the resource. Use the operation status to determine when the processing fully completes. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.clusters.patch(
@@ -734,7 +734,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.clusters.setIamPolicy(
@@ -770,7 +770,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.clusters.testIamPermissions(
@@ -779,13 +779,13 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets details of a single node. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.clusters.nodes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists nodes in a given cluster. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.clusters.nodes.list(
@@ -793,7 +793,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new `ExternalAddress` resource in a given private cloud. The network policy that corresponds to the private cloud must have the external IP address network service enabled (`NetworkPolicy.external_ip`). */
     await gapi.client.vmwareengine.projects.locations.privateClouds.externalAddresses.create(
@@ -811,20 +811,20 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single external IP address. When you delete an external IP address, connectivity between the external IP address and the corresponding internal IP address is lost. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.externalAddresses.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single external IP address. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.externalAddresses.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists external IP addresses assigned to VMware workload VMs in a given private cloud. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.externalAddresses.list(
@@ -834,7 +834,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single external IP address. Only fields specified in `update_mask` are applied. During operation processing, the resource is temporarily in the `ACTIVE` state before the operation fully completes. For that period of time, you can't update the resource. Use the operation status to determine when the processing fully completes. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.externalAddresses.patch(
@@ -852,7 +852,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new HCX activation key in a given private cloud. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.hcxActivationKeys.create(
@@ -867,20 +867,20 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         uid: 'Test string',
-      }
+      },
     );
     /** Retrieves a `HcxActivationKey` resource by its resource name. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.hcxActivationKeys.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.hcxActivationKeys.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists `HcxActivationKey` resources in a given private cloud. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.hcxActivationKeys.list(
@@ -888,7 +888,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.hcxActivationKeys.setIamPolicy(
@@ -924,7 +924,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.hcxActivationKeys.testIamPermissions(
@@ -933,7 +933,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create a new logging server for a given private cloud. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.loggingServers.create(
@@ -951,20 +951,20 @@ gapi.load('client', async () => {
         sourceType: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single logging server. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.loggingServers.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a logging server. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.loggingServers.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists logging servers configured for a given private cloud. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.loggingServers.list(
@@ -974,7 +974,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single logging server. Only fields specified in `update_mask` are applied. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.loggingServers.patch(
@@ -992,7 +992,7 @@ gapi.load('client', async () => {
         sourceType: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new `ManagementDnsZoneBinding` resource in a private cloud. This RPC creates the DNS binding and the resource that represents the DNS binding of the consumer VPC network to the management DNS zone. A management DNS zone is the Cloud DNS cross-project binding zone that VMware Engine creates for each private cloud. It contains FQDNs and corresponding IP addresses for the private cloud's ESXi hosts and management VM appliances like vCenter and NSX Manager. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.create(
@@ -1010,20 +1010,20 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         vmwareEngineNetwork: 'Test string',
         vpcNetwork: 'Test string',
-      }
+      },
     );
     /** Deletes a `ManagementDnsZoneBinding` resource. When a management DNS zone binding is deleted, the corresponding consumer VPC network is no longer bound to the management DNS zone. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Retrieves a 'ManagementDnsZoneBinding' resource by its resource name. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Consumer VPCs bound to Management DNS Zone of a given private cloud. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.list(
@@ -1033,7 +1033,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a `ManagementDnsZoneBinding` resource. Only fields specified in `update_mask` are applied. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.patch(
@@ -1051,7 +1051,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         vmwareEngineNetwork: 'Test string',
         vpcNetwork: 'Test string',
-      }
+      },
     );
     /** Retries to create a `ManagementDnsZoneBinding` resource that is in failed state. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.repair(
@@ -1060,13 +1060,13 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single subnet. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.subnets.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists subnets in a given private cloud. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.subnets.list(
@@ -1074,7 +1074,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single subnet. Only fields specified in `update_mask` are applied. *Note*: This API is synchronous and always returns a successful `google.longrunning.Operation` (LRO). The returned LRO will only have `done` and `response` fields. */
     await gapi.client.vmwareengine.projects.locations.privateClouds.subnets.patch(
@@ -1089,7 +1089,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         type: 'Test string',
         vlanId: 42,
-      }
+      },
     );
     /** Creates a new private connection that can be used for accessing private Clouds. */
     await gapi.client.vmwareengine.projects.locations.privateConnections.create(
@@ -1112,14 +1112,14 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         vmwareEngineNetwork: 'Test string',
         vmwareEngineNetworkCanonical: 'Test string',
-      }
+      },
     );
     /** Deletes a `PrivateConnection` resource. When a private connection is deleted for a VMware Engine network, the connected network becomes inaccessible to that VMware Engine network. */
     await gapi.client.vmwareengine.projects.locations.privateConnections.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Retrieves a `PrivateConnection` resource by its resource name. The resource contains details of the private connection, such as connected network, routing mode and state. */
     await gapi.client.vmwareengine.projects.locations.privateConnections.get({
@@ -1154,7 +1154,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         vmwareEngineNetwork: 'Test string',
         vmwareEngineNetworkCanonical: 'Test string',
-      }
+      },
     );
     /** Lists the private connection routes exchanged over a peering connection. */
     await gapi.client.vmwareengine.projects.locations.privateConnections.peeringRoutes.list(
@@ -1162,7 +1162,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new VMware Engine network that can be used by a private cloud. */
     await gapi.client.vmwareengine.projects.locations.vmwareEngineNetworks.create(
@@ -1186,7 +1186,7 @@ gapi.load('client', async () => {
             type: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a `VmwareEngineNetwork` resource. You can only delete a VMware Engine network after all resources that refer to it are deleted. For example, a private cloud, a network peering, and a network policy can all refer to the same VMware Engine network. */
     await gapi.client.vmwareengine.projects.locations.vmwareEngineNetworks.delete(
@@ -1194,7 +1194,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Retrieves a `VmwareEngineNetwork` resource by its resource name. The resource contains details of the VMware Engine network, such as its VMware Engine network type, peered networks in a service project, and state (for example, `CREATING`, `ACTIVE`, `DELETING`). */
     await gapi.client.vmwareengine.projects.locations.vmwareEngineNetworks.get({
@@ -1208,7 +1208,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Modifies a VMware Engine network resource. Only the following fields can be updated: `description`. Only fields specified in `updateMask` are applied. */
     await gapi.client.vmwareengine.projects.locations.vmwareEngineNetworks.patch(
@@ -1232,7 +1232,7 @@ gapi.load('client', async () => {
             type: 'Test string',
           },
         ],
-      }
+      },
     );
   }
 });

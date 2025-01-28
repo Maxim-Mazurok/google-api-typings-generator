@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://migrationcenter.googleapis.com/$discovery/rest?version=v1'
+    'https://migrationcenter.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.migrationcenter */
 
@@ -57,7 +57,7 @@ gapi.load('client', async () => {
         disableCloudLogging: true,
         name: 'Test string',
         preferenceSet: 'Test string',
-      }
+      },
     );
     /** Aggregates the requested fields based on provided function. */
     await gapi.client.migrationcenter.projects.locations.assets.aggregateValues(
@@ -77,7 +77,7 @@ gapi.load('client', async () => {
           },
         ],
         filter: 'Test string',
-      }
+      },
     );
     /** Deletes list of Assets. */
     await gapi.client.migrationcenter.projects.locations.assets.batchDelete(
@@ -87,7 +87,7 @@ gapi.load('client', async () => {
       {
         allowMissing: true,
         names: ['Test string'],
-      }
+      },
     );
     /** Updates the parameters of a list of assets. */
     await gapi.client.migrationcenter.projects.locations.assets.batchUpdate(
@@ -569,7 +569,7 @@ gapi.load('client', async () => {
             updateMask: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes an asset. */
     await gapi.client.migrationcenter.projects.locations.assets.delete({
@@ -1064,7 +1064,7 @@ gapi.load('client', async () => {
         sources: ['Test string'],
         title: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Reports a set of frames. */
     await gapi.client.migrationcenter.projects.locations.assets.reportAssetFrames(
@@ -1467,7 +1467,7 @@ gapi.load('client', async () => {
             traceToken: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Creates a new discovery client. */
     await gapi.client.migrationcenter.projects.locations.discoveryClients.create(
@@ -1504,14 +1504,14 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         updateTime: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Deletes a discovery client. */
     await gapi.client.migrationcenter.projects.locations.discoveryClients.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets the details of a discovery client. */
     await gapi.client.migrationcenter.projects.locations.discoveryClients.get({
@@ -1560,7 +1560,7 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         updateTime: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Sends a discovery client heartbeat. Healthy clients are expected to send heartbeats regularly (normally every few minutes). */
     await gapi.client.migrationcenter.projects.locations.discoveryClients.sendHeartbeat(
@@ -1580,7 +1580,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Adds assets to a group. */
     await gapi.client.migrationcenter.projects.locations.groups.addAssets(
@@ -1593,7 +1593,7 @@ gapi.load('client', async () => {
           assetIds: ['Test string'],
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Creates a new group in a given project and location. */
     await gapi.client.migrationcenter.projects.locations.groups.create(
@@ -1611,7 +1611,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a group. */
     await gapi.client.migrationcenter.projects.locations.groups.delete({
@@ -1646,7 +1646,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes assets from a group. */
     await gapi.client.migrationcenter.projects.locations.groups.removeAssets(
@@ -1659,7 +1659,7 @@ gapi.load('client', async () => {
           assetIds: ['Test string'],
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Creates an import job. */
     await gapi.client.migrationcenter.projects.locations.importJobs.create(
@@ -1777,7 +1777,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Deletes an import job. */
     await gapi.client.migrationcenter.projects.locations.importJobs.delete({
@@ -1915,7 +1915,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Runs an import job. */
     await gapi.client.migrationcenter.projects.locations.importJobs.run(
@@ -1924,7 +1924,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Validates an import job. */
     await gapi.client.migrationcenter.projects.locations.importJobs.validate(
@@ -1933,7 +1933,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Creates an import data file. */
     await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.create(
@@ -1955,20 +1955,20 @@ gapi.load('client', async () => {
           signedUri: 'Test string',
           uriExpirationTime: 'Test string',
         },
-      }
+      },
     );
     /** Delete an import data file. */
     await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets an import data file. */
     await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List import data files. */
     await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.list(
@@ -1978,14 +1978,14 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.migrationcenter.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.migrationcenter.projects.locations.operations.delete({
@@ -2050,7 +2050,7 @@ gapi.load('client', async () => {
             storageDeduplicationCompressionRatio: 42,
           },
         },
-      }
+      },
     );
     /** Deletes a preference set. */
     await gapi.client.migrationcenter.projects.locations.preferenceSets.delete({
@@ -2116,7 +2116,7 @@ gapi.load('client', async () => {
             storageDeduplicationCompressionRatio: 42,
           },
         },
-      }
+      },
     );
     /** Gets the details of an relation. */
     await gapi.client.migrationcenter.projects.locations.relations.get({
@@ -2149,7 +2149,7 @@ gapi.load('client', async () => {
         ],
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a ReportConfig. */
     await gapi.client.migrationcenter.projects.locations.reportConfigs.delete({
@@ -2401,21 +2401,21 @@ gapi.load('client', async () => {
         },
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a Report. */
     await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Report. */
     await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Lists Reports in a given ReportConfig. */
     await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.list(
@@ -2426,7 +2426,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Creates a new source in a given project and location. */
     await gapi.client.migrationcenter.projects.locations.sources.create(
@@ -2447,7 +2447,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a source. */
     await gapi.client.migrationcenter.projects.locations.sources.delete({
@@ -2485,14 +2485,14 @@ gapi.load('client', async () => {
         state: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the details of an error frame. */
     await gapi.client.migrationcenter.projects.locations.sources.errorFrames.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Lists all error frames in a given source and location. */
     await gapi.client.migrationcenter.projects.locations.sources.errorFrames.list(
@@ -2501,7 +2501,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
   }
 });

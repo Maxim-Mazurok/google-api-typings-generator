@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Merchant API reviews_v1beta */
   function load(
-    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=reviews_v1beta'
+    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=reviews_v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'merchantapi', version: 'reviews_v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'merchantapi',
     version: 'reviews_v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace merchantapi {
@@ -384,7 +384,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MerchantReview
+        body: MerchantReview,
       ): Request<MerchantReview>;
       /** Lists merchant reviews. */
       list(request?: {
@@ -533,7 +533,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProductReview
+        body: ProductReview,
       ): Request<ProductReview>;
       /** Lists product reviews. */
       list(request?: {

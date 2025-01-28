@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load GKE Hub API v2alpha */
   function load(
-    urlOrObject: 'https://gkehub.googleapis.com/$discovery/rest?version=v2alpha'
+    urlOrObject: 'https://gkehub.googleapis.com/$discovery/rest?version=v2alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'gkehub', version: 'v2alpha'): Promise<void>;
@@ -911,7 +911,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MembershipFeature
+        body: MembershipFeature,
       ): Request<Operation>;
       /** Removes a membershipFeature. */
       delete(request?: {
@@ -1072,7 +1072,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MembershipFeature
+        body: MembershipFeature,
       ): Request<Operation>;
     }
     interface MembershipsResource {
@@ -1135,7 +1135,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {

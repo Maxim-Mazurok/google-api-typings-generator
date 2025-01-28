@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://fcm.googleapis.com/$discovery/rest?version=v1'
+    'https://fcm.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.fcm */
 
@@ -136,7 +136,7 @@ gapi.load('client', async () => {
           },
         },
         validateOnly: true,
-      }
+      },
     );
   }
 });

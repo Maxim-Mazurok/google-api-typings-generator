@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load BigQuery Reservation API v1 */
   function load(
-    urlOrObject: 'https://bigqueryreservation.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://bigqueryreservation.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'bigqueryreservation', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'bigqueryreservation',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace bigqueryreservation {
@@ -241,7 +241,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CapacityCommitment
+        body: CapacityCommitment,
       ): Request<CapacityCommitment>;
       /** Deletes a capacity commitment. Attempting to delete capacity commitment before its commitment_end_time will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`. */
       delete(request?: {
@@ -386,7 +386,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MergeCapacityCommitmentsRequest
+        body: MergeCapacityCommitmentsRequest,
       ): Request<CapacityCommitment>;
       /** Updates an existing capacity commitment. Only `plan` and `renewal_plan` fields can be updated. Plan can only be changed to a plan of a longer commitment period. Attempting to change to a plan with shorter commitment period will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`. */
       patch(request: {
@@ -448,7 +448,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CapacityCommitment
+        body: CapacityCommitment,
       ): Request<CapacityCommitment>;
       /** Splits capacity commitment to two commitments of the same plan and `commitment_end_time`. A common use case is to enable downgrading commitments. For example, in order to downgrade from 10000 slots to 8000, you might split a 10000 capacity commitment into commitments of 2000 and 8000. Then, you delete the first one after the commitment end time passes. */
       split(request: {
@@ -506,7 +506,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SplitCapacityCommitmentRequest
+        body: SplitCapacityCommitmentRequest,
       ): Request<SplitCapacityCommitmentResponse>;
     }
     interface AssignmentsResource {
@@ -570,7 +570,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Assignment
+        body: Assignment,
       ): Request<Assignment>;
       /** Deletes a assignment. No expansion will happen. Example: * Organization `organizationA` contains two projects, `project1` and `project2`. * Reservation `res1` exists and was created previously. * CreateAssignment was used previously to define the following associations between entities and reservations: `` and `` In this example, deletion of the `` assignment won't affect the other assignment ``. After said deletion, queries from `project1` will still use `res1` while queries from `project2` will switch to use on-demand mode. */
       delete(request?: {
@@ -686,7 +686,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MoveAssignmentRequest
+        body: MoveAssignmentRequest,
       ): Request<Assignment>;
       /** Updates an existing assignment. Only the `priority` field can be updated. */
       patch(request: {
@@ -748,7 +748,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Assignment
+        body: Assignment,
       ): Request<Assignment>;
     }
     interface ReservationsResource {
@@ -812,7 +812,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Reservation
+        body: Reservation,
       ): Request<Reservation>;
       /** Deletes a reservation. Returns `google.rpc.Code.FAILED_PRECONDITION` when reservation has assignments. */
       delete(request?: {
@@ -897,7 +897,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FailoverReservationRequest
+        body: FailoverReservationRequest,
       ): Request<Reservation>;
       /** Returns information about the reservation. */
       get(request?: {
@@ -1017,7 +1017,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Reservation
+        body: Reservation,
       ): Request<Reservation>;
       assignments: AssignmentsResource;
     }
@@ -1175,7 +1175,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BiReservation
+        body: BiReservation,
       ): Request<BiReservation>;
       capacityCommitments: CapacityCommitmentsResource;
       reservations: ReservationsResource;

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://pubsublite.googleapis.com/$discovery/rest?version=v1'
+    'https://pubsublite.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.pubsublite */
 
@@ -36,7 +36,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.pubsublite.admin.projects.locations.operations.delete({
@@ -62,7 +62,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         throughputCapacity: 'Test string',
-      }
+      },
     );
     /** Deletes the specified reservation. */
     await gapi.client.pubsublite.admin.projects.locations.reservations.delete({
@@ -87,7 +87,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         throughputCapacity: 'Test string',
-      }
+      },
     );
     /** Lists the topics attached to the specified reservation. */
     await gapi.client.pubsublite.admin.projects.locations.reservations.topics.list(
@@ -95,7 +95,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates a new subscription. */
     await gapi.client.pubsublite.admin.projects.locations.subscriptions.create(
@@ -118,7 +118,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         topic: 'Test string',
-      }
+      },
     );
     /** Deletes the specified subscription. */
     await gapi.client.pubsublite.admin.projects.locations.subscriptions.delete({
@@ -154,7 +154,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         topic: 'Test string',
-      }
+      },
     );
     /** Performs an out-of-band seek for a subscription to a specified target, which may be timestamps or named positions within the message backlog. Seek translates these targets to cursors for each partition and orchestrates subscribers to start consuming messages from these seek cursors. If an operation is returned, the seek has been registered and subscribers will eventually receive messages from the seek cursors (i.e. eventual consistency), as long as they are using a minimum supported client library version and not a system that tracks cursors independently of Pub/Sub Lite (e.g. Apache Beam, Dataflow, Spark). The seek operation will fail for unsupported clients. If clients would like to know when subscribers react to the seek (or not), they can poll the operation. The seek operation will succeed and complete once subscribers are ready to receive messages from the seek cursors for all partitions of the topic. This means that the seek operation will not complete until all subscribers come online. If the previous seek operation has not yet completed, it will be aborted and the new invocation of seek will supersede it. */
     await gapi.client.pubsublite.admin.projects.locations.subscriptions.seek(
@@ -167,7 +167,7 @@ gapi.load('client', async () => {
           eventTime: 'Test string',
           publishTime: 'Test string',
         },
-      }
+      },
     );
     /** Creates a new topic. */
     await gapi.client.pubsublite.admin.projects.locations.topics.create(
@@ -192,7 +192,7 @@ gapi.load('client', async () => {
           period: 'Test string',
           perPartitionBytes: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified topic. */
     await gapi.client.pubsublite.admin.projects.locations.topics.delete({
@@ -235,7 +235,7 @@ gapi.load('client', async () => {
           period: 'Test string',
           perPartitionBytes: 'Test string',
         },
-      }
+      },
     );
     /** Lists the subscriptions attached to the specified topic. */
     await gapi.client.pubsublite.admin.projects.locations.topics.subscriptions.list(
@@ -243,7 +243,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Updates the committed cursor. */
     await gapi.client.pubsublite.cursor.projects.locations.subscriptions.commitCursor(
@@ -255,7 +255,7 @@ gapi.load('client', async () => {
           offset: 'Test string',
         },
         partition: 'Test string',
-      }
+      },
     );
     /** Returns all committed cursor information for a subscription. */
     await gapi.client.pubsublite.cursor.projects.locations.subscriptions.cursors.list(
@@ -263,7 +263,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Compute the head cursor for the partition. The head cursor's offset is guaranteed to be less than or equal to all messages which have not yet been acknowledged as published, and greater than the offset of any message whose publish has already been acknowledged. It is zero if there have never been messages in the partition. */
     await gapi.client.pubsublite.topicStats.projects.locations.topics.computeHeadCursor(
@@ -272,7 +272,7 @@ gapi.load('client', async () => {
       },
       {
         partition: 'Test string',
-      }
+      },
     );
     /** Compute statistics about a range of messages in a given topic and partition. */
     await gapi.client.pubsublite.topicStats.projects.locations.topics.computeMessageStats(
@@ -287,7 +287,7 @@ gapi.load('client', async () => {
         startCursor: {
           offset: 'Test string',
         },
-      }
+      },
     );
     /** Compute the corresponding cursor for a publish or event time in a topic partition. */
     await gapi.client.pubsublite.topicStats.projects.locations.topics.computeTimeCursor(
@@ -300,7 +300,7 @@ gapi.load('client', async () => {
           eventTime: 'Test string',
           publishTime: 'Test string',
         },
-      }
+      },
     );
   }
 });

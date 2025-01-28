@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Infrastructure Manager API v1 */
   function load(
-    urlOrObject: 'https://config.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://config.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'config', version: 'v1'): Promise<void>;
@@ -590,7 +590,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExportRevisionStatefileRequest
+        body: ExportRevisionStatefileRequest,
       ): Request<Statefile>;
       /** Gets details about a Revision. */
       get(request?: {
@@ -721,7 +721,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Deployment
+        body: Deployment,
       ): Request<Operation>;
       /** Deletes a Deployment. */
       delete(request?: {
@@ -812,7 +812,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeleteStatefileRequest
+        body: DeleteStatefileRequest,
       ): Request<{}>;
       /** Exports the lock info on a locked deployment. */
       exportLock(request?: {
@@ -897,7 +897,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExportDeploymentStatefileRequest
+        body: ExportDeploymentStatefileRequest,
       ): Request<Statefile>;
       /** Gets details about a Deployment. */
       get(request?: {
@@ -1011,7 +1011,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportStatefileRequest
+        body: ImportStatefileRequest,
       ): Request<Statefile>;
       /** Lists Deployments in a given project and location. */
       list(request?: {
@@ -1104,7 +1104,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LockDeploymentRequest
+        body: LockDeploymentRequest,
       ): Request<Operation>;
       /** Updates a Deployment. */
       patch(request: {
@@ -1170,7 +1170,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Deployment
+        body: Deployment,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1200,7 +1200,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1230,7 +1230,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Unlocks a locked deployment. */
       unlock(request: {
@@ -1288,7 +1288,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UnlockDeploymentRequest
+        body: UnlockDeploymentRequest,
       ): Request<Operation>;
       revisions: RevisionsResource;
     }
@@ -1349,7 +1349,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -1504,7 +1504,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Preview
+        body: Preview,
       ): Request<Operation>;
       /** Deletes a Preview. */
       delete(request?: {
@@ -1591,7 +1591,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExportPreviewResultRequest
+        body: ExportPreviewResultRequest,
       ): Request<ExportPreviewResultResponse>;
       /** Gets details about a Preview. */
       get(request?: {

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://tpu.googleapis.com/$discovery/rest?version=v1'
+    'https://tpu.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.tpu */
 
@@ -97,7 +97,7 @@ gapi.load('client', async () => {
         ],
         tensorflowVersion: 'Test string',
         useServiceNetworking: true,
-      }
+      },
     );
     /** Deletes a node. */
     await gapi.client.tpu.projects.locations.nodes.delete({
@@ -120,21 +120,21 @@ gapi.load('client', async () => {
       },
       {
         tensorflowVersion: 'Test string',
-      }
+      },
     );
     /** Starts a node. */
     await gapi.client.tpu.projects.locations.nodes.start(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Stops a node, this operation is only available with single TPU nodes. */
     await gapi.client.tpu.projects.locations.nodes.stop(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.tpu.projects.locations.operations.cancel({

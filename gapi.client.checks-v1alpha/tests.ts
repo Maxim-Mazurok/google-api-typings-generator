@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://checks.googleapis.com/$discovery/rest?version=v1alpha'
+    'https://checks.googleapis.com/$discovery/rest?version=v1alpha',
   );
   /** now we can use gapi.client.checks */
 
@@ -31,7 +31,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.checks.accounts.apps.operations.delete({
@@ -55,7 +55,7 @@ gapi.load('client', async () => {
       },
       {
         timeout: 'Test string',
-      }
+      },
     );
     /** Gets a report. By default, only the name and results_uri fields are returned. You can include other fields by listing them in the `fields` URL query parameter. For example, `?fields=name,checks` will return the name and checks fields. */
     await gapi.client.checks.accounts.apps.reports.get({
@@ -121,7 +121,7 @@ gapi.load('client', async () => {
           remoteUri: 'Test string',
           revisionId: 'Test string',
         },
-      }
+      },
     );
     /** Gets a repo scan. By default, only the name and results_uri fields are returned. You can include other fields by listing them in the `fields` URL query parameter. For example, `?fields=name,sources` will return the name and sources fields. */
     await gapi.client.checks.accounts.repos.scans.get({
@@ -154,7 +154,7 @@ gapi.load('client', async () => {
             threshold: 42,
           },
         ],
-      }
+      },
     );
     /** Analyzes the uploaded app bundle and returns a google.longrunning.Operation containing the generated Report. ## Example (upload only) Send a regular POST request with the header `X-Goog-Upload-Protocol: raw`. ``` POST https://checks.googleapis.com/upload/v1alpha/{parent=accounts/*‍/apps/*}/reports:analyzeUpload HTTP/1.1 X-Goog-Upload-Protocol: raw Content-Length: Content-Type: application/octet-stream ``` ## Example (upload with metadata) Send a multipart POST request where the first body part contains the metadata JSON and the second body part contains the binary upload. Include the header `X-Goog-Upload-Protocol: multipart`. ``` POST https://checks.googleapis.com/upload/v1alpha/{parent=accounts/*‍/apps/*}/reports:analyzeUpload HTTP/1.1 X-Goog-Upload-Protocol: multipart Content-Length: ? Content-Type: multipart/related; boundary=BOUNDARY --BOUNDARY Content-Type: application/json {"code_reference_id":"db5bcc20f94055fb5bc08cbb9b0e7a5530308786"} --BOUNDARY --BOUNDARY-- ``` *Note:* Metadata-only requests are not supported. */
     await gapi.client.checks.media.upload(
@@ -164,7 +164,7 @@ gapi.load('client', async () => {
       {
         appBinaryFileType: 'Test string',
         codeReferenceId: 'Test string',
-      }
+      },
     );
   }
 });

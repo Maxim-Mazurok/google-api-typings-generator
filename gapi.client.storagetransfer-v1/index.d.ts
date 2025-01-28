@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Storage Transfer API v1 */
   function load(
-    urlOrObject: 'https://storagetransfer.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://storagetransfer.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'storagetransfer', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'storagetransfer',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace storagetransfer {
@@ -530,7 +530,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AgentPool
+        body: AgentPool,
       ): Request<AgentPool>;
       /** Deletes an agent pool. */
       delete(request?: {
@@ -679,7 +679,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AgentPool
+        body: AgentPool,
       ): Request<AgentPool>;
     }
     interface ProjectsResource {
@@ -738,7 +738,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TransferJob
+        body: TransferJob,
       ): Request<TransferJob>;
       /** Deletes a transfer job. Deleting a transfer job sets its status to DELETED. */
       delete(request?: {
@@ -885,7 +885,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateTransferJobRequest
+        body: UpdateTransferJobRequest,
       ): Request<TransferJob>;
       /** Starts a new operation for the specified transfer job. A `TransferJob` has a maximum of one active `TransferOperation`. If this method is called while a `TransferOperation` is active, an error is returned. */
       run(request: {
@@ -943,7 +943,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunTransferJobRequest
+        body: RunTransferJobRequest,
       ): Request<Operation>;
     }
     interface TransferOperationsResource {
@@ -1003,7 +1003,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -1121,7 +1121,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PauseTransferOperationRequest
+        body: PauseTransferOperationRequest,
       ): Request<{}>;
       /** Resumes a transfer operation that is paused. */
       resume(request: {
@@ -1179,7 +1179,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResumeTransferOperationRequest
+        body: ResumeTransferOperationRequest,
       ): Request<{}>;
     }
 

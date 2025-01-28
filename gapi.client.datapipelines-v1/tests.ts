@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://datapipelines.googleapis.com/$discovery/rest?version=v1'
+    'https://datapipelines.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.datapipelines */
 
@@ -130,7 +130,7 @@ gapi.load('client', async () => {
             validateOnly: true,
           },
         },
-      }
+      },
     );
     /** Deletes a pipeline. If a scheduler job is attached to the pipeline, it will be deleted. */
     await gapi.client.datapipelines.projects.locations.pipelines.delete({
@@ -247,21 +247,21 @@ gapi.load('client', async () => {
             validateOnly: true,
           },
         },
-      }
+      },
     );
     /** Creates a job for the specified pipeline directly. You can use this method when the internal scheduler is not configured and you want to trigger the job directly or through an external system. Returns a "NOT_FOUND" error if the pipeline doesn't exist. Returns a "FORBIDDEN" error if the user doesn't have permission to access the pipeline or run jobs for the pipeline. */
     await gapi.client.datapipelines.projects.locations.pipelines.run(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Freezes pipeline execution permanently. If there's a corresponding scheduler entry, it's deleted, and the pipeline state is changed to "ARCHIVED". However, pipeline metadata is retained. */
     await gapi.client.datapipelines.projects.locations.pipelines.stop(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Lists jobs for a given pipeline. Throws a "FORBIDDEN" error if the caller doesn't have permission to access it. */
     await gapi.client.datapipelines.projects.locations.pipelines.jobs.list({

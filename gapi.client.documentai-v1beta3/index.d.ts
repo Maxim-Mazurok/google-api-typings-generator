@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Document AI API v1beta3 */
   function load(
-    urlOrObject: 'https://documentai.googleapis.com/$discovery/rest?version=v1beta3'
+    urlOrObject: 'https://documentai.googleapis.com/$discovery/rest?version=v1beta3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'documentai', version: 'v1beta3'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'documentai',
     version: 'v1beta3',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace documentai {
@@ -2078,7 +2078,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3BatchDeleteDocumentsRequest
+        body: GoogleCloudDocumentaiV1beta3BatchDeleteDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets the `DatasetSchema` of a `Dataset`. */
       getDatasetSchema(request?: {
@@ -2210,7 +2210,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3ImportDocumentsRequest
+        body: GoogleCloudDocumentaiV1beta3ImportDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Returns a list of documents present in the dataset. */
       listDocuments(request: {
@@ -2268,7 +2268,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3ListDocumentsRequest
+        body: GoogleCloudDocumentaiV1beta3ListDocumentsRequest,
       ): Request<GoogleCloudDocumentaiV1beta3ListDocumentsResponse>;
       /** Updates a `DatasetSchema`. */
       updateDatasetSchema(request: {
@@ -2330,7 +2330,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3DatasetSchema
+        body: GoogleCloudDocumentaiV1beta3DatasetSchema,
       ): Request<GoogleCloudDocumentaiV1beta3DatasetSchema>;
     }
     interface HumanReviewConfigResource {
@@ -2390,7 +2390,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3ReviewDocumentRequest
+        body: GoogleCloudDocumentaiV1beta3ReviewDocumentRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface EvaluationsResource {
@@ -2510,7 +2510,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3BatchProcessRequest
+        body: GoogleCloudDocumentaiV1beta3BatchProcessRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes the processor version, all artifacts under the processor version will be deleted. */
       delete(request?: {
@@ -2595,7 +2595,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3DeployProcessorVersionRequest
+        body: GoogleCloudDocumentaiV1beta3DeployProcessorVersionRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Evaluates a ProcessorVersion against annotated documents, producing an Evaluation. */
       evaluateProcessorVersion(request: {
@@ -2653,7 +2653,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3EvaluateProcessorVersionRequest
+        body: GoogleCloudDocumentaiV1beta3EvaluateProcessorVersionRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets a processor version detail. */
       get(request?: {
@@ -2738,7 +2738,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3ImportProcessorVersionRequest
+        body: GoogleCloudDocumentaiV1beta3ImportProcessorVersionRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Lists all versions of a processor. */
       list(request?: {
@@ -2827,7 +2827,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3ProcessRequest
+        body: GoogleCloudDocumentaiV1beta3ProcessRequest,
       ): Request<GoogleCloudDocumentaiV1beta3ProcessResponse>;
       /** Trains a new processor version. Operation metadata is returned as TrainProcessorVersionMetadata. */
       train(request: {
@@ -2885,7 +2885,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3TrainProcessorVersionRequest
+        body: GoogleCloudDocumentaiV1beta3TrainProcessorVersionRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Undeploys the processor version. */
       undeploy(request: {
@@ -2943,7 +2943,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3UndeployProcessorVersionRequest
+        body: GoogleCloudDocumentaiV1beta3UndeployProcessorVersionRequest,
       ): Request<GoogleLongrunningOperation>;
       evaluations: EvaluationsResource;
     }
@@ -3004,7 +3004,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3BatchProcessRequest
+        body: GoogleCloudDocumentaiV1beta3BatchProcessRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates a processor from the ProcessorType provided. The processor will be at `ENABLED` state by default after its creation. Note that this method requires the `documentai.processors.create` permission on the project, which is highly privileged. A user or service account with this permission can create new processors that can interact with any gcs bucket in your project. */
       create(request: {
@@ -3062,7 +3062,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3Processor
+        body: GoogleCloudDocumentaiV1beta3Processor,
       ): Request<GoogleCloudDocumentaiV1beta3Processor>;
       /** Deletes the processor, unloads all deployed model artifacts if it was enabled and then deletes all artifacts associated with this processor. */
       delete(request?: {
@@ -3147,7 +3147,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3DisableProcessorRequest
+        body: GoogleCloudDocumentaiV1beta3DisableProcessorRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Enables a processor */
       enable(request: {
@@ -3205,7 +3205,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3EnableProcessorRequest
+        body: GoogleCloudDocumentaiV1beta3EnableProcessorRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets a processor detail. */
       get(request?: {
@@ -3321,7 +3321,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3ProcessRequest
+        body: GoogleCloudDocumentaiV1beta3ProcessRequest,
       ): Request<GoogleCloudDocumentaiV1beta3ProcessResponse>;
       /** Set the default (active) version of a Processor that will be used in ProcessDocument and BatchProcessDocuments. */
       setDefaultProcessorVersion(request: {
@@ -3379,7 +3379,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionRequest
+        body: GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates metadata associated with a dataset. Note that this method requires the `documentai.googleapis.com/datasets.update` permission on the project, which is highly privileged. A user or service account with this permission can create new processors that can interact with any gcs bucket in your project. */
       updateDataset(request: {
@@ -3441,7 +3441,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDocumentaiV1beta3Dataset
+        body: GoogleCloudDocumentaiV1beta3Dataset,
       ): Request<GoogleLongrunningOperation>;
       dataset: DatasetResource;
       humanReviewConfig: HumanReviewConfigResource;

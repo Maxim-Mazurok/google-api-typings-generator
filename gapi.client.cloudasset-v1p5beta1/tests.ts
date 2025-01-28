@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudasset.googleapis.com/$discovery/rest?version=v1p5beta1'
+    'https://cloudasset.googleapis.com/$discovery/rest?version=v1p5beta1',
   );
   /** now we can use gapi.client.cloudasset */
 

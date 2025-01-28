@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://streetviewpublish.googleapis.com/$discovery/rest?version=v1'
+    'https://streetviewpublish.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.streetviewpublish */
 
@@ -79,7 +79,7 @@ gapi.load('client', async () => {
         },
         uploadTime: 'Test string',
         viewCount: 'Test string',
-      }
+      },
     );
     /** Deletes a Photo and its metadata. This method returns the following error codes: * google.rpc.Code.PERMISSION_DENIED if the requesting user did not create the requested photo. * google.rpc.Code.NOT_FOUND if the photo ID does not exist. */
     await gapi.client.streetviewpublish.photo.delete({
@@ -144,14 +144,14 @@ gapi.load('client', async () => {
         },
         uploadTime: 'Test string',
         viewCount: 'Test string',
-      }
+      },
     );
     /** Deletes a list of Photos and their metadata. Note that if BatchDeletePhotos fails, either critical fields are missing or there is an authentication error. Even if BatchDeletePhotos succeeds, individual photos in the batch may have failures. These failures are specified in each PhotoResponse.status in BatchDeletePhotosResponse.results. See DeletePhoto for specific failures that can occur per photo. */
     await gapi.client.streetviewpublish.photos.batchDelete(
       {},
       {
         photoIds: ['Test string'],
-      }
+      },
     );
     /** Gets the metadata of the specified Photo batch. Note that if BatchGetPhotos fails, either critical fields are missing or there is an authentication error. Even if BatchGetPhotos succeeds, individual photos in the batch may have failures. These failures are specified in each PhotoResponse.status in BatchGetPhotosResponse.results. See GetPhoto for specific failures that can occur per photo. */
     await gapi.client.streetviewpublish.photos.batchGet({
@@ -214,7 +214,7 @@ gapi.load('client', async () => {
             updateMask: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Lists all the Photos that belong to the user. > Note: Recently created photos that are still being indexed are not returned in the response. */
     await gapi.client.streetviewpublish.photos.list({
@@ -366,7 +366,7 @@ gapi.load('client', async () => {
         },
         uploadTime: 'Test string',
         viewCount: 'Test string',
-      }
+      },
     );
     /** Deletes a PhotoSequence and its metadata. This method returns the following error codes: * google.rpc.Code.PERMISSION_DENIED if the requesting user did not create the requested photo sequence. * google.rpc.Code.NOT_FOUND if the photo sequence ID does not exist. * google.rpc.Code.FAILED_PRECONDITION if the photo sequence ID is not yet finished processing. */
     await gapi.client.streetviewpublish.photoSequence.delete({

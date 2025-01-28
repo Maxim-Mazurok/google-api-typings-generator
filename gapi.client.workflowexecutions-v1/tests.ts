@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://workflowexecutions.googleapis.com/$discovery/rest?version=v1'
+    'https://workflowexecutions.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.workflowexecutions */
 
@@ -49,14 +49,14 @@ gapi.load('client', async () => {
           publishTime: 'Test string',
         },
         subscription: 'Test string',
-      }
+      },
     );
     /** Cancels an execution of the given name. */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new execution using the latest revision of the given workflow. For more information, see Execute a workflow. */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.create(
@@ -108,27 +108,27 @@ gapi.load('client', async () => {
           ],
         },
         workflowRevisionId: 'Test string',
-      }
+      },
     );
     /** Deletes all step entries for an execution. */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.deleteExecutionHistory(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Returns all metadata stored about an execution, excluding most data that is already accessible using other API methods. */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.exportData(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns an execution of the given name. */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Returns a list of executions which belong to the workflow with the given name. The method returns executions of all workflow revisions. Returned executions are ordered by their start time (newest first). */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.list(
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Returns a list of active callbacks that belong to the execution with the given name. The returned callbacks are ordered by callback ID. */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.callbacks.list(
@@ -147,14 +147,14 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets a step entry. */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.stepEntries.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Lists step entries for the corresponding workflow execution. Returned entries are ordered by their create_time. */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.stepEntries.list(
@@ -166,7 +166,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         skip: 42,
         view: 'Test string',
-      }
+      },
     );
   }
 });

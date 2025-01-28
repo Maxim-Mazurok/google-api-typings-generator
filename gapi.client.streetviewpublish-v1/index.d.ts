@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Street View Publish API v1 */
   function load(
-    urlOrObject: 'https://streetviewpublish.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://streetviewpublish.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'streetviewpublish', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'streetviewpublish',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace streetviewpublish {
@@ -322,7 +322,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Photo
+        body: Photo,
       ): Request<Photo>;
       /** Deletes a Photo and its metadata. This method returns the following error codes: * google.rpc.Code.PERMISSION_DENIED if the requesting user did not create the requested photo. * google.rpc.Code.NOT_FOUND if the photo ID does not exist. */
       delete(request?: {
@@ -434,7 +434,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Empty
+        body: Empty,
       ): Request<UploadRef>;
       /** Updates the metadata of a Photo, such as pose, place association, connections, etc. Changing the pixels of a photo is not supported. Only the fields specified in the updateMask field are used. If `updateMask` is not present, the update applies to all fields. This method returns the following error codes: * google.rpc.Code.PERMISSION_DENIED if the requesting user did not create the requested photo. * google.rpc.Code.INVALID_ARGUMENT if the request is malformed. * google.rpc.Code.NOT_FOUND if the requested photo does not exist. * google.rpc.Code.UNAVAILABLE if the requested Photo is still being indexed. */
       update(request: {
@@ -496,7 +496,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Photo
+        body: Photo,
       ): Request<Photo>;
     }
     interface PhotosResource {
@@ -552,7 +552,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchDeletePhotosRequest
+        body: BatchDeletePhotosRequest,
       ): Request<BatchDeletePhotosResponse>;
       /** Gets the metadata of the specified Photo batch. Note that if BatchGetPhotos fails, either critical fields are missing or there is an authentication error. Even if BatchGetPhotos succeeds, individual photos in the batch may have failures. These failures are specified in each PhotoResponse.status in BatchGetPhotosResponse.results. See GetPhoto for specific failures that can occur per photo. */
       batchGet(request?: {
@@ -637,7 +637,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdatePhotosRequest
+        body: BatchUpdatePhotosRequest,
       ): Request<BatchUpdatePhotosResponse>;
       /** Lists all the Photos that belong to the user. > Note: Recently created photos that are still being indexed are not returned in the response. */
       list(request?: {
@@ -732,7 +732,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PhotoSequence
+        body: PhotoSequence,
       ): Request<Operation>;
       /** Deletes a PhotoSequence and its metadata. This method returns the following error codes: * google.rpc.Code.PERMISSION_DENIED if the requesting user did not create the requested photo sequence. * google.rpc.Code.NOT_FOUND if the photo sequence ID does not exist. * google.rpc.Code.FAILED_PRECONDITION if the photo sequence ID is not yet finished processing. */
       delete(request?: {
@@ -844,7 +844,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Empty
+        body: Empty,
       ): Request<UploadRef>;
     }
     interface PhotoSequencesResource {

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Chrome Verified Access API v2 */
   function load(
-    urlOrObject: 'https://verifiedaccess.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://verifiedaccess.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'verifiedaccess', version: 'v2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'verifiedaccess',
     version: 'v2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace verifiedaccess {
@@ -190,7 +190,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Empty
+        body: Empty,
       ): Request<Challenge>;
       /** Verifies the challenge response. */
       verify(request: {
@@ -244,7 +244,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VerifyChallengeResponseRequest
+        body: VerifyChallengeResponseRequest,
       ): Request<VerifyChallengeResponseResult>;
     }
 

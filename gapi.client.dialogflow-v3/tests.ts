@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://dialogflow.googleapis.com/$discovery/rest?version=v3'
+    'https://dialogflow.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.dialogflow */
 
@@ -132,7 +132,7 @@ gapi.load('client', async () => {
           },
         },
         timeZone: 'Test string',
-      }
+      },
     );
     /** Deletes the specified agent. */
     await gapi.client.dialogflow.projects.locations.agents.delete({
@@ -152,7 +152,7 @@ gapi.load('client', async () => {
           trackingBranch: 'Test string',
         },
         includeBigqueryExportSettings: true,
-      }
+      },
     );
     /** Retrieves the specified agent. */
     await gapi.client.dialogflow.projects.locations.agents.get({
@@ -163,7 +163,7 @@ gapi.load('client', async () => {
       {
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest agent validation result. Agent validation is performed when ValidateAgent is called. */
     await gapi.client.dialogflow.projects.locations.agents.getValidationResult({
@@ -265,7 +265,7 @@ gapi.load('client', async () => {
           },
         },
         timeZone: 'Test string',
-      }
+      },
     );
     /** Restores the specified agent from a binary file. Replaces the current agent with a new one. Note that all existing resources in agent (e.g. intents, entity types, flows) will be removed. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train flows prior to sending them queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.restore(
@@ -279,7 +279,7 @@ gapi.load('client', async () => {
           trackingBranch: 'Test string',
         },
         restoreOption: 'Test string',
-      }
+      },
     );
     /** Updates the generative settings for the agent. */
     await gapi.client.dialogflow.projects.locations.agents.updateGenerativeSettings(
@@ -316,7 +316,7 @@ gapi.load('client', async () => {
         },
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Validates the specified agent and creates or updates validation results. The agent in draft version is validated. Please call this API after the training is completed to get the complete validation results. */
     await gapi.client.dialogflow.projects.locations.agents.validate(
@@ -325,7 +325,7 @@ gapi.load('client', async () => {
       },
       {
         languageCode: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified Changelog. */
     await gapi.client.dialogflow.projects.locations.agents.changelogs.get({
@@ -362,7 +362,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         redact: true,
-      }
+      },
     );
     /** Deletes the specified entity type. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.entityTypes.delete({
@@ -380,7 +380,7 @@ gapi.load('client', async () => {
         entityTypesContentInline: true,
         entityTypesUri: 'Test string',
         languageCode: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified entity type. */
     await gapi.client.dialogflow.projects.locations.agents.entityTypes.get({
@@ -399,7 +399,7 @@ gapi.load('client', async () => {
         entityTypesUri: 'Test string',
         mergeOption: 'Test string',
         targetEntityType: 'Test string',
-      }
+      },
     );
     /** Returns the list of all entity types in the specified agent. */
     await gapi.client.dialogflow.projects.locations.agents.entityTypes.list({
@@ -433,7 +433,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         redact: true,
-      }
+      },
     );
     /** Creates an Environment in the specified Agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: Environment */
     await gapi.client.dialogflow.projects.locations.agents.environments.create(
@@ -512,7 +512,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Deletes the specified Environment. */
     await gapi.client.dialogflow.projects.locations.agents.environments.delete({
@@ -525,7 +525,7 @@ gapi.load('client', async () => {
       },
       {
         flowVersion: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified Environment. */
     await gapi.client.dialogflow.projects.locations.agents.environments.get({
@@ -543,7 +543,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Updates the specified Environment. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: Environment */
     await gapi.client.dialogflow.projects.locations.agents.environments.patch(
@@ -623,14 +623,14 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Kicks off a continuous test under the specified Environment. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: RunContinuousTestMetadata - `response`: RunContinuousTestResponse */
     await gapi.client.dialogflow.projects.locations.agents.environments.runContinuousTest(
       {
         environment: 'Test string',
       },
-      {}
+      {},
     );
     /** Fetches a list of continuous test results for a given environment. */
     await gapi.client.dialogflow.projects.locations.agents.environments.continuousTestResults.list(
@@ -638,13 +638,13 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified Deployment. */
     await gapi.client.dialogflow.projects.locations.agents.environments.deployments.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all deployments in the specified Environment. */
     await gapi.client.dialogflow.projects.locations.agents.environments.deployments.list(
@@ -652,7 +652,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates an Experiment in the specified Environment. */
     await gapi.client.dialogflow.projects.locations.agents.environments.experiments.create(
@@ -735,19 +735,19 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Deletes the specified Experiment. */
     await gapi.client.dialogflow.projects.locations.agents.environments.experiments.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified Experiment. */
     await gapi.client.dialogflow.projects.locations.agents.environments.experiments.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all experiments in the specified Environment. */
     await gapi.client.dialogflow.projects.locations.agents.environments.experiments.list(
@@ -755,7 +755,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified Experiment. */
     await gapi.client.dialogflow.projects.locations.agents.environments.experiments.patch(
@@ -839,21 +839,21 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Starts the specified Experiment. This rpc only changes the state of experiment from PENDING to RUNNING. */
     await gapi.client.dialogflow.projects.locations.agents.environments.experiments.start(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Stops the specified Experiment. This rpc only changes the state of experiment from RUNNING to DONE. */
     await gapi.client.dialogflow.projects.locations.agents.environments.experiments.stop(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause session entity types to be updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and environments](https://cloud.google.com/dialogflow/cx/docs/concept/version). */
     await gapi.client.dialogflow.projects.locations.agents.environments.sessions.detectIntent(
@@ -980,7 +980,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Fulfills a matched intent returned by MatchIntent. Must be called after MatchIntent, with input from MatchIntentResponse. Otherwise, the behavior is undefined. */
     await gapi.client.dialogflow.projects.locations.agents.environments.sessions.fulfillIntent(
@@ -1149,7 +1149,7 @@ gapi.load('client', async () => {
             volumeGainDb: 42,
           },
         },
-      }
+      },
     );
     /** Returns preliminary intent match results, doesn't change the session status. */
     await gapi.client.dialogflow.projects.locations.agents.environments.sessions.matchIntent(
@@ -1263,7 +1263,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Processes a natural language query and returns structured, actionable data as a result through server-side streaming. Server-side streaming allows Dialogflow to send [partial responses](https://cloud.google.com/dialogflow/cx/docs/concept/fulfillment#partial-response) earlier in a single request. */
     await gapi.client.dialogflow.projects.locations.agents.environments.sessions.serverStreamingDetectIntent(
@@ -1390,7 +1390,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Creates a session entity type. */
     await gapi.client.dialogflow.projects.locations.agents.environments.sessions.entityTypes.create(
@@ -1406,19 +1406,19 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified session entity type. */
     await gapi.client.dialogflow.projects.locations.agents.environments.sessions.entityTypes.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified session entity type. */
     await gapi.client.dialogflow.projects.locations.agents.environments.sessions.entityTypes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all session entity types in the specified session. */
     await gapi.client.dialogflow.projects.locations.agents.environments.sessions.entityTypes.list(
@@ -1426,7 +1426,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified session entity type. */
     await gapi.client.dialogflow.projects.locations.agents.environments.sessions.entityTypes.patch(
@@ -1443,7 +1443,7 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Creates a flow in the specified agent. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.flows.create(
@@ -1945,7 +1945,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Deletes a specified flow. */
     await gapi.client.dialogflow.projects.locations.agents.flows.delete({
@@ -1960,7 +1960,7 @@ gapi.load('client', async () => {
       {
         flowUri: 'Test string',
         includeReferencedFlows: true,
-      }
+      },
     );
     /** Retrieves the specified flow. */
     await gapi.client.dialogflow.projects.locations.agents.flows.get({
@@ -1972,7 +1972,7 @@ gapi.load('client', async () => {
       {
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Imports the specified flow to the specified agent from a binary file. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: ImportFlowResponse Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.flows.import(
@@ -1986,7 +1986,7 @@ gapi.load('client', async () => {
         },
         flowUri: 'Test string',
         importOption: 'Test string',
-      }
+      },
     );
     /** Returns the list of all flows in the specified agent. */
     await gapi.client.dialogflow.projects.locations.agents.flows.list({
@@ -2496,14 +2496,14 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Trains the specified flow. Note that only the flow in 'draft' environment is trained. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.flows.train(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Validates the specified flow and creates or updates validation results. Please call this API after the training is completed to get the complete validation results. */
     await gapi.client.dialogflow.projects.locations.agents.flows.validate(
@@ -2512,7 +2512,7 @@ gapi.load('client', async () => {
       },
       {
         languageCode: 'Test string',
-      }
+      },
     );
     /** Creates a page in the specified flow. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.flows.pages.create(
@@ -3475,7 +3475,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Deletes the specified page. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.flows.pages.delete({
@@ -4456,7 +4456,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Creates an TransitionRouteGroup in the specified flow. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.flows.transitionRouteGroups.create(
@@ -4618,21 +4618,21 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Deletes the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.flows.transitionRouteGroups.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified TransitionRouteGroup. */
     await gapi.client.dialogflow.projects.locations.agents.flows.transitionRouteGroups.get(
       {
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all transition route groups in the specified flow. */
     await gapi.client.dialogflow.projects.locations.agents.flows.transitionRouteGroups.list(
@@ -4641,7 +4641,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.flows.transitionRouteGroups.patch(
@@ -4804,7 +4804,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Compares the specified base version with target version. */
     await gapi.client.dialogflow.projects.locations.agents.flows.versions.compareVersions(
@@ -4814,7 +4814,7 @@ gapi.load('client', async () => {
       {
         languageCode: 'Test string',
         targetVersion: 'Test string',
-      }
+      },
     );
     /** Creates a Version in the specified Flow. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: CreateVersionOperationMetadata - `response`: Version */
     await gapi.client.dialogflow.projects.locations.agents.flows.versions.create(
@@ -4832,13 +4832,13 @@ gapi.load('client', async () => {
           modelType: 'Test string',
         },
         state: 'Test string',
-      }
+      },
     );
     /** Deletes the specified Version. */
     await gapi.client.dialogflow.projects.locations.agents.flows.versions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified Version. */
     await gapi.client.dialogflow.projects.locations.agents.flows.versions.get({
@@ -4857,7 +4857,7 @@ gapi.load('client', async () => {
       },
       {
         allowOverrideAgentResources: true,
-      }
+      },
     );
     /** Updates the specified Version. */
     await gapi.client.dialogflow.projects.locations.agents.flows.versions.patch(
@@ -4876,7 +4876,7 @@ gapi.load('client', async () => {
           modelType: 'Test string',
         },
         state: 'Test string',
-      }
+      },
     );
     /** Creates a generator in the specified agent. */
     await gapi.client.dialogflow.projects.locations.agents.generators.create(
@@ -4902,7 +4902,7 @@ gapi.load('client', async () => {
         promptText: {
           text: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified generators. */
     await gapi.client.dialogflow.projects.locations.agents.generators.delete({
@@ -4946,7 +4946,7 @@ gapi.load('client', async () => {
         promptText: {
           text: 'Test string',
         },
-      }
+      },
     );
     /** Creates an intent in the specified agent. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.intents.create(
@@ -4983,7 +4983,7 @@ gapi.load('client', async () => {
             repeatCount: 42,
           },
         ],
-      }
+      },
     );
     /** Deletes the specified intent. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.intents.delete({
@@ -4999,7 +4999,7 @@ gapi.load('client', async () => {
         intents: ['Test string'],
         intentsContentInline: true,
         intentsUri: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified intent. */
     await gapi.client.dialogflow.projects.locations.agents.intents.get({
@@ -5017,7 +5017,7 @@ gapi.load('client', async () => {
         },
         intentsUri: 'Test string',
         mergeOption: 'Test string',
-      }
+      },
     );
     /** Returns the list of all intents in the specified agent. */
     await gapi.client.dialogflow.projects.locations.agents.intents.list({
@@ -5063,7 +5063,7 @@ gapi.load('client', async () => {
             repeatCount: 42,
           },
         ],
-      }
+      },
     );
     /** Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause session entity types to be updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and environments](https://cloud.google.com/dialogflow/cx/docs/concept/version). */
     await gapi.client.dialogflow.projects.locations.agents.sessions.detectIntent(
@@ -5190,7 +5190,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Fulfills a matched intent returned by MatchIntent. Must be called after MatchIntent, with input from MatchIntentResponse. Otherwise, the behavior is undefined. */
     await gapi.client.dialogflow.projects.locations.agents.sessions.fulfillIntent(
@@ -5359,7 +5359,7 @@ gapi.load('client', async () => {
             volumeGainDb: 42,
           },
         },
-      }
+      },
     );
     /** Returns preliminary intent match results, doesn't change the session status. */
     await gapi.client.dialogflow.projects.locations.agents.sessions.matchIntent(
@@ -5473,7 +5473,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Processes a natural language query and returns structured, actionable data as a result through server-side streaming. Server-side streaming allows Dialogflow to send [partial responses](https://cloud.google.com/dialogflow/cx/docs/concept/fulfillment#partial-response) earlier in a single request. */
     await gapi.client.dialogflow.projects.locations.agents.sessions.serverStreamingDetectIntent(
@@ -5600,7 +5600,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates the feedback received from the user for a single turn of the bot response. */
     await gapi.client.dialogflow.projects.locations.agents.sessions.submitAnswerFeedback(
@@ -5618,7 +5618,7 @@ gapi.load('client', async () => {
         },
         responseId: 'Test string',
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates a session entity type. */
     await gapi.client.dialogflow.projects.locations.agents.sessions.entityTypes.create(
@@ -5634,19 +5634,19 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified session entity type. */
     await gapi.client.dialogflow.projects.locations.agents.sessions.entityTypes.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified session entity type. */
     await gapi.client.dialogflow.projects.locations.agents.sessions.entityTypes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all session entity types in the specified session. */
     await gapi.client.dialogflow.projects.locations.agents.sessions.entityTypes.list(
@@ -5654,7 +5654,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified session entity type. */
     await gapi.client.dialogflow.projects.locations.agents.sessions.entityTypes.patch(
@@ -5671,7 +5671,7 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Batch deletes test cases. */
     await gapi.client.dialogflow.projects.locations.agents.testCases.batchDelete(
@@ -5680,7 +5680,7 @@ gapi.load('client', async () => {
       },
       {
         names: ['Test string'],
-      }
+      },
     );
     /** Kicks off a batch run of test cases. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: BatchRunTestCasesMetadata - `response`: BatchRunTestCasesResponse */
     await gapi.client.dialogflow.projects.locations.agents.testCases.batchRun(
@@ -5690,14 +5690,14 @@ gapi.load('client', async () => {
       {
         environment: 'Test string',
         testCases: ['Test string'],
-      }
+      },
     );
     /** Calculates the test coverage for an agent. */
     await gapi.client.dialogflow.projects.locations.agents.testCases.calculateCoverage(
       {
         agent: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Creates a test case for the given agent. */
     await gapi.client.dialogflow.projects.locations.agents.testCases.create(
@@ -7841,7 +7841,7 @@ gapi.load('client', async () => {
           page: 'Test string',
           trackingParameters: ['Test string'],
         },
-      }
+      },
     );
     /** Exports the test cases under the agent to a Cloud Storage bucket or a local file. Filter can be applied to export a subset of test cases. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: ExportTestCasesMetadata - `response`: ExportTestCasesResponse */
     await gapi.client.dialogflow.projects.locations.agents.testCases.export(
@@ -7852,7 +7852,7 @@ gapi.load('client', async () => {
         dataFormat: 'Test string',
         filter: 'Test string',
         gcsUri: 'Test string',
-      }
+      },
     );
     /** Gets a test case. */
     await gapi.client.dialogflow.projects.locations.agents.testCases.get({
@@ -7866,7 +7866,7 @@ gapi.load('client', async () => {
       {
         content: 'Test string',
         gcsUri: 'Test string',
-      }
+      },
     );
     /** Fetches a list of test cases for a given agent. */
     await gapi.client.dialogflow.projects.locations.agents.testCases.list({
@@ -10018,7 +10018,7 @@ gapi.load('client', async () => {
           page: 'Test string',
           trackingParameters: ['Test string'],
         },
-      }
+      },
     );
     /** Kicks off a test case run. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: RunTestCaseMetadata - `response`: RunTestCaseResponse */
     await gapi.client.dialogflow.projects.locations.agents.testCases.run(
@@ -10027,13 +10027,13 @@ gapi.load('client', async () => {
       },
       {
         environment: 'Test string',
-      }
+      },
     );
     /** Gets a test case result. */
     await gapi.client.dialogflow.projects.locations.agents.testCases.results.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Fetches the list of run results for the given test case. A maximum of 100 results are kept for each test case. */
     await gapi.client.dialogflow.projects.locations.agents.testCases.results.list(
@@ -10042,7 +10042,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates an TransitionRouteGroup in the specified flow. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.transitionRouteGroups.create(
@@ -10204,21 +10204,21 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Deletes the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.transitionRouteGroups.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified TransitionRouteGroup. */
     await gapi.client.dialogflow.projects.locations.agents.transitionRouteGroups.get(
       {
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all transition route groups in the specified flow. */
     await gapi.client.dialogflow.projects.locations.agents.transitionRouteGroups.list(
@@ -10227,7 +10227,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). */
     await gapi.client.dialogflow.projects.locations.agents.transitionRouteGroups.patch(
@@ -10390,7 +10390,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Creates a webhook in the specified agent. */
     await gapi.client.dialogflow.projects.locations.agents.webhooks.create(
@@ -10449,7 +10449,7 @@ gapi.load('client', async () => {
           service: 'Test string',
         },
         timeout: 'Test string',
-      }
+      },
     );
     /** Deletes the specified webhook. */
     await gapi.client.dialogflow.projects.locations.agents.webhooks.delete({
@@ -10524,7 +10524,7 @@ gapi.load('client', async () => {
           service: 'Test string',
         },
         timeout: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.dialogflow.projects.locations.operations.cancel({
@@ -10566,7 +10566,7 @@ gapi.load('client', async () => {
         redactionStrategy: 'Test string',
         retentionStrategy: 'Test string',
         retentionWindowDays: 42,
-      }
+      },
     );
     /** Deletes the specified SecuritySettings. */
     await gapi.client.dialogflow.projects.locations.securitySettings.delete({
@@ -10608,7 +10608,7 @@ gapi.load('client', async () => {
         redactionStrategy: 'Test string',
         retentionStrategy: 'Test string',
         retentionWindowDays: 42,
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.dialogflow.projects.operations.cancel({

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://spanner.googleapis.com/$discovery/rest?version=v1'
+    'https://spanner.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.spanner */
 
@@ -80,7 +80,7 @@ gapi.load('client', async () => {
         },
         instanceConfigId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Deletes the instance configuration. Deletion is only allowed when no instances are using the configuration. If any instances are using the configuration, returns `FAILED_PRECONDITION`. Only user-managed configurations can be deleted. Authorization requires `spanner.instanceConfigs.delete` permission on the resource name. */
     await gapi.client.spanner.projects.instanceConfigs.delete({
@@ -136,7 +136,7 @@ gapi.load('client', async () => {
         },
         updateMask: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.spanner.projects.instanceConfigs.operations.cancel({
@@ -161,19 +161,19 @@ gapi.load('client', async () => {
     await gapi.client.spanner.projects.instanceConfigs.ssdCaches.operations.cancel(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.spanner.projects.instanceConfigs.ssdCaches.operations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.spanner.projects.instanceConfigs.ssdCaches.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.spanner.projects.instanceConfigs.ssdCaches.operations.list(
@@ -182,7 +182,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates an instance and begins preparing it to begin serving. The returned long-running operation can be used to track the progress of preparing the new instance. The instance name is assigned by the caller. If the named instance already exists, `CreateInstance` returns `ALREADY_EXISTS`. Immediately upon completion of this request: * The instance is readable via the API, with all requested attributes but no allocated resources. Its state is `CREATING`. Until completion of the returned operation: * Cancelling the operation renders the instance immediately unreadable via the API. * The instance can be deleted. * All other attempts to modify the instance are rejected. Upon completion of the returned operation: * Billing for all successfully-allocated resources begins (some types may have lower than the requested levels). * Databases can be created in the instance. * The instance's allocated resource levels are readable via the API. * The instance's state becomes `READY`. The returned long-running operation will have a name of the format `/operations/` and can be used to track creation of the instance. The metadata field type is CreateInstanceMetadata. The response field type is Instance, if successful. */
     await gapi.client.spanner.projects.instances.create(
@@ -250,7 +250,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         instanceId: 'Test string',
-      }
+      },
     );
     /** Deletes an instance. Immediately upon completion of the request: * Billing ceases for all of the instance's reserved resources. Soon afterward: * The instance and *all of its databases* immediately and irrevocably disappear from the API. All data in the databases is permanently deleted. */
     await gapi.client.spanner.projects.instances.delete({
@@ -270,7 +270,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all instances in the given project. */
     await gapi.client.spanner.projects.instances.list({
@@ -287,7 +287,7 @@ gapi.load('client', async () => {
       },
       {
         targetConfig: 'Test string',
-      }
+      },
     );
     /** Updates an instance, and begins allocating or releasing resources as requested. The returned long-running operation can be used to track the progress of updating the instance. If the named instance does not exist, returns `NOT_FOUND`. Immediately upon completion of this request: * For resource types for which a decrease in the instance's allocation has been requested, billing is based on the newly-requested level. Until completion of the returned operation: * Cancelling the operation sets its metadata's cancel_time, and begins restoring resources to their pre-request values. The operation is guaranteed to succeed at undoing all resource changes, after which point it terminates with a `CANCELLED` status. * All other attempts to modify the instance are rejected. * Reading the instance via the API continues to give the pre-request resource levels. Upon completion of the returned operation: * Billing begins for all successfully-allocated resources (some types may have lower than the requested levels). * All newly-reserved resources are available for serving the instance's tables. * The instance's new resource levels are readable via the API. The returned long-running operation will have a name of the format `/operations/` and can be used to track the instance modification. The metadata field type is UpdateInstanceMetadata. The response field type is Instance, if successful. Authorization requires `spanner.instances.update` permission on the resource name. */
     await gapi.client.spanner.projects.instances.patch(
@@ -355,7 +355,7 @@ gapi.load('client', async () => {
           state: 'Test string',
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Sets the access control policy on an instance resource. Replaces any existing policy. Authorization requires `spanner.instances.setIamPolicy` on resource. */
     await gapi.client.spanner.projects.instances.setIamPolicy(
@@ -379,7 +379,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that the caller has on the specified instance resource. Attempting this RPC on a non-existent Cloud Spanner instance resource will result in a NOT_FOUND error if the user has `spanner.instances.list` permission on the containing Google Cloud Project. Otherwise returns an empty set of permissions. */
     await gapi.client.spanner.projects.instances.testIamPermissions(
@@ -388,7 +388,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists the backup long-running operations in the given instance. A backup operation has a name of the form `projects//instances//backups//operations/`. The long-running operation metadata field type `metadata.type_url` describes the type of the metadata. Operations returned include those that have completed/failed/canceled within the last 7 days, and pending operations. Operations returned are ordered by `operation.metadata.value.progress.start_time` in descending order starting from the most recently started operation. */
     await gapi.client.spanner.projects.instances.backupOperations.list({
@@ -411,7 +411,7 @@ gapi.load('client', async () => {
         },
         expireTime: 'Test string',
         sourceBackup: 'Test string',
-      }
+      },
     );
     /** Starts creating a new Cloud Spanner Backup. The returned backup long-running operation will have a name of the format `projects//instances//backups//operations/` and can be used to track creation of the backup. The metadata field type is CreateBackupMetadata. The response field type is Backup, if successful. Cancelling the returned operation will stop the creation and delete the backup. There can be only one pending backup creation per database. Backup creation of different databases can run concurrently. */
     await gapi.client.spanner.projects.instances.backups.create(
@@ -467,7 +467,7 @@ gapi.load('client', async () => {
         sizeBytes: 'Test string',
         state: 'Test string',
         versionTime: 'Test string',
-      }
+      },
     );
     /** Deletes a pending or completed Backup. */
     await gapi.client.spanner.projects.instances.backups.delete({
@@ -486,7 +486,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists completed and pending backups. Backups returned are ordered by `create_time` in descending order, starting from the most recent `create_time`. */
     await gapi.client.spanner.projects.instances.backups.list({
@@ -546,7 +546,7 @@ gapi.load('client', async () => {
         sizeBytes: 'Test string',
         state: 'Test string',
         versionTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on a database or backup resource. Replaces any existing policy. Authorization requires `spanner.databases.setIamPolicy` permission on resource. For backups, authorization requires `spanner.backups.setIamPolicy` permission on resource. For backup schedules, authorization requires `spanner.backupSchedules.setIamPolicy` permission on resource. */
     await gapi.client.spanner.projects.instances.backups.setIamPolicy(
@@ -570,7 +570,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that the caller has on the specified database or backup resource. Attempting this RPC on a non-existent Cloud Spanner database will result in a NOT_FOUND error if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise returns an empty set of permissions. Calling this method on a backup that does not exist will result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the containing instance. Calling this method on a backup schedule that does not exist will result in a NOT_FOUND error if the user has `spanner.backupSchedules.list` permission on the containing database. */
     await gapi.client.spanner.projects.instances.backups.testIamPermissions(
@@ -579,7 +579,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.spanner.projects.instances.backups.operations.cancel({
@@ -626,7 +626,7 @@ gapi.load('client', async () => {
             table: 'Test string',
           },
         ],
-      }
+      },
     );
     /** `ChangeQuorum` is strictly restricted to databases that use dual-region instance configurations. Initiates a background operation to change the quorum of a database from dual-region mode to single-region mode or vice versa. The returned long-running operation has a name of the format `projects//instances//databases//operations/` and can be used to track execution of the `ChangeQuorum`. The metadata field type is ChangeQuorumMetadata. Authorization requires `spanner.databases.changequorum` permission on the resource database. */
     await gapi.client.spanner.projects.instances.databases.changequorum(
@@ -642,7 +642,7 @@ gapi.load('client', async () => {
             servingLocation: 'Test string',
           },
         },
-      }
+      },
     );
     /** Creates a new Spanner database and starts to prepare it for serving. The returned long-running operation will have a name of the format `/operations/` and can be used to track preparation of the database. The metadata field type is CreateDatabaseMetadata. The response field type is Database, if successful. */
     await gapi.client.spanner.projects.instances.databases.create(
@@ -658,7 +658,7 @@ gapi.load('client', async () => {
         },
         extraStatements: ['Test string'],
         protoDescriptors: 'Test string',
-      }
+      },
     );
     /** Drops (aka deletes) a Cloud Spanner database. Completed backups for the database will be retained according to their `expire_time`. Note: Cloud Spanner might continue to accept requests for a few seconds after the database has been deleted. */
     await gapi.client.spanner.projects.instances.databases.dropDatabase({
@@ -681,7 +681,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Request a specific scan with Database-specific data for Cloud Key Visualizer. */
     await gapi.client.spanner.projects.instances.databases.getScans({
@@ -751,7 +751,7 @@ gapi.load('client', async () => {
         },
         state: 'Test string',
         versionRetentionPeriod: 'Test string',
-      }
+      },
     );
     /** Create a new database by restoring from a completed backup. The new database must be in the same project and in an instance with the same instance configuration as the instance containing the backup. The returned database long-running operation has a name of the format `projects//instances//databases//operations/`, and can be used to track the progress of the operation, and to cancel it. The metadata field type is RestoreDatabaseMetadata. The response type is Database, if successful. Cancelling the returned operation will stop the restore and delete the database. There can be only one database being restored into an instance at a time. Once the restore operation completes, a new restore operation can be initiated, without waiting for the optimize operation associated with the first restore to complete. */
     await gapi.client.spanner.projects.instances.databases.restore(
@@ -766,7 +766,7 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
           kmsKeyNames: ['Test string'],
         },
-      }
+      },
     );
     /** Sets the access control policy on a database or backup resource. Replaces any existing policy. Authorization requires `spanner.databases.setIamPolicy` permission on resource. For backups, authorization requires `spanner.backups.setIamPolicy` permission on resource. For backup schedules, authorization requires `spanner.backupSchedules.setIamPolicy` permission on resource. */
     await gapi.client.spanner.projects.instances.databases.setIamPolicy(
@@ -790,7 +790,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that the caller has on the specified database or backup resource. Attempting this RPC on a non-existent Cloud Spanner database will result in a NOT_FOUND error if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise returns an empty set of permissions. Calling this method on a backup that does not exist will result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the containing instance. Calling this method on a backup schedule that does not exist will result in a NOT_FOUND error if the user has `spanner.backupSchedules.list` permission on the containing database. */
     await gapi.client.spanner.projects.instances.databases.testIamPermissions(
@@ -799,7 +799,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates the schema of a Cloud Spanner database by creating/altering/dropping tables, columns, indexes, etc. The returned long-running operation will have a name of the format `/operations/` and can be used to track execution of the schema change(s). The metadata field type is UpdateDatabaseDdlMetadata. The operation has no response. */
     await gapi.client.spanner.projects.instances.databases.updateDdl(
@@ -810,7 +810,7 @@ gapi.load('client', async () => {
         operationId: 'Test string',
         protoDescriptors: 'Test string',
         statements: ['Test string'],
-      }
+      },
     );
     /** Creates a new backup schedule. */
     await gapi.client.spanner.projects.instances.databases.backupSchedules.create(
@@ -836,13 +836,13 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a backup schedule. */
     await gapi.client.spanner.projects.instances.databases.backupSchedules.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets backup schedule for the input schedule name. */
     await gapi.client.spanner.projects.instances.databases.backupSchedules.get({
@@ -857,7 +857,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all the backup schedules for the database. */
     await gapi.client.spanner.projects.instances.databases.backupSchedules.list(
@@ -865,7 +865,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a backup schedule. */
     await gapi.client.spanner.projects.instances.databases.backupSchedules.patch(
@@ -891,7 +891,7 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on a database or backup resource. Replaces any existing policy. Authorization requires `spanner.databases.setIamPolicy` permission on resource. For backups, authorization requires `spanner.backups.setIamPolicy` permission on resource. For backup schedules, authorization requires `spanner.backupSchedules.setIamPolicy` permission on resource. */
     await gapi.client.spanner.projects.instances.databases.backupSchedules.setIamPolicy(
@@ -915,7 +915,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that the caller has on the specified database or backup resource. Attempting this RPC on a non-existent Cloud Spanner database will result in a NOT_FOUND error if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise returns an empty set of permissions. Calling this method on a backup that does not exist will result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the containing instance. Calling this method on a backup schedule that does not exist will result in a NOT_FOUND error if the user has `spanner.backupSchedules.list` permission on the containing database. */
     await gapi.client.spanner.projects.instances.databases.backupSchedules.testIamPermissions(
@@ -924,7 +924,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists Cloud Spanner database roles. */
     await gapi.client.spanner.projects.instances.databases.databaseRoles.list({
@@ -939,7 +939,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.spanner.projects.instances.databases.operations.cancel({
@@ -977,7 +977,7 @@ gapi.load('client', async () => {
           multiplexed: true,
           name: 'Test string',
         },
-      }
+      },
     );
     /** Batches the supplied mutation groups in a collection of efficient transactions. All mutations in a group are committed atomically. However, mutations across groups can be committed non-atomically in an unspecified order and thus, they must be independent of each other. Partial failure is possible, i.e., some groups may have been committed successfully, while some may have failed. The results of individual batches are streamed into the response as the batches are applied. BatchWrite requests are not replay protected, meaning that each mutation group may be applied more than once. Replays of non-idempotent mutations may have undesirable effects. For example, replays of an insert mutation may produce an already exists error or if you use generated or commit timestamp-based keys, it may result in additional rows being added to the mutation's table. We recommend structuring your mutation groups to be idempotent to avoid this issue. */
     await gapi.client.spanner.projects.instances.databases.sessions.batchWrite(
@@ -1034,7 +1034,7 @@ gapi.load('client', async () => {
           requestTag: 'Test string',
           transactionTag: 'Test string',
         },
-      }
+      },
     );
     /** Begins a new transaction. This step can often be skipped: Read, ExecuteSql and Commit can begin a new transaction as a side-effect. */
     await gapi.client.spanner.projects.instances.databases.sessions.beginTransaction(
@@ -1100,7 +1100,7 @@ gapi.load('client', async () => {
           requestTag: 'Test string',
           transactionTag: 'Test string',
         },
-      }
+      },
     );
     /** Commits a transaction. The request includes the mutations to be applied to rows in the database. `Commit` might return an `ABORTED` error. This can occur at any time; commonly, the cause is conflicts with concurrent transactions. However, it can also happen for a variety of other reasons. If `Commit` returns `ABORTED`, the caller should re-attempt the transaction from the beginning, re-using the same session. On very rare occasions, `Commit` might return `UNKNOWN`. This can happen, for example, if the client job experiences a 1+ hour networking failure. At that point, Cloud Spanner has lost track of the transaction outcome and we recommend that you perform another read from the database to see the state of things as they are now. */
     await gapi.client.spanner.projects.instances.databases.sessions.commit(
@@ -1175,7 +1175,7 @@ gapi.load('client', async () => {
           },
         },
         transactionId: 'Test string',
-      }
+      },
     );
     /** Creates a new session. A session can be used to perform transactions that read and/or modify data in a Cloud Spanner database. Sessions are meant to be reused for many consecutive transactions. Sessions can only execute one transaction at a time. To execute multiple concurrent read-write/write-only transactions, create multiple sessions. Note that standalone reads and queries use a transaction internally, and count toward the one transaction limit. Active sessions use additional server resources, so it is a good idea to delete idle and unneeded sessions. Aside from explicit deletes, Cloud Spanner may delete sessions for which no operations are sent for more than an hour. If a session is deleted, requests to it return `NOT_FOUND`. Idle sessions can be kept alive by sending a trivial SQL query periodically, e.g., `"SELECT 1"`. */
     await gapi.client.spanner.projects.instances.databases.sessions.create(
@@ -1193,7 +1193,7 @@ gapi.load('client', async () => {
           multiplexed: true,
           name: 'Test string',
         },
-      }
+      },
     );
     /** Ends a session, releasing server resources associated with it. This will asynchronously trigger cancellation of any operations that are running with this session. */
     await gapi.client.spanner.projects.instances.databases.sessions.delete({
@@ -1271,7 +1271,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Executes an SQL statement, returning all results in a single reply. This method cannot be used to return a result set larger than 10 MiB; if the query yields more data than that, the query fails with a `FAILED_PRECONDITION` error. Operations inside read-write transactions might return `ABORTED`. If this occurs, the application should restart the transaction from the beginning. See Transaction for more details. Larger result sets can be fetched in streaming fashion by calling ExecuteStreamingSql instead. The query string can be SQL or [Graph Query Language (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro). */
     await gapi.client.spanner.projects.instances.databases.sessions.executeSql(
@@ -1368,7 +1368,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Like ExecuteSql, except returns the result set as a stream. Unlike ExecuteSql, there is no limit on the size of the returned result set. However, no individual row in the result set can exceed 100 MiB, and no column value can exceed 10 MiB. The query string can be SQL or [Graph Query Language (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro). */
     await gapi.client.spanner.projects.instances.databases.sessions.executeStreamingSql(
@@ -1465,7 +1465,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Gets a session. Returns `NOT_FOUND` if the session does not exist. This is mainly useful for determining whether a session is still alive. */
     await gapi.client.spanner.projects.instances.databases.sessions.get({
@@ -1543,7 +1543,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Creates a set of partition tokens that can be used to execute a read operation in parallel. Each of the returned partition tokens can be used by StreamingRead to specify a subset of the read result to read. The same session and read-only transaction must be used by the PartitionReadRequest used to create the partition tokens and the ReadRequests that use the partition tokens. There are no ordering guarantees on rows returned among the returned partition tokens, or even within each individual StreamingRead call issued with a partition_token. Partition tokens become invalid when the session used to create them is deleted, is idle for too long, begins a new transaction, or becomes too old. When any of these happen, it is not possible to resume the read, and the whole operation must be restarted from the beginning. */
     await gapi.client.spanner.projects.instances.databases.sessions.partitionRead(
@@ -1605,7 +1605,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Reads rows from the database using key lookups and scans, as a simple key/value style alternative to ExecuteSql. This method cannot be used to return a result set larger than 10 MiB; if the read matches more data than that, the read fails with a `FAILED_PRECONDITION` error. Reads inside read-write transactions might return `ABORTED`. If this occurs, the application should restart the transaction from the beginning. See Transaction for more details. Larger result sets can be yielded in streaming fashion by calling StreamingRead instead. */
     await gapi.client.spanner.projects.instances.databases.sessions.read(
@@ -1693,7 +1693,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Rolls back a transaction, releasing any locks it holds. It is a good idea to call this for any transaction that includes one or more Read or ExecuteSql requests and ultimately decides not to commit. `Rollback` returns `OK` if it successfully aborts the transaction, the transaction was already aborted, or the transaction is not found. `Rollback` never returns `ABORTED`. */
     await gapi.client.spanner.projects.instances.databases.sessions.rollback(
@@ -1702,7 +1702,7 @@ gapi.load('client', async () => {
       },
       {
         transactionId: 'Test string',
-      }
+      },
     );
     /** Like Read, except returns the result set as a stream. Unlike Read, there is no limit on the size of the returned result set. However, no individual row in the result set can exceed 100 MiB, and no column value can exceed 10 MiB. */
     await gapi.client.spanner.projects.instances.databases.sessions.streamingRead(
@@ -1790,7 +1790,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Lists instance partition long-running operations in the given instance. An instance partition operation has a name of the form `projects//instances//instancePartitions//operations/`. The long-running operation metadata field type `metadata.type_url` describes the type of the metadata. Operations returned include those that have completed/failed/canceled within the last 7 days, and pending operations. Operations returned are ordered by `operation.metadata.value.start_time` in descending order starting from the most recently started operation. Authorization requires `spanner.instancePartitionOperations.list` permission on the resource parent. */
     await gapi.client.spanner.projects.instances.instancePartitionOperations.list(
@@ -1800,7 +1800,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates an instance partition and begins preparing it to be used. The returned long-running operation can be used to track the progress of preparing the new instance partition. The instance partition name is assigned by the caller. If the named instance partition already exists, `CreateInstancePartition` returns `ALREADY_EXISTS`. Immediately upon completion of this request: * The instance partition is readable via the API, with all requested attributes but no allocated resources. Its state is `CREATING`. Until completion of the returned operation: * Cancelling the operation renders the instance partition immediately unreadable via the API. * The instance partition can be deleted. * All other attempts to modify the instance partition are rejected. Upon completion of the returned operation: * Billing for all successfully-allocated resources begins (some types may have lower than the requested levels). * Databases can start using this instance partition. * The instance partition's allocated resource levels are readable via the API. * The instance partition's state becomes `READY`. The returned long-running operation will have a name of the format `/operations/` and can be used to track creation of the instance partition. The metadata field type is CreateInstancePartitionMetadata. The response field type is InstancePartition, if successful. */
     await gapi.client.spanner.projects.instances.instancePartitions.create(
@@ -1822,7 +1822,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         instancePartitionId: 'Test string',
-      }
+      },
     );
     /** Deletes an existing instance partition. Requires that the instance partition is not used by any database or backup and is not the default instance partition of an instance. Authorization requires `spanner.instancePartitions.delete` permission on the resource name. */
     await gapi.client.spanner.projects.instances.instancePartitions.delete({
@@ -1860,25 +1860,25 @@ gapi.load('client', async () => {
           state: 'Test string',
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.spanner.projects.instances.instancePartitions.operations.cancel(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.spanner.projects.instances.instancePartitions.operations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.spanner.projects.instances.instancePartitions.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.spanner.projects.instances.instancePartitions.operations.list(
@@ -1887,7 +1887,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.spanner.projects.instances.operations.cancel({

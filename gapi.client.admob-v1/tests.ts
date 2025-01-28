@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://admob.googleapis.com/$discovery/rest?version=v1'
+    'https://admob.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.admob */
 
@@ -97,7 +97,7 @@ gapi.load('client', async () => {
           ],
           timeZone: 'Test string',
         },
-      }
+      },
     );
     /** Generates an AdMob Network report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses. */
     await gapi.client.admob.accounts.networkReport.generate(
@@ -142,7 +142,7 @@ gapi.load('client', async () => {
           ],
           timeZone: 'Test string',
         },
-      }
+      },
     );
   }
 });

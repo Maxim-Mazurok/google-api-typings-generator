@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load NetApp API v1 */
   function load(
-    urlOrObject: 'https://netapp.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://netapp.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'netapp', version: 'v1'): Promise<void>;
@@ -761,7 +761,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ActiveDirectory
+        body: ActiveDirectory,
       ): Request<Operation>;
       /** Delete the active directory specified in the request. */
       delete(request?: {
@@ -912,7 +912,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ActiveDirectory
+        body: ActiveDirectory,
       ): Request<Operation>;
     }
     interface BackupPoliciesResource {
@@ -976,7 +976,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BackupPolicy
+        body: BackupPolicy,
       ): Request<Operation>;
       /** Warning! This operation will permanently delete the backup policy. */
       delete(request?: {
@@ -1127,7 +1127,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BackupPolicy
+        body: BackupPolicy,
       ): Request<Operation>;
     }
     interface BackupsResource {
@@ -1191,7 +1191,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Backup
+        body: Backup,
       ): Request<Operation>;
       /** Warning! This operation will permanently delete the backup. */
       delete(request?: {
@@ -1342,7 +1342,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Backup
+        body: Backup,
       ): Request<Operation>;
     }
     interface BackupVaultsResource {
@@ -1406,7 +1406,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BackupVault
+        body: BackupVault,
       ): Request<Operation>;
       /** Warning! This operation will permanently delete the backup vault. */
       delete(request?: {
@@ -1557,7 +1557,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BackupVault
+        body: BackupVault,
       ): Request<Operation>;
       backups: BackupsResource;
     }
@@ -1622,7 +1622,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: KmsConfig
+        body: KmsConfig,
       ): Request<Operation>;
       /** Warning! This operation will permanently delete the Kms config. */
       delete(request?: {
@@ -1707,7 +1707,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EncryptVolumesRequest
+        body: EncryptVolumesRequest,
       ): Request<Operation>;
       /** Returns the description of the specified KMS config by kms_config_id. */
       get(request?: {
@@ -1831,7 +1831,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: KmsConfig
+        body: KmsConfig,
       ): Request<Operation>;
       /** Verifies KMS config reachability. */
       verify(request: {
@@ -1889,7 +1889,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VerifyKmsConfigRequest
+        body: VerifyKmsConfigRequest,
       ): Request<VerifyKmsConfigResponse>;
     }
     interface OperationsResource {
@@ -1949,7 +1949,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -2100,7 +2100,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StoragePool
+        body: StoragePool,
       ): Request<Operation>;
       /** Warning! This operation will permanently delete the storage pool. */
       delete(request?: {
@@ -2251,7 +2251,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StoragePool
+        body: StoragePool,
       ): Request<Operation>;
       /** This operation will switch the active/replica zone for a regional storagePool. */
       switch(request: {
@@ -2309,7 +2309,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SwitchActiveReplicaZoneRequest
+        body: SwitchActiveReplicaZoneRequest,
       ): Request<Operation>;
       /** ValidateDirectoryService does a connectivity check for a directory service policy attached to the storage pool. */
       validateDirectoryService(request: {
@@ -2367,7 +2367,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ValidateDirectoryServiceRequest
+        body: ValidateDirectoryServiceRequest,
       ): Request<Operation>;
     }
     interface QuotaRulesResource {
@@ -2431,7 +2431,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QuotaRule
+        body: QuotaRule,
       ): Request<Operation>;
       /** Deletes a quota rule. */
       delete(request?: {
@@ -2582,7 +2582,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QuotaRule
+        body: QuotaRule,
       ): Request<Operation>;
     }
     interface ReplicationsResource {
@@ -2646,7 +2646,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Replication
+        body: Replication,
       ): Request<Operation>;
       /** Deletes a replication. */
       delete(request?: {
@@ -2731,7 +2731,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EstablishPeeringRequest
+        body: EstablishPeeringRequest,
       ): Request<Operation>;
       /** Describe a replication for a volume. */
       get(request?: {
@@ -2855,7 +2855,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Replication
+        body: Replication,
       ): Request<Operation>;
       /** Resume Cross Region Replication. */
       resume(request: {
@@ -2913,7 +2913,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResumeReplicationRequest
+        body: ResumeReplicationRequest,
       ): Request<Operation>;
       /** Reverses direction of replication. Source becomes destination and destination becomes source. */
       reverseDirection(request: {
@@ -2971,7 +2971,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReverseReplicationDirectionRequest
+        body: ReverseReplicationDirectionRequest,
       ): Request<Operation>;
       /** Stop Cross Region Replication. */
       stop(request: {
@@ -3029,7 +3029,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopReplicationRequest
+        body: StopReplicationRequest,
       ): Request<Operation>;
       /** Syncs the replication. This will invoke one time volume data transfer from source to destination. */
       sync(request: {
@@ -3087,7 +3087,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SyncReplicationRequest
+        body: SyncReplicationRequest,
       ): Request<Operation>;
     }
     interface SnapshotsResource {
@@ -3151,7 +3151,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Snapshot
+        body: Snapshot,
       ): Request<Operation>;
       /** Deletes a snapshot. */
       delete(request?: {
@@ -3302,7 +3302,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Snapshot
+        body: Snapshot,
       ): Request<Operation>;
     }
     interface VolumesResource {
@@ -3366,7 +3366,7 @@ declare namespace gapi.client {
           /** Required. Id of the requesting volume. Must be unique within the parent resource. Must contain only letters, numbers and hyphen, with the first character a letter, the last a letter or a number, and a 63 character maximum. */
           volumeId?: string;
         },
-        body: Volume
+        body: Volume,
       ): Request<Operation>;
       /** Deletes a single Volume. */
       delete(request?: {
@@ -3519,7 +3519,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Volume
+        body: Volume,
       ): Request<Operation>;
       /** Revert an existing volume to a specified snapshot. Warning! This operation will permanently revert all changes made after the snapshot was created. */
       revert(request: {
@@ -3577,7 +3577,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RevertVolumeRequest
+        body: RevertVolumeRequest,
       ): Request<Operation>;
       quotaRules: QuotaRulesResource;
       replications: ReplicationsResource;

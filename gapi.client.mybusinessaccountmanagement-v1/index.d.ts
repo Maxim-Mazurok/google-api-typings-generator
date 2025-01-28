@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load My Business Account Management API v1 */
   function load(
-    urlOrObject: 'https://mybusinessaccountmanagement.googleapis.com/$discovery/rest?version=v1'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'mybusinessaccountmanagement',
-    version: 'v1'
+    urlOrObject: 'https://mybusinessaccountmanagement.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'mybusinessaccountmanagement',
     version: 'v1',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'mybusinessaccountmanagement',
+    version: 'v1',
+    callback: () => any,
   ): void;
 
   namespace mybusinessaccountmanagement {
@@ -197,7 +197,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Admin
+        body: Admin,
       ): Request<Admin>;
       /** Removes the specified admin from the specified account. */
       delete(request?: {
@@ -313,7 +313,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Admin
+        body: Admin,
       ): Request<Admin>;
     }
     interface InvitationsResource {
@@ -373,7 +373,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AcceptInvitationRequest
+        body: AcceptInvitationRequest,
       ): Request<{}>;
       /** Declines the specified invitation. */
       decline(request: {
@@ -431,7 +431,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeclineInvitationRequest
+        body: DeclineInvitationRequest,
       ): Request<{}>;
       /** Lists pending invitations for the specified account. */
       list(request?: {
@@ -516,7 +516,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Account
+        body: Account,
       ): Request<Account>;
       /** Gets the specified account. Returns `NOT_FOUND` if the account does not exist or if the caller does not have access rights to it. */
       get(request?: {
@@ -642,7 +642,7 @@ declare namespace gapi.client {
           /** Optional. If true, the request is validated without actually updating the account. */
           validateOnly?: boolean;
         },
-        body: Account
+        body: Account,
       ): Request<Account>;
       admins: AdminsResource;
       invitations: InvitationsResource;
@@ -704,7 +704,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Admin
+        body: Admin,
       ): Request<Admin>;
       /** Removes the specified admin as a manager of the specified location. */
       delete(request?: {
@@ -820,7 +820,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Admin
+        body: Admin,
       ): Request<Admin>;
     }
     interface LocationsResource {
@@ -880,7 +880,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TransferLocationRequest
+        body: TransferLocationRequest,
       ): Request<{}>;
       admins: AdminsResource;
     }

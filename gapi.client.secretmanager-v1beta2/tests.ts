@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://secretmanager.googleapis.com/$discovery/rest?version=v1beta2'
+    'https://secretmanager.googleapis.com/$discovery/rest?version=v1beta2',
   );
   /** now we can use gapi.client.secretmanager */
 
@@ -52,7 +52,7 @@ gapi.load('client', async () => {
           data: 'Test string',
           dataCrc32c: 'Test string',
         },
-      }
+      },
     );
     /** Creates a new Secret containing no SecretVersions. */
     await gapi.client.secretmanager.projects.locations.secrets.create(
@@ -105,7 +105,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         versionDestroyTtl: 'Test string',
-      }
+      },
     );
     /** Deletes a Secret. */
     await gapi.client.secretmanager.projects.locations.secrets.delete({
@@ -179,7 +179,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         versionDestroyTtl: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified secret. Replaces any existing policy. Permissions on SecretVersions are enforced according to the policy set on the associated Secret. */
     await gapi.client.secretmanager.projects.locations.secrets.setIamPolicy(
@@ -215,7 +215,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has for the specified secret. If the secret does not exist, this call returns an empty set of permissions, not a NOT_FOUND error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.secretmanager.projects.locations.secrets.testIamPermissions(
@@ -224,7 +224,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Accesses a SecretVersion. This call returns the secret data. `projects/*‍/secrets/*‍/versions/latest` is an alias to the most recently created SecretVersion. */
     await gapi.client.secretmanager.projects.locations.secrets.versions.access({
@@ -237,7 +237,7 @@ gapi.load('client', async () => {
       },
       {
         etag: 'Test string',
-      }
+      },
     );
     /** Disables a SecretVersion. Sets the state of the SecretVersion to DISABLED. */
     await gapi.client.secretmanager.projects.locations.secrets.versions.disable(
@@ -246,7 +246,7 @@ gapi.load('client', async () => {
       },
       {
         etag: 'Test string',
-      }
+      },
     );
     /** Enables a SecretVersion. Sets the state of the SecretVersion to ENABLED. */
     await gapi.client.secretmanager.projects.locations.secrets.versions.enable(
@@ -255,7 +255,7 @@ gapi.load('client', async () => {
       },
       {
         etag: 'Test string',
-      }
+      },
     );
     /** Gets metadata for a SecretVersion. `projects/*‍/secrets/*‍/versions/latest` is an alias to the most recently created SecretVersion. */
     await gapi.client.secretmanager.projects.locations.secrets.versions.get({
@@ -278,7 +278,7 @@ gapi.load('client', async () => {
           data: 'Test string',
           dataCrc32c: 'Test string',
         },
-      }
+      },
     );
     /** Creates a new Secret containing no SecretVersions. */
     await gapi.client.secretmanager.projects.secrets.create(
@@ -331,7 +331,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         versionDestroyTtl: 'Test string',
-      }
+      },
     );
     /** Deletes a Secret. */
     await gapi.client.secretmanager.projects.secrets.delete({
@@ -405,7 +405,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         versionDestroyTtl: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified secret. Replaces any existing policy. Permissions on SecretVersions are enforced according to the policy set on the associated Secret. */
     await gapi.client.secretmanager.projects.secrets.setIamPolicy(
@@ -441,7 +441,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has for the specified secret. If the secret does not exist, this call returns an empty set of permissions, not a NOT_FOUND error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.secretmanager.projects.secrets.testIamPermissions(
@@ -450,7 +450,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Accesses a SecretVersion. This call returns the secret data. `projects/*‍/secrets/*‍/versions/latest` is an alias to the most recently created SecretVersion. */
     await gapi.client.secretmanager.projects.secrets.versions.access({
@@ -463,7 +463,7 @@ gapi.load('client', async () => {
       },
       {
         etag: 'Test string',
-      }
+      },
     );
     /** Disables a SecretVersion. Sets the state of the SecretVersion to DISABLED. */
     await gapi.client.secretmanager.projects.secrets.versions.disable(
@@ -472,7 +472,7 @@ gapi.load('client', async () => {
       },
       {
         etag: 'Test string',
-      }
+      },
     );
     /** Enables a SecretVersion. Sets the state of the SecretVersion to ENABLED. */
     await gapi.client.secretmanager.projects.secrets.versions.enable(
@@ -481,7 +481,7 @@ gapi.load('client', async () => {
       },
       {
         etag: 'Test string',
-      }
+      },
     );
     /** Gets metadata for a SecretVersion. `projects/*‍/secrets/*‍/versions/latest` is an alias to the most recently created SecretVersion. */
     await gapi.client.secretmanager.projects.secrets.versions.get({

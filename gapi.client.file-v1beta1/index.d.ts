@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Filestore API v1beta1 */
   function load(
-    urlOrObject: 'https://file.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://file.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'file', version: 'v1beta1'): Promise<void>;
@@ -580,7 +580,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Backup
+        body: Backup,
       ): Request<Operation>;
       /** Deletes a backup. */
       delete(request?: {
@@ -731,7 +731,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Backup
+        body: Backup,
       ): Request<Operation>;
     }
     interface SharesResource {
@@ -795,7 +795,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Share
+        body: Share,
       ): Request<Operation>;
       /** Deletes a share. */
       delete(request?: {
@@ -946,7 +946,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Share
+        body: Share,
       ): Request<Operation>;
     }
     interface SnapshotsResource {
@@ -1010,7 +1010,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Snapshot
+        body: Snapshot,
       ): Request<Operation>;
       /** Deletes a snapshot. */
       delete(request?: {
@@ -1163,7 +1163,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Snapshot
+        body: Snapshot,
       ): Request<Operation>;
     }
     interface InstancesResource {
@@ -1227,7 +1227,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Deletes an instance. */
       delete(request?: {
@@ -1380,7 +1380,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Promote the standby instance (replica). */
       promoteReplica(request: {
@@ -1438,7 +1438,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PromoteReplicaRequest
+        body: PromoteReplicaRequest,
       ): Request<Operation>;
       /** Restores an existing instance's file share from a backup. The capacity of the instance needs to be equal to or larger than the capacity of the backup (and also equal to or larger than the minimum capacity of the tier). */
       restore(request: {
@@ -1496,7 +1496,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestoreInstanceRequest
+        body: RestoreInstanceRequest,
       ): Request<Operation>;
       /** Revert an existing instance's file system to a specified snapshot. */
       revert(request: {
@@ -1554,7 +1554,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RevertInstanceRequest
+        body: RevertInstanceRequest,
       ): Request<Operation>;
       shares: SharesResource;
       snapshots: SnapshotsResource;
@@ -1616,7 +1616,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

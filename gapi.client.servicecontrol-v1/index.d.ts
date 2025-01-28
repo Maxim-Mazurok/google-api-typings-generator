@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Service Control API v1 */
   function load(
-    urlOrObject: 'https://servicecontrol.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://servicecontrol.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'servicecontrol', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'servicecontrol',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace servicecontrol {
@@ -771,7 +771,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AllocateQuotaRequest
+        body: AllocateQuotaRequest,
       ): client.Request<AllocateQuotaResponse>;
       /** Checks whether an operation on a service should be allowed to proceed based on the configuration of the service and related policies. It must be called before the operation is executed. If feasible, the client should cache the check results and reuse them for 60 seconds. In case of any server errors, the client should rely on the cached results for much longer time to avoid outage. WARNING: There is general 60s delay for the configuration and policy propagation, therefore callers MUST NOT depend on the `Check` method having the latest policy information. NOTE: the CheckRequest has the size limit (wire-format byte size) of 1MB. This method requires the `servicemanagement.services.check` permission on the specified service. For more information, see [Cloud IAM](https://cloud.google.com/iam). */
       check(request: {
@@ -829,7 +829,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CheckRequest
+        body: CheckRequest,
       ): client.Request<CheckResponse>;
       /** Reports operation results to Google Service Control, such as logs and metrics. It should be called after an operation is completed. If feasible, the client should aggregate reporting data for up to 5 seconds to reduce API traffic. Limiting aggregation to 5 seconds is to reduce data loss during client crashes. Clients should carefully choose the aggregation time window to avoid data loss risk more than 0.01% for business and compliance reasons. NOTE: the ReportRequest has the size limit (wire-format byte size) of 1MB. This method requires the `servicemanagement.services.report` permission on the specified service. For more information, see [Google Cloud IAM](https://cloud.google.com/iam). */
       report(request: {
@@ -887,7 +887,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportRequest
+        body: ReportRequest,
       ): client.Request<ReportResponse>;
     }
 

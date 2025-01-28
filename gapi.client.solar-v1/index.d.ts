@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Solar API v1 */
   function load(
-    urlOrObject: 'https://solar.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://solar.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'solar', version: 'v1'): Promise<void>;

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Tasks API v1 */
   function load(
-    urlOrObject: 'https://tasks.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://tasks.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'tasks', version: 'v1'): Promise<void>;
@@ -228,7 +228,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TaskList
+        body: TaskList,
       ): Request<TaskList>;
       /** Returns all the authenticated user's task lists. A user can have up to 2000 lists at a time. */
       list(request?: {
@@ -315,7 +315,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TaskList
+        body: TaskList,
       ): Request<TaskList>;
       /** Updates the authenticated user's specified task list. */
       update(request: {
@@ -373,7 +373,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TaskList
+        body: TaskList,
       ): Request<TaskList>;
     }
     interface TasksResource {
@@ -526,7 +526,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Task
+        body: Task,
       ): Request<Task>;
       /** Returns all tasks in the specified task list. Does not return assigned tasks be default (from Docs, Chat Spaces). A user can have up to 20,000 non-hidden tasks per list and up to 100,000 tasks in total at a time. */
       list(request?: {
@@ -672,7 +672,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Task
+        body: Task,
       ): Request<Task>;
       /** Updates the specified task. */
       update(request: {
@@ -734,7 +734,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Task
+        body: Task,
       ): Request<Task>;
     }
 

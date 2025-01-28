@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://accessapproval.googleapis.com/$discovery/rest?version=v1'
+    'https://accessapproval.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.accessapproval */
 
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
         preferredRequestExpirationDays: 42,
         requestScopeMaxWidthPreference: 'Test string',
         requireCustomerVisibleJustification: true,
-      }
+      },
     );
     /** Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
     await gapi.client.accessapproval.folders.approvalRequests.approve(
@@ -76,14 +76,14 @@ gapi.load('client', async () => {
       },
       {
         expireTime: 'Test string',
-      }
+      },
     );
     /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and approved. It is equivalent in effect to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
     await gapi.client.accessapproval.folders.approvalRequests.dismiss(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
     await gapi.client.accessapproval.folders.approvalRequests.get({
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse chronological. */
     await gapi.client.accessapproval.folders.approvalRequests.list({
@@ -107,7 +107,7 @@ gapi.load('client', async () => {
     await gapi.client.accessapproval.organizations.deleteAccessApprovalSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the settings associated with a project, folder, or organization. */
     await gapi.client.accessapproval.organizations.getAccessApprovalSettings({
@@ -141,7 +141,7 @@ gapi.load('client', async () => {
         preferredRequestExpirationDays: 42,
         requestScopeMaxWidthPreference: 'Test string',
         requireCustomerVisibleJustification: true,
-      }
+      },
     );
     /** Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
     await gapi.client.accessapproval.organizations.approvalRequests.approve(
@@ -150,14 +150,14 @@ gapi.load('client', async () => {
       },
       {
         expireTime: 'Test string',
-      }
+      },
     );
     /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and approved. It is equivalent in effect to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
     await gapi.client.accessapproval.organizations.approvalRequests.dismiss(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
     await gapi.client.accessapproval.organizations.approvalRequests.get({
@@ -168,7 +168,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse chronological. */
     await gapi.client.accessapproval.organizations.approvalRequests.list({
@@ -213,7 +213,7 @@ gapi.load('client', async () => {
         preferredRequestExpirationDays: 42,
         requestScopeMaxWidthPreference: 'Test string',
         requireCustomerVisibleJustification: true,
-      }
+      },
     );
     /** Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
     await gapi.client.accessapproval.projects.approvalRequests.approve(
@@ -222,14 +222,14 @@ gapi.load('client', async () => {
       },
       {
         expireTime: 'Test string',
-      }
+      },
     );
     /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and approved. It is equivalent in effect to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
     await gapi.client.accessapproval.projects.approvalRequests.dismiss(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
     await gapi.client.accessapproval.projects.approvalRequests.get({
@@ -240,7 +240,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse chronological. */
     await gapi.client.accessapproval.projects.approvalRequests.list({

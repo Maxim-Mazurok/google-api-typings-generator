@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://vision.googleapis.com/$discovery/rest?version=v1p2beta1'
+    'https://vision.googleapis.com/$discovery/rest?version=v1p2beta1',
   );
   /** now we can use gapi.client.vision */
 
@@ -102,7 +102,7 @@ gapi.load('client', async () => {
             pages: [42],
           },
         ],
-      }
+      },
     );
     /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
     await gapi.client.vision.files.asyncBatchAnnotate(
@@ -178,7 +178,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Run image detection and annotation for a batch of images. */
     await gapi.client.vision.images.annotate(
@@ -248,7 +248,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
     await gapi.client.vision.images.asyncBatchAnnotate(
@@ -324,7 +324,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Service that performs image detection and annotation for a batch of files. Now only "application/pdf", "image/tiff" and "image/gif" are supported. This service will extract at most 5 (customers can specify which 5 in AnnotateFileRequest.pages) frames (gif) or pages (pdf or tiff) from each file provided and perform detection and annotation for each image extracted. */
     await gapi.client.vision.projects.files.annotate(
@@ -397,7 +397,7 @@ gapi.load('client', async () => {
             pages: [42],
           },
         ],
-      }
+      },
     );
     /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
     await gapi.client.vision.projects.files.asyncBatchAnnotate(
@@ -475,7 +475,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Run image detection and annotation for a batch of images. */
     await gapi.client.vision.projects.images.annotate(
@@ -547,7 +547,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
     await gapi.client.vision.projects.images.asyncBatchAnnotate(
@@ -625,7 +625,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Service that performs image detection and annotation for a batch of files. Now only "application/pdf", "image/tiff" and "image/gif" are supported. This service will extract at most 5 (customers can specify which 5 in AnnotateFileRequest.pages) frames (gif) or pages (pdf or tiff) from each file provided and perform detection and annotation for each image extracted. */
     await gapi.client.vision.projects.locations.files.annotate(
@@ -698,7 +698,7 @@ gapi.load('client', async () => {
             pages: [42],
           },
         ],
-      }
+      },
     );
     /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
     await gapi.client.vision.projects.locations.files.asyncBatchAnnotate(
@@ -776,7 +776,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Run image detection and annotation for a batch of images. */
     await gapi.client.vision.projects.locations.images.annotate(
@@ -848,7 +848,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
     await gapi.client.vision.projects.locations.images.asyncBatchAnnotate(
@@ -926,7 +926,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
   }
 });

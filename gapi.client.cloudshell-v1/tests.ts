@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudshell.googleapis.com/$discovery/rest?version=v1'
+    'https://cloudshell.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.cloudshell */
 
@@ -36,7 +36,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.cloudshell.operations.delete({
@@ -60,7 +60,7 @@ gapi.load('client', async () => {
       },
       {
         key: 'Test string',
-      }
+      },
     );
     /** Sends OAuth credentials to a running environment on behalf of a user. When this completes, the environment will be authorized to run various Google Cloud command line tools without requiring the user to manually authenticate. */
     await gapi.client.cloudshell.users.environments.authorize(
@@ -71,7 +71,7 @@ gapi.load('client', async () => {
         accessToken: 'Test string',
         expireTime: 'Test string',
         idToken: 'Test string',
-      }
+      },
     );
     /** Gets an environment. Returns NOT_FOUND if the environment does not exist. */
     await gapi.client.cloudshell.users.environments.get({
@@ -84,7 +84,7 @@ gapi.load('client', async () => {
       },
       {
         key: 'Test string',
-      }
+      },
     );
     /** Starts an existing environment, allowing clients to connect to it. The returned operation will contain an instance of StartEnvironmentMetadata in its metadata field. Users can wait for the environment to start by polling this operation via GetOperation. Once the environment has finished starting and is ready to accept connections, the operation will contain a StartEnvironmentResponse in its response field. */
     await gapi.client.cloudshell.users.environments.start(
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
       {
         accessToken: 'Test string',
         publicKeys: ['Test string'],
-      }
+      },
     );
   }
 });

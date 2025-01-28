@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load AlloyDB API v1beta */
   function load(
-    urlOrObject: 'https://alloydb.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://alloydb.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'alloydb', version: 'v1beta'): Promise<void>;
@@ -1047,7 +1047,7 @@ declare namespace gapi.client {
           /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
           validateOnly?: boolean;
         },
-        body: Backup
+        body: Backup,
       ): Request<Operation>;
       /** Deletes a single Backup. */
       delete(request?: {
@@ -1216,7 +1216,7 @@ declare namespace gapi.client {
           /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
           validateOnly?: boolean;
         },
-        body: Backup
+        body: Backup,
       ): Request<Operation>;
     }
     interface InstancesResource {
@@ -1288,7 +1288,7 @@ declare namespace gapi.client {
           /** Optional. If set, performs request validation, for example, permission checks and any other type of validation, but does not actually execute the create request. */
           validateOnly?: boolean;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Creates a new SECONDARY Instance in a given project and location. */
       createsecondary(request: {
@@ -1358,7 +1358,7 @@ declare namespace gapi.client {
           /** Optional. If set, performs request validation, for example, permission checks and any other type of validation, but does not actually execute the create request. */
           validateOnly?: boolean;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Deletes a single Instance. */
       delete(request?: {
@@ -1449,7 +1449,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FailoverInstanceRequest
+        body: FailoverInstanceRequest,
       ): Request<Operation>;
       /** Gets details of a single Instance. */
       get(request?: {
@@ -1565,7 +1565,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InjectFaultRequest
+        body: InjectFaultRequest,
       ): Request<Operation>;
       /** Lists Instances in a given project and location. */
       list(request?: {
@@ -1674,7 +1674,7 @@ declare namespace gapi.client {
           /** Optional. If set, performs request validation, for example, permission checks and any other type of validation, but does not actually execute the create request. */
           validateOnly?: boolean;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Restart an Instance in a cluster. Imperative only. */
       restart(request: {
@@ -1732,7 +1732,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestartInstanceRequest
+        body: RestartInstanceRequest,
       ): Request<Operation>;
     }
     interface UsersResource {
@@ -1804,7 +1804,7 @@ declare namespace gapi.client {
           /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
           validateOnly?: boolean;
         },
-        body: User
+        body: User,
       ): Request<User>;
       /** Deletes a single User. */
       delete(request?: {
@@ -1971,7 +1971,7 @@ declare namespace gapi.client {
           /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
           validateOnly?: boolean;
         },
-        body: User
+        body: User,
       ): Request<User>;
     }
     interface ClustersResource {
@@ -2043,7 +2043,7 @@ declare namespace gapi.client {
           /** Optional. If set, performs request validation, for example, permission checks and any other type of validation, but does not actually execute the create request. */
           validateOnly?: boolean;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       /** Creates a cluster of type SECONDARY in the given location using the primary cluster as the source. */
       createsecondary(request: {
@@ -2113,7 +2113,7 @@ declare namespace gapi.client {
           /** Optional. If set, performs request validation, for example, permission checks and any other type of validation, but does not actually execute the create request. */
           validateOnly?: boolean;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       /** Deletes a single Cluster. */
       delete(request?: {
@@ -2206,7 +2206,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExportClusterRequest
+        body: ExportClusterRequest,
       ): Request<Operation>;
       /** Gets details of a single Cluster. */
       get(request?: {
@@ -2344,7 +2344,7 @@ declare namespace gapi.client {
           /** Optional. If set, performs request validation, for example, permission checks and any other type of validation, but does not actually execute the create request. */
           validateOnly?: boolean;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       /** Promotes a SECONDARY cluster. This turns down replication from the PRIMARY cluster and promotes a secondary cluster into its own standalone cluster. Imperative only. */
       promote(request: {
@@ -2402,7 +2402,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PromoteClusterRequest
+        body: PromoteClusterRequest,
       ): Request<Operation>;
       /** Creates a new Cluster in a given project and location, with a volume restored from the provided source, either a backup ID or a point-in-time and a source cluster. */
       restore(request: {
@@ -2460,7 +2460,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestoreClusterRequest
+        body: RestoreClusterRequest,
       ): Request<Operation>;
       /** Restores an AlloyDB cluster from a CloudSQL resource. */
       restoreFromCloudSQL(request: {
@@ -2518,7 +2518,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestoreFromCloudSQLRequest
+        body: RestoreFromCloudSQLRequest,
       ): Request<Operation>;
       /** Switches the roles of PRIMARY and SECONDARY clusters without any data loss. This promotes the SECONDARY cluster to PRIMARY and sets up the original PRIMARY cluster to replicate from this newly promoted cluster. */
       switchover(request: {
@@ -2576,7 +2576,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SwitchoverClusterRequest
+        body: SwitchoverClusterRequest,
       ): Request<Operation>;
       /** Upgrades a single Cluster. Imperative only. */
       upgrade(request: {
@@ -2634,7 +2634,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpgradeClusterRequest
+        body: UpgradeClusterRequest,
       ): Request<Operation>;
       instances: InstancesResource;
       users: UsersResource;

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Datastore API v1 */
   function load(
-    urlOrObject: 'https://datastore.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://datastore.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'datastore', version: 'v1'): Promise<void>;
@@ -742,7 +742,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleDatastoreAdminV1Index
+        body: GoogleDatastoreAdminV1Index,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes an existing index. An index can only be deleted if it is in a `READY` or `ERROR` state. On successful execution of the request, the index will be in a `DELETING` state. And on completion of the returned google.longrunning.Operation, the index will be removed. During index deletion, the process could result in an error, in which case the index will move to the `ERROR` state. The process can be recovered by fixing the data that caused the error, followed by calling delete again. */
       delete(request?: {
@@ -1008,7 +1008,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AllocateIdsRequest
+        body: AllocateIdsRequest,
       ): Request<AllocateIdsResponse>;
       /** Begins a new transaction. */
       beginTransaction(request: {
@@ -1066,7 +1066,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BeginTransactionRequest
+        body: BeginTransactionRequest,
       ): Request<BeginTransactionResponse>;
       /** Commits a transaction, optionally creating, deleting or modifying some entities. */
       commit(request: {
@@ -1124,7 +1124,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommitRequest
+        body: CommitRequest,
       ): Request<CommitResponse>;
       /** Exports a copy of all or a subset of entities from Google Cloud Datastore to another storage system, such as Google Cloud Storage. Recent updates to entities may not be reflected in the export. The export occurs in the background and its progress can be monitored and managed via the Operation resource that is created. The output of an export may only be used once the associated operation is done. If an export operation is cancelled before completion it may leave partial data behind in Google Cloud Storage. */
       export(request: {
@@ -1182,7 +1182,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleDatastoreAdminV1ExportEntitiesRequest
+        body: GoogleDatastoreAdminV1ExportEntitiesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Imports entities into Google Cloud Datastore. Existing entities with the same key are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportEntities operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Datastore. */
       import(request: {
@@ -1240,7 +1240,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleDatastoreAdminV1ImportEntitiesRequest
+        body: GoogleDatastoreAdminV1ImportEntitiesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Looks up entities by key. */
       lookup(request: {
@@ -1298,7 +1298,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LookupRequest
+        body: LookupRequest,
       ): Request<LookupResponse>;
       /** Prevents the supplied keys' IDs from being auto-allocated by Cloud Datastore. */
       reserveIds(request: {
@@ -1356,7 +1356,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReserveIdsRequest
+        body: ReserveIdsRequest,
       ): Request<{}>;
       /** Rolls back a transaction. */
       rollback(request: {
@@ -1414,7 +1414,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RollbackRequest
+        body: RollbackRequest,
       ): Request<{}>;
       /** Runs an aggregation query. */
       runAggregationQuery(request: {
@@ -1472,7 +1472,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunAggregationQueryRequest
+        body: RunAggregationQueryRequest,
       ): Request<RunAggregationQueryResponse>;
       /** Queries for entities. */
       runQuery(request: {
@@ -1530,7 +1530,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunQueryRequest
+        body: RunQueryRequest,
       ): Request<RunQueryResponse>;
       indexes: IndexesResource;
       operations: OperationsResource;

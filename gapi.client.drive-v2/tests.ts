@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://www.googleapis.com/discovery/v1/apis/drive/v2/rest'
+    'https://www.googleapis.com/discovery/v1/apis/drive/v2/rest',
   );
   /** now we can use gapi.client.drive */
 
@@ -130,7 +130,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Stops watching resources through this channel. */
     await gapi.client.drive.channels.stop(
@@ -148,7 +148,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Removes a child from a folder. */
     await gapi.client.drive.children.delete({
@@ -174,7 +174,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Lists a folder's children. */
     await gapi.client.drive.children.list({
@@ -249,7 +249,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         status: 'Test string',
-      }
+      },
     );
     /** Lists a file's comments. */
     await gapi.client.drive.comments.list({
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         status: 'Test string',
-      }
+      },
     );
     /** Updates an existing comment. */
     await gapi.client.drive.comments.update(
@@ -371,7 +371,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         status: 'Test string',
-      }
+      },
     );
     /** Permanently deletes a shared drive for which the user is an `organizer`. The shared drive cannot contain any untrashed items. */
     await gapi.client.drive.drives.delete({
@@ -438,7 +438,7 @@ gapi.load('client', async () => {
           sharingFoldersRequiresOrganizerPermission: true,
         },
         themeId: 'Test string',
-      }
+      },
     );
     /** Lists the user's shared drives. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for shared drives](/drive/api/guides/search-shareddrives) guide. */
     await gapi.client.drive.drives.list({
@@ -502,7 +502,7 @@ gapi.load('client', async () => {
           sharingFoldersRequiresOrganizerPermission: true,
         },
         themeId: 'Test string',
-      }
+      },
     );
     /** Creates a copy of the specified file. */
     await gapi.client.drive.files.copy(
@@ -873,7 +873,7 @@ gapi.load('client', async () => {
         webContentLink: 'Test string',
         webViewLink: 'Test string',
         writersCanShare: true,
-      }
+      },
     );
     /** Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive, the user must be an `organizer` on the parent folder. If the target is a folder, all descendants owned by the user are also deleted. */
     await gapi.client.drive.files.delete({
@@ -1279,7 +1279,7 @@ gapi.load('client', async () => {
         webContentLink: 'Test string',
         webViewLink: 'Test string',
         writersCanShare: true,
-      }
+      },
     );
     /** Lists the user's files. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for files & folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by default, including trashed files. If you don't want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results. */
     await gapi.client.drive.files.list({
@@ -1332,7 +1332,7 @@ gapi.load('client', async () => {
             removeLabel: true,
           },
         ],
-      }
+      },
     );
     /** Updates a file's metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might change automatically, such as modifiedDate. This method supports patch semantics. */
     await gapi.client.drive.files.patch(
@@ -1709,7 +1709,7 @@ gapi.load('client', async () => {
         webContentLink: 'Test string',
         webViewLink: 'Test string',
         writersCanShare: true,
-      }
+      },
     );
     /** Set the file's updated time to the current server time. */
     await gapi.client.drive.files.touch({
@@ -2110,7 +2110,7 @@ gapi.load('client', async () => {
         webContentLink: 'Test string',
         webViewLink: 'Test string',
         writersCanShare: true,
-      }
+      },
     );
     /** Subscribes to changes to a file. */
     await gapi.client.drive.files.watch(
@@ -2138,7 +2138,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Removes a parent from a file. */
     await gapi.client.drive.parents.delete({
@@ -2165,7 +2165,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         parentLink: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Lists a file's parents. */
     await gapi.client.drive.parents.list({
@@ -2240,7 +2240,7 @@ gapi.load('client', async () => {
         value: 'Test string',
         view: 'Test string',
         withLink: true,
-      }
+      },
     );
     /** Lists a file's or shared drive's permissions. */
     await gapi.client.drive.permissions.list({
@@ -2300,7 +2300,7 @@ gapi.load('client', async () => {
         value: 'Test string',
         view: 'Test string',
         withLink: true,
-      }
+      },
     );
     /** Updates a permission. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied. */
     await gapi.client.drive.permissions.update(
@@ -2350,7 +2350,7 @@ gapi.load('client', async () => {
         value: 'Test string',
         view: 'Test string',
         withLink: true,
-      }
+      },
     );
     /** Deletes a property. */
     await gapi.client.drive.properties.delete({
@@ -2376,7 +2376,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         value: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Lists a file's properties. */
     await gapi.client.drive.properties.list({
@@ -2396,7 +2396,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         value: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Updates a property. */
     await gapi.client.drive.properties.update(
@@ -2412,7 +2412,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         value: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes a reply. */
     await gapi.client.drive.replies.delete({
@@ -2452,7 +2452,7 @@ gapi.load('client', async () => {
         modifiedDate: 'Test string',
         replyId: 'Test string',
         verb: 'Test string',
-      }
+      },
     );
     /** Lists all of the replies to a comment. */
     await gapi.client.drive.replies.list({
@@ -2488,7 +2488,7 @@ gapi.load('client', async () => {
         modifiedDate: 'Test string',
         replyId: 'Test string',
         verb: 'Test string',
-      }
+      },
     );
     /** Updates an existing reply. */
     await gapi.client.drive.replies.update(
@@ -2516,7 +2516,7 @@ gapi.load('client', async () => {
         modifiedDate: 'Test string',
         replyId: 'Test string',
         verb: 'Test string',
-      }
+      },
     );
     /** Permanently deletes a file version. You can only delete revisions for files with binary content, like images or videos. Revisions for other files, like Google Docs or Sheets, and the last remaining file version can't be deleted. */
     await gapi.client.drive.revisions.delete({
@@ -2570,7 +2570,7 @@ gapi.load('client', async () => {
         publishedLink: 'Test string',
         publishedOutsideDomain: true,
         selfLink: 'Test string',
-      }
+      },
     );
     /** Updates a revision. */
     await gapi.client.drive.revisions.update(
@@ -2608,7 +2608,7 @@ gapi.load('client', async () => {
         publishedLink: 'Test string',
         publishedOutsideDomain: true,
         selfLink: 'Test string',
-      }
+      },
     );
     /** Deprecated: Use `drives.delete` instead. */
     await gapi.client.drive.teamdrives.delete({
@@ -2669,7 +2669,7 @@ gapi.load('client', async () => {
           teamMembersOnly: true,
         },
         themeId: 'Test string',
-      }
+      },
     );
     /** Deprecated: Use `drives.list` instead. */
     await gapi.client.drive.teamdrives.list({
@@ -2729,7 +2729,7 @@ gapi.load('client', async () => {
           teamMembersOnly: true,
         },
         themeId: 'Test string',
-      }
+      },
     );
   }
 });

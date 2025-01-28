@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://dataplex.googleapis.com/$discovery/rest?version=v1'
+    'https://dataplex.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.dataplex */
 
@@ -36,7 +36,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.organizations.locations.encryptionConfigs.setIamPolicy(
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.organizations.locations.encryptionConfigs.testIamPermissions(
@@ -81,14 +81,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
     await gapi.client.dataplex.organizations.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. */
     await gapi.client.dataplex.organizations.locations.operations.delete({
@@ -105,7 +105,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.dataplex.projects.locations.get({
@@ -185,7 +185,7 @@ gapi.load('client', async () => {
         transferStatus: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an AspectType. */
     await gapi.client.dataplex.projects.locations.aspectTypes.delete({
@@ -259,7 +259,7 @@ gapi.load('client', async () => {
         transferStatus: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.aspectTypes.setIamPolicy(
@@ -295,7 +295,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.aspectTypes.testIamPermissions(
@@ -304,7 +304,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create a DataAttributeBinding resource. */
     await gapi.client.dataplex.projects.locations.dataAttributeBindings.create(
@@ -332,7 +332,7 @@ gapi.load('client', async () => {
         resource: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a DataAttributeBinding resource. All attributes within the DataAttributeBinding must be deleted before the DataAttributeBinding can be deleted. */
     await gapi.client.dataplex.projects.locations.dataAttributeBindings.delete({
@@ -348,7 +348,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists DataAttributeBinding resources in a project and location. */
     await gapi.client.dataplex.projects.locations.dataAttributeBindings.list({
@@ -384,7 +384,7 @@ gapi.load('client', async () => {
         resource: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.dataAttributeBindings.setIamPolicy(
@@ -420,7 +420,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.dataAttributeBindings.testIamPermissions(
@@ -429,7 +429,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a DataScan resource. */
     await gapi.client.dataplex.projects.locations.dataScans.create(
@@ -707,7 +707,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a DataScan resource. */
     await gapi.client.dataplex.projects.locations.dataScans.delete({
@@ -719,7 +719,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets a DataScan resource. */
     await gapi.client.dataplex.projects.locations.dataScans.get({
@@ -1015,14 +1015,14 @@ gapi.load('client', async () => {
         type: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Runs an on-demand execution of a DataScan */
     await gapi.client.dataplex.projects.locations.dataScans.run(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.dataScans.setIamPolicy(
@@ -1058,7 +1058,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.dataScans.testIamPermissions(
@@ -1067,14 +1067,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Generates recommended data quality rules based on the results of a data profiling scan.Use the recommendations to build rules for a data quality scan. */
     await gapi.client.dataplex.projects.locations.dataScans.jobs.generateDataQualityRules(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets a DataScanJob resource. */
     await gapi.client.dataplex.projects.locations.dataScans.jobs.get({
@@ -1108,7 +1108,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a DataTaxonomy resource. All attributes within the DataTaxonomy must be deleted before the DataTaxonomy can be deleted. */
     await gapi.client.dataplex.projects.locations.dataTaxonomies.delete({
@@ -1152,7 +1152,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.dataTaxonomies.setIamPolicy(
@@ -1188,7 +1188,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.dataTaxonomies.testIamPermissions(
@@ -1197,7 +1197,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create a DataAttribute resource. */
     await gapi.client.dataplex.projects.locations.dataTaxonomies.attributes.create(
@@ -1227,27 +1227,27 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a Data Attribute resource. */
     await gapi.client.dataplex.projects.locations.dataTaxonomies.attributes.delete(
       {
         etag: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves a Data Attribute resource. */
     await gapi.client.dataplex.projects.locations.dataTaxonomies.attributes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.dataplex.projects.locations.dataTaxonomies.attributes.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists Data Attribute resources in a DataTaxonomy. */
     await gapi.client.dataplex.projects.locations.dataTaxonomies.attributes.list(
@@ -1257,7 +1257,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a DataAttribute resource. */
     await gapi.client.dataplex.projects.locations.dataTaxonomies.attributes.patch(
@@ -1287,7 +1287,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.dataTaxonomies.attributes.setIamPolicy(
@@ -1323,7 +1323,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.dataTaxonomies.attributes.testIamPermissions(
@@ -1332,7 +1332,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates an EntryGroup. */
     await gapi.client.dataplex.projects.locations.entryGroups.create(
@@ -1353,7 +1353,7 @@ gapi.load('client', async () => {
         transferStatus: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an EntryGroup. */
     await gapi.client.dataplex.projects.locations.entryGroups.delete({
@@ -1396,7 +1396,7 @@ gapi.load('client', async () => {
         transferStatus: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.entryGroups.setIamPolicy(
@@ -1432,7 +1432,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.entryGroups.testIamPermissions(
@@ -1441,7 +1441,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates an Entry. */
     await gapi.client.dataplex.projects.locations.entryGroups.entries.create(
@@ -1491,7 +1491,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         parentEntry: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an Entry. */
     await gapi.client.dataplex.projects.locations.entryGroups.entries.delete({
@@ -1562,7 +1562,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         parentEntry: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.dataplex.projects.locations.entryLinkTypes.getIamPolicy({
@@ -1603,7 +1603,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.entryLinkTypes.testIamPermissions(
@@ -1612,7 +1612,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates an EntryType. */
     await gapi.client.dataplex.projects.locations.entryTypes.create(
@@ -1643,7 +1643,7 @@ gapi.load('client', async () => {
         typeAliases: ['Test string'],
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an EntryType. */
     await gapi.client.dataplex.projects.locations.entryTypes.delete({
@@ -1696,7 +1696,7 @@ gapi.load('client', async () => {
         typeAliases: ['Test string'],
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.entryTypes.setIamPolicy(
@@ -1732,7 +1732,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.entryTypes.testIamPermissions(
@@ -1741,7 +1741,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.dataplex.projects.locations.glossaries.getIamPolicy({
@@ -1782,7 +1782,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.glossaries.testIamPermissions(
@@ -1791,14 +1791,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.dataplex.projects.locations.glossaries.categories.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.glossaries.categories.setIamPolicy(
@@ -1834,7 +1834,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.glossaries.categories.testIamPermissions(
@@ -1843,14 +1843,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.dataplex.projects.locations.glossaries.terms.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.glossaries.terms.setIamPolicy(
@@ -1886,7 +1886,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.glossaries.terms.testIamPermissions(
@@ -1895,7 +1895,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.dataplex.projects.locations.governanceRules.getIamPolicy({
@@ -1936,7 +1936,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.governanceRules.testIamPermissions(
@@ -1945,7 +1945,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a lake resource. */
     await gapi.client.dataplex.projects.locations.lakes.create(
@@ -1980,7 +1980,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a lake resource. All zones within the lake must be deleted before the lake can be deleted. */
     await gapi.client.dataplex.projects.locations.lakes.delete({
@@ -2036,7 +2036,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.lakes.setIamPolicy(
@@ -2072,7 +2072,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.lakes.testIamPermissions(
@@ -2081,7 +2081,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists action resources in a lake. */
     await gapi.client.dataplex.projects.locations.lakes.actions.list({
@@ -2112,7 +2112,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a content. */
     await gapi.client.dataplex.projects.locations.lakes.content.delete({
@@ -2159,7 +2159,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified contentitem resource. Replaces any existing policy.Caller must have Google IAM dataplex.content.setIamPolicy permission on the resource. */
     await gapi.client.dataplex.projects.locations.lakes.content.setIamPolicy(
@@ -2195,7 +2195,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (a NOT_FOUND error is not returned).A caller is not required to have Google IAM permission to make this request.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.lakes.content.testIamPermissions(
@@ -2204,7 +2204,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create a content. */
     await gapi.client.dataplex.projects.locations.lakes.contentitems.create(
@@ -2229,7 +2229,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a content. */
     await gapi.client.dataplex.projects.locations.lakes.contentitems.delete({
@@ -2245,7 +2245,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** List content. */
     await gapi.client.dataplex.projects.locations.lakes.contentitems.list({
@@ -2278,7 +2278,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified contentitem resource. Replaces any existing policy.Caller must have Google IAM dataplex.content.setIamPolicy permission on the resource. */
     await gapi.client.dataplex.projects.locations.lakes.contentitems.setIamPolicy(
@@ -2314,7 +2314,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (a NOT_FOUND error is not returned).A caller is not required to have Google IAM permission to make this request.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.lakes.contentitems.testIamPermissions(
@@ -2323,7 +2323,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create an environment resource. */
     await gapi.client.dataplex.projects.locations.lakes.environments.create(
@@ -2369,7 +2369,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete the environment resource. All the child resources must have been deleted before environment deletion can be initiated. */
     await gapi.client.dataplex.projects.locations.lakes.environments.delete({
@@ -2384,7 +2384,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists environments under the given lake. */
     await gapi.client.dataplex.projects.locations.lakes.environments.list({
@@ -2438,7 +2438,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.lakes.environments.setIamPolicy(
@@ -2474,7 +2474,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.lakes.environments.testIamPermissions(
@@ -2483,7 +2483,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists session resources in an environment. */
     await gapi.client.dataplex.projects.locations.lakes.environments.sessions.list(
@@ -2492,7 +2492,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a task resource within a lake. */
     await gapi.client.dataplex.projects.locations.lakes.tasks.create(
@@ -2607,7 +2607,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete the task resource. */
     await gapi.client.dataplex.projects.locations.lakes.tasks.delete({
@@ -2743,7 +2743,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Run an on demand execution of a Task. */
     await gapi.client.dataplex.projects.locations.lakes.tasks.run(
@@ -2757,7 +2757,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.lakes.tasks.setIamPolicy(
@@ -2793,7 +2793,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.lakes.tasks.testIamPermissions(
@@ -2802,14 +2802,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Cancel jobs running for the task resource. */
     await gapi.client.dataplex.projects.locations.lakes.tasks.jobs.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Get job resource. */
     await gapi.client.dataplex.projects.locations.lakes.tasks.jobs.get({
@@ -2864,7 +2864,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a zone resource. All assets within a zone must be deleted before the zone can be deleted. */
     await gapi.client.dataplex.projects.locations.lakes.zones.delete({
@@ -2930,7 +2930,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.lakes.zones.setIamPolicy(
@@ -2966,7 +2966,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.lakes.zones.testIamPermissions(
@@ -2975,7 +2975,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists action resources in a zone. */
     await gapi.client.dataplex.projects.locations.lakes.zones.actions.list({
@@ -3046,7 +3046,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an asset resource. The referenced storage resource is detached (default) or deleted based on the associated Lifecycle policy. */
     await gapi.client.dataplex.projects.locations.lakes.zones.assets.delete({
@@ -3061,7 +3061,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists asset resources in a zone. */
     await gapi.client.dataplex.projects.locations.lakes.zones.assets.list({
@@ -3134,7 +3134,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataplex.projects.locations.lakes.zones.assets.setIamPolicy(
@@ -3170,7 +3170,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataplex.projects.locations.lakes.zones.assets.testIamPermissions(
@@ -3179,7 +3179,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists action resources in an asset. */
     await gapi.client.dataplex.projects.locations.lakes.zones.assets.actions.list(
@@ -3187,7 +3187,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Create a metadata entity. */
     await gapi.client.dataplex.projects.locations.lakes.zones.entities.create(
@@ -3259,7 +3259,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a metadata entity. */
     await gapi.client.dataplex.projects.locations.lakes.zones.entities.delete({
@@ -3349,7 +3349,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Create a metadata partition. */
     await gapi.client.dataplex.projects.locations.lakes.zones.entities.partitions.create(
@@ -3362,20 +3362,20 @@ gapi.load('client', async () => {
         location: 'Test string',
         name: 'Test string',
         values: ['Test string'],
-      }
+      },
     );
     /** Delete a metadata partition. */
     await gapi.client.dataplex.projects.locations.lakes.zones.entities.partitions.delete(
       {
         etag: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Get a metadata partition of an entity. */
     await gapi.client.dataplex.projects.locations.lakes.zones.entities.partitions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List metadata partitions of an entity. */
     await gapi.client.dataplex.projects.locations.lakes.zones.entities.partitions.list(
@@ -3384,14 +3384,14 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Cancels a metadata job.If you cancel a metadata import job that is in progress, the changes in the job might be partially applied. We recommend that you reset the state of the entry groups in your project by running another metadata job that reverts the changes from the canceled job. */
     await gapi.client.dataplex.projects.locations.metadataJobs.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a metadata job. For example, use a metadata job to import Dataplex Catalog entries and aspects from a third-party system into Dataplex. */
     await gapi.client.dataplex.projects.locations.metadataJobs.create(
@@ -3435,7 +3435,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets a metadata job. */
     await gapi.client.dataplex.projects.locations.metadataJobs.get({
@@ -3454,7 +3454,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. */
     await gapi.client.dataplex.projects.locations.operations.delete({

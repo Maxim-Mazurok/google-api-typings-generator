@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Firebase ML API v1beta2 */
   function load(
-    urlOrObject: 'https://firebaseml.googleapis.com/$discovery/rest?version=v1beta2'
+    urlOrObject: 'https://firebaseml.googleapis.com/$discovery/rest?version=v1beta2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firebaseml', version: 'v1beta2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firebaseml',
     version: 'v1beta2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firebaseml {
@@ -163,7 +163,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Model
+        body: Model,
       ): Request<Operation>;
       /** Deletes a model */
       delete(request?: {
@@ -339,7 +339,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Model
+        body: Model,
       ): Request<Operation>;
     }
     interface OperationsResource {

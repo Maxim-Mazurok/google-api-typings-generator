@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Firebase App Distribution API v1alpha */
   function load(
-    urlOrObject: 'https://firebaseappdistribution.googleapis.com/$discovery/rest?version=v1alpha'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'firebaseappdistribution',
-    version: 'v1alpha'
+    urlOrObject: 'https://firebaseappdistribution.googleapis.com/$discovery/rest?version=v1alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'firebaseappdistribution',
     version: 'v1alpha',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'firebaseappdistribution',
+    version: 'v1alpha',
+    callback: () => any,
   ): void;
 
   namespace firebaseappdistribution {
@@ -477,7 +477,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1alphaCreateReleaseNotesRequest
+        body: GoogleFirebaseAppdistroV1alphaCreateReleaseNotesRequest,
       ): Request<{}>;
     }
     interface ReleasesResource {
@@ -541,7 +541,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1alphaEnableAccessOnReleaseRequest
+        body: GoogleFirebaseAppdistroV1alphaEnableAccessOnReleaseRequest,
       ): Request<{}>;
       notes: NotesResource;
     }
@@ -784,7 +784,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1alphaReleaseTest
+        body: GoogleFirebaseAppdistroV1alphaReleaseTest,
       ): Request<GoogleFirebaseAppdistroV1alphaReleaseTest>;
       /** Get results for automated test run on release. */
       get(request?: {
@@ -911,7 +911,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1alphaTestCase
+        body: GoogleFirebaseAppdistroV1alphaTestCase,
       ): Request<GoogleFirebaseAppdistroV1alphaTestCase>;
       /** Delete a test case. */
       delete(request?: {
@@ -1054,7 +1054,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1alphaTestCase
+        body: GoogleFirebaseAppdistroV1alphaTestCase,
       ): Request<GoogleFirebaseAppdistroV1alphaTestCase>;
     }
     interface AppsResource {
@@ -1145,7 +1145,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1alphaTestConfig
+        body: GoogleFirebaseAppdistroV1alphaTestConfig,
       ): Request<GoogleFirebaseAppdistroV1alphaTestConfig>;
       releases: ReleasesResource;
       testCases: TestCasesResource;

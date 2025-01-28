@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Search Ads 360 API v2 */
   function load(
-    urlOrObject: 'https://doubleclicksearch.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://doubleclicksearch.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'doubleclicksearch', version: 'v2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'doubleclicksearch',
     version: 'v2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace doubleclicksearch {
@@ -424,7 +424,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConversionList
+        body: ConversionList,
       ): Request<ConversionList>;
       /** Updates a batch of conversions in DoubleClick Search. */
       update(request: {
@@ -478,7 +478,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConversionList
+        body: ConversionList,
       ): Request<ConversionList>;
       /** Updates the availabilities of a batch of floodlight activities in DoubleClick Search. */
       updateAvailability(request: {
@@ -532,7 +532,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateAvailabilityRequest
+        body: UpdateAvailabilityRequest,
       ): Request<UpdateAvailabilityResponse>;
     }
     interface ReportsResource {
@@ -588,7 +588,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportRequest
+        body: ReportRequest,
       ): Request<Report>;
       /** Polls for the status of a report request. */
       get(request?: {
@@ -727,7 +727,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportRequest
+        body: ReportRequest,
       ): Request<Report>;
     }
     interface SavedColumnsResource {

@@ -31,7 +31,7 @@ gapi.client.load(
     // now we can use:
     // gapi.client.searchconsole
     // gapi.client.webmasters
-  }
+  },
 );
 ```
 
@@ -67,7 +67,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://admin.googleapis.com/$discovery/rest?version=datatransfer_v1'
+    'https://admin.googleapis.com/$discovery/rest?version=datatransfer_v1',
   );
   /** now we can use gapi.client.datatransfer */
 
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
         oldOwnerUserId: 'Test string',
         overallTransferStatusCode: 'Test string',
         requestTime: 'Test string',
-      }
+      },
     );
     /** Lists the transfers for a customer by source user, destination user, or status. */
     await gapi.client.datatransfer.transfers.list({

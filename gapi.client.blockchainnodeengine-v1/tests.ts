@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://blockchainnodeengine.googleapis.com/$discovery/rest?version=v1'
+    'https://blockchainnodeengine.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.blockchainnodeengine */
 
@@ -87,20 +87,20 @@ gapi.load('client', async () => {
         privateServiceConnectEnabled: true,
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single blockchain node. */
     await gapi.client.blockchainnodeengine.projects.locations.blockchainNodes.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single blockchain node. */
     await gapi.client.blockchainnodeengine.projects.locations.blockchainNodes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists blockchain nodes in a given project and location. */
     await gapi.client.blockchainnodeengine.projects.locations.blockchainNodes.list(
@@ -110,7 +110,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single blockchain node. */
     await gapi.client.blockchainnodeengine.projects.locations.blockchainNodes.patch(
@@ -157,20 +157,20 @@ gapi.load('client', async () => {
         privateServiceConnectEnabled: true,
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.blockchainnodeengine.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.blockchainnodeengine.projects.locations.operations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.blockchainnodeengine.projects.locations.operations.get({

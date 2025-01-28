@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Artifact Registry API v1beta1 */
   function load(
-    urlOrObject: 'https://artifactregistry.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://artifactregistry.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'artifactregistry', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'artifactregistry',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace artifactregistry {
@@ -357,7 +357,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Tag
+        body: Tag,
       ): Request<Tag>;
       /** Deletes a tag. */
       delete(request?: {
@@ -506,7 +506,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Tag
+        body: Tag,
       ): Request<Tag>;
     }
     interface VersionsResource {
@@ -756,7 +756,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Repository
+        body: Repository,
       ): Request<Operation>;
       /** Deletes a repository and all of its contents. The returned Operation will finish once the repository has been deleted. It will not have any Operation metadata and will return a google.protobuf.Empty response. */
       delete(request?: {
@@ -934,7 +934,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Repository
+        body: Repository,
       ): Request<Repository>;
       /** Updates the IAM policy for a given resource. */
       setIamPolicy(
@@ -964,7 +964,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Tests if the caller has a list of permissions on a resource. */
       testIamPermissions(
@@ -994,7 +994,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       files: FilesResource;
       packages: PackagesResource;

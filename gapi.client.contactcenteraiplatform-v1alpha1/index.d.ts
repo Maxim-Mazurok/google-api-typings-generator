@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Contact Center AI Platform API v1alpha1 */
   function load(
-    urlOrObject: 'https://contactcenteraiplatform.googleapis.com/$discovery/rest?version=v1alpha1'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'contactcenteraiplatform',
-    version: 'v1alpha1'
+    urlOrObject: 'https://contactcenteraiplatform.googleapis.com/$discovery/rest?version=v1alpha1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'contactcenteraiplatform',
     version: 'v1alpha1',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'contactcenteraiplatform',
+    version: 'v1alpha1',
+    callback: () => any,
   ): void;
 
   namespace contactcenteraiplatform {
@@ -320,7 +320,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ContactCenter
+        body: ContactCenter,
       ): Request<Operation>;
       /** Deletes a single ContactCenter. */
       delete(request?: {
@@ -477,7 +477,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ContactCenter
+        body: ContactCenter,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -537,7 +537,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Build API v2 */
   function load(
-    urlOrObject: 'https://cloudbuild.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://cloudbuild.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudbuild', version: 'v2'): Promise<void>;
@@ -854,7 +854,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FetchReadTokenRequest
+        body: FetchReadTokenRequest,
       ): Request<FetchReadTokenResponse>;
       /** Fetches read/write token of a given repository. */
       accessReadWriteToken(request: {
@@ -912,7 +912,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FetchReadWriteTokenRequest
+        body: FetchReadWriteTokenRequest,
       ): Request<FetchReadWriteTokenResponse>;
       /** Creates multiple repositories inside a connection. */
       batchCreate(request: {
@@ -970,7 +970,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreateRepositoriesRequest
+        body: BatchCreateRepositoriesRequest,
       ): Request<Operation>;
       /** Creates a Repository. */
       create(request: {
@@ -1032,7 +1032,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Repository
+        body: Repository,
       ): Request<Operation>;
       /** Deletes a single repository. */
       delete(request?: {
@@ -1220,7 +1220,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Connection
+        body: Connection,
       ): Request<Operation>;
       /** Deletes a single connection. */
       delete(request?: {
@@ -1439,7 +1439,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Connection
+        body: Connection,
       ): Request<Operation>;
       /** ProcessWebhook is called by the external SCM for notifying of events. */
       processWebhook(request: {
@@ -1501,7 +1501,7 @@ declare namespace gapi.client {
           /** Arbitrary additional key to find the maching repository for a webhook event if needed. */
           webhookKey?: string;
         },
-        body: HttpBody
+        body: HttpBody,
       ): Request<{}>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1531,7 +1531,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1561,7 +1561,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       repositories: RepositoriesResource;
     }
@@ -1622,7 +1622,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://webrisk.googleapis.com/$discovery/rest?version=v1'
+    'https://webrisk.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.webrisk */
 
@@ -41,7 +41,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.webrisk.projects.operations.delete({
@@ -65,7 +65,7 @@ gapi.load('client', async () => {
       },
       {
         uri: 'Test string',
-      }
+      },
     );
     /** Gets the most recent threat list diffs. These diffs should be applied to a local database of hashes to keep it up-to-date. If the local database is empty or excessively out-of-date, a complete snapshot of the database will be returned. This Method only updates a single ThreatList at a time. To update multiple ThreatList databases, this method needs to be called once for each list. */
     await gapi.client.webrisk.threatLists.computeDiff({

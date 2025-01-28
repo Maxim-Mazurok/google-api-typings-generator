@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Area120 Tables API v1alpha1 */
   function load(
-    urlOrObject: 'https://area120tables.googleapis.com/$discovery/rest?version=v1alpha1'
+    urlOrObject: 'https://area120tables.googleapis.com/$discovery/rest?version=v1alpha1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'area120tables', version: 'v1alpha1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'area120tables',
     version: 'v1alpha1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace area120tables {
@@ -224,7 +224,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreateRowsRequest
+        body: BatchCreateRowsRequest,
       ): Request<BatchCreateRowsResponse>;
       /** Deletes multiple rows. */
       batchDelete(request: {
@@ -282,7 +282,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchDeleteRowsRequest
+        body: BatchDeleteRowsRequest,
       ): Request<{}>;
       /** Updates multiple rows. */
       batchUpdate(request: {
@@ -340,7 +340,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateRowsRequest
+        body: BatchUpdateRowsRequest,
       ): Request<BatchUpdateRowsResponse>;
       /** Creates a row. */
       create(request: {
@@ -402,7 +402,7 @@ declare namespace gapi.client {
           /** Optional. Column key to use for values in the row. Defaults to user entered name. */
           view?: string;
         },
-        body: Row
+        body: Row,
       ): Request<Row>;
       /** Deletes a row. */
       delete(request?: {
@@ -561,7 +561,7 @@ declare namespace gapi.client {
           /** Optional. Column key to use for values in the row. Defaults to user entered name. */
           view?: string;
         },
-        body: Row
+        body: Row,
       ): Request<Row>;
     }
     interface TablesResource {

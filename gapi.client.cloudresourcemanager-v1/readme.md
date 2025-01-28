@@ -30,7 +30,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.cloudresourcemanager
-  }
+  },
 );
 ```
 
@@ -65,7 +65,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 
@@ -97,7 +97,7 @@ await gapi.client.cloudresourcemanager.folders.getOrgPolicy({
 Lists `Constraints` that could be applied on the specified resource.
 */
 await gapi.client.cloudresourcemanager.folders.listAvailableOrgPolicyConstraints(
-  {resource: 'resource'}
+  {resource: 'resource'},
 );
 
 /*
@@ -176,7 +176,7 @@ await gapi.client.cloudresourcemanager.organizations.getOrgPolicy({
 Lists `Constraints` that could be applied on the specified resource.
 */
 await gapi.client.cloudresourcemanager.organizations.listAvailableOrgPolicyConstraints(
-  {resource: 'resource'}
+  {resource: 'resource'},
 );
 
 /*
@@ -273,7 +273,7 @@ await gapi.client.cloudresourcemanager.projects.list({});
 Lists `Constraints` that could be applied on the specified resource.
 */
 await gapi.client.cloudresourcemanager.projects.listAvailableOrgPolicyConstraints(
-  {resource: 'resource'}
+  {resource: 'resource'},
 );
 
 /*

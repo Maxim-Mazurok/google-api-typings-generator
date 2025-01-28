@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://dialogflow.googleapis.com/$discovery/rest?version=v2beta1'
+    'https://dialogflow.googleapis.com/$discovery/rest?version=v2beta1',
   );
   /** now we can use gapi.client.dialogflow */
 
@@ -60,7 +60,7 @@ gapi.load('client', async () => {
         supportedLanguageCodes: ['Test string'],
         tier: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Exports the specified agent to a ZIP file. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: ExportAgentResponse */
     await gapi.client.dialogflow.projects.agent.export(
@@ -69,7 +69,7 @@ gapi.load('client', async () => {
       },
       {
         agentUri: 'Test string',
-      }
+      },
     );
     /** Retrieves the fulfillment. */
     await gapi.client.dialogflow.projects.agent.getFulfillment({
@@ -88,7 +88,7 @@ gapi.load('client', async () => {
       {
         agentContent: 'Test string',
         agentUri: 'Test string',
-      }
+      },
     );
     /** Restores the specified agent from a ZIP file. Replaces the current agent version with a new one. All the intents and entity types in the older version are deleted. After the restore, the restored draft agent will be trained automatically (unless disabled in agent settings). However, once the restore is done, training may not be completed yet. Please call TrainAgent and wait for the operation it returns in order to train explicitly. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) The operation only tracks when restoring is complete, not when it is done training. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.agent.restore(
@@ -98,7 +98,7 @@ gapi.load('client', async () => {
       {
         agentContent: 'Test string',
         agentUri: 'Test string',
-      }
+      },
     );
     /** Returns the list of agents. Since there is at most one conversational agent per project, this method is useful primarily for listing all agents across projects the caller has access to. One can achieve that with a wildcard project collection id "-". Refer to [List Sub-Collections](https://cloud.google.com/apis/design/design_patterns#list_sub-collections). */
     await gapi.client.dialogflow.projects.agent.search({
@@ -111,7 +111,7 @@ gapi.load('client', async () => {
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates the fulfillment. */
     await gapi.client.dialogflow.projects.agent.updateFulfillment(
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
           username: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Deletes entity types in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.agent.entityTypes.batchDelete(
@@ -146,7 +146,7 @@ gapi.load('client', async () => {
       },
       {
         entityTypeNames: ['Test string'],
-      }
+      },
     );
     /** Updates/Creates multiple entity types in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: BatchUpdateEntityTypesResponse Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.agent.entityTypes.batchUpdate(
@@ -174,7 +174,7 @@ gapi.load('client', async () => {
         entityTypeBatchUri: 'Test string',
         languageCode: 'Test string',
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates an entity type in the specified agent. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.agent.entityTypes.create(
@@ -194,7 +194,7 @@ gapi.load('client', async () => {
         ],
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified entity type. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.agent.entityTypes.delete({
@@ -231,7 +231,7 @@ gapi.load('client', async () => {
         ],
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Creates multiple new entities in the specified entity type. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.agent.entityTypes.entities.batchCreate(
@@ -246,7 +246,7 @@ gapi.load('client', async () => {
           },
         ],
         languageCode: 'Test string',
-      }
+      },
     );
     /** Deletes entities in the specified entity type. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.agent.entityTypes.entities.batchDelete(
@@ -256,7 +256,7 @@ gapi.load('client', async () => {
       {
         entityValues: ['Test string'],
         languageCode: 'Test string',
-      }
+      },
     );
     /** Updates or creates multiple entities in the specified entity type. This method does not affect entities in the entity type that aren't explicitly specified in the request. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) */
     await gapi.client.dialogflow.projects.agent.entityTypes.entities.batchUpdate(
@@ -272,7 +272,7 @@ gapi.load('client', async () => {
         ],
         languageCode: 'Test string',
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates an agent environment. */
     await gapi.client.dialogflow.projects.agent.environments.create(
@@ -322,7 +322,7 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified agent environment. */
     await gapi.client.dialogflow.projects.agent.environments.delete({
@@ -393,7 +393,7 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Returns the list of all intents in the specified agent. */
     await gapi.client.dialogflow.projects.agent.environments.intents.list({
@@ -407,7 +407,7 @@ gapi.load('client', async () => {
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.deleteContexts(
       {
         parent: 'Test string',
-      }
+      },
     );
     /** Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be updated, which in turn might affect results of future queries. If you might use [Agent Assist](https://cloud.google.com/dialogflow/docs/#aa) or other CCAI products now or in the future, consider using AnalyzeContent instead of `DetectIntent`. `AnalyzeContent` has additional functionality for Agent Assist and other CCAI products. Note: Always use agent versions for production traffic. See [Versions and environments](https://cloud.google.com/dialogflow/es/docs/agents-versions). */
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.detectIntent(
@@ -518,7 +518,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Creates a context. If the specified context already exists, overrides the context. */
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.contexts.create(
@@ -531,19 +531,19 @@ gapi.load('client', async () => {
         parameters: {
           A: 42,
         },
-      }
+      },
     );
     /** Deletes the specified context. */
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.contexts.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified context. */
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.contexts.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all contexts in the specified session. */
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.contexts.list(
@@ -551,7 +551,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified context. */
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.contexts.patch(
@@ -565,7 +565,7 @@ gapi.load('client', async () => {
         parameters: {
           A: 42,
         },
-      }
+      },
     );
     /** Creates a session entity type. If the specified session entity type already exists, overrides the session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.entityTypes.create(
@@ -581,19 +581,19 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.entityTypes.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.entityTypes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all session entity types in the specified session. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.entityTypes.list(
@@ -601,7 +601,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.agent.environments.users.sessions.entityTypes.patch(
@@ -618,7 +618,7 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes intents in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.agent.intents.batchDelete(
@@ -954,7 +954,7 @@ gapi.load('client', async () => {
             webhookState: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates/Creates multiple intents in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: BatchUpdateIntentsResponse Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.agent.intents.batchUpdate(
@@ -1296,7 +1296,7 @@ gapi.load('client', async () => {
         intentView: 'Test string',
         languageCode: 'Test string',
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates an intent in the specified agent. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.agent.intents.create(
@@ -1630,7 +1630,7 @@ gapi.load('client', async () => {
           },
         ],
         webhookState: 'Test string',
-      }
+      },
     );
     /** Deletes the specified intent and its direct or indirect followup intents. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.agent.intents.delete({
@@ -1983,7 +1983,7 @@ gapi.load('client', async () => {
           },
         ],
         webhookState: 'Test string',
-      }
+      },
     );
     /** Creates a knowledge base. Note: The `projects.agent.knowledgeBases` resource is deprecated; only use `projects.knowledgeBases`. */
     await gapi.client.dialogflow.projects.agent.knowledgeBases.create(
@@ -1994,7 +1994,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified knowledge base. Note: The `projects.agent.knowledgeBases` resource is deprecated; only use `projects.knowledgeBases`. */
     await gapi.client.dialogflow.projects.agent.knowledgeBases.delete({
@@ -2022,7 +2022,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Creates a new document. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: Document Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.agent.knowledgeBases.documents.create(
@@ -2055,13 +2055,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         rawContent: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes the specified document. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.agent.knowledgeBases.documents.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified document. Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.agent.knowledgeBases.documents.get({
@@ -2105,7 +2105,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         rawContent: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Reloads the specified document from its specified source, content_uri or content. The previously loaded content of the document will be deleted. Note: Even when the content of the document has not changed, there still may be side effects because of internal implementation changes. Note: If the document source is Google Cloud Storage URI, its metadata will be replaced with the custom metadata from Google Cloud Storage if the `import_gcs_custom_metadata` field is set to true in the request. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: Document Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.agent.knowledgeBases.documents.reload(
@@ -2117,7 +2117,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         importGcsCustomMetadata: true,
-      }
+      },
     );
     /** Deletes all active contexts in the specified session. */
     await gapi.client.dialogflow.projects.agent.sessions.deleteContexts({
@@ -2232,7 +2232,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Creates a context. If the specified context already exists, overrides the context. */
     await gapi.client.dialogflow.projects.agent.sessions.contexts.create(
@@ -2245,7 +2245,7 @@ gapi.load('client', async () => {
         parameters: {
           A: 42,
         },
-      }
+      },
     );
     /** Deletes the specified context. */
     await gapi.client.dialogflow.projects.agent.sessions.contexts.delete({
@@ -2273,7 +2273,7 @@ gapi.load('client', async () => {
         parameters: {
           A: 42,
         },
-      }
+      },
     );
     /** Creates a session entity type. If the specified session entity type already exists, overrides the session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.agent.sessions.entityTypes.create(
@@ -2289,7 +2289,7 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.agent.sessions.entityTypes.delete({
@@ -2320,7 +2320,7 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Creates an agent version. The new version points to the agent instance in the "default" environment. */
     await gapi.client.dialogflow.projects.agent.versions.create(
@@ -2333,7 +2333,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         status: 'Test string',
         versionNumber: 42,
-      }
+      },
     );
     /** Delete the specified agent version. */
     await gapi.client.dialogflow.projects.agent.versions.delete({
@@ -2361,7 +2361,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         status: 'Test string',
         versionNumber: 42,
-      }
+      },
     );
     /** Deprecated. Retrieves a specific answer record. */
     await gapi.client.dialogflow.projects.answerRecords.get({
@@ -3077,7 +3077,7 @@ gapi.load('client', async () => {
           displayTime: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Clears a suggestion feature from a conversation profile for the given participant role. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: ClearSuggestionFeatureConfigOperationMetadata - `response`: ConversationProfile */
     await gapi.client.dialogflow.projects.conversationProfiles.clearSuggestionFeatureConfig(
@@ -3087,7 +3087,7 @@ gapi.load('client', async () => {
       {
         participantRole: 'Test string',
         suggestionFeatureType: 'Test string',
-      }
+      },
     );
     /** Creates a conversation profile in the specified project. ConversationProfile.CreateTime and ConversationProfile.UpdateTime aren't populated in the response. You can retrieve them via GetConversationProfile API. */
     await gapi.client.dialogflow.projects.conversationProfiles.create(
@@ -3268,7 +3268,7 @@ gapi.load('client', async () => {
           volumeGainDb: 42,
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified conversation profile. */
     await gapi.client.dialogflow.projects.conversationProfiles.delete({
@@ -3464,7 +3464,7 @@ gapi.load('client', async () => {
           volumeGainDb: 42,
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Adds or updates a suggestion feature in a conversation profile. If the conversation profile contains the type of suggestion feature for the participant role, it will update it. Otherwise it will insert the suggestion feature. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: SetSuggestionFeatureConfigOperationMetadata - `response`: ConversationProfile If a long running operation to add or update suggestion feature config for the same conversation profile, participant role and suggestion feature type exists, please cancel the existing long running operation before sending such request, otherwise the request will be rejected. */
     await gapi.client.dialogflow.projects.conversationProfiles.setSuggestionFeatureConfig(
@@ -3519,14 +3519,14 @@ gapi.load('client', async () => {
             onlyEndUser: true,
           },
         },
-      }
+      },
     );
     /** Completes the specified conversation. Finished conversations are purged from the database after 30 days. */
     await gapi.client.dialogflow.projects.conversations.complete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new conversation. Conversations are auto-completed after 24 hours. Conversation Lifecycle: There are two stages during a conversation: Automated Agent Stage and Assist Stage. For Automated Agent Stage, there will be a dialogflow agent responding to user queries. For Assist Stage, there's no dialogflow agent responding to user queries. But we will provide suggestions which are generated from conversation. If Conversation.conversation_profile is configured for a dialogflow agent, conversation will start from `Automated Agent Stage`, otherwise, it will start from `Assist Stage`. And during `Automated Agent Stage`, once an Intent with Intent.live_agent_handoff is triggered, conversation will transfer to Assist Stage. */
     await gapi.client.dialogflow.projects.conversations.create(
@@ -3561,7 +3561,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Retrieves the specific conversation. */
     await gapi.client.dialogflow.projects.conversations.get({
@@ -3639,7 +3639,7 @@ gapi.load('client', async () => {
             parent: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Lists messages that belong to a given conversation. `messages` are ordered by `create_time` in descending order. To fetch updates without duplication, send request with filter `create_time_epoch_microseconds > [first item's create_time of previous request]` and empty page_token. */
     await gapi.client.dialogflow.projects.conversations.messages.list({
@@ -3782,7 +3782,7 @@ gapi.load('client', async () => {
           languageCode: 'Test string',
           text: 'Test string',
         },
-      }
+      },
     );
     /** Creates a new participant in a conversation. */
     await gapi.client.dialogflow.projects.conversations.participants.create(
@@ -3796,7 +3796,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         obfuscatedExternalUserId: 'Test string',
         role: 'Test string',
-      }
+      },
     );
     /** Retrieves a conversation participant. */
     await gapi.client.dialogflow.projects.conversations.participants.get({
@@ -3821,7 +3821,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         obfuscatedExternalUserId: 'Test string',
         role: 'Test string',
-      }
+      },
     );
     /** Deprecated. use SuggestArticles and SuggestFaqAnswers instead. Gets suggestions for a participant based on specific historical messages. Note that ListSuggestions will only list the auto-generated suggestions, while CompileSuggestion will try to compile suggestion based on the provided conversation context in the real time. */
     await gapi.client.dialogflow.projects.conversations.participants.suggestions.compile(
@@ -3831,7 +3831,7 @@ gapi.load('client', async () => {
       {
         contextSize: 42,
         latestMessage: 'Test string',
-      }
+      },
     );
     /** Deprecated: Use inline suggestion, event based suggestion or Suggestion* API instead. See HumanAgentAssistantConfig.name for more details. Removal Date: 2020-09-01. Retrieves suggestions for live agents. This method should be used by human agent client software to fetch auto generated suggestions in real-time, while the conversation with an end user is in progress. The functionality is implemented in terms of the [list pagination](https://cloud.google.com/apis/design/design_patterns#list_pagination) design pattern. The client app should use the `next_page_token` field to fetch the next batch of suggestions. `suggestions` are sorted by `create_time` in descending order. To fetch latest suggestion, just set `page_size` to 1. To fetch new suggestions without duplication, send request with filter `create_time_epoch_microseconds > [first item's create_time of previous request]` and empty page_token. */
     await gapi.client.dialogflow.projects.conversations.participants.suggestions.list(
@@ -3840,7 +3840,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets suggested articles for a participant based on specific historical messages. Note that ListSuggestions will only list the auto-generated suggestions, while CompileSuggestion will try to compile suggestion based on the provided conversation context in the real time. */
     await gapi.client.dialogflow.projects.conversations.participants.suggestions.suggestArticles(
@@ -3855,7 +3855,7 @@ gapi.load('client', async () => {
         },
         contextSize: 42,
         latestMessage: 'Test string',
-      }
+      },
     );
     /** Gets suggested faq answers for a participant based on specific historical messages. */
     await gapi.client.dialogflow.projects.conversations.participants.suggestions.suggestFaqAnswers(
@@ -3870,7 +3870,7 @@ gapi.load('client', async () => {
         },
         contextSize: 42,
         latestMessage: 'Test string',
-      }
+      },
     );
     /** Gets knowledge assist suggestions based on historical messages. */
     await gapi.client.dialogflow.projects.conversations.participants.suggestions.suggestKnowledgeAssist(
@@ -3881,7 +3881,7 @@ gapi.load('client', async () => {
         contextSize: 42,
         latestMessage: 'Test string',
         previousSuggestedQuery: 'Test string',
-      }
+      },
     );
     /** Gets smart replies for a participant based on specific historical messages. */
     await gapi.client.dialogflow.projects.conversations.participants.suggestions.suggestSmartReplies(
@@ -3895,7 +3895,7 @@ gapi.load('client', async () => {
           text: 'Test string',
         },
         latestMessage: 'Test string',
-      }
+      },
     );
     /** Get answers for the given query based on knowledge documents. */
     await gapi.client.dialogflow.projects.conversations.suggestions.searchKnowledge(
@@ -3951,7 +3951,7 @@ gapi.load('client', async () => {
           ],
         },
         sessionId: 'Test string',
-      }
+      },
     );
     /** Suggest summary for a conversation based on specific historical messages. The range of the messages to be used for summary can be specified in the request. */
     await gapi.client.dialogflow.projects.conversations.suggestions.suggestConversationSummary(
@@ -3966,7 +3966,7 @@ gapi.load('client', async () => {
         },
         contextSize: 42,
         latestMessage: 'Test string',
-      }
+      },
     );
     /** Creates a generator. */
     await gapi.client.dialogflow.projects.generators.create(
@@ -4033,7 +4033,7 @@ gapi.load('client', async () => {
         },
         triggerEvent: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Lists generators. */
     await gapi.client.dialogflow.projects.generators.list({
@@ -4050,7 +4050,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified knowledge base. Note: The `projects.agent.knowledgeBases` resource is deprecated; only use `projects.knowledgeBases`. */
     await gapi.client.dialogflow.projects.knowledgeBases.delete({
@@ -4078,7 +4078,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Creates a new document. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: Document Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.knowledgeBases.documents.create(
@@ -4111,7 +4111,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         rawContent: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes the specified document. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.knowledgeBases.documents.delete({
@@ -4138,7 +4138,7 @@ gapi.load('client', async () => {
           uris: ['Test string'],
         },
         importGcsCustomMetadata: true,
-      }
+      },
     );
     /** Returns the list of all documents of the knowledge base. Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.knowledgeBases.documents.list({
@@ -4178,7 +4178,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         rawContent: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Reloads the specified document from its specified source, content_uri or content. The previously loaded content of the document will be deleted. Note: Even when the content of the document has not changed, there still may be side effects because of internal implementation changes. Note: If the document source is Google Cloud Storage URI, its metadata will be replaced with the custom metadata from Google Cloud Storage if the `import_gcs_custom_metadata` field is set to true in the request. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: Document Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.knowledgeBases.documents.reload(
@@ -4190,7 +4190,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         importGcsCustomMetadata: true,
-      }
+      },
     );
     /** Deletes the specified agent. */
     await gapi.client.dialogflow.projects.locations.deleteAgent({
@@ -4234,7 +4234,7 @@ gapi.load('client', async () => {
         supportedLanguageCodes: ['Test string'],
         tier: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Exports the specified agent to a ZIP file. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: ExportAgentResponse */
     await gapi.client.dialogflow.projects.locations.agent.export(
@@ -4243,7 +4243,7 @@ gapi.load('client', async () => {
       },
       {
         agentUri: 'Test string',
-      }
+      },
     );
     /** Retrieves the fulfillment. */
     await gapi.client.dialogflow.projects.locations.agent.getFulfillment({
@@ -4262,7 +4262,7 @@ gapi.load('client', async () => {
       {
         agentContent: 'Test string',
         agentUri: 'Test string',
-      }
+      },
     );
     /** Restores the specified agent from a ZIP file. Replaces the current agent version with a new one. All the intents and entity types in the older version are deleted. After the restore, the restored draft agent will be trained automatically (unless disabled in agent settings). However, once the restore is done, training may not be completed yet. Please call TrainAgent and wait for the operation it returns in order to train explicitly. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) The operation only tracks when restoring is complete, not when it is done training. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.locations.agent.restore(
@@ -4272,7 +4272,7 @@ gapi.load('client', async () => {
       {
         agentContent: 'Test string',
         agentUri: 'Test string',
-      }
+      },
     );
     /** Returns the list of agents. Since there is at most one conversational agent per project, this method is useful primarily for listing all agents across projects the caller has access to. One can achieve that with a wildcard project collection id "-". Refer to [List Sub-Collections](https://cloud.google.com/apis/design/design_patterns#list_sub-collections). */
     await gapi.client.dialogflow.projects.locations.agent.search({
@@ -4285,7 +4285,7 @@ gapi.load('client', async () => {
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates the fulfillment. */
     await gapi.client.dialogflow.projects.locations.agent.updateFulfillment(
@@ -4311,7 +4311,7 @@ gapi.load('client', async () => {
           username: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Deletes entity types in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.locations.agent.entityTypes.batchDelete(
@@ -4320,7 +4320,7 @@ gapi.load('client', async () => {
       },
       {
         entityTypeNames: ['Test string'],
-      }
+      },
     );
     /** Updates/Creates multiple entity types in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: BatchUpdateEntityTypesResponse Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.locations.agent.entityTypes.batchUpdate(
@@ -4348,7 +4348,7 @@ gapi.load('client', async () => {
         entityTypeBatchUri: 'Test string',
         languageCode: 'Test string',
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates an entity type in the specified agent. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.locations.agent.entityTypes.create(
@@ -4368,7 +4368,7 @@ gapi.load('client', async () => {
         ],
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified entity type. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.locations.agent.entityTypes.delete({
@@ -4405,7 +4405,7 @@ gapi.load('client', async () => {
         ],
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Creates multiple new entities in the specified entity type. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.locations.agent.entityTypes.entities.batchCreate(
@@ -4420,7 +4420,7 @@ gapi.load('client', async () => {
           },
         ],
         languageCode: 'Test string',
-      }
+      },
     );
     /** Deletes entities in the specified entity type. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.locations.agent.entityTypes.entities.batchDelete(
@@ -4430,7 +4430,7 @@ gapi.load('client', async () => {
       {
         entityValues: ['Test string'],
         languageCode: 'Test string',
-      }
+      },
     );
     /** Updates or creates multiple entities in the specified entity type. This method does not affect entities in the entity type that aren't explicitly specified in the request. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) */
     await gapi.client.dialogflow.projects.locations.agent.entityTypes.entities.batchUpdate(
@@ -4446,7 +4446,7 @@ gapi.load('client', async () => {
         ],
         languageCode: 'Test string',
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates an agent environment. */
     await gapi.client.dialogflow.projects.locations.agent.environments.create(
@@ -4496,7 +4496,7 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified agent environment. */
     await gapi.client.dialogflow.projects.locations.agent.environments.delete({
@@ -4512,7 +4512,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Returns the list of all non-draft environments of the specified agent. */
     await gapi.client.dialogflow.projects.locations.agent.environments.list({
@@ -4569,7 +4569,7 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Returns the list of all intents in the specified agent. */
     await gapi.client.dialogflow.projects.locations.agent.environments.intents.list(
@@ -4579,13 +4579,13 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Deletes all active contexts in the specified session. */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.deleteContexts(
       {
         parent: 'Test string',
-      }
+      },
     );
     /** Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be updated, which in turn might affect results of future queries. If you might use [Agent Assist](https://cloud.google.com/dialogflow/docs/#aa) or other CCAI products now or in the future, consider using AnalyzeContent instead of `DetectIntent`. `AnalyzeContent` has additional functionality for Agent Assist and other CCAI products. Note: Always use agent versions for production traffic. See [Versions and environments](https://cloud.google.com/dialogflow/es/docs/agents-versions). */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.detectIntent(
@@ -4696,7 +4696,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Creates a context. If the specified context already exists, overrides the context. */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.contexts.create(
@@ -4709,19 +4709,19 @@ gapi.load('client', async () => {
         parameters: {
           A: 42,
         },
-      }
+      },
     );
     /** Deletes the specified context. */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.contexts.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified context. */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.contexts.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all contexts in the specified session. */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.contexts.list(
@@ -4729,7 +4729,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified context. */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.contexts.patch(
@@ -4743,7 +4743,7 @@ gapi.load('client', async () => {
         parameters: {
           A: 42,
         },
-      }
+      },
     );
     /** Creates a session entity type. If the specified session entity type already exists, overrides the session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.entityTypes.create(
@@ -4759,19 +4759,19 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.entityTypes.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.entityTypes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all session entity types in the specified session. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.entityTypes.list(
@@ -4779,7 +4779,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.locations.agent.environments.users.sessions.entityTypes.patch(
@@ -4796,7 +4796,7 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes intents in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.locations.agent.intents.batchDelete(
@@ -5132,7 +5132,7 @@ gapi.load('client', async () => {
             webhookState: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates/Creates multiple intents in the specified agent. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: BatchUpdateIntentsResponse Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.locations.agent.intents.batchUpdate(
@@ -5474,7 +5474,7 @@ gapi.load('client', async () => {
         intentView: 'Test string',
         languageCode: 'Test string',
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates an intent in the specified agent. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.locations.agent.intents.create(
@@ -5808,7 +5808,7 @@ gapi.load('client', async () => {
           },
         ],
         webhookState: 'Test string',
-      }
+      },
     );
     /** Deletes the specified intent and its direct or indirect followup intents. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training). */
     await gapi.client.dialogflow.projects.locations.agent.intents.delete({
@@ -6161,13 +6161,13 @@ gapi.load('client', async () => {
           },
         ],
         webhookState: 'Test string',
-      }
+      },
     );
     /** Deletes all active contexts in the specified session. */
     await gapi.client.dialogflow.projects.locations.agent.sessions.deleteContexts(
       {
         parent: 'Test string',
-      }
+      },
     );
     /** Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be updated, which in turn might affect results of future queries. If you might use [Agent Assist](https://cloud.google.com/dialogflow/docs/#aa) or other CCAI products now or in the future, consider using AnalyzeContent instead of `DetectIntent`. `AnalyzeContent` has additional functionality for Agent Assist and other CCAI products. Note: Always use agent versions for production traffic. See [Versions and environments](https://cloud.google.com/dialogflow/es/docs/agents-versions). */
     await gapi.client.dialogflow.projects.locations.agent.sessions.detectIntent(
@@ -6278,7 +6278,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-      }
+      },
     );
     /** Creates a context. If the specified context already exists, overrides the context. */
     await gapi.client.dialogflow.projects.locations.agent.sessions.contexts.create(
@@ -6291,19 +6291,19 @@ gapi.load('client', async () => {
         parameters: {
           A: 42,
         },
-      }
+      },
     );
     /** Deletes the specified context. */
     await gapi.client.dialogflow.projects.locations.agent.sessions.contexts.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified context. */
     await gapi.client.dialogflow.projects.locations.agent.sessions.contexts.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all contexts in the specified session. */
     await gapi.client.dialogflow.projects.locations.agent.sessions.contexts.list(
@@ -6311,7 +6311,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified context. */
     await gapi.client.dialogflow.projects.locations.agent.sessions.contexts.patch(
@@ -6325,7 +6325,7 @@ gapi.load('client', async () => {
         parameters: {
           A: 42,
         },
-      }
+      },
     );
     /** Creates a session entity type. If the specified session entity type already exists, overrides the session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.locations.agent.sessions.entityTypes.create(
@@ -6341,19 +6341,19 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.locations.agent.sessions.entityTypes.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.locations.agent.sessions.entityTypes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all session entity types in the specified session. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.locations.agent.sessions.entityTypes.list(
@@ -6361,7 +6361,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified session entity type. This method doesn't work with Google Assistant integration. Contact Dialogflow support if you need to use session entities with Google Assistant integration. */
     await gapi.client.dialogflow.projects.locations.agent.sessions.entityTypes.patch(
@@ -6378,7 +6378,7 @@ gapi.load('client', async () => {
         ],
         entityOverrideMode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Creates an agent version. The new version points to the agent instance in the "default" environment. */
     await gapi.client.dialogflow.projects.locations.agent.versions.create(
@@ -6391,7 +6391,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         status: 'Test string',
         versionNumber: 42,
-      }
+      },
     );
     /** Delete the specified agent version. */
     await gapi.client.dialogflow.projects.locations.agent.versions.delete({
@@ -6419,7 +6419,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         status: 'Test string',
         versionNumber: 42,
-      }
+      },
     );
     /** Deprecated. Retrieves a specific answer record. */
     await gapi.client.dialogflow.projects.locations.answerRecords.get({
@@ -7135,7 +7135,7 @@ gapi.load('client', async () => {
           displayTime: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Clears a suggestion feature from a conversation profile for the given participant role. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: ClearSuggestionFeatureConfigOperationMetadata - `response`: ConversationProfile */
     await gapi.client.dialogflow.projects.locations.conversationProfiles.clearSuggestionFeatureConfig(
@@ -7145,7 +7145,7 @@ gapi.load('client', async () => {
       {
         participantRole: 'Test string',
         suggestionFeatureType: 'Test string',
-      }
+      },
     );
     /** Creates a conversation profile in the specified project. ConversationProfile.CreateTime and ConversationProfile.UpdateTime aren't populated in the response. You can retrieve them via GetConversationProfile API. */
     await gapi.client.dialogflow.projects.locations.conversationProfiles.create(
@@ -7326,13 +7326,13 @@ gapi.load('client', async () => {
           volumeGainDb: 42,
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified conversation profile. */
     await gapi.client.dialogflow.projects.locations.conversationProfiles.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified conversation profile. */
     await gapi.client.dialogflow.projects.locations.conversationProfiles.get({
@@ -7524,7 +7524,7 @@ gapi.load('client', async () => {
           volumeGainDb: 42,
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Adds or updates a suggestion feature in a conversation profile. If the conversation profile contains the type of suggestion feature for the participant role, it will update it. Otherwise it will insert the suggestion feature. This method is a [long-running operation](https://cloud.google.com/dialogflow/es/docs/how/long-running-operations). The returned `Operation` type has the following method-specific fields: - `metadata`: SetSuggestionFeatureConfigOperationMetadata - `response`: ConversationProfile If a long running operation to add or update suggestion feature config for the same conversation profile, participant role and suggestion feature type exists, please cancel the existing long running operation before sending such request, otherwise the request will be rejected. */
     await gapi.client.dialogflow.projects.locations.conversationProfiles.setSuggestionFeatureConfig(
@@ -7579,14 +7579,14 @@ gapi.load('client', async () => {
             onlyEndUser: true,
           },
         },
-      }
+      },
     );
     /** Completes the specified conversation. Finished conversations are purged from the database after 30 days. */
     await gapi.client.dialogflow.projects.locations.conversations.complete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new conversation. Conversations are auto-completed after 24 hours. Conversation Lifecycle: There are two stages during a conversation: Automated Agent Stage and Assist Stage. For Automated Agent Stage, there will be a dialogflow agent responding to user queries. For Assist Stage, there's no dialogflow agent responding to user queries. But we will provide suggestions which are generated from conversation. If Conversation.conversation_profile is configured for a dialogflow agent, conversation will start from `Automated Agent Stage`, otherwise, it will start from `Assist Stage`. And during `Automated Agent Stage`, once an Intent with Intent.live_agent_handoff is triggered, conversation will transfer to Assist Stage. */
     await gapi.client.dialogflow.projects.locations.conversations.create(
@@ -7621,7 +7621,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Retrieves the specific conversation. */
     await gapi.client.dialogflow.projects.locations.conversations.get({
@@ -7699,7 +7699,7 @@ gapi.load('client', async () => {
             parent: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Lists messages that belong to a given conversation. `messages` are ordered by `create_time` in descending order. To fetch updates without duplication, send request with filter `create_time_epoch_microseconds > [first item's create_time of previous request]` and empty page_token. */
     await gapi.client.dialogflow.projects.locations.conversations.messages.list(
@@ -7708,7 +7708,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Adds a text (chat, for example), or audio (phone recording, for example) message from a participant into the conversation. Note: Always use agent versions for production traffic sent to virtual agents. See [Versions and environments](https://cloud.google.com/dialogflow/es/docs/agents-versions). */
     await gapi.client.dialogflow.projects.locations.conversations.participants.analyzeContent(
@@ -7844,7 +7844,7 @@ gapi.load('client', async () => {
           languageCode: 'Test string',
           text: 'Test string',
         },
-      }
+      },
     );
     /** Creates a new participant in a conversation. */
     await gapi.client.dialogflow.projects.locations.conversations.participants.create(
@@ -7858,13 +7858,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         obfuscatedExternalUserId: 'Test string',
         role: 'Test string',
-      }
+      },
     );
     /** Retrieves a conversation participant. */
     await gapi.client.dialogflow.projects.locations.conversations.participants.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all participants in the specified conversation. */
     await gapi.client.dialogflow.projects.locations.conversations.participants.list(
@@ -7872,7 +7872,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified participant. */
     await gapi.client.dialogflow.projects.locations.conversations.participants.patch(
@@ -7887,7 +7887,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         obfuscatedExternalUserId: 'Test string',
         role: 'Test string',
-      }
+      },
     );
     /** Gets suggested articles for a participant based on specific historical messages. Note that ListSuggestions will only list the auto-generated suggestions, while CompileSuggestion will try to compile suggestion based on the provided conversation context in the real time. */
     await gapi.client.dialogflow.projects.locations.conversations.participants.suggestions.suggestArticles(
@@ -7902,7 +7902,7 @@ gapi.load('client', async () => {
         },
         contextSize: 42,
         latestMessage: 'Test string',
-      }
+      },
     );
     /** Gets suggested faq answers for a participant based on specific historical messages. */
     await gapi.client.dialogflow.projects.locations.conversations.participants.suggestions.suggestFaqAnswers(
@@ -7917,7 +7917,7 @@ gapi.load('client', async () => {
         },
         contextSize: 42,
         latestMessage: 'Test string',
-      }
+      },
     );
     /** Gets knowledge assist suggestions based on historical messages. */
     await gapi.client.dialogflow.projects.locations.conversations.participants.suggestions.suggestKnowledgeAssist(
@@ -7928,7 +7928,7 @@ gapi.load('client', async () => {
         contextSize: 42,
         latestMessage: 'Test string',
         previousSuggestedQuery: 'Test string',
-      }
+      },
     );
     /** Gets smart replies for a participant based on specific historical messages. */
     await gapi.client.dialogflow.projects.locations.conversations.participants.suggestions.suggestSmartReplies(
@@ -7942,7 +7942,7 @@ gapi.load('client', async () => {
           text: 'Test string',
         },
         latestMessage: 'Test string',
-      }
+      },
     );
     /** Get answers for the given query based on knowledge documents. */
     await gapi.client.dialogflow.projects.locations.conversations.suggestions.searchKnowledge(
@@ -7998,7 +7998,7 @@ gapi.load('client', async () => {
           ],
         },
         sessionId: 'Test string',
-      }
+      },
     );
     /** Suggest summary for a conversation based on specific historical messages. The range of the messages to be used for summary can be specified in the request. */
     await gapi.client.dialogflow.projects.locations.conversations.suggestions.suggestConversationSummary(
@@ -8013,7 +8013,7 @@ gapi.load('client', async () => {
         },
         contextSize: 42,
         latestMessage: 'Test string',
-      }
+      },
     );
     /** Initializes a location-level encryption key specification. An error will be thrown if the location has resources already created before the initialization. Once the encryption specification is initialized at a location, it is immutable and all newly created resources under the location will be encrypted with the existing specification. */
     await gapi.client.dialogflow.projects.locations.encryptionSpec.initialize(
@@ -8025,7 +8025,7 @@ gapi.load('client', async () => {
           kmsKey: 'Test string',
           name: 'Test string',
         },
-      }
+      },
     );
     /** Creates a generator. */
     await gapi.client.dialogflow.projects.locations.generators.create(
@@ -8092,7 +8092,7 @@ gapi.load('client', async () => {
         },
         triggerEvent: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a generator. */
     await gapi.client.dialogflow.projects.locations.generators.delete({
@@ -8173,7 +8173,7 @@ gapi.load('client', async () => {
         },
         triggerEvent: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a knowledge base. Note: The `projects.agent.knowledgeBases` resource is deprecated; only use `projects.knowledgeBases`. */
     await gapi.client.dialogflow.projects.locations.knowledgeBases.create(
@@ -8184,7 +8184,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes the specified knowledge base. Note: The `projects.agent.knowledgeBases` resource is deprecated; only use `projects.knowledgeBases`. */
     await gapi.client.dialogflow.projects.locations.knowledgeBases.delete({
@@ -8212,7 +8212,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Creates a new document. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: Document Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.locations.knowledgeBases.documents.create(
@@ -8245,19 +8245,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         rawContent: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes the specified document. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.locations.knowledgeBases.documents.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the specified document. Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.locations.knowledgeBases.documents.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Create documents by importing data from external sources. Dialogflow supports up to 350 documents in each request. If you try to import more, Dialogflow will return an error. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: ImportDocumentsResponse */
     await gapi.client.dialogflow.projects.locations.knowledgeBases.documents.import(
@@ -8276,7 +8276,7 @@ gapi.load('client', async () => {
           uris: ['Test string'],
         },
         importGcsCustomMetadata: true,
-      }
+      },
     );
     /** Returns the list of all documents of the knowledge base. Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.locations.knowledgeBases.documents.list(
@@ -8285,7 +8285,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the specified document. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: Document Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.locations.knowledgeBases.documents.patch(
@@ -8318,7 +8318,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         rawContent: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Reloads the specified document from its specified source, content_uri or content. The previously loaded content of the document will be deleted. Note: Even when the content of the document has not changed, there still may be side effects because of internal implementation changes. Note: If the document source is Google Cloud Storage URI, its metadata will be replaced with the custom metadata from Google Cloud Storage if the `import_gcs_custom_metadata` field is set to true in the request. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: Document Note: The `projects.agent.knowledgeBases.documents` resource is deprecated; only use `projects.knowledgeBases.documents`. */
     await gapi.client.dialogflow.projects.locations.knowledgeBases.documents.reload(
@@ -8330,7 +8330,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         importGcsCustomMetadata: true,
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.dialogflow.projects.locations.operations.cancel({
@@ -8367,7 +8367,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         expectedHostname: ['Test string'],
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a specified SipTrunk. */
     await gapi.client.dialogflow.projects.locations.sipTrunks.delete({
@@ -8404,7 +8404,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         expectedHostname: ['Test string'],
         name: 'Test string',
-      }
+      },
     );
     /** Generates and returns a suggestion for a conversation that does not have a resource created for it. */
     await gapi.client.dialogflow.projects.locations.statelessSuggestion.generate(
@@ -8484,7 +8484,7 @@ gapi.load('client', async () => {
         },
         generatorName: 'Test string',
         triggerEvents: ['Test string'],
-      }
+      },
     );
     /** Generates and returns a summary for a conversation that does not have a resource created for it. */
     await gapi.client.dialogflow.projects.locations.suggestions.generateStatelessSummary(
@@ -8727,7 +8727,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Get answers for the given query based on knowledge documents. */
     await gapi.client.dialogflow.projects.locations.suggestions.searchKnowledge(
@@ -8783,7 +8783,7 @@ gapi.load('client', async () => {
           ],
         },
         sessionId: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.dialogflow.projects.operations.cancel({
@@ -9041,7 +9041,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Get answers for the given query based on knowledge documents. */
     await gapi.client.dialogflow.projects.suggestions.searchKnowledge(
@@ -9097,7 +9097,7 @@ gapi.load('client', async () => {
           ],
         },
         sessionId: 'Test string',
-      }
+      },
     );
   }
 });

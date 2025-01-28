@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://alertcenter.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://alertcenter.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.alertcenter */
 
@@ -37,7 +37,7 @@ gapi.load('client', async () => {
       {
         alertId: ['Test string'],
         customerId: 'Test string',
-      }
+      },
     );
     /** Performs batch undelete operation on alerts. */
     await gapi.client.alertcenter.alerts.batchUndelete(
@@ -45,7 +45,7 @@ gapi.load('client', async () => {
       {
         alertId: ['Test string'],
         customerId: 'Test string',
-      }
+      },
     );
     /** Marks the specified alert for deletion. An alert that has been marked for deletion is removed from Alert Center after 30 days. Marking an alert for deletion has no effect on an alert which has already been marked for deletion. Attempting to mark a nonexistent alert for deletion results in a `NOT_FOUND` error. */
     await gapi.client.alertcenter.alerts.delete({
@@ -77,7 +77,7 @@ gapi.load('client', async () => {
       },
       {
         customerId: 'Test string',
-      }
+      },
     );
     /** Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback for an alert that is marked for deletion returns `FAILED_PRECONDITION' error. */
     await gapi.client.alertcenter.alerts.feedback.create(
@@ -92,7 +92,7 @@ gapi.load('client', async () => {
         email: 'Test string',
         feedbackId: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
     await gapi.client.alertcenter.alerts.feedback.list({
@@ -118,7 +118,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
   }
 });

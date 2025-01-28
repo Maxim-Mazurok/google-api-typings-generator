@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Service Networking API v1 */
   function load(
-    urlOrObject: 'https://servicenetworking.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://servicenetworking.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'servicenetworking', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'servicenetworking',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace servicenetworking {
@@ -1135,7 +1135,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -1282,7 +1282,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Connection
+        body: Connection,
       ): Request<Operation>;
       /** Deletes a private service access connection. */
       deleteConnection(request: {
@@ -1340,7 +1340,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeleteConnectionRequest
+        body: DeleteConnectionRequest,
       ): Request<Operation>;
       /** List the private connections that are configured in a service consumer's VPC network. */
       list(request?: {
@@ -1435,7 +1435,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Connection
+        body: Connection,
       ): Request<Operation>;
     }
     interface DnsRecordSetsResource {
@@ -1495,7 +1495,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddDnsRecordSetRequest
+        body: AddDnsRecordSetRequest,
       ): Request<Operation>;
       /** Producers can use this method to retrieve information about the DNS record set added to the private zone inside the shared tenant host project associated with a consumer network. */
       get(request?: {
@@ -1619,7 +1619,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveDnsRecordSetRequest
+        body: RemoveDnsRecordSetRequest,
       ): Request<Operation>;
       /** Service producers can use this method to update DNS record sets from private DNS zones in the shared producer host project. */
       update(request: {
@@ -1677,7 +1677,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateDnsRecordSetRequest
+        body: UpdateDnsRecordSetRequest,
       ): Request<Operation>;
     }
     interface DnsZonesResource {
@@ -1737,7 +1737,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddDnsZoneRequest
+        body: AddDnsZoneRequest,
       ): Request<Operation>;
       /** Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. */
       remove(request: {
@@ -1795,7 +1795,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveDnsZoneRequest
+        body: RemoveDnsZoneRequest,
       ): Request<Operation>;
     }
     interface DnsZonesResource {
@@ -1911,7 +1911,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PeeredDnsDomain
+        body: PeeredDnsDomain,
       ): Request<Operation>;
       /** Deletes a peered DNS domain. */
       delete(request?: {
@@ -2081,7 +2081,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateConsumerConfigRequest
+        body: UpdateConsumerConfigRequest,
       ): Request<Operation>;
       dnsZones: DnsZonesResource;
       peeredDnsDomains: PeeredDnsDomainsResource;
@@ -2149,7 +2149,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddRolesRequest
+        body: AddRolesRequest,
       ): Request<Operation>;
     }
     interface ServicesResource {
@@ -2209,7 +2209,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddSubnetworkRequest
+        body: AddSubnetworkRequest,
       ): Request<Operation>;
       /** Disables VPC service controls for a connection. */
       disableVpcServiceControls(request: {
@@ -2267,7 +2267,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableVpcServiceControlsRequest
+        body: DisableVpcServiceControlsRequest,
       ): Request<Operation>;
       /** Enables VPC service controls for a connection. */
       enableVpcServiceControls(request: {
@@ -2325,7 +2325,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnableVpcServiceControlsRequest
+        body: EnableVpcServiceControlsRequest,
       ): Request<Operation>;
       /** Service producers can use this method to find a currently unused range within consumer allocated ranges. This returned range is not reserved, and not guaranteed to remain unused. It will validate previously provided allocated ranges, find non-conflicting sub-range of requested size (expressed in number of leading bits of ipv4 network mask, as in CIDR range notation). */
       searchRange(request: {
@@ -2383,7 +2383,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchRangeRequest
+        body: SearchRangeRequest,
       ): Request<Operation>;
       /** Service producers use this method to validate if the consumer provided network, project and requested range are valid. This allows them to use a fail-fast mechanism for consumer requests, and not have to wait for AddSubnetwork operation completion to determine if user request is invalid. */
       validate(request: {
@@ -2441,7 +2441,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ValidateConsumerConfigRequest
+        body: ValidateConsumerConfigRequest,
       ): Request<ValidateConsumerConfigResponse>;
       connections: ConnectionsResource;
       dnsRecordSets: DnsRecordSetsResource;

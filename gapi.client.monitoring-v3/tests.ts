@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://monitoring.googleapis.com/$discovery/rest?version=v3'
+    'https://monitoring.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.monitoring */
 
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
           ],
           message: 'Test string',
         },
-      }
+      },
     );
     /** Deletes an alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy. */
     await gapi.client.monitoring.projects.alertPolicies.delete({
@@ -416,7 +416,7 @@ gapi.load('client', async () => {
           ],
           message: 'Test string',
         },
-      }
+      },
     );
     /** Cloud Monitoring Agent only: Creates a new time series.This method is only for use by the Cloud Monitoring Agent. Use projects.timeSeries.create instead. */
     await gapi.client.monitoring.projects.collectdTimeSeries.create(
@@ -533,7 +533,7 @@ gapi.load('client', async () => {
           },
           type: 'Test string',
         },
-      }
+      },
     );
     /** Creates a new group. */
     await gapi.client.monitoring.projects.groups.create(
@@ -547,7 +547,7 @@ gapi.load('client', async () => {
         isCluster: true,
         name: 'Test string',
         parentName: 'Test string',
-      }
+      },
     );
     /** Deletes an existing group. */
     await gapi.client.monitoring.projects.groups.delete({
@@ -579,7 +579,7 @@ gapi.load('client', async () => {
         isCluster: true,
         name: 'Test string',
         parentName: 'Test string',
-      }
+      },
     );
     /** Lists the monitored resources that are members of a group. */
     await gapi.client.monitoring.projects.groups.members.list({
@@ -618,7 +618,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         unit: 'Test string',
         valueType: 'Test string',
-      }
+      },
     );
     /** Deletes a metric descriptor. Only user-created custom metrics (https://cloud.google.com/monitoring/custom-metrics) can be deleted. */
     await gapi.client.monitoring.projects.metricDescriptors.delete({
@@ -685,7 +685,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         verificationStatus: 'Test string',
-      }
+      },
     );
     /** Deletes a notification channel.Design your application to single-thread API calls that modify the state of notification channels in a single project. This includes calls to CreateNotificationChannel, DeleteNotificationChannel and UpdateNotificationChannel. */
     await gapi.client.monitoring.projects.notificationChannels.delete({
@@ -703,7 +703,7 @@ gapi.load('client', async () => {
       },
       {
         expireTime: 'Test string',
-      }
+      },
     );
     /** Lists the notification channels that have been created for the project. To list the types of notification channels that are supported, use the ListNotificationChannelDescriptors method. */
     await gapi.client.monitoring.projects.notificationChannels.list({
@@ -742,14 +742,14 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         verificationStatus: 'Test string',
-      }
+      },
     );
     /** Causes a verification code to be delivered to the channel. The code can then be supplied in VerifyNotificationChannel to verify the channel. */
     await gapi.client.monitoring.projects.notificationChannels.sendVerificationCode(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Verifies a NotificationChannel by proving receipt of the code delivered to the channel as a result of calling SendNotificationChannelVerificationCode. */
     await gapi.client.monitoring.projects.notificationChannels.verify(
@@ -758,7 +758,7 @@ gapi.load('client', async () => {
       },
       {
         code: 'Test string',
-      }
+      },
     );
     /** Creates a Snooze that will prevent alerts, which match the provided criteria, from being opened. The Snooze applies for a specific time interval. */
     await gapi.client.monitoring.projects.snoozes.create(
@@ -775,7 +775,7 @@ gapi.load('client', async () => {
           startTime: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves a Snooze by name. */
     await gapi.client.monitoring.projects.snoozes.get({
@@ -804,7 +804,7 @@ gapi.load('client', async () => {
           startTime: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Creates or adds data to one or more time series. The response is empty if all time series in the request were written. If any time series could not be written, a corresponding failure message is included in the error response. This method does not support resource locations constraint of an organization policy (https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations#setting_the_organization_policy). */
     await gapi.client.monitoring.projects.timeSeries.create(
@@ -890,7 +890,7 @@ gapi.load('client', async () => {
             valueType: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Creates or adds data to one or more service time series. A service time series is a time series for a metric from a Google Cloud service. The response is empty if all time series in the request were written. If any time series could not be written, a corresponding failure message is included in the error response. This endpoint rejects writes to user-defined metrics. This method is only for use by Google Cloud services. Use projects.timeSeries.create instead. */
     await gapi.client.monitoring.projects.timeSeries.createService(
@@ -976,7 +976,7 @@ gapi.load('client', async () => {
             valueType: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Lists time series that match a filter. */
     await gapi.client.monitoring.projects.timeSeries.list({
@@ -1006,7 +1006,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         query: 'Test string',
-      }
+      },
     );
     /** Creates a new Uptime check configuration. */
     await gapi.client.monitoring.projects.uptimeCheckConfigs.create(
@@ -1101,7 +1101,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Deletes an Uptime check configuration. Note that this method will fail if the Uptime check configuration is referenced by an alert policy or other dependent configs that would be rendered invalid by the deletion. */
     await gapi.client.monitoring.projects.uptimeCheckConfigs.delete({
@@ -1212,7 +1212,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Create a Service. */
     await gapi.client.monitoring.services.create(
@@ -1283,7 +1283,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Soft delete this Service. */
     await gapi.client.monitoring.services.delete({
@@ -1369,7 +1369,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Create a ServiceLevelObjective for the given Service. */
     await gapi.client.monitoring.services.serviceLevelObjectives.create(
@@ -1455,7 +1455,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Delete the given ServiceLevelObjective. */
     await gapi.client.monitoring.services.serviceLevelObjectives.delete({
@@ -1558,7 +1558,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Returns the list of IP addresses that checkers run from. */
     await gapi.client.monitoring.uptimeCheckIps.list({

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Controls Partner API v1beta */
   function load(
-    urlOrObject: 'https://cloudcontrolspartner.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://cloudcontrolspartner.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudcontrolspartner', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'cloudcontrolspartner',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace cloudcontrolspartner {
@@ -545,7 +545,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Customer
+        body: Customer,
       ): Request<Customer>;
       /** Delete details of a single customer */
       delete(request?: {
@@ -696,7 +696,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Customer
+        body: Customer,
       ): Request<Customer>;
       workloads: WorkloadsResource;
     }

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load YouTube Analytics API v2 */
   function load(
-    urlOrObject: 'https://youtubeanalytics.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://youtubeanalytics.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'youtubeAnalytics', version: 'v2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'youtubeAnalytics',
     version: 'v2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace youtubeAnalytics {
@@ -227,7 +227,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GroupItem
+        body: GroupItem,
       ): Request<GroupItem>;
       /** Returns a collection of group items that match the API request parameters. */
       list(request?: {
@@ -345,7 +345,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Group
+        body: Group,
       ): Request<Group>;
       /** Returns a collection of groups that match the API request parameters. For example, you can retrieve all groups that the authenticated user owns, or you can retrieve one or more groups by their unique IDs. */
       list(request?: {
@@ -436,7 +436,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Group
+        body: Group,
       ): Request<Group>;
     }
     interface ReportsResource {

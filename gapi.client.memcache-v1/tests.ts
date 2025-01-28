@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://memcache.googleapis.com/$discovery/rest?version=v1'
+    'https://memcache.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.memcache */
 
@@ -50,7 +50,7 @@ gapi.load('client', async () => {
       {
         applyAll: true,
         nodeIds: ['Test string'],
-      }
+      },
     );
     /** Creates a new Instance in a given location. */
     await gapi.client.memcache.projects.locations.instances.create(
@@ -131,7 +131,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         updateTime: 'Test string',
         zones: ['Test string'],
-      }
+      },
     );
     /** Deletes a single Instance. */
     await gapi.client.memcache.projects.locations.instances.delete({
@@ -228,7 +228,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         updateTime: 'Test string',
         zones: ['Test string'],
-      }
+      },
     );
     /** Reschedules upcoming maintenance event. */
     await gapi.client.memcache.projects.locations.instances.rescheduleMaintenance(
@@ -238,7 +238,7 @@ gapi.load('client', async () => {
       {
         rescheduleType: 'Test string',
         scheduleTime: 'Test string',
-      }
+      },
     );
     /** Updates the defined Memcached parameters for an existing instance. This method only stages the parameters, it must be followed by `ApplyParameters` to apply the parameters to nodes of the Memcached instance. */
     await gapi.client.memcache.projects.locations.instances.updateParameters(
@@ -253,7 +253,7 @@ gapi.load('client', async () => {
           },
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Upgrades the Memcache instance to a newer memcached engine version specified in the request. */
     await gapi.client.memcache.projects.locations.instances.upgrade(
@@ -262,14 +262,14 @@ gapi.load('client', async () => {
       },
       {
         memcacheVersion: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
     await gapi.client.memcache.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.memcache.projects.locations.operations.delete({

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Vision API v1p1beta1 */
   function load(
-    urlOrObject: 'https://vision.googleapis.com/$discovery/rest?version=v1p1beta1'
+    urlOrObject: 'https://vision.googleapis.com/$discovery/rest?version=v1p1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'vision', version: 'v1p1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'vision',
     version: 'v1p1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace vision {
@@ -2390,7 +2390,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1BatchAnnotateFilesRequest
+        body: GoogleCloudVisionV1p1beta1BatchAnnotateFilesRequest,
       ): Request<GoogleCloudVisionV1p1beta1BatchAnnotateFilesResponse>;
       /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
       asyncBatchAnnotate(request: {
@@ -2444,7 +2444,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateFilesRequest
+        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateFilesRequest,
       ): Request<Operation>;
     }
     interface ImagesResource {
@@ -2500,7 +2500,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1BatchAnnotateImagesRequest
+        body: GoogleCloudVisionV1p1beta1BatchAnnotateImagesRequest,
       ): Request<GoogleCloudVisionV1p1beta1BatchAnnotateImagesResponse>;
       /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
       asyncBatchAnnotate(request: {
@@ -2554,7 +2554,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateImagesRequest
+        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateImagesRequest,
       ): Request<Operation>;
     }
     interface FilesResource {
@@ -2614,7 +2614,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1BatchAnnotateFilesRequest
+        body: GoogleCloudVisionV1p1beta1BatchAnnotateFilesRequest,
       ): Request<GoogleCloudVisionV1p1beta1BatchAnnotateFilesResponse>;
       /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
       asyncBatchAnnotate(request: {
@@ -2672,7 +2672,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateFilesRequest
+        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateFilesRequest,
       ): Request<Operation>;
     }
     interface ImagesResource {
@@ -2732,7 +2732,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1BatchAnnotateImagesRequest
+        body: GoogleCloudVisionV1p1beta1BatchAnnotateImagesRequest,
       ): Request<GoogleCloudVisionV1p1beta1BatchAnnotateImagesResponse>;
       /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
       asyncBatchAnnotate(request: {
@@ -2790,7 +2790,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateImagesRequest
+        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateImagesRequest,
       ): Request<Operation>;
     }
     interface FilesResource {
@@ -2850,7 +2850,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1BatchAnnotateFilesRequest
+        body: GoogleCloudVisionV1p1beta1BatchAnnotateFilesRequest,
       ): Request<GoogleCloudVisionV1p1beta1BatchAnnotateFilesResponse>;
       /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
       asyncBatchAnnotate(request: {
@@ -2908,7 +2908,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateFilesRequest
+        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateFilesRequest,
       ): Request<Operation>;
     }
     interface ImagesResource {
@@ -2968,7 +2968,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1BatchAnnotateImagesRequest
+        body: GoogleCloudVisionV1p1beta1BatchAnnotateImagesRequest,
       ): Request<GoogleCloudVisionV1p1beta1BatchAnnotateImagesResponse>;
       /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
       asyncBatchAnnotate(request: {
@@ -3026,7 +3026,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateImagesRequest
+        body: GoogleCloudVisionV1p1beta1AsyncBatchAnnotateImagesRequest,
       ): Request<Operation>;
     }
     interface LocationsResource {

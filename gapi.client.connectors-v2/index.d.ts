@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Connectors API v2 */
   function load(
-    urlOrObject: 'https://connectors.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://connectors.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'connectors', version: 'v2'): Promise<void>;
@@ -452,7 +452,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExecuteActionRequest
+        body: ExecuteActionRequest,
       ): Request<ExecuteActionResponse>;
       /** Gets the schema of the given action. */
       get(request?: {
@@ -572,7 +572,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Entity
+        body: Entity,
       ): Request<Entity>;
       /** Deletes an existing entity row matching the entity type and entity id specified in the request. */
       delete(request?: {
@@ -748,7 +748,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Entity
+        body: Entity,
       ): Request<Entity>;
       /** Updates entities based on conditions specified in the request and not on entity id. */
       updateEntitiesWithConditions(request: {
@@ -810,7 +810,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Entity
+        body: Entity,
       ): Request<UpdateEntitiesWithConditionsResponse>;
     }
     interface EntityTypesResource {
@@ -983,7 +983,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExchangeAuthCodeRequest
+        body: ExchangeAuthCodeRequest,
       ): Request<ExchangeAuthCodeResponse>;
       /** Executes a SQL statement specified in the body of the request. An example of this SQL statement in the case of Salesforce connector would be 'select * from Account a, Order o where a.Id = o.AccountId'. */
       executeSqlQuery(request: {
@@ -1041,7 +1041,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExecuteSqlQueryRequest
+        body: ExecuteSqlQueryRequest,
       ): Request<ExecuteSqlQueryResponse>;
       /** RefreshAccessToken exchanges the OAuth refresh token (and other necessary data) for a new access token (and new associated credentials). */
       refreshAccessToken(request: {
@@ -1097,7 +1097,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RefreshAccessTokenRequest
+        body: RefreshAccessTokenRequest,
       ): Request<RefreshAccessTokenResponse>;
       actions: ActionsResource;
       entityTypes: EntityTypesResource;

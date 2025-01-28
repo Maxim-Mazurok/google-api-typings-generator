@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://container.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://container.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.container */
 
@@ -52,7 +52,7 @@ gapi.load('client', async () => {
     await gapi.client.container.projects.locations.clusters.checkAutopilotCompatibility(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Completes master IP rotation. */
     await gapi.client.container.projects.locations.clusters.completeIpRotation(
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Creates a cluster, consisting of the specified number and type of Google Compute Engine instances. By default, the cluster is created in the project's [default network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks). One firewall is added for the cluster. After cluster creation, the Kubelet creates routes for each node to allow the containers on that node to communicate with all other instances in the cluster. Finally, an entry is added to the project's global metadata indicating which CIDR range the cluster is using. */
     await gapi.client.container.projects.locations.clusters.create(
@@ -1055,7 +1055,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Deletes the cluster, including the Kubernetes endpoint and all worker nodes. Firewalls and routes that were configured during cluster creation are also deleted. Other Google Compute Engine resources that might be in use by the cluster, such as load balancer resources, are not deleted if they weren't present when the cluster was initially created. */
     await gapi.client.container.projects.locations.clusters.delete({
@@ -1069,7 +1069,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Gets the details for a specific cluster. */
     await gapi.client.container.projects.locations.clusters.get({
@@ -1156,7 +1156,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Enables or disables the ABAC authorization mechanism on a cluster. */
     await gapi.client.container.projects.locations.clusters.setLegacyAbac(
@@ -1169,7 +1169,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Sets the locations for a specific cluster. Deprecated. Use [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters/update) instead. */
     await gapi.client.container.projects.locations.clusters.setLocations(
@@ -1182,7 +1182,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Sets the logging service for a specific cluster. */
     await gapi.client.container.projects.locations.clusters.setLogging(
@@ -1195,7 +1195,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Sets the maintenance policy for a cluster. */
     await gapi.client.container.projects.locations.clusters.setMaintenancePolicy(
@@ -1235,7 +1235,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Sets master auth materials. Currently supports changing the admin password or a specific cluster, either via password generation or explicitly setting the password. */
     await gapi.client.container.projects.locations.clusters.setMasterAuth(
@@ -1258,7 +1258,7 @@ gapi.load('client', async () => {
           username: 'Test string',
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Sets the monitoring service for a specific cluster. */
     await gapi.client.container.projects.locations.clusters.setMonitoring(
@@ -1271,7 +1271,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Enables or disables Network Policy for a cluster. */
     await gapi.client.container.projects.locations.clusters.setNetworkPolicy(
@@ -1287,7 +1287,7 @@ gapi.load('client', async () => {
         },
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Sets labels on a cluster. */
     await gapi.client.container.projects.locations.clusters.setResourceLabels(
@@ -1303,7 +1303,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Starts master IP rotation. */
     await gapi.client.container.projects.locations.clusters.startIpRotation(
@@ -1316,7 +1316,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         rotateCredentials: true,
         zone: 'Test string',
-      }
+      },
     );
     /** Updates the settings for a specific cluster. */
     await gapi.client.container.projects.locations.clusters.update(
@@ -1793,7 +1793,7 @@ gapi.load('client', async () => {
           },
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Updates the master for a specific cluster. */
     await gapi.client.container.projects.locations.clusters.updateMaster(
@@ -1806,14 +1806,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** CompleteNodePoolUpgrade will signal an on-going node pool upgrade to complete. */
     await gapi.client.container.projects.locations.clusters.nodePools.completeUpgrade(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a node pool for a cluster. */
     await gapi.client.container.projects.locations.clusters.nodePools.create(
@@ -2089,7 +2089,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Deletes a node pool from a cluster. */
     await gapi.client.container.projects.locations.clusters.nodePools.delete({
@@ -2104,7 +2104,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Retrieves the requested node pool. */
     await gapi.client.container.projects.locations.clusters.nodePools.get({
@@ -2133,7 +2133,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         respectPdb: true,
         zone: 'Test string',
-      }
+      },
     );
     /** Sets the autoscaling settings of a specific node pool. */
     await gapi.client.container.projects.locations.clusters.nodePools.setAutoscaling(
@@ -2155,7 +2155,7 @@ gapi.load('client', async () => {
         nodePoolId: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Sets the NodeManagement options for a node pool. */
     await gapi.client.container.projects.locations.clusters.nodePools.setManagement(
@@ -2176,7 +2176,7 @@ gapi.load('client', async () => {
         nodePoolId: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** SetNodePoolSizeRequest sets the size of a node pool. The new size will be used for all replicas, including future replicas created by modifying NodePool.locations. */
     await gapi.client.container.projects.locations.clusters.nodePools.setSize(
@@ -2190,7 +2190,7 @@ gapi.load('client', async () => {
         nodePoolId: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Updates the version and/or image type of a specific node pool. */
     await gapi.client.container.projects.locations.clusters.nodePools.update(
@@ -2355,7 +2355,7 @@ gapi.load('client', async () => {
           nodeMetadata: 'Test string',
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Gets the OIDC discovery document for the cluster. See the [OpenID Connect Discovery 1.0 specification](https://openid.net/specs/openid-connect-discovery-1_0.html) for details. */
     await gapi.client.container.projects.locations.clusters['well-known'][
@@ -2373,7 +2373,7 @@ gapi.load('client', async () => {
         operationId: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Gets the specified operation. */
     await gapi.client.container.projects.locations.operations.get({
@@ -2464,7 +2464,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Completes master IP rotation. */
     await gapi.client.container.projects.zones.clusters.completeIpRotation(
@@ -2478,7 +2478,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Creates a cluster, consisting of the specified number and type of Google Compute Engine instances. By default, the cluster is created in the project's [default network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks). One firewall is added for the cluster. After cluster creation, the Kubelet creates routes for each node to allow the containers on that node to communicate with all other instances in the cluster. Finally, an entry is added to the project's global metadata indicating which CIDR range the cluster is using. */
     await gapi.client.container.projects.zones.clusters.create(
@@ -3470,7 +3470,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Deletes the cluster, including the Kubernetes endpoint and all worker nodes. Firewalls and routes that were configured during cluster creation are also deleted. Other Google Compute Engine resources that might be in use by the cluster, such as load balancer resources, are not deleted if they weren't present when the cluster was initially created. */
     await gapi.client.container.projects.zones.clusters.delete({
@@ -3484,7 +3484,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Gets the details for a specific cluster. */
     await gapi.client.container.projects.zones.clusters.get({
@@ -3506,7 +3506,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Lists all clusters owned by a project in either the specified zone or all zones. */
     await gapi.client.container.projects.zones.clusters.list({
@@ -3527,7 +3527,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Sets the logging service for a specific cluster. */
     await gapi.client.container.projects.zones.clusters.logging(
@@ -3542,7 +3542,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Updates the master for a specific cluster. */
     await gapi.client.container.projects.zones.clusters.master(
@@ -3557,7 +3557,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Sets the monitoring service for a specific cluster. */
     await gapi.client.container.projects.zones.clusters.monitoring(
@@ -3572,7 +3572,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Sets labels on a cluster. */
     await gapi.client.container.projects.zones.clusters.resourceLabels(
@@ -3590,7 +3590,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Sets the maintenance policy for a cluster. */
     await gapi.client.container.projects.zones.clusters.setMaintenancePolicy(
@@ -3632,7 +3632,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Sets master auth materials. Currently supports changing the admin password or a specific cluster, either via password generation or explicitly setting the password. */
     await gapi.client.container.projects.zones.clusters.setMasterAuth(
@@ -3657,7 +3657,7 @@ gapi.load('client', async () => {
           username: 'Test string',
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Enables or disables Network Policy for a cluster. */
     await gapi.client.container.projects.zones.clusters.setNetworkPolicy(
@@ -3675,7 +3675,7 @@ gapi.load('client', async () => {
         },
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Starts master IP rotation. */
     await gapi.client.container.projects.zones.clusters.startIpRotation(
@@ -3690,7 +3690,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         rotateCredentials: true,
         zone: 'Test string',
-      }
+      },
     );
     /** Updates the settings for a specific cluster. */
     await gapi.client.container.projects.zones.clusters.update(
@@ -4169,7 +4169,7 @@ gapi.load('client', async () => {
           },
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Sets the autoscaling settings of a specific node pool. */
     await gapi.client.container.projects.zones.clusters.nodePools.autoscaling(
@@ -4194,7 +4194,7 @@ gapi.load('client', async () => {
         nodePoolId: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Creates a node pool for a cluster. */
     await gapi.client.container.projects.zones.clusters.nodePools.create(
@@ -4472,7 +4472,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Deletes a node pool from a cluster. */
     await gapi.client.container.projects.zones.clusters.nodePools.delete({
@@ -4487,7 +4487,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Retrieves the requested node pool. */
     await gapi.client.container.projects.zones.clusters.nodePools.get({
@@ -4519,7 +4519,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         respectPdb: true,
         zone: 'Test string',
-      }
+      },
     );
     /** Sets the NodeManagement options for a node pool. */
     await gapi.client.container.projects.zones.clusters.nodePools.setManagement(
@@ -4543,7 +4543,7 @@ gapi.load('client', async () => {
         nodePoolId: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** SetNodePoolSizeRequest sets the size of a node pool. The new size will be used for all replicas, including future replicas created by modifying NodePool.locations. */
     await gapi.client.container.projects.zones.clusters.nodePools.setSize(
@@ -4560,7 +4560,7 @@ gapi.load('client', async () => {
         nodePoolId: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Updates the version and/or image type of a specific node pool. */
     await gapi.client.container.projects.zones.clusters.nodePools.update(
@@ -4728,7 +4728,7 @@ gapi.load('client', async () => {
           nodeMetadata: 'Test string',
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Cancels the specified operation. */
     await gapi.client.container.projects.zones.operations.cancel(
@@ -4742,7 +4742,7 @@ gapi.load('client', async () => {
         operationId: 'Test string',
         projectId: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Gets the specified operation. */
     await gapi.client.container.projects.zones.operations.get({

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://homegraph.googleapis.com/$discovery/rest?version=v1'
+    'https://homegraph.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.homegraph */
 
@@ -53,7 +53,7 @@ gapi.load('client', async () => {
           },
         ],
         requestId: 'Test string',
-      }
+      },
     );
     /** Reports device state and optionally sends device notifications. Called by your smart home Action when the state of a third-party device changes or you need to send a notification about the device. See [Implement Report State](https://developers.home.google.com/cloud-to-cloud/integration/report-state) for more information. This method updates the device state according to its declared [traits](https://developers.home.google.com/cloud-to-cloud/primer/device-types-and-traits). Publishing a new state value outside of these traits will result in an `INVALID_ARGUMENT` error response. The third-party user's identity is passed in via the `agent_user_id` (see ReportStateAndNotificationRequest). This request must be authorized using service account credentials from your Actions console project. */
     await gapi.client.homegraph.devices.reportStateAndNotification(
@@ -73,7 +73,7 @@ gapi.load('client', async () => {
           },
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Requests Google to send an `action.devices.SYNC` [intent](https://developers.home.google.com/cloud-to-cloud/intents/sync) to your smart home Action to update device metadata for the given user. The third-party user's identity is passed via the `agent_user_id` (see RequestSyncDevicesRequest). This request must be authorized using service account credentials from your Actions console project. */
     await gapi.client.homegraph.devices.requestSync(
@@ -81,7 +81,7 @@ gapi.load('client', async () => {
       {
         agentUserId: 'Test string',
         async: true,
-      }
+      },
     );
     /** Gets all the devices associated with the given third-party user. The third-party user's identity is passed in via the `agent_user_id` (see SyncRequest). This request must be authorized using service account credentials from your Actions console project. */
     await gapi.client.homegraph.devices.sync(
@@ -89,7 +89,7 @@ gapi.load('client', async () => {
       {
         agentUserId: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
   }
 });

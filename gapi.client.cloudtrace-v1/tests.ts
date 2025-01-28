@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudtrace.googleapis.com/$discovery/rest?version=v1'
+    'https://cloudtrace.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.cloudtrace */
 
@@ -60,7 +60,7 @@ gapi.load('client', async () => {
             traceId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Gets a single trace by its ID. */
     await gapi.client.cloudtrace.projects.traces.get({

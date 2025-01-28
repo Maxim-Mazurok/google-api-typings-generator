@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Sheets API v4 */
   function load(
-    urlOrObject: 'https://sheets.googleapis.com/$discovery/rest?version=v4'
+    urlOrObject: 'https://sheets.googleapis.com/$discovery/rest?version=v4',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'sheets', version: 'v4'): Promise<void>;
@@ -2429,7 +2429,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchDeveloperMetadataRequest
+        body: SearchDeveloperMetadataRequest,
       ): client.Request<SearchDeveloperMetadataResponse>;
     }
     interface SheetsResource {
@@ -2493,7 +2493,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CopySheetToAnotherSpreadsheetRequest
+        body: CopySheetToAnotherSpreadsheetRequest,
       ): client.Request<SheetProperties>;
     }
     interface ValuesResource {
@@ -2577,7 +2577,7 @@ declare namespace gapi.client {
           /** How the input data should be interpreted. */
           valueInputOption?: string;
         },
-        body: ValueRange
+        body: ValueRange,
       ): client.Request<AppendValuesResponse>;
       /** Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges. Only values are cleared -- all other properties of the cell (such as formatting and data validation) are kept. */
       batchClear(request: {
@@ -2635,7 +2635,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchClearValuesRequest
+        body: BatchClearValuesRequest,
       ): client.Request<BatchClearValuesResponse>;
       /** Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more DataFilters. Ranges matching any of the specified data filters will be cleared. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc..) are kept. */
       batchClearByDataFilter(request: {
@@ -2693,7 +2693,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchClearValuesByDataFilterRequest
+        body: BatchClearValuesByDataFilterRequest,
       ): client.Request<BatchClearValuesByDataFilterResponse>;
       /** Returns one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges. */
       batchGet(request?: {
@@ -2786,7 +2786,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchGetValuesByDataFilterRequest
+        body: BatchGetValuesByDataFilterRequest,
       ): client.Request<BatchGetValuesByDataFilterResponse>;
       /** Sets values in one or more ranges of a spreadsheet. The caller must specify the spreadsheet ID, a valueInputOption, and one or more ValueRanges. */
       batchUpdate(request: {
@@ -2844,7 +2844,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateValuesRequest
+        body: BatchUpdateValuesRequest,
       ): client.Request<BatchUpdateValuesResponse>;
       /** Sets values in one or more ranges of a spreadsheet. The caller must specify the spreadsheet ID, a valueInputOption, and one or more DataFilterValueRanges. */
       batchUpdateByDataFilter(request: {
@@ -2902,7 +2902,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateValuesByDataFilterRequest
+        body: BatchUpdateValuesByDataFilterRequest,
       ): client.Request<BatchUpdateValuesByDataFilterResponse>;
       /** Clears values from a spreadsheet. The caller must specify the spreadsheet ID and range. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc..) are kept. */
       clear(request: {
@@ -2964,7 +2964,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClearValuesRequest
+        body: ClearValuesRequest,
       ): client.Request<ClearValuesResponse>;
       /** Returns a range of values from a spreadsheet. The caller must specify the spreadsheet ID and a range. */
       get(request?: {
@@ -3077,7 +3077,7 @@ declare namespace gapi.client {
           /** How the input data should be interpreted. */
           valueInputOption?: string;
         },
-        body: ValueRange
+        body: ValueRange,
       ): client.Request<UpdateValuesResponse>;
     }
     interface SpreadsheetsResource {
@@ -3137,7 +3137,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateSpreadsheetRequest
+        body: BatchUpdateSpreadsheetRequest,
       ): client.Request<BatchUpdateSpreadsheetResponse>;
       /** Creates a spreadsheet, returning the newly created spreadsheet. */
       create(request: {
@@ -3191,7 +3191,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Spreadsheet
+        body: Spreadsheet,
       ): client.Request<Spreadsheet>;
       /** Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. By default, data within grids is not returned. You can include grid data in one of 2 ways: * Specify a [field mask](https://developers.google.com/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP * Set the includeGridData URL parameter to true. If a field mask is set, the `includeGridData` parameter is ignored For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. To retrieve only subsets of spreadsheet data, use the ranges URL parameter. Ranges are specified using [A1 notation](/sheets/api/guides/concepts#cell). You can define a single cell (for example, `A1`) or multiple cells (for example, `A1:D5`). You can also get cells from other sheets within the same spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at once (for example, `?ranges=A1:D5&ranges=Sheet2!A1:C4`). Limiting the range returns only the portions of the spreadsheet that intersect the requested ranges. */
       get(request?: {
@@ -3280,7 +3280,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetSpreadsheetByDataFilterRequest
+        body: GetSpreadsheetByDataFilterRequest,
       ): client.Request<Spreadsheet>;
       developerMetadata: DeveloperMetadataResource;
       sheets: SheetsResource;

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://servicedirectory.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://servicedirectory.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.servicedirectory */
 
@@ -56,7 +56,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a namespace. This also deletes all services and endpoints in the namespace. */
     await gapi.client.servicedirectory.projects.locations.namespaces.delete({
@@ -75,7 +75,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all namespaces. */
     await gapi.client.servicedirectory.projects.locations.namespaces.list({
@@ -99,7 +99,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the IAM Policy for a resource */
     await gapi.client.servicedirectory.projects.locations.namespaces.setIamPolicy(
@@ -123,7 +123,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Tests IAM permissions for a resource (namespace, service or service workload only). */
     await gapi.client.servicedirectory.projects.locations.namespaces.testIamPermissions(
@@ -132,7 +132,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a service, and returns the new service. */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.create(
@@ -162,19 +162,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a service. This also deletes all endpoints associated with the service. */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a service. */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the IAM Policy for a resource */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.getIamPolicy(
@@ -185,7 +185,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all services belonging to a namespace. */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.list(
@@ -195,7 +195,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a service. */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.patch(
@@ -225,7 +225,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Returns a service and its associated endpoints. Resolving a service is not considered an active developer method. */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.resolve(
@@ -235,7 +235,7 @@ gapi.load('client', async () => {
       {
         endpointFilter: 'Test string',
         maxEndpoints: 42,
-      }
+      },
     );
     /** Sets the IAM Policy for a resource */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.setIamPolicy(
@@ -259,7 +259,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Tests IAM permissions for a resource (namespace, service or service workload only). */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.testIamPermissions(
@@ -268,7 +268,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates an endpoint, and returns the new endpoint. */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.endpoints.create(
@@ -287,19 +287,19 @@ gapi.load('client', async () => {
         port: 42,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an endpoint. */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.endpoints.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an endpoint. */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.endpoints.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all endpoints. */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.endpoints.list(
@@ -309,7 +309,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an endpoint. */
     await gapi.client.servicedirectory.projects.locations.namespaces.services.endpoints.patch(
@@ -328,7 +328,7 @@ gapi.load('client', async () => {
         port: 42,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the IAM Policy for a resource */
     await gapi.client.servicedirectory.projects.locations.namespaces.workloads.getIamPolicy(
@@ -339,7 +339,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Sets the IAM Policy for a resource */
     await gapi.client.servicedirectory.projects.locations.namespaces.workloads.setIamPolicy(
@@ -363,7 +363,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Tests IAM permissions for a resource (namespace, service or service workload only). */
     await gapi.client.servicedirectory.projects.locations.namespaces.workloads.testIamPermissions(
@@ -372,7 +372,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

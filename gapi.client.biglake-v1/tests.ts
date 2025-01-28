@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://biglake.googleapis.com/$discovery/rest?version=v1'
+    'https://biglake.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.biglake */
 
@@ -45,7 +45,7 @@ gapi.load('client', async () => {
         expireTime: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing catalog specified by the catalog ID. */
     await gapi.client.biglake.projects.locations.catalogs.delete({
@@ -80,7 +80,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing database specified by the database ID. */
     await gapi.client.biglake.projects.locations.catalogs.databases.delete({
@@ -115,7 +115,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new table. */
     await gapi.client.biglake.projects.locations.catalogs.databases.tables.create(
@@ -145,13 +145,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing table specified by the table ID. */
     await gapi.client.biglake.projects.locations.catalogs.databases.tables.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the table specified by the resource name. */
     await gapi.client.biglake.projects.locations.catalogs.databases.tables.get({
@@ -164,7 +164,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Updates an existing table specified by the table ID. */
     await gapi.client.biglake.projects.locations.catalogs.databases.tables.patch(
@@ -194,7 +194,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Renames an existing table specified by the table ID. */
     await gapi.client.biglake.projects.locations.catalogs.databases.tables.rename(
@@ -203,7 +203,7 @@ gapi.load('client', async () => {
       },
       {
         newName: 'Test string',
-      }
+      },
     );
   }
 });

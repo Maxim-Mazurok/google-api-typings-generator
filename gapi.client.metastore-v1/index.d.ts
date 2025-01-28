@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Dataproc Metastore API v1 */
   function load(
-    urlOrObject: 'https://metastore.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://metastore.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'metastore', version: 'v1'): Promise<void>;
@@ -655,7 +655,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Federation
+        body: Federation,
       ): Request<Operation>;
       /** Deletes a single federation. */
       delete(request?: {
@@ -841,7 +841,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Federation
+        body: Federation,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
       setIamPolicy(
@@ -871,7 +871,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -901,7 +901,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface OperationsResource {
@@ -961,7 +961,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. */
       delete(request?: {
@@ -1116,7 +1116,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Backup
+        body: Backup,
       ): Request<Operation>;
       /** Deletes a single backup. */
       delete(request?: {
@@ -1266,7 +1266,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
     }
     interface TablesResource {
@@ -1327,7 +1327,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
     }
     interface DatabasesResource {
@@ -1388,7 +1388,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       tables: TablesResource;
     }
@@ -1457,7 +1457,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MetadataImport
+        body: MetadataImport,
       ): Request<Operation>;
       /** Gets details of a single import. */
       get(request?: {
@@ -1585,7 +1585,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MetadataImport
+        body: MetadataImport,
       ): Request<Operation>;
     }
     interface MigrationExecutionsResource {
@@ -1738,7 +1738,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AlterMetadataResourceLocationRequest
+        body: AlterMetadataResourceLocationRequest,
       ): Request<Operation>;
       /** Alter metadata table properties. */
       alterTableProperties(request: {
@@ -1796,7 +1796,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AlterTablePropertiesRequest
+        body: AlterTablePropertiesRequest,
       ): Request<Operation>;
       /** Cancels the ongoing Managed Migration process. */
       cancelMigration(request: {
@@ -1854,7 +1854,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelMigrationRequest
+        body: CancelMigrationRequest,
       ): Request<Operation>;
       /** Completes the managed migration process. The Dataproc Metastore service will switch to using its own backend database after successful migration. */
       completeMigration(request: {
@@ -1912,7 +1912,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CompleteMigrationRequest
+        body: CompleteMigrationRequest,
       ): Request<Operation>;
       /** Creates a metastore service in a project and location. */
       create(request: {
@@ -1978,7 +1978,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Service
+        body: Service,
       ): Request<Operation>;
       /** Deletes a single service. */
       delete(request?: {
@@ -2065,7 +2065,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExportMetadataRequest
+        body: ExportMetadataRequest,
       ): Request<Operation>;
       /** Gets the details of a single service. */
       get(request?: {
@@ -2214,7 +2214,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MoveTableToDatabaseRequest
+        body: MoveTableToDatabaseRequest,
       ): Request<Operation>;
       /** Updates the parameters of a single service. */
       patch(request: {
@@ -2280,7 +2280,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Service
+        body: Service,
       ): Request<Operation>;
       /** Query Dataproc Metastore metadata. */
       queryMetadata(request: {
@@ -2338,7 +2338,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryMetadataRequest
+        body: QueryMetadataRequest,
       ): Request<Operation>;
       /** Restores a service from a backup. */
       restore(request: {
@@ -2396,7 +2396,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestoreServiceRequest
+        body: RestoreServiceRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
       setIamPolicy(
@@ -2426,7 +2426,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Starts the Managed Migration process. */
       startMigration(request: {
@@ -2484,7 +2484,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartMigrationRequest
+        body: StartMigrationRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2514,7 +2514,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       backups: BackupsResource;
       databases: DatabasesResource;

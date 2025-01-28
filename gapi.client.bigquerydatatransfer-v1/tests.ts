@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://bigquerydatatransfer.googleapis.com/$discovery/rest?version=v1'
+    'https://bigquerydatatransfer.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.bigquerydatatransfer */
 
@@ -42,14 +42,14 @@ gapi.load('client', async () => {
       },
       {
         dataSourceIds: ['Test string'],
-      }
+      },
     );
     /** Returns true if valid credentials exist for the given data source and requesting user. */
     await gapi.client.bigquerydatatransfer.projects.dataSources.checkValidCreds(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Retrieves a supported data source and returns its settings. */
     await gapi.client.bigquerydatatransfer.projects.dataSources.get({
@@ -68,7 +68,7 @@ gapi.load('client', async () => {
       },
       {
         dataSourceIds: ['Test string'],
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.bigquerydatatransfer.projects.locations.get({
@@ -88,14 +88,14 @@ gapi.load('client', async () => {
       },
       {
         dataSourceIds: ['Test string'],
-      }
+      },
     );
     /** Returns true if valid credentials exist for the given data source and requesting user. */
     await gapi.client.bigquerydatatransfer.projects.locations.dataSources.checkValidCreds(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Retrieves a supported data source and returns its settings. */
     await gapi.client.bigquerydatatransfer.projects.locations.dataSources.get({
@@ -166,19 +166,19 @@ gapi.load('client', async () => {
         state: 'Test string',
         updateTime: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Deletes a data transfer configuration, including any associated transfer runs and logs. */
     await gapi.client.bigquerydatatransfer.projects.locations.transferConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns information about a data transfer config. */
     await gapi.client.bigquerydatatransfer.projects.locations.transferConfigs.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns information about all transfer configs owned by a project in the specified location. */
     await gapi.client.bigquerydatatransfer.projects.locations.transferConfigs.list(
@@ -187,7 +187,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a data transfer configuration. All fields must be set, even if they are not updated. */
     await gapi.client.bigquerydatatransfer.projects.locations.transferConfigs.patch(
@@ -249,7 +249,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         updateTime: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one transfer run is created. Note that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead. */
     await gapi.client.bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns(
@@ -259,7 +259,7 @@ gapi.load('client', async () => {
       {
         endTime: 'Test string',
         startTime: 'Test string',
-      }
+      },
     );
     /** Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the run_time is between start_time (inclusive) and end_time (exclusive), or for a specific run_time. */
     await gapi.client.bigquerydatatransfer.projects.locations.transferConfigs.startManualRuns(
@@ -272,19 +272,19 @@ gapi.load('client', async () => {
           endTime: 'Test string',
           startTime: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified transfer run. */
     await gapi.client.bigquerydatatransfer.projects.locations.transferConfigs.runs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns information about the particular transfer run. */
     await gapi.client.bigquerydatatransfer.projects.locations.transferConfigs.runs.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns information about running and completed transfer runs. */
     await gapi.client.bigquerydatatransfer.projects.locations.transferConfigs.runs.list(
@@ -294,7 +294,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         runAttempt: 'Test string',
         states: 'Test string',
-      }
+      },
     );
     /** Returns log messages for the transfer run. */
     await gapi.client.bigquerydatatransfer.projects.locations.transferConfigs.runs.transferLogs.list(
@@ -303,7 +303,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new data transfer configuration. */
     await gapi.client.bigquerydatatransfer.projects.transferConfigs.create(
@@ -364,7 +364,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         updateTime: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Deletes a data transfer configuration, including any associated transfer runs and logs. */
     await gapi.client.bigquerydatatransfer.projects.transferConfigs.delete({
@@ -441,7 +441,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         updateTime: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one transfer run is created. Note that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead. */
     await gapi.client.bigquerydatatransfer.projects.transferConfigs.scheduleRuns(
@@ -451,7 +451,7 @@ gapi.load('client', async () => {
       {
         endTime: 'Test string',
         startTime: 'Test string',
-      }
+      },
     );
     /** Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the run_time is between start_time (inclusive) and end_time (exclusive), or for a specific run_time. */
     await gapi.client.bigquerydatatransfer.projects.transferConfigs.startManualRuns(
@@ -464,13 +464,13 @@ gapi.load('client', async () => {
           endTime: 'Test string',
           startTime: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified transfer run. */
     await gapi.client.bigquerydatatransfer.projects.transferConfigs.runs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns information about the particular transfer run. */
     await gapi.client.bigquerydatatransfer.projects.transferConfigs.runs.get({
@@ -491,7 +491,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

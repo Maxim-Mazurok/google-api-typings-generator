@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://iamcredentials.googleapis.com/$discovery/rest?version=v1'
+    'https://iamcredentials.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.iamcredentials */
 
@@ -40,7 +40,7 @@ gapi.load('client', async () => {
         delegates: ['Test string'],
         lifetime: 'Test string',
         scope: ['Test string'],
-      }
+      },
     );
     /** Generates an OpenID Connect ID token for a service account. */
     await gapi.client.iamcredentials.projects.serviceAccounts.generateIdToken(
@@ -51,13 +51,13 @@ gapi.load('client', async () => {
         audience: 'Test string',
         delegates: ['Test string'],
         includeEmail: true,
-      }
+      },
     );
     /** Returns the trust boundary info for a given service account. */
     await gapi.client.iamcredentials.projects.serviceAccounts.getAllowedLocations(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Signs a blob using a service account's system-managed private key. */
     await gapi.client.iamcredentials.projects.serviceAccounts.signBlob(
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
       {
         delegates: ['Test string'],
         payload: 'Test string',
-      }
+      },
     );
     /** Signs a JWT using a service account's system-managed private key. */
     await gapi.client.iamcredentials.projects.serviceAccounts.signJwt(
@@ -77,7 +77,7 @@ gapi.load('client', async () => {
       {
         delegates: ['Test string'],
         payload: 'Test string',
-      }
+      },
     );
   }
 });

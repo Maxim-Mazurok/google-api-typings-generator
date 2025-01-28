@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load DoubleClick Bid Manager API v2 */
   function load(
-    urlOrObject: 'https://doubleclickbidmanager.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://doubleclickbidmanager.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'doubleclickbidmanager', version: 'v2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'doubleclickbidmanager',
     version: 'v2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace doubleclickbidmanager {
@@ -263,7 +263,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Query
+        body: Query,
       ): Request<Query>;
       /** Deletes an existing query as well as its generated reports. */
       delete(request?: {
@@ -410,7 +410,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunQueryRequest
+        body: RunQueryRequest,
       ): Request<Report>;
       reports: ReportsResource;
     }

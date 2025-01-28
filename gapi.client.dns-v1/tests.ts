@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://dns.googleapis.com/$discovery/rest?version=v1'
+    'https://dns.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.dns */
 
@@ -276,7 +276,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         startTime: 'Test string',
         status: 'Test string',
-      }
+      },
     );
     /** Fetches the representation of an existing Change. */
     await gapi.client.dns.changes.get({
@@ -406,7 +406,7 @@ gapi.load('client', async () => {
           },
         },
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes a previously created ManagedZone. */
     await gapi.client.dns.managedZones.delete({
@@ -429,7 +429,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Enumerates ManagedZones that have been created but not yet deleted. */
     await gapi.client.dns.managedZones.list({
@@ -520,7 +520,7 @@ gapi.load('client', async () => {
           },
         },
         visibility: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.dns.managedZones.setIamPolicy(
@@ -556,7 +556,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this returns an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dns.managedZones.testIamPermissions(
@@ -565,7 +565,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates an existing ManagedZone. */
     await gapi.client.dns.managedZones.update(
@@ -649,7 +649,7 @@ gapi.load('client', async () => {
           },
         },
         visibility: 'Test string',
-      }
+      },
     );
     /** Creates a new Policy. */
     await gapi.client.dns.policies.create(
@@ -688,7 +688,7 @@ gapi.load('client', async () => {
             networkUrl: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a previously created Policy. Fails if the policy is still being referenced by a network. */
     await gapi.client.dns.policies.delete({
@@ -746,7 +746,7 @@ gapi.load('client', async () => {
             networkUrl: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates an existing Policy. */
     await gapi.client.dns.policies.update(
@@ -786,7 +786,7 @@ gapi.load('client', async () => {
             networkUrl: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Fetches the representation of an existing Project. */
     await gapi.client.dns.projects.get({
@@ -910,7 +910,7 @@ gapi.load('client', async () => {
         signatureRrdatas: ['Test string'],
         ttl: 42,
         type: 'Test string',
-      }
+      },
     );
     /** Deletes a previously created ResourceRecordSet. */
     await gapi.client.dns.resourceRecordSets.delete({
@@ -1056,7 +1056,7 @@ gapi.load('client', async () => {
         signatureRrdatas: ['Test string'],
         ttl: 42,
         type: 'Test string',
-      }
+      },
     );
     /** Creates a new Response Policy */
     await gapi.client.dns.responsePolicies.create(
@@ -1084,7 +1084,7 @@ gapi.load('client', async () => {
           },
         ],
         responsePolicyName: 'Test string',
-      }
+      },
     );
     /** Deletes a previously created Response Policy. Fails if the response policy is non-empty or still being referenced by a network. */
     await gapi.client.dns.responsePolicies.delete({
@@ -1131,7 +1131,7 @@ gapi.load('client', async () => {
           },
         ],
         responsePolicyName: 'Test string',
-      }
+      },
     );
     /** Updates an existing Response Policy. */
     await gapi.client.dns.responsePolicies.update(
@@ -1160,7 +1160,7 @@ gapi.load('client', async () => {
           },
         ],
         responsePolicyName: 'Test string',
-      }
+      },
     );
     /** Creates a new Response Policy Rule. */
     await gapi.client.dns.responsePolicyRules.create(
@@ -1289,7 +1289,7 @@ gapi.load('client', async () => {
           ],
         },
         ruleName: 'Test string',
-      }
+      },
     );
     /** Deletes a previously created Response Policy Rule. */
     await gapi.client.dns.responsePolicyRules.delete({
@@ -1440,7 +1440,7 @@ gapi.load('client', async () => {
           ],
         },
         ruleName: 'Test string',
-      }
+      },
     );
     /** Updates an existing Response Policy Rule. */
     await gapi.client.dns.responsePolicyRules.update(
@@ -1570,7 +1570,7 @@ gapi.load('client', async () => {
           ],
         },
         ruleName: 'Test string',
-      }
+      },
     );
   }
 });

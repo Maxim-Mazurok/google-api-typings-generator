@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load API Discovery Service v1 */
   function load(
-    urlOrObject: 'https://discovery.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://discovery.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'discovery', version: 'v1'): Promise<void>;

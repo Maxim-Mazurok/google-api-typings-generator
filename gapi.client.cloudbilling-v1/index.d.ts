@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Billing API v1 */
   function load(
-    urlOrObject: 'https://cloudbilling.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://cloudbilling.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudbilling', version: 'v1'): Promise<void>;
@@ -312,7 +312,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BillingAccount
+        body: BillingAccount,
       ): Request<BillingAccount>;
       /** Lists the billing accounts that the current authenticated user has permission to [view](https://cloud.google.com/billing/docs/how-to/billing-access). */
       list(request?: {
@@ -405,7 +405,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BillingAccount
+        body: BillingAccount,
       ): Request<BillingAccount>;
       /** Gets information about a billing account. The current authenticated user must be a [viewer of the billing account](https://cloud.google.com/billing/docs/how-to/billing-access). */
       get(request?: {
@@ -552,7 +552,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MoveBillingAccountRequest
+        body: MoveBillingAccountRequest,
       ): Request<BillingAccount>;
       /** Updates a billing account's fields. Currently the only field that can be edited is `display_name`. The current authenticated user must have the `billing.accounts.update` IAM permission, which is typically given to the [administrator](https://cloud.google.com/billing/docs/how-to/billing-access) of the billing account. */
       patch(request: {
@@ -614,7 +614,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BillingAccount
+        body: BillingAccount,
       ): Request<BillingAccount>;
       /** Sets the access control policy for a billing account. Replaces any existing policy. The caller must have the `billing.accounts.setIamPolicy` permission on the account, which is often given to billing account [administrators](https://cloud.google.com/billing/docs/how-to/billing-access). */
       setIamPolicy(
@@ -644,7 +644,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Tests the access control policy for a billing account. This method takes the resource and a set of permissions as input and returns the subset of the input permissions that the caller is allowed for that resource. */
       testIamPermissions(
@@ -674,7 +674,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       projects: ProjectsResource;
       subAccounts: SubAccountsResource;
@@ -736,7 +736,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BillingAccount
+        body: BillingAccount,
       ): Request<BillingAccount>;
       /** Lists the billing accounts that the current authenticated user has permission to [view](https://cloud.google.com/billing/docs/how-to/billing-access). */
       list(request?: {
@@ -888,7 +888,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProjectBillingInfo
+        body: ProjectBillingInfo,
       ): Request<ProjectBillingInfo>;
     }
     interface SkusResource {

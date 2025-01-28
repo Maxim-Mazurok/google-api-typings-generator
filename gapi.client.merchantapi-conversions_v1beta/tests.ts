@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://merchantapi.googleapis.com/$discovery/rest?version=conversions_v1beta'
+    'https://merchantapi.googleapis.com/$discovery/rest?version=conversions_v1beta',
   );
   /** now we can use gapi.client.merchantapi */
 
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Archives an existing conversion source. If the conversion source is a Merchant Center Destination, it will be recoverable for 30 days. If the conversion source is a Google Analytics Link, it will be deleted immediately and can be restored by creating a new one. */
     await gapi.client.merchantapi.accounts.conversionSources.delete({
@@ -127,14 +127,14 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Re-enables an archived conversion source. Only Available for Merchant Center Destination conversion sources. */
     await gapi.client.merchantapi.accounts.conversionSources.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://safebrowsing.googleapis.com/$discovery/rest?version=v4'
+    'https://safebrowsing.googleapis.com/$discovery/rest?version=v4',
   );
   /** now we can use gapi.client.safebrowsing */
 
@@ -51,7 +51,7 @@ gapi.load('client', async () => {
           threatEntryTypes: ['Test string'],
           threatTypes: ['Test string'],
         },
-      }
+      },
     );
     /** Reports a Safe Browsing threat list hit to Google. Only projects with TRUSTED_REPORTER visibility can use this method. */
     await gapi.client.safebrowsing.threatHits.create(
@@ -80,7 +80,7 @@ gapi.load('client', async () => {
           regionCode: 'Test string',
           userId: 'Test string',
         },
-      }
+      },
     );
     /** Lists the Safe Browsing threat lists available for download. */
     await gapi.client.safebrowsing.threatLists.list({});
@@ -108,7 +108,7 @@ gapi.load('client', async () => {
             threatType: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Finds the threat entries that match the Safe Browsing lists. */
     await gapi.client.safebrowsing.threatMatches.find(
@@ -130,7 +130,7 @@ gapi.load('client', async () => {
           threatEntryTypes: ['Test string'],
           threatTypes: ['Test string'],
         },
-      }
+      },
     );
   }
 });

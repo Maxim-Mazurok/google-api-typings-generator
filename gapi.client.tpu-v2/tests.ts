@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://tpu.googleapis.com/$discovery/rest?version=v2'
+    'https://tpu.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.tpu */
 
@@ -36,7 +36,7 @@ gapi.load('client', async () => {
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets information about a location. */
     await gapi.client.tpu.projects.locations.get({
@@ -143,7 +143,7 @@ gapi.load('client', async () => {
           },
         ],
         tags: ['Test string'],
-      }
+      },
     );
     /** Deletes a node. */
     await gapi.client.tpu.projects.locations.nodes.delete({
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
       {
         queryPath: 'Test string',
         workerIds: ['Test string'],
-      }
+      },
     );
     /** Lists nodes. */
     await gapi.client.tpu.projects.locations.nodes.list({
@@ -251,21 +251,21 @@ gapi.load('client', async () => {
           },
         ],
         tags: ['Test string'],
-      }
+      },
     );
     /** Starts a node. */
     await gapi.client.tpu.projects.locations.nodes.start(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Stops a node. This operation is only available with single TPU nodes. */
     await gapi.client.tpu.projects.locations.nodes.stop(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.tpu.projects.locations.operations.cancel({
@@ -422,7 +422,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Deletes a QueuedResource TPU instance. */
     await gapi.client.tpu.projects.locations.queuedResources.delete({
@@ -445,7 +445,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets a runtime version. */
     await gapi.client.tpu.projects.locations.runtimeVersions.get({

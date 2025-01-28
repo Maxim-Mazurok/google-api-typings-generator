@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://run.googleapis.com/$discovery/rest?version=v2'
+    'https://run.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.run */
 
@@ -38,7 +38,7 @@ gapi.load('client', async () => {
       },
       {
         destinationRepo: 'Test string',
-      }
+      },
     );
     /** Export image metadata for a given resource. */
     await gapi.client.run.projects.locations.exportImageMetadata({
@@ -79,7 +79,7 @@ gapi.load('client', async () => {
         },
         tags: ['Test string'],
         workerPool: 'Test string',
-      }
+      },
     );
     /** Creates a Job. */
     await gapi.client.run.projects.locations.jobs.create(
@@ -301,7 +301,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a Job. */
     await gapi.client.run.projects.locations.jobs.delete({
@@ -545,7 +545,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Triggers creation of a new Execution of this Job. */
     await gapi.client.run.projects.locations.jobs.run(
@@ -578,7 +578,7 @@ gapi.load('client', async () => {
           timeout: 'Test string',
         },
         validateOnly: true,
-      }
+      },
     );
     /** Sets the IAM Access control policy for the specified Job. Overwrites any existing policy. */
     await gapi.client.run.projects.locations.jobs.setIamPolicy(
@@ -614,7 +614,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
     await gapi.client.run.projects.locations.jobs.testIamPermissions(
@@ -623,7 +623,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Cancels an Execution. */
     await gapi.client.run.projects.locations.jobs.executions.cancel(
@@ -633,7 +633,7 @@ gapi.load('client', async () => {
       {
         etag: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Deletes an Execution. */
     await gapi.client.run.projects.locations.jobs.executions.delete({
@@ -690,7 +690,7 @@ gapi.load('client', async () => {
       },
       {
         timeout: 'Test string',
-      }
+      },
     );
     /** Creates a new Service in a given project and location. */
     await gapi.client.run.projects.locations.services.create(
@@ -958,7 +958,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         uri: 'Test string',
         urls: ['Test string'],
-      }
+      },
     );
     /** Deletes a Service. This will cause the Service to stop serving traffic and will delete all revisions. */
     await gapi.client.run.projects.locations.services.delete({
@@ -1249,7 +1249,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         uri: 'Test string',
         urls: ['Test string'],
-      }
+      },
     );
     /** Sets the IAM Access control policy for the specified Service. Overwrites any existing policy. */
     await gapi.client.run.projects.locations.services.setIamPolicy(
@@ -1285,7 +1285,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
     await gapi.client.run.projects.locations.services.testIamPermissions(
@@ -1294,7 +1294,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Deletes a Revision. */
     await gapi.client.run.projects.locations.services.revisions.delete({

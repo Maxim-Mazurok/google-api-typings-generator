@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://websecurityscanner.googleapis.com/$discovery/rest?version=v1alpha'
+    'https://websecurityscanner.googleapis.com/$discovery/rest?version=v1alpha',
   );
   /** now we can use gapi.client.websecurityscanner */
 
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
         startingUrls: ['Test string'],
         targetPlatforms: ['Test string'],
         userAgent: 'Test string',
-      }
+      },
     );
     /** Deletes an existing ScanConfig and its child resources. */
     await gapi.client.websecurityscanner.projects.scanConfigs.delete({
@@ -126,14 +126,14 @@ gapi.load('client', async () => {
         startingUrls: ['Test string'],
         targetPlatforms: ['Test string'],
         userAgent: 'Test string',
-      }
+      },
     );
     /** Start a ScanRun according to the given ScanConfig. */
     await gapi.client.websecurityscanner.projects.scanConfigs.start(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets a ScanRun. */
     await gapi.client.websecurityscanner.projects.scanConfigs.scanRuns.get({
@@ -150,7 +150,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** List CrawledUrls under a given ScanRun. */
     await gapi.client.websecurityscanner.projects.scanConfigs.scanRuns.crawledUrls.list(
@@ -158,13 +158,13 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets a Finding. */
     await gapi.client.websecurityscanner.projects.scanConfigs.scanRuns.findings.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List Findings under a given ScanRun. */
     await gapi.client.websecurityscanner.projects.scanConfigs.scanRuns.findings.list(
@@ -173,13 +173,13 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** List all FindingTypeStats under a given ScanRun. */
     await gapi.client.websecurityscanner.projects.scanConfigs.scanRuns.findingTypeStats.list(
       {
         parent: 'Test string',
-      }
+      },
     );
   }
 });

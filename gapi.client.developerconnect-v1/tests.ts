@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://developerconnect.googleapis.com/$discovery/rest?version=v1'
+    'https://developerconnect.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.developerconnect */
 
@@ -124,7 +124,7 @@ gapi.load('client', async () => {
         reconciling: true,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Connection. */
     await gapi.client.developerconnect.projects.locations.connections.delete({
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
     await gapi.client.developerconnect.projects.locations.connections.fetchGitHubInstallations(
       {
         connection: 'Test string',
-      }
+      },
     );
     /** FetchLinkableGitRepositories returns a list of git repositories from an SCM that are available to be added to a Connection. */
     await gapi.client.developerconnect.projects.locations.connections.fetchLinkableGitRepositories(
@@ -145,7 +145,7 @@ gapi.load('client', async () => {
         connection: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Connection. */
     await gapi.client.developerconnect.projects.locations.connections.get({
@@ -242,7 +242,7 @@ gapi.load('client', async () => {
         reconciling: true,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** ProcessGitHubEnterpriseWebhook is called by the external GitHub Enterprise instances for notifying events. */
     await gapi.client.developerconnect.projects.locations.connections.processGitHubEnterpriseWebhook(
@@ -259,7 +259,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Creates a GitRepositoryLink. Upon linking a Git Repository, Developer Connect will configure the Git Repository to send webhook events to Developer Connect. Connections that use Firebase GitHub Application will have events forwarded to the Firebase service. All other Connections will have events forwarded to Cloud Build. */
     await gapi.client.developerconnect.projects.locations.connections.gitRepositoryLinks.create(
@@ -285,7 +285,7 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         webhookId: 'Test string',
-      }
+      },
     );
     /** Deletes a single GitRepositoryLink. */
     await gapi.client.developerconnect.projects.locations.connections.gitRepositoryLinks.delete(
@@ -294,7 +294,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         requestId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Fetch the list of branches or tags for a given repository. */
     await gapi.client.developerconnect.projects.locations.connections.gitRepositoryLinks.fetchGitRefs(
@@ -303,27 +303,27 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         refType: 'Test string',
-      }
+      },
     );
     /** Fetches read token of a given gitRepositoryLink. */
     await gapi.client.developerconnect.projects.locations.connections.gitRepositoryLinks.fetchReadToken(
       {
         gitRepositoryLink: 'Test string',
       },
-      {}
+      {},
     );
     /** Fetches read/write token of a given gitRepositoryLink. */
     await gapi.client.developerconnect.projects.locations.connections.gitRepositoryLinks.fetchReadWriteToken(
       {
         gitRepositoryLink: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets details of a single GitRepositoryLink. */
     await gapi.client.developerconnect.projects.locations.connections.gitRepositoryLinks.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists GitRepositoryLinks in a given project, location, and connection. */
     await gapi.client.developerconnect.projects.locations.connections.gitRepositoryLinks.list(
@@ -333,7 +333,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** ProcessGitLabEnterpriseWebhook is called by the external GitLab Enterprise instances for notifying events. */
     await gapi.client.developerconnect.projects.locations.connections.gitRepositoryLinks.processGitLabEnterpriseWebhook(
@@ -350,7 +350,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** ProcessGitLabWebhook is called by the GitLab.com for notifying events. */
     await gapi.client.developerconnect.projects.locations.connections.gitRepositoryLinks.processGitLabWebhook(
@@ -367,14 +367,14 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.developerconnect.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.developerconnect.projects.locations.operations.delete({

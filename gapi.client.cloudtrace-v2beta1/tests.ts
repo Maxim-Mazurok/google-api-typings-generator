@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudtrace.googleapis.com/$discovery/rest?version=v2beta1'
+    'https://cloudtrace.googleapis.com/$discovery/rest?version=v2beta1',
   );
   /** now we can use gapi.client.cloudtrace */
 
@@ -46,7 +46,7 @@ gapi.load('client', async () => {
           destination: 'Test string',
         },
         writerIdentity: 'Test string',
-      }
+      },
     );
     /** Deletes a sink. */
     await gapi.client.cloudtrace.projects.traceSinks.delete({
@@ -74,7 +74,7 @@ gapi.load('client', async () => {
           destination: 'Test string',
         },
         writerIdentity: 'Test string',
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://securitycenter.googleapis.com/$discovery/rest?version=v1beta2'
+    'https://securitycenter.googleapis.com/$discovery/rest?version=v1beta2',
   );
   /** now we can use gapi.client.securitycenter */
 
@@ -35,7 +35,7 @@ gapi.load('client', async () => {
     await gapi.client.securitycenter.folders.getContainerThreatDetectionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the EventThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetEventThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateEventThreatDetectionSettings for this purpose. */
     await gapi.client.securitycenter.folders.getEventThreatDetectionSettings({
@@ -45,7 +45,7 @@ gapi.load('client', async () => {
     await gapi.client.securitycenter.folders.getRapidVulnerabilityDetectionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the SecurityCenterSettings resource. */
     await gapi.client.securitycenter.folders.getSecurityCenterSettings({
@@ -55,13 +55,13 @@ gapi.load('client', async () => {
     await gapi.client.securitycenter.folders.getSecurityHealthAnalyticsSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the VirtualMachineThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetVirtualMachineThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateVirtualMachineThreatDetectionSettings for this purpose. */
     await gapi.client.securitycenter.folders.getVirtualMachineThreatDetectionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the WebSecurityScannerSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetWebSecurityScannerSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateWebSecurityScannerSettings for this purpose. */
     await gapi.client.securitycenter.folders.getWebSecurityScannerSettings({
@@ -86,7 +86,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the EventThreatDetectionSettings resource. */
     await gapi.client.securitycenter.folders.updateEventThreatDetectionSettings(
@@ -106,7 +106,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the RapidVulnerabilityDetectionSettings resource. */
     await gapi.client.securitycenter.folders.updateRapidVulnerabilityDetectionSettings(
@@ -126,7 +126,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the SecurityHealthAnalyticsSettings resource. */
     await gapi.client.securitycenter.folders.updateSecurityHealthAnalyticsSettings(
@@ -147,7 +147,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the VirtualMachineThreatDetectionSettings resource. */
     await gapi.client.securitycenter.folders.updateVirtualMachineThreatDetectionSettings(
@@ -168,7 +168,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the WebSecurityScannerSettings resource. */
     await gapi.client.securitycenter.folders.updateWebSecurityScannerSettings(
@@ -188,66 +188,66 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Calculates the effective ContainerThreatDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.folders.containerThreatDetectionSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective EventThreatDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.folders.eventThreatDetectionSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective RapidVulnerabilityDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.folders.rapidVulnerabilityDetectionSettings.calculate(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Calculates the effective SecurityHealthAnalyticsSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective VirtualMachineThreatDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.folders.virtualMachineThreatDetectionSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective WebSecurityScannerSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.folders.webSecurityScannerSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Get the ContainerThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetContainerThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateContainerThreatDetectionSettings for this purpose. */
     await gapi.client.securitycenter.organizations.getContainerThreatDetectionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the EventThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetEventThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateEventThreatDetectionSettings for this purpose. */
     await gapi.client.securitycenter.organizations.getEventThreatDetectionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetRapidVulnerabilityDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateRapidVulnerabilityDetectionSettings for this purpose. */
     await gapi.client.securitycenter.organizations.getRapidVulnerabilityDetectionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the SecurityCenterSettings resource. */
     await gapi.client.securitycenter.organizations.getSecurityCenterSettings({
@@ -257,7 +257,7 @@ gapi.load('client', async () => {
     await gapi.client.securitycenter.organizations.getSecurityHealthAnalyticsSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the Subscription resource. */
     await gapi.client.securitycenter.organizations.getSubscription({
@@ -267,13 +267,13 @@ gapi.load('client', async () => {
     await gapi.client.securitycenter.organizations.getVirtualMachineThreatDetectionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the WebSecurityScannerSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetWebSecurityScannerSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateWebSecurityScannerSettings for this purpose. */
     await gapi.client.securitycenter.organizations.getWebSecurityScannerSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Update the ContainerThreatDetectionSettings resource. */
     await gapi.client.securitycenter.organizations.updateContainerThreatDetectionSettings(
@@ -294,7 +294,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the EventThreatDetectionSettings resource. */
     await gapi.client.securitycenter.organizations.updateEventThreatDetectionSettings(
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the RapidVulnerabilityDetectionSettings resource. */
     await gapi.client.securitycenter.organizations.updateRapidVulnerabilityDetectionSettings(
@@ -334,7 +334,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the SecurityHealthAnalyticsSettings resource. */
     await gapi.client.securitycenter.organizations.updateSecurityHealthAnalyticsSettings(
@@ -355,7 +355,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the VirtualMachineThreatDetectionSettings resource. */
     await gapi.client.securitycenter.organizations.updateVirtualMachineThreatDetectionSettings(
@@ -376,7 +376,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the WebSecurityScannerSettings resource. */
     await gapi.client.securitycenter.organizations.updateWebSecurityScannerSettings(
@@ -396,54 +396,54 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Calculates the effective ContainerThreatDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.organizations.containerThreatDetectionSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective EventThreatDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.organizations.eventThreatDetectionSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective RapidVulnerabilityDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.organizations.rapidVulnerabilityDetectionSettings.calculate(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Calculates the effective SecurityHealthAnalyticsSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective VirtualMachineThreatDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.organizations.virtualMachineThreatDetectionSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective WebSecurityScannerSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.organizations.webSecurityScannerSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Get the ContainerThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetContainerThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateContainerThreatDetectionSettings for this purpose. */
     await gapi.client.securitycenter.projects.getContainerThreatDetectionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the EventThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetEventThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateEventThreatDetectionSettings for this purpose. */
     await gapi.client.securitycenter.projects.getEventThreatDetectionSettings({
@@ -453,7 +453,7 @@ gapi.load('client', async () => {
     await gapi.client.securitycenter.projects.getRapidVulnerabilityDetectionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the SecurityCenterSettings resource. */
     await gapi.client.securitycenter.projects.getSecurityCenterSettings({
@@ -463,13 +463,13 @@ gapi.load('client', async () => {
     await gapi.client.securitycenter.projects.getSecurityHealthAnalyticsSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the VirtualMachineThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetVirtualMachineThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateVirtualMachineThreatDetectionSettings for this purpose. */
     await gapi.client.securitycenter.projects.getVirtualMachineThreatDetectionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get the WebSecurityScannerSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetWebSecurityScannerSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateWebSecurityScannerSettings for this purpose. */
     await gapi.client.securitycenter.projects.getWebSecurityScannerSettings({
@@ -494,7 +494,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the EventThreatDetectionSettings resource. */
     await gapi.client.securitycenter.projects.updateEventThreatDetectionSettings(
@@ -514,7 +514,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the RapidVulnerabilityDetectionSettings resource. */
     await gapi.client.securitycenter.projects.updateRapidVulnerabilityDetectionSettings(
@@ -534,7 +534,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the SecurityHealthAnalyticsSettings resource. */
     await gapi.client.securitycenter.projects.updateSecurityHealthAnalyticsSettings(
@@ -555,7 +555,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the VirtualMachineThreatDetectionSettings resource. */
     await gapi.client.securitycenter.projects.updateVirtualMachineThreatDetectionSettings(
@@ -576,7 +576,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Update the WebSecurityScannerSettings resource. */
     await gapi.client.securitycenter.projects.updateWebSecurityScannerSettings(
@@ -596,27 +596,27 @@ gapi.load('client', async () => {
         name: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Calculates the effective ContainerThreatDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.projects.containerThreatDetectionSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective EventThreatDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.projects.eventThreatDetectionSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Get the ContainerThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetContainerThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateContainerThreatDetectionSettings for this purpose. */
     await gapi.client.securitycenter.projects.locations.clusters.getContainerThreatDetectionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Update the ContainerThreatDetectionSettings resource. */
     await gapi.client.securitycenter.projects.locations.clusters.updateContainerThreatDetectionSettings(
@@ -637,41 +637,41 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         serviceEnablementState: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Calculates the effective ContainerThreatDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.projects.locations.clusters.containerThreatDetectionSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective RapidVulnerabilityDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.projects.rapidVulnerabilityDetectionSettings.calculate(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Calculates the effective SecurityHealthAnalyticsSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective VirtualMachineThreatDetectionSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.projects.virtualMachineThreatDetectionSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
     /** Calculates the effective WebSecurityScannerSettings based on its level in the resource hierarchy and its settings. Settings provided closer to the target resource take precedence over those further away (e.g. folder will override organization level settings). The default SCC setting for the detector service defaults can be overridden at organization, folder and project levels. No assumptions should be made about the SCC defaults as it is considered an internal implementation detail. */
     await gapi.client.securitycenter.projects.webSecurityScannerSettings.calculate(
       {
         name: 'Test string',
         showEligibleModulesOnly: true,
-      }
+      },
     );
   }
 });

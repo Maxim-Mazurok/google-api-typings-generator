@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://doubleclicksearch.googleapis.com/$discovery/rest?version=v2'
+    'https://doubleclicksearch.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.doubleclicksearch */
 
@@ -115,7 +115,7 @@ gapi.load('client', async () => {
           },
         ],
         kind: 'Test string',
-      }
+      },
     );
     /** Updates a batch of conversions in DoubleClick Search. */
     await gapi.client.doubleclicksearch.conversion.update(
@@ -171,7 +171,7 @@ gapi.load('client', async () => {
           },
         ],
         kind: 'Test string',
-      }
+      },
     );
     /** Updates the availabilities of a batch of floodlight activities in DoubleClick Search. */
     await gapi.client.doubleclicksearch.conversion.updateAvailability(
@@ -188,7 +188,7 @@ gapi.load('client', async () => {
             segmentationType: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Generates and returns a report immediately. */
     await gapi.client.doubleclicksearch.reports.generate(
@@ -267,7 +267,7 @@ gapi.load('client', async () => {
           startDate: 'Test string',
         },
         verifySingleTimeZone: true,
-      }
+      },
     );
     /** Polls for the status of a report request. */
     await gapi.client.doubleclicksearch.reports.get({
@@ -360,7 +360,7 @@ gapi.load('client', async () => {
           startDate: 'Test string',
         },
         verifySingleTimeZone: true,
-      }
+      },
     );
     /** Retrieve the list of saved columns for a specified advertiser. */
     await gapi.client.doubleclicksearch.savedColumns.list({

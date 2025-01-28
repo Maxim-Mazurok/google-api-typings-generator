@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Sensitive Data Protection (DLP) v2 */
   function load(
-    urlOrObject: 'https://dlp.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://dlp.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'dlp', version: 'v2'): Promise<void>;
@@ -2525,7 +2525,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateDeidentifyTemplateRequest
+        body: GooglePrivacyDlpV2CreateDeidentifyTemplateRequest,
       ): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
       /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       delete(request?: {
@@ -2672,7 +2672,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest
+        body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest,
       ): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
     }
     interface InspectTemplatesResource {
@@ -2732,7 +2732,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateInspectTemplateRequest
+        body: GooglePrivacyDlpV2CreateInspectTemplateRequest,
       ): Request<GooglePrivacyDlpV2InspectTemplate>;
       /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       delete(request?: {
@@ -2879,7 +2879,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateInspectTemplateRequest
+        body: GooglePrivacyDlpV2UpdateInspectTemplateRequest,
       ): Request<GooglePrivacyDlpV2InspectTemplate>;
     }
     interface ColumnDataProfilesResource {
@@ -3003,7 +3003,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateConnectionRequest
+        body: GooglePrivacyDlpV2CreateConnectionRequest,
       ): Request<GooglePrivacyDlpV2Connection>;
       /** Delete a Connection. */
       delete(request?: {
@@ -3148,7 +3148,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateConnectionRequest
+        body: GooglePrivacyDlpV2UpdateConnectionRequest,
       ): Request<GooglePrivacyDlpV2Connection>;
       /** Searches for Connections in a parent. */
       search(request?: {
@@ -3241,7 +3241,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateDeidentifyTemplateRequest
+        body: GooglePrivacyDlpV2CreateDeidentifyTemplateRequest,
       ): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
       /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       delete(request?: {
@@ -3388,7 +3388,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest
+        body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest,
       ): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
     }
     interface DiscoveryConfigsResource {
@@ -3448,7 +3448,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateDiscoveryConfigRequest
+        body: GooglePrivacyDlpV2CreateDiscoveryConfigRequest,
       ): Request<GooglePrivacyDlpV2DiscoveryConfig>;
       /** Deletes a discovery configuration. */
       delete(request?: {
@@ -3593,7 +3593,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateDiscoveryConfigRequest
+        body: GooglePrivacyDlpV2UpdateDiscoveryConfigRequest,
       ): Request<GooglePrivacyDlpV2DiscoveryConfig>;
     }
     interface DlpJobsResource {
@@ -3785,7 +3785,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateInspectTemplateRequest
+        body: GooglePrivacyDlpV2CreateInspectTemplateRequest,
       ): Request<GooglePrivacyDlpV2InspectTemplate>;
       /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       delete(request?: {
@@ -3932,7 +3932,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateInspectTemplateRequest
+        body: GooglePrivacyDlpV2UpdateInspectTemplateRequest,
       ): Request<GooglePrivacyDlpV2InspectTemplate>;
     }
     interface JobTriggersResource {
@@ -3992,7 +3992,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateJobTriggerRequest
+        body: GooglePrivacyDlpV2CreateJobTriggerRequest,
       ): Request<GooglePrivacyDlpV2JobTrigger>;
       /** Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       delete(request?: {
@@ -4143,7 +4143,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateJobTriggerRequest
+        body: GooglePrivacyDlpV2UpdateJobTriggerRequest,
       ): Request<GooglePrivacyDlpV2JobTrigger>;
     }
     interface ProjectDataProfilesResource {
@@ -4267,7 +4267,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateStoredInfoTypeRequest
+        body: GooglePrivacyDlpV2CreateStoredInfoTypeRequest,
       ): Request<GooglePrivacyDlpV2StoredInfoType>;
       /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       delete(request?: {
@@ -4414,7 +4414,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
+        body: GooglePrivacyDlpV2UpdateStoredInfoTypeRequest,
       ): Request<GooglePrivacyDlpV2StoredInfoType>;
     }
     interface TableDataProfilesResource {
@@ -4578,7 +4578,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateStoredInfoTypeRequest
+        body: GooglePrivacyDlpV2CreateStoredInfoTypeRequest,
       ): Request<GooglePrivacyDlpV2StoredInfoType>;
       /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       delete(request?: {
@@ -4725,7 +4725,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
+        body: GooglePrivacyDlpV2UpdateStoredInfoTypeRequest,
       ): Request<GooglePrivacyDlpV2StoredInfoType>;
     }
     interface OrganizationsResource {
@@ -4791,7 +4791,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2DeidentifyContentRequest
+        body: GooglePrivacyDlpV2DeidentifyContentRequest,
       ): Request<GooglePrivacyDlpV2DeidentifyContentResponse>;
       /** Finds potentially sensitive info in content. This method has limits on input size, processing time, and output size. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. For how to guides, see https://cloud.google.com/sensitive-data-protection/docs/inspecting-images and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text, */
       inspect(request: {
@@ -4849,7 +4849,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2InspectContentRequest
+        body: GooglePrivacyDlpV2InspectContentRequest,
       ): Request<GooglePrivacyDlpV2InspectContentResponse>;
       /** Re-identifies content that has been de-identified. See https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example to learn more. */
       reidentify(request: {
@@ -4907,7 +4907,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2ReidentifyContentRequest
+        body: GooglePrivacyDlpV2ReidentifyContentRequest,
       ): Request<GooglePrivacyDlpV2ReidentifyContentResponse>;
     }
     interface DeidentifyTemplatesResource {
@@ -4967,7 +4967,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateDeidentifyTemplateRequest
+        body: GooglePrivacyDlpV2CreateDeidentifyTemplateRequest,
       ): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
       /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       delete(request?: {
@@ -5114,7 +5114,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest
+        body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest,
       ): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
     }
     interface DlpJobsResource {
@@ -5174,7 +5174,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CancelDlpJobRequest
+        body: GooglePrivacyDlpV2CancelDlpJobRequest,
       ): Request<{}>;
       /** Creates a new job to inspect storage or calculate risk metrics. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. */
       create(request: {
@@ -5232,7 +5232,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateDlpJobRequest
+        body: GooglePrivacyDlpV2CreateDlpJobRequest,
       ): Request<GooglePrivacyDlpV2DlpJob>;
       /** Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be canceled if possible. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       delete(request?: {
@@ -5385,7 +5385,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2RedactImageRequest
+        body: GooglePrivacyDlpV2RedactImageRequest,
       ): Request<GooglePrivacyDlpV2RedactImageResponse>;
     }
     interface InspectTemplatesResource {
@@ -5445,7 +5445,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateInspectTemplateRequest
+        body: GooglePrivacyDlpV2CreateInspectTemplateRequest,
       ): Request<GooglePrivacyDlpV2InspectTemplate>;
       /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       delete(request?: {
@@ -5592,7 +5592,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateInspectTemplateRequest
+        body: GooglePrivacyDlpV2UpdateInspectTemplateRequest,
       ): Request<GooglePrivacyDlpV2InspectTemplate>;
     }
     interface JobTriggersResource {
@@ -5652,7 +5652,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2ActivateJobTriggerRequest
+        body: GooglePrivacyDlpV2ActivateJobTriggerRequest,
       ): Request<GooglePrivacyDlpV2DlpJob>;
       /** Creates a job trigger to run DLP actions such as scanning storage for sensitive information on a set schedule. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       create(request: {
@@ -5710,7 +5710,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateJobTriggerRequest
+        body: GooglePrivacyDlpV2CreateJobTriggerRequest,
       ): Request<GooglePrivacyDlpV2JobTrigger>;
       /** Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       delete(request?: {
@@ -5861,7 +5861,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateJobTriggerRequest
+        body: GooglePrivacyDlpV2UpdateJobTriggerRequest,
       ): Request<GooglePrivacyDlpV2JobTrigger>;
     }
     interface ColumnDataProfilesResource {
@@ -5985,7 +5985,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateConnectionRequest
+        body: GooglePrivacyDlpV2CreateConnectionRequest,
       ): Request<GooglePrivacyDlpV2Connection>;
       /** Delete a Connection. */
       delete(request?: {
@@ -6130,7 +6130,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateConnectionRequest
+        body: GooglePrivacyDlpV2UpdateConnectionRequest,
       ): Request<GooglePrivacyDlpV2Connection>;
       /** Searches for Connections in a parent. */
       search(request?: {
@@ -6223,7 +6223,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2DeidentifyContentRequest
+        body: GooglePrivacyDlpV2DeidentifyContentRequest,
       ): Request<GooglePrivacyDlpV2DeidentifyContentResponse>;
       /** Finds potentially sensitive info in content. This method has limits on input size, processing time, and output size. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. For how to guides, see https://cloud.google.com/sensitive-data-protection/docs/inspecting-images and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text, */
       inspect(request: {
@@ -6281,7 +6281,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2InspectContentRequest
+        body: GooglePrivacyDlpV2InspectContentRequest,
       ): Request<GooglePrivacyDlpV2InspectContentResponse>;
       /** Re-identifies content that has been de-identified. See https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example to learn more. */
       reidentify(request: {
@@ -6339,7 +6339,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2ReidentifyContentRequest
+        body: GooglePrivacyDlpV2ReidentifyContentRequest,
       ): Request<GooglePrivacyDlpV2ReidentifyContentResponse>;
     }
     interface DeidentifyTemplatesResource {
@@ -6399,7 +6399,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateDeidentifyTemplateRequest
+        body: GooglePrivacyDlpV2CreateDeidentifyTemplateRequest,
       ): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
       /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       delete(request?: {
@@ -6546,7 +6546,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest
+        body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest,
       ): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
     }
     interface DiscoveryConfigsResource {
@@ -6606,7 +6606,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateDiscoveryConfigRequest
+        body: GooglePrivacyDlpV2CreateDiscoveryConfigRequest,
       ): Request<GooglePrivacyDlpV2DiscoveryConfig>;
       /** Deletes a discovery configuration. */
       delete(request?: {
@@ -6751,7 +6751,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateDiscoveryConfigRequest
+        body: GooglePrivacyDlpV2UpdateDiscoveryConfigRequest,
       ): Request<GooglePrivacyDlpV2DiscoveryConfig>;
     }
     interface DlpJobsResource {
@@ -6811,7 +6811,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CancelDlpJobRequest
+        body: GooglePrivacyDlpV2CancelDlpJobRequest,
       ): Request<{}>;
       /** Creates a new job to inspect storage or calculate risk metrics. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. */
       create(request: {
@@ -6869,7 +6869,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateDlpJobRequest
+        body: GooglePrivacyDlpV2CreateDlpJobRequest,
       ): Request<GooglePrivacyDlpV2DlpJob>;
       /** Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be canceled if possible. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       delete(request?: {
@@ -6954,7 +6954,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2FinishDlpJobRequest
+        body: GooglePrivacyDlpV2FinishDlpJobRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running DlpJob. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       get(request?: {
@@ -7039,7 +7039,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2HybridInspectDlpJobRequest
+        body: GooglePrivacyDlpV2HybridInspectDlpJobRequest,
       ): Request<{}>;
       /** Lists DlpJobs that match the specified filter in the request. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       list(request?: {
@@ -7229,7 +7229,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2RedactImageRequest
+        body: GooglePrivacyDlpV2RedactImageRequest,
       ): Request<GooglePrivacyDlpV2RedactImageResponse>;
     }
     interface InspectTemplatesResource {
@@ -7289,7 +7289,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateInspectTemplateRequest
+        body: GooglePrivacyDlpV2CreateInspectTemplateRequest,
       ): Request<GooglePrivacyDlpV2InspectTemplate>;
       /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       delete(request?: {
@@ -7436,7 +7436,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateInspectTemplateRequest
+        body: GooglePrivacyDlpV2UpdateInspectTemplateRequest,
       ): Request<GooglePrivacyDlpV2InspectTemplate>;
     }
     interface JobTriggersResource {
@@ -7496,7 +7496,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2ActivateJobTriggerRequest
+        body: GooglePrivacyDlpV2ActivateJobTriggerRequest,
       ): Request<GooglePrivacyDlpV2DlpJob>;
       /** Creates a job trigger to run DLP actions such as scanning storage for sensitive information on a set schedule. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       create(request: {
@@ -7554,7 +7554,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateJobTriggerRequest
+        body: GooglePrivacyDlpV2CreateJobTriggerRequest,
       ): Request<GooglePrivacyDlpV2JobTrigger>;
       /** Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       delete(request?: {
@@ -7666,7 +7666,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2HybridInspectJobTriggerRequest
+        body: GooglePrivacyDlpV2HybridInspectJobTriggerRequest,
       ): Request<{}>;
       /** Lists job triggers. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       list(request?: {
@@ -7763,7 +7763,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateJobTriggerRequest
+        body: GooglePrivacyDlpV2UpdateJobTriggerRequest,
       ): Request<GooglePrivacyDlpV2JobTrigger>;
     }
     interface ProjectDataProfilesResource {
@@ -7887,7 +7887,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateStoredInfoTypeRequest
+        body: GooglePrivacyDlpV2CreateStoredInfoTypeRequest,
       ): Request<GooglePrivacyDlpV2StoredInfoType>;
       /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       delete(request?: {
@@ -8034,7 +8034,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
+        body: GooglePrivacyDlpV2UpdateStoredInfoTypeRequest,
       ): Request<GooglePrivacyDlpV2StoredInfoType>;
     }
     interface TableDataProfilesResource {
@@ -8200,7 +8200,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2CreateStoredInfoTypeRequest
+        body: GooglePrivacyDlpV2CreateStoredInfoTypeRequest,
       ): Request<GooglePrivacyDlpV2StoredInfoType>;
       /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       delete(request?: {
@@ -8347,7 +8347,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
+        body: GooglePrivacyDlpV2UpdateStoredInfoTypeRequest,
       ): Request<GooglePrivacyDlpV2StoredInfoType>;
     }
     interface ProjectsResource {

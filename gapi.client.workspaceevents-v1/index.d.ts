@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Workspace Events API v1 */
   function load(
-    urlOrObject: 'https://workspaceevents.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://workspaceevents.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'workspaceevents', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'workspaceevents',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace workspaceevents {
@@ -183,7 +183,7 @@ declare namespace gapi.client {
           /** Optional. If set to `true`, validates and previews the request, but doesn't create the subscription. */
           validateOnly?: boolean;
         },
-        body: Subscription
+        body: Subscription,
       ): Request<Operation>;
       /** [Developer Preview](https://developers.google.com/workspace/preview): Deletes a Google Workspace subscription. To learn how to use this method, see [Delete a Google Workspace subscription](https://developers.google.com/workspace/events/guides/delete-subscription). */
       delete(request?: {
@@ -340,7 +340,7 @@ declare namespace gapi.client {
           /** Optional. If set to `true`, validates and previews the request, but doesn't update the subscription. */
           validateOnly?: boolean;
         },
-        body: Subscription
+        body: Subscription,
       ): Request<Operation>;
       /** [Developer Preview](https://developers.google.com/workspace/preview): Reactivates a suspended Google Workspace subscription. This method resets your subscription's `State` field to `ACTIVE`. Before you use this method, you must fix the error that suspended the subscription. This method will ignore or reject any subscription that isn't currently in a suspended state. To learn how to use this method, see [Reactivate a Google Workspace subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription). */
       reactivate(request: {
@@ -398,7 +398,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReactivateSubscriptionRequest
+        body: ReactivateSubscriptionRequest,
       ): Request<Operation>;
     }
 

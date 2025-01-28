@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Error Reporting API v1beta1 */
   function load(
-    urlOrObject: 'https://clouderrorreporting.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://clouderrorreporting.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'clouderrorreporting', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'clouderrorreporting',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace clouderrorreporting {
@@ -252,7 +252,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportedErrorEvent
+        body: ReportedErrorEvent,
       ): Request<{}>;
     }
     interface GroupsResource {
@@ -339,7 +339,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ErrorGroup
+        body: ErrorGroup,
       ): Request<ErrorGroup>;
     }
     interface GroupStatsResource {
@@ -520,7 +520,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ErrorGroup
+        body: ErrorGroup,
       ): Request<ErrorGroup>;
     }
     interface GroupStatsResource {

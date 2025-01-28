@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://mybusinessbusinessinformation.googleapis.com/$discovery/rest?version=v1'
+    'https://mybusinessbusinessinformation.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.mybusinessbusinessinformation */
 
@@ -238,7 +238,7 @@ gapi.load('client', async () => {
         },
         title: 'Test string',
         websiteUri: 'Test string',
-      }
+      },
     );
     /** Lists the locations for the specified account. */
     await gapi.client.mybusinessbusinessinformation.accounts.locations.list({
@@ -506,7 +506,7 @@ gapi.load('client', async () => {
         },
         pageSize: 42,
         query: 'Test string',
-      }
+      },
     );
     /** Deletes a location. If this location cannot be deleted using the API and it is marked so in the `google.mybusiness.businessinformation.v1.LocationState`, use the [Google Business Profile](https://business.google.com/manage/) website. */
     await gapi.client.mybusinessbusinessinformation.locations.delete({
@@ -748,7 +748,7 @@ gapi.load('client', async () => {
         },
         title: 'Test string',
         websiteUri: 'Test string',
-      }
+      },
     );
     /** Update attributes for a given location. */
     await gapi.client.mybusinessbusinessinformation.locations.updateAttributes(
@@ -774,13 +774,13 @@ gapi.load('client', async () => {
           },
         ],
         name: 'Test string',
-      }
+      },
     );
     /** Gets the Google-updated version of the specified location. */
     await gapi.client.mybusinessbusinessinformation.locations.attributes.getGoogleUpdated(
       {
         name: 'Test string',
-      }
+      },
     );
   }
 });

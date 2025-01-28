@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Custom Search API v1 */
   function load(
-    urlOrObject: 'https://customsearch.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://customsearch.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'customsearch', version: 'v1'): Promise<void>;

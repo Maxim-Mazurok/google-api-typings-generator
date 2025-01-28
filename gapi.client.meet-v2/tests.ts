@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://meet.googleapis.com/$discovery/rest?version=v2'
+    'https://meet.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.meet */
 
@@ -58,7 +58,7 @@ gapi.load('client', async () => {
     await gapi.client.meet.conferenceRecords.participants.participantSessions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the participant sessions of a participant in a conference record. By default, ordered by join time and in descending order. This API supports `fields` as standard parameters like every other API. However, when the `fields` request parameter is omitted this API defaults to `'participantsessions/*, next_page_token'`. */
     await gapi.client.meet.conferenceRecords.participants.participantSessions.list(
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets a recording by recording ID. */
     await gapi.client.meet.conferenceRecords.recordings.get({
@@ -113,14 +113,14 @@ gapi.load('client', async () => {
         meetingCode: 'Test string',
         meetingUri: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Ends an active conference (if there's one). For an example, see [End active conference](https://developers.google.com/meet/api/guides/meeting-spaces#end-active-conference). */
     await gapi.client.meet.spaces.endActiveConference(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets details about a meeting space. For an example, see [Get a meeting space](https://developers.google.com/meet/api/guides/meeting-spaces#get-meeting-space). */
     await gapi.client.meet.spaces.get({
@@ -143,7 +143,7 @@ gapi.load('client', async () => {
         meetingCode: 'Test string',
         meetingUri: 'Test string',
         name: 'Test string',
-      }
+      },
     );
   }
 });

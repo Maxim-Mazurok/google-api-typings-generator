@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://composer.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://composer.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.composer */
 
@@ -38,7 +38,7 @@ gapi.load('client', async () => {
       },
       {
         imageVersion: 'Test string',
-      }
+      },
     );
     /** Create a new environment. */
     await gapi.client.composer.projects.locations.environments.create(
@@ -207,14 +207,14 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         uuid: 'Test string',
-      }
+      },
     );
     /** Triggers database failover (only for highly resilient environments). */
     await gapi.client.composer.projects.locations.environments.databaseFailover(
       {
         environment: 'Test string',
       },
-      {}
+      {},
     );
     /** Delete an environment. */
     await gapi.client.composer.projects.locations.environments.delete({
@@ -229,13 +229,13 @@ gapi.load('client', async () => {
         command: 'Test string',
         parameters: ['Test string'],
         subcommand: 'Test string',
-      }
+      },
     );
     /** Fetches database properties. */
     await gapi.client.composer.projects.locations.environments.fetchDatabaseProperties(
       {
         environment: 'Test string',
-      }
+      },
     );
     /** Get an existing environment. */
     await gapi.client.composer.projects.locations.environments.get({
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
         skipGcsDataCopying: true,
         skipPypiPackagesInstallation: true,
         snapshotPath: 'Test string',
-      }
+      },
     );
     /** Update an environment. */
     await gapi.client.composer.projects.locations.environments.patch(
@@ -428,7 +428,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         uuid: 'Test string',
-      }
+      },
     );
     /** Polls Airflow CLI command execution and fetches logs. */
     await gapi.client.composer.projects.locations.environments.pollAirflowCommand(
@@ -440,14 +440,14 @@ gapi.load('client', async () => {
         nextLineNumber: 42,
         pod: 'Test string',
         podNamespace: 'Test string',
-      }
+      },
     );
     /** Restart Airflow web server. */
     await gapi.client.composer.projects.locations.environments.restartWebServer(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a snapshots of a Cloud Composer environment. As a result of this operation, snapshot of environment's state is stored in a location specified in the SaveSnapshotRequest. */
     await gapi.client.composer.projects.locations.environments.saveSnapshot(
@@ -456,7 +456,7 @@ gapi.load('client', async () => {
       },
       {
         snapshotLocation: 'Test string',
-      }
+      },
     );
     /** Stops Airflow CLI command execution. */
     await gapi.client.composer.projects.locations.environments.stopAirflowCommand(
@@ -468,7 +468,7 @@ gapi.load('client', async () => {
         force: true,
         pod: 'Test string',
         podNamespace: 'Test string',
-      }
+      },
     );
     /** Creates a user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
     await gapi.client.composer.projects.locations.environments.userWorkloadsConfigMaps.create(
@@ -480,19 +480,19 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
     await gapi.client.composer.projects.locations.environments.userWorkloadsConfigMaps.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an existing user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
     await gapi.client.composer.projects.locations.environments.userWorkloadsConfigMaps.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists user workloads ConfigMaps. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
     await gapi.client.composer.projects.locations.environments.userWorkloadsConfigMaps.list(
@@ -500,7 +500,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
     await gapi.client.composer.projects.locations.environments.userWorkloadsConfigMaps.update(
@@ -512,7 +512,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Creates a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
     await gapi.client.composer.projects.locations.environments.userWorkloadsSecrets.create(
@@ -524,19 +524,19 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
     await gapi.client.composer.projects.locations.environments.userWorkloadsSecrets.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an existing user workloads Secret. Values of the "data" field in the response are cleared. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
     await gapi.client.composer.projects.locations.environments.userWorkloadsSecrets.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists user workloads Secrets. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
     await gapi.client.composer.projects.locations.environments.userWorkloadsSecrets.list(
@@ -544,7 +544,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3-airflow-*.*.*-build.* and newer. */
     await gapi.client.composer.projects.locations.environments.userWorkloadsSecrets.update(
@@ -556,7 +556,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Lists workloads in a Cloud Composer environment. Workload is a unit that runs a single Composer component. This method is supported for Cloud Composer environments in versions composer-2.*.*-airflow-*.*.* and newer. */
     await gapi.client.composer.projects.locations.environments.workloads.list({

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Apps Script API v1 */
   function load(
-    urlOrObject: 'https://script.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://script.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'script', version: 'v1'): Promise<void>;
@@ -456,7 +456,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeploymentConfig
+        body: DeploymentConfig,
       ): Request<Deployment>;
       /** Deletes a deployment of an Apps Script project. */
       delete(request?: {
@@ -607,7 +607,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateDeploymentRequest
+        body: UpdateDeploymentRequest,
       ): Request<Deployment>;
     }
     interface VersionsResource {
@@ -667,7 +667,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Version
+        body: Version,
       ): Request<Version>;
       /** Gets a version of a script project. */
       get(request?: {
@@ -783,7 +783,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateProjectRequest
+        body: CreateProjectRequest,
       ): Request<Project>;
       /** Gets a script project's metadata. */
       get(request?: {
@@ -928,7 +928,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Content
+        body: Content,
       ): Request<Content>;
       deployments: DeploymentsResource;
       versions: VersionsResource;
@@ -990,7 +990,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExecutionRequest
+        body: ExecutionRequest,
       ): Request<Operation>;
     }
 

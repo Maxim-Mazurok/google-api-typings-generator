@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://oslogin.googleapis.com/$discovery/rest?version=v1alpha'
+    'https://oslogin.googleapis.com/$discovery/rest?version=v1alpha',
   );
   /** now we can use gapi.client.oslogin */
 
@@ -58,7 +58,7 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         key: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a POSIX account. */
     await gapi.client.oslogin.users.projects.delete({
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
       },
       {
         sshPublicKey: 'Test string',
-      }
+      },
     );
     /** Signs an SSH public key for a user to authenticate to a virtual machine on Google Compute Engine. */
     await gapi.client.oslogin.users.projects.zones.signSshPublicKey(
@@ -81,7 +81,7 @@ gapi.load('client', async () => {
       },
       {
         sshPublicKey: 'Test string',
-      }
+      },
     );
     /** Create an SSH public key */
     await gapi.client.oslogin.users.sshPublicKeys.create(
@@ -93,7 +93,7 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         key: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes an SSH public key. */
     await gapi.client.oslogin.users.sshPublicKeys.delete({
@@ -114,7 +114,7 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         key: 'Test string',
         name: 'Test string',
-      }
+      },
     );
   }
 });

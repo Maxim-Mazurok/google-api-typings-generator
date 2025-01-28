@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'
+    'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest',
   );
   /** now we can use gapi.client.drive */
 
@@ -73,7 +73,7 @@ gapi.load('client', async () => {
         role: ['Test string'],
         sendNotification: true,
         view: 'Test string',
-      }
+      },
     );
     /** Gets a specific app. For more information, see [Return user info](https://developers.google.com/drive/api/guides/user-info). */
     await gapi.client.drive.apps.get({
@@ -140,7 +140,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Stops watching resources through this channel. For more information, see [Notifications for resource changes](https://developers.google.com/drive/api/guides/push). */
     await gapi.client.drive.channels.stop(
@@ -158,7 +158,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Creates a comment on a file. For more information, see [Manage comments and replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/drive/api/guides/fields-parameter). */
     await gapi.client.drive.comments.create(
@@ -207,7 +207,7 @@ gapi.load('client', async () => {
           },
         ],
         resolved: true,
-      }
+      },
     );
     /** Deletes a comment. For more information, see [Manage comments and replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/drive/api/guides/fields-parameter). */
     await gapi.client.drive.comments.delete({
@@ -276,7 +276,7 @@ gapi.load('client', async () => {
           },
         ],
         resolved: true,
-      }
+      },
     );
     /** Creates a shared drive. */
     await gapi.client.drive.drives.create(
@@ -328,7 +328,7 @@ gapi.load('client', async () => {
           sharingFoldersRequiresOrganizerPermission: true,
         },
         themeId: 'Test string',
-      }
+      },
     );
     /** Permanently deletes a shared drive for which the user is an `organizer`. The shared drive cannot contain any untrashed items. */
     await gapi.client.drive.drives.delete({
@@ -407,7 +407,7 @@ gapi.load('client', async () => {
           sharingFoldersRequiresOrganizerPermission: true,
         },
         themeId: 'Test string',
-      }
+      },
     );
     /** Creates a copy of a file and applies any requested updates with patch semantics. */
     await gapi.client.drive.files.copy(
@@ -684,7 +684,7 @@ gapi.load('client', async () => {
         webContentLink: 'Test string',
         webViewLink: 'Test string',
         writersCanShare: true,
-      }
+      },
     );
     /** Creates a new file. This method supports an *‍/upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*‍/*` Note: Specify a valid MIME type, rather than the literal `*‍/*` value. The literal `*‍/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with `files.create` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should specify a file extension in the `name` property when inserting files with the API. For example, an operation to insert a JPEG file should specify something like `"name": "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only `fileExtension` property populated with the extension originally specified in the `title` property. When a Google Drive user requests to download a file, or when the file is downloaded through the sync client, Drive builds a full filename (with extension) based on the title. In cases where the extension is missing, Drive attempts to determine the extension based on the file's MIME type. */
     await gapi.client.drive.files.create(
@@ -961,7 +961,7 @@ gapi.load('client', async () => {
         webContentLink: 'Test string',
         webViewLink: 'Test string',
         writersCanShare: true,
-      }
+      },
     );
     /** Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive, the user must be an `organizer` on the parent folder. If the target is a folder, all descendants owned by the user are also deleted. */
     await gapi.client.drive.files.delete({
@@ -1051,7 +1051,7 @@ gapi.load('client', async () => {
             removeLabel: true,
           },
         ],
-      }
+      },
     );
     /** Updates a file's metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might be changed automatically, such as `modifiedDate`. This method supports patch semantics. This method supports an *‍/upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*‍/*` Note: Specify a valid MIME type, rather than the literal `*‍/*` value. The literal `*‍/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads). */
     await gapi.client.drive.files.update(
@@ -1330,7 +1330,7 @@ gapi.load('client', async () => {
         webContentLink: 'Test string',
         webViewLink: 'Test string',
         writersCanShare: true,
-      }
+      },
     );
     /** Subscribes to changes to a file. */
     await gapi.client.drive.files.watch(
@@ -1355,7 +1355,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.drive.operation.cancel({
@@ -1419,7 +1419,7 @@ gapi.load('client', async () => {
         ],
         type: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Deletes a permission. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied. */
     await gapi.client.drive.permissions.delete({
@@ -1488,7 +1488,7 @@ gapi.load('client', async () => {
         ],
         type: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Creates a reply to a comment. */
     await gapi.client.drive.replies.create(
@@ -1513,7 +1513,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         modifiedTime: 'Test string',
-      }
+      },
     );
     /** Deletes a reply. */
     await gapi.client.drive.replies.delete({
@@ -1560,7 +1560,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         modifiedTime: 'Test string',
-      }
+      },
     );
     /** Permanently deletes a file version. You can only delete revisions for files with binary content in Google Drive, like images or videos. Revisions for other files, like Google Docs or Sheets, and the last remaining file version can't be deleted. */
     await gapi.client.drive.revisions.delete({
@@ -1609,7 +1609,7 @@ gapi.load('client', async () => {
         publishedLink: 'Test string',
         publishedOutsideDomain: true,
         size: 'Test string',
-      }
+      },
     );
     /** Deprecated: Use `drives.create` instead. */
     await gapi.client.drive.teamdrives.create(
@@ -1661,7 +1661,7 @@ gapi.load('client', async () => {
           teamMembersOnly: true,
         },
         themeId: 'Test string',
-      }
+      },
     );
     /** Deprecated: Use `drives.delete` instead. */
     await gapi.client.drive.teamdrives.delete({
@@ -1730,7 +1730,7 @@ gapi.load('client', async () => {
           teamMembersOnly: true,
         },
         themeId: 'Test string',
-      }
+      },
     );
   }
 });

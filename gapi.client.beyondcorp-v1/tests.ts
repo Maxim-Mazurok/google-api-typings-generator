@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://beyondcorp.googleapis.com/$discovery/rest?version=v1'
+    'https://beyondcorp.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.beyondcorp */
 
@@ -36,7 +36,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.setIamPolicy(
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.testIamPermissions(
@@ -81,14 +81,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.setIamPolicy(
@@ -124,7 +124,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.testIamPermissions(
@@ -133,14 +133,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.setIamPolicy(
@@ -176,7 +176,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.testIamPermissions(
@@ -185,14 +185,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.beyondcorp.organizations.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.beyondcorp.organizations.locations.operations.delete({
@@ -253,7 +253,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single AppConnection. */
     await gapi.client.beyondcorp.projects.locations.appConnections.delete({
@@ -270,7 +270,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists AppConnections in a given project and location. */
     await gapi.client.beyondcorp.projects.locations.appConnections.list({
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Resolves AppConnections details for a given AppConnector. An internal method called by a connector to find AppConnections to connect to. */
     await gapi.client.beyondcorp.projects.locations.appConnections.resolve({
@@ -357,7 +357,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.beyondcorp.projects.locations.appConnections.testIamPermissions(
@@ -366,7 +366,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new AppConnector in a given project and location. */
     await gapi.client.beyondcorp.projects.locations.appConnectors.create(
@@ -400,7 +400,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single AppConnector. */
     await gapi.client.beyondcorp.projects.locations.appConnectors.delete({
@@ -457,7 +457,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Report status for a given connector. */
     await gapi.client.beyondcorp.projects.locations.appConnectors.reportStatus(
@@ -476,13 +476,13 @@ gapi.load('client', async () => {
           time: 'Test string',
         },
         validateOnly: true,
-      }
+      },
     );
     /** Gets instance configuration for a given AppConnector. An internal method called by a AppConnector to get its container config. */
     await gapi.client.beyondcorp.projects.locations.appConnectors.resolveInstanceConfig(
       {
         appConnector: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.beyondcorp.projects.locations.appConnectors.setIamPolicy(
@@ -518,7 +518,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.beyondcorp.projects.locations.appConnectors.testIamPermissions(
@@ -527,7 +527,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new AppGateway in a given project and location. */
     await gapi.client.beyondcorp.projects.locations.appGateways.create(
@@ -558,7 +558,7 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         uri: 'Test string',
-      }
+      },
     );
     /** Deletes a single AppGateway. */
     await gapi.client.beyondcorp.projects.locations.appGateways.delete({
@@ -617,7 +617,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Calls the Bouncer method ShouldThrottle to check if a request should be throttled. */
     await gapi.client.beyondcorp.projects.locations.appGateways.shouldThrottle({
@@ -632,14 +632,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.beyondcorp.projects.locations.clientConnectorServices.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.beyondcorp.projects.locations.clientConnectorServices.setIamPolicy(
@@ -675,7 +675,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.beyondcorp.projects.locations.clientConnectorServices.testIamPermissions(
@@ -684,14 +684,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.beyondcorp.projects.locations.clientGateways.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.beyondcorp.projects.locations.clientGateways.setIamPolicy(
@@ -727,7 +727,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.beyondcorp.projects.locations.clientGateways.testIamPermissions(
@@ -736,7 +736,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new Application in a given project and location. */
     await gapi.client.beyondcorp.projects.locations.global.securityGateways.applications.create(
@@ -756,7 +756,7 @@ gapi.load('client', async () => {
         ],
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single Application. */
     await gapi.client.beyondcorp.projects.locations.global.securityGateways.applications.patch(
@@ -776,7 +776,7 @@ gapi.load('client', async () => {
         ],
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.beyondcorp.projects.locations.global.securityGateways.applications.testIamPermissions(
@@ -785,14 +785,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.beyondcorp.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.beyondcorp.projects.locations.operations.delete({
@@ -830,7 +830,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single SecurityGateway. */
     await gapi.client.beyondcorp.projects.locations.securityGateways.delete({
@@ -847,7 +847,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists SecurityGateways in a given project and location. */
     await gapi.client.beyondcorp.projects.locations.securityGateways.list({
@@ -878,7 +878,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.beyondcorp.projects.locations.securityGateways.setIamPolicy(
@@ -914,7 +914,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.beyondcorp.projects.locations.securityGateways.testIamPermissions(
@@ -923,7 +923,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Deletes a single Application. */
     await gapi.client.beyondcorp.projects.locations.securityGateways.applications.delete(
@@ -931,20 +931,20 @@ gapi.load('client', async () => {
         name: 'Test string',
         requestId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Gets details of a single Application. */
     await gapi.client.beyondcorp.projects.locations.securityGateways.applications.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.beyondcorp.projects.locations.securityGateways.applications.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists Applications in a given project and location. */
     await gapi.client.beyondcorp.projects.locations.securityGateways.applications.list(
@@ -954,7 +954,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.beyondcorp.projects.locations.securityGateways.applications.setIamPolicy(
@@ -990,7 +990,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
   }
 });

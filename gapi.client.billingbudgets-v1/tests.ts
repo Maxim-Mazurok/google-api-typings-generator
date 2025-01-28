@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://billingbudgets.googleapis.com/$discovery/rest?version=v1'
+    'https://billingbudgets.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.billingbudgets */
 
@@ -88,7 +88,7 @@ gapi.load('client', async () => {
             thresholdPercent: 42,
           },
         ],
-      }
+      },
     );
     /** Deletes a budget. Returns successfully if already deleted. */
     await gapi.client.billingbudgets.billingAccounts.budgets.delete({
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
             thresholdPercent: 42,
           },
         ],
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://notebooks.googleapis.com/$discovery/rest?version=v1'
+    'https://notebooks.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.notebooks */
 
@@ -63,7 +63,7 @@ gapi.load('client', async () => {
           imageName: 'Test string',
           project: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a single Environment. */
     await gapi.client.notebooks.projects.locations.environments.delete({
@@ -123,7 +123,7 @@ gapi.load('client', async () => {
         outputNotebookFile: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes execution */
     await gapi.client.notebooks.projects.locations.executions.delete({
@@ -243,7 +243,7 @@ gapi.load('client', async () => {
           imageName: 'Test string',
           project: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a single Instance. */
     await gapi.client.notebooks.projects.locations.instances.delete({
@@ -263,7 +263,7 @@ gapi.load('client', async () => {
           repairFlagEnabled: true,
         },
         timeoutMinutes: 42,
-      }
+      },
     );
     /** Gets details of a single Instance. */
     await gapi.client.notebooks.projects.locations.instances.get({
@@ -298,7 +298,7 @@ gapi.load('client', async () => {
       },
       {
         postStartupScriptOption: 'Test string',
-      }
+      },
     );
     /** Registers an existing legacy notebook instance to the Notebooks API server. Legacy instances are instances created with the legacy Compute Engine calls. They are not manageable by the Notebooks API out of the box. This call makes these instances manageable by the Notebooks API. */
     await gapi.client.notebooks.projects.locations.instances.register(
@@ -307,7 +307,7 @@ gapi.load('client', async () => {
       },
       {
         instanceId: 'Test string',
-      }
+      },
     );
     /** Allows notebook instances to report their latest instance information to the Notebooks API server. The server will merge the reported information to the instance metadata store. Do not use this method directly. */
     await gapi.client.notebooks.projects.locations.instances.report(
@@ -319,7 +319,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         vmId: 'Test string',
-      }
+      },
     );
     /** Reports and processes an instance event. */
     await gapi.client.notebooks.projects.locations.instances.reportEvent(
@@ -335,14 +335,14 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         vmId: 'Test string',
-      }
+      },
     );
     /** Resets a notebook instance. */
     await gapi.client.notebooks.projects.locations.instances.reset(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Rollbacks a notebook instance to the previous version. */
     await gapi.client.notebooks.projects.locations.instances.rollback(
@@ -351,7 +351,7 @@ gapi.load('client', async () => {
       },
       {
         targetSnapshot: 'Test string',
-      }
+      },
     );
     /** Updates the guest accelerators of a single Instance. */
     await gapi.client.notebooks.projects.locations.instances.setAccelerator(
@@ -361,7 +361,7 @@ gapi.load('client', async () => {
       {
         coreCount: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.notebooks.projects.locations.instances.setIamPolicy(
@@ -385,7 +385,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Replaces all the labels of an Instance. */
     await gapi.client.notebooks.projects.locations.instances.setLabels(
@@ -396,7 +396,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Updates the machine type of a single Instance. */
     await gapi.client.notebooks.projects.locations.instances.setMachineType(
@@ -405,21 +405,21 @@ gapi.load('client', async () => {
       },
       {
         machineType: 'Test string',
-      }
+      },
     );
     /** Starts a notebook instance. */
     await gapi.client.notebooks.projects.locations.instances.start(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Stops a notebook instance. */
     await gapi.client.notebooks.projects.locations.instances.stop(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.notebooks.projects.locations.instances.testIamPermissions(
@@ -428,7 +428,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Update Notebook Instance configurations. */
     await gapi.client.notebooks.projects.locations.instances.updateConfig(
@@ -440,7 +440,7 @@ gapi.load('client', async () => {
           enableHealthMonitoring: true,
           notebookUpgradeSchedule: 'Test string',
         },
-      }
+      },
     );
     /** Add/update metadata items for an instance. */
     await gapi.client.notebooks.projects.locations.instances.updateMetadataItems(
@@ -451,7 +451,7 @@ gapi.load('client', async () => {
         items: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Updates the Shielded instance configuration of a single Instance. */
     await gapi.client.notebooks.projects.locations.instances.updateShieldedInstanceConfig(
@@ -464,7 +464,7 @@ gapi.load('client', async () => {
           enableSecureBoot: true,
           enableVtpm: true,
         },
-      }
+      },
     );
     /** Upgrades a notebook instance to the latest version. */
     await gapi.client.notebooks.projects.locations.instances.upgrade(
@@ -473,7 +473,7 @@ gapi.load('client', async () => {
       },
       {
         type: 'Test string',
-      }
+      },
     );
     /** Allows notebook instances to call this endpoint to upgrade themselves. Do not use this method directly. */
     await gapi.client.notebooks.projects.locations.instances.upgradeInternal(
@@ -483,14 +483,14 @@ gapi.load('client', async () => {
       {
         type: 'Test string',
         vmId: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.notebooks.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.notebooks.projects.locations.operations.delete({
@@ -626,7 +626,7 @@ gapi.load('client', async () => {
             zone: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deletes a single Runtime. */
     await gapi.client.notebooks.projects.locations.runtimes.delete({
@@ -647,7 +647,7 @@ gapi.load('client', async () => {
           repairFlagEnabled: true,
         },
         timeoutMinutes: 42,
-      }
+      },
     );
     /** Gets details of a single Runtime. The location must be a regional endpoint rather than zonal. */
     await gapi.client.notebooks.projects.locations.runtimes.get({
@@ -677,7 +677,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
         serviceAccount: 'Test string',
         subnet: 'Test string',
-      }
+      },
     );
     /** Update Notebook Runtime configuration. */
     await gapi.client.notebooks.projects.locations.runtimes.patch(
@@ -798,7 +798,7 @@ gapi.load('client', async () => {
             zone: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets an access token for the consumer service account that the customer attached to the runtime. Only accessible from the tenant instance. */
     await gapi.client.notebooks.projects.locations.runtimes.refreshRuntimeTokenInternal(
@@ -807,7 +807,7 @@ gapi.load('client', async () => {
       },
       {
         vmId: 'Test string',
-      }
+      },
     );
     /** Reports and processes a runtime event. */
     await gapi.client.notebooks.projects.locations.runtimes.reportEvent(
@@ -823,7 +823,7 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         vmId: 'Test string',
-      }
+      },
     );
     /** Resets a Managed Notebook Runtime. */
     await gapi.client.notebooks.projects.locations.runtimes.reset(
@@ -832,7 +832,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.notebooks.projects.locations.runtimes.setIamPolicy(
@@ -856,7 +856,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Starts a Managed Notebook Runtime. Perform "Start" on GPU instances; "Resume" on CPU instances See: https://cloud.google.com/compute/docs/instances/stop-start-instance https://cloud.google.com/compute/docs/instances/suspend-resume-instance */
     await gapi.client.notebooks.projects.locations.runtimes.start(
@@ -865,7 +865,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Stops a Managed Notebook Runtime. Perform "Stop" on GPU instances; "Suspend" on CPU instances See: https://cloud.google.com/compute/docs/instances/stop-start-instance https://cloud.google.com/compute/docs/instances/suspend-resume-instance */
     await gapi.client.notebooks.projects.locations.runtimes.stop(
@@ -874,7 +874,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Switch a Managed Notebook Runtime. */
     await gapi.client.notebooks.projects.locations.runtimes.switch(
@@ -888,7 +888,7 @@ gapi.load('client', async () => {
         },
         machineType: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.notebooks.projects.locations.runtimes.testIamPermissions(
@@ -897,7 +897,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Upgrades a Managed Notebook Runtime to the latest version. */
     await gapi.client.notebooks.projects.locations.runtimes.upgrade(
@@ -906,7 +906,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Creates a new Scheduled Notebook in a given project and location. */
     await gapi.client.notebooks.projects.locations.schedules.create(
@@ -993,7 +993,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         timeZone: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes schedule and all underlying jobs */
     await gapi.client.notebooks.projects.locations.schedules.delete({
@@ -1016,7 +1016,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
   }
 });

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Database Migration API v1beta1 */
   function load(
-    urlOrObject: 'https://datamigration.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://datamigration.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'datamigration', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'datamigration',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace datamigration {
@@ -434,7 +434,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConnectionProfile
+        body: ConnectionProfile,
       ): Request<Operation>;
       /** Deletes a single Database Migration Service connection profile. A connection profile can only be deleted if it is not in use by any active migration jobs. */
       delete(request?: {
@@ -622,7 +622,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConnectionProfile
+        body: ConnectionProfile,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -652,7 +652,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -682,7 +682,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface MigrationJobsResource {
@@ -750,7 +750,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MigrationJob
+        body: MigrationJob,
       ): Request<Operation>;
       /** Deletes a single migration job. */
       delete(request?: {
@@ -839,7 +839,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateSshScriptRequest
+        body: GenerateSshScriptRequest,
       ): Request<SshScript>;
       /** Gets details of a single migration job. */
       get(request?: {
@@ -996,7 +996,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MigrationJob
+        body: MigrationJob,
       ): Request<Operation>;
       /** Promote a migration job, stopping replication to the destination and promoting the destination to be a standalone database. */
       promote(request: {
@@ -1054,7 +1054,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PromoteMigrationJobRequest
+        body: PromoteMigrationJobRequest,
       ): Request<Operation>;
       /** Restart a stopped or failed migration job, resetting the destination instance to its original state and starting the migration process from scratch. */
       restart(request: {
@@ -1112,7 +1112,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestartMigrationJobRequest
+        body: RestartMigrationJobRequest,
       ): Request<Operation>;
       /** Resume a migration job that is currently stopped and is resumable (was stopped during CDC phase). */
       resume(request: {
@@ -1170,7 +1170,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResumeMigrationJobRequest
+        body: ResumeMigrationJobRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1200,7 +1200,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Start an already created migration job. */
       start(request: {
@@ -1258,7 +1258,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartMigrationJobRequest
+        body: StartMigrationJobRequest,
       ): Request<Operation>;
       /** Stops a running migration job. */
       stop(request: {
@@ -1316,7 +1316,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopMigrationJobRequest
+        body: StopMigrationJobRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1346,7 +1346,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Verify a migration job, making sure the destination can reach the source and that all configuration and prerequisites are met. */
       verify(request: {
@@ -1404,7 +1404,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VerifyMigrationJobRequest
+        body: VerifyMigrationJobRequest,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -1464,7 +1464,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

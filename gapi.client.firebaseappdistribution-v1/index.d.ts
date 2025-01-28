@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Firebase App Distribution API v1 */
   function load(
-    urlOrObject: 'https://firebaseappdistribution.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://firebaseappdistribution.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firebaseappdistribution', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firebaseappdistribution',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firebaseappdistribution {
@@ -423,7 +423,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1UploadReleaseRequest
+        body: GoogleFirebaseAppdistroV1UploadReleaseRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface FeedbackReportsResource {
@@ -570,7 +570,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningCancelOperationRequest
+        body: GoogleLongrunningCancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -715,7 +715,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningWaitOperationRequest
+        body: GoogleLongrunningWaitOperationRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface ReleasesResource {
@@ -775,7 +775,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1BatchDeleteReleasesRequest
+        body: GoogleFirebaseAppdistroV1BatchDeleteReleasesRequest,
       ): Request<{}>;
       /** Distributes a release to testers. This call does the following: 1. Creates testers for the specified emails, if none exist. 2. Adds the testers and groups to the release. 3. Sends new testers an invitation email. 4. Sends existing testers a new release email. The request will fail with a `INVALID_ARGUMENT` if it contains a group that doesn't exist. */
       distribute(request: {
@@ -833,7 +833,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1DistributeReleaseRequest
+        body: GoogleFirebaseAppdistroV1DistributeReleaseRequest,
       ): Request<{}>;
       /** Gets a release. */
       get(request?: {
@@ -957,7 +957,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1Release
+        body: GoogleFirebaseAppdistroV1Release,
       ): Request<GoogleFirebaseAppdistroV1Release>;
       feedbackReports: FeedbackReportsResource;
       operations: OperationsResource;
@@ -1049,7 +1049,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1BatchJoinGroupRequest
+        body: GoogleFirebaseAppdistroV1BatchJoinGroupRequest,
       ): Request<{}>;
       /** Batch removed members from a group. The testers will lose access to all releases that the groups have access to. */
       batchLeave(request: {
@@ -1107,7 +1107,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1BatchLeaveGroupRequest
+        body: GoogleFirebaseAppdistroV1BatchLeaveGroupRequest,
       ): Request<{}>;
       /** Create a group. */
       create(request: {
@@ -1169,7 +1169,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1Group
+        body: GoogleFirebaseAppdistroV1Group,
       ): Request<GoogleFirebaseAppdistroV1Group>;
       /** Delete a group. */
       delete(request?: {
@@ -1316,7 +1316,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1Group
+        body: GoogleFirebaseAppdistroV1Group,
       ): Request<GoogleFirebaseAppdistroV1Group>;
     }
     interface TestersResource {
@@ -1376,7 +1376,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1BatchAddTestersRequest
+        body: GoogleFirebaseAppdistroV1BatchAddTestersRequest,
       ): Request<GoogleFirebaseAppdistroV1BatchAddTestersResponse>;
       /** Batch removes testers. If found, this call deletes testers for the specified emails. Returns all deleted testers. */
       batchRemove(request: {
@@ -1434,7 +1434,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1BatchRemoveTestersRequest
+        body: GoogleFirebaseAppdistroV1BatchRemoveTestersRequest,
       ): Request<GoogleFirebaseAppdistroV1BatchRemoveTestersResponse>;
       /** Lists testers and their resource ids. */
       list(request?: {
@@ -1529,7 +1529,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppdistroV1Tester
+        body: GoogleFirebaseAppdistroV1Tester,
       ): Request<GoogleFirebaseAppdistroV1Tester>;
     }
     interface ProjectsResource {

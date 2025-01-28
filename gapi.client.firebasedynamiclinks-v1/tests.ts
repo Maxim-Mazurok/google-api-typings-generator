@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebasedynamiclinks.googleapis.com/$discovery/rest?version=v1'
+    'https://firebasedynamiclinks.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.firebasedynamiclinks */
 
@@ -89,7 +89,7 @@ gapi.load('client', async () => {
           customSuffix: 'Test string',
           option: 'Test string',
         },
-      }
+      },
     );
     /** Creates a short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not expire. Repeated calls with the same long Dynamic Link or Dynamic Link information will produce the same short Dynamic Link. The Dynamic Link domain in the request must be owned by requester's Firebase project. */
     await gapi.client.firebasedynamiclinks.shortLinks.create(
@@ -148,7 +148,7 @@ gapi.load('client', async () => {
           customSuffix: 'Test string',
           option: 'Test string',
         },
-      }
+      },
     );
     /** Fetches analytics stats of a short Dynamic Link for a given duration. Metrics include number of clicks, redirects, installs, app first opens, and app reopens. */
     await gapi.client.firebasedynamiclinks.v1.getLinkStats({
@@ -176,7 +176,7 @@ gapi.load('client', async () => {
         sdkVersion: 'Test string',
         uniqueMatchLinkToCheck: 'Test string',
         visualStyle: 'Test string',
-      }
+      },
     );
     /** Get iOS reopen attribution for app universal link open deeplinking. */
     await gapi.client.firebasedynamiclinks.v1.reopenAttribution(
@@ -185,7 +185,7 @@ gapi.load('client', async () => {
         bundleId: 'Test string',
         requestedLink: 'Test string',
         sdkVersion: 'Test string',
-      }
+      },
     );
   }
 });

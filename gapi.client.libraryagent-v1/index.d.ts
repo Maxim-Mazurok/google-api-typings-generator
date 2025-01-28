@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Library Agent API v1 */
   function load(
-    urlOrObject: 'https://libraryagent.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://libraryagent.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'libraryagent', version: 'v1'): Promise<void>;

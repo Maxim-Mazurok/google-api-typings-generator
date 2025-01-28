@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Play Game Services v1 */
   function load(
-    urlOrObject: 'https://games.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://games.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'games', version: 'v1'): Promise<void>;
@@ -1101,7 +1101,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AchievementUpdateMultipleRequest
+        body: AchievementUpdateMultipleRequest,
       ): Request<AchievementUpdateMultipleResponse>;
     }
     interface ApplicationsResource {
@@ -1337,7 +1337,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventRecordRequest
+        body: EventRecordRequest,
       ): Request<EventUpdateResponse>;
     }
     interface LeaderboardsResource {
@@ -1691,7 +1691,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LinkPersonaRequest
+        body: LinkPersonaRequest,
       ): Request<LinkPersonaResponse>;
       /** Delete all Recall tokens linking the given persona to any player (with or without a profile). */
       resetPersona(request: {
@@ -1745,7 +1745,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetPersonaRequest
+        body: ResetPersonaRequest,
       ): Request<ResetPersonaResponse>;
       /** Retrieve all Recall tokens associated with the PGS Player encoded in the provided recall session id. The API is only available for users that have active PGS Player profile. */
       retrieveTokens(request?: {
@@ -1826,7 +1826,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UnlinkPersonaRequest
+        body: UnlinkPersonaRequest,
       ): Request<UnlinkPersonaResponse>;
     }
     interface RevisionsResource {
@@ -2065,7 +2065,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlayerScoreSubmissionList
+        body: PlayerScoreSubmissionList,
       ): Request<PlayerScoreListResponse>;
     }
     interface SnapshotsResource {

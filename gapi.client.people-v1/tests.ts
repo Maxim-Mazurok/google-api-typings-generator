@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://people.googleapis.com/$discovery/rest?version=v1'
+    'https://people.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.people */
 
@@ -83,7 +83,7 @@ gapi.load('client', async () => {
           resourceName: 'Test string',
         },
         readGroupFields: 'Test string',
-      }
+      },
     );
     /** Delete an existing contact group owned by the authenticated user by specifying a contact group resource name. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
     await gapi.client.people.contactGroups.delete({
@@ -130,7 +130,7 @@ gapi.load('client', async () => {
         },
         readGroupFields: 'Test string',
         updateGroupFields: 'Test string',
-      }
+      },
     );
     /** Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed. */
     await gapi.client.people.contactGroups.members.modify(
@@ -140,7 +140,7 @@ gapi.load('client', async () => {
       {
         resourceNamesToAdd: ['Test string'],
         resourceNamesToRemove: ['Test string'],
-      }
+      },
     );
     /** Copies an "Other contact" to a new contact in the user's "myContacts" group Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
     await gapi.client.people.otherContacts.copyOtherContactToMyContactsGroup(
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
         copyMask: 'Test string',
         readMask: 'Test string',
         sources: ['Test string'],
-      }
+      },
     );
     /** List all "Other contacts", that is contacts that are not in a contact group. "Other contacts" are typically auto created contacts from interactions. Sync tokens expire 7 days after the full sync. A request with an expired sync token will get an error with an [google.rpc.ErrorInfo](https://cloud.google.com/apis/design/errors#error_info) with reason "EXPIRED_SYNC_TOKEN". In the case of such an error clients should make a full sync request without a `sync_token`. The first page of a full sync request has an additional quota. If the quota is exceeded, a 429 error will be returned. This quota is fixed and can not be increased. When the `sync_token` is specified, resources deleted since the last sync will be returned as a person with `PersonMetadata.deleted` set to true. When the `page_token` or `sync_token` is specified, all other request parameters must match the first call. Writes may have a propagation delay of several minutes for sync requests. Incremental syncs are not intended for read-after-write use cases. See example usage at [List the user's other contacts that have changed](/people/v1/other-contacts#list_the_users_other_contacts_that_have_changed). */
     await gapi.client.people.otherContacts.list({
@@ -982,14 +982,14 @@ gapi.load('client', async () => {
         ],
         readMask: 'Test string',
         sources: ['Test string'],
-      }
+      },
     );
     /** Delete a batch of contacts. Any non-contact data will not be deleted. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
     await gapi.client.people.people.batchDeleteContacts(
       {},
       {
         resourceNames: ['Test string'],
-      }
+      },
     );
     /** Update a batch of contacts and return a map of resource names to PersonResponses for the updated contacts. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
     await gapi.client.people.people.batchUpdateContacts(
@@ -1804,7 +1804,7 @@ gapi.load('client', async () => {
         readMask: 'Test string',
         sources: ['Test string'],
         updateMask: 'Test string',
-      }
+      },
     );
     /** Create a new contact and return the person resource for that contact. The request returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
     await gapi.client.people.people.createContact(
@@ -2615,7 +2615,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Delete a contact person. Any non-contact data will not be deleted. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
     await gapi.client.people.people.deleteContact({
@@ -3478,7 +3478,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Update a contact's photo. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
     await gapi.client.people.people.updateContactPhoto(
@@ -3489,7 +3489,7 @@ gapi.load('client', async () => {
         personFields: 'Test string',
         photoBytes: 'Test string',
         sources: ['Test string'],
-      }
+      },
     );
     /** Provides a list of the authenticated user's contacts. Sync tokens expire 7 days after the full sync. A request with an expired sync token will get an error with an [google.rpc.ErrorInfo](https://cloud.google.com/apis/design/errors#error_info) with reason "EXPIRED_SYNC_TOKEN". In the case of such an error clients should make a full sync request without a `sync_token`. The first page of a full sync request has an additional quota. If the quota is exceeded, a 429 error will be returned. This quota is fixed and can not be increased. When the `sync_token` is specified, resources deleted since the last sync will be returned as a person with `PersonMetadata.deleted` set to true. When the `page_token` or `sync_token` is specified, all other request parameters must match the first call. Writes may have a propagation delay of several minutes for sync requests. Incremental syncs are not intended for read-after-write use cases. See example usage at [List the user's contacts that have changed](/people/v1/contacts#list_the_users_contacts_that_have_changed). */
     await gapi.client.people.people.connections.list({

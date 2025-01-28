@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://drivelabels.googleapis.com/$discovery/rest?version=v2beta'
+    'https://drivelabels.googleapis.com/$discovery/rest?version=v2beta',
   );
   /** now we can use gapi.client.drivelabels */
 
@@ -290,7 +290,7 @@ gapi.load('client', async () => {
           canEnable: true,
           canUpdate: true,
         },
-      }
+      },
     );
     /** Permanently deletes a Label and related metadata on Drive Items. Once deleted, the Label and related Drive item metadata will be deleted. Only draft Labels, and disabled Labels may be deleted. */
     await gapi.client.drivelabels.labels.delete({
@@ -812,7 +812,7 @@ gapi.load('client', async () => {
         writeControl: {
           requiredRevisionId: 'Test string',
         },
-      }
+      },
     );
     /** Disable a published Label. Disabling a Label will result in a new disabled published revision based on the current published revision. If there is a draft revision, a new disabled draft revision will be created based on the latest draft revision. Older draft revisions will be deleted. Once disabled, a label may be deleted with `DeleteLabel`. */
     await gapi.client.drivelabels.labels.disable(
@@ -830,7 +830,7 @@ gapi.load('client', async () => {
         writeControl: {
           requiredRevisionId: 'Test string',
         },
-      }
+      },
     );
     /** Enable a disabled Label and restore it to its published state. This will result in a new published revision based on the current disabled published revision. If there is an existing disabled draft revision, a new revision will be created based on that draft and will be enabled. */
     await gapi.client.drivelabels.labels.enable(
@@ -843,7 +843,7 @@ gapi.load('client', async () => {
         writeControl: {
           requiredRevisionId: 'Test string',
         },
-      }
+      },
     );
     /** Get a label by its resource name. Resource name may be any of: * `labels/{id}` - See `labels/{id}@latest` * `labels/{id}@latest` - Gets the latest revision of the label. * `labels/{id}@published` - Gets the current published revision of the label. * `labels/{id}@{revision_id}` - Gets the label at the specified revision ID. */
     await gapi.client.drivelabels.labels.get({
@@ -874,7 +874,7 @@ gapi.load('client', async () => {
         writeControl: {
           requiredRevisionId: 'Test string',
         },
-      }
+      },
     );
     /** Updates a Label's `CopyMode`. Changes to this policy are not revisioned, do not require publishing, and take effect immediately. */
     await gapi.client.drivelabels.labels.updateLabelCopyMode(
@@ -886,7 +886,7 @@ gapi.load('client', async () => {
         languageCode: 'Test string',
         useAdminAccess: true,
         view: 'Test string',
-      }
+      },
     );
     /** Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
     await gapi.client.drivelabels.labels.updatePermissions(
@@ -901,7 +901,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         person: 'Test string',
         role: 'Test string',
-      }
+      },
     );
     /** Lists the LabelLocks on a Label. */
     await gapi.client.drivelabels.labels.locks.list({
@@ -922,7 +922,7 @@ gapi.load('client', async () => {
           },
         ],
         useAdminAccess: true,
-      }
+      },
     );
     /** Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
     await gapi.client.drivelabels.labels.permissions.batchUpdate(
@@ -945,7 +945,7 @@ gapi.load('client', async () => {
           },
         ],
         useAdminAccess: true,
-      }
+      },
     );
     /** Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
     await gapi.client.drivelabels.labels.permissions.create(
@@ -960,7 +960,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         person: 'Test string',
         role: 'Test string',
-      }
+      },
     );
     /** Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
     await gapi.client.drivelabels.labels.permissions.delete({
@@ -987,7 +987,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         person: 'Test string',
         role: 'Test string',
-      }
+      },
     );
     /** Lists the LabelLocks on a Label. */
     await gapi.client.drivelabels.labels.revisions.locks.list({
@@ -1008,7 +1008,7 @@ gapi.load('client', async () => {
           },
         ],
         useAdminAccess: true,
-      }
+      },
     );
     /** Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
     await gapi.client.drivelabels.labels.revisions.permissions.batchUpdate(
@@ -1031,7 +1031,7 @@ gapi.load('client', async () => {
           },
         ],
         useAdminAccess: true,
-      }
+      },
     );
     /** Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
     await gapi.client.drivelabels.labels.revisions.permissions.create(
@@ -1046,7 +1046,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         person: 'Test string',
         role: 'Test string',
-      }
+      },
     );
     /** Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
     await gapi.client.drivelabels.labels.revisions.permissions.delete({

@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Payments Reseller Subscription API v1 */
   function load(
-    urlOrObject: 'https://paymentsresellersubscription.googleapis.com/$discovery/rest?version=v1'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'paymentsresellersubscription',
-    version: 'v1'
+    urlOrObject: 'https://paymentsresellersubscription.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'paymentsresellersubscription',
     version: 'v1',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'paymentsresellersubscription',
+    version: 'v1',
+    callback: () => any,
   ): void;
 
   namespace paymentsresellersubscription {
@@ -462,7 +462,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest
+        body: GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest,
       ): Request<GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsResponse>;
       /** Retrieves the promotions, such as free trial, that can be used by the partner. - This API doesn't apply to YouTube promotions currently. It should be autenticated with a service account. */
       list(request?: {
@@ -555,7 +555,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest
+        body: GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest,
       ): Request<GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionResponse>;
       /** Used by partners to create a subscription for their customers. The created subscription is associated with the end user inferred from the end user credentials. This API must be authorized by the end user using OAuth. */
       create(request: {
@@ -617,7 +617,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPaymentsResellerSubscriptionV1Subscription
+        body: GoogleCloudPaymentsResellerSubscriptionV1Subscription,
       ): Request<GoogleCloudPaymentsResellerSubscriptionV1Subscription>;
       /** Used by partners to entitle a previously provisioned subscription to the current end user. The end user identity is inferred from the authorized credential of the request. This API must be authorized by the end user using OAuth. */
       entitle(request: {
@@ -675,7 +675,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequest
+        body: GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequest,
       ): Request<GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionResponse>;
       /** [Opt-in only] Most partners should be on auto-extend by default. Used by partners to extend a subscription service for their customers on an ongoing basis for the subscription to remain active and renewable. It should be called directly by the partner using service accounts. */
       extend(request: {
@@ -733,7 +733,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionRequest
+        body: GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionRequest,
       ): Request<GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionResponse>;
       /** Used by partners to get a subscription by id. It should be called directly by the partner using service accounts. */
       get(request?: {
@@ -822,7 +822,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPaymentsResellerSubscriptionV1Subscription
+        body: GoogleCloudPaymentsResellerSubscriptionV1Subscription,
       ): Request<GoogleCloudPaymentsResellerSubscriptionV1Subscription>;
       /** Revokes the pending cancellation of a subscription, which is currently in `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is already cancelled, the request will fail. - **This API doesn't apply to YouTube subscriptions.** It should be called directly by the partner using service accounts. */
       undoCancel(request: {
@@ -880,7 +880,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionRequest
+        body: GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionRequest,
       ): Request<GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionResponse>;
     }
     interface UserSessionsResource {
@@ -940,7 +940,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionRequest
+        body: GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionRequest,
       ): Request<GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionResponse>;
     }
     interface PartnersResource {

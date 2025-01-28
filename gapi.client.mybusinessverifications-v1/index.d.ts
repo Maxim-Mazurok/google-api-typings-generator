@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load My Business Verifications API v1 */
   function load(
-    urlOrObject: 'https://mybusinessverifications.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://mybusinessverifications.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'mybusinessverifications', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'mybusinessverifications',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace mybusinessverifications {
@@ -225,7 +225,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CompleteVerificationRequest
+        body: CompleteVerificationRequest,
       ): Request<CompleteVerificationResponse>;
       /** List verifications of a location, ordered by create time. */
       list(request?: {
@@ -316,7 +316,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FetchVerificationOptionsRequest
+        body: FetchVerificationOptionsRequest,
       ): Request<FetchVerificationOptionsResponse>;
       /** Gets the VoiceOfMerchant state. */
       getVoiceOfMerchantState(request?: {
@@ -401,7 +401,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VerifyLocationRequest
+        body: VerifyLocationRequest,
       ): Request<VerifyLocationResponse>;
       verifications: VerificationsResource;
     }

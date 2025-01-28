@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Merchant API conversions_v1beta */
   function load(
-    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=conversions_v1beta'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'merchantapi',
-    version: 'conversions_v1beta'
+    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=conversions_v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'merchantapi',
     version: 'conversions_v1beta',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'merchantapi',
+    version: 'conversions_v1beta',
+    callback: () => any,
   ): void;
 
   namespace merchantapi {
@@ -169,7 +169,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConversionSource
+        body: ConversionSource,
       ): Request<ConversionSource>;
       /** Archives an existing conversion source. If the conversion source is a Merchant Center Destination, it will be recoverable for 30 days. If the conversion source is a Google Analytics Link, it will be deleted immediately and can be restored by creating a new one. */
       delete(request?: {
@@ -318,7 +318,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ConversionSource
+        body: ConversionSource,
       ): Request<ConversionSource>;
       /** Re-enables an archived conversion source. Only Available for Merchant Center Destination conversion sources. */
       undelete(request: {
@@ -376,7 +376,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteConversionSourceRequest
+        body: UndeleteConversionSourceRequest,
       ): Request<ConversionSource>;
     }
     interface AccountsResource {

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudasset.googleapis.com/$discovery/rest?version=v1'
+    'https://cloudasset.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.cloudasset */
 
@@ -71,7 +71,7 @@ gapi.load('client', async () => {
           relationshipTypes: ['Test string'],
         },
         feedId: 'Test string',
-      }
+      },
     );
     /** Deletes an asset feed. */
     await gapi.client.cloudasset.feeds.delete({
@@ -110,7 +110,7 @@ gapi.load('client', async () => {
           relationshipTypes: ['Test string'],
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.cloudasset.operations.get({
@@ -158,7 +158,7 @@ gapi.load('client', async () => {
         lastUpdater: 'Test string',
         lastUpdateTime: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a saved query. */
     await gapi.client.cloudasset.savedQueries.delete({
@@ -217,7 +217,7 @@ gapi.load('client', async () => {
         lastUpdater: 'Test string',
         lastUpdateTime: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Analyzes IAM policies to answer which identities have what accesses on which resources. */
     await gapi.client.cloudasset.v1.analyzeIamPolicy({
@@ -278,7 +278,7 @@ gapi.load('client', async () => {
           },
         },
         savedAnalysisQuery: 'Test string',
-      }
+      },
     );
     /** Analyze moving a resource to a specified destination without kicking off the actual move. The analysis is best effort depending on the user's permissions of viewing different hierarchical policies and configurations. The policies and configuration are subject to change before the actual resource migration takes place. */
     await gapi.client.cloudasset.v1.analyzeMove({
@@ -344,7 +344,7 @@ gapi.load('client', async () => {
         },
         readTime: 'Test string',
         relationshipTypes: ['Test string'],
-      }
+      },
     );
     /** Issue a job that queries assets using a SQL statement compatible with [BigQuery SQL](https://cloud.google.com/bigquery/docs/introduction-sql). If the query execution finishes within timeout and there's no pagination, the full query results will be returned in the `QueryAssetsResponse`. Otherwise, full query results can be obtained by issuing extra requests with the `job_reference` from the a previous `QueryAssets` call. Note, the query result has approximately 10 GB limitation enforced by [BigQuery](https://cloud.google.com/bigquery/docs/best-practices-performance-output). Queries return larger results will result in errors. */
     await gapi.client.cloudasset.v1.queryAssets(
@@ -369,7 +369,7 @@ gapi.load('client', async () => {
         },
         statement: 'Test string',
         timeout: 'Test string',
-      }
+      },
     );
     /** Searches all IAM policies within the specified scope, such as a project, folder, or organization. The caller must be granted the `cloudasset.assets.searchAllIamPolicies` permission on the desired scope, otherwise the request will be rejected. */
     await gapi.client.cloudasset.v1.searchAllIamPolicies({

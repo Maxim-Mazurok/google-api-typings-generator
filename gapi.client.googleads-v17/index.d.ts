@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Ads API v17 */
   function load(
-    urlOrObject: 'https://googleads.googleapis.com/$discovery/rest?version=v17'
+    urlOrObject: 'https://googleads.googleapis.com/$discovery/rest?version=v17',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'googleads', version: 'v17'): Promise<void>;
@@ -13608,7 +13608,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__ListInsightsEligibleDatesRequest
+        body: GoogleAdsGoogleadsV17Services__ListInsightsEligibleDatesRequest,
       ): Request<GoogleAdsGoogleadsV17Services__ListInsightsEligibleDatesResponse>;
     }
     interface AccountBudgetProposalsResource {
@@ -13668,7 +13668,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAccountBudgetProposalRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAccountBudgetProposalRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAccountBudgetProposalResponse>;
     }
     interface AccountLinksResource {
@@ -13728,7 +13728,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__CreateAccountLinkRequest
+        body: GoogleAdsGoogleadsV17Services__CreateAccountLinkRequest,
       ): Request<GoogleAdsGoogleadsV17Services__CreateAccountLinkResponse>;
       /** Creates or removes an account link. From V5, create is not supported through AccountLinkService.MutateAccountLink. Use AccountLinkService.CreateAccountLink instead. List of thrown errors: [AccountLinkError]() [AuthenticationError]() [AuthorizationError]() [FieldMaskError]() [HeaderError]() [InternalError]() [MutateError]() [QuotaError]() [RequestError]() */
       mutate(request: {
@@ -13786,7 +13786,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAccountLinkRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAccountLinkRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAccountLinkResponse>;
     }
     interface AdGroupAdLabelsResource {
@@ -13846,7 +13846,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupAdLabelsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupAdLabelsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupAdLabelsResponse>;
     }
     interface AdGroupAdsResource {
@@ -13906,7 +13906,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupAdsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupAdsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupAdsResponse>;
       /** Remove automatically created assets from an ad. List of thrown errors: [AdError]() [AuthenticationError]() [AuthorizationError]() [AutomaticallyCreatedAssetRemovalError]() [HeaderError]() [InternalError]() [MutateError]() [QuotaError]() [RequestError]() */
       removeAutomaticallyCreatedAssets(request: {
@@ -13964,7 +13964,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__RemoveAutomaticallyCreatedAssetsRequest
+        body: GoogleAdsGoogleadsV17Services__RemoveAutomaticallyCreatedAssetsRequest,
       ): Request<{}>;
     }
     interface AdGroupAssetsResource {
@@ -14024,7 +14024,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupAssetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupAssetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupAssetsResponse>;
     }
     interface AdGroupAssetSetsResource {
@@ -14084,7 +14084,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupAssetSetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupAssetSetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupAssetSetsResponse>;
     }
     interface AdGroupBidModifiersResource {
@@ -14144,7 +14144,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupBidModifiersRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupBidModifiersRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupBidModifiersResponse>;
     }
     interface AdGroupCriteriaResource {
@@ -14204,7 +14204,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupCriteriaRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupCriteriaRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupCriteriaResponse>;
     }
     interface AdGroupCriterionCustomizersResource {
@@ -14264,7 +14264,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupCriterionCustomizersRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupCriterionCustomizersRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupCriterionCustomizersResponse>;
     }
     interface AdGroupCriterionLabelsResource {
@@ -14324,7 +14324,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupCriterionLabelsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupCriterionLabelsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupCriterionLabelsResponse>;
     }
     interface AdGroupCustomizersResource {
@@ -14384,7 +14384,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupCustomizersRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupCustomizersRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupCustomizersResponse>;
     }
     interface AdGroupExtensionSettingsResource {
@@ -14444,7 +14444,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupExtensionSettingsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupExtensionSettingsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupExtensionSettingsResponse>;
     }
     interface AdGroupFeedsResource {
@@ -14504,7 +14504,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupFeedsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupFeedsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupFeedsResponse>;
     }
     interface AdGroupLabelsResource {
@@ -14564,7 +14564,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupLabelsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupLabelsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupLabelsResponse>;
     }
     interface AdGroupsResource {
@@ -14624,7 +14624,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdGroupsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdGroupsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdGroupsResponse>;
     }
     interface AdParametersResource {
@@ -14684,7 +14684,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdParametersRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdParametersRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdParametersResponse>;
     }
     interface AdsResource {
@@ -14744,7 +14744,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAdsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAdsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAdsResponse>;
     }
     interface AssetGroupAssetsResource {
@@ -14804,7 +14804,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAssetGroupAssetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAssetGroupAssetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAssetGroupAssetsResponse>;
     }
     interface AssetGroupListingGroupFiltersResource {
@@ -14864,7 +14864,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAssetGroupListingGroupFiltersRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAssetGroupListingGroupFiltersRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAssetGroupListingGroupFiltersResponse>;
     }
     interface AssetGroupsResource {
@@ -14924,7 +14924,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAssetGroupsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAssetGroupsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAssetGroupsResponse>;
     }
     interface AssetGroupSignalsResource {
@@ -14984,7 +14984,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAssetGroupSignalsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAssetGroupSignalsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAssetGroupSignalsResponse>;
     }
     interface AssetsResource {
@@ -15044,7 +15044,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAssetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAssetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAssetsResponse>;
     }
     interface AssetSetAssetsResource {
@@ -15104,7 +15104,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAssetSetAssetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAssetSetAssetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAssetSetAssetsResponse>;
     }
     interface AssetSetsResource {
@@ -15164,7 +15164,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAssetSetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAssetSetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAssetSetsResponse>;
     }
     interface AudiencesResource {
@@ -15224,7 +15224,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateAudiencesRequest
+        body: GoogleAdsGoogleadsV17Services__MutateAudiencesRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateAudiencesResponse>;
     }
     interface BatchJobsResource {
@@ -15284,7 +15284,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__AddBatchJobOperationsRequest
+        body: GoogleAdsGoogleadsV17Services__AddBatchJobOperationsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__AddBatchJobOperationsResponse>;
       /** Returns the results of the batch job. The job must be done. Supports standard list paging. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [BatchJobError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       listResults(request?: {
@@ -15375,7 +15375,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateBatchJobRequest
+        body: GoogleAdsGoogleadsV17Services__MutateBatchJobRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateBatchJobResponse>;
       /** Runs the batch job. The Operation.metadata field type is BatchJobMetadata. When finished, the long running operation will not contain errors or a response. Instead, use ListBatchJobResults to get the results of the job. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [BatchJobError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       run(request: {
@@ -15433,7 +15433,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__RunBatchJobRequest
+        body: GoogleAdsGoogleadsV17Services__RunBatchJobRequest,
       ): Request<GoogleLongrunning__Operation>;
     }
     interface BiddingDataExclusionsResource {
@@ -15493,7 +15493,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateBiddingDataExclusionsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateBiddingDataExclusionsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateBiddingDataExclusionsResponse>;
     }
     interface BiddingSeasonalityAdjustmentsResource {
@@ -15553,7 +15553,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateBiddingSeasonalityAdjustmentsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateBiddingSeasonalityAdjustmentsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateBiddingSeasonalityAdjustmentsResponse>;
     }
     interface BiddingStrategiesResource {
@@ -15613,7 +15613,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateBiddingStrategiesRequest
+        body: GoogleAdsGoogleadsV17Services__MutateBiddingStrategiesRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateBiddingStrategiesResponse>;
     }
     interface BillingSetupsResource {
@@ -15673,7 +15673,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateBillingSetupRequest
+        body: GoogleAdsGoogleadsV17Services__MutateBillingSetupRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateBillingSetupResponse>;
     }
     interface CampaignAssetsResource {
@@ -15733,7 +15733,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignAssetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignAssetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignAssetsResponse>;
     }
     interface CampaignAssetSetsResource {
@@ -15793,7 +15793,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignAssetSetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignAssetSetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignAssetSetsResponse>;
     }
     interface CampaignBidModifiersResource {
@@ -15853,7 +15853,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignBidModifiersRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignBidModifiersRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignBidModifiersResponse>;
     }
     interface CampaignBudgetsResource {
@@ -15913,7 +15913,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignBudgetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignBudgetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignBudgetsResponse>;
     }
     interface CampaignConversionGoalsResource {
@@ -15973,7 +15973,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignConversionGoalsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignConversionGoalsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignConversionGoalsResponse>;
     }
     interface CampaignCriteriaResource {
@@ -16033,7 +16033,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignCriteriaRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignCriteriaRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignCriteriaResponse>;
     }
     interface CampaignCustomizersResource {
@@ -16093,7 +16093,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignCustomizersRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignCustomizersRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignCustomizersResponse>;
     }
     interface CampaignDraftsResource {
@@ -16184,7 +16184,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignDraftsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignDraftsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignDraftsResponse>;
       /** Promotes the changes in a draft back to the base campaign. This method returns a Long Running Operation (LRO) indicating if the Promote is done. Use [Operations.GetOperation] to poll the LRO until it is done. Only a done status is returned in the response. See the status in the Campaign Draft resource to determine if the promotion was successful. If the LRO failed, use CampaignDraftService.ListCampaignDraftAsyncErrors to view the list of error reasons. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CampaignDraftError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       promote(request: {
@@ -16242,7 +16242,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__PromoteCampaignDraftRequest
+        body: GoogleAdsGoogleadsV17Services__PromoteCampaignDraftRequest,
       ): Request<GoogleLongrunning__Operation>;
     }
     interface CampaignExtensionSettingsResource {
@@ -16302,7 +16302,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignExtensionSettingsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignExtensionSettingsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignExtensionSettingsResponse>;
     }
     interface CampaignFeedsResource {
@@ -16362,7 +16362,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignFeedsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignFeedsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignFeedsResponse>;
     }
     interface CampaignGroupsResource {
@@ -16422,7 +16422,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignGroupsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignGroupsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignGroupsResponse>;
     }
     interface CampaignLabelsResource {
@@ -16482,7 +16482,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignLabelsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignLabelsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignLabelsResponse>;
     }
     interface CampaignLifecycleGoalResource {
@@ -16542,7 +16542,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__ConfigureCampaignLifecycleGoalsRequest
+        body: GoogleAdsGoogleadsV17Services__ConfigureCampaignLifecycleGoalsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__ConfigureCampaignLifecycleGoalsResponse>;
     }
     interface CampaignsResource {
@@ -16602,7 +16602,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignsResponse>;
     }
     interface CampaignSharedSetsResource {
@@ -16662,7 +16662,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCampaignSharedSetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCampaignSharedSetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCampaignSharedSetsResponse>;
     }
     interface ConversionActionsResource {
@@ -16722,7 +16722,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateConversionActionsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateConversionActionsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateConversionActionsResponse>;
     }
     interface ConversionCustomVariablesResource {
@@ -16782,7 +16782,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateConversionCustomVariablesRequest
+        body: GoogleAdsGoogleadsV17Services__MutateConversionCustomVariablesRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateConversionCustomVariablesResponse>;
     }
     interface ConversionGoalCampaignConfigsResource {
@@ -16842,7 +16842,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateConversionGoalCampaignConfigsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateConversionGoalCampaignConfigsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateConversionGoalCampaignConfigsResponse>;
     }
     interface ConversionValueRulesResource {
@@ -16902,7 +16902,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateConversionValueRulesRequest
+        body: GoogleAdsGoogleadsV17Services__MutateConversionValueRulesRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateConversionValueRulesResponse>;
     }
     interface ConversionValueRuleSetsResource {
@@ -16962,7 +16962,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateConversionValueRuleSetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateConversionValueRuleSetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateConversionValueRuleSetsResponse>;
     }
     interface CustomAudiencesResource {
@@ -17022,7 +17022,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomAudiencesRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomAudiencesRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomAudiencesResponse>;
     }
     interface CustomConversionGoalsResource {
@@ -17082,7 +17082,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomConversionGoalsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomConversionGoalsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomConversionGoalsResponse>;
     }
     interface CustomerAssetsResource {
@@ -17142,7 +17142,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerAssetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerAssetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerAssetsResponse>;
     }
     interface CustomerAssetSetsResource {
@@ -17202,7 +17202,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerAssetSetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerAssetSetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerAssetSetsResponse>;
     }
     interface CustomerClientLinksResource {
@@ -17262,7 +17262,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerClientLinkRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerClientLinkRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerClientLinkResponse>;
     }
     interface CustomerConversionGoalsResource {
@@ -17322,7 +17322,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerConversionGoalsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerConversionGoalsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerConversionGoalsResponse>;
     }
     interface CustomerCustomizersResource {
@@ -17382,7 +17382,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerCustomizersRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerCustomizersRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerCustomizersResponse>;
     }
     interface CustomerExtensionSettingsResource {
@@ -17442,7 +17442,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerExtensionSettingsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerExtensionSettingsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerExtensionSettingsResponse>;
     }
     interface CustomerFeedsResource {
@@ -17502,7 +17502,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerFeedsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerFeedsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerFeedsResponse>;
     }
     interface CustomerLabelsResource {
@@ -17562,7 +17562,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerLabelsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerLabelsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerLabelsResponse>;
     }
     interface CustomerLifecycleGoalResource {
@@ -17622,7 +17622,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__ConfigureCustomerLifecycleGoalsRequest
+        body: GoogleAdsGoogleadsV17Services__ConfigureCustomerLifecycleGoalsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__ConfigureCustomerLifecycleGoalsResponse>;
     }
     interface CustomerManagerLinksResource {
@@ -17682,7 +17682,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MoveManagerLinkRequest
+        body: GoogleAdsGoogleadsV17Services__MoveManagerLinkRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MoveManagerLinkResponse>;
       /** Updates customer manager links. Operation statuses are returned. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [DatabaseError]() [FieldError]() [FieldMaskError]() [HeaderError]() [InternalError]() [ManagerLinkError]() [MutateError]() [QuotaError]() [RequestError]() */
       mutate(request: {
@@ -17740,7 +17740,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerManagerLinkRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerManagerLinkRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerManagerLinkResponse>;
     }
     interface CustomerNegativeCriteriaResource {
@@ -17800,7 +17800,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerNegativeCriteriaRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerNegativeCriteriaRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerNegativeCriteriaResponse>;
     }
     interface CustomerSkAdNetworkConversionValueSchemasResource {
@@ -17860,7 +17860,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerSkAdNetworkConversionValueSchemaRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerSkAdNetworkConversionValueSchemaRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerSkAdNetworkConversionValueSchemaResponse>;
     }
     interface CustomerUserAccessesResource {
@@ -17920,7 +17920,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerUserAccessRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerUserAccessRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerUserAccessResponse>;
     }
     interface CustomerUserAccessInvitationsResource {
@@ -17980,7 +17980,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerUserAccessInvitationRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerUserAccessInvitationRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerUserAccessInvitationResponse>;
     }
     interface CustomInterestsResource {
@@ -18040,7 +18040,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomInterestsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomInterestsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomInterestsResponse>;
     }
     interface CustomizerAttributesResource {
@@ -18100,7 +18100,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomizerAttributesRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomizerAttributesRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomizerAttributesResponse>;
     }
     interface ExperimentArmsResource {
@@ -18160,7 +18160,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateExperimentArmsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateExperimentArmsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateExperimentArmsResponse>;
     }
     interface ExperimentsResource {
@@ -18220,7 +18220,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__EndExperimentRequest
+        body: GoogleAdsGoogleadsV17Services__EndExperimentRequest,
       ): Request<{}>;
       /** Graduates an experiment to a full campaign. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ExperimentError]() [HeaderError]() [InternalError]() [MutateError]() [QuotaError]() [RequestError]() */
       graduateExperiment(request: {
@@ -18278,7 +18278,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GraduateExperimentRequest
+        body: GoogleAdsGoogleadsV17Services__GraduateExperimentRequest,
       ): Request<{}>;
       /** Returns all errors that occurred during the last Experiment update (either scheduling or promotion). Supports standard list paging. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       listExperimentAsyncErrors(request?: {
@@ -18367,7 +18367,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateExperimentsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateExperimentsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateExperimentsResponse>;
       /** Promotes the trial campaign thus applying changes in the trial campaign to the base campaign. This method returns a long running operation that tracks the promotion of the experiment campaign. If it fails, a list of errors can be retrieved using the ListExperimentAsyncErrors method. The operation's metadata will be a string containing the resource name of the created experiment. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ExperimentError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       promoteExperiment(request: {
@@ -18425,7 +18425,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__PromoteExperimentRequest
+        body: GoogleAdsGoogleadsV17Services__PromoteExperimentRequest,
       ): Request<GoogleLongrunning__Operation>;
       /** Schedule an experiment. The in design campaign will be converted into a real campaign (called the experiment campaign) that will begin serving ads if successfully created. The experiment is scheduled immediately with status INITIALIZING. This method returns a long running operation that tracks the forking of the in design campaign. If the forking fails, a list of errors can be retrieved using the ListExperimentAsyncErrors method. The operation's metadata will be a string containing the resource name of the created experiment. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ExperimentError]() [DatabaseError]() [DateError]() [DateRangeError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]() */
       scheduleExperiment(request: {
@@ -18483,7 +18483,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__ScheduleExperimentRequest
+        body: GoogleAdsGoogleadsV17Services__ScheduleExperimentRequest,
       ): Request<GoogleLongrunning__Operation>;
     }
     interface ExtensionFeedItemsResource {
@@ -18543,7 +18543,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateExtensionFeedItemsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateExtensionFeedItemsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateExtensionFeedItemsResponse>;
     }
     interface FeedItemsResource {
@@ -18603,7 +18603,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateFeedItemsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateFeedItemsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateFeedItemsResponse>;
     }
     interface FeedItemSetLinksResource {
@@ -18663,7 +18663,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateFeedItemSetLinksRequest
+        body: GoogleAdsGoogleadsV17Services__MutateFeedItemSetLinksRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateFeedItemSetLinksResponse>;
     }
     interface FeedItemSetsResource {
@@ -18723,7 +18723,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateFeedItemSetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateFeedItemSetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateFeedItemSetsResponse>;
     }
     interface FeedItemTargetsResource {
@@ -18783,7 +18783,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateFeedItemTargetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateFeedItemTargetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateFeedItemTargetsResponse>;
     }
     interface FeedMappingsResource {
@@ -18843,7 +18843,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateFeedMappingsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateFeedMappingsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateFeedMappingsResponse>;
     }
     interface FeedsResource {
@@ -18903,7 +18903,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateFeedsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateFeedsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateFeedsResponse>;
     }
     interface GoogleAdsResource {
@@ -18963,7 +18963,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateGoogleAdsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateGoogleAdsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateGoogleAdsResponse>;
       /** Returns all rows that match the search query. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ChangeEventError]() [ChangeStatusError]() [ClickViewError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]() */
       search(request: {
@@ -19021,7 +19021,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__SearchGoogleAdsRequest
+        body: GoogleAdsGoogleadsV17Services__SearchGoogleAdsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__SearchGoogleAdsResponse>;
       /** Returns all rows that match the search stream query. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ChangeEventError]() [ChangeStatusError]() [ClickViewError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]() */
       searchStream(request: {
@@ -19079,7 +19079,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__SearchGoogleAdsStreamRequest
+        body: GoogleAdsGoogleadsV17Services__SearchGoogleAdsStreamRequest,
       ): Request<GoogleAdsGoogleadsV17Services__SearchGoogleAdsStreamResponse>;
     }
     interface InvoicesResource {
@@ -19174,7 +19174,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateKeywordPlanAdGroupKeywordsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateKeywordPlanAdGroupKeywordsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateKeywordPlanAdGroupKeywordsResponse>;
     }
     interface KeywordPlanAdGroupsResource {
@@ -19234,7 +19234,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateKeywordPlanAdGroupsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateKeywordPlanAdGroupsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateKeywordPlanAdGroupsResponse>;
     }
     interface KeywordPlanCampaignKeywordsResource {
@@ -19294,7 +19294,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateKeywordPlanCampaignKeywordsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateKeywordPlanCampaignKeywordsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateKeywordPlanCampaignKeywordsResponse>;
     }
     interface KeywordPlanCampaignsResource {
@@ -19354,7 +19354,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateKeywordPlanCampaignsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateKeywordPlanCampaignsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateKeywordPlanCampaignsResponse>;
     }
     interface KeywordPlansResource {
@@ -19414,7 +19414,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateKeywordPlansRequest
+        body: GoogleAdsGoogleadsV17Services__MutateKeywordPlansRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateKeywordPlansResponse>;
     }
     interface LabelsResource {
@@ -19474,7 +19474,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateLabelsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateLabelsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateLabelsResponse>;
     }
     interface LocalServicesResource {
@@ -19534,7 +19534,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__AppendLeadConversationRequest
+        body: GoogleAdsGoogleadsV17Services__AppendLeadConversationRequest,
       ): Request<GoogleAdsGoogleadsV17Services__AppendLeadConversationResponse>;
     }
     interface OfflineUserDataJobsResource {
@@ -19594,7 +19594,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__AddOfflineUserDataJobOperationsRequest
+        body: GoogleAdsGoogleadsV17Services__AddOfflineUserDataJobOperationsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__AddOfflineUserDataJobOperationsResponse>;
       /** Creates an offline user data job. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [DatabaseError]() [FieldError]() [HeaderError]() [InternalError]() [NotAllowlistedError]() [OfflineUserDataJobError]() [QuotaError]() [RequestError]() */
       create(request: {
@@ -19652,7 +19652,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__CreateOfflineUserDataJobRequest
+        body: GoogleAdsGoogleadsV17Services__CreateOfflineUserDataJobRequest,
       ): Request<GoogleAdsGoogleadsV17Services__CreateOfflineUserDataJobResponse>;
       /** Runs the offline user data job. When finished, the long running operation will contain the processing result or failure information, if any. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [DatabaseError]() [HeaderError]() [InternalError]() [OfflineUserDataJobError]() [QuotaError]() [RequestError]() */
       run(request: {
@@ -19710,7 +19710,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__RunOfflineUserDataJobRequest
+        body: GoogleAdsGoogleadsV17Services__RunOfflineUserDataJobRequest,
       ): Request<GoogleLongrunning__Operation>;
     }
     interface OperationsResource {
@@ -19770,7 +19770,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunning__CancelOperationRequest
+        body: GoogleLongrunning__CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -19915,7 +19915,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunning__WaitOperationRequest
+        body: GoogleLongrunning__WaitOperationRequest,
       ): Request<GoogleLongrunning__Operation>;
     }
     interface PaymentsAccountsResource {
@@ -20004,7 +20004,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__CreateProductLinkInvitationRequest
+        body: GoogleAdsGoogleadsV17Services__CreateProductLinkInvitationRequest,
       ): Request<GoogleAdsGoogleadsV17Services__CreateProductLinkInvitationResponse>;
       /** Remove a product link invitation. */
       remove(request: {
@@ -20062,7 +20062,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__RemoveProductLinkInvitationRequest
+        body: GoogleAdsGoogleadsV17Services__RemoveProductLinkInvitationRequest,
       ): Request<GoogleAdsGoogleadsV17Services__RemoveProductLinkInvitationResponse>;
       /** Update a product link invitation. */
       update(request: {
@@ -20120,7 +20120,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__UpdateProductLinkInvitationRequest
+        body: GoogleAdsGoogleadsV17Services__UpdateProductLinkInvitationRequest,
       ): Request<GoogleAdsGoogleadsV17Services__UpdateProductLinkInvitationResponse>;
     }
     interface ProductLinksResource {
@@ -20180,7 +20180,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__CreateProductLinkRequest
+        body: GoogleAdsGoogleadsV17Services__CreateProductLinkRequest,
       ): Request<GoogleAdsGoogleadsV17Services__CreateProductLinkResponse>;
       /** Removes a product link. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldMaskError]() [HeaderError]() [InternalError]() [MutateError]() [QuotaError]() [RequestError]() */
       remove(request: {
@@ -20238,7 +20238,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__RemoveProductLinkRequest
+        body: GoogleAdsGoogleadsV17Services__RemoveProductLinkRequest,
       ): Request<GoogleAdsGoogleadsV17Services__RemoveProductLinkResponse>;
     }
     interface RecommendationsResource {
@@ -20298,7 +20298,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__ApplyRecommendationRequest
+        body: GoogleAdsGoogleadsV17Services__ApplyRecommendationRequest,
       ): Request<GoogleAdsGoogleadsV17Services__ApplyRecommendationResponse>;
       /** Dismisses given recommendations. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RecommendationError]() [RequestError]() */
       dismiss(request: {
@@ -20356,7 +20356,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__DismissRecommendationRequest
+        body: GoogleAdsGoogleadsV17Services__DismissRecommendationRequest,
       ): Request<GoogleAdsGoogleadsV17Services__DismissRecommendationResponse>;
       /** Generates Recommendations based off the requested recommendation_types. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RecommendationError]() [RequestError]() */
       generate(request: {
@@ -20414,7 +20414,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GenerateRecommendationsRequest
+        body: GoogleAdsGoogleadsV17Services__GenerateRecommendationsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__GenerateRecommendationsResponse>;
     }
     interface RecommendationSubscriptionsResource {
@@ -20474,7 +20474,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateRecommendationSubscriptionRequest
+        body: GoogleAdsGoogleadsV17Services__MutateRecommendationSubscriptionRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateRecommendationSubscriptionResponse>;
     }
     interface RemarketingActionsResource {
@@ -20534,7 +20534,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateRemarketingActionsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateRemarketingActionsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateRemarketingActionsResponse>;
     }
     interface SharedCriteriaResource {
@@ -20594,7 +20594,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateSharedCriteriaRequest
+        body: GoogleAdsGoogleadsV17Services__MutateSharedCriteriaRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateSharedCriteriaResponse>;
     }
     interface SharedSetsResource {
@@ -20654,7 +20654,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateSharedSetsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateSharedSetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateSharedSetsResponse>;
     }
     interface SmartCampaignSettingsResource {
@@ -20741,7 +20741,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateSmartCampaignSettingsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateSmartCampaignSettingsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateSmartCampaignSettingsResponse>;
     }
     interface ThirdPartyAppAnalyticsLinksResource {
@@ -20801,7 +20801,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__RegenerateShareableLinkIdRequest
+        body: GoogleAdsGoogleadsV17Services__RegenerateShareableLinkIdRequest,
       ): Request<{}>;
     }
     interface UserListCustomerTypesResource {
@@ -20861,7 +20861,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateUserListCustomerTypesRequest
+        body: GoogleAdsGoogleadsV17Services__MutateUserListCustomerTypesRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateUserListCustomerTypesResponse>;
     }
     interface UserListsResource {
@@ -20921,7 +20921,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateUserListsRequest
+        body: GoogleAdsGoogleadsV17Services__MutateUserListsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateUserListsResponse>;
     }
     interface CustomersResource {
@@ -20981,7 +20981,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__CreateCustomerClientRequest
+        body: GoogleAdsGoogleadsV17Services__CreateCustomerClientRequest,
       ): Request<GoogleAdsGoogleadsV17Services__CreateCustomerClientResponse>;
       /** Returns a list of suggested AdGroups and suggested modifications (text, match type) for the given keywords. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       generateAdGroupThemes(request: {
@@ -21039,7 +21039,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GenerateAdGroupThemesRequest
+        body: GoogleAdsGoogleadsV17Services__GenerateAdGroupThemesRequest,
       ): Request<GoogleAdsGoogleadsV17Services__GenerateAdGroupThemesResponse>;
       /** Returns a collection of attributes that are represented in an audience of interest, with metrics that compare each attribute's share of the audience with its share of a baseline audience. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]() */
       generateAudienceCompositionInsights(request: {
@@ -21097,7 +21097,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GenerateAudienceCompositionInsightsRequest
+        body: GoogleAdsGoogleadsV17Services__GenerateAudienceCompositionInsightsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__GenerateAudienceCompositionInsightsResponse>;
       /** Returns a collection of audience attributes along with estimates of the overlap between their potential YouTube reach and that of a given input attribute. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]() */
       generateAudienceOverlapInsights(request: {
@@ -21155,7 +21155,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GenerateAudienceOverlapInsightsRequest
+        body: GoogleAdsGoogleadsV17Services__GenerateAudienceOverlapInsightsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__GenerateAudienceOverlapInsightsResponse>;
       /** Creates a saved report that can be viewed in the Insights Finder tool. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]() */
       generateInsightsFinderReport(request: {
@@ -21213,7 +21213,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GenerateInsightsFinderReportRequest
+        body: GoogleAdsGoogleadsV17Services__GenerateInsightsFinderReportRequest,
       ): Request<GoogleAdsGoogleadsV17Services__GenerateInsightsFinderReportResponse>;
       /** Returns metrics (such as impressions, clicks, total cost) of a keyword forecast for the given campaign. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       generateKeywordForecastMetrics(request: {
@@ -21271,7 +21271,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GenerateKeywordForecastMetricsRequest
+        body: GoogleAdsGoogleadsV17Services__GenerateKeywordForecastMetricsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__GenerateKeywordForecastMetricsResponse>;
       /** Returns a list of keyword historical metrics. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       generateKeywordHistoricalMetrics(request: {
@@ -21329,7 +21329,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GenerateKeywordHistoricalMetricsRequest
+        body: GoogleAdsGoogleadsV17Services__GenerateKeywordHistoricalMetricsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__GenerateKeywordHistoricalMetricsResponse>;
       /** Returns a list of keyword ideas. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [HeaderError]() [InternalError]() [KeywordPlanIdeaError]() [QuotaError]() [RequestError]() */
       generateKeywordIdeas(request: {
@@ -21387,7 +21387,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GenerateKeywordIdeasRequest
+        body: GoogleAdsGoogleadsV17Services__GenerateKeywordIdeasRequest,
       ): Request<GoogleAdsGoogleadsV17Services__GenerateKeywordIdeaResponse>;
       /** Generates a reach forecast for a given targeting / product mix. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [ReachPlanError]() [RequestError]() */
       generateReachForecast(request: {
@@ -21445,7 +21445,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GenerateReachForecastRequest
+        body: GoogleAdsGoogleadsV17Services__GenerateReachForecastRequest,
       ): Request<GoogleAdsGoogleadsV17Services__GenerateReachForecastResponse>;
       /** Returns the requested Shareable Preview. */
       generateShareablePreviews(request: {
@@ -21503,7 +21503,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GenerateShareablePreviewsRequest
+        body: GoogleAdsGoogleadsV17Services__GenerateShareablePreviewsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__GenerateShareablePreviewsResponse>;
       /** Returns a collection of targeting insights (e.g. targetable audiences) that are relevant to the requested audience. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]() */
       generateSuggestedTargetingInsights(request: {
@@ -21561,7 +21561,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__GenerateSuggestedTargetingInsightsRequest
+        body: GoogleAdsGoogleadsV17Services__GenerateSuggestedTargetingInsightsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__GenerateSuggestedTargetingInsightsResponse>;
       /** Returns Identity Verification information. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       getIdentityVerification(request?: {
@@ -21671,7 +21671,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__MutateCustomerRequest
+        body: GoogleAdsGoogleadsV17Services__MutateCustomerRequest,
       ): Request<GoogleAdsGoogleadsV17Services__MutateCustomerResponse>;
       /** Searches for audience attributes that can be used to generate insights. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]() */
       searchAudienceInsightsAttributes(request: {
@@ -21729,7 +21729,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__ListAudienceInsightsAttributesRequest
+        body: GoogleAdsGoogleadsV17Services__ListAudienceInsightsAttributesRequest,
       ): Request<GoogleAdsGoogleadsV17Services__ListAudienceInsightsAttributesResponse>;
       /** Starts Identity Verification for a given verification program type. Statuses are returned. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       startIdentityVerification(request: {
@@ -21787,7 +21787,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__StartIdentityVerificationRequest
+        body: GoogleAdsGoogleadsV17Services__StartIdentityVerificationRequest,
       ): Request<{}>;
       /** Rpc to return a list of matching brands based on a prefix for this customer. */
       suggestBrands(request: {
@@ -21845,7 +21845,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__SuggestBrandsRequest
+        body: GoogleAdsGoogleadsV17Services__SuggestBrandsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__SuggestBrandsResponse>;
       /** Suggests keyword themes to advertise on. */
       suggestKeywordThemes(request: {
@@ -21903,7 +21903,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__SuggestKeywordThemesRequest
+        body: GoogleAdsGoogleadsV17Services__SuggestKeywordThemesRequest,
       ): Request<GoogleAdsGoogleadsV17Services__SuggestKeywordThemesResponse>;
       /** Suggests a Smart campaign ad compatible with the Ad family of resources, based on data points such as targeting and the business to advertise. */
       suggestSmartCampaignAd(request: {
@@ -21961,7 +21961,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__SuggestSmartCampaignAdRequest
+        body: GoogleAdsGoogleadsV17Services__SuggestSmartCampaignAdRequest,
       ): Request<GoogleAdsGoogleadsV17Services__SuggestSmartCampaignAdResponse>;
       /** Returns BudgetOption suggestions. */
       suggestSmartCampaignBudgetOptions(request: {
@@ -22019,7 +22019,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__SuggestSmartCampaignBudgetOptionsRequest
+        body: GoogleAdsGoogleadsV17Services__SuggestSmartCampaignBudgetOptionsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__SuggestSmartCampaignBudgetOptionsResponse>;
       /** Returns Travel Asset suggestions. Asset suggestions are returned on a best-effort basis. There are no guarantees that all possible asset types will be returned for any given hotel property. */
       suggestTravelAssets(request: {
@@ -22077,7 +22077,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__SuggestTravelAssetsRequest
+        body: GoogleAdsGoogleadsV17Services__SuggestTravelAssetsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__SuggestTravelAssetsResponse>;
       /** Processes the given call conversions. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [PartialFailureError]() [QuotaError]() [RequestError]() */
       uploadCallConversions(request: {
@@ -22135,7 +22135,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__UploadCallConversionsRequest
+        body: GoogleAdsGoogleadsV17Services__UploadCallConversionsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__UploadCallConversionsResponse>;
       /** Processes the given click conversions. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ConversionUploadError]() [HeaderError]() [InternalError]() [PartialFailureError]() [QuotaError]() [RequestError]() */
       uploadClickConversions(request: {
@@ -22193,7 +22193,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__UploadClickConversionsRequest
+        body: GoogleAdsGoogleadsV17Services__UploadClickConversionsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__UploadClickConversionsResponse>;
       /** Processes the given conversion adjustments. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [PartialFailureError]() [QuotaError]() [RequestError]() */
       uploadConversionAdjustments(request: {
@@ -22251,7 +22251,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__UploadConversionAdjustmentsRequest
+        body: GoogleAdsGoogleadsV17Services__UploadConversionAdjustmentsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__UploadConversionAdjustmentsResponse>;
       /** Uploads the given user data. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [FieldError]() [HeaderError]() [InternalError]() [MutateError]() [OfflineUserDataJobError]() [QuotaError]() [RequestError]() [UserDataError]() */
       uploadUserData(request: {
@@ -22309,7 +22309,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__UploadUserDataRequest
+        body: GoogleAdsGoogleadsV17Services__UploadUserDataRequest,
       ): Request<GoogleAdsGoogleadsV17Services__UploadUserDataResponse>;
       accountBudgetProposals: AccountBudgetProposalsResource;
       accountLinks: AccountLinksResource;
@@ -22465,7 +22465,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__SuggestGeoTargetConstantsRequest
+        body: GoogleAdsGoogleadsV17Services__SuggestGeoTargetConstantsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__SuggestGeoTargetConstantsResponse>;
     }
     interface GoogleAdsFieldsResource {
@@ -22548,7 +22548,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__SearchGoogleAdsFieldsRequest
+        body: GoogleAdsGoogleadsV17Services__SearchGoogleAdsFieldsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__SearchGoogleAdsFieldsResponse>;
     }
     interface KeywordThemeConstantsResource {
@@ -22604,7 +22604,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__SuggestKeywordThemeConstantsRequest
+        body: GoogleAdsGoogleadsV17Services__SuggestKeywordThemeConstantsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__SuggestKeywordThemeConstantsResponse>;
     }
     interface V17Resource {
@@ -22660,7 +22660,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__ListPlannableLocationsRequest
+        body: GoogleAdsGoogleadsV17Services__ListPlannableLocationsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__ListPlannableLocationsResponse>;
       /** Returns the list of per-location plannable YouTube ad formats with allowed targeting. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       listPlannableProducts(request: {
@@ -22714,7 +22714,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsGoogleadsV17Services__ListPlannableProductsRequest
+        body: GoogleAdsGoogleadsV17Services__ListPlannableProductsRequest,
       ): Request<GoogleAdsGoogleadsV17Services__ListPlannableProductsResponse>;
     }
 

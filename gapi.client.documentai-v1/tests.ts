@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://documentai.googleapis.com/$discovery/rest?version=v1'
+    'https://documentai.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.documentai */
 
@@ -157,7 +157,7 @@ gapi.load('client', async () => {
           },
         },
         skipHumanReview: true,
-      }
+      },
     );
     /** Creates a processor from the ProcessorType provided. The processor will be at `ENABLED` state by default after its creation. Note that this method requires the `documentai.processors.create` permission on the project, which is highly privileged. A user or service account with this permission can create new processors that can interact with any gcs bucket in your project. */
     await gapi.client.documentai.projects.locations.processors.create(
@@ -181,7 +181,7 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         state: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Deletes the processor, unloads all deployed model artifacts if it was enabled and then deletes all artifacts associated with this processor. */
     await gapi.client.documentai.projects.locations.processors.delete({
@@ -192,14 +192,14 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Enables a processor */
     await gapi.client.documentai.projects.locations.processors.enable(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets a processor detail. */
     await gapi.client.documentai.projects.locations.processors.get({
@@ -1207,7 +1207,7 @@ gapi.load('client', async () => {
           mimeType: 'Test string',
         },
         skipHumanReview: true,
-      }
+      },
     );
     /** Set the default (active) version of a Processor that will be used in ProcessDocument and BatchProcessDocuments. */
     await gapi.client.documentai.projects.locations.processors.setDefaultProcessorVersion(
@@ -1216,7 +1216,7 @@ gapi.load('client', async () => {
       },
       {
         defaultProcessorVersion: 'Test string',
-      }
+      },
     );
     /** Send a document for Human Review. The input document should be processed by the specified processor. */
     await gapi.client.documentai.projects.locations.processors.humanReviewConfig.reviewDocument(
@@ -2170,7 +2170,7 @@ gapi.load('client', async () => {
           uri: 'Test string',
         },
         priority: 'Test string',
-      }
+      },
     );
     /** LRO endpoint to batch process many documents. The output is written to Cloud Storage as JSON in the [Document] format. */
     await gapi.client.documentai.projects.locations.processors.processorVersions.batchProcess(
@@ -2264,20 +2264,20 @@ gapi.load('client', async () => {
           },
         },
         skipHumanReview: true,
-      }
+      },
     );
     /** Deletes the processor version, all artifacts under the processor version will be deleted. */
     await gapi.client.documentai.projects.locations.processors.processorVersions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Deploys the processor version. */
     await gapi.client.documentai.projects.locations.processors.processorVersions.deploy(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Evaluates a ProcessorVersion against annotated documents, producing an Evaluation. */
     await gapi.client.documentai.projects.locations.processors.processorVersions.evaluateProcessorVersion(
@@ -2298,13 +2298,13 @@ gapi.load('client', async () => {
             gcsUriPrefix: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets a processor version detail. */
     await gapi.client.documentai.projects.locations.processors.processorVersions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all versions of a processor. */
     await gapi.client.documentai.projects.locations.processors.processorVersions.list(
@@ -2312,7 +2312,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Processes a single document. */
     await gapi.client.documentai.projects.locations.processors.processorVersions.process(
@@ -3310,7 +3310,7 @@ gapi.load('client', async () => {
           mimeType: 'Test string',
         },
         skipHumanReview: true,
-      }
+      },
     );
     /** Trains a new processor version. Operation metadata is returned as TrainProcessorVersionMetadata. */
     await gapi.client.documentai.projects.locations.processors.processorVersions.train(
@@ -3466,20 +3466,20 @@ gapi.load('client', async () => {
           satisfiesPzs: true,
           state: 'Test string',
         },
-      }
+      },
     );
     /** Undeploys the processor version. */
     await gapi.client.documentai.projects.locations.processors.processorVersions.undeploy(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Retrieves a specific evaluation. */
     await gapi.client.documentai.projects.locations.processors.processorVersions.evaluations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves a set of evaluations for a given processor version. */
     await gapi.client.documentai.projects.locations.processors.processorVersions.evaluations.list(
@@ -3487,7 +3487,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Gets a processor type detail. */
     await gapi.client.documentai.projects.locations.processorTypes.get({

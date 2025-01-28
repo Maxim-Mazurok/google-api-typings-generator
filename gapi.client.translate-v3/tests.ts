@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://translation.googleapis.com/$discovery/rest?version=v3'
+    'https://translation.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.translate */
 
@@ -45,7 +45,7 @@ gapi.load('client', async () => {
         },
         mimeType: 'Test string',
         model: 'Test string',
-      }
+      },
     );
     /** Returns a list of supported languages for translation. */
     await gapi.client.translate.projects.getSupportedLanguages({
@@ -61,7 +61,7 @@ gapi.load('client', async () => {
       {
         contents: ['Test string'],
         sourceLanguageCode: 'Test string',
-      }
+      },
     );
     /** Translates input text and returns translated text. */
     await gapi.client.translate.projects.translateText(
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
         transliterationConfig: {
           enableTransliteration: true,
         },
-      }
+      },
     );
     /** Translate text using Adaptive MT. */
     await gapi.client.translate.projects.locations.adaptiveMtTranslate(
@@ -114,7 +114,7 @@ gapi.load('client', async () => {
           sourceLanguageCode: 'Test string',
           targetLanguageCode: 'Test string',
         },
-      }
+      },
     );
     /** Translates a large volume of document in asynchronous batch mode. This function provides real-time output as the inputs are being processed. If caller cancels a request, the partial results (for an input file, it's all or nothing) may still be available on the specified output location. This call returns immediately and you can use google.longrunning.Operation.name to poll the status of the call. */
     await gapi.client.translate.projects.locations.batchTranslateDocument(
@@ -152,7 +152,7 @@ gapi.load('client', async () => {
         },
         sourceLanguageCode: 'Test string',
         targetLanguageCodes: ['Test string'],
-      }
+      },
     );
     /** Translates a large volume of text in asynchronous batch mode. This function provides real-time output as the inputs are being processed. If caller cancels a request, the partial results (for an input file, it's all or nothing) may still be available on the specified output location. This call returns immediately and you can use google.longrunning.Operation.name to poll the status of the call. */
     await gapi.client.translate.projects.locations.batchTranslateText(
@@ -188,7 +188,7 @@ gapi.load('client', async () => {
         },
         sourceLanguageCode: 'Test string',
         targetLanguageCodes: ['Test string'],
-      }
+      },
     );
     /** Detects the language of text within a request. */
     await gapi.client.translate.projects.locations.detectLanguage(
@@ -202,7 +202,7 @@ gapi.load('client', async () => {
         },
         mimeType: 'Test string',
         model: 'Test string',
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.translate.projects.locations.get({
@@ -229,7 +229,7 @@ gapi.load('client', async () => {
       {
         contents: ['Test string'],
         sourceLanguageCode: 'Test string',
-      }
+      },
     );
     /** Translates documents in synchronous mode. */
     await gapi.client.translate.projects.locations.translateDocument(
@@ -265,7 +265,7 @@ gapi.load('client', async () => {
         model: 'Test string',
         sourceLanguageCode: 'Test string',
         targetLanguageCode: 'Test string',
-      }
+      },
     );
     /** Translates input text and returns translated text. */
     await gapi.client.translate.projects.locations.translateText(
@@ -289,7 +289,7 @@ gapi.load('client', async () => {
         transliterationConfig: {
           enableTransliteration: true,
         },
-      }
+      },
     );
     /** Creates an Adaptive MT dataset. */
     await gapi.client.translate.projects.locations.adaptiveMtDatasets.create(
@@ -304,7 +304,7 @@ gapi.load('client', async () => {
         sourceLanguageCode: 'Test string',
         targetLanguageCode: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an Adaptive MT dataset, including all its entries and associated metadata. */
     await gapi.client.translate.projects.locations.adaptiveMtDatasets.delete({
@@ -328,7 +328,7 @@ gapi.load('client', async () => {
         gcsInputSource: {
           inputUri: 'Test string',
         },
-      }
+      },
     );
     /** Lists all Adaptive MT datasets for which the caller has read permission. */
     await gapi.client.translate.projects.locations.adaptiveMtDatasets.list({
@@ -341,13 +341,13 @@ gapi.load('client', async () => {
     await gapi.client.translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets and AdaptiveMtFile */
     await gapi.client.translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all AdaptiveMtFiles associated to an AdaptiveMtDataset. */
     await gapi.client.translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.list(
@@ -355,7 +355,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists all AdaptiveMtSentences under a given file/dataset. */
     await gapi.client.translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.adaptiveMtSentences.list(
@@ -363,7 +363,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists all AdaptiveMtSentences under a given file/dataset. */
     await gapi.client.translate.projects.locations.adaptiveMtDatasets.adaptiveMtSentences.list(
@@ -371,7 +371,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a Dataset. */
     await gapi.client.translate.projects.locations.datasets.create(
@@ -389,7 +389,7 @@ gapi.load('client', async () => {
         trainExampleCount: 42,
         updateTime: 'Test string',
         validateExampleCount: 42,
-      }
+      },
     );
     /** Deletes a dataset and all of its contents. */
     await gapi.client.translate.projects.locations.datasets.delete({
@@ -406,7 +406,7 @@ gapi.load('client', async () => {
             outputUriPrefix: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets a Dataset. */
     await gapi.client.translate.projects.locations.datasets.get({
@@ -428,7 +428,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Lists datasets. */
     await gapi.client.translate.projects.locations.datasets.list({
@@ -466,7 +466,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         submitTime: 'Test string',
-      }
+      },
     );
     /** Deletes a glossary, or cancels glossary construction if the glossary isn't created yet. Returns NOT_FOUND, if the glossary doesn't exist. */
     await gapi.client.translate.projects.locations.glossaries.delete({
@@ -507,7 +507,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         submitTime: 'Test string',
-      }
+      },
     );
     /** Creates a glossary entry. */
     await gapi.client.translate.projects.locations.glossaries.glossaryEntries.create(
@@ -535,19 +535,19 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Deletes a single entry from the glossary */
     await gapi.client.translate.projects.locations.glossaries.glossaryEntries.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a single glossary entry by the given id. */
     await gapi.client.translate.projects.locations.glossaries.glossaryEntries.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List the entries for the glossary. */
     await gapi.client.translate.projects.locations.glossaries.glossaryEntries.list(
@@ -555,7 +555,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a glossary entry. */
     await gapi.client.translate.projects.locations.glossaries.glossaryEntries.patch(
@@ -583,7 +583,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Creates a Model. */
     await gapi.client.translate.projects.locations.models.create(
@@ -601,7 +601,7 @@ gapi.load('client', async () => {
         trainExampleCount: 42,
         updateTime: 'Test string',
         validateExampleCount: 42,
-      }
+      },
     );
     /** Deletes a model. */
     await gapi.client.translate.projects.locations.models.delete({
@@ -623,7 +623,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.translate.projects.locations.operations.delete({
@@ -647,7 +647,7 @@ gapi.load('client', async () => {
       },
       {
         timeout: 'Test string',
-      }
+      },
     );
   }
 });

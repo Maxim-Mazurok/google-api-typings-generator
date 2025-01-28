@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://jobs.googleapis.com/$discovery/rest?version=v3'
+    'https://jobs.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.jobs */
 
@@ -63,7 +63,7 @@ gapi.load('client', async () => {
           parentEventId: 'Test string',
           requestId: 'Test string',
         },
-      }
+      },
     );
     /** Creates a new company entity. */
     await gapi.client.jobs.projects.companies.create(
@@ -108,7 +108,7 @@ gapi.load('client', async () => {
           suspended: true,
           websiteUri: 'Test string',
         },
-      }
+      },
     );
     /** Deletes specified company. Prerequisite: The company has no jobs associated with it. */
     await gapi.client.jobs.projects.companies.delete({
@@ -169,7 +169,7 @@ gapi.load('client', async () => {
           websiteUri: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Deletes a list of Jobs by filter. */
     await gapi.client.jobs.projects.jobs.batchDelete(
@@ -178,7 +178,7 @@ gapi.load('client', async () => {
       },
       {
         filter: 'Test string',
-      }
+      },
     );
     /** Creates a new job. Typically, the job becomes searchable within 10 seconds, but it may take up to 5 minutes. */
     await gapi.client.jobs.projects.jobs.create(
@@ -306,7 +306,7 @@ gapi.load('client', async () => {
           title: 'Test string',
           visibility: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified job. Typically, the job becomes unsearchable within 10 seconds, but it may take up to 5 minutes. */
     await gapi.client.jobs.projects.jobs.delete({
@@ -451,7 +451,7 @@ gapi.load('client', async () => {
           visibility: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Searches for jobs using the provided SearchJobsRequest. This call constrains the visibility of jobs present in the database, and only returns jobs that the caller has permission to search against. */
     await gapi.client.jobs.projects.jobs.search(
@@ -560,7 +560,7 @@ gapi.load('client', async () => {
         },
         requirePreciseResultSize: true,
         searchMode: 'Test string',
-      }
+      },
     );
     /** Searches for jobs using the provided SearchJobsRequest. This API call is intended for the use case of targeting passive job seekers (for example, job seekers who have signed up to receive email alerts about potential job opportunities), and has different algorithmic adjustments that are targeted to passive job seekers. This call constrains the visibility of jobs present in the database, and only returns jobs the caller has permission to search against. */
     await gapi.client.jobs.projects.jobs.searchForAlert(
@@ -669,7 +669,7 @@ gapi.load('client', async () => {
         },
         requirePreciseResultSize: true,
         searchMode: 'Test string',
-      }
+      },
     );
   }
 });

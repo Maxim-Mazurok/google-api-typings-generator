@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://domains.googleapis.com/$discovery/rest?version=v1alpha2'
+    'https://domains.googleapis.com/$discovery/rest?version=v1alpha2',
   );
   /** now we can use gapi.client.domains */
 
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
         },
         updateMask: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Updates a `Registration`'s DNS settings. */
     await gapi.client.domains.projects.locations.registrations.configureDnsSettings(
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
         },
         updateMask: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Updates a `Registration`'s management settings. */
     await gapi.client.domains.projects.locations.registrations.configureManagementSettings(
@@ -177,7 +177,7 @@ gapi.load('client', async () => {
           transferLockState: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Deletes a `Registration` resource. This method works on any `Registration` resource using [Subscription or Commitment billing](/domains/pricing#billing-models), provided that the resource was created at least 1 day in the past. When an active registration is successfully deleted, you can continue to use the domain in [Google Domains](https://domains.google/) until it expires. The calling user becomes the domain's sole owner in Google Domains, and permissions for the domain are subsequently managed there. The domain does not renew automatically unless the new owner sets up billing in Google Domains. After January 2024 you will only be able to delete `Registration` resources when `state` is one of: `EXPORTED`, `EXPIRED`,`REGISTRATION_FAILED` or `TRANSFER_FAILED`. See [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) for more details. */
     await gapi.client.domains.projects.locations.registrations.delete({
@@ -188,7 +188,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the details of a `Registration` resource. */
     await gapi.client.domains.projects.locations.registrations.get({
@@ -209,7 +209,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Initiates the `Push Transfer` process to transfer the domain to another registrar. The process might complete instantly or might require confirmation or additional work. Check the emails sent to the email address of the registrant. The process is aborted after a timeout if it's not completed. This method is only supported for domains that have the `REQUIRE_PUSH_TRANSFER` property in the list of `domain_properties`. The domain must also be unlocked before it can be transferred to a different registrar. For more information, see [Transfer a registered domain to another registrar](https://cloud.google.com/domains/docs/transfer-domain-to-another-registrar). */
     await gapi.client.domains.projects.locations.registrations.initiatePushTransfer(
@@ -218,7 +218,7 @@ gapi.load('client', async () => {
       },
       {
         tag: 'Test string',
-      }
+      },
     );
     /** Lists the `Registration` resources in a project. */
     await gapi.client.domains.projects.locations.registrations.list({
@@ -401,7 +401,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         supportedPrivacy: ['Test string'],
         transferFailureReason: 'Test string',
-      }
+      },
     );
     /** Registers a new domain name and creates a corresponding `Registration` resource. Call `RetrieveRegisterParameters` first to check availability of the domain name and determine parameters like price that are needed to build a call to this method. A successful call creates a `Registration` resource in state `REGISTRATION_PENDING`, which resolves to `ACTIVE` within 1-2 minutes, indicating that the domain was successfully registered. If the resource ends up in state `REGISTRATION_FAILED`, it indicates that the domain was not registered successfully, and you can safely delete the resource and retry registration. */
     await gapi.client.domains.projects.locations.registrations.register(
@@ -586,7 +586,7 @@ gapi.load('client', async () => {
           nanos: 42,
           units: 'Test string',
         },
-      }
+      },
     );
     /** Renews a recently expired domain. This method can only be called on domains that expired in the previous 30 days. After the renewal, the new expiration time of the domain is one year after the old expiration time and you are charged a `yearly_price` for the renewal. */
     await gapi.client.domains.projects.locations.registrations.renewDomain(
@@ -600,20 +600,20 @@ gapi.load('client', async () => {
           nanos: 42,
           units: 'Test string',
         },
-      }
+      },
     );
     /** Resets the authorization code of the `Registration` to a new random string. You can call this method only after 60 days have elapsed since the initial domain registration. Domains that have the `REQUIRE_PUSH_TRANSFER` property in the list of `domain_properties` don't support authorization codes and must use the `InitiatePushTransfer` method to initiate the process to transfer the domain to a different registrar. */
     await gapi.client.domains.projects.locations.registrations.resetAuthorizationCode(
       {
         registration: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the authorization code of the `Registration` for the purpose of transferring the domain to another registrar. You can call this method only after 60 days have elapsed since the initial domain registration. Domains that have the `REQUIRE_PUSH_TRANSFER` property in the list of `domain_properties` don't support authorization codes and must use the `InitiatePushTransfer` method to initiate the process to transfer the domain to a different registrar. */
     await gapi.client.domains.projects.locations.registrations.retrieveAuthorizationCode(
       {
         registration: 'Test string',
-      }
+      },
     );
     /** Lists the DNS records from the Google Domains DNS zone for domains that use the deprecated `google_domains_dns` in the `Registration`'s `dns_settings`. */
     await gapi.client.domains.projects.locations.registrations.retrieveGoogleDomainsDnsRecords(
@@ -621,13 +621,13 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         registration: 'Test string',
-      }
+      },
     );
     /** Lists the deprecated domain and email forwarding configurations you set up in the deprecated Google Domains UI. The configuration is present only for domains with the `google_domains_redirects_data_available` set to `true` in the `Registration`'s `dns_settings`. A forwarding configuration might not work correctly if required DNS records are not present in the domain's authoritative DNS Zone. */
     await gapi.client.domains.projects.locations.registrations.retrieveGoogleDomainsForwardingConfig(
       {
         registration: 'Test string',
-      }
+      },
     );
     /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Lists domain names from [Google Domains](https://domains.google/) that can be imported to Cloud Domains using the `ImportDomain` method. Since individual users can own domains in Google Domains, the list of domains returned depends on the individual user making the call. Domains already managed by Cloud Domains are not returned. */
     await gapi.client.domains.projects.locations.registrations.retrieveImportableDomains(
@@ -635,21 +635,21 @@ gapi.load('client', async () => {
         location: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Gets parameters needed to register a new domain name, including price and up-to-date availability. Use the returned values to call `RegisterDomain`. */
     await gapi.client.domains.projects.locations.registrations.retrieveRegisterParameters(
       {
         domainName: 'Test string',
         location: 'Test string',
-      }
+      },
     );
     /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Gets parameters needed to transfer a domain name from another registrar to Cloud Domains. For domains already managed by [Google Domains](https://domains.google/), use `ImportDomain` instead. Use the returned values to call `TransferDomain`. */
     await gapi.client.domains.projects.locations.registrations.retrieveTransferParameters(
       {
         domainName: 'Test string',
         location: 'Test string',
-      }
+      },
     );
     /** Searches for available domain names similar to the provided query. Availability results from this method are approximate; call `RetrieveRegisterParameters` on a domain before registering to confirm availability. */
     await gapi.client.domains.projects.locations.registrations.searchDomains({
@@ -690,7 +690,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.domains.projects.locations.registrations.testIamPermissions(
@@ -699,7 +699,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Transfers a domain name from another registrar to Cloud Domains. For domains already managed by [Google Domains](https://domains.google/), use `ImportDomain` instead. Before calling this method, go to the domain's current registrar to unlock the domain for transfer and retrieve the domain's transfer authorization code. Then call `RetrieveTransferParameters` to confirm that the domain is unlocked and to get values needed to build a call to this method. A successful call creates a `Registration` resource in state `TRANSFER_PENDING`. It can take several days to complete the transfer process. The registrant can often speed up this process by approving the transfer through the current registrar, either by clicking a link in an email from the registrar or by visiting the registrar's website. A few minutes after transfer approval, the resource transitions to state `ACTIVE`, indicating that the transfer was successful. If the transfer is rejected or the request expires without being approved, the resource can end up in state `TRANSFER_FAILED`. If transfer fails, you can safely delete the resource and retry the transfer. */
     await gapi.client.domains.projects.locations.registrations.transfer(
@@ -886,7 +886,7 @@ gapi.load('client', async () => {
           nanos: 42,
           units: 'Test string',
         },
-      }
+      },
     );
   }
 });

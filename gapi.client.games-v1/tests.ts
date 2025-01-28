@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://games.googleapis.com/$discovery/rest?version=v1'
+    'https://games.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.games */
 
@@ -100,7 +100,7 @@ gapi.load('client', async () => {
             updateType: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified `platformType`, the returned response will not include any instance data. */
     await gapi.client.games.applications.get({
@@ -157,7 +157,7 @@ gapi.load('client', async () => {
             ],
           },
         ],
-      }
+      },
     );
     /** Retrieves the metadata of the leaderboard with the given ID. */
     await gapi.client.games.leaderboards.get({
@@ -219,14 +219,14 @@ gapi.load('client', async () => {
         sessionId: 'Test string',
         token: 'Test string',
         ttl: 'Test string',
-      }
+      },
     );
     /** Delete all Recall tokens linking the given persona to any player (with or without a profile). */
     await gapi.client.games.recall.resetPersona(
       {},
       {
         persona: 'Test string',
-      }
+      },
     );
     /** Retrieve all Recall tokens associated with the PGS Player encoded in the provided recall session id. The API is only available for users that have active PGS Player profile. */
     await gapi.client.games.recall.retrieveTokens({
@@ -239,7 +239,7 @@ gapi.load('client', async () => {
         persona: 'Test string',
         sessionId: 'Test string',
         token: 'Test string',
-      }
+      },
     );
     /** Checks whether the games client is out of date. */
     await gapi.client.games.revisions.check({
@@ -298,7 +298,7 @@ gapi.load('client', async () => {
             signature: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the metadata for a given snapshot ID. */
     await gapi.client.games.snapshots.get({

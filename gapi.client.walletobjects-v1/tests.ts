@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://walletobjects.googleapis.com/$discovery/rest?version=v1'
+    'https://walletobjects.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.walletobjects */
 
@@ -83,7 +83,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the event ticket class with the given class ID. */
     await gapi.client.walletobjects.eventticketclass.get({
@@ -1268,7 +1268,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Returns a list of all event ticket classes for a given issuer ID. */
     await gapi.client.walletobjects.eventticketclass.list({
@@ -2457,7 +2457,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates the event ticket class referenced by the given class ID. */
     await gapi.client.walletobjects.eventticketclass.update(
@@ -3640,7 +3640,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Adds a message to the event ticket object referenced by the given object ID. */
     await gapi.client.walletobjects.eventticketobject.addmessage(
@@ -3694,7 +3694,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the event ticket object with the given object ID. */
     await gapi.client.walletobjects.eventticketobject.get({
@@ -5686,7 +5686,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Returns a list of all event ticket objects for a given issuer ID. */
     await gapi.client.walletobjects.eventticketobject.list({
@@ -5704,7 +5704,7 @@ gapi.load('client', async () => {
           addLinkedOfferObjectIds: ['Test string'],
           removeLinkedOfferObjectIds: ['Test string'],
         },
-      }
+      },
     );
     /** Updates the event ticket object referenced by the given object ID. This method supports patch semantics. */
     await gapi.client.walletobjects.eventticketobject.patch(
@@ -7694,7 +7694,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Updates the event ticket object referenced by the given object ID. */
     await gapi.client.walletobjects.eventticketobject.update(
@@ -9684,7 +9684,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Adds a message to the flight class referenced by the given class ID. */
     await gapi.client.walletobjects.flightclass.addmessage(
@@ -9738,7 +9738,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the flight class with the given class ID. */
     await gapi.client.walletobjects.flightclass.get({
@@ -11006,7 +11006,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Returns a list of all flight classes for a given issuer ID. */
     await gapi.client.walletobjects.flightclass.list({
@@ -12278,7 +12278,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates the flight class referenced by the given class ID. */
     await gapi.client.walletobjects.flightclass.update(
@@ -13544,7 +13544,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Adds a message to the flight object referenced by the given object ID. */
     await gapi.client.walletobjects.flightobject.addmessage(
@@ -13598,7 +13598,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the flight object with the given object ID. */
     await gapi.client.walletobjects.flightobject.get({
@@ -15706,7 +15706,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Returns a list of all flight objects for a given issuer ID. */
     await gapi.client.walletobjects.flightobject.list({
@@ -17818,7 +17818,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Updates the flight object referenced by the given object ID. */
     await gapi.client.walletobjects.flightobject.update(
@@ -19924,7 +19924,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Adds a message to the generic class referenced by the given class ID. */
     await gapi.client.walletobjects.genericclass.addmessage(
@@ -19978,7 +19978,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the generic class with the given class ID. */
     await gapi.client.walletobjects.genericclass.get({
@@ -20752,7 +20752,7 @@ gapi.load('client', async () => {
           },
         ],
         viewUnlockRequirement: 'Test string',
-      }
+      },
     );
     /** Returns a list of all generic classes for a given issuer ID. */
     await gapi.client.walletobjects.genericclass.list({
@@ -21530,7 +21530,7 @@ gapi.load('client', async () => {
           },
         ],
         viewUnlockRequirement: 'Test string',
-      }
+      },
     );
     /** Updates the Generic class referenced by the given class ID. */
     await gapi.client.walletobjects.genericclass.update(
@@ -22302,7 +22302,7 @@ gapi.load('client', async () => {
           },
         ],
         viewUnlockRequirement: 'Test string',
-      }
+      },
     );
     /** Adds a message to the generic object referenced by the given object ID. */
     await gapi.client.walletobjects.genericobject.addmessage(
@@ -22356,7 +22356,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the generic object with the given object ID. */
     await gapi.client.walletobjects.genericobject.get({
@@ -23154,7 +23154,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Returns a list of all generic objects for a given issuer ID. */
     await gapi.client.walletobjects.genericobject.list({
@@ -23956,7 +23956,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates the generic object referenced by the given object ID. */
     await gapi.client.walletobjects.genericobject.update(
@@ -24752,7 +24752,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Adds a message to the gift card class referenced by the given class ID. */
     await gapi.client.walletobjects.giftcardclass.addmessage(
@@ -24806,7 +24806,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the gift card class with the given class ID. */
     await gapi.client.walletobjects.giftcardclass.get({
@@ -25890,7 +25890,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Returns a list of all gift card classes for a given issuer ID. */
     await gapi.client.walletobjects.giftcardclass.list({
@@ -26978,7 +26978,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates the gift card class referenced by the given class ID. */
     await gapi.client.walletobjects.giftcardclass.update(
@@ -28060,7 +28060,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Adds a message to the gift card object referenced by the given object ID. */
     await gapi.client.walletobjects.giftcardobject.addmessage(
@@ -28114,7 +28114,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the gift card object with the given object ID. */
     await gapi.client.walletobjects.giftcardobject.get({
@@ -29925,7 +29925,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Returns a list of all gift card objects for a given issuer ID. */
     await gapi.client.walletobjects.giftcardobject.list({
@@ -31740,7 +31740,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Updates the gift card object referenced by the given object ID. */
     await gapi.client.walletobjects.giftcardobject.update(
@@ -33549,7 +33549,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Returns the issuer with the given issuer ID. */
     await gapi.client.walletobjects.issuer.get({
@@ -33581,7 +33581,7 @@ gapi.load('client', async () => {
           ],
           smartTapMerchantId: 'Test string',
         },
-      }
+      },
     );
     /** Returns a list of all issuers shared to the caller. */
     await gapi.client.walletobjects.issuer.list({});
@@ -33613,7 +33613,7 @@ gapi.load('client', async () => {
           ],
           smartTapMerchantId: 'Test string',
         },
-      }
+      },
     );
     /** Updates the issuer referenced by the given issuer ID. */
     await gapi.client.walletobjects.issuer.update(
@@ -33643,14 +33643,14 @@ gapi.load('client', async () => {
           ],
           smartTapMerchantId: 'Test string',
         },
-      }
+      },
     );
     /** Inserts the resources in the JWT. */
     await gapi.client.walletobjects.jwt.insert(
       {},
       {
         jwt: 'Test string',
-      }
+      },
     );
     /** Adds a message to the loyalty class referenced by the given class ID. */
     await gapi.client.walletobjects.loyaltyclass.addmessage(
@@ -33704,7 +33704,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the loyalty class with the given class ID. */
     await gapi.client.walletobjects.loyaltyclass.get({
@@ -34885,7 +34885,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Returns a list of all loyalty classes for a given issuer ID. */
     await gapi.client.walletobjects.loyaltyclass.list({
@@ -36070,7 +36070,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates the loyalty class referenced by the given class ID. */
     await gapi.client.walletobjects.loyaltyclass.update(
@@ -37249,7 +37249,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Adds a message to the loyalty object referenced by the given object ID. */
     await gapi.client.walletobjects.loyaltyobject.addmessage(
@@ -37303,7 +37303,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the loyalty object with the given object ID. */
     await gapi.client.walletobjects.loyaltyobject.get({
@@ -39259,7 +39259,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Returns a list of all loyalty objects for a given issuer ID. */
     await gapi.client.walletobjects.loyaltyobject.list({
@@ -39277,7 +39277,7 @@ gapi.load('client', async () => {
           addLinkedOfferObjectIds: ['Test string'],
           removeLinkedOfferObjectIds: ['Test string'],
         },
-      }
+      },
     );
     /** Updates the loyalty object referenced by the given object ID. This method supports patch semantics. */
     await gapi.client.walletobjects.loyaltyobject.patch(
@@ -41231,7 +41231,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Updates the loyalty object referenced by the given object ID. */
     await gapi.client.walletobjects.loyaltyobject.update(
@@ -43185,7 +43185,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Downloads rotating barcode values for the transit object referenced by the given object ID. */
     await gapi.client.walletobjects.media.download({
@@ -43433,7 +43433,7 @@ gapi.load('client', async () => {
           totalBytes: 'Test string',
           totalBytesIsEstimated: true,
         },
-      }
+      },
     );
     /** Adds a message to the offer class referenced by the given class ID. */
     await gapi.client.walletobjects.offerclass.addmessage(
@@ -43487,7 +43487,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the offer class with the given class ID. */
     await gapi.client.walletobjects.offerclass.get({
@@ -44608,7 +44608,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Returns a list of all offer classes for a given issuer ID. */
     await gapi.client.walletobjects.offerclass.list({
@@ -45733,7 +45733,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates the offer class referenced by the given class ID. */
     await gapi.client.walletobjects.offerclass.update(
@@ -46852,7 +46852,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Adds a message to the offer object referenced by the given object ID. */
     await gapi.client.walletobjects.offerobject.addmessage(
@@ -46906,7 +46906,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the offer object with the given object ID. */
     await gapi.client.walletobjects.offerobject.get({
@@ -48743,7 +48743,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Returns a list of all offer objects for a given issuer ID. */
     await gapi.client.walletobjects.offerobject.list({
@@ -50584,7 +50584,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Updates the offer object referenced by the given object ID. */
     await gapi.client.walletobjects.offerobject.update(
@@ -52419,7 +52419,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Returns the permissions for the given issuer id. */
     await gapi.client.walletobjects.permissions.get({
@@ -52438,7 +52438,7 @@ gapi.load('client', async () => {
             role: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Inserts the smart tap. */
     await gapi.client.walletobjects.smarttap.insert(
@@ -52457,7 +52457,7 @@ gapi.load('client', async () => {
         ],
         kind: 'Test string',
         merchantId: 'Test string',
-      }
+      },
     );
     /** Adds a message to the transit class referenced by the given class ID. */
     await gapi.client.walletobjects.transitclass.addmessage(
@@ -52511,7 +52511,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the transit class with the given class ID. */
     await gapi.client.walletobjects.transitclass.get({
@@ -53873,7 +53873,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Returns a list of all transit classes for a given issuer ID. */
     await gapi.client.walletobjects.transitclass.list({
@@ -55239,7 +55239,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates the transit class referenced by the given class ID. */
     await gapi.client.walletobjects.transitclass.update(
@@ -56599,7 +56599,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-      }
+      },
     );
     /** Adds a message to the transit object referenced by the given object ID. */
     await gapi.client.walletobjects.transitobject.addmessage(
@@ -56653,7 +56653,7 @@ gapi.load('client', async () => {
           },
           messageType: 'Test string',
         },
-      }
+      },
     );
     /** Returns the transit object with the given object ID. */
     await gapi.client.walletobjects.transitobject.get({
@@ -59183,7 +59183,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Returns a list of all transit objects for a given issuer ID. */
     await gapi.client.walletobjects.transitobject.list({
@@ -61717,7 +61717,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
     /** Updates the transit object referenced by the given object ID. */
     await gapi.client.walletobjects.transitobject.update(
@@ -64245,7 +64245,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-      }
+      },
     );
   }
 });

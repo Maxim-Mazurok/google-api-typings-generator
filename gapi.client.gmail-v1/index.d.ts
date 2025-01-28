@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Gmail API v1 */
   function load(
-    urlOrObject: 'https://gmail.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://gmail.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'gmail', version: 'v1'): Promise<void>;
@@ -514,7 +514,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: Draft
+        body: Draft,
       ): Request<Draft>;
       /** Immediately and permanently deletes the specified draft. Does not simply trash it. */
       delete(request?: {
@@ -667,7 +667,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: Draft
+        body: Draft,
       ): Request<Message>;
       /** Replaces a draft's content. */
       update(request: {
@@ -729,7 +729,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: Draft
+        body: Draft,
       ): Request<Draft>;
     }
     interface HistoryResource {
@@ -828,7 +828,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: Label
+        body: Label,
       ): Request<Label>;
       /** Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to. */
       delete(request?: {
@@ -975,7 +975,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: Label
+        body: Label,
       ): Request<Label>;
       /** Updates the specified label. */
       update(request: {
@@ -1037,7 +1037,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: Label
+        body: Label,
       ): Request<Label>;
     }
     interface AttachmentsResource {
@@ -1130,7 +1130,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: BatchDeleteMessagesRequest
+        body: BatchDeleteMessagesRequest,
       ): Request<void>;
       /** Modifies the labels on the specified messages. */
       batchModify(request: {
@@ -1188,7 +1188,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: BatchModifyMessagesRequest
+        body: BatchModifyMessagesRequest,
       ): Request<void>;
       /** Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer `messages.trash` instead. */
       delete(request?: {
@@ -1324,7 +1324,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: Message
+        body: Message,
       ): Request<Message>;
       /** Directly inserts a message into only this user's mailbox similar to `IMAP APPEND`, bypassing most scanning and classification. Does not send a message. */
       insert(request: {
@@ -1390,7 +1390,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: Message
+        body: Message,
       ): Request<Message>;
       /** Lists the messages in the user's mailbox. */
       list(request?: {
@@ -1489,7 +1489,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: ModifyMessageRequest
+        body: ModifyMessageRequest,
       ): Request<Message>;
       /** Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. For example usage, see [Sending email](https://developers.google.com/gmail/api/guides/sending). */
       send(request: {
@@ -1547,7 +1547,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: Message
+        body: Message,
       ): Request<Message>;
       /** Moves the specified message to the trash. */
       trash(request?: {
@@ -1666,7 +1666,7 @@ declare namespace gapi.client {
           /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
           userId: string;
         },
-        body: CseIdentity
+        body: CseIdentity,
       ): Request<CseIdentity>;
       /** Deletes a client-side encryption identity. The authenticated user can no longer use the identity to send encrypted messages. You cannot restore the identity after you delete it. Instead, use the CreateCseIdentity method to create another identity with the same configuration. */
       delete(request?: {
@@ -1817,7 +1817,7 @@ declare namespace gapi.client {
           /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
           userId: string;
         },
-        body: CseIdentity
+        body: CseIdentity,
       ): Request<CseIdentity>;
     }
     interface KeypairsResource {
@@ -1877,7 +1877,7 @@ declare namespace gapi.client {
           /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
           userId: string;
         },
-        body: CseKeyPair
+        body: CseKeyPair,
       ): Request<CseKeyPair>;
       /** Turns off a client-side encryption key pair. The authenticated user can no longer use the key pair to decrypt incoming CSE message texts or sign outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on the key pair. After 30 days, you can permanently delete the key pair by using the ObliterateCseKeyPair method. */
       disable(request: {
@@ -1939,7 +1939,7 @@ declare namespace gapi.client {
           /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
           userId: string;
         },
-        body: DisableCseKeyPairRequest
+        body: DisableCseKeyPairRequest,
       ): Request<CseKeyPair>;
       /** Turns on a client-side encryption key pair that was turned off. The key pair becomes active again for any associated client-side encryption identities. */
       enable(request: {
@@ -2001,7 +2001,7 @@ declare namespace gapi.client {
           /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
           userId: string;
         },
-        body: EnableCseKeyPairRequest
+        body: EnableCseKeyPairRequest,
       ): Request<CseKeyPair>;
       /** Retrieves an existing client-side encryption key pair. */
       get(request?: {
@@ -2123,7 +2123,7 @@ declare namespace gapi.client {
           /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
           userId: string;
         },
-        body: ObliterateCseKeyPairRequest
+        body: ObliterateCseKeyPairRequest,
       ): Request<void>;
     }
     interface CseResource {
@@ -2187,7 +2187,7 @@ declare namespace gapi.client {
           /** User's email address. The special value "me" can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: Delegate
+        body: Delegate,
       ): Request<Delegate>;
       /** Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority. */
       delete(request?: {
@@ -2332,7 +2332,7 @@ declare namespace gapi.client {
           /** User's email address. The special value "me" can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: Filter
+        body: Filter,
       ): Request<Filter>;
       /** Immediately and permanently deletes the specified filter. */
       delete(request?: {
@@ -2477,7 +2477,7 @@ declare namespace gapi.client {
           /** User's email address. The special value "me" can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: ForwardingAddress
+        body: ForwardingAddress,
       ): Request<ForwardingAddress>;
       /** Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account clients that have been delegated domain-wide authority. */
       delete(request?: {
@@ -2688,7 +2688,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: SmimeInfo
+        body: SmimeInfo,
       ): Request<SmimeInfo>;
       /** Lists S/MIME configs for the specified send-as alias. */
       list(request?: {
@@ -2808,7 +2808,7 @@ declare namespace gapi.client {
           /** User's email address. The special value "me" can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: SendAs
+        body: SendAs,
       ): Request<SendAs>;
       /** Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service account clients that have been delegated domain-wide authority. */
       delete(request?: {
@@ -2955,7 +2955,7 @@ declare namespace gapi.client {
           /** User's email address. The special value "me" can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: SendAs
+        body: SendAs,
       ): Request<SendAs>;
       /** Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority. */
       update(request: {
@@ -3017,7 +3017,7 @@ declare namespace gapi.client {
           /** User's email address. The special value "me" can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: SendAs
+        body: SendAs,
       ): Request<SendAs>;
       /** Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service account clients that have been delegated domain-wide authority. */
       verify(request?: {
@@ -3242,7 +3242,7 @@ declare namespace gapi.client {
           /** User's email address. The special value "me" can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: AutoForwarding
+        body: AutoForwarding,
       ): Request<AutoForwarding>;
       /** Updates IMAP settings. */
       updateImap(request: {
@@ -3300,7 +3300,7 @@ declare namespace gapi.client {
           /** User's email address. The special value "me" can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: ImapSettings
+        body: ImapSettings,
       ): Request<ImapSettings>;
       /** Updates language settings. If successful, the return object contains the `displayLanguage` that was saved for the user, which may differ from the value passed into the request. This is because the requested `displayLanguage` may not be directly supported by Gmail but have a close variant that is, and so the variant may be chosen and saved instead. */
       updateLanguage(request: {
@@ -3358,7 +3358,7 @@ declare namespace gapi.client {
           /** User's email address. The special value "me" can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: LanguageSettings
+        body: LanguageSettings,
       ): Request<LanguageSettings>;
       /** Updates POP settings. */
       updatePop(request: {
@@ -3416,7 +3416,7 @@ declare namespace gapi.client {
           /** User's email address. The special value "me" can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: PopSettings
+        body: PopSettings,
       ): Request<PopSettings>;
       /** Updates vacation responder settings. */
       updateVacation(request: {
@@ -3474,7 +3474,7 @@ declare namespace gapi.client {
           /** User's email address. The special value "me" can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: VacationSettings
+        body: VacationSettings,
       ): Request<VacationSettings>;
       cse: CseResource;
       delegates: DelegatesResource;
@@ -3642,7 +3642,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: ModifyThreadRequest
+        body: ModifyThreadRequest,
       ): Request<Thread>;
       /** Moves the specified thread to the trash. Any messages that belong to the thread are also moved to the trash. */
       trash(request?: {
@@ -3814,7 +3814,7 @@ declare namespace gapi.client {
           /** The user's email address. The special value `me` can be used to indicate the authenticated user. */
           userId: string;
         },
-        body: WatchRequest
+        body: WatchRequest,
       ): Request<WatchResponse>;
       drafts: DraftsResource;
       history: HistoryResource;

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://docs.googleapis.com/$discovery/rest?version=v1'
+    'https://docs.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.docs */
 
@@ -798,7 +798,7 @@ gapi.load('client', async () => {
           requiredRevisionId: 'Test string',
           targetRevisionId: 'Test string',
         },
-      }
+      },
     );
     /** Creates a blank document using the title given in the request. Other fields in the request, including any provided content, are ignored. Returns the created document. */
     await gapi.client.docs.documents.create(
@@ -18270,7 +18270,7 @@ gapi.load('client', async () => {
           },
         ],
         title: 'Test string',
-      }
+      },
     );
     /** Gets the latest version of the specified document. */
     await gapi.client.docs.documents.get({

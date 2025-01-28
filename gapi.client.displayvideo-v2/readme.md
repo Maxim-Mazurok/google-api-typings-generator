@@ -30,7 +30,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.displayvideo
-  }
+  },
 );
 ```
 
@@ -71,7 +71,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 
@@ -216,7 +216,7 @@ await gapi.client.displayvideo.guaranteedOrders.create({});
 Edits read advertisers of a guaranteed order.
 */
 await gapi.client.displayvideo.guaranteedOrders.editGuaranteedOrderReadAccessors(
-  {guaranteedOrderId: 'guaranteedOrderId'}
+  {guaranteedOrderId: 'guaranteedOrderId'},
 );
 
 /*
@@ -278,7 +278,7 @@ await gapi.client.displayvideo.inventorySources.create({});
 Edits read/write accessors of an inventory source. Returns the updated read_write_accessors for the inventory source.
 */
 await gapi.client.displayvideo.inventorySources.editInventorySourceReadWriteAccessors(
-  {inventorySourceId: 'inventorySourceId'}
+  {inventorySourceId: 'inventorySourceId'},
 );
 
 /*

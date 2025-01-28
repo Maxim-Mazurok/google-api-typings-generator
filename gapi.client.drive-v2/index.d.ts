@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Drive API v2 */
   function load(
-    urlOrObject: 'https://www.googleapis.com/discovery/v1/apis/drive/v2/rest'
+    urlOrObject: 'https://www.googleapis.com/discovery/v1/apis/drive/v2/rest',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'drive', version: 'v2'): Promise<void>;
@@ -1537,7 +1537,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
     interface ChannelsResource {
@@ -1593,7 +1593,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<void>;
     }
     interface ChildrenResource {
@@ -1725,7 +1725,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ChildReference
+        body: ChildReference,
       ): Request<ChildReference>;
       /** Lists a folder's children. */
       list(request?: {
@@ -1880,7 +1880,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Comment
+        body: Comment,
       ): Request<Comment>;
       /** Lists a file's comments. */
       list(request?: {
@@ -1977,7 +1977,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Comment
+        body: Comment,
       ): Request<Comment>;
       /** Updates an existing comment. */
       update(request: {
@@ -2039,7 +2039,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Comment
+        body: Comment,
       ): Request<Comment>;
     }
     interface DrivesResource {
@@ -2186,7 +2186,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Drive
+        body: Drive,
       ): Request<Drive>;
       /** Lists the user's shared drives. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for shared drives](/drive/api/guides/search-shareddrives) guide. */
       list(request?: {
@@ -2308,7 +2308,7 @@ declare namespace gapi.client {
           /** Issue the request as a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the shared drive belongs. */
           useDomainAdminAccess?: boolean;
         },
-        body: Drive
+        body: Drive,
       ): Request<Drive>;
     }
     interface FilesResource {
@@ -2416,7 +2416,7 @@ declare namespace gapi.client {
           /** The visibility of the new file. This parameter is only relevant when the source is not a native Google Doc and convert=false. */
           visibility?: string;
         },
-        body: File
+        body: File,
       ): Request<File>;
       /** Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive, the user must be an `organizer` on the parent folder. If the target is a folder, all descendants owned by the user are also deleted. */
       delete(request?: {
@@ -2687,7 +2687,7 @@ declare namespace gapi.client {
           /** The visibility of the new file. This parameter is only relevant when convert=false. */
           visibility?: string;
         },
-        body: File
+        body: File,
       ): Request<File>;
       /** Lists the user's files. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for files & folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by default, including trashed files. If you don't want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results. */
       list(request?: {
@@ -2833,7 +2833,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModifyLabelsRequest
+        body: ModifyLabelsRequest,
       ): Request<ModifyLabelsResponse>;
       /** Updates a file's metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might change automatically, such as modifiedDate. This method supports patch semantics. */
       patch(request: {
@@ -2963,7 +2963,7 @@ declare namespace gapi.client {
           /** Whether to use the content as indexable text. */
           useContentAsIndexableText?: boolean;
         },
-        body: File
+        body: File,
       ): Request<File>;
       /** Set the file's updated time to the current server time. */
       touch(request?: {
@@ -3198,7 +3198,7 @@ declare namespace gapi.client {
           /** Whether to use the content as indexable text. */
           useContentAsIndexableText?: boolean;
         },
-        body: File
+        body: File,
       ): Request<File>;
       /** Subscribes to changes to a file. */
       watch(request: {
@@ -3288,7 +3288,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
     interface ParentsResource {
@@ -3420,7 +3420,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ParentReference
+        body: ParentReference,
       ): Request<ParentReference>;
       /** Lists a file's parents. */
       list(request?: {
@@ -3632,7 +3632,7 @@ declare namespace gapi.client {
           /** Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs. */
           useDomainAdminAccess?: boolean;
         },
-        body: Permission
+        body: Permission,
       ): Request<Permission>;
       /** Lists a file's or shared drive's permissions. */
       list(request?: {
@@ -3753,7 +3753,7 @@ declare namespace gapi.client {
           /** Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs. */
           useDomainAdminAccess?: boolean;
         },
-        body: Permission
+        body: Permission,
       ): Request<Permission>;
       /** Updates a permission. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied. */
       update(request: {
@@ -3835,7 +3835,7 @@ declare namespace gapi.client {
           /** Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs. */
           useDomainAdminAccess?: boolean;
         },
-        body: Permission
+        body: Permission,
       ): Request<Permission>;
     }
     interface PropertiesResource {
@@ -3957,7 +3957,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Property
+        body: Property,
       ): Request<Property>;
       /** Lists a file's properties. */
       list(request?: {
@@ -4050,7 +4050,7 @@ declare namespace gapi.client {
           /** The visibility of the property. Allowed values are PRIVATE and PUBLIC. (Default: PRIVATE) */
           visibility?: string;
         },
-        body: Property
+        body: Property,
       ): Request<Property>;
       /** Updates a property. */
       update(request: {
@@ -4116,7 +4116,7 @@ declare namespace gapi.client {
           /** The visibility of the property. Allowed values are PRIVATE and PUBLIC. (Default: PRIVATE) */
           visibility?: string;
         },
-        body: Property
+        body: Property,
       ): Request<Property>;
     }
     interface RepliesResource {
@@ -4244,7 +4244,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommentReply
+        body: CommentReply,
       ): Request<CommentReply>;
       /** Lists all of the replies to a comment. */
       list(request?: {
@@ -4345,7 +4345,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommentReply
+        body: CommentReply,
       ): Request<CommentReply>;
       /** Updates an existing reply. */
       update(request: {
@@ -4411,7 +4411,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommentReply
+        body: CommentReply,
       ): Request<CommentReply>;
     }
     interface RevisionsResource {
@@ -4564,7 +4564,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Revision
+        body: Revision,
       ): Request<Revision>;
       /** Updates a revision. */
       update(request: {
@@ -4626,7 +4626,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Revision
+        body: Revision,
       ): Request<Revision>;
     }
     interface TeamdrivesResource {
@@ -4742,7 +4742,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TeamDrive
+        body: TeamDrive,
       ): Request<TeamDrive>;
       /** Deprecated: Use `drives.list` instead. */
       list(request?: {
@@ -4837,7 +4837,7 @@ declare namespace gapi.client {
           /** Issue the request as a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the Team Drive belongs. */
           useDomainAdminAccess?: boolean;
         },
-        body: TeamDrive
+        body: TeamDrive,
       ): Request<TeamDrive>;
     }
 

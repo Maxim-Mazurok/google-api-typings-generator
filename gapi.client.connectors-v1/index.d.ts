@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Connectors API v1 */
   function load(
-    urlOrObject: 'https://connectors.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://connectors.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'connectors', version: 'v1'): Promise<void>;
@@ -1795,7 +1795,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RefreshConnectionSchemaMetadataRequest
+        body: RefreshConnectionSchemaMetadataRequest,
       ): Request<Operation>;
     }
     interface EventSubscriptionsResource {
@@ -1859,7 +1859,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventSubscription
+        body: EventSubscription,
       ): Request<Operation>;
       /** Deletes a single EventSubscription. */
       delete(request?: {
@@ -2010,7 +2010,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventSubscription
+        body: EventSubscription,
       ): Request<Operation>;
       /** RetryEventSubscription retries the registration of Subscription. */
       retry(request: {
@@ -2068,7 +2068,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RetryEventSubscriptionRequest
+        body: RetryEventSubscriptionRequest,
       ): Request<Operation>;
     }
     interface RuntimeActionSchemasResource {
@@ -2204,7 +2204,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Connection
+        body: Connection,
       ): Request<Operation>;
       /** Deletes a single Connection. */
       delete(request?: {
@@ -2411,7 +2411,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ListenEventRequest
+        body: ListenEventRequest,
       ): Request<{}>;
       /** Updates the parameters of a single Connection. */
       patch(request: {
@@ -2473,7 +2473,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Connection
+        body: Connection,
       ): Request<Operation>;
       /** RepaiEventing tries to repair eventing related event subscriptions. */
       repairEventing(request: {
@@ -2531,7 +2531,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RepairEventingRequest
+        body: RepairEventingRequest,
       ): Request<Operation>;
       /** Returns Top matching Connections for a given query. */
       search(request?: {
@@ -2594,7 +2594,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2624,7 +2624,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       connectionSchemaMetadata: ConnectionSchemaMetadataResource;
       eventSubscriptions: EventSubscriptionsResource;
@@ -2715,7 +2715,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DeprecateCustomConnectorVersionRequest
+        body: DeprecateCustomConnectorVersionRequest,
       ): Request<Operation>;
       /** Publish request for the CustomConnectorVersion. Once approved, the CustomConnectorVersion will be published as PartnerConnector. */
       publish(request: {
@@ -2773,7 +2773,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PublishCustomConnectorVersionRequest
+        body: PublishCustomConnectorVersionRequest,
       ): Request<Operation>;
       /** Withdraw the publish request for the CustomConnectorVersion. This can only be used before the CustomConnectorVersion is published. */
       withdraw(request: {
@@ -2831,7 +2831,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WithdrawCustomConnectorVersionRequest
+        body: WithdrawCustomConnectorVersionRequest,
       ): Request<Operation>;
     }
     interface CustomConnectorsResource {
@@ -2891,7 +2891,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ValidateCustomConnectorSpecRequest
+        body: ValidateCustomConnectorSpecRequest,
       ): Request<ValidateCustomConnectorSpecResponse>;
       customConnectorVersions: CustomConnectorVersionsResource;
     }
@@ -2956,7 +2956,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EndpointAttachment
+        body: EndpointAttachment,
       ): Request<Operation>;
       /** Deletes a single EndpointAttachment. */
       delete(request?: {
@@ -3111,7 +3111,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EndpointAttachment
+        body: EndpointAttachment,
       ): Request<Operation>;
     }
     interface CustomConnectorVersionsResource {
@@ -3175,7 +3175,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomConnectorVersion
+        body: CustomConnectorVersion,
       ): Request<Operation>;
       /** Gets details of a single CustomConnectorVersion. */
       get(request?: {
@@ -3297,7 +3297,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomConnector
+        body: CustomConnector,
       ): Request<Operation>;
       /** Deletes a single CustomConnector. */
       delete(request?: {
@@ -3448,7 +3448,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomConnector
+        body: CustomConnector,
       ): Request<Operation>;
       customConnectorVersions: CustomConnectorVersionsResource;
     }
@@ -3513,7 +3513,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ManagedZone
+        body: ManagedZone,
       ): Request<Operation>;
       /** Deletes a single ManagedZone. */
       delete(request?: {
@@ -3664,7 +3664,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ManagedZone
+        body: ManagedZone,
       ): Request<Operation>;
     }
     interface GlobalResource {
@@ -3755,7 +3755,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Settings
+        body: Settings,
       ): Request<Operation>;
       customConnectors: CustomConnectorsResource;
       managedZones: ManagedZonesResource;
@@ -3817,7 +3817,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -4240,7 +4240,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -4270,7 +4270,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       connectors: ConnectorsResource;
     }
@@ -4449,7 +4449,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RegionalSettings
+        body: RegionalSettings,
       ): Request<Operation>;
       connections: ConnectionsResource;
       customConnectors: CustomConnectorsResource;

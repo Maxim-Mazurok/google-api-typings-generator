@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Firestore API v1beta2 */
   function load(
-    urlOrObject: 'https://firestore.googleapis.com/$discovery/rest?version=v1beta2'
+    urlOrObject: 'https://firestore.googleapis.com/$discovery/rest?version=v1beta2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firestore', version: 'v1beta2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firestore',
     version: 'v1beta2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firestore {
@@ -347,7 +347,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirestoreAdminV1beta2Field
+        body: GoogleFirestoreAdminV1beta2Field,
       ): Request<GoogleLongrunningOperation>;
     }
     interface IndexesResource {
@@ -407,7 +407,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirestoreAdminV1beta2Index
+        body: GoogleFirestoreAdminV1beta2Index,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a composite index. */
       delete(request?: {
@@ -558,7 +558,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirestoreAdminV1beta2ExportDocumentsRequest
+        body: GoogleFirestoreAdminV1beta2ExportDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Imports documents into Google Cloud Firestore. Existing documents with the same name are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportDocuments operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Firestore. */
       importDocuments(request: {
@@ -616,7 +616,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirestoreAdminV1beta2ImportDocumentsRequest
+        body: GoogleFirestoreAdminV1beta2ImportDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
       collectionGroups: CollectionGroupsResource;
     }

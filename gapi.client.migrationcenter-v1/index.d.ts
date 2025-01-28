@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Migration Center API v1 */
   function load(
-    urlOrObject: 'https://migrationcenter.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://migrationcenter.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'migrationcenter', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'migrationcenter',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace migrationcenter {
@@ -1627,7 +1627,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AggregateAssetsValuesRequest
+        body: AggregateAssetsValuesRequest,
       ): Request<AggregateAssetsValuesResponse>;
       /** Deletes list of Assets. */
       batchDelete(request: {
@@ -1685,7 +1685,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchDeleteAssetsRequest
+        body: BatchDeleteAssetsRequest,
       ): Request<{}>;
       /** Updates the parameters of a list of assets. */
       batchUpdate(request: {
@@ -1743,7 +1743,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateAssetsRequest
+        body: BatchUpdateAssetsRequest,
       ): Request<BatchUpdateAssetsResponse>;
       /** Deletes an asset. */
       delete(request?: {
@@ -1904,7 +1904,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Asset
+        body: Asset,
       ): Request<Asset>;
       /** Reports a set of frames. */
       reportAssetFrames(request: {
@@ -1966,7 +1966,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Frames
+        body: Frames,
       ): Request<{}>;
     }
     interface DiscoveryClientsResource {
@@ -2034,7 +2034,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DiscoveryClient
+        body: DiscoveryClient,
       ): Request<Operation>;
       /** Deletes a discovery client. */
       delete(request?: {
@@ -2191,7 +2191,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DiscoveryClient
+        body: DiscoveryClient,
       ): Request<Operation>;
       /** Sends a discovery client heartbeat. Healthy clients are expected to send heartbeats regularly (normally every few minutes). */
       sendHeartbeat(request: {
@@ -2249,7 +2249,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SendDiscoveryClientHeartbeatRequest
+        body: SendDiscoveryClientHeartbeatRequest,
       ): Request<Operation>;
     }
     interface GroupsResource {
@@ -2309,7 +2309,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddAssetsToGroupRequest
+        body: AddAssetsToGroupRequest,
       ): Request<Operation>;
       /** Creates a new group in a given project and location. */
       create(request: {
@@ -2375,7 +2375,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Group
+        body: Group,
       ): Request<Operation>;
       /** Deletes a group. */
       delete(request?: {
@@ -2532,7 +2532,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Group
+        body: Group,
       ): Request<Operation>;
       /** Removes assets from a group. */
       removeAssets(request: {
@@ -2590,7 +2590,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveAssetsFromGroupRequest
+        body: RemoveAssetsFromGroupRequest,
       ): Request<Operation>;
     }
     interface ImportDataFilesResource {
@@ -2658,7 +2658,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportDataFile
+        body: ImportDataFile,
       ): Request<Operation>;
       /** Delete an import data file. */
       delete(request?: {
@@ -2817,7 +2817,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportJob
+        body: ImportJob,
       ): Request<Operation>;
       /** Deletes an import job. */
       delete(request?: {
@@ -2980,7 +2980,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportJob
+        body: ImportJob,
       ): Request<Operation>;
       /** Runs an import job. */
       run(request: {
@@ -3038,7 +3038,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunImportJobRequest
+        body: RunImportJobRequest,
       ): Request<Operation>;
       /** Validates an import job. */
       validate(request: {
@@ -3096,7 +3096,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ValidateImportJobRequest
+        body: ValidateImportJobRequest,
       ): Request<Operation>;
       importDataFiles: ImportDataFilesResource;
     }
@@ -3157,7 +3157,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -3312,7 +3312,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PreferenceSet
+        body: PreferenceSet,
       ): Request<Operation>;
       /** Deletes a preference set. */
       delete(request?: {
@@ -3467,7 +3467,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PreferenceSet
+        body: PreferenceSet,
       ): Request<Operation>;
     }
     interface RelationsResource {
@@ -3599,7 +3599,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Report
+        body: Report,
       ): Request<Operation>;
       /** Deletes a Report. */
       delete(request?: {
@@ -3762,7 +3762,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportConfig
+        body: ReportConfig,
       ): Request<Operation>;
       /** Deletes a ReportConfig. */
       delete(request?: {
@@ -3988,7 +3988,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Source
+        body: Source,
       ): Request<Operation>;
       /** Deletes a source. */
       delete(request?: {
@@ -4145,7 +4145,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Source
+        body: Source,
       ): Request<Operation>;
       errorFrames: ErrorFramesResource;
     }
@@ -4301,7 +4301,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Settings
+        body: Settings,
       ): Request<Operation>;
       assets: AssetsResource;
       discoveryClients: DiscoveryClientsResource;

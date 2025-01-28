@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebasedatabase.googleapis.com/$discovery/rest?version=v1beta'
+    'https://firebasedatabase.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.firebasedatabase */
 
@@ -50,7 +50,7 @@ gapi.load('client', async () => {
         project: 'Test string',
         state: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Marks a DatabaseInstance to be deleted. The DatabaseInstance will be set to the DELETED state for 20 days, and will be purged within 30 days. The default database cannot be deleted. IDs for deleted database instances may never be recovered or re-used. The Database may only be deleted if it is already in a DISABLED state. */
     await gapi.client.firebasedatabase.projects.locations.instances.delete({
@@ -61,7 +61,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the DatabaseInstance identified by the specified resource name. */
     await gapi.client.firebasedatabase.projects.locations.instances.get({
@@ -79,14 +79,14 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Restores a DatabaseInstance that was previously marked to be deleted. After the delete method is used, DatabaseInstances are set to the DELETED state for 20 days, and will be purged within 30 days. Databases in the DELETED state can be undeleted without losing any data. This method may only be used on a DatabaseInstance in the DELETED state. Purged DatabaseInstances may not be recovered. */
     await gapi.client.firebasedatabase.projects.locations.instances.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
   }
 });

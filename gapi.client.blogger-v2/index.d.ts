@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Blogger API v2 */
   function load(
-    urlOrObject: 'https://blogger.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://blogger.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'blogger', version: 'v2'): Promise<void>;

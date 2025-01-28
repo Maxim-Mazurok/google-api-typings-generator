@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://language.googleapis.com/$discovery/rest?version=v2'
+    'https://language.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.language */
 
@@ -44,7 +44,7 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         encodingType: 'Test string',
-      }
+      },
     );
     /** Analyzes the sentiment of the provided text. */
     await gapi.client.language.documents.analyzeSentiment(
@@ -57,7 +57,7 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         encodingType: 'Test string',
-      }
+      },
     );
     /** A convenience method that provides all features in one call. */
     await gapi.client.language.documents.annotateText(
@@ -76,7 +76,7 @@ gapi.load('client', async () => {
           extractEntities: true,
           moderateText: true,
         },
-      }
+      },
     );
     /** Classifies a document into categories. */
     await gapi.client.language.documents.classifyText(
@@ -88,7 +88,7 @@ gapi.load('client', async () => {
           languageCode: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Moderates a document for harmful and sensitive categories. */
     await gapi.client.language.documents.moderateText(
@@ -101,7 +101,7 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         modelVersion: 'Test string',
-      }
+      },
     );
   }
 });

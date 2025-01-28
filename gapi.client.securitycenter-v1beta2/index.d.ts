@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Security Command Center API v1beta2 */
   function load(
-    urlOrObject: 'https://securitycenter.googleapis.com/$discovery/rest?version=v1beta2'
+    urlOrObject: 'https://securitycenter.googleapis.com/$discovery/rest?version=v1beta2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'securitycenter', version: 'v1beta2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'securitycenter',
     version: 'v1beta2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace securitycenter {
@@ -2817,7 +2817,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ContainerThreatDetectionSettings
+        body: ContainerThreatDetectionSettings,
       ): Request<ContainerThreatDetectionSettings>;
       /** Update the EventThreatDetectionSettings resource. */
       updateEventThreatDetectionSettings(request: {
@@ -2879,7 +2879,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventThreatDetectionSettings
+        body: EventThreatDetectionSettings,
       ): Request<EventThreatDetectionSettings>;
       /** Update the RapidVulnerabilityDetectionSettings resource. */
       updateRapidVulnerabilityDetectionSettings(request: {
@@ -2941,7 +2941,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RapidVulnerabilityDetectionSettings
+        body: RapidVulnerabilityDetectionSettings,
       ): Request<RapidVulnerabilityDetectionSettings>;
       /** Update the SecurityHealthAnalyticsSettings resource. */
       updateSecurityHealthAnalyticsSettings(request: {
@@ -3003,7 +3003,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityHealthAnalyticsSettings
+        body: SecurityHealthAnalyticsSettings,
       ): Request<SecurityHealthAnalyticsSettings>;
       /** Update the VirtualMachineThreatDetectionSettings resource. */
       updateVirtualMachineThreatDetectionSettings(request: {
@@ -3065,7 +3065,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VirtualMachineThreatDetectionSettings
+        body: VirtualMachineThreatDetectionSettings,
       ): Request<VirtualMachineThreatDetectionSettings>;
       /** Update the WebSecurityScannerSettings resource. */
       updateWebSecurityScannerSettings(request: {
@@ -3127,7 +3127,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WebSecurityScannerSettings
+        body: WebSecurityScannerSettings,
       ): Request<WebSecurityScannerSettings>;
       containerThreatDetectionSettings: ContainerThreatDetectionSettingsResource;
       eventThreatDetectionSettings: EventThreatDetectionSettingsResource;
@@ -3597,7 +3597,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ContainerThreatDetectionSettings
+        body: ContainerThreatDetectionSettings,
       ): Request<ContainerThreatDetectionSettings>;
       /** Update the EventThreatDetectionSettings resource. */
       updateEventThreatDetectionSettings(request: {
@@ -3659,7 +3659,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventThreatDetectionSettings
+        body: EventThreatDetectionSettings,
       ): Request<EventThreatDetectionSettings>;
       /** Update the RapidVulnerabilityDetectionSettings resource. */
       updateRapidVulnerabilityDetectionSettings(request: {
@@ -3721,7 +3721,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RapidVulnerabilityDetectionSettings
+        body: RapidVulnerabilityDetectionSettings,
       ): Request<RapidVulnerabilityDetectionSettings>;
       /** Update the SecurityHealthAnalyticsSettings resource. */
       updateSecurityHealthAnalyticsSettings(request: {
@@ -3783,7 +3783,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityHealthAnalyticsSettings
+        body: SecurityHealthAnalyticsSettings,
       ): Request<SecurityHealthAnalyticsSettings>;
       /** Update the VirtualMachineThreatDetectionSettings resource. */
       updateVirtualMachineThreatDetectionSettings(request: {
@@ -3845,7 +3845,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VirtualMachineThreatDetectionSettings
+        body: VirtualMachineThreatDetectionSettings,
       ): Request<VirtualMachineThreatDetectionSettings>;
       /** Update the WebSecurityScannerSettings resource. */
       updateWebSecurityScannerSettings(request: {
@@ -3907,7 +3907,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WebSecurityScannerSettings
+        body: WebSecurityScannerSettings,
       ): Request<WebSecurityScannerSettings>;
       containerThreatDetectionSettings: ContainerThreatDetectionSettingsResource;
       eventThreatDetectionSettings: EventThreatDetectionSettingsResource;
@@ -4097,7 +4097,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ContainerThreatDetectionSettings
+        body: ContainerThreatDetectionSettings,
       ): Request<ContainerThreatDetectionSettings>;
       containerThreatDetectionSettings: ContainerThreatDetectionSettingsResource;
     }
@@ -4476,7 +4476,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ContainerThreatDetectionSettings
+        body: ContainerThreatDetectionSettings,
       ): Request<ContainerThreatDetectionSettings>;
       /** Update the EventThreatDetectionSettings resource. */
       updateEventThreatDetectionSettings(request: {
@@ -4538,7 +4538,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EventThreatDetectionSettings
+        body: EventThreatDetectionSettings,
       ): Request<EventThreatDetectionSettings>;
       /** Update the RapidVulnerabilityDetectionSettings resource. */
       updateRapidVulnerabilityDetectionSettings(request: {
@@ -4600,7 +4600,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RapidVulnerabilityDetectionSettings
+        body: RapidVulnerabilityDetectionSettings,
       ): Request<RapidVulnerabilityDetectionSettings>;
       /** Update the SecurityHealthAnalyticsSettings resource. */
       updateSecurityHealthAnalyticsSettings(request: {
@@ -4662,7 +4662,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SecurityHealthAnalyticsSettings
+        body: SecurityHealthAnalyticsSettings,
       ): Request<SecurityHealthAnalyticsSettings>;
       /** Update the VirtualMachineThreatDetectionSettings resource. */
       updateVirtualMachineThreatDetectionSettings(request: {
@@ -4724,7 +4724,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VirtualMachineThreatDetectionSettings
+        body: VirtualMachineThreatDetectionSettings,
       ): Request<VirtualMachineThreatDetectionSettings>;
       /** Update the WebSecurityScannerSettings resource. */
       updateWebSecurityScannerSettings(request: {
@@ -4786,7 +4786,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WebSecurityScannerSettings
+        body: WebSecurityScannerSettings,
       ): Request<WebSecurityScannerSettings>;
       containerThreatDetectionSettings: ContainerThreatDetectionSettingsResource;
       eventThreatDetectionSettings: EventThreatDetectionSettingsResource;

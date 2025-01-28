@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://integrations.googleapis.com/$discovery/rest?version=v1'
+    'https://integrations.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.integrations */
 
@@ -58,7 +58,7 @@ gapi.load('client', async () => {
           },
         ],
         fileFormat: 'Test string',
-      }
+      },
     );
     /** Gets the client configuration for the given project and location resource name */
     await gapi.client.integrations.projects.locations.getClients({
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
       {
         appsScriptProject: 'Test string',
         authConfigId: 'Test string',
-      }
+      },
     );
     /** Links a existing Apps Script project. */
     await gapi.client.integrations.projects.locations.appsScriptProjects.link(
@@ -81,7 +81,7 @@ gapi.load('client', async () => {
       },
       {
         scriptId: 'Test string',
-      }
+      },
     );
     /** Creates an auth config record. Fetch corresponding credentials for specific auth types, e.g. access token for OAuth 2.0, JWT token for JWT. Encrypt the auth config with Cloud KMS and store the encrypted credentials in Spanner. Returns the encrypted auth config. */
     await gapi.client.integrations.projects.locations.authConfigs.create(
@@ -390,7 +390,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         validTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes an auth config. */
     await gapi.client.integrations.projects.locations.authConfigs.delete({
@@ -716,7 +716,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         validTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate. */
     await gapi.client.integrations.projects.locations.certificates.create(
@@ -737,7 +737,7 @@ gapi.load('client', async () => {
         requestorId: 'Test string',
         validEndTime: 'Test string',
         validStartTime: 'Test string',
-      }
+      },
     );
     /** Delete a certificate */
     await gapi.client.integrations.projects.locations.certificates.delete({
@@ -775,14 +775,14 @@ gapi.load('client', async () => {
         requestorId: 'Test string',
         validEndTime: 'Test string',
         validStartTime: 'Test string',
-      }
+      },
     );
     /** Perform the deprovisioning steps to disable a user GCP project to use IP and purge all related data in a wipeout-compliant way. */
     await gapi.client.integrations.projects.locations.clients.deprovision(
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Perform the provisioning steps to enable a user GCP project to use IP. If GCP project already registered on IP end via Apigee Integration, provisioning will fail. */
     await gapi.client.integrations.projects.locations.clients.provision(
@@ -801,7 +801,7 @@ gapi.load('client', async () => {
         provisionGmek: true,
         runAsServiceAccount: 'Test string',
         skipCpProvision: true,
-      }
+      },
     );
     /** Update run-as service account for provisioned client */
     await gapi.client.integrations.projects.locations.clients.replace(
@@ -810,7 +810,7 @@ gapi.load('client', async () => {
       },
       {
         runAsServiceAccount: 'Test string',
-      }
+      },
     );
     /** Update client from GMEK to CMEK */
     await gapi.client.integrations.projects.locations.clients.switch(
@@ -825,7 +825,7 @@ gapi.load('client', async () => {
           kmsProjectId: 'Test string',
           kmsRing: 'Test string',
         },
-      }
+      },
     );
     /** Update variable masking for provisioned client */
     await gapi.client.integrations.projects.locations.clients.switchVariableMasking(
@@ -834,7 +834,7 @@ gapi.load('client', async () => {
       },
       {
         enableVariableMasking: true,
-      }
+      },
     );
     /** Creates a cloud function project. */
     await gapi.client.integrations.projects.locations.cloudFunctions.create(
@@ -845,13 +845,13 @@ gapi.load('client', async () => {
         functionName: 'Test string',
         functionRegion: 'Test string',
         projectId: 'Test string',
-      }
+      },
     );
     /** Lists the available entities and actions associated with a Connection. */
     await gapi.client.integrations.projects.locations.connections.getConnectionSchemaMetadata(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Connections in a given project and location. */
     await gapi.client.integrations.projects.locations.connections.list({
@@ -868,7 +868,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists the JSON schemas for the properties of runtime entities, filtered by entity name. */
     await gapi.client.integrations.projects.locations.connections.runtimeEntitySchemas.list(
@@ -877,7 +877,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Delete the selected integration and all versions inside */
     await gapi.client.integrations.projects.locations.integrations.delete({
@@ -994,14 +994,14 @@ gapi.load('client', async () => {
         },
         requestId: 'Test string',
         triggerId: 'Test string',
-      }
+      },
     );
     /** Executes an integration on receiving events from Integration Connector triggers, Eventarc or CPS Trigger. Input data to integration is received in body in json format */
     await gapi.client.integrations.projects.locations.integrations.executeEvent(
       {
         name: 'Test string',
         triggerId: 'Test string',
-      }
+      },
     );
     /** Returns the list of all integrations in the specified project. */
     await gapi.client.integrations.projects.locations.integrations.list({
@@ -1120,7 +1120,7 @@ gapi.load('client', async () => {
         scheduleTime: 'Test string',
         triggerId: 'Test string',
         userGeneratedExecutionId: 'Test string',
-      }
+      },
     );
     /** Execute the integration in draft state */
     await gapi.client.integrations.projects.locations.integrations.test(
@@ -2108,7 +2108,7 @@ gapi.load('client', async () => {
         },
         testMode: true,
         triggerId: 'Test string',
-      }
+      },
     );
     /** Cancellation of an execution and associated sub-executions. This will not cancel an IN_PROCESS or completed(SUCCESSFUL, FAILED or CANCELLED) executions. */
     await gapi.client.integrations.projects.locations.integrations.executions.cancel(
@@ -2117,19 +2117,19 @@ gapi.load('client', async () => {
       },
       {
         cancelReason: 'Test string',
-      }
+      },
     );
     /** Download the execution. */
     await gapi.client.integrations.projects.locations.integrations.executions.download(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get an execution in the specified project. */
     await gapi.client.integrations.projects.locations.integrations.executions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the results of all the integration executions. The response includes the same information as the [execution log](https://cloud.google.com/application-integration/docs/viewing-logs) in the Integration UI. */
     await gapi.client.integrations.projects.locations.integrations.executions.list(
@@ -2155,7 +2155,7 @@ gapi.load('client', async () => {
         refreshAcl: true,
         snapshotMetadataWithoutParams: true,
         truncateParams: true,
-      }
+      },
     );
     /** Re-execute an existing execution, with same request parameters and execution strategy. */
     await gapi.client.integrations.projects.locations.integrations.executions.replay(
@@ -2164,7 +2164,7 @@ gapi.load('client', async () => {
       },
       {
         replayReason: 'Test string',
-      }
+      },
     );
     /** * Lifts suspension for the Suspension task. Fetch corresponding suspension with provided suspension Id, resolve suspension, and set up suspension result for the Suspension Task. */
     await gapi.client.integrations.projects.locations.integrations.executions.suspensions.lift(
@@ -2173,7 +2173,7 @@ gapi.load('client', async () => {
       },
       {
         suspensionResult: 'Test string',
-      }
+      },
     );
     /** * Lists suspensions associated with a specific execution. Only those with permissions to resolve the relevant suspensions will be able to view them. */
     await gapi.client.integrations.projects.locations.integrations.executions.suspensions.list(
@@ -2183,7 +2183,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** * Resolves (lifts/rejects) any number of suspensions. If the integration is already running, only the status of the suspension is updated. Otherwise, the suspended integration will begin execution again. */
     await gapi.client.integrations.projects.locations.integrations.executions.suspensions.resolve(
@@ -2312,7 +2312,7 @@ gapi.load('client', async () => {
           },
           taskId: 'Test string',
         },
-      }
+      },
     );
     /** Create a integration with a draft version in the specified project. */
     await gapi.client.integrations.projects.locations.integrations.versions.create(
@@ -3231,13 +3231,13 @@ gapi.load('client', async () => {
         ],
         updateTime: 'Test string',
         userLabel: 'Test string',
-      }
+      },
     );
     /** Soft-deletes the integration. Changes the status of the integration to ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is removed from this snapshot and set to the previous non-ARCHIVED snapshot. The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC throws an exception if the version being deleted is DRAFT, and if the `locked_by` user is not the same as the user performing the Delete. Audit fields updated include last_modified_timestamp, last_modified_by. Any existing lock is released when Deleting a integration. Currently, there is no undelete mechanism. */
     await gapi.client.integrations.projects.locations.integrations.versions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Downloads an integration. Retrieves the `IntegrationVersion` for a given `integration_id` and returns the response as a string. */
     await gapi.client.integrations.projects.locations.integrations.versions.download(
@@ -3245,20 +3245,20 @@ gapi.load('client', async () => {
         fileFormat: 'Test string',
         files: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Downloads an Integration version package like IntegrationVersion,Integration Config etc. Retrieves the IntegrationVersion package for a given `integration_id` and returns the response as a JSON. */
     await gapi.client.integrations.projects.locations.integrations.versions.downloadJsonPackage(
       {
         files: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Get a integration in the specified project. */
     await gapi.client.integrations.projects.locations.integrations.versions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all integration versions in the specified project. */
     await gapi.client.integrations.projects.locations.integrations.versions.list(
@@ -3269,7 +3269,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Update a integration with a draft version in the specified project. */
     await gapi.client.integrations.projects.locations.integrations.versions.patch(
@@ -4187,7 +4187,7 @@ gapi.load('client', async () => {
         ],
         updateTime: 'Test string',
         userLabel: 'Test string',
-      }
+      },
     );
     /** This RPC throws an exception if the integration is in ARCHIVED or ACTIVE state. This RPC throws an exception if the version being published is DRAFT, and if the `locked_by` user is not the same as the user performing the Publish. Audit fields updated include last_published_timestamp, last_published_by, last_modified_timestamp, last_modified_by. Any existing lock is on this integration is released. */
     await gapi.client.integrations.projects.locations.integrations.versions.publish(
@@ -4198,14 +4198,14 @@ gapi.load('client', async () => {
         configParameters: {
           A: 42,
         },
-      }
+      },
     );
     /** Sets the status of the ACTIVE integration to SNAPSHOT with a new tag "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the version being snapshot is not ACTIVE. Audit fields added include action, action_by, action_timestamp. */
     await gapi.client.integrations.projects.locations.integrations.versions.unpublish(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Uploads an integration. The content can be a previously downloaded integration. Performs the same function as CreateDraftIntegrationVersion, but accepts input in a string format, which holds the complete representation of the IntegrationVersion content. */
     await gapi.client.integrations.projects.locations.integrations.versions.upload(
@@ -4215,7 +4215,7 @@ gapi.load('client', async () => {
       {
         content: 'Test string',
         fileFormat: 'Test string',
-      }
+      },
     );
     /** Creates a new test case */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.create(
@@ -4468,27 +4468,27 @@ gapi.load('client', async () => {
         },
         triggerId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a test case */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Downloads a test case. Retrieves the `TestCase` for a given `test_case_id` and returns the response as a string. */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.download(
       {
         fileFormat: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Executes all test cases in an integration version. */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.execute(
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Executes functional test */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.executeTest(
@@ -4517,13 +4517,13 @@ gapi.load('client', async () => {
             stringValue: 'Test string',
           },
         },
-      }
+      },
     );
     /** Get a test case */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all the test cases that satisfy the filters. */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.list(
@@ -4534,7 +4534,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         readMask: 'Test string',
-      }
+      },
     );
     /** Lists the results of all functional test executions. The response includes the same information as the [execution log](https://cloud.google.com/application-integration/docs/viewing-logs) in the Integration UI. */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.listExecutions(
@@ -4546,7 +4546,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         readMask: 'Test string',
         truncateParams: true,
-      }
+      },
     );
     /** Updates a test case */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.patch(
@@ -4799,14 +4799,14 @@ gapi.load('client', async () => {
         },
         triggerId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Clear the lock fields and assign them to current user */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.takeoverEditLock(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Uploads a test case. The content can be a previously downloaded test case. Performs the same function as CreateTestCase, but accepts input in a string format, which holds the complete representation of the TestCase content. */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.upload(
@@ -4816,7 +4816,7 @@ gapi.load('client', async () => {
       {
         content: 'Test string',
         fileFormat: 'Test string',
-      }
+      },
     );
     /** Creates an auth config record. Fetch corresponding credentials for specific auth types, e.g. access token for OAuth 2.0, JWT token for JWT. Encrypt the auth config with Cloud KMS and store the encrypted credentials in Spanner. Returns the encrypted auth config. */
     await gapi.client.integrations.projects.locations.products.authConfigs.create(
@@ -5125,13 +5125,13 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         validTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes an auth config. */
     await gapi.client.integrations.projects.locations.products.authConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a complete auth config. If the auth config doesn't exist, Code.NOT_FOUND exception will be thrown. Returns the decrypted auth config. */
     await gapi.client.integrations.projects.locations.products.authConfigs.get({
@@ -5145,7 +5145,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         readMask: 'Test string',
-      }
+      },
     );
     /** Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config. */
     await gapi.client.integrations.projects.locations.products.authConfigs.patch(
@@ -5455,7 +5455,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         validTime: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate. */
     await gapi.client.integrations.projects.locations.products.certificates.create(
@@ -5476,19 +5476,19 @@ gapi.load('client', async () => {
         requestorId: 'Test string',
         validEndTime: 'Test string',
         validStartTime: 'Test string',
-      }
+      },
     );
     /** Delete a certificate */
     await gapi.client.integrations.projects.locations.products.certificates.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get a certificates in the specified project. */
     await gapi.client.integrations.projects.locations.products.certificates.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List all the certificates that match the filter. Restrict to certificate of current client only. */
     await gapi.client.integrations.projects.locations.products.certificates.list(
@@ -5498,7 +5498,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         readMask: 'Test string',
-      }
+      },
     );
     /** Updates the certificate by id. If new certificate file is updated, it will register with the trawler service, re-encrypt with cloud KMS and update the Spanner record. Other fields will directly update the Spanner record. Returns the Certificate. */
     await gapi.client.integrations.projects.locations.products.certificates.patch(
@@ -5520,7 +5520,7 @@ gapi.load('client', async () => {
         requestorId: 'Test string',
         validEndTime: 'Test string',
         validStartTime: 'Test string',
-      }
+      },
     );
     /** Creates a cloud function project. */
     await gapi.client.integrations.projects.locations.products.cloudFunctions.create(
@@ -5531,7 +5531,7 @@ gapi.load('client', async () => {
         functionName: 'Test string',
         functionRegion: 'Test string',
         projectId: 'Test string',
-      }
+      },
     );
     /** Executes integrations synchronously by passing the trigger id in the request body. The request is not returned until the requested executions are either fulfilled or experienced an error. If the integration name is not specified (passing `-`), all of the associated integration under the given trigger_id will be executed. Otherwise only the specified integration for the given `trigger_id` is executed. This is helpful for execution the integration from UI. */
     await gapi.client.integrations.projects.locations.products.integrations.execute(
@@ -5644,7 +5644,7 @@ gapi.load('client', async () => {
         },
         requestId: 'Test string',
         triggerId: 'Test string',
-      }
+      },
     );
     /** Returns the list of all integrations in the specified project. */
     await gapi.client.integrations.projects.locations.products.integrations.list(
@@ -5654,7 +5654,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Schedules an integration for execution by passing the trigger id and the scheduled time in the request body. */
     await gapi.client.integrations.projects.locations.products.integrations.schedule(
@@ -5765,7 +5765,7 @@ gapi.load('client', async () => {
         scheduleTime: 'Test string',
         triggerId: 'Test string',
         userGeneratedExecutionId: 'Test string',
-      }
+      },
     );
     /** Execute the integration in draft state */
     await gapi.client.integrations.projects.locations.products.integrations.test(
@@ -6753,19 +6753,19 @@ gapi.load('client', async () => {
         },
         testMode: true,
         triggerId: 'Test string',
-      }
+      },
     );
     /** Download the execution. */
     await gapi.client.integrations.projects.locations.products.integrations.executions.download(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Get an execution in the specified project. */
     await gapi.client.integrations.projects.locations.products.integrations.executions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the results of all the integration executions. The response includes the same information as the [execution log](https://cloud.google.com/application-integration/docs/viewing-logs) in the Integration UI. */
     await gapi.client.integrations.projects.locations.products.integrations.executions.list(
@@ -6791,7 +6791,7 @@ gapi.load('client', async () => {
         refreshAcl: true,
         snapshotMetadataWithoutParams: true,
         truncateParams: true,
-      }
+      },
     );
     /** * Lifts suspension for the Suspension task. Fetch corresponding suspension with provided suspension Id, resolve suspension, and set up suspension result for the Suspension Task. */
     await gapi.client.integrations.projects.locations.products.integrations.executions.suspensions.lift(
@@ -6800,7 +6800,7 @@ gapi.load('client', async () => {
       },
       {
         suspensionResult: 'Test string',
-      }
+      },
     );
     /** * Lists suspensions associated with a specific execution. Only those with permissions to resolve the relevant suspensions will be able to view them. */
     await gapi.client.integrations.projects.locations.products.integrations.executions.suspensions.list(
@@ -6810,7 +6810,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** * Resolves (lifts/rejects) any number of suspensions. If the integration is already running, only the status of the suspension is updated. Otherwise, the suspended integration will begin execution again. */
     await gapi.client.integrations.projects.locations.products.integrations.executions.suspensions.resolve(
@@ -6939,7 +6939,7 @@ gapi.load('client', async () => {
           },
           taskId: 'Test string',
         },
-      }
+      },
     );
     /** Create a integration with a draft version in the specified project. */
     await gapi.client.integrations.projects.locations.products.integrations.versions.create(
@@ -7858,13 +7858,13 @@ gapi.load('client', async () => {
         ],
         updateTime: 'Test string',
         userLabel: 'Test string',
-      }
+      },
     );
     /** Soft-deletes the integration. Changes the status of the integration to ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is removed from this snapshot and set to the previous non-ARCHIVED snapshot. The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC throws an exception if the version being deleted is DRAFT, and if the `locked_by` user is not the same as the user performing the Delete. Audit fields updated include last_modified_timestamp, last_modified_by. Any existing lock is released when Deleting a integration. Currently, there is no undelete mechanism. */
     await gapi.client.integrations.projects.locations.products.integrations.versions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Downloads an integration. Retrieves the `IntegrationVersion` for a given `integration_id` and returns the response as a string. */
     await gapi.client.integrations.projects.locations.products.integrations.versions.download(
@@ -7872,13 +7872,13 @@ gapi.load('client', async () => {
         fileFormat: 'Test string',
         files: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Get a integration in the specified project. */
     await gapi.client.integrations.projects.locations.products.integrations.versions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the list of all integration versions in the specified project. */
     await gapi.client.integrations.projects.locations.products.integrations.versions.list(
@@ -7889,7 +7889,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Update a integration with a draft version in the specified project. */
     await gapi.client.integrations.projects.locations.products.integrations.versions.patch(
@@ -8807,7 +8807,7 @@ gapi.load('client', async () => {
         ],
         updateTime: 'Test string',
         userLabel: 'Test string',
-      }
+      },
     );
     /** This RPC throws an exception if the integration is in ARCHIVED or ACTIVE state. This RPC throws an exception if the version being published is DRAFT, and if the `locked_by` user is not the same as the user performing the Publish. Audit fields updated include last_published_timestamp, last_published_by, last_modified_timestamp, last_modified_by. Any existing lock is on this integration is released. */
     await gapi.client.integrations.projects.locations.products.integrations.versions.publish(
@@ -8818,21 +8818,21 @@ gapi.load('client', async () => {
         configParameters: {
           A: 42,
         },
-      }
+      },
     );
     /** Clears the `locked_by` and `locked_at_timestamp`in the DRAFT version of this integration. It then performs the same action as the CreateDraftIntegrationVersion (i.e., copies the DRAFT version of the integration as a SNAPSHOT and then creates a new DRAFT version with the `locked_by` set to the `user_taking_over` and the `locked_at_timestamp` set to the current timestamp). Both the `locked_by` and `user_taking_over` are notified via email about the takeover. This RPC throws an exception if the integration is not in DRAFT status or if the `locked_by` and `locked_at_timestamp` fields are not set.The TakeoverEdit lock is treated the same as an edit of the integration, and hence shares ACLs with edit. Audit fields updated include last_modified_timestamp, last_modified_by. */
     await gapi.client.integrations.projects.locations.products.integrations.versions.takeoverEditLock(
       {
         integrationVersion: 'Test string',
       },
-      {}
+      {},
     );
     /** Sets the status of the ACTIVE integration to SNAPSHOT with a new tag "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the version being snapshot is not ACTIVE. Audit fields added include action, action_by, action_timestamp. */
     await gapi.client.integrations.projects.locations.products.integrations.versions.unpublish(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Uploads an integration. The content can be a previously downloaded integration. Performs the same function as CreateDraftIntegrationVersion, but accepts input in a string format, which holds the complete representation of the IntegrationVersion content. */
     await gapi.client.integrations.projects.locations.products.integrations.versions.upload(
@@ -8842,7 +8842,7 @@ gapi.load('client', async () => {
       {
         content: 'Test string',
         fileFormat: 'Test string',
-      }
+      },
     );
     /** Creates an sfdc instance record. Store the sfdc instance in Spanner. Returns the sfdc instance. */
     await gapi.client.integrations.projects.locations.products.sfdcInstances.create(
@@ -8859,19 +8859,19 @@ gapi.load('client', async () => {
         serviceAuthority: 'Test string',
         sfdcOrgId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an sfdc instance. */
     await gapi.client.integrations.projects.locations.products.sfdcInstances.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an sfdc instance. If the instance doesn't exist, Code.NOT_FOUND exception will be thrown. */
     await gapi.client.integrations.projects.locations.products.sfdcInstances.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all sfdc instances that match the filter. Restrict to sfdc instances belonging to the current client only. */
     await gapi.client.integrations.projects.locations.products.sfdcInstances.list(
@@ -8881,7 +8881,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         readMask: 'Test string',
-      }
+      },
     );
     /** Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance. */
     await gapi.client.integrations.projects.locations.products.sfdcInstances.patch(
@@ -8899,7 +8899,7 @@ gapi.load('client', async () => {
         serviceAuthority: 'Test string',
         sfdcOrgId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates an sfdc channel record. Store the sfdc channel in Spanner. Returns the sfdc channel. */
     await gapi.client.integrations.projects.locations.products.sfdcInstances.sfdcChannels.create(
@@ -8916,19 +8916,19 @@ gapi.load('client', async () => {
         lastReplayId: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an sfdc channel. */
     await gapi.client.integrations.projects.locations.products.sfdcInstances.sfdcChannels.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an sfdc channel. If the channel doesn't exist, Code.NOT_FOUND exception will be thrown. */
     await gapi.client.integrations.projects.locations.products.sfdcInstances.sfdcChannels.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all sfdc channels that match the filter. Restrict to sfdc channels belonging to the current client only. */
     await gapi.client.integrations.projects.locations.products.sfdcInstances.sfdcChannels.list(
@@ -8938,7 +8938,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         readMask: 'Test string',
-      }
+      },
     );
     /** Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel. */
     await gapi.client.integrations.projects.locations.products.sfdcInstances.sfdcChannels.patch(
@@ -8956,7 +8956,7 @@ gapi.load('client', async () => {
         lastReplayId: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates an sfdc instance record. Store the sfdc instance in Spanner. Returns the sfdc instance. */
     await gapi.client.integrations.projects.locations.sfdcInstances.create(
@@ -8973,7 +8973,7 @@ gapi.load('client', async () => {
         serviceAuthority: 'Test string',
         sfdcOrgId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an sfdc instance. */
     await gapi.client.integrations.projects.locations.sfdcInstances.delete({
@@ -9007,7 +9007,7 @@ gapi.load('client', async () => {
         serviceAuthority: 'Test string',
         sfdcOrgId: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates an sfdc channel record. Store the sfdc channel in Spanner. Returns the sfdc channel. */
     await gapi.client.integrations.projects.locations.sfdcInstances.sfdcChannels.create(
@@ -9024,19 +9024,19 @@ gapi.load('client', async () => {
         lastReplayId: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an sfdc channel. */
     await gapi.client.integrations.projects.locations.sfdcInstances.sfdcChannels.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an sfdc channel. If the channel doesn't exist, Code.NOT_FOUND exception will be thrown. */
     await gapi.client.integrations.projects.locations.sfdcInstances.sfdcChannels.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all sfdc channels that match the filter. Restrict to sfdc channels belonging to the current client only. */
     await gapi.client.integrations.projects.locations.sfdcInstances.sfdcChannels.list(
@@ -9046,7 +9046,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         readMask: 'Test string',
-      }
+      },
     );
     /** Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel. */
     await gapi.client.integrations.projects.locations.sfdcInstances.sfdcChannels.patch(
@@ -9064,7 +9064,7 @@ gapi.load('client', async () => {
         lastReplayId: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new template */
     await gapi.client.integrations.projects.locations.templates.create(
@@ -10924,7 +10924,7 @@ gapi.load('client', async () => {
         usageCount: 'Test string',
         usageInfo: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes a template */
     await gapi.client.integrations.projects.locations.templates.delete({
@@ -10953,7 +10953,7 @@ gapi.load('client', async () => {
             integrationDescription: 'Test string',
           },
         },
-      }
+      },
     );
     /** Lists all templates matching the filter. */
     await gapi.client.integrations.projects.locations.templates.list({
@@ -12823,7 +12823,7 @@ gapi.load('client', async () => {
         usageCount: 'Test string',
         usageInfo: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Search templates based on user query and filters. This api would query the templates and return a list of templates based on the user filter. */
     await gapi.client.integrations.projects.locations.templates.search({
@@ -12841,7 +12841,7 @@ gapi.load('client', async () => {
       },
       {
         resourceNames: ['Test string'],
-      }
+      },
     );
     /** Unshare a template from given clients. Owner of the template can unshare template with clients. Shared client can only unshare the template from itself. PERMISSION_DENIED would be thrown if request is not from owner or for unsharing itself. */
     await gapi.client.integrations.projects.locations.templates.unshare(
@@ -12850,7 +12850,7 @@ gapi.load('client', async () => {
       },
       {
         resourceNames: ['Test string'],
-      }
+      },
     );
     /** Uploads a template. The content can be a previously downloaded template. Performs the same function as CreateTemplate, but accepts input in a string format, which holds the complete representation of the Template content. */
     await gapi.client.integrations.projects.locations.templates.upload(
@@ -12860,7 +12860,7 @@ gapi.load('client', async () => {
       {
         content: 'Test string',
         fileFormat: 'Test string',
-      }
+      },
     );
     /** Use the template to create integration. This api would keep track of usage_count and last_used_time. PERMISSION_DENIED would be thrown if template is not accessible by client. */
     await gapi.client.integrations.projects.locations.templates.use(
@@ -12879,7 +12879,7 @@ gapi.load('client', async () => {
             integrationDescription: 'Test string',
           },
         },
-      }
+      },
     );
   }
 });

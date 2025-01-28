@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudscheduler.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://cloudscheduler.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.cloudscheduler */
 
@@ -111,7 +111,7 @@ gapi.load('client', async () => {
         },
         timeZone: 'Test string',
         userUpdateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a job. */
     await gapi.client.cloudscheduler.projects.locations.jobs.delete({
@@ -200,21 +200,21 @@ gapi.load('client', async () => {
         },
         timeZone: 'Test string',
         userUpdateTime: 'Test string',
-      }
+      },
     );
     /** Pauses a job. If a job is paused then the system will stop executing the job until it is re-enabled via ResumeJob. The state of the job is stored in state; if paused it will be set to Job.State.PAUSED. A job must be in Job.State.ENABLED to be paused. */
     await gapi.client.cloudscheduler.projects.locations.jobs.pause(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Resume a job. This method reenables a job after it has been Job.State.PAUSED. The state of a job is stored in Job.state; after calling this method it will be set to Job.State.ENABLED. A job must be in Job.State.PAUSED to be resumed. */
     await gapi.client.cloudscheduler.projects.locations.jobs.resume(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Forces a job to run now. When this method is called, Cloud Scheduler will dispatch the job, even if the job is already running. */
     await gapi.client.cloudscheduler.projects.locations.jobs.run(
@@ -223,7 +223,7 @@ gapi.load('client', async () => {
       },
       {
         legacyAppEngineCron: true,
-      }
+      },
     );
   }
 });

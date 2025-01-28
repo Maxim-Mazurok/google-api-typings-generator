@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://merchantapi.googleapis.com/$discovery/rest?version=datasources_v1beta'
+    'https://merchantapi.googleapis.com/$discovery/rest?version=datasources_v1beta',
   );
   /** now we can use gapi.client.merchantapi */
 
@@ -101,7 +101,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Deletes a data source from your Merchant Center account. */
     await gapi.client.merchantapi.accounts.dataSources.delete({
@@ -112,7 +112,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Retrieves the data source configuration for the given account. */
     await gapi.client.merchantapi.accounts.dataSources.get({
@@ -195,7 +195,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Gets the latest data source file upload. Only the `latest` alias is accepted for a file upload. */
     await gapi.client.merchantapi.accounts.dataSources.fileUploads.get({

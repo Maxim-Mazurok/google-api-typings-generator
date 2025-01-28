@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://policytroubleshooter.googleapis.com/$discovery/rest?version=v1beta'
+    'https://policytroubleshooter.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.policytroubleshooter */
 
@@ -40,7 +40,7 @@ gapi.load('client', async () => {
           permission: 'Test string',
           principal: 'Test string',
         },
-      }
+      },
     );
   }
 });

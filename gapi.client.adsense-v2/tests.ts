@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://adsense.googleapis.com/$discovery/rest?version=v2'
+    'https://adsense.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.adsense */
 
@@ -80,7 +80,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         reportingDimensionId: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Gets an ad unit from a specified account and ad client. */
     await gapi.client.adsense.accounts.adclients.adunits.get({
@@ -102,7 +102,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an ad unit. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. For now, this method can only be used to update `DISPLAY` ad units. See: https://support.google.com/adsense/answer/9183566 */
     await gapi.client.adsense.accounts.adclients.adunits.patch(
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         reportingDimensionId: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
     await gapi.client.adsense.accounts.adclients.customchannels.create(
@@ -131,7 +131,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         reportingDimensionId: 'Test string',
-      }
+      },
     );
     /** Deletes a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
     await gapi.client.adsense.accounts.adclients.customchannels.delete({
@@ -153,7 +153,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
     await gapi.client.adsense.accounts.adclients.customchannels.patch(
@@ -166,7 +166,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         reportingDimensionId: 'Test string',
-      }
+      },
     );
     /** Gets information about the selected url channel. */
     await gapi.client.adsense.accounts.adclients.urlchannels.get({

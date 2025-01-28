@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudasset.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://cloudasset.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.cloudasset */
 
@@ -46,7 +46,7 @@ gapi.load('client', async () => {
           },
         },
         readTime: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.cloudasset.folders.operations.get({
@@ -75,7 +75,7 @@ gapi.load('client', async () => {
           },
         },
         readTime: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.cloudasset.organizations.operations.get({
@@ -104,7 +104,7 @@ gapi.load('client', async () => {
           },
         },
         readTime: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.cloudasset.projects.operations.get({

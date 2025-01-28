@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Video Intelligence API v1p3beta1 */
   function load(
-    urlOrObject: 'https://videointelligence.googleapis.com/$discovery/rest?version=v1p3beta1'
+    urlOrObject: 'https://videointelligence.googleapis.com/$discovery/rest?version=v1p3beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'videointelligence', version: 'v1p3beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'videointelligence',
     version: 'v1p3beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace videointelligence {
@@ -1613,7 +1613,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudVideointelligenceV1p3beta1_AnnotateVideoRequest
+        body: GoogleCloudVideointelligenceV1p3beta1_AnnotateVideoRequest,
       ): Request<GoogleLongrunning_Operation>;
     }
 

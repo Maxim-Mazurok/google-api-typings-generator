@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://translation.googleapis.com/$discovery/rest?version=v2'
+    'https://translation.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.language */
 
@@ -38,7 +38,7 @@ gapi.load('client', async () => {
       {},
       {
         q: ['Test string'],
-      }
+      },
     );
     /** Detects the language of text within a request. */
     await gapi.client.language.detections.list({
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
         q: ['Test string'],
         source: 'Test string',
         target: 'Test string',
-      }
+      },
     );
   }
 });

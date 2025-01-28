@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load OS Config API v1alpha */
   function load(
-    urlOrObject: 'https://osconfig.googleapis.com/$discovery/rest?version=v1alpha'
+    urlOrObject: 'https://osconfig.googleapis.com/$discovery/rest?version=v1alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'osconfig', version: 'v1alpha'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'osconfig',
     version: 'v1alpha',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace osconfig {
@@ -1013,7 +1013,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -1108,7 +1108,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OSPolicyAssignment
+        body: OSPolicyAssignment,
       ): Request<Operation>;
       /** Delete the OS policy assignment. This method creates a new revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. If the LRO completes and is not cancelled, all revisions associated with the OS policy assignment are deleted. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1alpha/projects.locations.osPolicyAssignments.operations/cancel). */
       delete(request?: {
@@ -1296,7 +1296,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: OSPolicyAssignment
+        body: OSPolicyAssignment,
       ): Request<Operation>;
       operations: OperationsResource;
     }

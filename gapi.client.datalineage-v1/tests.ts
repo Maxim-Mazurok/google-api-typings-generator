@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://datalineage.googleapis.com/$discovery/rest?version=v1'
+    'https://datalineage.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.datalineage */
 
@@ -40,14 +40,14 @@ gapi.load('client', async () => {
         links: ['Test string'],
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates new lineage events together with their parents: process and run. Updates the process and run if they already exist. Mapped from Open Lineage specification: https://github.com/OpenLineage/OpenLineage/blob/main/spec/OpenLineage.json. */
     await gapi.client.datalineage.projects.locations.processOpenLineageRunEvent(
       {
         parent: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Retrieve a list of links connected to a specific asset. Links represent the data flow between **source** (upstream) and **target** (downstream) assets in transformation pipelines. Links are stored in the same project as the Lineage Events that create them. You can retrieve links in every project where you have the `datalineage.events.get` permission. The project provided in the URL is used for Billing and Quota. */
     await gapi.client.datalineage.projects.locations.searchLinks(
@@ -63,14 +63,14 @@ gapi.load('client', async () => {
         target: {
           fullyQualifiedName: 'Test string',
         },
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.datalineage.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.datalineage.projects.locations.operations.delete({
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
           name: 'Test string',
           sourceType: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the process with the specified name. */
     await gapi.client.datalineage.projects.locations.processes.delete({
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
           name: 'Test string',
           sourceType: 'Test string',
         },
-      }
+      },
     );
     /** Creates a new run. */
     await gapi.client.datalineage.projects.locations.processes.runs.create(
@@ -154,7 +154,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         startTime: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes the run with the specified name. */
     await gapi.client.datalineage.projects.locations.processes.runs.delete({
@@ -187,7 +187,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         startTime: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates a new lineage event. */
     await gapi.client.datalineage.projects.locations.processes.runs.lineageEvents.create(
@@ -209,20 +209,20 @@ gapi.load('client', async () => {
         ],
         name: 'Test string',
         startTime: 'Test string',
-      }
+      },
     );
     /** Deletes the lineage event with the specified name. */
     await gapi.client.datalineage.projects.locations.processes.runs.lineageEvents.delete(
       {
         allowMissing: true,
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a specified lineage event. */
     await gapi.client.datalineage.projects.locations.processes.runs.lineageEvents.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists lineage events in the given project and location. The list order is not defined. */
     await gapi.client.datalineage.projects.locations.processes.runs.lineageEvents.list(
@@ -230,7 +230,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

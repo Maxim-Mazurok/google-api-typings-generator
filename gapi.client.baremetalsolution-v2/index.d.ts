@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Bare Metal Solution API v2 */
   function load(
-    urlOrObject: 'https://baremetalsolution.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://baremetalsolution.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'baremetalsolution', version: 'v2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'baremetalsolution',
     version: 'v2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace baremetalsolution {
@@ -775,7 +775,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DetachLunRequest
+        body: DetachLunRequest,
       ): Request<Operation>;
       /** Perform disable hyperthreading operation on a single server. */
       disableHyperthreading(request: {
@@ -833,7 +833,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableHyperthreadingRequest
+        body: DisableHyperthreadingRequest,
       ): Request<Operation>;
       /** Disable the interactive serial console feature on an instance. */
       disableInteractiveSerialConsole(request: {
@@ -891,7 +891,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableInteractiveSerialConsoleRequest
+        body: DisableInteractiveSerialConsoleRequest,
       ): Request<Operation>;
       /** Perform enable hyperthreading operation on a single server. */
       enableHyperthreading(request: {
@@ -949,7 +949,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnableHyperthreadingRequest
+        body: EnableHyperthreadingRequest,
       ): Request<Operation>;
       /** Enable the interactive serial console feature on an instance. */
       enableInteractiveSerialConsole(request: {
@@ -1007,7 +1007,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnableInteractiveSerialConsoleRequest
+        body: EnableInteractiveSerialConsoleRequest,
       ): Request<Operation>;
       /** Get details about a single server. */
       get(request?: {
@@ -1156,7 +1156,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Perform reimage operation on a single server. */
       reimage(request: {
@@ -1214,7 +1214,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReimageInstanceRequest
+        body: ReimageInstanceRequest,
       ): Request<Operation>;
       /** RenameInstance sets a new name for an instance. Use with caution, previous names become immediately invalidated. */
       rename(request: {
@@ -1272,7 +1272,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RenameInstanceRequest
+        body: RenameInstanceRequest,
       ): Request<Instance>;
       /** Perform an ungraceful, hard reset on a server. Equivalent to shutting the power off and then turning it back on. */
       reset(request: {
@@ -1330,7 +1330,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetInstanceRequest
+        body: ResetInstanceRequest,
       ): Request<Operation>;
       /** Starts a server that was shutdown. */
       start(request: {
@@ -1388,7 +1388,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartInstanceRequest
+        body: StartInstanceRequest,
       ): Request<Operation>;
       /** Stop a running server. */
       stop(request: {
@@ -1446,7 +1446,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopInstanceRequest
+        body: StopInstanceRequest,
       ): Request<Operation>;
     }
     interface NetworksResource {
@@ -1597,7 +1597,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Network
+        body: Network,
       ): Request<Operation>;
       /** RenameNetwork sets a new name for a network. Use with caution, previous names become immediately invalidated. */
       rename(request: {
@@ -1655,7 +1655,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RenameNetworkRequest
+        body: RenameNetworkRequest,
       ): Request<Network>;
     }
     interface NfsSharesResource {
@@ -1715,7 +1715,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NfsShare
+        body: NfsShare,
       ): Request<Operation>;
       /** Delete an NFS share. The underlying volume is automatically deleted. */
       delete(request?: {
@@ -1864,7 +1864,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NfsShare
+        body: NfsShare,
       ): Request<Operation>;
       /** RenameNfsShare sets a new name for an nfsshare. Use with caution, previous names become immediately invalidated. */
       rename(request: {
@@ -1922,7 +1922,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RenameNfsShareRequest
+        body: RenameNfsShareRequest,
       ): Request<NfsShare>;
     }
     interface OperationsResource {
@@ -2075,7 +2075,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProvisioningConfig
+        body: ProvisioningConfig,
       ): Request<ProvisioningConfig>;
       /** Get ProvisioningConfig by name. */
       get(request?: {
@@ -2168,7 +2168,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ProvisioningConfig
+        body: ProvisioningConfig,
       ): Request<ProvisioningConfig>;
       /** Submit a provisiong configuration for a given project. */
       submit(request: {
@@ -2226,7 +2226,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SubmitProvisioningConfigRequest
+        body: SubmitProvisioningConfigRequest,
       ): Request<SubmitProvisioningConfigResponse>;
     }
     interface ProvisioningQuotasResource {
@@ -2323,7 +2323,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SSHKey
+        body: SSHKey,
       ): Request<SSHKey>;
       /** Deletes a public SSH key registered in the specified project. */
       delete(request?: {
@@ -2441,7 +2441,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EvictLunRequest
+        body: EvictLunRequest,
       ): Request<Operation>;
       /** Get details of a single storage logical unit number(LUN). */
       get(request?: {
@@ -2559,7 +2559,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VolumeSnapshot
+        body: VolumeSnapshot,
       ): Request<VolumeSnapshot>;
       /** Deletes a volume snapshot. Returns INVALID_ARGUMENT if called for a non-boot volume. */
       delete(request?: {
@@ -2702,7 +2702,7 @@ declare namespace gapi.client {
           /** Required. Name of the snapshot which will be used to restore its parent volume. */
           volumeSnapshot: string;
         },
-        body: RestoreVolumeSnapshotRequest
+        body: RestoreVolumeSnapshotRequest,
       ): Request<Operation>;
     }
     interface VolumesResource {
@@ -2762,7 +2762,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EvictVolumeRequest
+        body: EvictVolumeRequest,
       ): Request<Operation>;
       /** Get details of a single storage volume. */
       get(request?: {
@@ -2884,7 +2884,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Volume
+        body: Volume,
       ): Request<Operation>;
       /** RenameVolume sets a new name for a volume. Use with caution, previous names become immediately invalidated. */
       rename(request: {
@@ -2942,7 +2942,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RenameVolumeRequest
+        body: RenameVolumeRequest,
       ): Request<Volume>;
       /** Emergency Volume resize. */
       resize(request: {
@@ -3000,7 +3000,7 @@ declare namespace gapi.client {
           /** Required. Volume to resize. */
           volume: string;
         },
-        body: ResizeVolumeRequest
+        body: ResizeVolumeRequest,
       ): Request<Operation>;
       luns: LunsResource;
       snapshots: SnapshotsResource;

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load AI Platform Training & Prediction API v1 */
   function load(
-    urlOrObject: 'https://ml.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://ml.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'ml', version: 'v1'): Promise<void>;
@@ -845,7 +845,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__CancelJobRequest
+        body: GoogleCloudMlV1__CancelJobRequest,
       ): Request<{}>;
       /** Creates a training or a batch prediction job. */
       create(request: {
@@ -903,7 +903,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__Job
+        body: GoogleCloudMlV1__Job,
       ): Request<GoogleCloudMlV1__Job>;
       /** Describes a job. */
       get(request?: {
@@ -1054,7 +1054,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__Job
+        body: GoogleCloudMlV1__Job,
       ): Request<GoogleCloudMlV1__Job>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1084,7 +1084,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1__SetIamPolicyRequest
+        body: GoogleIamV1__SetIamPolicyRequest,
       ): Request<GoogleIamV1__Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1114,7 +1114,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1__TestIamPermissionsRequest
+        body: GoogleIamV1__TestIamPermissionsRequest,
       ): Request<GoogleIamV1__TestIamPermissionsResponse>;
     }
     interface OperationsResource {
@@ -1230,7 +1230,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__AddTrialMeasurementRequest
+        body: GoogleCloudMlV1__AddTrialMeasurementRequest,
       ): Request<GoogleCloudMlV1__Trial>;
       /** Checks whether a trial should stop or not. Returns a long-running operation. When the operation is successful, it will contain a CheckTrialEarlyStoppingStateResponse. */
       checkEarlyStoppingState(request: {
@@ -1288,7 +1288,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__CheckTrialEarlyStoppingStateRequest
+        body: GoogleCloudMlV1__CheckTrialEarlyStoppingStateRequest,
       ): Request<GoogleLongrunning__Operation>;
       /** Marks a trial as complete. */
       complete(request: {
@@ -1346,7 +1346,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__CompleteTrialRequest
+        body: GoogleCloudMlV1__CompleteTrialRequest,
       ): Request<GoogleCloudMlV1__Trial>;
       /** Adds a user provided trial to a study. */
       create(request: {
@@ -1404,7 +1404,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__Trial
+        body: GoogleCloudMlV1__Trial,
       ): Request<GoogleCloudMlV1__Trial>;
       /** Deletes a trial. */
       delete(request?: {
@@ -1543,7 +1543,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__ListOptimalTrialsRequest
+        body: GoogleCloudMlV1__ListOptimalTrialsRequest,
       ): Request<GoogleCloudMlV1__ListOptimalTrialsResponse>;
       /** Stops a trial. */
       stop(request: {
@@ -1601,7 +1601,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__StopTrialRequest
+        body: GoogleCloudMlV1__StopTrialRequest,
       ): Request<GoogleCloudMlV1__Trial>;
       /** Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When this long-running operation succeeds, it will contain a SuggestTrialsResponse. */
       suggest(request: {
@@ -1659,7 +1659,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__SuggestTrialsRequest
+        body: GoogleCloudMlV1__SuggestTrialsRequest,
       ): Request<GoogleLongrunning__Operation>;
     }
     interface StudiesResource {
@@ -1723,7 +1723,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__Study
+        body: GoogleCloudMlV1__Study,
       ): Request<GoogleCloudMlV1__Study>;
       /** Deletes a study. */
       delete(request?: {
@@ -1927,7 +1927,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__Version
+        body: GoogleCloudMlV1__Version,
       ): Request<GoogleLongrunning__Operation>;
       /** Deletes a model version. Each model can have multiple versions deployed and in use at any given time. Use this method to remove a single version. Note: You cannot delete the version that is set as the default version of the model unless it is the only remaining version. */
       delete(request?: {
@@ -2076,7 +2076,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__Version
+        body: GoogleCloudMlV1__Version,
       ): Request<GoogleLongrunning__Operation>;
       /** Designates a version to be the default for the model. The default version is used for prediction requests made against the model that don't specify a version. The first version to be created for a model is automatically set as the default. You must make any subsequent changes to the default version setting manually using this method. */
       setDefault(request: {
@@ -2134,7 +2134,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__SetDefaultVersionRequest
+        body: GoogleCloudMlV1__SetDefaultVersionRequest,
       ): Request<GoogleCloudMlV1__Version>;
     }
     interface ModelsResource {
@@ -2194,7 +2194,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__Model
+        body: GoogleCloudMlV1__Model,
       ): Request<GoogleCloudMlV1__Model>;
       /** Deletes a model. You can only delete a model if there are no versions in it. You can delete versions by calling projects.models.versions.delete. */
       delete(request?: {
@@ -2372,7 +2372,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__Model
+        body: GoogleCloudMlV1__Model,
       ): Request<GoogleLongrunning__Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2402,7 +2402,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1__SetIamPolicyRequest
+        body: GoogleIamV1__SetIamPolicyRequest,
       ): Request<GoogleIamV1__Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2432,7 +2432,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1__TestIamPermissionsRequest
+        body: GoogleIamV1__TestIamPermissionsRequest,
       ): Request<GoogleIamV1__TestIamPermissionsResponse>;
       versions: VersionsResource;
     }
@@ -2582,7 +2582,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__ExplainRequest
+        body: GoogleCloudMlV1__ExplainRequest,
       ): Request<GoogleApi__HttpBody>;
       /** Get the service account information associated with your project. You need this information in order to grant the service account permissions for the Google Cloud Storage location where you put your model training code for training the model with Google Cloud Machine Learning. */
       getConfig(request?: {
@@ -2667,7 +2667,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMlV1__PredictRequest
+        body: GoogleCloudMlV1__PredictRequest,
       ): Request<GoogleApi__HttpBody>;
       jobs: JobsResource;
       locations: LocationsResource;

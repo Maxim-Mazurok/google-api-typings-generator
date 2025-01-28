@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebasedataconnect.googleapis.com/$discovery/rest?version=v1beta'
+    'https://firebasedataconnect.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.firebasedataconnect */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.firebasedataconnect.projects.locations.operations.delete({
@@ -86,7 +86,7 @@ gapi.load('client', async () => {
         reconciling: true,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Service. */
     await gapi.client.firebasedataconnect.projects.locations.services.delete({
@@ -116,7 +116,7 @@ gapi.load('client', async () => {
         variables: {
           A: 42,
         },
-      }
+      },
     );
     /** Execute any GraphQL query against the Firebase Data Connect's generated GraphQL schema. Grants full read to the connected data sources. `ExecuteGraphqlRead` is identical to `ExecuteGraphql` except it only accepts read-only query. */
     await gapi.client.firebasedataconnect.projects.locations.services.executeGraphqlRead(
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
         variables: {
           A: 42,
         },
-      }
+      },
     );
     /** Gets details of a single Service. */
     await gapi.client.firebasedataconnect.projects.locations.services.get({
@@ -174,7 +174,7 @@ gapi.load('client', async () => {
         reconciling: true,
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new Connector in a given project and location. The operations are validated against and must be compatible with the active schema. If the operations and schema are not compatible or if the schema is not present, this will result in an error. */
     await gapi.client.firebasedataconnect.projects.locations.services.connectors.create(
@@ -206,7 +206,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Connector. */
     await gapi.client.firebasedataconnect.projects.locations.services.connectors.delete(
@@ -217,7 +217,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         requestId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Execute a predefined mutation in a Connector. */
     await gapi.client.firebasedataconnect.projects.locations.services.connectors.executeMutation(
@@ -229,7 +229,7 @@ gapi.load('client', async () => {
         variables: {
           A: 42,
         },
-      }
+      },
     );
     /** Execute a predefined query in a Connector. */
     await gapi.client.firebasedataconnect.projects.locations.services.connectors.executeQuery(
@@ -241,13 +241,13 @@ gapi.load('client', async () => {
         variables: {
           A: 42,
         },
-      }
+      },
     );
     /** Gets details of a single Connector. */
     await gapi.client.firebasedataconnect.projects.locations.services.connectors.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Connectors in a given project and location. */
     await gapi.client.firebasedataconnect.projects.locations.services.connectors.list(
@@ -257,7 +257,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single Connector, and creates a new ConnectorRevision with the updated Connector. The operations are validated against and must be compatible with the live schema. If the operations and schema are not compatible or if the schema is not present, this will result in an error. */
     await gapi.client.firebasedataconnect.projects.locations.services.connectors.patch(
@@ -290,7 +290,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new Schema in a given project and location. Only creation of `schemas/main` is supported and calling create with any other schema ID will result in an error. */
     await gapi.client.firebasedataconnect.projects.locations.services.schemas.create(
@@ -335,7 +335,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Schema. Because the schema and connectors must be compatible at all times, if this is called while any connectors are active, this will result in an error. */
     await gapi.client.firebasedataconnect.projects.locations.services.schemas.delete(
@@ -346,13 +346,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         requestId: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Gets details of a single Schema. */
     await gapi.client.firebasedataconnect.projects.locations.services.schemas.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Schemas in a given project and location. Note that only `schemas/main` is supported, so this will always return at most one Schema. */
     await gapi.client.firebasedataconnect.projects.locations.services.schemas.list(
@@ -362,7 +362,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single Schema, and creates a new SchemaRevision with the updated Schema. */
     await gapi.client.firebasedataconnect.projects.locations.services.schemas.patch(
@@ -408,7 +408,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
   }
 });

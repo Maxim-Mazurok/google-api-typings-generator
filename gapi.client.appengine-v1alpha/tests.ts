@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://appengine.googleapis.com/$discovery/rest?version=v1alpha'
+    'https://appengine.googleapis.com/$discovery/rest?version=v1alpha',
   );
   /** now we can use gapi.client.appengine */
 
@@ -56,7 +56,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
-      }
+      },
     );
     /** Deletes the specified SSL certificate. */
     await gapi.client.appengine.apps.authorizedCertificates.delete({
@@ -99,7 +99,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
-      }
+      },
     );
     /** Lists all domains the user is authorized to administer. */
     await gapi.client.appengine.apps.authorizedDomains.list({
@@ -128,7 +128,7 @@ gapi.load('client', async () => {
           certificateId: 'Test string',
           isManagedCertificate: true,
         },
-      }
+      },
     );
     /** Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. */
     await gapi.client.appengine.apps.domainMappings.delete({
@@ -168,7 +168,7 @@ gapi.load('client', async () => {
           certificateId: 'Test string',
           isManagedCertificate: true,
         },
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.appengine.apps.locations.get({
@@ -214,7 +214,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         projectsId: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.appengine.projects.locations.operations.get({

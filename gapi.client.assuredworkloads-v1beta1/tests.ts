@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://assuredworkloads.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://assuredworkloads.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.assuredworkloads */
 
@@ -50,7 +50,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         project: 'Test string',
         target: 'Test string',
-      }
+      },
     );
     /** Creates Assured Workload. */
     await gapi.client.assuredworkloads.organizations.locations.workloads.create(
@@ -143,26 +143,26 @@ gapi.load('client', async () => {
         workloadOptions: {
           kajEnrollmentType: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the workload. Make sure that workload's direct children are already in a deleted state, otherwise the request will fail with a FAILED_PRECONDITION error. In addition to assuredworkloads.workload.delete permission, the user should also have orgpolicy.policy.set permission on the deleted folder to remove Assured Workloads OrgPolicies. */
     await gapi.client.assuredworkloads.organizations.locations.workloads.delete(
       {
         etag: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** This endpoint enables Assured Workloads service to offer compliance updates for the folder based assured workload. It sets up an Assured Workloads Service Agent, having permissions to read compliance controls (for example: Org Policies) applied on the workload. The caller must have `resourcemanager.folders.getIamPolicy` and `resourcemanager.folders.setIamPolicy` permissions on the assured workload folder. */
     await gapi.client.assuredworkloads.organizations.locations.workloads.enableComplianceUpdates(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Enable resource violation monitoring for a workload. */
     await gapi.client.assuredworkloads.organizations.locations.workloads.enableResourceMonitoring(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets Assured Workload associated with a CRM Node */
     await gapi.client.assuredworkloads.organizations.locations.workloads.get({
@@ -266,7 +266,7 @@ gapi.load('client', async () => {
         workloadOptions: {
           kajEnrollmentType: 'Test string',
         },
-      }
+      },
     );
     /** Restrict the list of resources allowed in the Workload environment. The current list of allowed products can be found at https://cloud.google.com/assured-workloads/docs/supported-products In addition to assuredworkloads.workload.update permission, the user should also have orgpolicy.policy.set permission on the folder resource to use this functionality. */
     await gapi.client.assuredworkloads.organizations.locations.workloads.restrictAllowedResources(
@@ -275,7 +275,7 @@ gapi.load('client', async () => {
       },
       {
         restrictionType: 'Test string',
-      }
+      },
     );
     /** This endpoint creates a new operation to apply the given update. */
     await gapi.client.assuredworkloads.organizations.locations.workloads.updates.apply(
@@ -284,7 +284,7 @@ gapi.load('client', async () => {
       },
       {
         action: 'Test string',
-      }
+      },
     );
     /** This endpoint lists all updates for the given workload. */
     await gapi.client.assuredworkloads.organizations.locations.workloads.updates.list(
@@ -292,7 +292,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Acknowledges an existing violation. By acknowledging a violation, users acknowledge the existence of a compliance violation in their workload and decide to ignore it due to a valid business justification. Acknowledgement is a permanent operation and it cannot be reverted. */
     await gapi.client.assuredworkloads.organizations.locations.workloads.violations.acknowledge(
@@ -303,13 +303,13 @@ gapi.load('client', async () => {
         acknowledgeType: 'Test string',
         comment: 'Test string',
         nonCompliantOrgPolicy: 'Test string',
-      }
+      },
     );
     /** Retrieves Assured Workload Violation based on ID. */
     await gapi.client.assuredworkloads.organizations.locations.workloads.violations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the Violations in the AssuredWorkload Environment. Callers may also choose to read across multiple Workloads as per [AIP-159](https://google.aip.dev/159) by using '-' (the hyphen or dash character) as a wildcard character instead of workload-id in the parent. Format `organizations/{org_id}/locations/{location}/workloads/-` */
     await gapi.client.assuredworkloads.organizations.locations.workloads.violations.list(
@@ -320,7 +320,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

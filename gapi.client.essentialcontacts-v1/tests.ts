@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://essentialcontacts.googleapis.com/$discovery/rest?version=v1'
+    'https://essentialcontacts.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.essentialcontacts */
 
@@ -50,7 +50,7 @@ gapi.load('client', async () => {
         notificationCategorySubscriptions: ['Test string'],
         validateTime: 'Test string',
         validationState: 'Test string',
-      }
+      },
     );
     /** Deletes a contact. */
     await gapi.client.essentialcontacts.folders.contacts.delete({
@@ -79,7 +79,7 @@ gapi.load('client', async () => {
         notificationCategorySubscriptions: ['Test string'],
         validateTime: 'Test string',
         validationState: 'Test string',
-      }
+      },
     );
     /** Allows a contact admin to send a test message to contact to verify that it has been configured correctly. */
     await gapi.client.essentialcontacts.folders.contacts.sendTestMessage(
@@ -89,7 +89,7 @@ gapi.load('client', async () => {
       {
         contacts: ['Test string'],
         notificationCategory: 'Test string',
-      }
+      },
     );
     /** Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. */
     await gapi.client.essentialcontacts.organizations.contacts.compute({
@@ -110,7 +110,7 @@ gapi.load('client', async () => {
         notificationCategorySubscriptions: ['Test string'],
         validateTime: 'Test string',
         validationState: 'Test string',
-      }
+      },
     );
     /** Deletes a contact. */
     await gapi.client.essentialcontacts.organizations.contacts.delete({
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
         notificationCategorySubscriptions: ['Test string'],
         validateTime: 'Test string',
         validationState: 'Test string',
-      }
+      },
     );
     /** Allows a contact admin to send a test message to contact to verify that it has been configured correctly. */
     await gapi.client.essentialcontacts.organizations.contacts.sendTestMessage(
@@ -149,7 +149,7 @@ gapi.load('client', async () => {
       {
         contacts: ['Test string'],
         notificationCategory: 'Test string',
-      }
+      },
     );
     /** Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. */
     await gapi.client.essentialcontacts.projects.contacts.compute({
@@ -170,7 +170,7 @@ gapi.load('client', async () => {
         notificationCategorySubscriptions: ['Test string'],
         validateTime: 'Test string',
         validationState: 'Test string',
-      }
+      },
     );
     /** Deletes a contact. */
     await gapi.client.essentialcontacts.projects.contacts.delete({
@@ -199,7 +199,7 @@ gapi.load('client', async () => {
         notificationCategorySubscriptions: ['Test string'],
         validateTime: 'Test string',
         validationState: 'Test string',
-      }
+      },
     );
     /** Allows a contact admin to send a test message to contact to verify that it has been configured correctly. */
     await gapi.client.essentialcontacts.projects.contacts.sendTestMessage(
@@ -209,7 +209,7 @@ gapi.load('client', async () => {
       {
         contacts: ['Test string'],
         notificationCategory: 'Test string',
-      }
+      },
     );
   }
 });

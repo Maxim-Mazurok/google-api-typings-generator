@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Safe Browsing API v4 */
   function load(
-    urlOrObject: 'https://safebrowsing.googleapis.com/$discovery/rest?version=v4'
+    urlOrObject: 'https://safebrowsing.googleapis.com/$discovery/rest?version=v4',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'safebrowsing', version: 'v4'): Promise<void>;
@@ -352,7 +352,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleSecuritySafebrowsingV4FindFullHashesRequest
+        body: GoogleSecuritySafebrowsingV4FindFullHashesRequest,
       ): Request<GoogleSecuritySafebrowsingV4FindFullHashesResponse>;
     }
     interface ThreatHitsResource {
@@ -408,7 +408,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleSecuritySafebrowsingV4ThreatHit
+        body: GoogleSecuritySafebrowsingV4ThreatHit,
       ): Request<{}>;
     }
     interface ThreatListsResource {
@@ -491,7 +491,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequest
+        body: GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequest,
       ): Request<GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse>;
     }
     interface ThreatMatchesResource {
@@ -547,7 +547,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleSecuritySafebrowsingV4FindThreatMatchesRequest
+        body: GoogleSecuritySafebrowsingV4FindThreatMatchesRequest,
       ): Request<GoogleSecuritySafebrowsingV4FindThreatMatchesResponse>;
     }
 

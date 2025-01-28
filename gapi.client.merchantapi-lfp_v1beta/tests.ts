@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://merchantapi.googleapis.com/$discovery/rest?version=lfp_v1beta'
+    'https://merchantapi.googleapis.com/$discovery/rest?version=lfp_v1beta',
   );
   /** now we can use gapi.client.merchantapi */
 
@@ -54,7 +54,7 @@ gapi.load('client', async () => {
         regionCode: 'Test string',
         storeCode: 'Test string',
         targetAccount: 'Test string',
-      }
+      },
     );
     /** Inserts a `LfpSale` for the given merchant. */
     await gapi.client.merchantapi.accounts.lfpSales.insert(
@@ -77,7 +77,7 @@ gapi.load('client', async () => {
         storeCode: 'Test string',
         targetAccount: 'Test string',
         uid: 'Test string',
-      }
+      },
     );
     /** Deletes a store for a target merchant. */
     await gapi.client.merchantapi.accounts.lfpStores.delete({
@@ -104,7 +104,7 @@ gapi.load('client', async () => {
         storeName: 'Test string',
         targetAccount: 'Test string',
         websiteUri: 'Test string',
-      }
+      },
     );
     /** Lists the stores of the target merchant, specified by the filter in `ListLfpStoresRequest`. */
     await gapi.client.merchantapi.accounts.lfpStores.list({

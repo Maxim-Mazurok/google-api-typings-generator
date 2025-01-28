@@ -30,7 +30,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.adexperiencereport
-  }
+  },
 );
 ```
 

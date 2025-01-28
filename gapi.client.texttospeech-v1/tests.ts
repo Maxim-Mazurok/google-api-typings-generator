@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://texttospeech.googleapis.com/$discovery/rest?version=v1'
+    'https://texttospeech.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.texttospeech */
 
@@ -36,7 +36,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.texttospeech.operations.delete({
@@ -90,7 +90,7 @@ gapi.load('client', async () => {
             voiceCloningKey: 'Test string',
           },
         },
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.texttospeech.projects.locations.operations.get({
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
             voiceCloningKey: 'Test string',
           },
         },
-      }
+      },
     );
     /** Returns a list of Voice supported for synthesis. */
     await gapi.client.texttospeech.voices.list({

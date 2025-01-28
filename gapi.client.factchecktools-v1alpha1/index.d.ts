@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Fact Check Tools API v1alpha1 */
   function load(
-    urlOrObject: 'https://factchecktools.googleapis.com/$discovery/rest?version=v1alpha1'
+    urlOrObject: 'https://factchecktools.googleapis.com/$discovery/rest?version=v1alpha1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'factchecktools', version: 'v1alpha1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'factchecktools',
     version: 'v1alpha1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace factchecktools {
@@ -272,7 +272,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage
+        body: GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage,
       ): Request<GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage>;
       /** Delete all `ClaimReview` markup on a page. */
       delete(request?: {
@@ -419,7 +419,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage
+        body: GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage,
       ): Request<GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage>;
     }
 

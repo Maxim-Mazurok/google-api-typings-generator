@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebaseappdistribution.googleapis.com/$discovery/rest?version=v1alpha'
+    'https://firebaseappdistribution.googleapis.com/$discovery/rest?version=v1alpha',
   );
   /** now we can use gapi.client.firebaseappdistribution */
 
@@ -60,7 +60,7 @@ gapi.load('client', async () => {
         displayVersion: 'Test string',
         emails: ['Test string'],
         groupIds: ['Test string'],
-      }
+      },
     );
     /** Create release notes on a release. */
     await gapi.client.firebaseappdistribution.apps.releases.notes.create(
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
         releaseNotes: {
           releaseNotes: 'Test string',
         },
-      }
+      },
     );
     /** Get UDIDs of tester iOS devices in a project */
     await gapi.client.firebaseappdistribution.apps.testers.getTesterUdids({
@@ -127,13 +127,13 @@ gapi.load('client', async () => {
             version: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Abort automated test run on release. */
     await gapi.client.firebaseappdistribution.projects.apps.releases.tests.cancel(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Run automated test(s) on release. */
     await gapi.client.firebaseappdistribution.projects.apps.releases.tests.create(
@@ -264,7 +264,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         testCase: 'Test string',
         testState: 'Test string',
-      }
+      },
     );
     /** Get results for automated test run on release. */
     await gapi.client.firebaseappdistribution.projects.apps.releases.tests.get({
@@ -277,7 +277,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Create a new test case. */
     await gapi.client.firebaseappdistribution.projects.apps.testCases.create(
@@ -300,7 +300,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Delete a test case. */
     await gapi.client.firebaseappdistribution.projects.apps.testCases.delete({
@@ -336,7 +336,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Get UDIDs of tester iOS devices in a project */
     await gapi.client.firebaseappdistribution.projects.testers.getUdids({

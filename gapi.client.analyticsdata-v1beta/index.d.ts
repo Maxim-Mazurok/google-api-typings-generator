@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Analytics Data API v1beta */
   function load(
-    urlOrObject: 'https://analyticsdata.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://analyticsdata.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'analyticsdata', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'analyticsdata',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace analyticsdata {
@@ -675,7 +675,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AudienceExport
+        body: AudienceExport,
       ): Request<Operation>;
       /** Gets configuration metadata about a specific audience export. This method can be used to understand an audience export after it has been created. See [Creating an Audience Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics) for an introduction to Audience Exports with examples. Audience Export APIs have some methods at alpha and other methods at beta stability. The intention is to advance methods to beta stability after some feedback and adoption. To give your feedback on this API, complete the [Google Analytics Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form. */
       get(request?: {
@@ -791,7 +791,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryAudienceExportRequest
+        body: QueryAudienceExportRequest,
       ): Request<QueryAudienceExportResponse>;
     }
     interface PropertiesResource {
@@ -851,7 +851,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchRunPivotReportsRequest
+        body: BatchRunPivotReportsRequest,
       ): Request<BatchRunPivotReportsResponse>;
       /** Returns multiple reports in a batch. All reports must be for the same Google Analytics property. */
       batchRunReports(request: {
@@ -909,7 +909,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchRunReportsRequest
+        body: BatchRunReportsRequest,
       ): Request<BatchRunReportsResponse>;
       /** This compatibility method lists dimensions and metrics that can be added to a report request and maintain compatibility. This method fails if the request's dimensions and metrics are incompatible. In Google Analytics, reports fail if they request incompatible dimensions and/or metrics; in that case, you will need to remove dimensions and/or metrics from the incompatible report until the report is compatible. The Realtime and Core reports have different compatibility rules. This method checks compatibility for Core reports. */
       checkCompatibility(request: {
@@ -967,7 +967,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CheckCompatibilityRequest
+        body: CheckCompatibilityRequest,
       ): Request<CheckCompatibilityResponse>;
       /** Returns metadata for dimensions and metrics available in reporting methods. Used to explore the dimensions and metrics. In this method, a Google Analytics property identifier is specified in the request, and the metadata response includes Custom dimensions and metrics as well as Universal metadata. For example if a custom metric with parameter name `levels_unlocked` is registered to a property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata are dimensions and metrics applicable to any property such as `country` and `totalUsers`. */
       getMetadata(request?: {
@@ -1052,7 +1052,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunPivotReportRequest
+        body: RunPivotReportRequest,
       ): Request<RunPivotReportResponse>;
       /** Returns a customized report of realtime event data for your property. Events appear in realtime reports seconds after they have been sent to the Google Analytics. Realtime reports show events and usage data for the periods of time ranging from the present moment to 30 minutes ago (up to 60 minutes for Google Analytics 360 properties). For a guide to constructing realtime requests & understanding responses, see [Creating a Realtime Report](https://developers.google.com/analytics/devguides/reporting/data/v1/realtime-basics). */
       runRealtimeReport(request: {
@@ -1110,7 +1110,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunRealtimeReportRequest
+        body: RunRealtimeReportRequest,
       ): Request<RunRealtimeReportResponse>;
       /** Returns a customized report of your Google Analytics event data. Reports contain statistics derived from data collected by the Google Analytics tracking code. The data returned from the API is as a table with columns for the requested dimensions and metrics. Metrics are individual measurements of user activity on your property, such as active users or event count. Dimensions break down metrics across some common criteria, such as country or event name. For a guide to constructing requests & understanding responses, see [Creating a Report](https://developers.google.com/analytics/devguides/reporting/data/v1/basics). */
       runReport(request: {
@@ -1168,7 +1168,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunReportRequest
+        body: RunReportRequest,
       ): Request<RunReportResponse>;
       audienceExports: AudienceExportsResource;
     }

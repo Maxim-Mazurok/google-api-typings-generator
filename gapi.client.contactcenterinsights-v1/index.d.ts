@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Contact Center AI Insights API v1 */
   function load(
-    urlOrObject: 'https://contactcenterinsights.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://contactcenterinsights.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'contactcenterinsights', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'contactcenterinsights',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace contactcenterinsights {
@@ -2559,7 +2559,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1AnalysisRule
+        body: GoogleCloudContactcenterinsightsV1AnalysisRule,
       ): Request<GoogleCloudContactcenterinsightsV1AnalysisRule>;
       /** Deletes a analysis rule. */
       delete(request?: {
@@ -2706,7 +2706,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1AnalysisRule
+        body: GoogleCloudContactcenterinsightsV1AnalysisRule,
       ): Request<GoogleCloudContactcenterinsightsV1AnalysisRule>;
     }
     interface ConversationsResource {
@@ -2797,7 +2797,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1QueryMetricsRequest
+        body: GoogleCloudContactcenterinsightsV1QueryMetricsRequest,
       ): Request<GoogleLongrunningOperation>;
       conversations: ConversationsResource;
     }
@@ -2861,7 +2861,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1Analysis
+        body: GoogleCloudContactcenterinsightsV1Analysis,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes an analysis. */
       delete(request?: {
@@ -3012,7 +3012,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1FeedbackLabel
+        body: GoogleCloudContactcenterinsightsV1FeedbackLabel,
       ): Request<GoogleCloudContactcenterinsightsV1FeedbackLabel>;
       /** Delete feedback label. */
       delete(request?: {
@@ -3161,7 +3161,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1FeedbackLabel
+        body: GoogleCloudContactcenterinsightsV1FeedbackLabel,
       ): Request<GoogleCloudContactcenterinsightsV1FeedbackLabel>;
     }
     interface ConversationsResource {
@@ -3221,7 +3221,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest
+        body: GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes multiple conversations in a single request. */
       bulkDelete(request: {
@@ -3279,7 +3279,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest
+        body: GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets conversation statistics. */
       calculateStats(request?: {
@@ -3370,7 +3370,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1Conversation
+        body: GoogleCloudContactcenterinsightsV1Conversation,
       ): Request<GoogleCloudContactcenterinsightsV1Conversation>;
       /** Deletes a conversation. */
       delete(request?: {
@@ -3486,7 +3486,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1IngestConversationsRequest
+        body: GoogleCloudContactcenterinsightsV1IngestConversationsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Lists conversations. */
       list(request?: {
@@ -3585,7 +3585,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1Conversation
+        body: GoogleCloudContactcenterinsightsV1Conversation,
       ): Request<GoogleCloudContactcenterinsightsV1Conversation>;
       /** Create a long-running conversation upload operation. This method differs from `CreateConversation` by allowing audio transcription and optional DLP redaction. */
       upload(request: {
@@ -3643,7 +3643,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1UploadConversationRequest
+        body: GoogleCloudContactcenterinsightsV1UploadConversationRequest,
       ): Request<GoogleLongrunningOperation>;
       analyses: AnalysesResource;
       feedbackLabels: FeedbackLabelsResource;
@@ -3705,7 +3705,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest
+        body: GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface InsightsdataResource {
@@ -3765,7 +3765,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest
+        body: GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface IssuesResource {
@@ -3825,7 +3825,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1Issue
+        body: GoogleCloudContactcenterinsightsV1Issue,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes an issue. */
       delete(request?: {
@@ -3968,7 +3968,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1Issue
+        body: GoogleCloudContactcenterinsightsV1Issue,
       ): Request<GoogleCloudContactcenterinsightsV1Issue>;
     }
     interface IssueModelsResource {
@@ -4055,7 +4055,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1IssueModel
+        body: GoogleCloudContactcenterinsightsV1IssueModel,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes an issue model. */
       delete(request?: {
@@ -4140,7 +4140,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1DeployIssueModelRequest
+        body: GoogleCloudContactcenterinsightsV1DeployIssueModelRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Exports an issue model to the provided destination. */
       export(request: {
@@ -4198,7 +4198,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1ExportIssueModelRequest
+        body: GoogleCloudContactcenterinsightsV1ExportIssueModelRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets an issue model. */
       get(request?: {
@@ -4283,7 +4283,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1ImportIssueModelRequest
+        body: GoogleCloudContactcenterinsightsV1ImportIssueModelRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Lists issue models. */
       list(request?: {
@@ -4372,7 +4372,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1IssueModel
+        body: GoogleCloudContactcenterinsightsV1IssueModel,
       ): Request<GoogleCloudContactcenterinsightsV1IssueModel>;
       /** Undeploys an issue model. An issue model can not be used in analysis after it has been undeployed. */
       undeploy(request: {
@@ -4430,7 +4430,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest
+        body: GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest,
       ): Request<GoogleLongrunningOperation>;
       issues: IssuesResource;
     }
@@ -4580,7 +4580,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1PhraseMatcher
+        body: GoogleCloudContactcenterinsightsV1PhraseMatcher,
       ): Request<GoogleCloudContactcenterinsightsV1PhraseMatcher>;
       /** Deletes a phrase matcher. */
       delete(request?: {
@@ -4729,7 +4729,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1PhraseMatcher
+        body: GoogleCloudContactcenterinsightsV1PhraseMatcher,
       ): Request<GoogleCloudContactcenterinsightsV1PhraseMatcher>;
     }
     interface QaQuestionsResource {
@@ -4793,7 +4793,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1QaQuestion
+        body: GoogleCloudContactcenterinsightsV1QaQuestion,
       ): Request<GoogleCloudContactcenterinsightsV1QaQuestion>;
       /** Deletes a QaQuestion. */
       delete(request?: {
@@ -4940,7 +4940,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1QaQuestion
+        body: GoogleCloudContactcenterinsightsV1QaQuestion,
       ): Request<GoogleCloudContactcenterinsightsV1QaQuestion>;
     }
     interface RevisionsResource {
@@ -5004,7 +5004,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1QaScorecardRevision
+        body: GoogleCloudContactcenterinsightsV1QaScorecardRevision,
       ): Request<GoogleCloudContactcenterinsightsV1QaScorecardRevision>;
       /** Deletes a QaScorecardRevision. */
       delete(request?: {
@@ -5091,7 +5091,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1DeployQaScorecardRevisionRequest
+        body: GoogleCloudContactcenterinsightsV1DeployQaScorecardRevisionRequest,
       ): Request<GoogleCloudContactcenterinsightsV1QaScorecardRevision>;
       /** Gets a QaScorecardRevision. */
       get(request?: {
@@ -5209,7 +5209,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1TuneQaScorecardRevisionRequest
+        body: GoogleCloudContactcenterinsightsV1TuneQaScorecardRevisionRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Undeploy a QaScorecardRevision. */
       undeploy(request: {
@@ -5267,7 +5267,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1UndeployQaScorecardRevisionRequest
+        body: GoogleCloudContactcenterinsightsV1UndeployQaScorecardRevisionRequest,
       ): Request<GoogleCloudContactcenterinsightsV1QaScorecardRevision>;
       qaQuestions: QaQuestionsResource;
     }
@@ -5332,7 +5332,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1QaScorecard
+        body: GoogleCloudContactcenterinsightsV1QaScorecard,
       ): Request<GoogleCloudContactcenterinsightsV1QaScorecard>;
       /** Deletes a QaScorecard. */
       delete(request?: {
@@ -5481,7 +5481,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1QaScorecard
+        body: GoogleCloudContactcenterinsightsV1QaScorecard,
       ): Request<GoogleCloudContactcenterinsightsV1QaScorecard>;
       revisions: RevisionsResource;
     }
@@ -5542,7 +5542,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1View
+        body: GoogleCloudContactcenterinsightsV1View,
       ): Request<GoogleCloudContactcenterinsightsV1View>;
       /** Deletes a view. */
       delete(request?: {
@@ -5689,7 +5689,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1View
+        body: GoogleCloudContactcenterinsightsV1View,
       ): Request<GoogleCloudContactcenterinsightsV1View>;
     }
     interface LocationsResource {
@@ -5749,7 +5749,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest
+        body: GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Upload feedback labels in bulk. */
       bulkUploadFeedbackLabels(request: {
@@ -5807,7 +5807,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequest
+        body: GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets location-level encryption key specification. */
       getEncryptionSpec(request?: {
@@ -5952,7 +5952,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1QueryMetricsRequest
+        body: GoogleCloudContactcenterinsightsV1QueryMetricsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates project-level settings. */
       updateSettings(request: {
@@ -6014,7 +6014,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContactcenterinsightsV1Settings
+        body: GoogleCloudContactcenterinsightsV1Settings,
       ): Request<GoogleCloudContactcenterinsightsV1Settings>;
       analysisRules: AnalysisRulesResource;
       authorizedViewSets: AuthorizedViewSetsResource;

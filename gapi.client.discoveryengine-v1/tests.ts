@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://discoveryengine.googleapis.com/$discovery/rest?version=v1'
+    'https://discoveryengine.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.discoveryengine */
 
@@ -39,7 +39,7 @@ gapi.load('client', async () => {
       {
         acceptDataUseTerms: true,
         dataUseTermsVersion: 'Test string',
-      }
+      },
     );
     /** Generates grounded content. */
     await gapi.client.discoveryengine.projects.locations.generateGroundedContent(
@@ -112,13 +112,13 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.collections.dataConnector.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.collections.dataConnector.operations.list(
@@ -127,7 +127,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Completes the specified user input with keyword suggestions. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.completeQuery(
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
         query: 'Test string',
         queryModel: 'Test string',
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Creates a DataStore. DataStore is for storing Documents. To serve these documents for Search, or Recommendation use case, an Engine needs to be created separately. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.create(
@@ -227,25 +227,25 @@ gapi.load('client', async () => {
           superAdminServiceAccount: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the SiteSearchEngine. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.getSiteSearchEngine(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all the DataStores associated with the project. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.list(
@@ -254,7 +254,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a DataStore */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.patch(
@@ -340,7 +340,7 @@ gapi.load('client', async () => {
           superAdminServiceAccount: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Trains a custom model. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.trainCustomModel(
@@ -359,7 +359,7 @@ gapi.load('client', async () => {
         },
         modelId: 'Test string',
         modelType: 'Test string',
-      }
+      },
     );
     /** Gets index freshness metadata for Documents. Supported for website search only. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.batchGetDocumentsMetadata(
@@ -367,7 +367,7 @@ gapi.load('client', async () => {
         'matcher.fhirMatcher.fhirResources': 'Test string',
         'matcher.urisMatcher.uris': 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a Document. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.create(
@@ -408,19 +408,19 @@ gapi.load('client', async () => {
         structData: {
           A: 42,
         },
-      }
+      },
     );
     /** Deletes a Document. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Document. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items are created. Note: It is possible for a subset of the Documents to be successfully updated. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.import(
@@ -548,7 +548,7 @@ gapi.load('client', async () => {
           tableId: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets a list of Documents. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.list(
@@ -556,7 +556,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Document. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.patch(
@@ -598,7 +598,7 @@ gapi.load('client', async () => {
         structData: {
           A: 42,
         },
-      }
+      },
     );
     /** Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.purge(
@@ -618,20 +618,20 @@ gapi.load('client', async () => {
         inlineSource: {
           documents: ['Test string'],
         },
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.operations.list(
@@ -640,7 +640,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Imports CompletionSuggestions for a DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.completionSuggestions.import(
@@ -680,14 +680,14 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Permanently deletes all CompletionSuggestions for a DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.completionSuggestions.purge(
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a Control. By default 1000 controls are allowed for a data store. A request can be submitted to adjust this limit. If the Control to create already exists, an ALREADY_EXISTS error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.controls.create(
@@ -744,19 +744,19 @@ gapi.load('client', async () => {
           synonyms: ['Test string'],
         },
         useCases: ['Test string'],
-      }
+      },
     );
     /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.controls.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Control. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.controls.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Controls by their parent DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.controls.list(
@@ -765,7 +765,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.controls.patch(
@@ -822,7 +822,7 @@ gapi.load('client', async () => {
           synonyms: ['Test string'],
         },
         useCases: ['Test string'],
-      }
+      },
     );
     /** Converses a conversation. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.converse(
@@ -936,7 +936,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.create(
@@ -1000,19 +1000,19 @@ gapi.load('client', async () => {
         startTime: 'Test string',
         state: 'Test string',
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Conversation. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Conversations by their parent DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.list(
@@ -1022,7 +1022,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.patch(
@@ -1087,19 +1087,19 @@ gapi.load('client', async () => {
         startTime: 'Test string',
         state: 'Test string',
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Gets a list of all the custom models. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.customModels.list(
       {
         dataStore: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.models.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.models.operations.list(
@@ -1108,13 +1108,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.operations.list(
@@ -1123,7 +1123,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates a Schema. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.create(
@@ -1137,19 +1137,19 @@ gapi.load('client', async () => {
         structSchema: {
           A: 42,
         },
-      }
+      },
     );
     /** Deletes a Schema. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Schema. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a list of Schemas. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.list(
@@ -1157,7 +1157,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Schema. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.patch(
@@ -1171,13 +1171,13 @@ gapi.load('client', async () => {
         structSchema: {
           A: 42,
         },
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.operations.list(
@@ -1186,7 +1186,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Answer query method. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.answer(
@@ -1347,7 +1347,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.patch(
@@ -1417,7 +1417,7 @@ gapi.load('client', async () => {
         solutionType: 'Test string',
         synonymsControlIds: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Makes a recommendation, which requires a contextual user event. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.recommend(
@@ -1532,7 +1532,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         validateOnly: true,
-      }
+      },
     );
     /** Performs a search. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.search(
@@ -1682,7 +1682,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Performs a search. Similar to the SearchService.Search method, but a lite version that allows API key for authentication, where OAuth and IAM checks are not required. Only public website search is supported by this method. If data stores and engines not associated with public website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy onboarding without having to implement an authentication backend. However, it is strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to provide better data security. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.searchLite(
@@ -1832,7 +1832,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Answer query method (streaming). It takes one AnswerQueryRequest and returns multiple AnswerQueryResponse messages in a stream. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.streamAnswer(
@@ -1993,7 +1993,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Creates a Session. If the Session to create already exists, an ALREADY_EXISTS error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.sessions.create(
@@ -2147,20 +2147,20 @@ gapi.load('client', async () => {
           },
         ],
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.sessions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Session. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.sessions.get(
       {
         includeAnswerDetails: true,
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Sessions by their parent DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.sessions.list(
@@ -2170,7 +2170,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.sessions.patch(
@@ -2325,34 +2325,34 @@ gapi.load('client', async () => {
           },
         ],
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Gets a Answer. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.sessions.answers.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Verify target sites' ownership and validity. This API sends all the target sites under site search engine for verification. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.batchVerifyTargetSites(
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Downgrade from advanced site search to basic site search. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.disableAdvancedSiteSearch(
       {
         siteSearchEngine: 'Test string',
       },
-      {}
+      {},
     );
     /** Upgrade from basic site search to advanced site search. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.enableAdvancedSiteSearch(
       {
         siteSearchEngine: 'Test string',
       },
-      {}
+      {},
     );
     /** Returns list of target sites with its domain verification status. This method can only be called under data store with BASIC_SITE_SEARCH state at the moment. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.fetchDomainVerificationStatus(
@@ -2360,7 +2360,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         siteSearchEngine: 'Test string',
-      }
+      },
     );
     /** Request on-demand recrawl for a list of URIs. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.recrawlUris(
@@ -2370,13 +2370,13 @@ gapi.load('client', async () => {
       {
         siteCredential: 'Test string',
         uris: ['Test string'],
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.operations.list(
@@ -2385,7 +2385,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates TargetSite in a batch. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.batchCreate(
@@ -2417,7 +2417,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Creates a TargetSite. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.create(
@@ -2442,19 +2442,19 @@ gapi.load('client', async () => {
         },
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a TargetSite. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a TargetSite. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a list of TargetSites. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.list(
@@ -2462,7 +2462,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a TargetSite. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.patch(
@@ -2487,13 +2487,13 @@ gapi.load('client', async () => {
         },
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.operations.list(
@@ -2502,7 +2502,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Imports all SuggestionDenyListEntry for a DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.suggestionDenyListEntries.import(
@@ -2522,14 +2522,14 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Permanently deletes all SuggestionDenyListEntry for a DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.suggestionDenyListEntries.purge(
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine API JavaScript pixel and Google Tag Manager. Users should not call this method directly. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.collect(
@@ -2538,7 +2538,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         uri: 'Test string',
         userEvent: 'Test string',
-      }
+      },
     );
     /** Bulk import of user events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.import(
@@ -2667,7 +2667,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.purge(
@@ -2677,7 +2677,7 @@ gapi.load('client', async () => {
       {
         filter: 'Test string',
         force: true,
-      }
+      },
     );
     /** Writes a single user event. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.write(
@@ -2782,7 +2782,7 @@ gapi.load('client', async () => {
           userId: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Creates a Engine. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.create(
@@ -2818,19 +2818,19 @@ gapi.load('client', async () => {
         },
         solutionType: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a Engine. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Engine. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all the Engines associated with the project. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.list(
@@ -2839,7 +2839,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an Engine */
     await gapi.client.discoveryengine.projects.locations.collections.engines.patch(
@@ -2875,7 +2875,7 @@ gapi.load('client', async () => {
         },
         solutionType: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a Control. By default 1000 controls are allowed for a data store. A request can be submitted to adjust this limit. If the Control to create already exists, an ALREADY_EXISTS error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.controls.create(
@@ -2932,19 +2932,19 @@ gapi.load('client', async () => {
           synonyms: ['Test string'],
         },
         useCases: ['Test string'],
-      }
+      },
     );
     /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.controls.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Control. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.controls.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Controls by their parent DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.controls.list(
@@ -2953,7 +2953,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.controls.patch(
@@ -3010,7 +3010,7 @@ gapi.load('client', async () => {
           synonyms: ['Test string'],
         },
         useCases: ['Test string'],
-      }
+      },
     );
     /** Converses a conversation. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.conversations.converse(
@@ -3124,7 +3124,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.conversations.create(
@@ -3188,19 +3188,19 @@ gapi.load('client', async () => {
         startTime: 'Test string',
         state: 'Test string',
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.conversations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Conversation. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.conversations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Conversations by their parent DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.conversations.list(
@@ -3210,7 +3210,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.conversations.patch(
@@ -3275,13 +3275,13 @@ gapi.load('client', async () => {
         startTime: 'Test string',
         state: 'Test string',
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.operations.list(
@@ -3290,7 +3290,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Answer query method. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.answer(
@@ -3451,7 +3451,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.patch(
@@ -3521,7 +3521,7 @@ gapi.load('client', async () => {
         solutionType: 'Test string',
         synonymsControlIds: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Makes a recommendation, which requires a contextual user event. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.recommend(
@@ -3636,7 +3636,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         validateOnly: true,
-      }
+      },
     );
     /** Performs a search. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.search(
@@ -3786,7 +3786,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Performs a search. Similar to the SearchService.Search method, but a lite version that allows API key for authentication, where OAuth and IAM checks are not required. Only public website search is supported by this method. If data stores and engines not associated with public website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy onboarding without having to implement an authentication backend. However, it is strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to provide better data security. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.searchLite(
@@ -3936,7 +3936,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Answer query method (streaming). It takes one AnswerQueryRequest and returns multiple AnswerQueryResponse messages in a stream. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.streamAnswer(
@@ -4097,7 +4097,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Creates a Session. If the Session to create already exists, an ALREADY_EXISTS error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.sessions.create(
@@ -4251,20 +4251,20 @@ gapi.load('client', async () => {
           },
         ],
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.sessions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Session. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.sessions.get(
       {
         includeAnswerDetails: true,
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Sessions by their parent DataStore. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.sessions.list(
@@ -4274,7 +4274,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.sessions.patch(
@@ -4429,19 +4429,19 @@ gapi.load('client', async () => {
           },
         ],
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Gets a Answer. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.sessions.answers.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.collections.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.collections.operations.list(
@@ -4450,7 +4450,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Completes the specified user input with keyword suggestions. */
     await gapi.client.discoveryengine.projects.locations.dataStores.completeQuery(
@@ -4460,7 +4460,7 @@ gapi.load('client', async () => {
         query: 'Test string',
         queryModel: 'Test string',
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Creates a DataStore. DataStore is for storing Documents. To serve these documents for Search, or Recommendation use case, an Engine needs to be created separately. */
     await gapi.client.discoveryengine.projects.locations.dataStores.create(
@@ -4550,7 +4550,7 @@ gapi.load('client', async () => {
           superAdminServiceAccount: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a DataStore. */
     await gapi.client.discoveryengine.projects.locations.dataStores.delete({
@@ -4564,7 +4564,7 @@ gapi.load('client', async () => {
     await gapi.client.discoveryengine.projects.locations.dataStores.getSiteSearchEngine(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all the DataStores associated with the project. */
     await gapi.client.discoveryengine.projects.locations.dataStores.list({
@@ -4657,7 +4657,7 @@ gapi.load('client', async () => {
           superAdminServiceAccount: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Gets index freshness metadata for Documents. Supported for website search only. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.batchGetDocumentsMetadata(
@@ -4665,7 +4665,7 @@ gapi.load('client', async () => {
         'matcher.fhirMatcher.fhirResources': 'Test string',
         'matcher.urisMatcher.uris': 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a Document. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.create(
@@ -4706,19 +4706,19 @@ gapi.load('client', async () => {
         structData: {
           A: 42,
         },
-      }
+      },
     );
     /** Deletes a Document. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Document. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items are created. Note: It is possible for a subset of the Documents to be successfully updated. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.import(
@@ -4846,7 +4846,7 @@ gapi.load('client', async () => {
           tableId: 'Test string',
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets a list of Documents. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.list(
@@ -4854,7 +4854,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Document. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.patch(
@@ -4896,7 +4896,7 @@ gapi.load('client', async () => {
         structData: {
           A: 42,
         },
-      }
+      },
     );
     /** Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.purge(
@@ -4916,20 +4916,20 @@ gapi.load('client', async () => {
         inlineSource: {
           documents: ['Test string'],
         },
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.operations.list(
@@ -4938,7 +4938,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Imports CompletionSuggestions for a DataStore. */
     await gapi.client.discoveryengine.projects.locations.dataStores.completionSuggestions.import(
@@ -4978,14 +4978,14 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Permanently deletes all CompletionSuggestions for a DataStore. */
     await gapi.client.discoveryengine.projects.locations.dataStores.completionSuggestions.purge(
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a Control. By default 1000 controls are allowed for a data store. A request can be submitted to adjust this limit. If the Control to create already exists, an ALREADY_EXISTS error is returned. */
     await gapi.client.discoveryengine.projects.locations.dataStores.controls.create(
@@ -5042,19 +5042,19 @@ gapi.load('client', async () => {
           synonyms: ['Test string'],
         },
         useCases: ['Test string'],
-      }
+      },
     );
     /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.dataStores.controls.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Control. */
     await gapi.client.discoveryengine.projects.locations.dataStores.controls.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Controls by their parent DataStore. */
     await gapi.client.discoveryengine.projects.locations.dataStores.controls.list(
@@ -5063,7 +5063,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.dataStores.controls.patch(
@@ -5120,7 +5120,7 @@ gapi.load('client', async () => {
           synonyms: ['Test string'],
         },
         useCases: ['Test string'],
-      }
+      },
     );
     /** Converses a conversation. */
     await gapi.client.discoveryengine.projects.locations.dataStores.conversations.converse(
@@ -5234,7 +5234,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
     await gapi.client.discoveryengine.projects.locations.dataStores.conversations.create(
@@ -5298,19 +5298,19 @@ gapi.load('client', async () => {
         startTime: 'Test string',
         state: 'Test string',
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.dataStores.conversations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Conversation. */
     await gapi.client.discoveryengine.projects.locations.dataStores.conversations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Conversations by their parent DataStore. */
     await gapi.client.discoveryengine.projects.locations.dataStores.conversations.list(
@@ -5320,7 +5320,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.dataStores.conversations.patch(
@@ -5385,13 +5385,13 @@ gapi.load('client', async () => {
         startTime: 'Test string',
         state: 'Test string',
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.dataStores.models.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.dataStores.models.operations.list(
@@ -5400,13 +5400,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.dataStores.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.dataStores.operations.list(
@@ -5415,7 +5415,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates a Schema. */
     await gapi.client.discoveryengine.projects.locations.dataStores.schemas.create(
@@ -5429,19 +5429,19 @@ gapi.load('client', async () => {
         structSchema: {
           A: 42,
         },
-      }
+      },
     );
     /** Deletes a Schema. */
     await gapi.client.discoveryengine.projects.locations.dataStores.schemas.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Schema. */
     await gapi.client.discoveryengine.projects.locations.dataStores.schemas.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a list of Schemas. */
     await gapi.client.discoveryengine.projects.locations.dataStores.schemas.list(
@@ -5449,7 +5449,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Schema. */
     await gapi.client.discoveryengine.projects.locations.dataStores.schemas.patch(
@@ -5463,7 +5463,7 @@ gapi.load('client', async () => {
         structSchema: {
           A: 42,
         },
-      }
+      },
     );
     /** Answer query method. */
     await gapi.client.discoveryengine.projects.locations.dataStores.servingConfigs.answer(
@@ -5624,7 +5624,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
     await gapi.client.discoveryengine.projects.locations.dataStores.servingConfigs.patch(
@@ -5694,7 +5694,7 @@ gapi.load('client', async () => {
         solutionType: 'Test string',
         synonymsControlIds: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Makes a recommendation, which requires a contextual user event. */
     await gapi.client.discoveryengine.projects.locations.dataStores.servingConfigs.recommend(
@@ -5809,7 +5809,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         validateOnly: true,
-      }
+      },
     );
     /** Performs a search. */
     await gapi.client.discoveryengine.projects.locations.dataStores.servingConfigs.search(
@@ -5959,7 +5959,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Performs a search. Similar to the SearchService.Search method, but a lite version that allows API key for authentication, where OAuth and IAM checks are not required. Only public website search is supported by this method. If data stores and engines not associated with public website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy onboarding without having to implement an authentication backend. However, it is strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to provide better data security. */
     await gapi.client.discoveryengine.projects.locations.dataStores.servingConfigs.searchLite(
@@ -6109,7 +6109,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Answer query method (streaming). It takes one AnswerQueryRequest and returns multiple AnswerQueryResponse messages in a stream. */
     await gapi.client.discoveryengine.projects.locations.dataStores.servingConfigs.streamAnswer(
@@ -6270,7 +6270,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Creates a Session. If the Session to create already exists, an ALREADY_EXISTS error is returned. */
     await gapi.client.discoveryengine.projects.locations.dataStores.sessions.create(
@@ -6424,20 +6424,20 @@ gapi.load('client', async () => {
           },
         ],
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.dataStores.sessions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a Session. */
     await gapi.client.discoveryengine.projects.locations.dataStores.sessions.get(
       {
         includeAnswerDetails: true,
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Sessions by their parent DataStore. */
     await gapi.client.discoveryengine.projects.locations.dataStores.sessions.list(
@@ -6447,7 +6447,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. */
     await gapi.client.discoveryengine.projects.locations.dataStores.sessions.patch(
@@ -6602,27 +6602,27 @@ gapi.load('client', async () => {
           },
         ],
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Gets a Answer. */
     await gapi.client.discoveryengine.projects.locations.dataStores.sessions.answers.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Downgrade from advanced site search to basic site search. */
     await gapi.client.discoveryengine.projects.locations.dataStores.siteSearchEngine.disableAdvancedSiteSearch(
       {
         siteSearchEngine: 'Test string',
       },
-      {}
+      {},
     );
     /** Upgrade from basic site search to advanced site search. */
     await gapi.client.discoveryengine.projects.locations.dataStores.siteSearchEngine.enableAdvancedSiteSearch(
       {
         siteSearchEngine: 'Test string',
       },
-      {}
+      {},
     );
     /** Request on-demand recrawl for a list of URIs. */
     await gapi.client.discoveryengine.projects.locations.dataStores.siteSearchEngine.recrawlUris(
@@ -6632,7 +6632,7 @@ gapi.load('client', async () => {
       {
         siteCredential: 'Test string',
         uris: ['Test string'],
-      }
+      },
     );
     /** Creates TargetSite in a batch. */
     await gapi.client.discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.batchCreate(
@@ -6664,7 +6664,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Creates a TargetSite. */
     await gapi.client.discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.create(
@@ -6689,19 +6689,19 @@ gapi.load('client', async () => {
         },
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a TargetSite. */
     await gapi.client.discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a TargetSite. */
     await gapi.client.discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a list of TargetSites. */
     await gapi.client.discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.list(
@@ -6709,7 +6709,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a TargetSite. */
     await gapi.client.discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.patch(
@@ -6734,7 +6734,7 @@ gapi.load('client', async () => {
         },
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Imports all SuggestionDenyListEntry for a DataStore. */
     await gapi.client.discoveryengine.projects.locations.dataStores.suggestionDenyListEntries.import(
@@ -6754,14 +6754,14 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Permanently deletes all SuggestionDenyListEntry for a DataStore. */
     await gapi.client.discoveryengine.projects.locations.dataStores.suggestionDenyListEntries.purge(
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine API JavaScript pixel and Google Tag Manager. Users should not call this method directly. */
     await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.collect(
@@ -6770,7 +6770,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         uri: 'Test string',
         userEvent: 'Test string',
-      }
+      },
     );
     /** Bulk import of user events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata. */
     await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.import(
@@ -6899,7 +6899,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
     await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.purge(
@@ -6909,7 +6909,7 @@ gapi.load('client', async () => {
       {
         filter: 'Test string',
         force: true,
-      }
+      },
     );
     /** Writes a single user event. */
     await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.write(
@@ -7014,7 +7014,7 @@ gapi.load('client', async () => {
           userId: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Performs a grounding check. */
     await gapi.client.discoveryengine.projects.locations.groundingConfigs.check(
@@ -7037,13 +7037,13 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.identityMappingStores.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.discoveryengine.projects.locations.identityMappingStores.operations.list(
@@ -7052,7 +7052,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.locations.operations.get({
@@ -7086,7 +7086,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine API JavaScript pixel and Google Tag Manager. Users should not call this method directly. */
     await gapi.client.discoveryengine.projects.locations.userEvents.collect({
@@ -7222,7 +7222,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Writes a single user event. */
     await gapi.client.discoveryengine.projects.locations.userEvents.write(
@@ -7327,14 +7327,14 @@ gapi.load('client', async () => {
           userId: 'Test string',
         },
         userPseudoId: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.discoveryengine.projects.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.discoveryengine.projects.operations.get({

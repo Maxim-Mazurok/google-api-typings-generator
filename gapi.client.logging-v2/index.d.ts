@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Logging API v2 */
   function load(
-    urlOrObject: 'https://logging.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://logging.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'logging', version: 'v2'): Promise<void>;
@@ -927,7 +927,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogExclusion
+        body: LogExclusion,
       ): Request<LogExclusion>;
       /** Deletes an exclusion in the _Default sink. */
       delete(request?: {
@@ -1074,7 +1074,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogExclusion
+        body: LogExclusion,
       ): Request<LogExclusion>;
     }
     interface LinksResource {
@@ -1138,7 +1138,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Link
+        body: Link,
       ): Request<Operation>;
       /** Deletes a link. This will also delete the corresponding BigQuery linked dataset. */
       delete(request?: {
@@ -1322,7 +1322,7 @@ declare namespace gapi.client {
           /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
           viewId?: string;
         },
-        body: LogView
+        body: LogView,
       ): Request<LogView>;
       /** Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. */
       delete(request?: {
@@ -1469,7 +1469,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogView
+        body: LogView,
       ): Request<LogView>;
       logs: LogsResource;
     }
@@ -1534,7 +1534,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<LogBucket>;
       /** Creates a log bucket asynchronously that can be used to store log entries.After a bucket has been created, the bucket's location cannot be changed. */
       createAsync(request: {
@@ -1596,7 +1596,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<Operation>;
       /** Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. */
       delete(request?: {
@@ -1743,7 +1743,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<LogBucket>;
       /** Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. */
       undelete(request: {
@@ -1801,7 +1801,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteBucketRequest
+        body: UndeleteBucketRequest,
       ): Request<{}>;
       /** Updates a log bucket asynchronously.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. */
       updateAsync(request: {
@@ -1863,7 +1863,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<Operation>;
       links: LinksResource;
       views: ViewsResource;
@@ -1925,7 +1925,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -2084,7 +2084,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SavedQuery
+        body: SavedQuery,
       ): Request<SavedQuery>;
       /** Deletes an existing SavedQuery that was created by the user making the request. */
       delete(request?: {
@@ -2233,7 +2233,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SavedQuery
+        body: SavedQuery,
       ): Request<SavedQuery>;
     }
     interface LocationsResource {
@@ -2429,7 +2429,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
       /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
       delete(request?: {
@@ -2586,7 +2586,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
       /** Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. */
       update(request: {
@@ -2656,7 +2656,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
     }
     interface BillingAccountsResource {
@@ -2772,7 +2772,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CopyLogEntriesRequest
+        body: CopyLogEntriesRequest,
       ): Request<Operation>;
       /** Lists log entries. Use this method to retrieve log entries that originated from a project/folder/organization/billing account. For ways to export log entries, see Exporting Logs (https://cloud.google.com/logging/docs/export). */
       list(request: {
@@ -2826,7 +2826,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ListLogEntriesRequest
+        body: ListLogEntriesRequest,
       ): Request<ListLogEntriesResponse>;
       /** Streaming read of log entries as they are received. Until the stream is terminated, it will continue reading logs. */
       tail(request: {
@@ -2880,7 +2880,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TailLogEntriesRequest
+        body: TailLogEntriesRequest,
       ): Request<TailLogEntriesResponse>;
       /** Writes log entries to Logging. This API method is the only way to send log entries to Logging. This method is used, directly or indirectly, by the Logging agent (fluentd) and all logging libraries configured to use Logging. A single request may contain log entries for a maximum of 1000 different resource names (projects, organizations, billing accounts or folders), where the resource name for a log entry is determined from its logName field. */
       write(request: {
@@ -2934,7 +2934,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WriteLogEntriesRequest
+        body: WriteLogEntriesRequest,
       ): Request<{}>;
     }
     interface ExclusionsResource {
@@ -2994,7 +2994,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogExclusion
+        body: LogExclusion,
       ): Request<LogExclusion>;
       /** Deletes an exclusion in the _Default sink. */
       delete(request?: {
@@ -3141,7 +3141,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogExclusion
+        body: LogExclusion,
       ): Request<LogExclusion>;
     }
     interface ExclusionsResource {
@@ -3201,7 +3201,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogExclusion
+        body: LogExclusion,
       ): Request<LogExclusion>;
       /** Deletes an exclusion in the _Default sink. */
       delete(request?: {
@@ -3348,7 +3348,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogExclusion
+        body: LogExclusion,
       ): Request<LogExclusion>;
     }
     interface LinksResource {
@@ -3412,7 +3412,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Link
+        body: Link,
       ): Request<Operation>;
       /** Deletes a link. This will also delete the corresponding BigQuery linked dataset. */
       delete(request?: {
@@ -3596,7 +3596,7 @@ declare namespace gapi.client {
           /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
           viewId?: string;
         },
-        body: LogView
+        body: LogView,
       ): Request<LogView>;
       /** Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. */
       delete(request?: {
@@ -3680,7 +3680,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists views on a log bucket. */
       list(request?: {
@@ -3773,7 +3773,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogView
+        body: LogView,
       ): Request<LogView>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
       setIamPolicy(
@@ -3803,7 +3803,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3833,7 +3833,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       logs: LogsResource;
     }
@@ -3898,7 +3898,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<LogBucket>;
       /** Creates a log bucket asynchronously that can be used to store log entries.After a bucket has been created, the bucket's location cannot be changed. */
       createAsync(request: {
@@ -3960,7 +3960,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<Operation>;
       /** Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. */
       delete(request?: {
@@ -4107,7 +4107,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<LogBucket>;
       /** Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. */
       undelete(request: {
@@ -4165,7 +4165,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteBucketRequest
+        body: UndeleteBucketRequest,
       ): Request<{}>;
       /** Updates a log bucket asynchronously.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. */
       updateAsync(request: {
@@ -4227,7 +4227,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<Operation>;
       links: LinksResource;
       views: ViewsResource;
@@ -4293,7 +4293,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogScope
+        body: LogScope,
       ): Request<LogScope>;
       /** Deletes a log scope. */
       delete(request?: {
@@ -4440,7 +4440,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogScope
+        body: LogScope,
       ): Request<LogScope>;
     }
     interface OperationsResource {
@@ -4500,7 +4500,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -4659,7 +4659,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SavedQuery
+        body: SavedQuery,
       ): Request<SavedQuery>;
       /** Deletes an existing SavedQuery that was created by the user making the request. */
       delete(request?: {
@@ -4808,7 +4808,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SavedQuery
+        body: SavedQuery,
       ): Request<SavedQuery>;
     }
     interface LocationsResource {
@@ -5005,7 +5005,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
       /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
       delete(request?: {
@@ -5162,7 +5162,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
       /** Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. */
       update(request: {
@@ -5232,7 +5232,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
     }
     interface FoldersResource {
@@ -5350,7 +5350,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Settings
+        body: Settings,
       ): Request<Settings>;
       exclusions: ExclusionsResource;
       locations: LocationsResource;
@@ -5418,7 +5418,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Link
+        body: Link,
       ): Request<Operation>;
       /** Deletes a link. This will also delete the corresponding BigQuery linked dataset. */
       delete(request?: {
@@ -5567,7 +5567,7 @@ declare namespace gapi.client {
           /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
           viewId?: string;
         },
-        body: LogView
+        body: LogView,
       ): Request<LogView>;
       /** Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. */
       delete(request?: {
@@ -5651,7 +5651,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists views on a log bucket. */
       list(request?: {
@@ -5744,7 +5744,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogView
+        body: LogView,
       ): Request<LogView>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
       setIamPolicy(
@@ -5774,7 +5774,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -5804,7 +5804,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface BucketsResource {
@@ -5868,7 +5868,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<LogBucket>;
       /** Creates a log bucket asynchronously that can be used to store log entries.After a bucket has been created, the bucket's location cannot be changed. */
       createAsync(request: {
@@ -5930,7 +5930,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<Operation>;
       /** Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. */
       delete(request?: {
@@ -6077,7 +6077,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<LogBucket>;
       /** Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. */
       undelete(request: {
@@ -6135,7 +6135,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteBucketRequest
+        body: UndeleteBucketRequest,
       ): Request<{}>;
       /** Updates a log bucket asynchronously.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. */
       updateAsync(request: {
@@ -6197,7 +6197,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<Operation>;
       links: LinksResource;
       views: ViewsResource;
@@ -6259,7 +6259,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -6536,7 +6536,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogExclusion
+        body: LogExclusion,
       ): Request<LogExclusion>;
       /** Deletes an exclusion in the _Default sink. */
       delete(request?: {
@@ -6683,7 +6683,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogExclusion
+        body: LogExclusion,
       ): Request<LogExclusion>;
     }
     interface LinksResource {
@@ -6747,7 +6747,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Link
+        body: Link,
       ): Request<Operation>;
       /** Deletes a link. This will also delete the corresponding BigQuery linked dataset. */
       delete(request?: {
@@ -6931,7 +6931,7 @@ declare namespace gapi.client {
           /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
           viewId?: string;
         },
-        body: LogView
+        body: LogView,
       ): Request<LogView>;
       /** Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. */
       delete(request?: {
@@ -7015,7 +7015,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists views on a log bucket. */
       list(request?: {
@@ -7108,7 +7108,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogView
+        body: LogView,
       ): Request<LogView>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
       setIamPolicy(
@@ -7138,7 +7138,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -7168,7 +7168,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       logs: LogsResource;
     }
@@ -7233,7 +7233,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<LogBucket>;
       /** Creates a log bucket asynchronously that can be used to store log entries.After a bucket has been created, the bucket's location cannot be changed. */
       createAsync(request: {
@@ -7295,7 +7295,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<Operation>;
       /** Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. */
       delete(request?: {
@@ -7442,7 +7442,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<LogBucket>;
       /** Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. */
       undelete(request: {
@@ -7500,7 +7500,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteBucketRequest
+        body: UndeleteBucketRequest,
       ): Request<{}>;
       /** Updates a log bucket asynchronously.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. */
       updateAsync(request: {
@@ -7562,7 +7562,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<Operation>;
       links: LinksResource;
       views: ViewsResource;
@@ -7628,7 +7628,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogScope
+        body: LogScope,
       ): Request<LogScope>;
       /** Deletes a log scope. */
       delete(request?: {
@@ -7775,7 +7775,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogScope
+        body: LogScope,
       ): Request<LogScope>;
     }
     interface OperationsResource {
@@ -7835,7 +7835,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -7994,7 +7994,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SavedQuery
+        body: SavedQuery,
       ): Request<SavedQuery>;
       /** Deletes an existing SavedQuery that was created by the user making the request. */
       delete(request?: {
@@ -8143,7 +8143,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SavedQuery
+        body: SavedQuery,
       ): Request<SavedQuery>;
     }
     interface LocationsResource {
@@ -8340,7 +8340,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
       /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
       delete(request?: {
@@ -8497,7 +8497,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
       /** Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. */
       update(request: {
@@ -8567,7 +8567,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
     }
     interface OrganizationsResource {
@@ -8685,7 +8685,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CmekSettings
+        body: CmekSettings,
       ): Request<CmekSettings>;
       /** Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings fails when any of the following are true: The value of storage_location either isn't supported by Logging or violates the location OrgPolicy. The default_sink_config field is set, but it has an unspecified filter write mode. The value of kms_key_name is invalid. The associated service account doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access to the key is disabled.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information. */
       updateSettings(request: {
@@ -8747,7 +8747,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Settings
+        body: Settings,
       ): Request<Settings>;
       exclusions: ExclusionsResource;
       locations: LocationsResource;
@@ -8811,7 +8811,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogExclusion
+        body: LogExclusion,
       ): Request<LogExclusion>;
       /** Deletes an exclusion in the _Default sink. */
       delete(request?: {
@@ -8958,7 +8958,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogExclusion
+        body: LogExclusion,
       ): Request<LogExclusion>;
     }
     interface LinksResource {
@@ -9022,7 +9022,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Link
+        body: Link,
       ): Request<Operation>;
       /** Deletes a link. This will also delete the corresponding BigQuery linked dataset. */
       delete(request?: {
@@ -9206,7 +9206,7 @@ declare namespace gapi.client {
           /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
           viewId?: string;
         },
-        body: LogView
+        body: LogView,
       ): Request<LogView>;
       /** Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can delete the view. If this occurs, please try again in a few minutes. */
       delete(request?: {
@@ -9290,7 +9290,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists views on a log bucket. */
       list(request?: {
@@ -9383,7 +9383,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogView
+        body: LogView,
       ): Request<LogView>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
       setIamPolicy(
@@ -9413,7 +9413,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -9443,7 +9443,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       logs: LogsResource;
     }
@@ -9508,7 +9508,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<LogBucket>;
       /** Creates a log bucket asynchronously that can be used to store log entries.After a bucket has been created, the bucket's location cannot be changed. */
       createAsync(request: {
@@ -9570,7 +9570,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<Operation>;
       /** Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. */
       delete(request?: {
@@ -9717,7 +9717,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<LogBucket>;
       /** Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. */
       undelete(request: {
@@ -9775,7 +9775,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteBucketRequest
+        body: UndeleteBucketRequest,
       ): Request<{}>;
       /** Updates a log bucket asynchronously.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. */
       updateAsync(request: {
@@ -9837,7 +9837,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogBucket
+        body: LogBucket,
       ): Request<Operation>;
       links: LinksResource;
       views: ViewsResource;
@@ -9903,7 +9903,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogScope
+        body: LogScope,
       ): Request<LogScope>;
       /** Deletes a log scope. */
       delete(request?: {
@@ -10050,7 +10050,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogScope
+        body: LogScope,
       ): Request<LogScope>;
     }
     interface OperationsResource {
@@ -10110,7 +10110,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -10269,7 +10269,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SavedQuery
+        body: SavedQuery,
       ): Request<SavedQuery>;
       /** Deletes an existing SavedQuery that was created by the user making the request. */
       delete(request?: {
@@ -10418,7 +10418,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SavedQuery
+        body: SavedQuery,
       ): Request<SavedQuery>;
     }
     interface LocationsResource {
@@ -10607,7 +10607,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogMetric
+        body: LogMetric,
       ): Request<LogMetric>;
       /** Deletes a logs-based metric. */
       delete(request?: {
@@ -10750,7 +10750,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogMetric
+        body: LogMetric,
       ): Request<LogMetric>;
     }
     interface SinksResource {
@@ -10818,7 +10818,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
       /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
       delete(request?: {
@@ -10975,7 +10975,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
       /** Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. */
       update(request: {
@@ -11045,7 +11045,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
     }
     interface ProjectsResource {
@@ -11174,7 +11174,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
       /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
       delete(request?: {
@@ -11331,7 +11331,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LogSink
+        body: LogSink,
       ): Request<LogSink>;
     }
     interface V2Resource {
@@ -11449,7 +11449,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CmekSettings
+        body: CmekSettings,
       ): Request<CmekSettings>;
       /** Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings fails when any of the following are true: The value of storage_location either isn't supported by Logging or violates the location OrgPolicy. The default_sink_config field is set, but it has an unspecified filter write mode. The value of kms_key_name is invalid. The associated service account doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access to the key is disabled.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information. */
       updateSettings(request: {
@@ -11511,7 +11511,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Settings
+        body: Settings,
       ): Request<Settings>;
     }
 

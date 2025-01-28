@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://serviceconsumermanagement.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://serviceconsumermanagement.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.serviceconsumermanagement */
 
@@ -40,7 +40,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Create or update multiple producer overrides atomically, all on the same consumer, but on many different metrics or limits. The name field in the quota override message should not be set. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.importProducerOverrides(
@@ -65,7 +65,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Create or update multiple producer quota policies atomically, all on the same ancestor, but on many different metrics or limits. The name field in the quota policy message should not be set. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.importProducerQuotaPolicies(
@@ -91,7 +91,7 @@ gapi.load('client', async () => {
           ],
         },
         validateOnly: true,
-      }
+      },
     );
     /** Retrieves a summary of all quota information about this consumer that is visible to the service producer, for each quota metric defined by the service. Each metric includes information about all of its defined limits. Each limit includes the limit configuration (quota unit, preciseness, default value), the current effective limit value, and all of the overrides applied to the limit. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.list(
@@ -100,14 +100,14 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Retrieves a summary of quota information for a specific quota limit. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.limits.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Creates a producer override. A producer override is applied by the owner or administrator of a service to increase or decrease the amount of quota a consumer of the service is allowed to use. To create multiple overrides at once, use ImportProducerOverrides instead. If an override with the specified dimensions already exists, this call will fail. To overwrite an existing override if one is already present ("upsert" semantics), use ImportProducerOverrides instead. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.limits.producerOverrides.create(
@@ -126,7 +126,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         overrideValue: 'Test string',
         unit: 'Test string',
-      }
+      },
     );
     /** Deletes a producer override. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.limits.producerOverrides.delete(
@@ -135,7 +135,7 @@ gapi.load('client', async () => {
         forceJustification: 'Test string',
         forceOnly: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Lists all producer overrides on this limit. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.limits.producerOverrides.list(
@@ -143,7 +143,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a producer override. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.limits.producerOverrides.patch(
@@ -163,7 +163,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         overrideValue: 'Test string',
         unit: 'Test string',
-      }
+      },
     );
     /** Creates a producer quota policy. A producer quota policy is applied by the owner or administrator of a service at an org or folder node to set the default quota limit for all consumers under the node where the policy is created. To create multiple policies at once, use ImportProducerQuotaPolicies instead. If a policy with the specified dimensions already exists, this call will fail. To overwrite an existing policy if one is already present ("upsert" semantics), use ImportProducerQuotaPolicies instead. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.limits.producerQuotaPolicies.create(
@@ -182,7 +182,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         policyValue: 'Test string',
         unit: 'Test string',
-      }
+      },
     );
     /** Deletes a producer quota policy. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.limits.producerQuotaPolicies.delete(
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
         forceJustification: 'Test string',
         name: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Lists all producer policies created at current consumer node for a limit. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.limits.producerQuotaPolicies.list(
@@ -199,7 +199,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a producer quota policy. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.limits.producerQuotaPolicies.patch(
@@ -219,7 +219,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         policyValue: 'Test string',
         unit: 'Test string',
-      }
+      },
     );
   }
 });

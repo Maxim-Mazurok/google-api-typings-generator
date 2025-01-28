@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudtrace.googleapis.com/$discovery/rest?version=v2'
+    'https://cloudtrace.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.cloudtrace */
 
@@ -172,7 +172,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Creates a new span. */
     await gapi.client.cloudtrace.projects.traces.spans.createSpan(
@@ -309,7 +309,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
   }
 });

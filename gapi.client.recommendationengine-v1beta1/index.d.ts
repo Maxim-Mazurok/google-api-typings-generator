@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Recommendations AI (Beta) v1beta1 */
   function load(
-    urlOrObject: 'https://recommendationengine.googleapis.com/$discovery/rest?version=v1beta1'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'recommendationengine',
-    version: 'v1beta1'
+    urlOrObject: 'https://recommendationengine.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'recommendationengine',
     version: 'v1beta1',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'recommendationengine',
+    version: 'v1beta1',
+    callback: () => any,
   ): void;
 
   namespace recommendationengine {
@@ -500,7 +500,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommendationengineV1beta1CatalogItem
+        body: GoogleCloudRecommendationengineV1beta1CatalogItem,
       ): Request<GoogleCloudRecommendationengineV1beta1CatalogItem>;
       /** Deletes a catalog item. */
       delete(request?: {
@@ -612,7 +612,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest
+        body: GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets a list of catalog items. */
       list(request?: {
@@ -707,7 +707,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommendationengineV1beta1CatalogItem
+        body: GoogleCloudRecommendationengineV1beta1CatalogItem,
       ): Request<GoogleCloudRecommendationengineV1beta1CatalogItem>;
     }
     interface OperationsResource {
@@ -827,7 +827,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommendationengineV1beta1PredictRequest
+        body: GoogleCloudRecommendationengineV1beta1PredictRequest,
       ): Request<GoogleCloudRecommendationengineV1beta1PredictResponse>;
     }
     interface PredictionApiKeyRegistrationsResource {
@@ -887,7 +887,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest
+        body: GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest,
       ): Request<GoogleCloudRecommendationengineV1beta1PredictionApiKeyRegistration>;
       /** Unregister an apiKey from using for predict method. */
       delete(request?: {
@@ -1038,7 +1038,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommendationengineV1beta1ImportUserEventsRequest
+        body: GoogleCloudRecommendationengineV1beta1ImportUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets a list of user events within a time range, with potential filtering. The method does not list unjoined user events. Unjoined user event definition: when a user event is ingested from Recommendations AI User Event APIs, the catalog item included in the user event is connected with the current catalog. If a catalog item of the ingested event is not in the current catalog, it could lead to degraded model quality. This is called an unjoined event. */
       list(request?: {
@@ -1129,7 +1129,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest
+        body: GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Triggers a user event rejoin operation with latest catalog data. Events will not be annotated with detailed catalog information if catalog item is missing at the time the user event is ingested, and these events are stored as unjoined events with a limited usage on training and serving. This API can be used to trigger a 'join' operation on specified events with latest version of catalog items. It can also be used to correct events joined with wrong catalog items. */
       rejoin(request: {
@@ -1187,7 +1187,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest
+        body: GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Writes a single user event. */
       write(request: {
@@ -1245,7 +1245,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommendationengineV1beta1UserEvent
+        body: GoogleCloudRecommendationengineV1beta1UserEvent,
       ): Request<GoogleCloudRecommendationengineV1beta1UserEvent>;
     }
     interface EventStoresResource {
@@ -1408,7 +1408,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRecommendationengineV1beta1Catalog
+        body: GoogleCloudRecommendationengineV1beta1Catalog,
       ): Request<GoogleCloudRecommendationengineV1beta1Catalog>;
       catalogItems: CatalogItemsResource;
       eventStores: EventStoresResource;

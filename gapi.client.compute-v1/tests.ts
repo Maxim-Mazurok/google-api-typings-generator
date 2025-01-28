@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://www.googleapis.com/discovery/v1/apis/compute/v1/rest'
+    'https://www.googleapis.com/discovery/v1/apis/compute/v1/rest',
   );
   /** now we can use gapi.client.compute */
 
@@ -122,7 +122,7 @@ gapi.load('client', async () => {
         status: 'Test string',
         subnetwork: 'Test string',
         users: ['Test string'],
-      }
+      },
     );
     /** Retrieves a list of addresses contained within the specified region. */
     await gapi.client.compute.addresses.list({
@@ -145,7 +145,7 @@ gapi.load('client', async () => {
       {
         description: 'Test string',
         destinationAddress: 'Test string',
-      }
+      },
     );
     /** Sets the labels on an Address. To learn more about labels, read the Labeling Resources documentation. */
     await gapi.client.compute.addresses.setLabels(
@@ -160,7 +160,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves an aggregated list of autoscalers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.autoscalers.aggregatedList({
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
         ],
         target: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of autoscalers contained within the specified zone. */
     await gapi.client.compute.autoscalers.list({
@@ -343,7 +343,7 @@ gapi.load('client', async () => {
         ],
         target: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Updates an autoscaler in the specified project using the data included in the request. */
     await gapi.client.compute.autoscalers.update(
@@ -418,7 +418,7 @@ gapi.load('client', async () => {
         ],
         target: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Adds a key for validating requests with signed URLs for this backend bucket. */
     await gapi.client.compute.backendBuckets.addSignedUrlKey(
@@ -430,7 +430,7 @@ gapi.load('client', async () => {
       {
         keyName: 'Test string',
         keyValue: 'Test string',
-      }
+      },
     );
     /** Deletes the specified BackendBucket resource. */
     await gapi.client.compute.backendBuckets.delete({
@@ -505,7 +505,7 @@ gapi.load('client', async () => {
             reference: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the list of BackendBucket resources available to the specified project. */
     await gapi.client.compute.backendBuckets.list({
@@ -566,7 +566,7 @@ gapi.load('client', async () => {
             reference: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Sets the edge security policy for the specified backend bucket. */
     await gapi.client.compute.backendBuckets.setEdgeSecurityPolicy(
@@ -577,7 +577,7 @@ gapi.load('client', async () => {
       },
       {
         securityPolicy: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.backendBuckets.setIamPolicy(
@@ -626,7 +626,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.backendBuckets.testIamPermissions(
@@ -636,7 +636,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates the specified BackendBucket resource with the data included in the request. */
     await gapi.client.compute.backendBuckets.update(
@@ -688,7 +688,7 @@ gapi.load('client', async () => {
             reference: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Adds a key for validating requests with signed URLs for this backend service. */
     await gapi.client.compute.backendServices.addSignedUrlKey(
@@ -700,7 +700,7 @@ gapi.load('client', async () => {
       {
         keyName: 'Test string',
         keyValue: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of all BackendService resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.backendServices.aggregatedList({
@@ -739,7 +739,7 @@ gapi.load('client', async () => {
       },
       {
         group: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
     await gapi.client.compute.backendServices.getIamPolicy({
@@ -937,7 +937,7 @@ gapi.load('client', async () => {
             reference: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the list of BackendService resources available to the specified project. */
     await gapi.client.compute.backendServices.list({
@@ -1148,7 +1148,7 @@ gapi.load('client', async () => {
             reference: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Sets the edge security policy for the specified backend service. */
     await gapi.client.compute.backendServices.setEdgeSecurityPolicy(
@@ -1159,7 +1159,7 @@ gapi.load('client', async () => {
       },
       {
         securityPolicy: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.backendServices.setIamPolicy(
@@ -1208,7 +1208,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview */
     await gapi.client.compute.backendServices.setSecurityPolicy(
@@ -1219,7 +1219,7 @@ gapi.load('client', async () => {
       },
       {
         securityPolicy: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.backendServices.testIamPermissions(
@@ -1229,7 +1229,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates the specified BackendService resource with the data included in the request. For more information, see Backend services overview. */
     await gapi.client.compute.backendServices.update(
@@ -1422,7 +1422,7 @@ gapi.load('client', async () => {
             reference: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Adds existing resource policies to a disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. */
     await gapi.client.compute.disks.addResourcePolicies(
@@ -1434,7 +1434,7 @@ gapi.load('client', async () => {
       },
       {
         resourcePolicies: ['Test string'],
-      }
+      },
     );
     /** Retrieves an aggregated list of persistent disks. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.disks.aggregatedList({
@@ -1456,7 +1456,7 @@ gapi.load('client', async () => {
       },
       {
         sourceConsistencyGroupPolicy: 'Test string',
-      }
+      },
     );
     /** Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project. */
     await gapi.client.compute.disks.createSnapshot(
@@ -1528,7 +1528,7 @@ gapi.load('client', async () => {
         storageBytes: 'Test string',
         storageBytesStatus: 'Test string',
         storageLocations: ['Test string'],
-      }
+      },
     );
     /** Deletes the specified persistent disk. Deleting a disk removes its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots. */
     await gapi.client.compute.disks.delete({
@@ -1660,7 +1660,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         users: ['Test string'],
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of persistent disks contained within the specified zone. */
     await gapi.client.compute.disks.list({
@@ -1682,7 +1682,7 @@ gapi.load('client', async () => {
       },
       {
         resourcePolicies: ['Test string'],
-      }
+      },
     );
     /** Resizes the specified persistent disk. You can only increase the size of the disk. */
     await gapi.client.compute.disks.resize(
@@ -1694,7 +1694,7 @@ gapi.load('client', async () => {
       },
       {
         sizeGb: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.disks.setIamPolicy(
@@ -1744,7 +1744,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Sets the labels on a disk. To learn more about labels, read the Labeling Resources documentation. */
     await gapi.client.compute.disks.setLabels(
@@ -1759,7 +1759,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Starts asynchronous replication. Must be invoked on the primary disk. */
     await gapi.client.compute.disks.startAsyncReplication(
@@ -1771,7 +1771,7 @@ gapi.load('client', async () => {
       },
       {
         asyncSecondaryDisk: 'Test string',
-      }
+      },
     );
     /** Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. */
     await gapi.client.compute.disks.stopAsyncReplication({
@@ -1789,7 +1789,7 @@ gapi.load('client', async () => {
       },
       {
         resourcePolicy: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.disks.testIamPermissions(
@@ -1800,7 +1800,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates the specified disk with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license. */
     await gapi.client.compute.disks.update(
@@ -1914,7 +1914,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         users: ['Test string'],
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves an aggregated list of disk types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.diskTypes.aggregatedList({
@@ -1979,7 +1979,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         redundancyType: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of ExternalVpnGateway available to the specified project. */
     await gapi.client.compute.externalVpnGateways.list({
@@ -2001,7 +2001,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.externalVpnGateways.testIamPermissions(
@@ -2011,7 +2011,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Inserts an association for the specified firewall policy. */
     await gapi.client.compute.firewallPolicies.addAssociation(
@@ -2026,7 +2026,7 @@ gapi.load('client', async () => {
         firewallPolicyId: 'Test string',
         name: 'Test string',
         shortName: 'Test string',
-      }
+      },
     );
     /** Inserts a rule into a firewall policy. */
     await gapi.client.compute.firewallPolicies.addRule(
@@ -2078,7 +2078,7 @@ gapi.load('client', async () => {
         ],
         targetServiceAccounts: ['Test string'],
         tlsInspect: true,
-      }
+      },
     );
     /** Copies rules to the specified firewall policy. */
     await gapi.client.compute.firewallPolicies.cloneRules({
@@ -2186,7 +2186,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         shortName: 'Test string',
-      }
+      },
     );
     /** Lists all the policies that have been configured for the specified folder or organization. */
     await gapi.client.compute.firewallPolicies.list({
@@ -2283,7 +2283,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         shortName: 'Test string',
-      }
+      },
     );
     /** Patches a rule of the specified priority. */
     await gapi.client.compute.firewallPolicies.patchRule(
@@ -2336,7 +2336,7 @@ gapi.load('client', async () => {
         ],
         targetServiceAccounts: ['Test string'],
         tlsInspect: true,
-      }
+      },
     );
     /** Removes an association for the specified firewall policy. */
     await gapi.client.compute.firewallPolicies.removeAssociation({
@@ -2396,7 +2396,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.firewallPolicies.testIamPermissions(
@@ -2405,7 +2405,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Deletes the specified firewall. */
     await gapi.client.compute.firewalls.delete({
@@ -2457,7 +2457,7 @@ gapi.load('client', async () => {
         sourceTags: ['Test string'],
         targetServiceAccounts: ['Test string'],
         targetTags: ['Test string'],
-      }
+      },
     );
     /** Retrieves the list of firewall rules available to the specified project. */
     await gapi.client.compute.firewalls.list({
@@ -2508,7 +2508,7 @@ gapi.load('client', async () => {
         sourceTags: ['Test string'],
         targetServiceAccounts: ['Test string'],
         targetTags: ['Test string'],
-      }
+      },
     );
     /** Updates the specified firewall rule with the data included in the request. Note that all fields will be updated if using PUT, even fields that are not specified. To update individual fields, please use PATCH instead. */
     await gapi.client.compute.firewalls.update(
@@ -2550,7 +2550,7 @@ gapi.load('client', async () => {
         sourceTags: ['Test string'],
         targetServiceAccounts: ['Test string'],
         targetTags: ['Test string'],
-      }
+      },
     );
     /** Retrieves an aggregated list of forwarding rules. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.forwardingRules.aggregatedList({
@@ -2637,7 +2637,7 @@ gapi.load('client', async () => {
         sourceIpRanges: ['Test string'],
         subnetwork: 'Test string',
         target: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of ForwardingRule resources available to the specified project and region. */
     await gapi.client.compute.forwardingRules.list({
@@ -2711,7 +2711,7 @@ gapi.load('client', async () => {
         sourceIpRanges: ['Test string'],
         subnetwork: 'Test string',
         target: 'Test string',
-      }
+      },
     );
     /** Sets the labels on the specified resource. To learn more about labels, read the Labeling Resources documentation. */
     await gapi.client.compute.forwardingRules.setLabels(
@@ -2726,7 +2726,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Changes target URL for forwarding rule. The new target should be of the same type as the old target. */
     await gapi.client.compute.forwardingRules.setTarget(
@@ -2738,7 +2738,7 @@ gapi.load('client', async () => {
       },
       {
         target: 'Test string',
-      }
+      },
     );
     /** Deletes the specified address resource. */
     await gapi.client.compute.globalAddresses.delete({
@@ -2780,7 +2780,7 @@ gapi.load('client', async () => {
         status: 'Test string',
         subnetwork: 'Test string',
         users: ['Test string'],
-      }
+      },
     );
     /** Retrieves a list of global addresses. */
     await gapi.client.compute.globalAddresses.list({
@@ -2801,7 +2801,7 @@ gapi.load('client', async () => {
       {
         description: 'Test string',
         destinationAddress: 'Test string',
-      }
+      },
     );
     /** Sets the labels on a GlobalAddress. To learn more about labels, read the Labeling Resources documentation. */
     await gapi.client.compute.globalAddresses.setLabels(
@@ -2814,7 +2814,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified GlobalForwardingRule resource. */
     await gapi.client.compute.globalForwardingRules.delete({
@@ -2887,7 +2887,7 @@ gapi.load('client', async () => {
         sourceIpRanges: ['Test string'],
         subnetwork: 'Test string',
         target: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of GlobalForwardingRule resources available to the specified project. */
     await gapi.client.compute.globalForwardingRules.list({
@@ -2959,7 +2959,7 @@ gapi.load('client', async () => {
         sourceIpRanges: ['Test string'],
         subnetwork: 'Test string',
         target: 'Test string',
-      }
+      },
     );
     /** Sets the labels on the specified resource. To learn more about labels, read the Labeling resources documentation. */
     await gapi.client.compute.globalForwardingRules.setLabels(
@@ -2972,7 +2972,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Changes target URL for the GlobalForwardingRule resource. The new target should be of the same type as the old target. */
     await gapi.client.compute.globalForwardingRules.setTarget(
@@ -2983,7 +2983,7 @@ gapi.load('client', async () => {
       },
       {
         target: 'Test string',
-      }
+      },
     );
     /** Attach a network endpoint to the specified network endpoint group. */
     await gapi.client.compute.globalNetworkEndpointGroups.attachNetworkEndpoints(
@@ -3006,7 +3006,7 @@ gapi.load('client', async () => {
             port: 42,
           },
         ],
-      }
+      },
     );
     /** Deletes the specified network endpoint group.Note that the NEG cannot be deleted if there are backend services referencing it. */
     await gapi.client.compute.globalNetworkEndpointGroups.delete({
@@ -3035,7 +3035,7 @@ gapi.load('client', async () => {
             port: 42,
           },
         ],
-      }
+      },
     );
     /** Returns the specified network endpoint group. */
     await gapi.client.compute.globalNetworkEndpointGroups.get({
@@ -3086,7 +3086,7 @@ gapi.load('client', async () => {
         size: 42,
         subnetwork: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of network endpoint groups that are located in the specified project. */
     await gapi.client.compute.globalNetworkEndpointGroups.list({
@@ -3207,7 +3207,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         status: 'Test string',
-      }
+      },
     );
     /** Lists the global PublicDelegatedPrefixes for a project. */
     await gapi.client.compute.globalPublicDelegatedPrefixes.list({
@@ -3254,7 +3254,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         status: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of all HealthCheck resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.healthChecks.aggregatedList({
@@ -3350,7 +3350,7 @@ gapi.load('client', async () => {
         timeoutSec: 42,
         type: 'Test string',
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Retrieves the list of HealthCheck resources available to the specified project. */
     await gapi.client.compute.healthChecks.list({
@@ -3434,7 +3434,7 @@ gapi.load('client', async () => {
         timeoutSec: 42,
         type: 'Test string',
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Updates a HealthCheck resource in the specified project using the data included in the request. */
     await gapi.client.compute.healthChecks.update(
@@ -3509,7 +3509,7 @@ gapi.load('client', async () => {
         timeoutSec: 42,
         type: 'Test string',
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Deletes the specified HttpHealthCheck resource. */
     await gapi.client.compute.httpHealthChecks.delete({
@@ -3542,7 +3542,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         timeoutSec: 42,
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Retrieves the list of HttpHealthCheck resources available to the specified project. */
     await gapi.client.compute.httpHealthChecks.list({
@@ -3574,7 +3574,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         timeoutSec: 42,
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Updates a HttpHealthCheck resource in the specified project using the data included in the request. */
     await gapi.client.compute.httpHealthChecks.update(
@@ -3597,7 +3597,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         timeoutSec: 42,
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Deletes the specified HttpsHealthCheck resource. */
     await gapi.client.compute.httpsHealthChecks.delete({
@@ -3630,7 +3630,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         timeoutSec: 42,
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Retrieves the list of HttpsHealthCheck resources available to the specified project. */
     await gapi.client.compute.httpsHealthChecks.list({
@@ -3662,7 +3662,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         timeoutSec: 42,
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Updates a HttpsHealthCheck resource in the specified project using the data included in the request. */
     await gapi.client.compute.httpsHealthChecks.update(
@@ -3685,7 +3685,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         timeoutSec: 42,
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Returns the latest image that is part of an image family, is not deprecated and is rolled out in the specified zone. */
     await gapi.client.compute.imageFamilyViews.get({
@@ -3712,7 +3712,7 @@ gapi.load('client', async () => {
         obsolete: 'Test string',
         replacement: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Returns the specified image. */
     await gapi.client.compute.images.get({
@@ -3835,7 +3835,7 @@ gapi.load('client', async () => {
         sourceType: 'Test string',
         status: 'Test string',
         storageLocations: ['Test string'],
-      }
+      },
     );
     /** Retrieves the list of custom images available to the specified project. Custom images are images you create that belong to your project. This method does not get any images that belong to other projects, including publicly-available images, like Debian 8. If you want to get a list of publicly-available images, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud. */
     await gapi.client.compute.images.list({
@@ -3951,7 +3951,7 @@ gapi.load('client', async () => {
         sourceType: 'Test string',
         status: 'Test string',
         storageLocations: ['Test string'],
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.images.setIamPolicy(
@@ -4000,7 +4000,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Sets the labels on an image. To learn more about labels, read the Labeling Resources documentation. */
     await gapi.client.compute.images.setLabels(
@@ -4013,7 +4013,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.images.testIamPermissions(
@@ -4023,7 +4023,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Cancels the specified resize request and removes it from the queue. Cancelled resize request does no longer wait for the resources to be provisioned. Cancel is only possible for requests that are accepted in the queue. */
     await gapi.client.compute.instanceGroupManagerResizeRequests.cancel({
@@ -4159,7 +4159,7 @@ gapi.load('client', async () => {
           },
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of resize requests that are contained in the managed instance group. */
     await gapi.client.compute.instanceGroupManagerResizeRequests.list({
@@ -4182,7 +4182,7 @@ gapi.load('client', async () => {
       },
       {
         instances: ['Test string'],
-      }
+      },
     );
     /** Retrieves the list of managed instance groups and groups them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.instanceGroupManagers.aggregatedList({
@@ -4207,7 +4207,7 @@ gapi.load('client', async () => {
         instances: ['Test string'],
         minimalAction: 'Test string',
         mostDisruptiveAllowedAction: 'Test string',
-      }
+      },
     );
     /** Creates instances with per-instance configurations in this managed instance group. Instances are created using the current instance template. The create instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must separately verify the status of the creating or actions with the listmanagedinstances method. */
     await gapi.client.compute.instanceGroupManagers.createInstances(
@@ -4255,7 +4255,7 @@ gapi.load('client', async () => {
             status: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes the specified managed instance group and all of the instances in that group. Note that the instance group must not belong to a backend service. Read Deleting an instance group for more information. */
     await gapi.client.compute.instanceGroupManagers.delete({
@@ -4275,7 +4275,7 @@ gapi.load('client', async () => {
       {
         instances: ['Test string'],
         skipInstancesOnValidationError: true,
-      }
+      },
     );
     /** Deletes selected per-instance configurations for the managed instance group. */
     await gapi.client.compute.instanceGroupManagers.deletePerInstanceConfigs(
@@ -4286,7 +4286,7 @@ gapi.load('client', async () => {
       },
       {
         names: ['Test string'],
-      }
+      },
     );
     /** Returns all of the details about the specified managed instance group. */
     await gapi.client.compute.instanceGroupManagers.get({
@@ -4446,7 +4446,7 @@ gapi.load('client', async () => {
           },
         ],
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of managed instance groups that are contained within the specified project and zone. */
     await gapi.client.compute.instanceGroupManagers.list({
@@ -4644,7 +4644,7 @@ gapi.load('client', async () => {
           },
         ],
         zone: 'Test string',
-      }
+      },
     );
     /** Inserts or patches per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
     await gapi.client.compute.instanceGroupManagers.patchPerInstanceConfigs(
@@ -4692,7 +4692,7 @@ gapi.load('client', async () => {
             status: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more information, see Checking the status of managed instances. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request. */
     await gapi.client.compute.instanceGroupManagers.recreateInstances(
@@ -4704,7 +4704,7 @@ gapi.load('client', async () => {
       },
       {
         instances: ['Test string'],
-      }
+      },
     );
     /** Resizes the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the group deletes instances. The resize operation is marked DONE when the resize actions are scheduled even if the group has not yet added or deleted any instances. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method. When resizing down, the instance group arbitrarily chooses the order in which VMs are deleted. The group takes into account some VM attributes when making the selection including: + The status of the VM instance. + The health of the VM instance. + The instance template version the VM is based on. + For regional managed instance groups, the location of the VM instance. This list is subject to change. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. */
     await gapi.client.compute.instanceGroupManagers.resize({
@@ -4724,7 +4724,7 @@ gapi.load('client', async () => {
       },
       {
         instances: ['Test string'],
-      }
+      },
     );
     /** Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change unless you run recreateInstances, run applyUpdatesToInstances, or set the group's updatePolicy.type to PROACTIVE. */
     await gapi.client.compute.instanceGroupManagers.setInstanceTemplate(
@@ -4736,7 +4736,7 @@ gapi.load('client', async () => {
       },
       {
         instanceTemplate: 'Test string',
-      }
+      },
     );
     /** Modifies the target pools to which all instances in this managed instance group are assigned. The target pools automatically apply to all of the instances in the managed instance group. This operation is marked DONE when you make the request even if the instances have not yet been added to their target pools. The change might take some time to apply to all of the instances in the group depending on the size of the group. */
     await gapi.client.compute.instanceGroupManagers.setTargetPools(
@@ -4749,7 +4749,7 @@ gapi.load('client', async () => {
       {
         fingerprint: 'Test string',
         targetPools: ['Test string'],
-      }
+      },
     );
     /** Flags the specified instances in the managed instance group to be started. This method increases the targetSize and decreases the targetStoppedSize of the managed instance group by the number of instances that you start. The startInstances operation is marked DONE if the startInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STARTING action with the listmanagedinstances method. In this request, you can only specify instances that are stopped. For example, if an instance was previously stopped using the stopInstances method, it can be started using the startInstances method. If a health check is attached to the managed instance group, the specified instances will be verified as healthy after they are started. You can specify a maximum of 1000 instances with this method per request. */
     await gapi.client.compute.instanceGroupManagers.startInstances(
@@ -4761,7 +4761,7 @@ gapi.load('client', async () => {
       },
       {
         instances: ['Test string'],
-      }
+      },
     );
     /** Flags the specified instances in the managed instance group to be immediately stopped. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetStoppedSize of the managed instance group by the number of instances that you stop. The stopInstances operation is marked DONE if the stopInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STOPPING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays stopping the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is stopped. Stopped instances can be started using the startInstances method. You can specify a maximum of 1000 instances with this method per request. */
     await gapi.client.compute.instanceGroupManagers.stopInstances(
@@ -4774,7 +4774,7 @@ gapi.load('client', async () => {
       {
         forceStop: true,
         instances: ['Test string'],
-      }
+      },
     );
     /** Flags the specified instances in the managed instance group to be immediately suspended. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetSuspendedSize of the managed instance group by the number of instances that you suspend. The suspendInstances operation is marked DONE if the suspendInstances request is successful. The underlying actions take additional time. You must separately verify the status of the SUSPENDING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays suspension of the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is suspended. Suspended instances can be resumed using the resumeInstances method. You can specify a maximum of 1000 instances with this method per request. */
     await gapi.client.compute.instanceGroupManagers.suspendInstances(
@@ -4787,7 +4787,7 @@ gapi.load('client', async () => {
       {
         forceSuspend: true,
         instances: ['Test string'],
-      }
+      },
     );
     /** Inserts or updates per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
     await gapi.client.compute.instanceGroupManagers.updatePerInstanceConfigs(
@@ -4835,7 +4835,7 @@ gapi.load('client', async () => {
             status: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read Adding instances for more information. */
     await gapi.client.compute.instanceGroups.addInstances(
@@ -4851,7 +4851,7 @@ gapi.load('client', async () => {
             instance: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the list of instance groups and sorts them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.instanceGroups.aggregatedList({
@@ -4903,7 +4903,7 @@ gapi.load('client', async () => {
         size: 42,
         subnetwork: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of zonal instance group resources contained within the specified zone. For managed instance groups, use the instanceGroupManagers or regionInstanceGroupManagers methods instead. */
     await gapi.client.compute.instanceGroups.list({
@@ -4929,7 +4929,7 @@ gapi.load('client', async () => {
       },
       {
         instanceState: 'Test string',
-      }
+      },
     );
     /** Removes one or more instances from the specified instance group, but does not delete those instances. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration before the VM instance is removed or deleted. */
     await gapi.client.compute.instanceGroups.removeInstances(
@@ -4945,7 +4945,7 @@ gapi.load('client', async () => {
             instance: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Sets the named ports for the specified instance group. */
     await gapi.client.compute.instanceGroups.setNamedPorts(
@@ -4963,7 +4963,7 @@ gapi.load('client', async () => {
             port: 42,
           },
         ],
-      }
+      },
     );
     /** Adds an access config to an instance's network interface. */
     await gapi.client.compute.instances.addAccessConfig(
@@ -4985,7 +4985,7 @@ gapi.load('client', async () => {
         securityPolicy: 'Test string',
         setPublicPtr: true,
         type: 'Test string',
-      }
+      },
     );
     /** Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live migrations. */
     await gapi.client.compute.instances.addResourcePolicies(
@@ -4997,7 +4997,7 @@ gapi.load('client', async () => {
       },
       {
         resourcePolicies: ['Test string'],
-      }
+      },
     );
     /** Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.instances.aggregatedList({
@@ -5107,7 +5107,7 @@ gapi.load('client', async () => {
         },
         source: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Creates multiple instances. Count specifies the number of instances to create. For more information, see About bulk creation of VMs. */
     await gapi.client.compute.instances.bulkInsert(
@@ -5375,7 +5375,7 @@ gapi.load('client', async () => {
           },
         },
         sourceInstanceTemplate: 'Test string',
-      }
+      },
     );
     /** Deletes the specified Instance resource. For more information, see Deleting an instance. */
     await gapi.client.compute.instances.delete({
@@ -5750,7 +5750,7 @@ gapi.load('client', async () => {
           items: ['Test string'],
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of instances contained within the specified zone. */
     await gapi.client.compute.instances.list({
@@ -5790,7 +5790,7 @@ gapi.load('client', async () => {
       },
       {
         resourcePolicies: ['Test string'],
-      }
+      },
     );
     /** Performs a reset on the instance. This is a hard reset. The VM does not do a graceful shutdown. For more information, see Resetting an instance. */
     await gapi.client.compute.instances.reset({
@@ -5877,7 +5877,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Sets labels on an instance. To learn more about labels, read the Labeling Resources documentation. */
     await gapi.client.compute.instances.setLabels(
@@ -5892,7 +5892,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Changes the number and/or type of accelerator for a stopped instance to the values specified in the request. */
     await gapi.client.compute.instances.setMachineResources(
@@ -5909,7 +5909,7 @@ gapi.load('client', async () => {
             acceleratorType: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Changes the machine type for a stopped instance to the machine type specified in the request. */
     await gapi.client.compute.instances.setMachineType(
@@ -5921,7 +5921,7 @@ gapi.load('client', async () => {
       },
       {
         machineType: 'Test string',
-      }
+      },
     );
     /** Sets metadata for the specified instance to the data included in the request. */
     await gapi.client.compute.instances.setMetadata(
@@ -5940,7 +5940,7 @@ gapi.load('client', async () => {
           },
         ],
         kind: 'Test string',
-      }
+      },
     );
     /** Changes the minimum CPU platform that this instance should use. This method can only be called on a stopped instance. For more information, read Specifying a Minimum CPU Platform. */
     await gapi.client.compute.instances.setMinCpuPlatform(
@@ -5952,7 +5952,7 @@ gapi.load('client', async () => {
       },
       {
         minCpuPlatform: 'Test string',
-      }
+      },
     );
     /** Sets name of an instance. */
     await gapi.client.compute.instances.setName(
@@ -5965,7 +5965,7 @@ gapi.load('client', async () => {
       {
         currentName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Sets an instance's scheduling options. You can only call this method on a stopped instance, that is, a VM instance that is in a `TERMINATED` state. See Instance Life Cycle for more information on the possible instance states. For more information about setting scheduling options for a VM, see Set VM host maintenance policy. */
     await gapi.client.compute.instances.setScheduling(
@@ -6003,7 +6003,7 @@ gapi.load('client', async () => {
         preemptible: true,
         provisioningModel: 'Test string',
         terminationTime: 'Test string',
-      }
+      },
     );
     /** Sets the Google Cloud Armor security policy for the specified instance. For more information, see Google Cloud Armor Overview */
     await gapi.client.compute.instances.setSecurityPolicy(
@@ -6016,7 +6016,7 @@ gapi.load('client', async () => {
       {
         networkInterfaces: ['Test string'],
         securityPolicy: 'Test string',
-      }
+      },
     );
     /** Sets the service account on the instance. For more information, read Changing the service account and access scopes for an instance. */
     await gapi.client.compute.instances.setServiceAccount(
@@ -6029,7 +6029,7 @@ gapi.load('client', async () => {
       {
         email: 'Test string',
         scopes: ['Test string'],
-      }
+      },
     );
     /** Sets the Shielded Instance integrity policy for an instance. You can only use this method on a running instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
     await gapi.client.compute.instances.setShieldedInstanceIntegrityPolicy(
@@ -6041,7 +6041,7 @@ gapi.load('client', async () => {
       },
       {
         updateAutoLearnPolicy: true,
-      }
+      },
     );
     /** Sets network tags for the specified instance to the data included in the request. */
     await gapi.client.compute.instances.setTags(
@@ -6054,7 +6054,7 @@ gapi.load('client', async () => {
       {
         fingerprint: 'Test string',
         items: ['Test string'],
-      }
+      },
     );
     /** Simulates a host maintenance event on a VM. For more information, see Simulate a host maintenance event. */
     await gapi.client.compute.instances.simulateMaintenanceEvent({
@@ -6092,7 +6092,7 @@ gapi.load('client', async () => {
             source: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Stops a running instance, shutting it down cleanly, and allows you to restart the instance at a later time. Stopped instances do not incur VM usage charges while they are stopped. However, resources that the VM is using, such as persistent disks and static IP addresses, will continue to be charged until they are deleted. For more information, see Stopping an instance. */
     await gapi.client.compute.instances.stop({
@@ -6119,7 +6119,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See Updating a running instance for a list of updatable instance properties. */
     await gapi.client.compute.instances.update(
@@ -6423,7 +6423,7 @@ gapi.load('client', async () => {
           items: ['Test string'],
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Updates the specified access config from an instance's network interface with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
     await gapi.client.compute.instances.updateAccessConfig(
@@ -6445,7 +6445,7 @@ gapi.load('client', async () => {
         securityPolicy: 'Test string',
         setPublicPtr: true,
         type: 'Test string',
-      }
+      },
     );
     /** Updates the Display config for a VM instance. You can only use this method on a stopped VM instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
     await gapi.client.compute.instances.updateDisplayDevice(
@@ -6457,7 +6457,7 @@ gapi.load('client', async () => {
       },
       {
         enableDisplay: true,
-      }
+      },
     );
     /** Updates an instance's network interface. This method can only update an interface's alias IP range and attached network. See Modifying alias IP ranges for an existing instance for instructions on changing alias IP ranges. See Migrating a VM between networks for instructions on migrating an interface. This method follows PATCH semantics. */
     await gapi.client.compute.instances.updateNetworkInterface(
@@ -6516,7 +6516,7 @@ gapi.load('client', async () => {
         queueCount: 42,
         stackType: 'Test string',
         subnetwork: 'Test string',
-      }
+      },
     );
     /** Updates the Shielded Instance config for an instance. You can only use this method on a stopped instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
     await gapi.client.compute.instances.updateShieldedInstanceConfig(
@@ -6530,7 +6530,7 @@ gapi.load('client', async () => {
         enableIntegrityMonitoring: true,
         enableSecureBoot: true,
         enableVtpm: true,
-      }
+      },
     );
     /** Get Instance settings. */
     await gapi.client.compute.instanceSettings.get({
@@ -6555,7 +6555,7 @@ gapi.load('client', async () => {
           kind: 'Test string',
         },
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of all InstanceTemplates resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.instanceTemplates.aggregatedList({
@@ -6847,7 +6847,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Retrieves a list of instance templates that are contained within the specified project. */
     await gapi.client.compute.instanceTemplates.list({
@@ -6905,7 +6905,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.instanceTemplates.testIamPermissions(
@@ -6915,7 +6915,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Retrieves an aggregated list of instantSnapshots. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.instantSnapshots.aggregatedList({
@@ -6979,7 +6979,7 @@ gapi.load('client', async () => {
         sourceDiskId: 'Test string',
         status: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of InstantSnapshot resources contained within the specified zone. */
     await gapi.client.compute.instantSnapshots.list({
@@ -7039,7 +7039,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Sets the labels on a instantSnapshot in the given zone. To learn more about labels, read the Labeling Resources documentation. */
     await gapi.client.compute.instantSnapshots.setLabels(
@@ -7054,7 +7054,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.instantSnapshots.testIamPermissions(
@@ -7065,7 +7065,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Retrieves an aggregated list of interconnect attachments. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.interconnectAttachments.aggregatedList({
@@ -7156,7 +7156,7 @@ gapi.load('client', async () => {
         subnetLength: 42,
         type: 'Test string',
         vlanTag8021q: 42,
-      }
+      },
     );
     /** Retrieves the list of interconnect attachments contained within the specified region. */
     await gapi.client.compute.interconnectAttachments.list({
@@ -7233,7 +7233,7 @@ gapi.load('client', async () => {
         subnetLength: 42,
         type: 'Test string',
         vlanTag8021q: 42,
-      }
+      },
     );
     /** Sets the labels on an InterconnectAttachment. To learn more about labels, read the Labeling Resources documentation. */
     await gapi.client.compute.interconnectAttachments.setLabels(
@@ -7248,7 +7248,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Returns the details for the specified interconnect location. Gets a list of available interconnect locations by making a list() request. */
     await gapi.client.compute.interconnectLocations.get({
@@ -7363,7 +7363,7 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         selfLink: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of Interconnects available to the specified project. */
     await gapi.client.compute.interconnects.list({
@@ -7439,7 +7439,7 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         selfLink: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Sets the labels on an Interconnect. To learn more about labels, read the Labeling Resources documentation. */
     await gapi.client.compute.interconnects.setLabels(
@@ -7452,7 +7452,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. */
     await gapi.client.compute.licenseCodes.get({
@@ -7467,7 +7467,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Deletes the specified license. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. */
     await gapi.client.compute.licenses.delete({
@@ -7506,7 +7506,7 @@ gapi.load('client', async () => {
         },
         selfLink: 'Test string',
         transferable: true,
-      }
+      },
     );
     /** Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. */
     await gapi.client.compute.licenses.list({
@@ -7564,7 +7564,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. */
     await gapi.client.compute.licenses.testIamPermissions(
@@ -7574,7 +7574,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Deletes the specified machine image. Deleting a machine image is permanent and cannot be undone. */
     await gapi.client.compute.machineImages.delete({
@@ -8026,7 +8026,7 @@ gapi.load('client', async () => {
         status: 'Test string',
         storageLocations: ['Test string'],
         totalStorageBytes: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of machine images that are contained within the specified project. */
     await gapi.client.compute.machineImages.list({
@@ -8084,7 +8084,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.machineImages.testIamPermissions(
@@ -8094,7 +8094,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Retrieves an aggregated list of machine types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.machineTypes.aggregatedList({
@@ -8187,7 +8187,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         subnetworks: ['Test string'],
-      }
+      },
     );
     /** Lists the NetworkAttachments for a project in the given scope. */
     await gapi.client.compute.networkAttachments.list({
@@ -8233,7 +8233,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         subnetworks: ['Test string'],
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.networkAttachments.setIamPolicy(
@@ -8283,7 +8283,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.networkAttachments.testIamPermissions(
@@ -8294,7 +8294,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.networkEdgeSecurityServices.aggregatedList({
@@ -8339,7 +8339,7 @@ gapi.load('client', async () => {
         securityPolicy: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-      }
+      },
     );
     /** Patches the specified policy with the data included in the request. */
     await gapi.client.compute.networkEdgeSecurityServices.patch(
@@ -8362,7 +8362,7 @@ gapi.load('client', async () => {
         securityPolicy: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of network endpoint groups and sorts them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.networkEndpointGroups.aggregatedList({
@@ -8397,7 +8397,7 @@ gapi.load('client', async () => {
             port: 42,
           },
         ],
-      }
+      },
     );
     /** Deletes the specified network endpoint group. The network endpoints in the NEG and the VM instances they belong to are not terminated when the NEG is deleted. Note that the NEG cannot be deleted if there are backend services referencing it. */
     await gapi.client.compute.networkEndpointGroups.delete({
@@ -8428,7 +8428,7 @@ gapi.load('client', async () => {
             port: 42,
           },
         ],
-      }
+      },
     );
     /** Returns the specified network endpoint group. */
     await gapi.client.compute.networkEndpointGroups.get({
@@ -8481,7 +8481,7 @@ gapi.load('client', async () => {
         size: 42,
         subnetwork: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of network endpoint groups that are located in the specified project and zone. */
     await gapi.client.compute.networkEndpointGroups.list({
@@ -8507,7 +8507,7 @@ gapi.load('client', async () => {
       },
       {
         healthStatus: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.networkEndpointGroups.testIamPermissions(
@@ -8518,7 +8518,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Inserts an association for the specified firewall policy. */
     await gapi.client.compute.networkFirewallPolicies.addAssociation(
@@ -8534,7 +8534,7 @@ gapi.load('client', async () => {
         firewallPolicyId: 'Test string',
         name: 'Test string',
         shortName: 'Test string',
-      }
+      },
     );
     /** Inserts a rule into a firewall policy. */
     await gapi.client.compute.networkFirewallPolicies.addRule(
@@ -8589,7 +8589,7 @@ gapi.load('client', async () => {
         ],
         targetServiceAccounts: ['Test string'],
         tlsInspect: true,
-      }
+      },
     );
     /** Retrieves an aggregated list of network firewall policies, listing network firewall policies from all applicable scopes (global and regional) and grouping the results per scope. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.networkFirewallPolicies.aggregatedList({
@@ -8714,7 +8714,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         shortName: 'Test string',
-      }
+      },
     );
     /** Lists all the policies that have been configured for the specified project. */
     await gapi.client.compute.networkFirewallPolicies.list({
@@ -8802,7 +8802,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         shortName: 'Test string',
-      }
+      },
     );
     /** Patches a rule of the specified priority. */
     await gapi.client.compute.networkFirewallPolicies.patchRule(
@@ -8856,7 +8856,7 @@ gapi.load('client', async () => {
         ],
         targetServiceAccounts: ['Test string'],
         tlsInspect: true,
-      }
+      },
     );
     /** Removes an association for the specified firewall policy. */
     await gapi.client.compute.networkFirewallPolicies.removeAssociation({
@@ -8919,7 +8919,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.networkFirewallPolicies.testIamPermissions(
@@ -8929,7 +8929,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Returns the specified network profile. */
     await gapi.client.compute.networkProfiles.get({
@@ -8970,7 +8970,7 @@ gapi.load('client', async () => {
           stateDetails: 'Test string',
         },
         peerNetwork: 'Test string',
-      }
+      },
     );
     /** Deletes the specified network. */
     await gapi.client.compute.networks.delete({
@@ -9036,7 +9036,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         subnetworks: ['Test string'],
-      }
+      },
     );
     /** Retrieves the list of networks available to the specified project. */
     await gapi.client.compute.networks.list({
@@ -9109,7 +9109,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         subnetworks: ['Test string'],
-      }
+      },
     );
     /** Removes a peering from the specified network. */
     await gapi.client.compute.networks.removePeering(
@@ -9120,7 +9120,7 @@ gapi.load('client', async () => {
       },
       {
         name: 'Test string',
-      }
+      },
     );
     /** Switches the network mode from auto subnet mode to custom subnet mode. */
     await gapi.client.compute.networks.switchToCustomMode({
@@ -9150,7 +9150,7 @@ gapi.load('client', async () => {
           state: 'Test string',
           stateDetails: 'Test string',
         },
-      }
+      },
     );
     /** Adds specified number of nodes to the node group. */
     await gapi.client.compute.nodeGroups.addNodes(
@@ -9162,7 +9162,7 @@ gapi.load('client', async () => {
       },
       {
         additionalNodeCount: 42,
-      }
+      },
     );
     /** Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes for more details about each group. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.nodeGroups.aggregatedList({
@@ -9192,7 +9192,7 @@ gapi.load('client', async () => {
       },
       {
         nodes: ['Test string'],
-      }
+      },
     );
     /** Returns the specified NodeGroup. Get a list of available NodeGroups by making a list() request. Note: the "nodes" field should not be used. Use nodeGroups.listNodes instead. */
     await gapi.client.compute.nodeGroups.get({
@@ -9250,7 +9250,7 @@ gapi.load('client', async () => {
         size: 42,
         status: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of node groups available to the specified project. Note: use nodeGroups.listNodes for more details about each group. */
     await gapi.client.compute.nodeGroups.list({
@@ -9316,7 +9316,7 @@ gapi.load('client', async () => {
         size: 42,
         status: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Perform maintenance on a subset of nodes in the node group. */
     await gapi.client.compute.nodeGroups.performMaintenance(
@@ -9329,7 +9329,7 @@ gapi.load('client', async () => {
       {
         nodes: ['Test string'],
         startTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.nodeGroups.setIamPolicy(
@@ -9379,7 +9379,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Updates the node template of the node group. */
     await gapi.client.compute.nodeGroups.setNodeTemplate(
@@ -9391,7 +9391,7 @@ gapi.load('client', async () => {
       },
       {
         nodeTemplate: 'Test string',
-      }
+      },
     );
     /** Simulates maintenance event on specified nodes from the node group. */
     await gapi.client.compute.nodeGroups.simulateMaintenanceEvent(
@@ -9403,7 +9403,7 @@ gapi.load('client', async () => {
       },
       {
         nodes: ['Test string'],
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.nodeGroups.testIamPermissions(
@@ -9414,7 +9414,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Retrieves an aggregated list of node templates. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.nodeTemplates.aggregatedList({
@@ -9490,7 +9490,7 @@ gapi.load('client', async () => {
         },
         status: 'Test string',
         statusMessage: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of node templates available to the specified project. */
     await gapi.client.compute.nodeTemplates.list({
@@ -9550,7 +9550,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.nodeTemplates.testIamPermissions(
@@ -9561,7 +9561,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Retrieves an aggregated list of node types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.nodeTypes.aggregatedList({
@@ -9659,7 +9659,7 @@ gapi.load('client', async () => {
         priority: 42,
         region: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of PacketMirroring resources available to the specified project and region. */
     await gapi.client.compute.packetMirrorings.list({
@@ -9717,7 +9717,7 @@ gapi.load('client', async () => {
         priority: 42,
         region: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.packetMirrorings.testIamPermissions(
@@ -9728,7 +9728,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Disable this project as a shared VPC host project. */
     await gapi.client.compute.projects.disableXpnHost({
@@ -9746,7 +9746,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Enable this project as a shared VPC host project. */
     await gapi.client.compute.projects.enableXpnHost({
@@ -9764,7 +9764,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Returns the specified Project resource. To decrease latency for this method, you can optionally omit any unneeded information from the response by using a field mask. This practice is especially recommended for unused quota information (the `quotas` field). To exclude one or more fields, set your request's `fields` query parameter to only include the fields you need. For example, to only include the `id` and `selfLink` fields, add the query parameter `?fields=id,selfLink` to your request. */
     await gapi.client.compute.projects.get({
@@ -9795,7 +9795,7 @@ gapi.load('client', async () => {
       },
       {
         organization: 'Test string',
-      }
+      },
     );
     /** Moves a persistent disk from one zone to another. */
     await gapi.client.compute.projects.moveDisk(
@@ -9806,7 +9806,7 @@ gapi.load('client', async () => {
       {
         destinationZone: 'Test string',
         targetDisk: 'Test string',
-      }
+      },
     );
     /** Moves an instance and its attached persistent disks from one zone to another. *Note*: Moving VMs or disks by using this method might cause unexpected behavior. For more information, see the [known issue](/compute/docs/troubleshooting/known-issues#moving_vms_or_disks_using_the_moveinstance_api_or_the_causes_unexpected_behavior). [Deprecated] This method is deprecated. See [moving instance across zones](/compute/docs/instances/moving-instance-across-zones) instead. */
     await gapi.client.compute.projects.moveInstance(
@@ -9817,7 +9817,7 @@ gapi.load('client', async () => {
       {
         destinationZone: 'Test string',
         targetInstance: 'Test string',
-      }
+      },
     );
     /** Sets the Cloud Armor tier of the project. To set ENTERPRISE or above the billing account of the project must be subscribed to Cloud Armor Enterprise. See Subscribing to Cloud Armor Enterprise for more information. */
     await gapi.client.compute.projects.setCloudArmorTier(
@@ -9827,7 +9827,7 @@ gapi.load('client', async () => {
       },
       {
         cloudArmorTier: 'Test string',
-      }
+      },
     );
     /** Sets metadata common to all instances within the specified project using the data included in the request. */
     await gapi.client.compute.projects.setCommonInstanceMetadata(
@@ -9844,7 +9844,7 @@ gapi.load('client', async () => {
           },
         ],
         kind: 'Test string',
-      }
+      },
     );
     /** Sets the default network tier of the project. The default network tier is used when an address/forwardingRule/instance is created without specifying the network tier field. */
     await gapi.client.compute.projects.setDefaultNetworkTier(
@@ -9854,7 +9854,7 @@ gapi.load('client', async () => {
       },
       {
         networkTier: 'Test string',
-      }
+      },
     );
     /** Enables the usage export feature and sets the usage export bucket where reports are stored. If you provide an empty request body using this method, the usage export feature will be disabled. */
     await gapi.client.compute.projects.setUsageExportBucket(
@@ -9865,7 +9865,7 @@ gapi.load('client', async () => {
       {
         bucketName: 'Test string',
         reportNamePrefix: 'Test string',
-      }
+      },
     );
     /** Announces the specified PublicAdvertisedPrefix */
     await gapi.client.compute.publicAdvertisedPrefixes.announce({
@@ -9913,7 +9913,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         sharedSecret: 'Test string',
         status: 'Test string',
-      }
+      },
     );
     /** Lists the PublicAdvertisedPrefixes for a project. */
     await gapi.client.compute.publicAdvertisedPrefixes.list({
@@ -9954,7 +9954,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         sharedSecret: 'Test string',
         status: 'Test string',
-      }
+      },
     );
     /** Withdraws the specified PublicAdvertisedPrefix */
     await gapi.client.compute.publicAdvertisedPrefixes.withdraw({
@@ -10029,7 +10029,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         status: 'Test string',
-      }
+      },
     );
     /** Lists the PublicDelegatedPrefixes for a project in the given region. */
     await gapi.client.compute.publicDelegatedPrefixes.list({
@@ -10078,7 +10078,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         status: 'Test string',
-      }
+      },
     );
     /** Withdraws the specified PublicDelegatedPrefix in the given region. */
     await gapi.client.compute.publicDelegatedPrefixes.withdraw({
@@ -10172,7 +10172,7 @@ gapi.load('client', async () => {
         ],
         target: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of autoscalers contained within the specified region. */
     await gapi.client.compute.regionAutoscalers.list({
@@ -10257,7 +10257,7 @@ gapi.load('client', async () => {
         ],
         target: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Updates an autoscaler in the specified project using the data included in the request. */
     await gapi.client.compute.regionAutoscalers.update(
@@ -10332,7 +10332,7 @@ gapi.load('client', async () => {
         ],
         target: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Deletes the specified regional BackendService resource. */
     await gapi.client.compute.regionBackendServices.delete({
@@ -10356,7 +10356,7 @@ gapi.load('client', async () => {
       },
       {
         group: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
     await gapi.client.compute.regionBackendServices.getIamPolicy({
@@ -10556,7 +10556,7 @@ gapi.load('client', async () => {
             reference: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the list of regional BackendService resources available to the specified project in the given region. */
     await gapi.client.compute.regionBackendServices.list({
@@ -10770,7 +10770,7 @@ gapi.load('client', async () => {
             reference: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.regionBackendServices.setIamPolicy(
@@ -10820,7 +10820,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview */
     await gapi.client.compute.regionBackendServices.setSecurityPolicy(
@@ -10832,7 +10832,7 @@ gapi.load('client', async () => {
       },
       {
         securityPolicy: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.regionBackendServices.testIamPermissions(
@@ -10843,7 +10843,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates the specified regional BackendService resource with the data included in the request. For more information, see Backend services overview . */
     await gapi.client.compute.regionBackendServices.update(
@@ -11037,7 +11037,7 @@ gapi.load('client', async () => {
             reference: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves an aggregated list of commitments by region. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.regionCommitments.aggregatedList({
@@ -11172,7 +11172,7 @@ gapi.load('client', async () => {
         status: 'Test string',
         statusMessage: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of commitments contained within the specified region. */
     await gapi.client.compute.regionCommitments.list({
@@ -11303,7 +11303,7 @@ gapi.load('client', async () => {
         status: 'Test string',
         statusMessage: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Adds existing resource policies to a regional disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. */
     await gapi.client.compute.regionDisks.addResourcePolicies(
@@ -11315,7 +11315,7 @@ gapi.load('client', async () => {
       },
       {
         resourcePolicies: ['Test string'],
-      }
+      },
     );
     /** Bulk create a set of disks. */
     await gapi.client.compute.regionDisks.bulkInsert(
@@ -11326,7 +11326,7 @@ gapi.load('client', async () => {
       },
       {
         sourceConsistencyGroupPolicy: 'Test string',
-      }
+      },
     );
     /** Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project. */
     await gapi.client.compute.regionDisks.createSnapshot(
@@ -11397,7 +11397,7 @@ gapi.load('client', async () => {
         storageBytes: 'Test string',
         storageBytesStatus: 'Test string',
         storageLocations: ['Test string'],
-      }
+      },
     );
     /** Deletes the specified regional persistent disk. Deleting a regional disk removes all the replicas of its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots. */
     await gapi.client.compute.regionDisks.delete({
@@ -11529,7 +11529,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         users: ['Test string'],
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of persistent disks contained within the specified region. */
     await gapi.client.compute.regionDisks.list({
@@ -11551,7 +11551,7 @@ gapi.load('client', async () => {
       },
       {
         resourcePolicies: ['Test string'],
-      }
+      },
     );
     /** Resizes the specified regional persistent disk. */
     await gapi.client.compute.regionDisks.resize(
@@ -11563,7 +11563,7 @@ gapi.load('client', async () => {
       },
       {
         sizeGb: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.regionDisks.setIamPolicy(
@@ -11613,7 +11613,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Sets the labels on the target regional disk. */
     await gapi.client.compute.regionDisks.setLabels(
@@ -11628,7 +11628,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Starts asynchronous replication. Must be invoked on the primary disk. */
     await gapi.client.compute.regionDisks.startAsyncReplication(
@@ -11640,7 +11640,7 @@ gapi.load('client', async () => {
       },
       {
         asyncSecondaryDisk: 'Test string',
-      }
+      },
     );
     /** Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. */
     await gapi.client.compute.regionDisks.stopAsyncReplication({
@@ -11658,7 +11658,7 @@ gapi.load('client', async () => {
       },
       {
         resourcePolicy: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.regionDisks.testIamPermissions(
@@ -11669,7 +11669,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Update the specified disk with the data included in the request. Update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license. */
     await gapi.client.compute.regionDisks.update(
@@ -11783,7 +11783,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         users: ['Test string'],
         zone: 'Test string',
-      }
+      },
     );
     /** Returns the specified regional disk type. */
     await gapi.client.compute.regionDiskTypes.get({
@@ -11887,7 +11887,7 @@ gapi.load('client', async () => {
         timeoutSec: 42,
         type: 'Test string',
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Retrieves the list of HealthCheck resources available to the specified project. */
     await gapi.client.compute.regionHealthChecks.list({
@@ -11973,7 +11973,7 @@ gapi.load('client', async () => {
         timeoutSec: 42,
         type: 'Test string',
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Updates a HealthCheck resource in the specified project using the data included in the request. */
     await gapi.client.compute.regionHealthChecks.update(
@@ -12049,7 +12049,7 @@ gapi.load('client', async () => {
         timeoutSec: 42,
         type: 'Test string',
         unhealthyThreshold: 42,
-      }
+      },
     );
     /** Deletes the specified regional HealthCheckService. */
     await gapi.client.compute.regionHealthCheckServices.delete({
@@ -12084,7 +12084,7 @@ gapi.load('client', async () => {
         notificationEndpoints: ['Test string'],
         region: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Lists all the HealthCheckService resources that have been configured for the specified project in the given region. */
     await gapi.client.compute.regionHealthCheckServices.list({
@@ -12117,7 +12117,7 @@ gapi.load('client', async () => {
         notificationEndpoints: ['Test string'],
         region: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Flags the specified instances to be immediately removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request. */
     await gapi.client.compute.regionInstanceGroupManagers.abandonInstances(
@@ -12129,7 +12129,7 @@ gapi.load('client', async () => {
       },
       {
         instances: ['Test string'],
-      }
+      },
     );
     /** Apply updates to selected instances the managed instance group. */
     await gapi.client.compute.regionInstanceGroupManagers.applyUpdatesToInstances(
@@ -12143,7 +12143,7 @@ gapi.load('client', async () => {
         instances: ['Test string'],
         minimalAction: 'Test string',
         mostDisruptiveAllowedAction: 'Test string',
-      }
+      },
     );
     /** Creates instances with per-instance configurations in this regional managed instance group. Instances are created using the current instance template. The create instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must separately verify the status of the creating or actions with the listmanagedinstances method. */
     await gapi.client.compute.regionInstanceGroupManagers.createInstances(
@@ -12191,7 +12191,7 @@ gapi.load('client', async () => {
             status: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes the specified managed instance group and all of the instances in that group. */
     await gapi.client.compute.regionInstanceGroupManagers.delete({
@@ -12211,7 +12211,7 @@ gapi.load('client', async () => {
       {
         instances: ['Test string'],
         skipInstancesOnValidationError: true,
-      }
+      },
     );
     /** Deletes selected per-instance configurations for the managed instance group. */
     await gapi.client.compute.regionInstanceGroupManagers.deletePerInstanceConfigs(
@@ -12222,7 +12222,7 @@ gapi.load('client', async () => {
       },
       {
         names: ['Test string'],
-      }
+      },
     );
     /** Returns all of the details about the specified managed instance group. */
     await gapi.client.compute.regionInstanceGroupManagers.get({
@@ -12382,7 +12382,7 @@ gapi.load('client', async () => {
           },
         ],
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of managed instance groups that are contained within the specified region. */
     await gapi.client.compute.regionInstanceGroupManagers.list({
@@ -12427,7 +12427,7 @@ gapi.load('client', async () => {
         project: 'Test string',
         region: 'Test string',
         returnPartialSuccess: true,
-      }
+      },
     );
     /** Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the listmanagedinstances method. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. If you update your group to specify a new template or instance configuration, it's possible that your intended specification for each VM in the group is different from the current state of that VM. To learn how to apply an updated configuration to the VMs in a MIG, see Updating instances in a MIG. */
     await gapi.client.compute.regionInstanceGroupManagers.patch(
@@ -12582,7 +12582,7 @@ gapi.load('client', async () => {
           },
         ],
         zone: 'Test string',
-      }
+      },
     );
     /** Inserts or patches per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
     await gapi.client.compute.regionInstanceGroupManagers.patchPerInstanceConfigs(
@@ -12630,7 +12630,7 @@ gapi.load('client', async () => {
             status: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more information, see Checking the status of managed instances. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request. */
     await gapi.client.compute.regionInstanceGroupManagers.recreateInstances(
@@ -12642,7 +12642,7 @@ gapi.load('client', async () => {
       },
       {
         instances: ['Test string'],
-      }
+      },
     );
     /** Changes the intended size of the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the group deletes one or more instances. The resize operation is marked DONE if the resize request is successful. The underlying actions take additional time. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. */
     await gapi.client.compute.regionInstanceGroupManagers.resize({
@@ -12662,7 +12662,7 @@ gapi.load('client', async () => {
       },
       {
         instances: ['Test string'],
-      }
+      },
     );
     /** Sets the instance template to use when creating new instances or recreating instances in this group. Existing instances are not affected. */
     await gapi.client.compute.regionInstanceGroupManagers.setInstanceTemplate(
@@ -12674,7 +12674,7 @@ gapi.load('client', async () => {
       },
       {
         instanceTemplate: 'Test string',
-      }
+      },
     );
     /** Modifies the target pools to which all new instances in this group are assigned. Existing instances in the group are not affected. */
     await gapi.client.compute.regionInstanceGroupManagers.setTargetPools(
@@ -12687,7 +12687,7 @@ gapi.load('client', async () => {
       {
         fingerprint: 'Test string',
         targetPools: ['Test string'],
-      }
+      },
     );
     /** Flags the specified instances in the managed instance group to be started. This method increases the targetSize and decreases the targetStoppedSize of the managed instance group by the number of instances that you start. The startInstances operation is marked DONE if the startInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STARTING action with the listmanagedinstances method. In this request, you can only specify instances that are stopped. For example, if an instance was previously stopped using the stopInstances method, it can be started using the startInstances method. If a health check is attached to the managed instance group, the specified instances will be verified as healthy after they are started. You can specify a maximum of 1000 instances with this method per request. */
     await gapi.client.compute.regionInstanceGroupManagers.startInstances(
@@ -12699,7 +12699,7 @@ gapi.load('client', async () => {
       },
       {
         instances: ['Test string'],
-      }
+      },
     );
     /** Flags the specified instances in the managed instance group to be immediately stopped. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetStoppedSize of the managed instance group by the number of instances that you stop. The stopInstances operation is marked DONE if the stopInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STOPPING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays stopping the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is stopped. Stopped instances can be started using the startInstances method. You can specify a maximum of 1000 instances with this method per request. */
     await gapi.client.compute.regionInstanceGroupManagers.stopInstances(
@@ -12712,7 +12712,7 @@ gapi.load('client', async () => {
       {
         forceStop: true,
         instances: ['Test string'],
-      }
+      },
     );
     /** Flags the specified instances in the managed instance group to be immediately suspended. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetSuspendedSize of the managed instance group by the number of instances that you suspend. The suspendInstances operation is marked DONE if the suspendInstances request is successful. The underlying actions take additional time. You must separately verify the status of the SUSPENDING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays suspension of the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is suspended. Suspended instances can be resumed using the resumeInstances method. You can specify a maximum of 1000 instances with this method per request. */
     await gapi.client.compute.regionInstanceGroupManagers.suspendInstances(
@@ -12725,7 +12725,7 @@ gapi.load('client', async () => {
       {
         forceSuspend: true,
         instances: ['Test string'],
-      }
+      },
     );
     /** Inserts or updates per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
     await gapi.client.compute.regionInstanceGroupManagers.updatePerInstanceConfigs(
@@ -12773,7 +12773,7 @@ gapi.load('client', async () => {
             status: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Returns the specified instance group resource. */
     await gapi.client.compute.regionInstanceGroups.get({
@@ -12806,7 +12806,7 @@ gapi.load('client', async () => {
       {
         instanceState: 'Test string',
         portName: 'Test string',
-      }
+      },
     );
     /** Sets the named ports for the specified regional instance group. */
     await gapi.client.compute.regionInstanceGroups.setNamedPorts(
@@ -12824,7 +12824,7 @@ gapi.load('client', async () => {
             port: 42,
           },
         ],
-      }
+      },
     );
     /** Creates multiple instances in a given region. Count specifies the number of instances to create. */
     await gapi.client.compute.regionInstances.bulkInsert(
@@ -13092,7 +13092,7 @@ gapi.load('client', async () => {
           },
         },
         sourceInstanceTemplate: 'Test string',
-      }
+      },
     );
     /** Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. */
     await gapi.client.compute.regionInstanceTemplates.delete({
@@ -13370,7 +13370,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Retrieves a list of instance templates that are contained within the specified project and region. */
     await gapi.client.compute.regionInstanceTemplates.list({
@@ -13433,7 +13433,7 @@ gapi.load('client', async () => {
         sourceDiskId: 'Test string',
         status: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of InstantSnapshot resources contained within the specified region. */
     await gapi.client.compute.regionInstantSnapshots.list({
@@ -13493,7 +13493,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Sets the labels on a instantSnapshot in the given region. To learn more about labels, read the Labeling Resources documentation. */
     await gapi.client.compute.regionInstantSnapshots.setLabels(
@@ -13508,7 +13508,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.regionInstantSnapshots.testIamPermissions(
@@ -13519,7 +13519,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Attach a list of network endpoints to the specified network endpoint group. */
     await gapi.client.compute.regionNetworkEndpointGroups.attachNetworkEndpoints(
@@ -13543,7 +13543,7 @@ gapi.load('client', async () => {
             port: 42,
           },
         ],
-      }
+      },
     );
     /** Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service. */
     await gapi.client.compute.regionNetworkEndpointGroups.delete({
@@ -13574,7 +13574,7 @@ gapi.load('client', async () => {
             port: 42,
           },
         ],
-      }
+      },
     );
     /** Returns the specified network endpoint group. */
     await gapi.client.compute.regionNetworkEndpointGroups.get({
@@ -13627,7 +13627,7 @@ gapi.load('client', async () => {
         size: 42,
         subnetwork: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of regional network endpoint groups available to the specified project in the given region. */
     await gapi.client.compute.regionNetworkEndpointGroups.list({
@@ -13665,7 +13665,7 @@ gapi.load('client', async () => {
         firewallPolicyId: 'Test string',
         name: 'Test string',
         shortName: 'Test string',
-      }
+      },
     );
     /** Inserts a rule into a network firewall policy. */
     await gapi.client.compute.regionNetworkFirewallPolicies.addRule(
@@ -13721,7 +13721,7 @@ gapi.load('client', async () => {
         ],
         targetServiceAccounts: ['Test string'],
         tlsInspect: true,
-      }
+      },
     );
     /** Copies rules to the specified network firewall policy. */
     await gapi.client.compute.regionNetworkFirewallPolicies.cloneRules({
@@ -13757,7 +13757,7 @@ gapi.load('client', async () => {
         network: 'Test string',
         project: 'Test string',
         region: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
     await gapi.client.compute.regionNetworkFirewallPolicies.getIamPolicy({
@@ -13850,7 +13850,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         shortName: 'Test string',
-      }
+      },
     );
     /** Lists all the network firewall policies that have been configured for the specified project in the given region. */
     await gapi.client.compute.regionNetworkFirewallPolicies.list({
@@ -13940,7 +13940,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         shortName: 'Test string',
-      }
+      },
     );
     /** Patches a rule of the specified priority. */
     await gapi.client.compute.regionNetworkFirewallPolicies.patchRule(
@@ -13995,7 +13995,7 @@ gapi.load('client', async () => {
         ],
         targetServiceAccounts: ['Test string'],
         tlsInspect: true,
-      }
+      },
     );
     /** Removes an association for the specified network firewall policy. */
     await gapi.client.compute.regionNetworkFirewallPolicies.removeAssociation({
@@ -14061,7 +14061,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.regionNetworkFirewallPolicies.testIamPermissions(
@@ -14072,7 +14072,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Deletes the specified NotificationEndpoint in the given region */
     await gapi.client.compute.regionNotificationEndpoints.delete({
@@ -14112,7 +14112,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         region: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Lists the NotificationEndpoints for a project in the given region. */
     await gapi.client.compute.regionNotificationEndpoints.list({
@@ -14282,7 +14282,7 @@ gapi.load('client', async () => {
           target: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified policy. */
     await gapi.client.compute.regionSecurityPolicies.delete({
@@ -14485,7 +14485,7 @@ gapi.load('client', async () => {
             size: 42,
           },
         ],
-      }
+      },
     );
     /** List all the policies that have been configured for the specified project and region. */
     await gapi.client.compute.regionSecurityPolicies.list({
@@ -14679,7 +14679,7 @@ gapi.load('client', async () => {
             size: 42,
           },
         ],
-      }
+      },
     );
     /** Patches a rule at the specified priority. To clear fields in the rule, leave the fields empty and specify them in the updateMask. */
     await gapi.client.compute.regionSecurityPolicies.patchRule(
@@ -14799,7 +14799,7 @@ gapi.load('client', async () => {
           target: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a rule at the specified priority. */
     await gapi.client.compute.regionSecurityPolicies.removeRule({
@@ -14821,7 +14821,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified SslCertificate resource in the region. */
     await gapi.client.compute.regionSslCertificates.delete({
@@ -14867,7 +14867,7 @@ gapi.load('client', async () => {
         },
         subjectAlternativeNames: ['Test string'],
         type: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of SslCertificate resources available to the specified project in the specified region. */
     await gapi.client.compute.regionSslCertificates.list({
@@ -14924,7 +14924,7 @@ gapi.load('client', async () => {
             message: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Lists all the SSL policies that have been configured for the specified project and region. */
     await gapi.client.compute.regionSslPolicies.list({
@@ -14979,7 +14979,7 @@ gapi.load('client', async () => {
             message: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes the specified TargetHttpProxy resource. */
     await gapi.client.compute.regionTargetHttpProxies.delete({
@@ -15013,7 +15013,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         urlMap: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of TargetHttpProxy resources available to the specified project in the specified region. */
     await gapi.client.compute.regionTargetHttpProxies.list({
@@ -15035,7 +15035,7 @@ gapi.load('client', async () => {
       },
       {
         urlMap: 'Test string',
-      }
+      },
     );
     /** Deletes the specified TargetHttpsProxy resource. */
     await gapi.client.compute.regionTargetHttpsProxies.delete({
@@ -15076,7 +15076,7 @@ gapi.load('client', async () => {
         sslPolicy: 'Test string',
         tlsEarlyData: 'Test string',
         urlMap: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of TargetHttpsProxy resources available to the specified project in the specified region. */
     await gapi.client.compute.regionTargetHttpsProxies.list({
@@ -15115,7 +15115,7 @@ gapi.load('client', async () => {
         sslPolicy: 'Test string',
         tlsEarlyData: 'Test string',
         urlMap: 'Test string',
-      }
+      },
     );
     /** Replaces SslCertificates for TargetHttpsProxy. */
     await gapi.client.compute.regionTargetHttpsProxies.setSslCertificates(
@@ -15127,7 +15127,7 @@ gapi.load('client', async () => {
       },
       {
         sslCertificates: ['Test string'],
-      }
+      },
     );
     /** Changes the URL map for TargetHttpsProxy. */
     await gapi.client.compute.regionTargetHttpsProxies.setUrlMap(
@@ -15139,7 +15139,7 @@ gapi.load('client', async () => {
       },
       {
         urlMap: 'Test string',
-      }
+      },
     );
     /** Deletes the specified TargetTcpProxy resource. */
     await gapi.client.compute.regionTargetTcpProxies.delete({
@@ -15172,7 +15172,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         service: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of TargetTcpProxy resources available to the specified project in a given region. */
     await gapi.client.compute.regionTargetTcpProxies.list({
@@ -15718,7 +15718,7 @@ gapi.load('client', async () => {
             service: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the list of UrlMap resources available to the specified project in the specified region. */
     await gapi.client.compute.regionUrlMaps.list({
@@ -16252,7 +16252,7 @@ gapi.load('client', async () => {
             service: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates the specified UrlMap resource with the data included in the request. */
     await gapi.client.compute.regionUrlMaps.update(
@@ -16776,7 +16776,7 @@ gapi.load('client', async () => {
             service: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Runs static validation for the UrlMap. In particular, the tests of the provided UrlMap will be run. Calling this method does NOT create the UrlMap. */
     await gapi.client.compute.regionUrlMaps.validate(
@@ -17301,7 +17301,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Retrieves the list of Zone resources under the specific region available to the specified project. */
     await gapi.client.compute.regionZones.list({
@@ -17422,7 +17422,7 @@ gapi.load('client', async () => {
         specificReservationRequired: true,
         status: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** A list of all the reservations that have been configured for the specified project in specified zone. */
     await gapi.client.compute.reservations.list({
@@ -17444,7 +17444,7 @@ gapi.load('client', async () => {
       },
       {
         specificSkuCount: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.reservations.setIamPolicy(
@@ -17494,7 +17494,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.reservations.testIamPermissions(
@@ -17505,7 +17505,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Update share settings of the reservation. */
     await gapi.client.compute.reservations.update(
@@ -17588,7 +17588,7 @@ gapi.load('client', async () => {
         specificReservationRequired: true,
         status: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves an aggregated list of resource policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.resourcePolicies.aggregatedList({
@@ -17695,7 +17695,7 @@ gapi.load('client', async () => {
           },
         },
         status: 'Test string',
-      }
+      },
     );
     /** A list all the resource policies that have been configured for the specified project in specified region. */
     await gapi.client.compute.resourcePolicies.list({
@@ -17783,7 +17783,7 @@ gapi.load('client', async () => {
           },
         },
         status: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.resourcePolicies.setIamPolicy(
@@ -17833,7 +17833,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.resourcePolicies.testIamPermissions(
@@ -17844,7 +17844,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Retrieves an aggregated list of routers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.routers.aggregatedList({
@@ -18031,7 +18031,7 @@ gapi.load('client', async () => {
         network: 'Test string',
         region: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of Router resources available to the specified project. */
     await gapi.client.compute.routers.list({
@@ -18180,7 +18180,7 @@ gapi.load('client', async () => {
         network: 'Test string',
         region: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Preview fields auto-generated during router create and update operations. Calling this method does NOT create or update the router. */
     await gapi.client.compute.routers.preview(
@@ -18318,7 +18318,7 @@ gapi.load('client', async () => {
         network: 'Test string',
         region: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Updates the specified Router resource with the data included in the request. This method conforms to PUT semantics, which requests that the state of the target resource be created or replaced with the state defined by the representation enclosed in the request message payload. */
     await gapi.client.compute.routers.update(
@@ -18457,7 +18457,7 @@ gapi.load('client', async () => {
         network: 'Test string',
         region: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Deletes the specified Route resource. */
     await gapi.client.compute.routes.delete({
@@ -18518,7 +18518,7 @@ gapi.load('client', async () => {
             message: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the list of Route resources available to the specified project. */
     await gapi.client.compute.routes.list({
@@ -18644,7 +18644,7 @@ gapi.load('client', async () => {
           target: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves the list of all SecurityPolicy resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.securityPolicies.aggregatedList({
@@ -18854,7 +18854,7 @@ gapi.load('client', async () => {
             size: 42,
           },
         ],
-      }
+      },
     );
     /** List all the policies that have been configured for the specified project. */
     await gapi.client.compute.securityPolicies.list({
@@ -19055,7 +19055,7 @@ gapi.load('client', async () => {
             size: 42,
           },
         ],
-      }
+      },
     );
     /** Patches a rule at the specified priority. To clear fields in the rule, leave the fields empty and specify them in the updateMask. */
     await gapi.client.compute.securityPolicies.patchRule(
@@ -19174,7 +19174,7 @@ gapi.load('client', async () => {
           target: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a rule at the specified priority. */
     await gapi.client.compute.securityPolicies.removeRule({
@@ -19193,7 +19193,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves the list of all ServiceAttachment resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.serviceAttachments.aggregatedList({
@@ -19271,7 +19271,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         targetService: 'Test string',
-      }
+      },
     );
     /** Lists the ServiceAttachments for a project in the given scope. */
     await gapi.client.compute.serviceAttachments.list({
@@ -19329,7 +19329,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         targetService: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.serviceAttachments.setIamPolicy(
@@ -19379,7 +19379,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.serviceAttachments.testIamPermissions(
@@ -19390,7 +19390,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot. For more information, see Deleting snapshots. */
     await gapi.client.compute.snapshots.delete({
@@ -19476,7 +19476,7 @@ gapi.load('client', async () => {
         storageBytes: 'Test string',
         storageBytesStatus: 'Test string',
         storageLocations: ['Test string'],
-      }
+      },
     );
     /** Retrieves the list of Snapshot resources contained within the specified project. */
     await gapi.client.compute.snapshots.list({
@@ -19534,7 +19534,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Sets the labels on a snapshot. To learn more about labels, read the Labeling Resources documentation. */
     await gapi.client.compute.snapshots.setLabels(
@@ -19547,7 +19547,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.snapshots.testIamPermissions(
@@ -19557,7 +19557,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Get snapshot settings. */
     await gapi.client.compute.snapshotSettings.get({
@@ -19579,7 +19579,7 @@ gapi.load('client', async () => {
           },
           policy: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves the list of all SslCertificate resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.sslCertificates.aggregatedList({
@@ -19633,7 +19633,7 @@ gapi.load('client', async () => {
         },
         subjectAlternativeNames: ['Test string'],
         type: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of SslCertificate resources available to the specified project. */
     await gapi.client.compute.sslCertificates.list({
@@ -19697,7 +19697,7 @@ gapi.load('client', async () => {
             message: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Lists all the SSL policies that have been configured for the specified project. */
     await gapi.client.compute.sslPolicies.list({
@@ -19749,7 +19749,7 @@ gapi.load('client', async () => {
             message: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves an aggregated list of storage pools. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.storagePools.aggregatedList({
@@ -19833,7 +19833,7 @@ gapi.load('client', async () => {
         },
         storagePoolType: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of storage pools contained within the specified zone. */
     await gapi.client.compute.storagePools.list({
@@ -19904,7 +19904,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.storagePools.testIamPermissions(
@@ -19915,7 +19915,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates the specified storagePool with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: pool_provisioned_capacity_gb, pool_provisioned_iops and pool_provisioned_throughput. */
     await gapi.client.compute.storagePools.update(
@@ -19970,7 +19970,7 @@ gapi.load('client', async () => {
         },
         storagePoolType: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves an aggregated list of storage pool types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.storagePoolTypes.aggregatedList({
@@ -20027,7 +20027,7 @@ gapi.load('client', async () => {
       },
       {
         ipCidrRange: 'Test string',
-      }
+      },
     );
     /** Returns the specified subnetwork. */
     await gapi.client.compute.subnetworks.get({
@@ -20088,7 +20088,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         stackType: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of subnetworks available to the specified project. */
     await gapi.client.compute.subnetworks.list({
@@ -20157,7 +20157,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         stackType: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.compute.subnetworks.setIamPolicy(
@@ -20207,7 +20207,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Set whether VMs in this subnet can access Google services without assigning external IP addresses through Private Google Access. */
     await gapi.client.compute.subnetworks.setPrivateIpGoogleAccess(
@@ -20219,7 +20219,7 @@ gapi.load('client', async () => {
       },
       {
         privateIpGoogleAccess: true,
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.subnetworks.testIamPermissions(
@@ -20230,7 +20230,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Deletes the specified TargetGrpcProxy in the given scope */
     await gapi.client.compute.targetGrpcProxies.delete({
@@ -20260,7 +20260,7 @@ gapi.load('client', async () => {
         selfLinkWithId: 'Test string',
         urlMap: 'Test string',
         validateForProxyless: true,
-      }
+      },
     );
     /** Lists the TargetGrpcProxies for a project in the given scope. */
     await gapi.client.compute.targetGrpcProxies.list({
@@ -20289,7 +20289,7 @@ gapi.load('client', async () => {
         selfLinkWithId: 'Test string',
         urlMap: 'Test string',
         validateForProxyless: true,
-      }
+      },
     );
     /** Retrieves the list of all TargetHttpProxy resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.targetHttpProxies.aggregatedList({
@@ -20331,7 +20331,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         urlMap: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of TargetHttpProxy resources available to the specified project. */
     await gapi.client.compute.targetHttpProxies.list({
@@ -20361,7 +20361,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         urlMap: 'Test string',
-      }
+      },
     );
     /** Changes the URL map for TargetHttpProxy. */
     await gapi.client.compute.targetHttpProxies.setUrlMap(
@@ -20372,7 +20372,7 @@ gapi.load('client', async () => {
       },
       {
         urlMap: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of all TargetHttpsProxy resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.targetHttpsProxies.aggregatedList({
@@ -20421,7 +20421,7 @@ gapi.load('client', async () => {
         sslPolicy: 'Test string',
         tlsEarlyData: 'Test string',
         urlMap: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of TargetHttpsProxy resources available to the specified project. */
     await gapi.client.compute.targetHttpsProxies.list({
@@ -20458,7 +20458,7 @@ gapi.load('client', async () => {
         sslPolicy: 'Test string',
         tlsEarlyData: 'Test string',
         urlMap: 'Test string',
-      }
+      },
     );
     /** Changes the Certificate Map for TargetHttpsProxy. */
     await gapi.client.compute.targetHttpsProxies.setCertificateMap(
@@ -20469,7 +20469,7 @@ gapi.load('client', async () => {
       },
       {
         certificateMap: 'Test string',
-      }
+      },
     );
     /** Sets the QUIC override policy for TargetHttpsProxy. */
     await gapi.client.compute.targetHttpsProxies.setQuicOverride(
@@ -20480,7 +20480,7 @@ gapi.load('client', async () => {
       },
       {
         quicOverride: 'Test string',
-      }
+      },
     );
     /** Replaces SslCertificates for TargetHttpsProxy. */
     await gapi.client.compute.targetHttpsProxies.setSslCertificates(
@@ -20491,7 +20491,7 @@ gapi.load('client', async () => {
       },
       {
         sslCertificates: ['Test string'],
-      }
+      },
     );
     /** Sets the SSL policy for TargetHttpsProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the HTTPS proxy load balancer. They do not affect the connection between the load balancer and the backends. */
     await gapi.client.compute.targetHttpsProxies.setSslPolicy(
@@ -20502,7 +20502,7 @@ gapi.load('client', async () => {
       },
       {
         sslPolicy: 'Test string',
-      }
+      },
     );
     /** Changes the URL map for TargetHttpsProxy. */
     await gapi.client.compute.targetHttpsProxies.setUrlMap(
@@ -20513,7 +20513,7 @@ gapi.load('client', async () => {
       },
       {
         urlMap: 'Test string',
-      }
+      },
     );
     /** Retrieves an aggregated list of target instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.targetInstances.aggregatedList({
@@ -20558,7 +20558,7 @@ gapi.load('client', async () => {
         securityPolicy: 'Test string',
         selfLink: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of TargetInstance resources available to the specified project and zone. */
     await gapi.client.compute.targetInstances.list({
@@ -20580,7 +20580,7 @@ gapi.load('client', async () => {
       },
       {
         securityPolicy: 'Test string',
-      }
+      },
     );
     /** Adds health check URLs to a target pool. */
     await gapi.client.compute.targetPools.addHealthCheck(
@@ -20596,7 +20596,7 @@ gapi.load('client', async () => {
             healthCheck: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Adds an instance to a target pool. */
     await gapi.client.compute.targetPools.addInstance(
@@ -20612,7 +20612,7 @@ gapi.load('client', async () => {
             instance: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves an aggregated list of target pools. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.targetPools.aggregatedList({
@@ -20647,7 +20647,7 @@ gapi.load('client', async () => {
       },
       {
         instance: 'Test string',
-      }
+      },
     );
     /** Creates a target pool in the specified project and region using the data included in the request. */
     await gapi.client.compute.targetPools.insert(
@@ -20670,7 +20670,7 @@ gapi.load('client', async () => {
         securityPolicy: 'Test string',
         selfLink: 'Test string',
         sessionAffinity: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of target pools available to the specified project and region. */
     await gapi.client.compute.targetPools.list({
@@ -20696,7 +20696,7 @@ gapi.load('client', async () => {
             healthCheck: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Removes instance URL from a target pool. */
     await gapi.client.compute.targetPools.removeInstance(
@@ -20712,7 +20712,7 @@ gapi.load('client', async () => {
             instance: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Changes a backup target pool's configurations. */
     await gapi.client.compute.targetPools.setBackup(
@@ -20725,7 +20725,7 @@ gapi.load('client', async () => {
       },
       {
         target: 'Test string',
-      }
+      },
     );
     /** Sets the Google Cloud Armor security policy for the specified target pool. For more information, see Google Cloud Armor Overview */
     await gapi.client.compute.targetPools.setSecurityPolicy(
@@ -20737,7 +20737,7 @@ gapi.load('client', async () => {
       },
       {
         securityPolicy: 'Test string',
-      }
+      },
     );
     /** Deletes the specified TargetSslProxy resource. */
     await gapi.client.compute.targetSslProxies.delete({
@@ -20768,7 +20768,7 @@ gapi.load('client', async () => {
         service: 'Test string',
         sslCertificates: ['Test string'],
         sslPolicy: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of TargetSslProxy resources available to the specified project. */
     await gapi.client.compute.targetSslProxies.list({
@@ -20788,7 +20788,7 @@ gapi.load('client', async () => {
       },
       {
         service: 'Test string',
-      }
+      },
     );
     /** Changes the Certificate Map for TargetSslProxy. */
     await gapi.client.compute.targetSslProxies.setCertificateMap(
@@ -20799,7 +20799,7 @@ gapi.load('client', async () => {
       },
       {
         certificateMap: 'Test string',
-      }
+      },
     );
     /** Changes the ProxyHeaderType for TargetSslProxy. */
     await gapi.client.compute.targetSslProxies.setProxyHeader(
@@ -20810,7 +20810,7 @@ gapi.load('client', async () => {
       },
       {
         proxyHeader: 'Test string',
-      }
+      },
     );
     /** Changes SslCertificates for TargetSslProxy. */
     await gapi.client.compute.targetSslProxies.setSslCertificates(
@@ -20821,7 +20821,7 @@ gapi.load('client', async () => {
       },
       {
         sslCertificates: ['Test string'],
-      }
+      },
     );
     /** Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the load balancer. They do not affect the connection between the load balancer and the backends. */
     await gapi.client.compute.targetSslProxies.setSslPolicy(
@@ -20832,7 +20832,7 @@ gapi.load('client', async () => {
       },
       {
         sslPolicy: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of all TargetTcpProxy resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.targetTcpProxies.aggregatedList({
@@ -20873,7 +20873,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         service: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of TargetTcpProxy resources available to the specified project. */
     await gapi.client.compute.targetTcpProxies.list({
@@ -20893,7 +20893,7 @@ gapi.load('client', async () => {
       },
       {
         service: 'Test string',
-      }
+      },
     );
     /** Changes the ProxyHeaderType for TargetTcpProxy. */
     await gapi.client.compute.targetTcpProxies.setProxyHeader(
@@ -20904,7 +20904,7 @@ gapi.load('client', async () => {
       },
       {
         proxyHeader: 'Test string',
-      }
+      },
     );
     /** Retrieves an aggregated list of target VPN gateways. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.targetVpnGateways.aggregatedList({
@@ -20953,7 +20953,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         status: 'Test string',
         tunnels: ['Test string'],
-      }
+      },
     );
     /** Retrieves a list of target VPN gateways available to the specified project and region. */
     await gapi.client.compute.targetVpnGateways.list({
@@ -20978,7 +20978,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves the list of all UrlMap resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.urlMaps.aggregatedList({
@@ -21522,7 +21522,7 @@ gapi.load('client', async () => {
             service: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Initiates a cache invalidation operation, invalidating the specified path, scoped to the specified UrlMap. For more information, see [Invalidating cached content](/cdn/docs/invalidating-cached-content). */
     await gapi.client.compute.urlMaps.invalidateCache(
@@ -21534,7 +21534,7 @@ gapi.load('client', async () => {
       {
         host: 'Test string',
         path: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of UrlMap resources available to the specified project. */
     await gapi.client.compute.urlMaps.list({
@@ -22066,7 +22066,7 @@ gapi.load('client', async () => {
             service: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates the specified UrlMap resource with the data included in the request. */
     await gapi.client.compute.urlMaps.update(
@@ -22589,7 +22589,7 @@ gapi.load('client', async () => {
             service: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Runs static validation for the UrlMap. In particular, the tests of the provided UrlMap will be run. Calling this method does NOT create the UrlMap. */
     await gapi.client.compute.urlMaps.validate(
@@ -23114,7 +23114,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Retrieves an aggregated list of VPN gateways. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.vpnGateways.aggregatedList({
@@ -23176,7 +23176,7 @@ gapi.load('client', async () => {
             ipv6Address: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves a list of VPN gateways available to the specified project and region. */
     await gapi.client.compute.vpnGateways.list({
@@ -23201,7 +23201,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.vpnGateways.testIamPermissions(
@@ -23212,7 +23212,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Retrieves an aggregated list of VPN tunnels. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
     await gapi.client.compute.vpnTunnels.aggregatedList({
@@ -23272,7 +23272,7 @@ gapi.load('client', async () => {
         targetVpnGateway: 'Test string',
         vpnGateway: 'Test string',
         vpnGatewayInterface: 42,
-      }
+      },
     );
     /** Retrieves a list of VpnTunnel resources contained in the specified project and region. */
     await gapi.client.compute.vpnTunnels.list({
@@ -23297,7 +23297,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified zone-specific Operations resource. */
     await gapi.client.compute.zoneOperations.delete({

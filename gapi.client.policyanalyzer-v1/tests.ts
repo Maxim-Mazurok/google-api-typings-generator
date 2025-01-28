@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://policyanalyzer.googleapis.com/$discovery/rest?version=v1'
+    'https://policyanalyzer.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.policyanalyzer */
 
@@ -38,7 +38,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Queries policy activities on Google Cloud resources. */
     await gapi.client.policyanalyzer.organizations.locations.activityTypes.activities.query(
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Queries policy activities on Google Cloud resources. */
     await gapi.client.policyanalyzer.projects.locations.activityTypes.activities.query(
@@ -56,7 +56,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

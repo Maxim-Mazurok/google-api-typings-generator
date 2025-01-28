@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://factchecktools.googleapis.com/$discovery/rest?version=v1alpha1'
+    'https://factchecktools.googleapis.com/$discovery/rest?version=v1alpha1',
   );
   /** now we can use gapi.client.factchecktools */
 
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
         pageUrl: 'Test string',
         publishDate: 'Test string',
         versionId: 'Test string',
-      }
+      },
     );
     /** Delete all `ClaimReview` markup on a page. */
     await gapi.client.factchecktools.pages.delete({
@@ -141,7 +141,7 @@ gapi.load('client', async () => {
         pageUrl: 'Test string',
         publishDate: 'Test string',
         versionId: 'Test string',
-      }
+      },
     );
   }
 });

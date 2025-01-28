@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Reader Revenue Subscription Linking API v1 */
   function load(
-    urlOrObject: 'https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'readerrevenuesubscriptionlinking',
-    version: 'v1'
+    urlOrObject: 'https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'readerrevenuesubscriptionlinking',
     version: 'v1',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'readerrevenuesubscriptionlinking',
+    version: 'v1',
+    callback: () => any,
   ): void;
 
   namespace readerrevenuesubscriptionlinking {
@@ -198,7 +198,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReaderEntitlements
+        body: ReaderEntitlements,
       ): Request<ReaderEntitlements>;
     }
     interface PublicationsResource {

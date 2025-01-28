@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudkms.googleapis.com/$discovery/rest?version=v1'
+    'https://cloudkms.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.cloudkms */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
         keyProject: 'Test string',
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Returns the effective Cloud KMS Autokey configuration for a given project. */
     await gapi.client.cloudkms.projects.showEffectiveAutokeyConfig({
@@ -61,7 +61,7 @@ gapi.load('client', async () => {
       {
         lengthBytes: 42,
         protectionLevel: 'Test string',
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.cloudkms.projects.locations.get({
@@ -87,7 +87,7 @@ gapi.load('client', async () => {
       {
         defaultEkmConnection: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.cloudkms.projects.locations.ekmConfig.getIamPolicy({
@@ -128,7 +128,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.cloudkms.projects.locations.ekmConfig.testIamPermissions(
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new EkmConnection in a given Project and Location. */
     await gapi.client.cloudkms.projects.locations.ekmConnections.create(
@@ -171,7 +171,7 @@ gapi.load('client', async () => {
             serviceDirectoryService: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Returns metadata for a given EkmConnection. */
     await gapi.client.cloudkms.projects.locations.ekmConnections.get({
@@ -222,7 +222,7 @@ gapi.load('client', async () => {
             serviceDirectoryService: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.cloudkms.projects.locations.ekmConnections.setIamPolicy(
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.cloudkms.projects.locations.ekmConnections.testIamPermissions(
@@ -267,13 +267,13 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Verifies that Cloud KMS can successfully connect to the external key manager specified by an EkmConnection. If there is an error connecting to the EKM, this method returns a FAILED_PRECONDITION status containing structured information as described at https://cloud.google.com/kms/docs/reference/ekm_errors. */
     await gapi.client.cloudkms.projects.locations.ekmConnections.verifyConnectivity(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Creates a new KeyHandle, triggering the provisioning of a new CryptoKey for CMEK use with the given resource type in the configured key project and the same location. GetOperation should be used to resolve the resulting long-running operation and get the resulting KeyHandle and CryptoKey. */
     await gapi.client.cloudkms.projects.locations.keyHandles.create(
@@ -285,7 +285,7 @@ gapi.load('client', async () => {
         kmsKey: 'Test string',
         name: 'Test string',
         resourceTypeSelector: 'Test string',
-      }
+      },
     );
     /** Returns the KeyHandle. */
     await gapi.client.cloudkms.projects.locations.keyHandles.get({
@@ -307,7 +307,7 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Returns metadata for a given KeyRing. */
     await gapi.client.cloudkms.projects.locations.keyRings.get({
@@ -360,7 +360,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.cloudkms.projects.locations.keyRings.testIamPermissions(
@@ -369,7 +369,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create a new CryptoKey within a KeyRing. CryptoKey.purpose and CryptoKey.version_template.algorithm are required. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.create(
@@ -426,7 +426,7 @@ gapi.load('client', async () => {
           algorithm: 'Test string',
           protectionLevel: 'Test string',
         },
-      }
+      },
     );
     /** Decrypts data that was protected by Encrypt. The CryptoKey.purpose must be ENCRYPT_DECRYPT. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.decrypt(
@@ -438,7 +438,7 @@ gapi.load('client', async () => {
         additionalAuthenticatedDataCrc32c: 'Test string',
         ciphertext: 'Test string',
         ciphertextCrc32c: 'Test string',
-      }
+      },
     );
     /** Encrypts data, so that it can only be recovered by a call to Decrypt. The CryptoKey.purpose must be ENCRYPT_DECRYPT. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.encrypt(
@@ -450,7 +450,7 @@ gapi.load('client', async () => {
         additionalAuthenticatedDataCrc32c: 'Test string',
         plaintext: 'Test string',
         plaintextCrc32c: 'Test string',
-      }
+      },
     );
     /** Returns metadata for a given CryptoKey, as well as its primary CryptoKeyVersion. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.get({
@@ -461,7 +461,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists CryptoKeys. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.list({
@@ -526,7 +526,7 @@ gapi.load('client', async () => {
           algorithm: 'Test string',
           protectionLevel: 'Test string',
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.setIamPolicy(
@@ -562,7 +562,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.testIamPermissions(
@@ -571,7 +571,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Update the version of a CryptoKey that will be used in Encrypt. Returns an error if called on a key whose purpose is not ENCRYPT_DECRYPT. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.updatePrimaryVersion(
@@ -580,7 +580,7 @@ gapi.load('client', async () => {
       },
       {
         cryptoKeyVersionId: 'Test string',
-      }
+      },
     );
     /** Decrypts data that was encrypted with a public key retrieved from GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_DECRYPT. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.asymmetricDecrypt(
@@ -590,7 +590,7 @@ gapi.load('client', async () => {
       {
         ciphertext: 'Test string',
         ciphertextCrc32c: 'Test string',
-      }
+      },
     );
     /** Signs data using a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_SIGN, producing a signature that can be verified with the public key retrieved from GetPublicKey. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.asymmetricSign(
@@ -606,7 +606,7 @@ gapi.load('client', async () => {
           sha512: 'Test string',
         },
         digestCrc32c: 'Test string',
-      }
+      },
     );
     /** Create a new CryptoKeyVersion in a CryptoKey. The server will assign the next sequential id. If unset, state will be set to ENABLED. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.create(
@@ -641,26 +641,26 @@ gapi.load('client', async () => {
         protectionLevel: 'Test string',
         reimportEligible: true,
         state: 'Test string',
-      }
+      },
     );
     /** Schedule a CryptoKeyVersion for destruction. Upon calling this method, CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time will be set to the time destroy_scheduled_duration in the future. At that time, the state will automatically change to DESTROYED, and the key material will be irrevocably destroyed. Before the destroy_time is reached, RestoreCryptoKeyVersion may be called to reverse the process. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.destroy(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Returns metadata for a given CryptoKeyVersion. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the public key for the given CryptoKeyVersion. The CryptoKey.purpose must be ASYMMETRIC_SIGN or ASYMMETRIC_DECRYPT. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.getPublicKey(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Import wrapped key material into a CryptoKeyVersion. All requests must specify a CryptoKey. If a CryptoKeyVersion is additionally specified in the request, key material will be reimported into that version. Otherwise, a new version will be created, and will be assigned the next sequential id within the CryptoKey. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.import(
@@ -673,7 +673,7 @@ gapi.load('client', async () => {
         importJob: 'Test string',
         rsaAesWrappedKey: 'Test string',
         wrappedKey: 'Test string',
-      }
+      },
     );
     /** Lists CryptoKeyVersions. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.list(
@@ -684,7 +684,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Signs data using a CryptoKeyVersion with CryptoKey.purpose MAC, producing a tag that can be verified by another source with the same key. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.macSign(
@@ -694,7 +694,7 @@ gapi.load('client', async () => {
       {
         data: 'Test string',
         dataCrc32c: 'Test string',
-      }
+      },
     );
     /** Verifies MAC tag using a CryptoKeyVersion with CryptoKey.purpose MAC, and returns a response that indicates whether or not the verification was successful. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.macVerify(
@@ -706,7 +706,7 @@ gapi.load('client', async () => {
         dataCrc32c: 'Test string',
         mac: 'Test string',
         macCrc32c: 'Test string',
-      }
+      },
     );
     /** Update a CryptoKeyVersion's metadata. state may be changed between ENABLED and DISABLED using this method. See DestroyCryptoKeyVersion and RestoreCryptoKeyVersion to move between other states. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.patch(
@@ -742,7 +742,7 @@ gapi.load('client', async () => {
         protectionLevel: 'Test string',
         reimportEligible: true,
         state: 'Test string',
-      }
+      },
     );
     /** Decrypts data that was originally encrypted using a raw cryptographic mechanism. The CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.rawDecrypt(
@@ -757,7 +757,7 @@ gapi.load('client', async () => {
         initializationVector: 'Test string',
         initializationVectorCrc32c: 'Test string',
         tagLength: 42,
-      }
+      },
     );
     /** Encrypts data using portable cryptographic primitives. Most users should choose Encrypt and Decrypt rather than their raw counterparts. The CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.rawEncrypt(
@@ -771,14 +771,14 @@ gapi.load('client', async () => {
         initializationVectorCrc32c: 'Test string',
         plaintext: 'Test string',
         plaintextCrc32c: 'Test string',
-      }
+      },
     );
     /** Restore a CryptoKeyVersion in the DESTROY_SCHEDULED state. Upon restoration of the CryptoKeyVersion, state will be set to DISABLED, and destroy_time will be cleared. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.restore(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Create a new ImportJob within a KeyRing. ImportJob.import_method is required. */
     await gapi.client.cloudkms.projects.locations.keyRings.importJobs.create(
@@ -807,7 +807,7 @@ gapi.load('client', async () => {
           pem: 'Test string',
         },
         state: 'Test string',
-      }
+      },
     );
     /** Returns metadata for a given ImportJob. */
     await gapi.client.cloudkms.projects.locations.keyRings.importJobs.get({
@@ -818,7 +818,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists ImportJobs. */
     await gapi.client.cloudkms.projects.locations.keyRings.importJobs.list({
@@ -862,7 +862,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.cloudkms.projects.locations.keyRings.importJobs.testIamPermissions(
@@ -871,7 +871,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.cloudkms.projects.locations.operations.get({

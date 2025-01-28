@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebasehosting.googleapis.com/$discovery/rest?version=v1'
+    'https://firebasehosting.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.firebasehosting */
 
@@ -38,7 +38,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.firebasehosting.operations.delete({
@@ -56,13 +56,13 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** DeleteOperation is a part of the google.longrunning.Operations interface, but is not implemented for CustomDomain resources. */
     await gapi.client.firebasehosting.projects.sites.customDomains.operations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
   }
 });

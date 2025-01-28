@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://androidmanagement.googleapis.com/$discovery/rest?version=v1'
+    'https://androidmanagement.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.androidmanagement */
 
@@ -88,7 +88,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Permanently deletes an enterprise and all accounts and data associated with it. Warning: this will result in a cascaded deletion of all AM API devices associated with the deleted enterprise. Only available for EMM-managed enterprises. */
     await gapi.client.androidmanagement.enterprises.delete({
@@ -160,7 +160,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Gets info about an application. */
     await gapi.client.androidmanagement.enterprises.applications.get({
@@ -234,7 +234,7 @@ gapi.load('client', async () => {
         },
         type: 'Test string',
         userName: 'Test string',
-      }
+      },
     );
     /** Lists devices for a given enterprise. Deleted devices are not returned in the response. */
     await gapi.client.androidmanagement.enterprises.devices.list({
@@ -465,7 +465,7 @@ gapi.load('client', async () => {
           accountIdentifier: 'Test string',
         },
         userName: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
     await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
@@ -500,7 +500,7 @@ gapi.load('client', async () => {
           accountIdentifier: 'Test string',
         },
         value: 'Test string',
-      }
+      },
     );
     /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
     await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
@@ -533,7 +533,7 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         userId: 'Test string',
         value: 'Test string',
-      }
+      },
     );
     /** Gets a migration token. */
     await gapi.client.androidmanagement.enterprises.migrationTokens.get({
@@ -940,7 +940,7 @@ gapi.load('client', async () => {
         vpnConfigDisabled: true,
         wifiConfigDisabled: true,
         wifiConfigsLockdownEnabled: true,
-      }
+      },
     );
     /** Creates a web app. */
     await gapi.client.androidmanagement.enterprises.webApps.create(
@@ -958,7 +958,7 @@ gapi.load('client', async () => {
         startUrl: 'Test string',
         title: 'Test string',
         versionCode: 'Test string',
-      }
+      },
     );
     /** Deletes a web app. */
     await gapi.client.androidmanagement.enterprises.webApps.delete({
@@ -991,7 +991,7 @@ gapi.load('client', async () => {
         startUrl: 'Test string',
         title: 'Test string',
         versionCode: 'Test string',
-      }
+      },
     );
     /** Creates a web token to access an embeddable managed Google Play web UI for a given enterprise. */
     await gapi.client.androidmanagement.enterprises.webTokens.create(
@@ -1004,7 +1004,7 @@ gapi.load('client', async () => {
         parentFrameUrl: 'Test string',
         permissions: ['Test string'],
         value: 'Test string',
-      }
+      },
     );
     /** Get the device provisioning information by the identifier provided in the sign-in url. */
     await gapi.client.androidmanagement.provisioningInfo.get({

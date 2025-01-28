@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Natural Language API v1beta2 */
   function load(
-    urlOrObject: 'https://language.googleapis.com/$discovery/rest?version=v1beta2'
+    urlOrObject: 'https://language.googleapis.com/$discovery/rest?version=v1beta2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'language', version: 'v1beta2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'language',
     version: 'v1beta2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace language {
@@ -1347,7 +1347,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AnalyzeEntitiesRequest
+        body: AnalyzeEntitiesRequest,
       ): Request<AnalyzeEntitiesResponse>;
       /** Finds entities, similar to AnalyzeEntities in the text and analyzes sentiment associated with each entity and its mentions. */
       analyzeEntitySentiment(request: {
@@ -1401,7 +1401,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AnalyzeEntitySentimentRequest
+        body: AnalyzeEntitySentimentRequest,
       ): Request<AnalyzeEntitySentimentResponse>;
       /** Analyzes the sentiment of the provided text. */
       analyzeSentiment(request: {
@@ -1455,7 +1455,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AnalyzeSentimentRequest
+        body: AnalyzeSentimentRequest,
       ): Request<AnalyzeSentimentResponse>;
       /** Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties. */
       analyzeSyntax(request: {
@@ -1509,7 +1509,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AnalyzeSyntaxRequest
+        body: AnalyzeSyntaxRequest,
       ): Request<AnalyzeSyntaxResponse>;
       /** A convenience method that provides all syntax, sentiment, entity, and classification features in one call. */
       annotateText(request: {
@@ -1563,7 +1563,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AnnotateTextRequest
+        body: AnnotateTextRequest,
       ): Request<AnnotateTextResponse>;
       /** Classifies a document into categories. */
       classifyText(request: {
@@ -1617,7 +1617,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClassifyTextRequest
+        body: ClassifyTextRequest,
       ): Request<ClassifyTextResponse>;
       /** Moderates a document for harmful and sensitive categories. */
       moderateText(request: {
@@ -1671,7 +1671,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModerateTextRequest
+        body: ModerateTextRequest,
       ): Request<ModerateTextResponse>;
     }
 

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://licensing.googleapis.com/$discovery/rest?version=v1'
+    'https://licensing.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.licensing */
 
@@ -51,7 +51,7 @@ gapi.load('client', async () => {
       },
       {
         userId: 'Test string',
-      }
+      },
     );
     /** List all users assigned licenses for a specific product SKU. */
     await gapi.client.licensing.licenseAssignments.listForProduct({
@@ -84,7 +84,7 @@ gapi.load('client', async () => {
         skuId: 'Test string',
         skuName: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
     /** Reassign a user's product SKU with a different SKU in the same product. */
     await gapi.client.licensing.licenseAssignments.update(
@@ -102,7 +102,7 @@ gapi.load('client', async () => {
         skuId: 'Test string',
         skuName: 'Test string',
         userId: 'Test string',
-      }
+      },
     );
   }
 });

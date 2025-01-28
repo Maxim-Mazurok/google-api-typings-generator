@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google OAuth2 API v2 */
   function load(
-    urlOrObject: 'https://www.googleapis.com/discovery/v1/apis/oauth2/v2/rest'
+    urlOrObject: 'https://www.googleapis.com/discovery/v1/apis/oauth2/v2/rest',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'oauth2', version: 'v2'): Promise<void>;

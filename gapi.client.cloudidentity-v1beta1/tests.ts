@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudidentity.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://cloudidentity.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.cloudidentity */
 
@@ -58,7 +58,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Retrieves a UserInvitation resource. **Note:** New consumer accounts with the customer's verified domain created within the previous 48 hours will not appear in the result. This delay also applies to newly-verified domains. */
     await gapi.client.cloudidentity.customers.userinvitations.get({
@@ -81,7 +81,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Cancels an unfinished device wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. */
     await gapi.client.cloudidentity.devices.cancelWipe(
@@ -90,7 +90,7 @@ gapi.load('client', async () => {
       },
       {
         customer: 'Test string',
-      }
+      },
     );
     /** Creates a device. Only company-owned device may be created. **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise for Education, and Cloud Identity Premium */
     await gapi.client.cloudidentity.devices.create(
@@ -184,7 +184,7 @@ gapi.load('client', async () => {
           unifiedDeviceId: 'Test string',
           wifiMacAddresses: ['Test string'],
         },
-      }
+      },
     );
     /** Deletes the specified device. */
     await gapi.client.cloudidentity.devices.delete({
@@ -213,7 +213,7 @@ gapi.load('client', async () => {
       {
         customer: 'Test string',
         removeResetLock: true,
-      }
+      },
     );
     /** Approves device to access user data. */
     await gapi.client.cloudidentity.devices.deviceUsers.approve(
@@ -222,7 +222,7 @@ gapi.load('client', async () => {
       },
       {
         customer: 'Test string',
-      }
+      },
     );
     /** Blocks device from accessing user data */
     await gapi.client.cloudidentity.devices.deviceUsers.block(
@@ -231,7 +231,7 @@ gapi.load('client', async () => {
       },
       {
         customer: 'Test string',
-      }
+      },
     );
     /** Cancels an unfinished user account wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. */
     await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe(
@@ -240,7 +240,7 @@ gapi.load('client', async () => {
       },
       {
         customer: 'Test string',
-      }
+      },
     );
     /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
     await gapi.client.cloudidentity.devices.deviceUsers.delete({
@@ -277,7 +277,7 @@ gapi.load('client', async () => {
       },
       {
         customer: 'Test string',
-      }
+      },
     );
     /** Gets the client state for the device user */
     await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -310,7 +310,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         ownerType: 'Test string',
         scoreReason: 'Test string',
-      }
+      },
     );
     /** Creates a `Group`. */
     await gapi.client.cloudidentity.groups.create(
@@ -356,7 +356,7 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a `Group`. */
     await gapi.client.cloudidentity.groups.delete({
@@ -428,7 +428,7 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Searches for `Group` resources matching a specified query. */
     await gapi.client.cloudidentity.groups.search({
@@ -452,14 +452,14 @@ gapi.load('client', async () => {
           query: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Check a potential member for membership in a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity Premium accounts. A member has membership to a group as long as there is a single viewable transitive membership between the group and the member. The actor must have view permissions to at least one transitive membership between the member and group. */
     await gapi.client.cloudidentity.groups.memberships.checkTransitiveMembership(
       {
         parent: 'Test string',
         query: 'Test string',
-      }
+      },
     );
     /** Creates a `Membership`. */
     await gapi.client.cloudidentity.groups.memberships.create(
@@ -493,7 +493,7 @@ gapi.load('client', async () => {
         ],
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a `Membership`. */
     await gapi.client.cloudidentity.groups.memberships.delete({
@@ -557,7 +557,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Searches direct groups of a member. */
     await gapi.client.cloudidentity.groups.memberships.searchDirectGroups({
@@ -580,7 +580,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates an InboundSamlSsoProfile for a customer. When the target customer has enabled [Multi-party approval for sensitive actions](https://support.google.com/a/answer/13790448), the `Operation` in the response will have `"done": false`, it will not have a response, and the metadata will have `"state": "awaiting-multi-party-approval"`. */
     await gapi.client.cloudidentity.inboundSamlSsoProfiles.create(
@@ -599,7 +599,7 @@ gapi.load('client', async () => {
           assertionConsumerServiceUri: 'Test string',
           entityId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes an InboundSamlSsoProfile. */
     await gapi.client.cloudidentity.inboundSamlSsoProfiles.delete({
@@ -635,7 +635,7 @@ gapi.load('client', async () => {
           assertionConsumerServiceUri: 'Test string',
           entityId: 'Test string',
         },
-      }
+      },
     );
     /** Adds an IdpCredential. Up to 2 credentials are allowed. When the target customer has enabled [Multi-party approval for sensitive actions](https://support.google.com/a/answer/13790448), the `Operation` in the response will have `"done": false`, it will not have a response, and the metadata will have `"state": "awaiting-multi-party-approval"`. */
     await gapi.client.cloudidentity.inboundSamlSsoProfiles.idpCredentials.add(
@@ -644,13 +644,13 @@ gapi.load('client', async () => {
       },
       {
         pemData: 'Test string',
-      }
+      },
     );
     /** Deletes an IdpCredential. */
     await gapi.client.cloudidentity.inboundSamlSsoProfiles.idpCredentials.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an IdpCredential. */
     await gapi.client.cloudidentity.inboundSamlSsoProfiles.idpCredentials.get({
@@ -678,7 +678,7 @@ gapi.load('client', async () => {
         ssoMode: 'Test string',
         targetGroup: 'Test string',
         targetOrgUnit: 'Test string',
-      }
+      },
     );
     /** Deletes an InboundSsoAssignment. To disable SSO, Create (or Update) an assignment that has `sso_mode` == `SSO_OFF`. */
     await gapi.client.cloudidentity.inboundSsoAssignments.delete({
@@ -713,7 +713,7 @@ gapi.load('client', async () => {
         ssoMode: 'Test string',
         targetGroup: 'Test string',
         targetOrgUnit: 'Test string',
-      }
+      },
     );
     /** List OrgMembership resources in an OrgUnit treated as 'parent'. Parent format: orgUnits/{$orgUnitId} where `$orgUnitId` is the `orgUnitId` from the [Admin SDK `OrgUnit` resource](https://developers.google.com/admin-sdk/directory/reference/rest/v1/orgunits) */
     await gapi.client.cloudidentity.orgUnits.memberships.list({
@@ -731,7 +731,7 @@ gapi.load('client', async () => {
       {
         customer: 'Test string',
         destinationOrgUnit: 'Test string',
-      }
+      },
     );
     /** Get a Policy */
     await gapi.client.cloudidentity.policies.get({

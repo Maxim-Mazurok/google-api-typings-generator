@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://apim.googleapis.com/$discovery/rest?version=v1alpha'
+    'https://apim.googleapis.com/$discovery/rest?version=v1alpha',
   );
   /** now we can use gapi.client.apim */
 
@@ -61,7 +61,7 @@ gapi.load('client', async () => {
         sources: ['Test string'],
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** DeleteObservationJob deletes an ObservationJob. This method will fail if the observation job is currently being used by any ObservationSource, even if not enabled. */
     await gapi.client.apim.projects.locations.observationJobs.delete({
@@ -72,14 +72,14 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Enables the given ObservationJob. */
     await gapi.client.apim.projects.locations.observationJobs.enable(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** GetObservationJob retrieves a single ObservationJob by name. */
     await gapi.client.apim.projects.locations.observationJobs.get({
@@ -108,13 +108,13 @@ gapi.load('client', async () => {
             ],
           },
         ],
-      }
+      },
     );
     /** GetApiObservation retrieves a single ApiObservation by name. */
     await gapi.client.apim.projects.locations.observationJobs.apiObservations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** ListApiObservations gets all ApiObservations for a given project and location and ObservationJob. */
     await gapi.client.apim.projects.locations.observationJobs.apiObservations.list(
@@ -122,13 +122,13 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** GetApiOperation retrieves a single ApiOperation by name. */
     await gapi.client.apim.projects.locations.observationJobs.apiObservations.apiOperations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** ListApiOperations gets all ApiOperations for a given project and location and ObservationJob and ApiObservation. */
     await gapi.client.apim.projects.locations.observationJobs.apiObservations.apiOperations.list(
@@ -136,7 +136,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** CreateObservationSource creates a new ObservationSource but does not affect any deployed infrastructure. It is a configuration that can be used in an Observation Job to collect data about APIs running in user's dataplane. */
     await gapi.client.apim.projects.locations.observationSources.create(
@@ -158,7 +158,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** DeleteObservationSource deletes an observation source. This method will fail if the observation source is currently being used by any ObservationJob, even if not enabled. */
     await gapi.client.apim.projects.locations.observationSources.delete({
@@ -179,7 +179,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.apim.projects.locations.operations.delete({

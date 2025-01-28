@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load YouTube Data API v3 v3 */
   function load(
-    urlOrObject: 'https://youtube.googleapis.com/$discovery/rest?version=v3'
+    urlOrObject: 'https://youtube.googleapis.com/$discovery/rest?version=v3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'youtube', version: 'v3'): Promise<void>;
@@ -2397,7 +2397,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AbuseReport
+        body: AbuseReport,
       ): Request<AbuseReport>;
     }
     interface ActivitiesResource {
@@ -2573,7 +2573,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Caption
+        body: Caption,
       ): Request<Caption>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -2678,7 +2678,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Caption
+        body: Caption,
       ): Request<Caption>;
     }
     interface ChannelBannersResource {
@@ -2746,7 +2746,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ChannelBannerResource
+        body: ChannelBannerResource,
       ): Request<ChannelBannerResource>;
     }
     interface ChannelsResource {
@@ -2859,7 +2859,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
     interface ChannelSectionsResource {
@@ -2955,7 +2955,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ChannelSection
+        body: ChannelSection,
       ): Request<ChannelSection>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -3054,7 +3054,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ChannelSection
+        body: ChannelSection,
       ): Request<ChannelSection>;
     }
     interface CommentsResource {
@@ -3140,7 +3140,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Comment
+        body: Comment,
       ): Request<Comment>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -3293,7 +3293,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Comment
+        body: Comment,
       ): Request<Comment>;
     }
     interface CommentThreadsResource {
@@ -3353,7 +3353,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommentThread
+        body: CommentThread,
       ): Request<CommentThread>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -3593,7 +3593,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LiveBroadcast
+        body: LiveBroadcast,
       ): Request<LiveBroadcast>;
       /** Insert cuepoints in a broadcast */
       insertCuepoint(request: {
@@ -3663,7 +3663,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Cuepoint
+        body: Cuepoint,
       ): Request<Cuepoint>;
       /** Retrieve the list of broadcasts associated with the given channel. */
       list(request?: {
@@ -3806,7 +3806,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LiveBroadcast
+        body: LiveBroadcast,
       ): Request<LiveBroadcast>;
     }
     interface LiveChatBansResource {
@@ -3892,7 +3892,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LiveChatBan
+        body: LiveChatBan,
       ): Request<LiveChatBan>;
     }
     interface LiveChatMessagesResource {
@@ -3978,7 +3978,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LiveChatMessage
+        body: LiveChatMessage,
       ): Request<LiveChatMessage>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -4130,7 +4130,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LiveChatModerator
+        body: LiveChatModerator,
       ): Request<LiveChatModerator>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -4261,7 +4261,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LiveStream
+        body: LiveStream,
       ): Request<LiveStream>;
       /** Retrieve the list of streams associated with the given channel. -- */
       list(request?: {
@@ -4365,7 +4365,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LiveStream
+        body: LiveStream,
       ): Request<LiveStream>;
     }
     interface MembersResource {
@@ -4530,7 +4530,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlaylistImage
+        body: PlaylistImage,
       ): Request<PlaylistImage>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -4629,7 +4629,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlaylistImage
+        body: PlaylistImage,
       ): Request<PlaylistImage>;
     }
     interface PlaylistItemsResource {
@@ -4721,7 +4721,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlaylistItem
+        body: PlaylistItem,
       ): Request<PlaylistItem>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -4821,7 +4821,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PlaylistItem
+        body: PlaylistItem,
       ): Request<PlaylistItem>;
     }
     interface PlaylistsResource {
@@ -4917,7 +4917,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Playlist
+        body: Playlist,
       ): Request<Playlist>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -5022,7 +5022,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Playlist
+        body: Playlist,
       ): Request<Playlist>;
     }
     interface SearchResource {
@@ -5196,7 +5196,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Subscription
+        body: Subscription,
       ): Request<Subscription>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -5339,7 +5339,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestItem
+        body: TestItem,
       ): Request<TestItem>;
     }
     interface ThirdPartyLinksResource {
@@ -5436,7 +5436,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ThirdPartyLink
+        body: ThirdPartyLink,
       ): Request<ThirdPartyLink>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -5531,7 +5531,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ThirdPartyLink
+        body: ThirdPartyLink,
       ): Request<ThirdPartyLink>;
     }
     interface ThumbnailsResource {
@@ -5761,7 +5761,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Video
+        body: Video,
       ): Request<Video>;
       /** Retrieves a list of resources, possibly filtered. */
       list(request?: {
@@ -5895,7 +5895,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VideoAbuseReport
+        body: VideoAbuseReport,
       ): Request<void>;
       /** Updates an existing resource. */
       update(request: {
@@ -5957,7 +5957,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Video
+        body: Video,
       ): Request<Video>;
     }
     interface VideoTrainabilityResource {
@@ -6048,7 +6048,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InvideoBranding
+        body: InvideoBranding,
       ): Request<void>;
       /** Allows removal of channel watermark. */
       unset(request?: {
@@ -6136,7 +6136,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommentThread
+        body: CommentThread,
       ): Request<CommentThread>;
     }
     interface YoutubeResource {

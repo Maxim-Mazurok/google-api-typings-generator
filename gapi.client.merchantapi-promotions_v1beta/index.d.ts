@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Merchant API promotions_v1beta */
   function load(
-    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=promotions_v1beta'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'merchantapi',
-    version: 'promotions_v1beta'
+    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=promotions_v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'merchantapi',
     version: 'promotions_v1beta',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'merchantapi',
+    version: 'promotions_v1beta',
+    callback: () => any,
   ): void;
 
   namespace merchantapi {
@@ -295,7 +295,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InsertPromotionRequest
+        body: InsertPromotionRequest,
       ): Request<Promotion>;
       /** Lists the promotions in your Merchant Center account. The response might contain fewer items than specified by `pageSize`. Rely on `pageToken` to determine if there are more items to be requested. After inserting or updating a promotion, it may take several minutes before the updated processed promotion can be retrieved. */
       list(request?: {

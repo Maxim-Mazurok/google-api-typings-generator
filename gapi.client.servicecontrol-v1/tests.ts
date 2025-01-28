@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://servicecontrol.googleapis.com/$discovery/rest?version=v1'
+    'https://servicecontrol.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.servicecontrol */
 
@@ -104,7 +104,7 @@ gapi.load('client', async () => {
           quotaMode: 'Test string',
         },
         serviceConfigId: 'Test string',
-      }
+      },
     );
     /** Checks whether an operation on a service should be allowed to proceed based on the configuration of the service and related policies. It must be called before the operation is executed. If feasible, the client should cache the check results and reuse them for 60 seconds. In case of any server errors, the client should rely on the cached results for much longer time to avoid outage. WARNING: There is general 60s delay for the configuration and policy propagation, therefore callers MUST NOT depend on the `Check` method having the latest policy information. NOTE: the CheckRequest has the size limit (wire-format byte size) of 1MB. This method requires the `servicemanagement.services.check` permission on the specified service. For more information, see [Cloud IAM](https://cloud.google.com/iam). */
     await gapi.client.servicecontrol.services.check(
@@ -280,7 +280,7 @@ gapi.load('client', async () => {
         requestProjectSettings: true,
         serviceConfigId: 'Test string',
         skipActivationCheck: true,
-      }
+      },
     );
     /** Reports operation results to Google Service Control, such as logs and metrics. It should be called after an operation is completed. If feasible, the client should aggregate reporting data for up to 5 seconds to reduce API traffic. Limiting aggregation to 5 seconds is to reduce data loss during client crashes. Clients should carefully choose the aggregation time window to avoid data loss risk more than 0.01% for business and compliance reasons. NOTE: the ReportRequest has the size limit (wire-format byte size) of 1MB. This method requires the `servicemanagement.services.report` permission on the specified service. For more information, see [Google Cloud IAM](https://cloud.google.com/iam). */
     await gapi.client.servicecontrol.services.report(
@@ -456,7 +456,7 @@ gapi.load('client', async () => {
           },
         ],
         serviceConfigId: 'Test string',
-      }
+      },
     );
   }
 });

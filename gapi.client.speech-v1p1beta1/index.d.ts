@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Speech-to-Text API v1p1beta1 */
   function load(
-    urlOrObject: 'https://speech.googleapis.com/$discovery/rest?version=v1p1beta1'
+    urlOrObject: 'https://speech.googleapis.com/$discovery/rest?version=v1p1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'speech', version: 'v1p1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'speech',
     version: 'v1p1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace speech {
@@ -472,7 +472,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateCustomClassRequest
+        body: CreateCustomClassRequest,
       ): Request<CustomClass>;
       /** Delete a custom class. */
       delete(request?: {
@@ -619,7 +619,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomClass
+        body: CustomClass,
       ): Request<CustomClass>;
     }
     interface PhraseSetsResource {
@@ -679,7 +679,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreatePhraseSetRequest
+        body: CreatePhraseSetRequest,
       ): Request<PhraseSet>;
       /** Delete a phrase set. */
       delete(request?: {
@@ -826,7 +826,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PhraseSet
+        body: PhraseSet,
       ): Request<PhraseSet>;
     }
     interface LocationsResource {
@@ -889,7 +889,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LongRunningRecognizeRequest
+        body: LongRunningRecognizeRequest,
       ): Request<Operation>;
       /** Performs synchronous speech recognition: receive results after all audio has been sent and processed. */
       recognize(request: {
@@ -943,7 +943,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RecognizeRequest
+        body: RecognizeRequest,
       ): Request<RecognizeResponse>;
     }
 

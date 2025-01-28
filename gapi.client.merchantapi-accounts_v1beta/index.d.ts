@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Merchant API accounts_v1beta */
   function load(
-    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=accounts_v1beta'
+    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=accounts_v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'merchantapi', version: 'accounts_v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'merchantapi',
     version: 'accounts_v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace merchantapi {
@@ -791,7 +791,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AutofeedSettings
+        body: AutofeedSettings,
       ): Request<AutofeedSettings>;
     }
     interface BusinessIdentityResource {
@@ -882,7 +882,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BusinessIdentity
+        body: BusinessIdentity,
       ): Request<BusinessIdentity>;
     }
     interface BusinessInfoResource {
@@ -973,7 +973,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BusinessInfo
+        body: BusinessInfo,
       ): Request<BusinessInfo>;
     }
     interface EmailPreferencesResource {
@@ -1064,7 +1064,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EmailPreferences
+        body: EmailPreferences,
       ): Request<EmailPreferences>;
     }
     interface HomepageResource {
@@ -1124,7 +1124,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClaimHomepageRequest
+        body: ClaimHomepageRequest,
       ): Request<Homepage>;
       /** Retrieves a store's homepage. */
       getHomepage(request?: {
@@ -1209,7 +1209,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UnclaimHomepageRequest
+        body: UnclaimHomepageRequest,
       ): Request<Homepage>;
       /** Updates a store's homepage. Executing this method requires admin access. */
       updateHomepage(request: {
@@ -1271,7 +1271,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Homepage
+        body: Homepage,
       ): Request<Homepage>;
     }
     interface IssuesResource {
@@ -1428,7 +1428,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableProgramRequest
+        body: DisableProgramRequest,
       ): Request<Program>;
       /** Enable participation in the specified program for the account. Executing this method requires admin access. */
       enable(request: {
@@ -1486,7 +1486,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnableProgramRequest
+        body: EnableProgramRequest,
       ): Request<Program>;
       /** Retrieves the specified program for the account. */
       get(request?: {
@@ -1608,7 +1608,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Region
+        body: Region,
       ): Request<Region>;
       /** Deletes a region definition from your Merchant Center account. Executing this method requires admin access. */
       delete(request?: {
@@ -1755,7 +1755,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Region
+        body: Region,
       ): Request<Region>;
     }
     interface ShippingSettingsResource {
@@ -1842,7 +1842,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ShippingSettings
+        body: ShippingSettings,
       ): Request<ShippingSettings>;
     }
     interface TermsOfServiceAgreementStatesResource {
@@ -1962,7 +1962,7 @@ declare namespace gapi.client {
           /** Required. The email address of the user (for example, `john.doe@gmail.com`). */
           userId?: string;
         },
-        body: User
+        body: User,
       ): Request<User>;
       /** Deletes a Merchant Center account user. Executing this method requires admin access. The user to be deleted can't be the last admin user of that account. Also a user is protected from deletion if it is managed by Business Manager" */
       delete(request?: {
@@ -2109,7 +2109,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: User
+        body: User,
       ): Request<User>;
     }
     interface AccountsResource {
@@ -2165,7 +2165,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateAndConfigureAccountRequest
+        body: CreateAndConfigureAccountRequest,
       ): Request<Account>;
       /** Deletes the specified account regardless of its type: standalone, MCA or sub-account. Deleting an MCA leads to the deletion of all of its sub-accounts. Executing this method requires admin access. The deletion succeeds only if the account does not provide services to any other account and has no processed offers. You can use the `force` parameter to override this. */
       delete(request?: {
@@ -2345,7 +2345,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Account
+        body: Account,
       ): Request<Account>;
       autofeedSettings: AutofeedSettingsResource;
       businessIdentity: BusinessIdentityResource;

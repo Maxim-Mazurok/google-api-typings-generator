@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://dataform.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://dataform.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.dataform */
 
@@ -55,7 +55,7 @@ gapi.load('client', async () => {
       {
         defaultKmsKeyName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Applies a Git commit to a Repository. The Repository must not have a value for `git_remote_settings.url`. */
     await gapi.client.dataform.projects.locations.repositories.commit(
@@ -79,13 +79,13 @@ gapi.load('client', async () => {
           },
         },
         requiredHeadCommitSha: 'Test string',
-      }
+      },
     );
     /** Computes a Repository's Git access token status. */
     await gapi.client.dataform.projects.locations.repositories.computeAccessTokenStatus(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Creates a new Repository in a given project and location. */
     await gapi.client.dataform.projects.locations.repositories.create(
@@ -123,7 +123,7 @@ gapi.load('client', async () => {
           schemaSuffix: 'Test string',
           tablePrefix: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a single Repository. */
     await gapi.client.dataform.projects.locations.repositories.delete({
@@ -140,7 +140,7 @@ gapi.load('client', async () => {
     await gapi.client.dataform.projects.locations.repositories.fetchRemoteBranches(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Fetches a single Repository. */
     await gapi.client.dataform.projects.locations.repositories.get({
@@ -195,7 +195,7 @@ gapi.load('client', async () => {
           schemaSuffix: 'Test string',
           tablePrefix: 'Test string',
         },
-      }
+      },
     );
     /** Returns the contents of a given Repository directory. The Repository must not have a value for `git_remote_settings.url`. */
     await gapi.client.dataform.projects.locations.repositories.queryDirectoryContents(
@@ -205,7 +205,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         path: 'Test string',
-      }
+      },
     );
     /** Returns the contents of a file (inside a Repository). The Repository must not have a value for `git_remote_settings.url`. */
     await gapi.client.dataform.projects.locations.repositories.readFile({
@@ -235,7 +235,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataform.projects.locations.repositories.testIamPermissions(
@@ -244,7 +244,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new CompilationResult in a given project and location. */
     await gapi.client.dataform.projects.locations.repositories.compilationResults.create(
@@ -290,13 +290,13 @@ gapi.load('client', async () => {
         releaseConfig: 'Test string',
         resolvedGitCommitSha: 'Test string',
         workspace: 'Test string',
-      }
+      },
     );
     /** Fetches a single CompilationResult. */
     await gapi.client.dataform.projects.locations.repositories.compilationResults.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists CompilationResults in a given Repository. */
     await gapi.client.dataform.projects.locations.repositories.compilationResults.list(
@@ -306,7 +306,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Returns CompilationResultActions in a given CompilationResult. */
     await gapi.client.dataform.projects.locations.repositories.compilationResults.query(
@@ -315,7 +315,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates a new ReleaseConfig in a given Repository. */
     await gapi.client.dataform.projects.locations.repositories.releaseConfigs.create(
@@ -361,19 +361,19 @@ gapi.load('client', async () => {
         ],
         releaseCompilationResult: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Deletes a single ReleaseConfig. */
     await gapi.client.dataform.projects.locations.repositories.releaseConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Fetches a single ReleaseConfig. */
     await gapi.client.dataform.projects.locations.repositories.releaseConfigs.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists ReleaseConfigs in a given Repository. */
     await gapi.client.dataform.projects.locations.repositories.releaseConfigs.list(
@@ -381,7 +381,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a single ReleaseConfig. **Note:** *This method does not fully implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The wildcard entry (**\***) is treated as a bad request - When the **field_mask** is omitted, instead of only updating the set fields, the request is treated as a full update on all modifiable fields */
     await gapi.client.dataform.projects.locations.repositories.releaseConfigs.patch(
@@ -427,7 +427,7 @@ gapi.load('client', async () => {
         ],
         releaseCompilationResult: 'Test string',
         timeZone: 'Test string',
-      }
+      },
     );
     /** Creates a new WorkflowConfig in a given Repository. */
     await gapi.client.dataform.projects.locations.repositories.workflowConfigs.create(
@@ -472,19 +472,19 @@ gapi.load('client', async () => {
         releaseConfig: 'Test string',
         timeZone: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single WorkflowConfig. */
     await gapi.client.dataform.projects.locations.repositories.workflowConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Fetches a single WorkflowConfig. */
     await gapi.client.dataform.projects.locations.repositories.workflowConfigs.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists WorkflowConfigs in a given Repository. */
     await gapi.client.dataform.projects.locations.repositories.workflowConfigs.list(
@@ -492,7 +492,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a single WorkflowConfig. **Note:** *This method does not fully implement*, (see [AIP/134](https://google.aip.dev/134), in particular: - The wildcard entry (**\***) is treated as a bad request - When the **field_mask** is omitted, instead of only updating the set fields, the request is treated as a full update on all modifiable fields */
     await gapi.client.dataform.projects.locations.repositories.workflowConfigs.patch(
@@ -537,14 +537,14 @@ gapi.load('client', async () => {
         releaseConfig: 'Test string',
         timeZone: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Requests cancellation of a running WorkflowInvocation. */
     await gapi.client.dataform.projects.locations.repositories.workflowInvocations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new WorkflowInvocation in a given Repository. */
     await gapi.client.dataform.projects.locations.repositories.workflowInvocations.create(
@@ -579,19 +579,19 @@ gapi.load('client', async () => {
         resolvedCompilationResult: 'Test string',
         state: 'Test string',
         workflowConfig: 'Test string',
-      }
+      },
     );
     /** Deletes a single WorkflowInvocation. */
     await gapi.client.dataform.projects.locations.repositories.workflowInvocations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Fetches a single WorkflowInvocation. */
     await gapi.client.dataform.projects.locations.repositories.workflowInvocations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists WorkflowInvocations in a given Repository. */
     await gapi.client.dataform.projects.locations.repositories.workflowInvocations.list(
@@ -601,7 +601,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Returns WorkflowInvocationActions in a given WorkflowInvocation. */
     await gapi.client.dataform.projects.locations.repositories.workflowInvocations.query(
@@ -609,7 +609,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Applies a Git commit for uncommitted files in a Workspace. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.commit(
@@ -623,7 +623,7 @@ gapi.load('client', async () => {
         },
         commitMessage: 'Test string',
         paths: ['Test string'],
-      }
+      },
     );
     /** Creates a new Workspace in a given Repository. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.create(
@@ -638,33 +638,33 @@ gapi.load('client', async () => {
         },
         internalMetadata: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a single Workspace. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Fetches Git diff for an uncommitted file in a Workspace. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.fetchFileDiff(
       {
         path: 'Test string',
         workspace: 'Test string',
-      }
+      },
     );
     /** Fetches Git statuses for the files in a Workspace. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.fetchFileGitStatuses(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Fetches Git ahead/behind against a remote branch. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.fetchGitAheadBehind(
       {
         name: 'Test string',
         remoteBranch: 'Test string',
-      }
+      },
     );
     /** Fetches a single Workspace. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.get({
@@ -675,14 +675,14 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Installs dependency NPM packages (inside a Workspace). */
     await gapi.client.dataform.projects.locations.repositories.workspaces.installNpmPackages(
       {
         workspace: 'Test string',
       },
-      {}
+      {},
     );
     /** Lists Workspaces in a given Repository. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.list({
@@ -699,7 +699,7 @@ gapi.load('client', async () => {
       },
       {
         path: 'Test string',
-      }
+      },
     );
     /** Moves a directory (inside a Workspace), and all of its contents, to a new location. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.moveDirectory(
@@ -709,7 +709,7 @@ gapi.load('client', async () => {
       {
         newPath: 'Test string',
         path: 'Test string',
-      }
+      },
     );
     /** Moves a file (inside a Workspace) to a new location. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.moveFile(
@@ -719,7 +719,7 @@ gapi.load('client', async () => {
       {
         newPath: 'Test string',
         path: 'Test string',
-      }
+      },
     );
     /** Pulls Git commits from the Repository's remote into a Workspace. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.pull(
@@ -732,7 +732,7 @@ gapi.load('client', async () => {
           name: 'Test string',
         },
         remoteBranch: 'Test string',
-      }
+      },
     );
     /** Pushes Git commits from a Workspace to the Repository's remote. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.push(
@@ -741,7 +741,7 @@ gapi.load('client', async () => {
       },
       {
         remoteBranch: 'Test string',
-      }
+      },
     );
     /** Returns the contents of a given Workspace directory. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.queryDirectoryContents(
@@ -750,7 +750,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         path: 'Test string',
         workspace: 'Test string',
-      }
+      },
     );
     /** Returns the contents of a file (inside a Workspace). */
     await gapi.client.dataform.projects.locations.repositories.workspaces.readFile(
@@ -758,7 +758,7 @@ gapi.load('client', async () => {
         path: 'Test string',
         revision: 'Test string',
         workspace: 'Test string',
-      }
+      },
     );
     /** Deletes a directory (inside a Workspace) and all of its contents. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.removeDirectory(
@@ -767,7 +767,7 @@ gapi.load('client', async () => {
       },
       {
         path: 'Test string',
-      }
+      },
     );
     /** Deletes a file (inside a Workspace). */
     await gapi.client.dataform.projects.locations.repositories.workspaces.removeFile(
@@ -776,7 +776,7 @@ gapi.load('client', async () => {
       },
       {
         path: 'Test string',
-      }
+      },
     );
     /** Performs a Git reset for uncommitted files in a Workspace. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.reset(
@@ -786,7 +786,7 @@ gapi.load('client', async () => {
       {
         clean: true,
         paths: ['Test string'],
-      }
+      },
     );
     /** Finds the contents of a given Workspace directory by filter. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.searchFiles(
@@ -795,7 +795,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         workspace: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.setIamPolicy(
@@ -819,7 +819,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.testIamPermissions(
@@ -828,7 +828,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Writes to a file (inside a Workspace). */
     await gapi.client.dataform.projects.locations.repositories.workspaces.writeFile(
@@ -838,7 +838,7 @@ gapi.load('client', async () => {
       {
         contents: 'Test string',
         path: 'Test string',
-      }
+      },
     );
   }
 });

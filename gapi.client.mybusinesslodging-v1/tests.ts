@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://mybusinesslodging.googleapis.com/$discovery/rest?version=v1'
+    'https://mybusinesslodging.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.mybusinesslodging */
 
@@ -1162,7 +1162,7 @@ gapi.load('client', async () => {
           weightMachine: true,
           weightMachineException: 'Test string',
         },
-      }
+      },
     );
     /** Returns the Google updated Lodging of a specific location. */
     await gapi.client.mybusinesslodging.locations.lodging.getGoogleUpdated({

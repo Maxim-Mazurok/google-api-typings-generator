@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Assured Workloads API v1beta1 */
   function load(
-    urlOrObject: 'https://assuredworkloads.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://assuredworkloads.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'assuredworkloads', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'assuredworkloads',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace assuredworkloads {
@@ -532,7 +532,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAssuredworkloadsV1beta1ApplyWorkloadUpdateRequest
+        body: GoogleCloudAssuredworkloadsV1beta1ApplyWorkloadUpdateRequest,
       ): Request<GoogleLongrunningOperation>;
       /** This endpoint lists all updates for the given workload. */
       list(request?: {
@@ -623,7 +623,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAssuredworkloadsV1beta1AcknowledgeViolationRequest
+        body: GoogleCloudAssuredworkloadsV1beta1AcknowledgeViolationRequest,
       ): Request<{}>;
       /** Retrieves Assured Workload Violation based on ID. */
       get(request?: {
@@ -786,7 +786,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAssuredworkloadsV1beta1Workload
+        body: GoogleCloudAssuredworkloadsV1beta1Workload,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes the workload. Make sure that workload's direct children are already in a deleted state, otherwise the request will fail with a FAILED_PRECONDITION error. In addition to assuredworkloads.workload.delete permission, the user should also have orgpolicy.policy.set permission on the deleted folder to remove Assured Workloads OrgPolicies. */
       delete(request?: {
@@ -991,7 +991,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAssuredworkloadsV1beta1Workload
+        body: GoogleCloudAssuredworkloadsV1beta1Workload,
       ): Request<GoogleCloudAssuredworkloadsV1beta1Workload>;
       /** Restrict the list of resources allowed in the Workload environment. The current list of allowed products can be found at https://cloud.google.com/assured-workloads/docs/supported-products In addition to assuredworkloads.workload.update permission, the user should also have orgpolicy.policy.set permission on the folder resource to use this functionality. */
       restrictAllowedResources(request: {
@@ -1049,7 +1049,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudAssuredworkloadsV1beta1RestrictAllowedResourcesRequest
+        body: GoogleCloudAssuredworkloadsV1beta1RestrictAllowedResourcesRequest,
       ): Request<{}>;
       updates: UpdatesResource;
       violations: ViolationsResource;

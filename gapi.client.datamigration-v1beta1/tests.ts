@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://datamigration.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://datamigration.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.datamigration */
 
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
         provider: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Database Migration Service connection profile. A connection profile can only be deleted if it is not in use by any active migration jobs. */
     await gapi.client.datamigration.projects.locations.connectionProfiles.delete(
@@ -127,7 +127,7 @@ gapi.load('client', async () => {
         force: true,
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single connection profile. */
     await gapi.client.datamigration.projects.locations.connectionProfiles.get({
@@ -138,7 +138,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Retrieve a list of all connection profiles in a given project and location. */
     await gapi.client.datamigration.projects.locations.connectionProfiles.list({
@@ -225,7 +225,7 @@ gapi.load('client', async () => {
         provider: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.datamigration.projects.locations.connectionProfiles.setIamPolicy(
@@ -261,7 +261,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.datamigration.projects.locations.connectionProfiles.testIamPermissions(
@@ -270,7 +270,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new migration job in a given project and location. */
     await gapi.client.datamigration.projects.locations.migrationJobs.create(
@@ -322,7 +322,7 @@ gapi.load('client', async () => {
         vpcPeeringConnectivity: {
           vpc: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a single migration job. */
     await gapi.client.datamigration.projects.locations.migrationJobs.delete({
@@ -346,7 +346,7 @@ gapi.load('client', async () => {
         vmSelectionConfig: {
           vmZone: 'Test string',
         },
-      }
+      },
     );
     /** Gets details of a single migration job. */
     await gapi.client.datamigration.projects.locations.migrationJobs.get({
@@ -357,7 +357,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists migration jobs in a given project and location. */
     await gapi.client.datamigration.projects.locations.migrationJobs.list({
@@ -417,28 +417,28 @@ gapi.load('client', async () => {
         vpcPeeringConnectivity: {
           vpc: 'Test string',
         },
-      }
+      },
     );
     /** Promote a migration job, stopping replication to the destination and promoting the destination to be a standalone database. */
     await gapi.client.datamigration.projects.locations.migrationJobs.promote(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Restart a stopped or failed migration job, resetting the destination instance to its original state and starting the migration process from scratch. */
     await gapi.client.datamigration.projects.locations.migrationJobs.restart(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Resume a migration job that is currently stopped and is resumable (was stopped during CDC phase). */
     await gapi.client.datamigration.projects.locations.migrationJobs.resume(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.datamigration.projects.locations.migrationJobs.setIamPolicy(
@@ -474,21 +474,21 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Start an already created migration job. */
     await gapi.client.datamigration.projects.locations.migrationJobs.start(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Stops a running migration job. */
     await gapi.client.datamigration.projects.locations.migrationJobs.stop(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.datamigration.projects.locations.migrationJobs.testIamPermissions(
@@ -497,21 +497,21 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Verify a migration job, making sure the destination can reach the source and that all configuration and prerequisites are met. */
     await gapi.client.datamigration.projects.locations.migrationJobs.verify(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.datamigration.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.datamigration.projects.locations.operations.delete({

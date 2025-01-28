@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Firebase Dynamic Links API v1 */
   function load(
-    urlOrObject: 'https://firebasedynamiclinks.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://firebasedynamiclinks.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firebasedynamiclinks', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firebasedynamiclinks',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firebasedynamiclinks {
@@ -351,7 +351,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateManagedShortLinkRequest
+        body: CreateManagedShortLinkRequest,
       ): Request<CreateManagedShortLinkResponse>;
     }
     interface ShortLinksResource {
@@ -407,7 +407,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateShortDynamicLinkRequest
+        body: CreateShortDynamicLinkRequest,
       ): Request<CreateShortDynamicLinkResponse>;
     }
     interface V1Resource {
@@ -494,7 +494,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIosPostInstallAttributionRequest
+        body: GetIosPostInstallAttributionRequest,
       ): Request<GetIosPostInstallAttributionResponse>;
       /** Get iOS reopen attribution for app universal link open deeplinking. */
       reopenAttribution(request: {
@@ -548,7 +548,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIosReopenAttributionRequest
+        body: GetIosReopenAttributionRequest,
       ): Request<GetIosReopenAttributionResponse>;
     }
 

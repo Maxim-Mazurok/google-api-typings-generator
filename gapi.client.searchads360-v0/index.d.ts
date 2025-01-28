@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Search Ads 360 Reporting API v0 */
   function load(
-    urlOrObject: 'https://searchads360.googleapis.com/$discovery/rest?version=v0'
+    urlOrObject: 'https://searchads360.googleapis.com/$discovery/rest?version=v0',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'searchads360', version: 'v0'): Promise<void>;
@@ -2299,7 +2299,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsSearchads360V0Services__SearchSearchAds360Request
+        body: GoogleAdsSearchads360V0Services__SearchSearchAds360Request,
       ): Request<GoogleAdsSearchads360V0Services__SearchSearchAds360Response>;
     }
     interface CustomersResource {
@@ -2411,7 +2411,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAdsSearchads360V0Services__SearchSearchAds360FieldsRequest
+        body: GoogleAdsSearchads360V0Services__SearchSearchAds360FieldsRequest,
       ): Request<GoogleAdsSearchads360V0Services__SearchSearchAds360FieldsResponse>;
     }
 

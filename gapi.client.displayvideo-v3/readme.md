@@ -30,7 +30,7 @@ gapi.client.load(
   () => {
     // now we can use:
     // gapi.client.displayvideo
-  }
+  },
 );
 ```
 
@@ -71,7 +71,7 @@ gapi.auth.authorize(
     } else {
       /* handle authorization error */
     }
-  }
+  },
 );
 ```
 
@@ -197,7 +197,7 @@ await gapi.client.displayvideo.firstAndThirdPartyAudiences.create({});
 Updates the member list of a Customer Match audience. Only supported for the following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`
 */
 await gapi.client.displayvideo.firstAndThirdPartyAudiences.editCustomerMatchMembers(
-  {firstAndThirdPartyAudienceId: 'firstAndThirdPartyAudienceId'}
+  {firstAndThirdPartyAudienceId: 'firstAndThirdPartyAudienceId'},
 );
 
 /*
@@ -254,7 +254,7 @@ await gapi.client.displayvideo.guaranteedOrders.create({});
 Edits read advertisers of a guaranteed order.
 */
 await gapi.client.displayvideo.guaranteedOrders.editGuaranteedOrderReadAccessors(
-  {guaranteedOrderId: 'guaranteedOrderId'}
+  {guaranteedOrderId: 'guaranteedOrderId'},
 );
 
 /*
@@ -316,7 +316,7 @@ await gapi.client.displayvideo.inventorySources.create({});
 Edits read/write accessors of an inventory source. Returns the updated read_write_accessors for the inventory source.
 */
 await gapi.client.displayvideo.inventorySources.editInventorySourceReadWriteAccessors(
-  {inventorySourceId: 'inventorySourceId'}
+  {inventorySourceId: 'inventorySourceId'},
 );
 
 /*

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://iam.googleapis.com/$discovery/rest?version=v2beta'
+    'https://iam.googleapis.com/$discovery/rest?version=v2beta',
   );
   /** now we can use gapi.client.iam */
 
@@ -66,7 +66,7 @@ gapi.load('client', async () => {
         ],
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a policy. This action is permanent. */
     await gapi.client.iam.policies.delete({
@@ -117,7 +117,7 @@ gapi.load('client', async () => {
         ],
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.iam.policies.operations.get({

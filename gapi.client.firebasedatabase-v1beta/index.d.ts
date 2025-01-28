@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Firebase Realtime Database Management API v1beta */
   function load(
-    urlOrObject: 'https://firebasedatabase.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://firebasedatabase.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firebasedatabase', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firebasedatabase',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firebasedatabase {
@@ -114,7 +114,7 @@ declare namespace gapi.client {
           /** When set to true, the request will be validated but not submitted. */
           validateOnly?: boolean;
         },
-        body: DatabaseInstance
+        body: DatabaseInstance,
       ): Request<DatabaseInstance>;
       /** Marks a DatabaseInstance to be deleted. The DatabaseInstance will be set to the DELETED state for 20 days, and will be purged within 30 days. The default database cannot be deleted. IDs for deleted database instances may never be recovered or re-used. The Database may only be deleted if it is already in a DISABLED state. */
       delete(request?: {
@@ -199,7 +199,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableDatabaseInstanceRequest
+        body: DisableDatabaseInstanceRequest,
       ): Request<DatabaseInstance>;
       /** Gets the DatabaseInstance identified by the specified resource name. */
       get(request?: {
@@ -317,7 +317,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReenableDatabaseInstanceRequest
+        body: ReenableDatabaseInstanceRequest,
       ): Request<DatabaseInstance>;
       /** Restores a DatabaseInstance that was previously marked to be deleted. After the delete method is used, DatabaseInstances are set to the DELETED state for 20 days, and will be purged within 30 days. Databases in the DELETED state can be undeleted without losing any data. This method may only be used on a DatabaseInstance in the DELETED state. Purged DatabaseInstances may not be recovered. */
       undelete(request: {
@@ -375,7 +375,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteDatabaseInstanceRequest
+        body: UndeleteDatabaseInstanceRequest,
       ): Request<DatabaseInstance>;
     }
     interface LocationsResource {

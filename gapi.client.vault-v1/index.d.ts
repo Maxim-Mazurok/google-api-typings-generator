@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Vault API v1 */
   function load(
-    urlOrObject: 'https://vault.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://vault.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'vault', version: 'v1'): Promise<void>;
@@ -553,7 +553,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Export
+        body: Export,
       ): Request<Export>;
       /** Deletes an export. */
       delete(request?: {
@@ -706,7 +706,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: HeldAccount
+        body: HeldAccount,
       ): Request<HeldAccount>;
       /** Removes an account from a hold. */
       delete(request?: {
@@ -830,7 +830,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddHeldAccountsRequest
+        body: AddHeldAccountsRequest,
       ): Request<AddHeldAccountsResponse>;
       /** Creates a hold in the specified matter. */
       create(request: {
@@ -888,7 +888,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Hold
+        body: Hold,
       ): Request<Hold>;
       /** Removes the specified hold and releases the accounts or organizational unit covered by the hold. If the data is not preserved by another hold or retention rule, it might be purged. */
       delete(request?: {
@@ -1043,7 +1043,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveHeldAccountsRequest
+        body: RemoveHeldAccountsRequest,
       ): Request<RemoveHeldAccountsResponse>;
       /** Updates the scope (organizational unit or accounts) and query parameters of a hold. You cannot add accounts to a hold that covers an organizational unit, nor can you add organizational units to a hold that covers individual accounts. If you try, the unsupported values are ignored. */
       update(request: {
@@ -1105,7 +1105,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Hold
+        body: Hold,
       ): Request<Hold>;
       accounts: AccountsResource;
     }
@@ -1166,7 +1166,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SavedQuery
+        body: SavedQuery,
       ): Request<SavedQuery>;
       /** Deletes the specified saved query. */
       delete(request?: {
@@ -1315,7 +1315,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddMatterPermissionsRequest
+        body: AddMatterPermissionsRequest,
       ): Request<MatterPermission>;
       /** Closes the specified matter. Returns the matter with updated state. */
       close(request: {
@@ -1373,7 +1373,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CloseMatterRequest
+        body: CloseMatterRequest,
       ): Request<CloseMatterResponse>;
       /** Counts the accounts processed by the specified query. */
       count(request: {
@@ -1431,7 +1431,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CountArtifactsRequest
+        body: CountArtifactsRequest,
       ): Request<Operation>;
       /** Creates a matter with the given name and description. The initial state is open, and the owner is the method caller. Returns the created matter with default view. */
       create(request: {
@@ -1485,7 +1485,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Matter
+        body: Matter,
       ): Request<Matter>;
       /** Deletes the specified matter. Returns the matter with updated state. */
       delete(request?: {
@@ -1632,7 +1632,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveMatterPermissionsRequest
+        body: RemoveMatterPermissionsRequest,
       ): Request<{}>;
       /** Reopens the specified matter. Returns the matter with updated state. */
       reopen(request: {
@@ -1690,7 +1690,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReopenMatterRequest
+        body: ReopenMatterRequest,
       ): Request<ReopenMatterResponse>;
       /** Undeletes the specified matter. Returns the matter with updated state. */
       undelete(request: {
@@ -1748,7 +1748,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteMatterRequest
+        body: UndeleteMatterRequest,
       ): Request<Matter>;
       /** Updates the specified matter. This updates only the name and description of the matter, identified by matter ID. Changes to any other fields are ignored. Returns the default view of the matter. */
       update(request: {
@@ -1806,7 +1806,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Matter
+        body: Matter,
       ): Request<Matter>;
       exports: ExportsResource;
       holds: HoldsResource;
@@ -1869,7 +1869,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

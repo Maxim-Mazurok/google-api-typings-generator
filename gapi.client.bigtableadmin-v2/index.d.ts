@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Bigtable Admin API v2 */
   function load(
-    urlOrObject: 'https://bigtableadmin.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://bigtableadmin.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'bigtableadmin', version: 'v2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'bigtableadmin',
     version: 'v2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace bigtableadmin {
@@ -930,7 +930,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AppProfile
+        body: AppProfile,
       ): Request<AppProfile>;
       /** Deletes an app profile from an instance. */
       delete(request?: {
@@ -1083,7 +1083,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AppProfile
+        body: AppProfile,
       ): Request<Operation>;
     }
     interface BackupsResource {
@@ -1143,7 +1143,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CopyBackupRequest
+        body: CopyBackupRequest,
       ): Request<Operation>;
       /** Starts creating a new Cloud Bigtable Backup. The returned backup long-running operation can be used to track creation of the backup. The metadata field type is CreateBackupMetadata. The response field type is Backup, if successful. Cancelling the returned operation will stop the creation and delete the backup. */
       create(request: {
@@ -1205,7 +1205,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Backup
+        body: Backup,
       ): Request<Operation>;
       /** Deletes a pending or completed Cloud Bigtable backup. */
       delete(request?: {
@@ -1289,7 +1289,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists Cloud Bigtable backups. Returns both completed and pending backups. */
       list(request?: {
@@ -1386,7 +1386,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Backup
+        body: Backup,
       ): Request<Backup>;
       /** Sets the access control policy on a Bigtable resource. Replaces any existing policy. */
       setIamPolicy(
@@ -1416,7 +1416,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that the caller has on the specified Bigtable resource. */
       testIamPermissions(
@@ -1446,7 +1446,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface HotTabletsResource {
@@ -1547,7 +1547,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       /** Deletes a cluster from an instance. */
       delete(request?: {
@@ -1692,7 +1692,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       /** Updates a cluster within an instance. Note that UpdateCluster does not support updating cluster_config.cluster_autoscaling_config. In order to update it, you must use PartialUpdateCluster. */
       update(request: {
@@ -1750,7 +1750,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       backups: BackupsResource;
       hotTablets: HotTabletsResource;
@@ -1816,7 +1816,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AuthorizedView
+        body: AuthorizedView,
       ): Request<Operation>;
       /** Permanently deletes a specified AuthorizedView. */
       delete(request?: {
@@ -1904,7 +1904,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists all AuthorizedViews from a specific table. */
       list(request?: {
@@ -2003,7 +2003,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AuthorizedView
+        body: AuthorizedView,
       ): Request<Operation>;
       /** Sets the access control policy on a Bigtable resource. Replaces any existing policy. */
       setIamPolicy(
@@ -2033,7 +2033,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that the caller has on the specified Bigtable resource. */
       testIamPermissions(
@@ -2063,7 +2063,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface TablesResource {
@@ -2123,7 +2123,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CheckConsistencyRequest
+        body: CheckConsistencyRequest,
       ): Request<CheckConsistencyResponse>;
       /** Creates a new table in the specified instance. The table can be created with a full set of initial column families, specified in the request. */
       create(request: {
@@ -2181,7 +2181,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateTableRequest
+        body: CreateTableRequest,
       ): Request<Table>;
       /** Permanently deletes a specified table and all of its data. */
       delete(request?: {
@@ -2266,7 +2266,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DropRowRangeRequest
+        body: DropRowRangeRequest,
       ): Request<{}>;
       /** Generates a consistency token for a Table, which can be used in CheckConsistency to check whether mutations to the table that finished before this call started have been replicated. The tokens will be available for 90 days. */
       generateConsistencyToken(request: {
@@ -2324,7 +2324,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateConsistencyTokenRequest
+        body: GenerateConsistencyTokenRequest,
       ): Request<GenerateConsistencyTokenResponse>;
       /** Gets metadata information about the specified table. */
       get(request?: {
@@ -2383,7 +2383,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists all tables served from a specified instance. */
       list(request?: {
@@ -2474,7 +2474,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModifyColumnFamiliesRequest
+        body: ModifyColumnFamiliesRequest,
       ): Request<Table>;
       /** Updates a specified table. */
       patch(request: {
@@ -2536,7 +2536,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Table
+        body: Table,
       ): Request<Operation>;
       /** Create a new table by restoring from a completed backup. The returned table long-running operation can be used to track the progress of the operation, and to cancel it. The metadata field type is RestoreTableMetadata. The response type is Table, if successful. */
       restore(request: {
@@ -2594,7 +2594,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestoreTableRequest
+        body: RestoreTableRequest,
       ): Request<Operation>;
       /** Sets the access control policy on a Bigtable resource. Replaces any existing policy. */
       setIamPolicy(
@@ -2624,7 +2624,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that the caller has on the specified Bigtable resource. */
       testIamPermissions(
@@ -2654,7 +2654,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Restores a specified table which was accidentally deleted. */
       undelete(request: {
@@ -2712,7 +2712,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteTableRequest
+        body: UndeleteTableRequest,
       ): Request<Operation>;
       authorizedViews: AuthorizedViewsResource;
     }
@@ -2773,7 +2773,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateInstanceRequest
+        body: CreateInstanceRequest,
       ): Request<Operation>;
       /** Delete an instance from a project. */
       delete(request?: {
@@ -2857,7 +2857,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists information about instances in a project. */
       list(request?: {
@@ -2948,7 +2948,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Sets the access control policy on an instance resource. Replaces any existing policy. */
       setIamPolicy(
@@ -2978,7 +2978,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that the caller has on the specified instance resource. */
       testIamPermissions(
@@ -3008,7 +3008,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Updates an instance within a project. This method updates only the display name and type for an Instance. To update other Instance properties, such as labels, use PartialUpdateInstance. */
       update(request: {
@@ -3066,7 +3066,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Instance>;
       appProfiles: AppProfilesResource;
       clusters: ClustersResource;

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Enterprise License Manager API v1 */
   function load(
-    urlOrObject: 'https://licensing.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://licensing.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'licensing', version: 'v1'): Promise<void>;
@@ -180,7 +180,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LicenseAssignmentInsert
+        body: LicenseAssignmentInsert,
       ): Request<LicenseAssignment>;
       /** List all users assigned licenses for a specific product SKU. */
       listForProduct(request?: {
@@ -314,7 +314,7 @@ declare namespace gapi.client {
           /** The user's current primary email address. If the user's email address changes, use the new email address in your API requests. Since a `userId` is subject to change, do not use a `userId` value as a key for persistent data. This key could break if the current user's email address changes. If the `userId` is suspended, the license status changes. */
           userId: string;
         },
-        body: LicenseAssignment
+        body: LicenseAssignment,
       ): Request<LicenseAssignment>;
       /** Reassign a user's product SKU with a different SKU in the same product. */
       update(request: {
@@ -380,7 +380,7 @@ declare namespace gapi.client {
           /** The user's current primary email address. If the user's email address changes, use the new email address in your API requests. Since a `userId` is subject to change, do not use a `userId` value as a key for persistent data. This key could break if the current user's email address changes. If the `userId` is suspended, the license status changes. */
           userId: string;
         },
-        body: LicenseAssignment
+        body: LicenseAssignment,
       ): Request<LicenseAssignment>;
     }
 

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Android Management API v1 */
   function load(
-    urlOrObject: 'https://androidmanagement.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://androidmanagement.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'androidmanagement', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'androidmanagement',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace androidmanagement {
@@ -1812,7 +1812,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Command
+        body: Command,
       ): Request<Operation>;
       /** Lists devices for a given enterprise. Deleted devices are not returned in the response. */
       list(request?: {
@@ -1905,7 +1905,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Device
+        body: Device,
       ): Request<Device>;
       operations: OperationsResource;
     }
@@ -1966,7 +1966,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnrollmentToken
+        body: EnrollmentToken,
       ): Request<EnrollmentToken>;
       /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
       delete(request?: {
@@ -2111,7 +2111,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MigrationToken
+        body: MigrationToken,
       ): Request<MigrationToken>;
       /** Gets a migration token. */
       get(request?: {
@@ -2318,7 +2318,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Policy
+        body: Policy,
       ): Request<Policy>;
     }
     interface WebAppsResource {
@@ -2378,7 +2378,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WebApp
+        body: WebApp,
       ): Request<WebApp>;
       /** Deletes a web app. */
       delete(request?: {
@@ -2525,7 +2525,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WebApp
+        body: WebApp,
       ): Request<WebApp>;
     }
     interface WebTokensResource {
@@ -2585,7 +2585,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WebToken
+        body: WebToken,
       ): Request<WebToken>;
     }
     interface EnterprisesResource {
@@ -2657,7 +2657,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Enterprise
+        body: Enterprise,
       ): Request<Enterprise>;
       /** Permanently deletes an enterprise and all accounts and data associated with it. Warning: this will result in a cascaded deletion of all AM API devices associated with the deleted enterprise. Only available for EMM-managed enterprises. */
       delete(request?: {
@@ -2806,7 +2806,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Enterprise
+        body: Enterprise,
       ): Request<Enterprise>;
       applications: ApplicationsResource;
       devices: DevicesResource;

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Secret Manager API v1beta2 */
   function load(
-    urlOrObject: 'https://secretmanager.googleapis.com/$discovery/rest?version=v1beta2'
+    urlOrObject: 'https://secretmanager.googleapis.com/$discovery/rest?version=v1beta2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'secretmanager', version: 'v1beta2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'secretmanager',
     version: 'v1beta2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace secretmanager {
@@ -335,7 +335,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DestroySecretVersionRequest
+        body: DestroySecretVersionRequest,
       ): Request<SecretVersion>;
       /** Disables a SecretVersion. Sets the state of the SecretVersion to DISABLED. */
       disable(request: {
@@ -393,7 +393,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableSecretVersionRequest
+        body: DisableSecretVersionRequest,
       ): Request<SecretVersion>;
       /** Enables a SecretVersion. Sets the state of the SecretVersion to ENABLED. */
       enable(request: {
@@ -451,7 +451,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnableSecretVersionRequest
+        body: EnableSecretVersionRequest,
       ): Request<SecretVersion>;
       /** Gets metadata for a SecretVersion. `projects/*‍/secrets/*‍/versions/latest` is an alias to the most recently created SecretVersion. */
       get(request?: {
@@ -571,7 +571,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddSecretVersionRequest
+        body: AddSecretVersionRequest,
       ): Request<SecretVersion>;
       /** Creates a new Secret containing no SecretVersions. */
       create(request: {
@@ -633,7 +633,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Secret
+        body: Secret,
       ): Request<Secret>;
       /** Deletes a Secret. */
       delete(request?: {
@@ -813,7 +813,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Secret
+        body: Secret,
       ): Request<Secret>;
       /** Sets the access control policy on the specified secret. Replaces any existing policy. Permissions on SecretVersions are enforced according to the policy set on the associated Secret. */
       setIamPolicy(
@@ -843,7 +843,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has for the specified secret. If the secret does not exist, this call returns an empty set of permissions, not a NOT_FOUND error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -873,7 +873,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       versions: VersionsResource;
     }
@@ -1024,7 +1024,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DestroySecretVersionRequest
+        body: DestroySecretVersionRequest,
       ): Request<SecretVersion>;
       /** Disables a SecretVersion. Sets the state of the SecretVersion to DISABLED. */
       disable(request: {
@@ -1082,7 +1082,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableSecretVersionRequest
+        body: DisableSecretVersionRequest,
       ): Request<SecretVersion>;
       /** Enables a SecretVersion. Sets the state of the SecretVersion to ENABLED. */
       enable(request: {
@@ -1140,7 +1140,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnableSecretVersionRequest
+        body: EnableSecretVersionRequest,
       ): Request<SecretVersion>;
       /** Gets metadata for a SecretVersion. `projects/*‍/secrets/*‍/versions/latest` is an alias to the most recently created SecretVersion. */
       get(request?: {
@@ -1260,7 +1260,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddSecretVersionRequest
+        body: AddSecretVersionRequest,
       ): Request<SecretVersion>;
       /** Creates a new Secret containing no SecretVersions. */
       create(request: {
@@ -1322,7 +1322,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Secret
+        body: Secret,
       ): Request<Secret>;
       /** Deletes a Secret. */
       delete(request?: {
@@ -1502,7 +1502,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Secret
+        body: Secret,
       ): Request<Secret>;
       /** Sets the access control policy on the specified secret. Replaces any existing policy. Permissions on SecretVersions are enforced according to the policy set on the associated Secret. */
       setIamPolicy(
@@ -1532,7 +1532,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has for the specified secret. If the secret does not exist, this call returns an empty set of permissions, not a NOT_FOUND error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1562,7 +1562,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       versions: VersionsResource;
     }

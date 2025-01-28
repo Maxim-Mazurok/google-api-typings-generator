@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://privateca.googleapis.com/$discovery/rest?version=v1'
+    'https://privateca.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.privateca */
 
@@ -154,7 +154,7 @@ gapi.load('client', async () => {
           publishCrl: true,
         },
         tier: 'Test string',
-      }
+      },
     );
     /** Delete a CaPool. */
     await gapi.client.privateca.projects.locations.caPools.delete({
@@ -169,7 +169,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Returns a CaPool. */
     await gapi.client.privateca.projects.locations.caPools.get({
@@ -300,7 +300,7 @@ gapi.load('client', async () => {
           publishCrl: true,
         },
         tier: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.privateca.projects.locations.caPools.setIamPolicy(
@@ -336,7 +336,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.privateca.projects.locations.caPools.testIamPermissions(
@@ -345,7 +345,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Activate a CertificateAuthority that is in state AWAITING_USER_ACTIVATION and is of type SUBORDINATE. After the parent Certificate Authority signs a certificate signing request from FetchCertificateAuthorityCsr, this method can complete the activation process. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.activate(
@@ -361,7 +361,7 @@ gapi.load('client', async () => {
             pemCertificates: ['Test string'],
           },
         },
-      }
+      },
     );
     /** Create a new CertificateAuthority in a given Project and Location. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.create(
@@ -604,7 +604,7 @@ gapi.load('client', async () => {
         tier: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a CertificateAuthority. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.delete(
@@ -614,7 +614,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         requestId: 'Test string',
         skipGracePeriod: true,
-      }
+      },
     );
     /** Disable a CertificateAuthority. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.disable(
@@ -624,7 +624,7 @@ gapi.load('client', async () => {
       {
         ignoreDependentResources: true,
         requestId: 'Test string',
-      }
+      },
     );
     /** Enable a CertificateAuthority. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.enable(
@@ -633,19 +633,19 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Fetch a certificate signing request (CSR) from a CertificateAuthority that is in state AWAITING_USER_ACTIVATION and is of type SUBORDINATE. The CSR must then be signed by the desired parent Certificate Authority, which could be another CertificateAuthority resource, or could be an on-prem certificate authority. See also ActivateCertificateAuthority. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.fetch(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a CertificateAuthority. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists CertificateAuthorities. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.list(
@@ -655,7 +655,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Update a CertificateAuthority. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.patch(
@@ -898,7 +898,7 @@ gapi.load('client', async () => {
         tier: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Undelete a CertificateAuthority that has been deleted. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.undelete(
@@ -907,20 +907,20 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Returns a CertificateRevocationList. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists CertificateRevocationLists. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.list(
@@ -930,7 +930,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Update a CertificateRevocationList. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.patch(
@@ -958,7 +958,7 @@ gapi.load('client', async () => {
         sequenceNumber: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.setIamPolicy(
@@ -994,7 +994,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.testIamPermissions(
@@ -1003,7 +1003,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create a new Certificate in a given Project, Location from a particular CaPool. */
     await gapi.client.privateca.projects.locations.caPools.certificates.create(
@@ -1233,7 +1233,7 @@ gapi.load('client', async () => {
         },
         subjectMode: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Returns a Certificate. */
     await gapi.client.privateca.projects.locations.caPools.certificates.get({
@@ -1473,7 +1473,7 @@ gapi.load('client', async () => {
         },
         subjectMode: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Revoke a Certificate. */
     await gapi.client.privateca.projects.locations.caPools.certificates.revoke(
@@ -1483,7 +1483,7 @@ gapi.load('client', async () => {
       {
         reason: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Create a new CertificateTemplate in a given Project and Location. */
     await gapi.client.privateca.projects.locations.certificateTemplates.create(
@@ -1577,7 +1577,7 @@ gapi.load('client', async () => {
           ],
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** DeleteCertificateTemplate deletes a CertificateTemplate. */
     await gapi.client.privateca.projects.locations.certificateTemplates.delete({
@@ -1593,7 +1593,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists CertificateTemplates. */
     await gapi.client.privateca.projects.locations.certificateTemplates.list({
@@ -1695,7 +1695,7 @@ gapi.load('client', async () => {
           ],
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.privateca.projects.locations.certificateTemplates.setIamPolicy(
@@ -1731,7 +1731,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.privateca.projects.locations.certificateTemplates.testIamPermissions(
@@ -1740,14 +1740,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.privateca.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.privateca.projects.locations.operations.delete({

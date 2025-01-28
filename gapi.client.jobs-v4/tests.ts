@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://jobs.googleapis.com/$discovery/rest?version=v4'
+    'https://jobs.googleapis.com/$discovery/rest?version=v4',
   );
   /** now we can use gapi.client.jobs */
 
@@ -55,7 +55,7 @@ gapi.load('client', async () => {
       {
         externalId: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes specified tenant. */
     await gapi.client.jobs.projects.tenants.delete({
@@ -80,7 +80,7 @@ gapi.load('client', async () => {
       {
         externalId: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Report events issued when end user interacts with customer's application that uses Cloud Talent Solution. You may inspect the created events in [self service tools](https://console.cloud.google.com/talent-solution/overview). [Learn more](https://cloud.google.com/talent-solution/docs/management-tools) about self service tools. */
     await gapi.client.jobs.projects.tenants.clientEvents.create(
@@ -96,7 +96,7 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Creates a new company entity. */
     await gapi.client.jobs.projects.tenants.companies.create(
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
         size: 'Test string',
         suspended: true,
         websiteUri: 'Test string',
-      }
+      },
     );
     /** Deletes specified company. Prerequisite: The company has no jobs associated with it. */
     await gapi.client.jobs.projects.tenants.companies.delete({
@@ -198,7 +198,7 @@ gapi.load('client', async () => {
         size: 'Test string',
         suspended: true,
         websiteUri: 'Test string',
-      }
+      },
     );
     /** Begins executing a batch create jobs operation. */
     await gapi.client.jobs.projects.tenants.jobs.batchCreate(
@@ -329,7 +329,7 @@ gapi.load('client', async () => {
             visibility: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Begins executing a batch delete jobs operation. */
     await gapi.client.jobs.projects.tenants.jobs.batchDelete(
@@ -338,7 +338,7 @@ gapi.load('client', async () => {
       },
       {
         names: ['Test string'],
-      }
+      },
     );
     /** Begins executing a batch update jobs operation. */
     await gapi.client.jobs.projects.tenants.jobs.batchUpdate(
@@ -470,7 +470,7 @@ gapi.load('client', async () => {
           },
         ],
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates a new job. Typically, the job becomes searchable within 10 seconds, but it may take up to 5 minutes. */
     await gapi.client.jobs.projects.tenants.jobs.create(
@@ -597,7 +597,7 @@ gapi.load('client', async () => {
         responsibilities: 'Test string',
         title: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Deletes the specified job. Typically, the job becomes unsearchable within 10 seconds, but it may take up to 5 minutes. */
     await gapi.client.jobs.projects.tenants.jobs.delete({
@@ -741,7 +741,7 @@ gapi.load('client', async () => {
         responsibilities: 'Test string',
         title: 'Test string',
         visibility: 'Test string',
-      }
+      },
     );
     /** Searches for jobs using the provided SearchJobsRequest. This call constrains the visibility of jobs present in the database, and only returns jobs that the caller has permission to search against. */
     await gapi.client.jobs.projects.tenants.jobs.search(
@@ -840,7 +840,7 @@ gapi.load('client', async () => {
           userId: 'Test string',
         },
         searchMode: 'Test string',
-      }
+      },
     );
     /** Searches for jobs using the provided SearchJobsRequest. This API call is intended for the use case of targeting passive job seekers (for example, job seekers who have signed up to receive email alerts about potential job opportunities), it has different algorithmic adjustments that are designed to specifically target passive job seekers. This call constrains the visibility of jobs present in the database, and only returns jobs the caller has permission to search against. */
     await gapi.client.jobs.projects.tenants.jobs.searchForAlert(
@@ -939,7 +939,7 @@ gapi.load('client', async () => {
           userId: 'Test string',
         },
         searchMode: 'Test string',
-      }
+      },
     );
   }
 });

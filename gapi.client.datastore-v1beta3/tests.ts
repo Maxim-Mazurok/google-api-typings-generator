@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://datastore.googleapis.com/$discovery/rest?version=v1beta3'
+    'https://datastore.googleapis.com/$discovery/rest?version=v1beta3',
   );
   /** now we can use gapi.client.datastore */
 
@@ -54,7 +54,7 @@ gapi.load('client', async () => {
             ],
           },
         ],
-      }
+      },
     );
     /** Begins a new transaction. */
     await gapi.client.datastore.projects.beginTransaction(
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
             previousTransaction: 'Test string',
           },
         },
-      }
+      },
     );
     /** Commits a transaction, optionally creating, deleting or modifying some entities. */
     await gapi.client.datastore.projects.commit(
@@ -495,7 +495,7 @@ gapi.load('client', async () => {
           },
         ],
         transaction: 'Test string',
-      }
+      },
     );
     /** Looks up entities by key. */
     await gapi.client.datastore.projects.lookup(
@@ -526,7 +526,7 @@ gapi.load('client', async () => {
           readTime: 'Test string',
           transaction: 'Test string',
         },
-      }
+      },
     );
     /** Prevents the supplied keys' IDs from being auto-allocated by Cloud Datastore. */
     await gapi.client.datastore.projects.reserveIds(
@@ -550,7 +550,7 @@ gapi.load('client', async () => {
             ],
           },
         ],
-      }
+      },
     );
     /** Rolls back a transaction. */
     await gapi.client.datastore.projects.rollback(
@@ -559,7 +559,7 @@ gapi.load('client', async () => {
       },
       {
         transaction: 'Test string',
-      }
+      },
     );
     /** Runs an aggregation query. */
     await gapi.client.datastore.projects.runAggregationQuery(
@@ -853,7 +853,7 @@ gapi.load('client', async () => {
           readTime: 'Test string',
           transaction: 'Test string',
         },
-      }
+      },
     );
     /** Queries for entities. */
     await gapi.client.datastore.projects.runQuery(
@@ -1130,7 +1130,7 @@ gapi.load('client', async () => {
           readTime: 'Test string',
           transaction: 'Test string',
         },
-      }
+      },
     );
   }
 });

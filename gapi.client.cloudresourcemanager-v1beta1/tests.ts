@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudresourcemanager.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://cloudresourcemanager.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.cloudresourcemanager */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists Organization resources that are visible to the user and satisfy the specified filter. This method returns Organizations in an unspecified order. New Organizations do not necessarily appear at the end of the list. */
     await gapi.client.cloudresourcemanager.organizations.list({
@@ -89,7 +89,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified Organization. The `resource` field should be the organization's resource name, e.g. "organizations/123". */
     await gapi.client.cloudresourcemanager.organizations.testIamPermissions(
@@ -98,7 +98,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates an Organization resource identified by the specified resource name. */
     await gapi.client.cloudresourcemanager.organizations.update(
@@ -114,7 +114,7 @@ gapi.load('client', async () => {
         owner: {
           directoryCustomerId: 'Test string',
         },
-      }
+      },
     );
     /** Creates a Project resource. Initially, the Project resource is owned by its creator exclusively. The creator can later grant permission to others to read or update the Project. Several APIs are activated automatically for the Project, including Google Cloud Storage. The parent is identified by a specified ResourceId, which must include both an ID and a type, such as project, folder, or organization. This method does not associate the new project with a billing account. You can set or update the billing account associated with a project using the [`projects.updateBillingInfo`] (/billing/reference/rest/v1/projects/updateBillingInfo) method. */
     await gapi.client.cloudresourcemanager.projects.create(
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
         },
         projectId: 'Test string',
         projectNumber: 'Test string',
-      }
+      },
     );
     /** Marks the Project identified by the specified `project_id` (for example, `my-project-123`) for deletion. This method will only affect the Project if it has a lifecycle state of ACTIVE. This method changes the Project's lifecycle state from ACTIVE to DELETE_REQUESTED. The deletion starts at an unspecified time, at which point the project is no longer accessible. Until the deletion completes, you can check the lifecycle state checked by retrieving the Project with GetProject, and the Project remains visible to ListProjects. However, you cannot update the project. After the deletion completes, the Project is not retrievable by the GetProject and ListProjects methods. The caller must have delete permissions for this Project. */
     await gapi.client.cloudresourcemanager.projects.delete({
@@ -149,7 +149,7 @@ gapi.load('client', async () => {
       {
         projectId: 'Test string',
       },
-      {}
+      {},
     );
     /** Returns the IAM access control policy for the specified Project. Permission is denied if the policy or the resource does not exist. For additional information about resource structure and identification, see [Resource Names](/apis/design/resource_names). */
     await gapi.client.cloudresourcemanager.projects.getIamPolicy(
@@ -160,7 +160,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists Projects that the caller has the `resourcemanager.projects.get` permission on and satisfy the specified filter. This method returns Projects in an unspecified order. This method is eventually consistent with project mutations; this means that a newly created project may not appear in the results or recent updates to an existing project may not be reflected in the results. To retrieve the latest state of a project, use the GetProject method. NOTE: If the request filter contains a `parent.type` and `parent.id` and the caller has the `resourcemanager.projects.list` permission on the parent, the results will be drawn from an alternate index which provides more consistent results. In future versions of this API, this List method will be split into List and Search to properly capture the behavioral difference. */
     await gapi.client.cloudresourcemanager.projects.list({
@@ -202,7 +202,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified Project. */
     await gapi.client.cloudresourcemanager.projects.testIamPermissions(
@@ -211,14 +211,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Restores the Project identified by the specified `project_id` (for example, `my-project-123`). You can only use this method for a Project that has a lifecycle state of DELETE_REQUESTED. After deletion starts, the Project cannot be restored. The caller must have undelete permissions for this Project. */
     await gapi.client.cloudresourcemanager.projects.undelete(
       {
         projectId: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates the attributes of the Project identified by the specified `project_id` (for example, `my-project-123`). The caller must have modify permissions for this Project. */
     await gapi.client.cloudresourcemanager.projects.update(
@@ -238,7 +238,7 @@ gapi.load('client', async () => {
         },
         projectId: 'Test string',
         projectNumber: 'Test string',
-      }
+      },
     );
   }
 });

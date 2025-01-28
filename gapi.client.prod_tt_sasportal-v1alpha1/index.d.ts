@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load SAS Portal API (Testing) v1alpha1 */
   function load(
-    urlOrObject: 'https://prod-tt-sasportal.googleapis.com/$discovery/rest?version=v1alpha1'
+    urlOrObject: 'https://prod-tt-sasportal.googleapis.com/$discovery/rest?version=v1alpha1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'prod_tt_sasportal', version: 'v1alpha1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'prod_tt_sasportal',
     version: 'v1alpha1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace prod_tt_sasportal {
@@ -444,7 +444,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDevice
+        body: SasPortalDevice,
       ): Request<SasPortalDevice>;
       /** Creates a signed device under a node or customer. */
       createSigned(request: {
@@ -502,7 +502,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalCreateSignedDeviceRequest
+        body: SasPortalCreateSignedDeviceRequest,
       ): Request<SasPortalDevice>;
       /** Lists devices under a node or customer. */
       list(request?: {
@@ -595,7 +595,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDeployment
+        body: SasPortalDeployment,
       ): Request<SasPortalDeployment>;
       /** Deletes a deployment. */
       delete(request?: {
@@ -740,7 +740,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalMoveDeploymentRequest
+        body: SasPortalMoveDeploymentRequest,
       ): Request<SasPortalOperation>;
       /** Updates an existing deployment. */
       patch(request: {
@@ -802,7 +802,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDeployment
+        body: SasPortalDeployment,
       ): Request<SasPortalDeployment>;
       devices: DevicesResource;
     }
@@ -863,7 +863,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDevice
+        body: SasPortalDevice,
       ): Request<SasPortalDevice>;
       /** Creates a signed device under a node or customer. */
       createSigned(request: {
@@ -921,7 +921,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalCreateSignedDeviceRequest
+        body: SasPortalCreateSignedDeviceRequest,
       ): Request<SasPortalDevice>;
       /** Deletes a device. */
       delete(request?: {
@@ -1066,7 +1066,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalMoveDeviceRequest
+        body: SasPortalMoveDeviceRequest,
       ): Request<SasPortalOperation>;
       /** Updates a device. */
       patch(request: {
@@ -1128,7 +1128,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDevice
+        body: SasPortalDevice,
       ): Request<SasPortalDevice>;
       /** Signs a device. */
       signDevice(request: {
@@ -1186,7 +1186,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalSignDeviceRequest
+        body: SasPortalSignDeviceRequest,
       ): Request<{}>;
       /** Updates a signed device. */
       updateSigned(request: {
@@ -1244,7 +1244,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalUpdateSignedDeviceRequest
+        body: SasPortalUpdateSignedDeviceRequest,
       ): Request<SasPortalDevice>;
     }
     interface DeploymentsResource {
@@ -1304,7 +1304,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDeployment
+        body: SasPortalDeployment,
       ): Request<SasPortalDeployment>;
       /** Lists deployments. */
       list(request?: {
@@ -1397,7 +1397,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDevice
+        body: SasPortalDevice,
       ): Request<SasPortalDevice>;
       /** Creates a signed device under a node or customer. */
       createSigned(request: {
@@ -1455,7 +1455,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalCreateSignedDeviceRequest
+        body: SasPortalCreateSignedDeviceRequest,
       ): Request<SasPortalDevice>;
       /** Lists devices under a node or customer. */
       list(request?: {
@@ -1548,7 +1548,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalNode
+        body: SasPortalNode,
       ): Request<SasPortalNode>;
       /** Lists nodes. */
       list(request?: {
@@ -1641,7 +1641,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalNode
+        body: SasPortalNode,
       ): Request<SasPortalNode>;
       /** Deletes a node. */
       delete(request?: {
@@ -1786,7 +1786,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalMoveNodeRequest
+        body: SasPortalMoveNodeRequest,
       ): Request<SasPortalOperation>;
       /** Updates an existing node. */
       patch(request: {
@@ -1848,7 +1848,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalNode
+        body: SasPortalNode,
       ): Request<SasPortalNode>;
       deployments: DeploymentsResource;
       devices: DevicesResource;
@@ -2013,7 +2013,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalMigrateOrganizationRequest
+        body: SasPortalMigrateOrganizationRequest,
       ): Request<SasPortalOperation>;
       /** Updates an existing customer. */
       patch(request: {
@@ -2075,7 +2075,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalCustomer
+        body: SasPortalCustomer,
       ): Request<SasPortalCustomer>;
       /** Creates a new SAS deployment through the GCP workflow. Creates a SAS organization if an organization match is not found. */
       provisionDeployment(request: {
@@ -2129,7 +2129,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalProvisionDeploymentRequest
+        body: SasPortalProvisionDeploymentRequest,
       ): Request<SasPortalProvisionDeploymentResponse>;
       /** Setups the a GCP Project to receive SAS Analytics messages via GCP Pub/Sub with a subscription to BigQuery. All the Pub/Sub topics and BigQuery tables are created automatically as part of this service. */
       setupSasAnalytics(request: {
@@ -2183,7 +2183,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalSetupSasAnalyticsRequest
+        body: SasPortalSetupSasAnalyticsRequest,
       ): Request<SasPortalOperation>;
       deployments: DeploymentsResource;
       devices: DevicesResource;
@@ -2300,7 +2300,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalMoveDeviceRequest
+        body: SasPortalMoveDeviceRequest,
       ): Request<SasPortalOperation>;
       /** Updates a device. */
       patch(request: {
@@ -2362,7 +2362,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDevice
+        body: SasPortalDevice,
       ): Request<SasPortalDevice>;
       /** Signs a device. */
       signDevice(request: {
@@ -2420,7 +2420,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalSignDeviceRequest
+        body: SasPortalSignDeviceRequest,
       ): Request<{}>;
       /** Updates a signed device. */
       updateSigned(request: {
@@ -2478,7 +2478,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalUpdateSignedDeviceRequest
+        body: SasPortalUpdateSignedDeviceRequest,
       ): Request<SasPortalDevice>;
     }
     interface DeploymentsResource {
@@ -2564,7 +2564,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalGenerateSecretRequest
+        body: SasPortalGenerateSecretRequest,
       ): Request<SasPortalGenerateSecretResponse>;
       /** Validates the identity of a Certified Professional Installer (CPI). */
       validate(request: {
@@ -2618,7 +2618,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalValidateInstallerRequest
+        body: SasPortalValidateInstallerRequest,
       ): Request<{}>;
     }
     interface DevicesResource {
@@ -2678,7 +2678,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDevice
+        body: SasPortalDevice,
       ): Request<SasPortalDevice>;
       /** Creates a signed device under a node or customer. */
       createSigned(request: {
@@ -2736,7 +2736,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalCreateSignedDeviceRequest
+        body: SasPortalCreateSignedDeviceRequest,
       ): Request<SasPortalDevice>;
       /** Lists devices under a node or customer. */
       list(request?: {
@@ -2916,7 +2916,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalMoveDeploymentRequest
+        body: SasPortalMoveDeploymentRequest,
       ): Request<SasPortalOperation>;
       /** Updates an existing deployment. */
       patch(request: {
@@ -2978,7 +2978,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDeployment
+        body: SasPortalDeployment,
       ): Request<SasPortalDeployment>;
       devices: DevicesResource;
     }
@@ -3039,7 +3039,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDevice
+        body: SasPortalDevice,
       ): Request<SasPortalDevice>;
       /** Creates a signed device under a node or customer. */
       createSigned(request: {
@@ -3097,7 +3097,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalCreateSignedDeviceRequest
+        body: SasPortalCreateSignedDeviceRequest,
       ): Request<SasPortalDevice>;
       /** Deletes a device. */
       delete(request?: {
@@ -3242,7 +3242,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalMoveDeviceRequest
+        body: SasPortalMoveDeviceRequest,
       ): Request<SasPortalOperation>;
       /** Updates a device. */
       patch(request: {
@@ -3304,7 +3304,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDevice
+        body: SasPortalDevice,
       ): Request<SasPortalDevice>;
       /** Signs a device. */
       signDevice(request: {
@@ -3362,7 +3362,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalSignDeviceRequest
+        body: SasPortalSignDeviceRequest,
       ): Request<{}>;
       /** Updates a signed device. */
       updateSigned(request: {
@@ -3420,7 +3420,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalUpdateSignedDeviceRequest
+        body: SasPortalUpdateSignedDeviceRequest,
       ): Request<SasPortalDevice>;
     }
     interface DeploymentsResource {
@@ -3480,7 +3480,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDeployment
+        body: SasPortalDeployment,
       ): Request<SasPortalDeployment>;
       /** Lists deployments. */
       list(request?: {
@@ -3573,7 +3573,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalDevice
+        body: SasPortalDevice,
       ): Request<SasPortalDevice>;
       /** Creates a signed device under a node or customer. */
       createSigned(request: {
@@ -3631,7 +3631,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalCreateSignedDeviceRequest
+        body: SasPortalCreateSignedDeviceRequest,
       ): Request<SasPortalDevice>;
       /** Lists devices under a node or customer. */
       list(request?: {
@@ -3724,7 +3724,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalNode
+        body: SasPortalNode,
       ): Request<SasPortalNode>;
       /** Lists nodes. */
       list(request?: {
@@ -3817,7 +3817,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalNode
+        body: SasPortalNode,
       ): Request<SasPortalNode>;
       /** Deletes a node. */
       delete(request?: {
@@ -3962,7 +3962,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalMoveNodeRequest
+        body: SasPortalMoveNodeRequest,
       ): Request<SasPortalOperation>;
       /** Updates an existing node. */
       patch(request: {
@@ -4024,7 +4024,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalNode
+        body: SasPortalNode,
       ): Request<SasPortalNode>;
       deployments: DeploymentsResource;
       devices: DevicesResource;
@@ -4115,7 +4115,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalGetPolicyRequest
+        body: SasPortalGetPolicyRequest,
       ): Request<SasPortalPolicy>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. */
       set(request: {
@@ -4169,7 +4169,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalSetPolicyRequest
+        body: SasPortalSetPolicyRequest,
       ): Request<SasPortalPolicy>;
       /** Returns permissions that a caller has on the specified resource. */
       test(request: {
@@ -4223,7 +4223,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SasPortalTestPermissionsRequest
+        body: SasPortalTestPermissionsRequest,
       ): Request<SasPortalTestPermissionsResponse>;
     }
 

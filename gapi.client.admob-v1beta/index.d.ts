@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load AdMob API v1beta */
   function load(
-    urlOrObject: 'https://admob.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://admob.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'admob', version: 'v1beta'): Promise<void>;
@@ -554,7 +554,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreateAdUnitMappingsRequest
+        body: BatchCreateAdUnitMappingsRequest,
       ): Request<BatchCreateAdUnitMappingsResponse>;
     }
     interface AdUnitMappingsResource {
@@ -614,7 +614,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AdUnitMapping
+        body: AdUnitMapping,
       ): Request<AdUnitMapping>;
       /** List ad unit mappings under the specified AdMob account and ad unit. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access. */
       list(request?: {
@@ -707,7 +707,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AdUnit
+        body: AdUnit,
       ): Request<AdUnit>;
       /** List the ad units under the specified AdMob account. */
       list(request?: {
@@ -799,7 +799,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: App
+        body: App,
       ): Request<App>;
       /** List the apps under the specified AdMob account. */
       list(request?: {
@@ -890,7 +890,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateCampaignReportRequest
+        body: GenerateCampaignReportRequest,
       ): Request<GenerateCampaignReportResponse>;
     }
     interface MediationAbExperimentsResource {
@@ -950,7 +950,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MediationAbExperiment
+        body: MediationAbExperiment,
       ): Request<MediationAbExperiment>;
       /** Stop the mediation A/B experiment and choose a variant. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access. */
       stop(request: {
@@ -1008,7 +1008,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopMediationAbExperimentRequest
+        body: StopMediationAbExperimentRequest,
       ): Request<MediationAbExperiment>;
     }
     interface MediationGroupsResource {
@@ -1068,7 +1068,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MediationGroup
+        body: MediationGroup,
       ): Request<MediationGroup>;
       /** List mediation groups under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access. */
       list(request?: {
@@ -1163,7 +1163,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MediationGroup
+        body: MediationGroup,
       ): Request<MediationGroup>;
       mediationAbExperiments: MediationAbExperimentsResource;
     }
@@ -1224,7 +1224,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateMediationReportRequest
+        body: GenerateMediationReportRequest,
       ): Request<GenerateMediationReportResponse>;
     }
     interface NetworkReportResource {
@@ -1284,7 +1284,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateNetworkReportRequest
+        body: GenerateNetworkReportRequest,
       ): Request<GenerateNetworkReportResponse>;
     }
     interface AccountsResource {

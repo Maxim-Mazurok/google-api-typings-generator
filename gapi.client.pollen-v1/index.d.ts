@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Pollen API v1 */
   function load(
-    urlOrObject: 'https://pollen.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://pollen.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'pollen', version: 'v1'): Promise<void>;

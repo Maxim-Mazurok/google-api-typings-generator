@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Service Usage API v1 */
   function load(
-    urlOrObject: 'https://serviceusage.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://serviceusage.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'serviceusage', version: 'v1'): Promise<void>;
@@ -1075,7 +1075,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -1222,7 +1222,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchEnableServicesRequest
+        body: BatchEnableServicesRequest,
       ): Request<Operation>;
       /** Returns the service configurations and enabled states for a given list of services. */
       batchGet(request?: {
@@ -1309,7 +1309,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableServiceRequest
+        body: DisableServiceRequest,
       ): Request<Operation>;
       /** Enable a service so that it can be used with a project. */
       enable(request: {
@@ -1367,7 +1367,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnableServiceRequest
+        body: EnableServiceRequest,
       ): Request<Operation>;
       /** Returns the service configuration and enabled state for a given service. */
       get(request?: {

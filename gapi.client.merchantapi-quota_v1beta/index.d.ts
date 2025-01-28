@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Merchant API quota_v1beta */
   function load(
-    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=quota_v1beta'
+    urlOrObject: 'https://merchantapi.googleapis.com/$discovery/rest?version=quota_v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'merchantapi', version: 'quota_v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'merchantapi',
     version: 'quota_v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace merchantapi {

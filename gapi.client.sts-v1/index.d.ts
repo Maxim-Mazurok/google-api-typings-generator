@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Security Token Service API v1 */
   function load(
-    urlOrObject: 'https://sts.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://sts.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'sts', version: 'v1'): Promise<void>;
@@ -159,7 +159,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIdentityStsV1ExchangeTokenRequest
+        body: GoogleIdentityStsV1ExchangeTokenRequest,
       ): Request<GoogleIdentityStsV1ExchangeTokenResponse>;
     }
 

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://area120tables.googleapis.com/$discovery/rest?version=v1alpha1'
+    'https://area120tables.googleapis.com/$discovery/rest?version=v1alpha1',
   );
   /** now we can use gapi.client.area120tables */
 
@@ -71,7 +71,7 @@ gapi.load('client', async () => {
             view: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes multiple rows. */
     await gapi.client.area120tables.tables.rows.batchDelete(
@@ -80,7 +80,7 @@ gapi.load('client', async () => {
       },
       {
         names: ['Test string'],
-      }
+      },
     );
     /** Updates multiple rows. */
     await gapi.client.area120tables.tables.rows.batchUpdate(
@@ -102,7 +102,7 @@ gapi.load('client', async () => {
             view: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Creates a row. */
     await gapi.client.area120tables.tables.rows.create(
@@ -117,7 +117,7 @@ gapi.load('client', async () => {
         values: {
           A: 42,
         },
-      }
+      },
     );
     /** Deletes a row. */
     await gapi.client.area120tables.tables.rows.delete({
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
         values: {
           A: 42,
         },
-      }
+      },
     );
     /** Gets a workspace. Returns NOT_FOUND if the workspace does not exist. */
     await gapi.client.area120tables.workspaces.get({

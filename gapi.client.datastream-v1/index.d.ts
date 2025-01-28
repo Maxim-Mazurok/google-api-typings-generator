@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Datastream API v1 */
   function load(
-    urlOrObject: 'https://datastream.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://datastream.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'datastream', version: 'v1'): Promise<void>;
@@ -927,7 +927,7 @@ declare namespace gapi.client {
           /** Optional. Only validate the connection profile, but don't create any resources. The default is false. */
           validateOnly?: boolean;
         },
-        body: ConnectionProfile
+        body: ConnectionProfile,
       ): Request<Operation>;
       /** Use this method to delete a connection profile. */
       delete(request?: {
@@ -1014,7 +1014,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DiscoverConnectionProfileRequest
+        body: DiscoverConnectionProfileRequest,
       ): Request<DiscoverConnectionProfileResponse>;
       /** Use this method to get details about a connection profile. */
       get(request?: {
@@ -1150,7 +1150,7 @@ declare namespace gapi.client {
           /** Optional. Only validate the connection profile, but don't update any resources. The default is false. */
           validateOnly?: boolean;
         },
-        body: ConnectionProfile
+        body: ConnectionProfile,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -1210,7 +1210,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -1365,7 +1365,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Route
+        body: Route,
       ): Request<Operation>;
       /** Use this method to delete a route. */
       delete(request?: {
@@ -1528,7 +1528,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PrivateConnection
+        body: PrivateConnection,
       ): Request<Operation>;
       /** Use this method to delete a private connectivity configuration. */
       delete(request?: {
@@ -1740,7 +1740,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LookupStreamObjectRequest
+        body: LookupStreamObjectRequest,
       ): Request<StreamObject>;
       /** Use this method to start a backfill job for the specified stream object. */
       startBackfillJob(request: {
@@ -1798,7 +1798,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartBackfillJobRequest
+        body: StartBackfillJobRequest,
       ): Request<StartBackfillJobResponse>;
       /** Use this method to stop a backfill job for the specified stream object. */
       stopBackfillJob(request: {
@@ -1856,7 +1856,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopBackfillJobRequest
+        body: StopBackfillJobRequest,
       ): Request<StopBackfillJobResponse>;
     }
     interface StreamsResource {
@@ -1932,7 +1932,7 @@ declare namespace gapi.client {
           /** Optional. Only validate the stream, but don't create any resources. The default is false. */
           validateOnly?: boolean;
         },
-        body: Stream
+        body: Stream,
       ): Request<Operation>;
       /** Use this method to delete a stream. */
       delete(request?: {
@@ -2097,7 +2097,7 @@ declare namespace gapi.client {
           /** Optional. Only validate the stream with the changes, without actually updating it. The default is false. */
           validateOnly?: boolean;
         },
-        body: Stream
+        body: Stream,
       ): Request<Operation>;
       /** Use this method to start, resume or recover a stream with a non default CDC strategy. */
       run(request: {
@@ -2155,7 +2155,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunStreamRequest
+        body: RunStreamRequest,
       ): Request<Operation>;
       objects: ObjectsResource;
     }

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://mybusinessaccountmanagement.googleapis.com/$discovery/rest?version=v1'
+    'https://mybusinessaccountmanagement.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.mybusinessaccountmanagement */
 
@@ -46,7 +46,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         verificationState: 'Test string',
         vettedState: 'Test string',
-      }
+      },
     );
     /** Gets the specified account. Returns `NOT_FOUND` if the account does not exist or if the caller does not have access rights to it. */
     await gapi.client.mybusinessaccountmanagement.accounts.get({
@@ -93,7 +93,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         verificationState: 'Test string',
         vettedState: 'Test string',
-      }
+      },
     );
     /** Invites the specified user to become an administrator for the specified account. The invitee must accept the invitation in order to be granted access to the account. See AcceptInvitation to programmatically accept an invitation. */
     await gapi.client.mybusinessaccountmanagement.accounts.admins.create(
@@ -106,7 +106,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pendingInvitation: true,
         role: 'Test string',
-      }
+      },
     );
     /** Removes the specified admin from the specified account. */
     await gapi.client.mybusinessaccountmanagement.accounts.admins.delete({
@@ -128,21 +128,21 @@ gapi.load('client', async () => {
         name: 'Test string',
         pendingInvitation: true,
         role: 'Test string',
-      }
+      },
     );
     /** Accepts the specified invitation. */
     await gapi.client.mybusinessaccountmanagement.accounts.invitations.accept(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Declines the specified invitation. */
     await gapi.client.mybusinessaccountmanagement.accounts.invitations.decline(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Lists pending invitations for the specified account. */
     await gapi.client.mybusinessaccountmanagement.accounts.invitations.list({
@@ -156,7 +156,7 @@ gapi.load('client', async () => {
       },
       {
         destinationAccount: 'Test string',
-      }
+      },
     );
     /** Invites the specified user to become an administrator for the specified location. The invitee must accept the invitation in order to be granted access to the location. See AcceptInvitation to programmatically accept an invitation. */
     await gapi.client.mybusinessaccountmanagement.locations.admins.create(
@@ -169,7 +169,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pendingInvitation: true,
         role: 'Test string',
-      }
+      },
     );
     /** Removes the specified admin as a manager of the specified location. */
     await gapi.client.mybusinessaccountmanagement.locations.admins.delete({
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pendingInvitation: true,
         role: 'Test string',
-      }
+      },
     );
   }
 });

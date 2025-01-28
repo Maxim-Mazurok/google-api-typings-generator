@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load App Engine Admin API v1alpha */
   function load(
-    urlOrObject: 'https://appengine.googleapis.com/$discovery/rest?version=v1alpha'
+    urlOrObject: 'https://appengine.googleapis.com/$discovery/rest?version=v1alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'appengine', version: 'v1alpha'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'appengine',
     version: 'v1alpha',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace appengine {
@@ -348,7 +348,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AuthorizedCertificate
+        body: AuthorizedCertificate,
       ): Request<AuthorizedCertificate>;
       /** Deletes the specified SSL certificate. */
       delete(request?: {
@@ -507,7 +507,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AuthorizedCertificate
+        body: AuthorizedCertificate,
       ): Request<AuthorizedCertificate>;
     }
     interface AuthorizedDomainsResource {
@@ -608,7 +608,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DomainMapping
+        body: DomainMapping,
       ): Request<Operation>;
       /** Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. */
       delete(request?: {
@@ -767,7 +767,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DomainMapping
+        body: DomainMapping,
       ): Request<Operation>;
     }
     interface LocationsResource {

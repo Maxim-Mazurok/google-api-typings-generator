@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://chromeuxreport.googleapis.com/$discovery/rest?version=v1'
+    'https://chromeuxreport.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.chromeuxreport */
 
@@ -24,7 +24,7 @@ gapi.load('client', async () => {
         metrics: ['Test string'],
         origin: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Queries the Chrome User Experience for a single `record` for a given site. Returns a `record` that contains one or more `metrics` corresponding to performance data about the requested site. */
     await gapi.client.chromeuxreport.records.queryRecord(
@@ -35,7 +35,7 @@ gapi.load('client', async () => {
         metrics: ['Test string'],
         origin: 'Test string',
         url: 'Test string',
-      }
+      },
     );
   }
 });

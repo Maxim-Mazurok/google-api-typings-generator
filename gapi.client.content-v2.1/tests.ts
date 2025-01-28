@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://shoppingcontent.googleapis.com/$discovery/rest?version=v2.1'
+    'https://shoppingcontent.googleapis.com/$discovery/rest?version=v2.1',
   );
   /** now we can use gapi.client.content */
 
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
             view: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a Merchant Center sub-account. */
     await gapi.client.content.accounts.delete({
@@ -279,7 +279,7 @@ gapi.load('client', async () => {
             status: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Performs an action on a link between two Merchant Center accounts, namely accountId and linkedAccountId. */
     await gapi.client.content.accounts.link(
@@ -299,7 +299,7 @@ gapi.load('client', async () => {
           externalAccountId: 'Test string',
         },
         services: ['Test string'],
-      }
+      },
     );
     /** Lists the sub-accounts in your Merchant Center account. */
     await gapi.client.content.accounts.list({
@@ -328,7 +328,7 @@ gapi.load('client', async () => {
         phoneNumber: 'Test string',
         phoneRegionCode: 'Test string',
         phoneVerificationMethod: 'Test string',
-      }
+      },
     );
     /** Updates a Merchant Center account. Any fields that are not provided are deleted from the resource. */
     await gapi.client.content.accounts.update(
@@ -435,7 +435,7 @@ gapi.load('client', async () => {
             status: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates labels that are assigned to the Merchant Center account by CSS user. */
     await gapi.client.content.accounts.updatelabels(
@@ -445,7 +445,7 @@ gapi.load('client', async () => {
       },
       {
         labelIds: ['Test string'],
-      }
+      },
     );
     /** Validates verification code to verify phone number for the account. If successful this will overwrite the value of `accounts.businessinformation.phoneNumber`. Only verified phone number will replace an existing verified phone number. */
     await gapi.client.content.accounts.verifyphonenumber(
@@ -457,7 +457,7 @@ gapi.load('client', async () => {
         phoneVerificationMethod: 'Test string',
         verificationCode: 'Test string',
         verificationId: 'Test string',
-      }
+      },
     );
     /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
     await gapi.client.content.accounts.credentials.create(
@@ -468,7 +468,7 @@ gapi.load('client', async () => {
         accessToken: 'Test string',
         expiresIn: 'Test string',
         purpose: 'Test string',
-      }
+      },
     );
     /** Creates a new label, not assigned to any account. */
     await gapi.client.content.accounts.labels.create(
@@ -481,7 +481,7 @@ gapi.load('client', async () => {
         labelId: 'Test string',
         labelType: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a label and removes it from all accounts to which it was assigned. */
     await gapi.client.content.accounts.labels.delete({
@@ -506,7 +506,7 @@ gapi.load('client', async () => {
         labelId: 'Test string',
         labelType: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Links return carrier to a merchant account. */
     await gapi.client.content.accounts.returncarrier.create(
@@ -518,7 +518,7 @@ gapi.load('client', async () => {
         carrierAccountName: 'Test string',
         carrierAccountNumber: 'Test string',
         carrierCode: 'Test string',
-      }
+      },
     );
     /** Delete a return carrier in the merchant account. */
     await gapi.client.content.accounts.returncarrier.delete({
@@ -540,7 +540,7 @@ gapi.load('client', async () => {
         carrierAccountName: 'Test string',
         carrierAccountNumber: 'Test string',
         carrierCode: 'Test string',
-      }
+      },
     );
     /** Retrieves multiple Merchant Center account statuses in a single request. */
     await gapi.client.content.accountstatuses.custombatch(
@@ -555,7 +555,7 @@ gapi.load('client', async () => {
             method: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the status of a Merchant Center account. No itemLevelIssues are returned for multi-client accounts. */
     await gapi.client.content.accountstatuses.get({
@@ -596,7 +596,7 @@ gapi.load('client', async () => {
             method: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the tax settings of the account. */
     await gapi.client.content.accounttax.get({
@@ -627,7 +627,7 @@ gapi.load('client', async () => {
             useGlobalRate: true,
           },
         ],
-      }
+      },
     );
     /** Uploads a collection to your Merchant Center account. If a collection with the same collectionId already exists, this method updates that entry. In each update, the collection is completely replaced by the fields in the body of the update request. */
     await gapi.client.content.collections.create(
@@ -654,7 +654,7 @@ gapi.load('client', async () => {
         link: 'Test string',
         mobileLink: 'Test string',
         productCountry: 'Test string',
-      }
+      },
     );
     /** Deletes a collection from your Merchant Center account. */
     await gapi.client.content.collections.delete({
@@ -721,7 +721,7 @@ gapi.load('client', async () => {
           displayName: 'Test string',
         },
         state: 'Test string',
-      }
+      },
     );
     /** Archives an existing conversion source. It will be recoverable for 30 days. This archiving behavior is not typical in the Content API and unique to this service. */
     await gapi.client.content.conversionsources.delete({
@@ -780,7 +780,7 @@ gapi.load('client', async () => {
           displayName: 'Test string',
         },
         state: 'Test string',
-      }
+      },
     );
     /** Re-enables an archived conversion source. */
     await gapi.client.content.conversionsources.undelete(
@@ -788,7 +788,7 @@ gapi.load('client', async () => {
         conversionSourceId: 'Test string',
         merchantId: 'Test string',
       },
-      {}
+      {},
     );
     /** Retrieves a single CSS domain by ID. */
     await gapi.client.content.csses.get({
@@ -809,7 +809,7 @@ gapi.load('client', async () => {
       },
       {
         labelIds: ['Test string'],
-      }
+      },
     );
     /** Deletes, fetches, gets, inserts and updates multiple datafeeds in a single request. */
     await gapi.client.content.datafeeds.custombatch(
@@ -857,7 +857,7 @@ gapi.load('client', async () => {
             method: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a datafeed configuration from your Merchant Center account. */
     await gapi.client.content.datafeeds.delete({
@@ -912,7 +912,7 @@ gapi.load('client', async () => {
             targetCountries: ['Test string'],
           },
         ],
-      }
+      },
     );
     /** Lists the configurations for datafeeds in your Merchant Center account. */
     await gapi.client.content.datafeeds.list({
@@ -959,7 +959,7 @@ gapi.load('client', async () => {
             targetCountries: ['Test string'],
           },
         ],
-      }
+      },
     );
     /** Gets multiple Merchant Center datafeed statuses in a single request. */
     await gapi.client.content.datafeedstatuses.custombatch(
@@ -976,7 +976,7 @@ gapi.load('client', async () => {
             method: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the status of a datafeed from your Merchant Center account. */
     await gapi.client.content.datafeedstatuses.get({
@@ -1003,7 +1003,7 @@ gapi.load('client', async () => {
       },
       {
         regionCode: 'Test string',
-      }
+      },
     );
     /** Deletes `Checkout` settings and unenrolls merchant from `Checkout` program. */
     await gapi.client.content.freelistingsprogram.checkoutsettings.delete({
@@ -1023,7 +1023,7 @@ gapi.load('client', async () => {
           cartUriTemplate: 'Test string',
           checkoutUriTemplate: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves and/or updates the LIA settings of multiple accounts in a single request. */
     await gapi.client.content.liasettings.custombatch(
@@ -1082,7 +1082,7 @@ gapi.load('client', async () => {
             posExternalAccountId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves the LIA settings of the account. */
     await gapi.client.content.liasettings.get({
@@ -1178,7 +1178,7 @@ gapi.load('client', async () => {
           },
         ],
         kind: 'Test string',
-      }
+      },
     );
     /** Updates local inventory for multiple products or stores in a single request. */
     await gapi.client.content.localinventory.custombatch(
@@ -1217,7 +1217,7 @@ gapi.load('client', async () => {
             productId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates the local inventory of a product in your Merchant Center account. */
     await gapi.client.content.localinventory.insert(
@@ -1249,7 +1249,7 @@ gapi.load('client', async () => {
         },
         salePriceEffectiveDate: 'Test string',
         storeCode: 'Test string',
-      }
+      },
     );
     /** Provide a list of merchant's issues with a support content and available actions. This content and actions are meant to be rendered and shown in third-party applications. */
     await gapi.client.content.merchantsupport.renderaccountissues(
@@ -1261,7 +1261,7 @@ gapi.load('client', async () => {
       {
         contentOption: 'Test string',
         userInputActionOption: 'Test string',
-      }
+      },
     );
     /** Provide a list of issues for merchant's product with a support content and available actions. This content and actions are meant to be rendered and shown in third-party applications. */
     await gapi.client.content.merchantsupport.renderproductissues(
@@ -1274,7 +1274,7 @@ gapi.load('client', async () => {
       {
         contentOption: 'Test string',
         userInputActionOption: 'Test string',
-      }
+      },
     );
     /** Start an action. The action can be requested by merchants in third-party application. Before merchants can request the action, the third-party application needs to show them action specific content and display a user input form. The action can be successfully started only once all `required` inputs are provided. If any `required` input is missing, or invalid value was provided, the service will return 400 error. Validation errors will contain Ids for all problematic field together with translated, human readable error messages that can be shown to the user. */
     await gapi.client.content.merchantsupport.triggeraction(
@@ -1301,7 +1301,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Creates new order tracking signal. */
     await gapi.client.content.ordertrackingsignals.create(
@@ -1420,7 +1420,7 @@ gapi.load('client', async () => {
             trackingId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Batches multiple POS-related calls in a single request. */
     await gapi.client.content.pos.custombatch(
@@ -1478,7 +1478,7 @@ gapi.load('client', async () => {
             targetMerchantId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a store for the given merchant. */
     await gapi.client.content.pos.delete({
@@ -1509,7 +1509,7 @@ gapi.load('client', async () => {
         storeCode: 'Test string',
         storeName: 'Test string',
         websiteUrl: 'Test string',
-      }
+      },
     );
     /** Submit inventory for the given merchant. */
     await gapi.client.content.pos.inventory(
@@ -1531,7 +1531,7 @@ gapi.load('client', async () => {
         storeCode: 'Test string',
         targetCountry: 'Test string',
         timestamp: 'Test string',
-      }
+      },
     );
     /** Lists the stores of the target merchant. */
     await gapi.client.content.pos.list({
@@ -1557,7 +1557,7 @@ gapi.load('client', async () => {
         storeCode: 'Test string',
         targetCountry: 'Test string',
         timestamp: 'Test string',
-      }
+      },
     );
     /** Creates or updates the delivery time of a product. */
     await gapi.client.content.productdeliverytime.create(
@@ -1586,7 +1586,7 @@ gapi.load('client', async () => {
         productId: {
           productId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the delivery time of a product. */
     await gapi.client.content.productdeliverytime.delete({
@@ -1886,7 +1886,7 @@ gapi.load('client', async () => {
             updateMask: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a product from your Merchant Center account. */
     await gapi.client.content.products.delete({
@@ -2178,7 +2178,7 @@ gapi.load('client', async () => {
           value: 42,
         },
         virtualModelLink: 'Test string',
-      }
+      },
     );
     /** Lists the products in your Merchant Center account. The response might contain fewer items than specified by maxResults. Rely on nextPageToken to determine if there are more items to be requested. */
     await gapi.client.content.products.list({
@@ -2466,7 +2466,7 @@ gapi.load('client', async () => {
           value: 42,
         },
         virtualModelLink: 'Test string',
-      }
+      },
     );
     /** Gets the statuses of multiple products in a single request. */
     await gapi.client.content.productstatuses.custombatch(
@@ -2482,7 +2482,7 @@ gapi.load('client', async () => {
             productId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Gets the status of a product from your Merchant Center account. */
     await gapi.client.content.productstatuses.get({
@@ -2580,7 +2580,7 @@ gapi.load('client', async () => {
         storeCode: ['Test string'],
         storeCodeExclusion: ['Test string'],
         targetCountry: 'Test string',
-      }
+      },
     );
     /** Retrieves a promotion from your Merchant Center account. */
     await gapi.client.content.promotions.get({
@@ -2608,7 +2608,7 @@ gapi.load('client', async () => {
         cloudTopicName: 'Test string',
         kind: 'Test string',
         registeredEvents: ['Test string'],
-      }
+      },
     );
     /** Lists the daily call quota and usage per method for your Merchant Center account. */
     await gapi.client.content.quotas.list({
@@ -2632,7 +2632,7 @@ gapi.load('client', async () => {
         responseToken: 'Test string',
         subtype: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Updates regional inventory for multiple products or regions in a single request. */
     await gapi.client.content.regionalinventory.custombatch(
@@ -2667,7 +2667,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Updates the regional inventory of a product in your Merchant Center account. If a regional inventory with the same region ID already exists, this method updates that entry. */
     await gapi.client.content.regionalinventory.insert(
@@ -2695,7 +2695,7 @@ gapi.load('client', async () => {
           value: 'Test string',
         },
         salePriceEffectiveDate: 'Test string',
-      }
+      },
     );
     /** Creates a region definition in your Merchant Center account. */
     await gapi.client.content.regions.create(
@@ -2721,7 +2721,7 @@ gapi.load('client', async () => {
         regionalInventoryEligible: true,
         regionId: 'Test string',
         shippingEligible: true,
-      }
+      },
     );
     /** Deletes a region definition from your Merchant Center account. */
     await gapi.client.content.regions.delete({
@@ -2764,7 +2764,7 @@ gapi.load('client', async () => {
         regionalInventoryEligible: true,
         regionId: 'Test string',
         shippingEligible: true,
-      }
+      },
     );
     /** Retrieves merchant performance metrics matching the search query and optionally segmented by selected dimensions. */
     await gapi.client.content.reports.search(
@@ -2775,7 +2775,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         query: 'Test string',
-      }
+      },
     );
     /** Batches multiple return address related calls in a single request. */
     await gapi.client.content.returnaddress.custombatch(
@@ -2804,7 +2804,7 @@ gapi.load('client', async () => {
             returnAddressId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a return address for the given Merchant Center account. */
     await gapi.client.content.returnaddress.delete({
@@ -2835,7 +2835,7 @@ gapi.load('client', async () => {
         label: 'Test string',
         phoneNumber: 'Test string',
         returnAddressId: 'Test string',
-      }
+      },
     );
     /** Lists the return addresses of the Merchant Center account. */
     await gapi.client.content.returnaddress.list({
@@ -2885,7 +2885,7 @@ gapi.load('client', async () => {
             returnPolicyId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a return policy for the given Merchant Center account. */
     await gapi.client.content.returnpolicy.delete({
@@ -2930,7 +2930,7 @@ gapi.load('client', async () => {
             startDate: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Lists the return policies of the Merchant Center account. */
     await gapi.client.content.returnpolicy.list({
@@ -2973,7 +2973,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Deletes an existing return policy. */
     await gapi.client.content.returnpolicyonline.delete({
@@ -3027,7 +3027,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Retrieves and updates the shipping settings of multiple accounts in a single request. */
     await gapi.client.content.shippingsettings.custombatch(
@@ -3326,7 +3326,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Retrieves the shipping settings of the account. */
     await gapi.client.content.shippingsettings.get({
@@ -3641,7 +3641,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Retrieves the status and review eligibility for the Shopping Ads program. Returns errors and warnings if they require action to resolve, will become disapprovals, or impact impressions. Use `accountstatuses` to view all issues for an account. */
     await gapi.client.content.shoppingadsprogram.get({
@@ -3654,7 +3654,7 @@ gapi.load('client', async () => {
       },
       {
         regionCode: 'Test string',
-      }
+      },
     );
   }
 });

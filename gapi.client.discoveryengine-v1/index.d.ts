@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Discovery Engine API v1 */
   function load(
-    urlOrObject: 'https://discoveryengine.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://discoveryengine.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'discoveryengine', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'discoveryengine',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace discoveryengine {
@@ -5163,7 +5163,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Document
+        body: GoogleCloudDiscoveryengineV1Document,
       ): Request<GoogleCloudDiscoveryengineV1Document>;
       /** Deletes a Document. */
       delete(request?: {
@@ -5275,7 +5275,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ImportDocumentsRequest
+        body: GoogleCloudDiscoveryengineV1ImportDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets a list of Documents. */
       list(request?: {
@@ -5372,7 +5372,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Document
+        body: GoogleCloudDiscoveryengineV1Document,
       ): Request<GoogleCloudDiscoveryengineV1Document>;
       /** Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false. */
       purge(request: {
@@ -5430,7 +5430,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1PurgeDocumentsRequest
+        body: GoogleCloudDiscoveryengineV1PurgeDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface OperationsResource {
@@ -5490,7 +5490,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningCancelOperationRequest
+        body: GoogleLongrunningCancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -5645,7 +5645,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest
+        body: GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Permanently deletes all CompletionSuggestions for a DataStore. */
       purge(request: {
@@ -5703,7 +5703,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest
+        body: GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface ControlsResource {
@@ -5767,7 +5767,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Control
+        body: GoogleCloudDiscoveryengineV1Control,
       ): Request<GoogleCloudDiscoveryengineV1Control>;
       /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
@@ -5916,7 +5916,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Control
+        body: GoogleCloudDiscoveryengineV1Control,
       ): Request<GoogleCloudDiscoveryengineV1Control>;
     }
     interface ConversationsResource {
@@ -5976,7 +5976,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ConverseConversationRequest
+        body: GoogleCloudDiscoveryengineV1ConverseConversationRequest,
       ): Request<GoogleCloudDiscoveryengineV1ConverseConversationResponse>;
       /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
@@ -6034,7 +6034,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Conversation
+        body: GoogleCloudDiscoveryengineV1Conversation,
       ): Request<GoogleCloudDiscoveryengineV1Conversation>;
       /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
@@ -6185,7 +6185,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Conversation
+        body: GoogleCloudDiscoveryengineV1Conversation,
       ): Request<GoogleCloudDiscoveryengineV1Conversation>;
     }
     interface CustomModelsResource {
@@ -6467,7 +6467,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Schema
+        body: GoogleCloudDiscoveryengineV1Schema,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a Schema. */
       delete(request?: {
@@ -6614,7 +6614,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Schema
+        body: GoogleCloudDiscoveryengineV1Schema,
       ): Request<GoogleLongrunningOperation>;
       operations: OperationsResource;
     }
@@ -6675,7 +6675,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest
+        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest,
       ): Request<GoogleCloudDiscoveryengineV1AnswerQueryResponse>;
       /** Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
       patch(request: {
@@ -6737,7 +6737,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ServingConfig
+        body: GoogleCloudDiscoveryengineV1ServingConfig,
       ): Request<GoogleCloudDiscoveryengineV1ServingConfig>;
       /** Makes a recommendation, which requires a contextual user event. */
       recommend(request: {
@@ -6795,7 +6795,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1RecommendRequest
+        body: GoogleCloudDiscoveryengineV1RecommendRequest,
       ): Request<GoogleCloudDiscoveryengineV1RecommendResponse>;
       /** Performs a search. */
       search(request: {
@@ -6853,7 +6853,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1SearchRequest
+        body: GoogleCloudDiscoveryengineV1SearchRequest,
       ): Request<GoogleCloudDiscoveryengineV1SearchResponse>;
       /** Performs a search. Similar to the SearchService.Search method, but a lite version that allows API key for authentication, where OAuth and IAM checks are not required. Only public website search is supported by this method. If data stores and engines not associated with public website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy onboarding without having to implement an authentication backend. However, it is strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to provide better data security. */
       searchLite(request: {
@@ -6911,7 +6911,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1SearchRequest
+        body: GoogleCloudDiscoveryengineV1SearchRequest,
       ): Request<GoogleCloudDiscoveryengineV1SearchResponse>;
       /** Answer query method (streaming). It takes one AnswerQueryRequest and returns multiple AnswerQueryResponse messages in a stream. */
       streamAnswer(request: {
@@ -6969,7 +6969,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest
+        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest,
       ): Request<GoogleCloudDiscoveryengineV1AnswerQueryResponse>;
     }
     interface AnswersResource {
@@ -7058,7 +7058,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Session
+        body: GoogleCloudDiscoveryengineV1Session,
       ): Request<GoogleCloudDiscoveryengineV1Session>;
       /** Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
@@ -7211,7 +7211,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Session
+        body: GoogleCloudDiscoveryengineV1Session,
       ): Request<GoogleCloudDiscoveryengineV1Session>;
       answers: AnswersResource;
     }
@@ -7396,7 +7396,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest
+        body: GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates a TargetSite. */
       create(request: {
@@ -7454,7 +7454,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1TargetSite
+        body: GoogleCloudDiscoveryengineV1TargetSite,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a TargetSite. */
       delete(request?: {
@@ -7597,7 +7597,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1TargetSite
+        body: GoogleCloudDiscoveryengineV1TargetSite,
       ): Request<GoogleLongrunningOperation>;
       operations: OperationsResource;
     }
@@ -7658,7 +7658,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest
+        body: GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Downgrade from advanced site search to basic site search. */
       disableAdvancedSiteSearch(request: {
@@ -7716,7 +7716,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest
+        body: GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Upgrade from basic site search to advanced site search. */
       enableAdvancedSiteSearch(request: {
@@ -7774,7 +7774,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest
+        body: GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Returns list of target sites with its domain verification status. This method can only be called under data store with BASIC_SITE_SEARCH state at the moment. */
       fetchDomainVerificationStatus(request?: {
@@ -7863,7 +7863,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1RecrawlUrisRequest
+        body: GoogleCloudDiscoveryengineV1RecrawlUrisRequest,
       ): Request<GoogleLongrunningOperation>;
       operations: OperationsResource;
       targetSites: TargetSitesResource;
@@ -7925,7 +7925,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest
+        body: GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Permanently deletes all SuggestionDenyListEntry for a DataStore. */
       purge(request: {
@@ -7983,7 +7983,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest
+        body: GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface UserEventsResource {
@@ -8076,7 +8076,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ImportUserEventsRequest
+        body: GoogleCloudDiscoveryengineV1ImportUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
       purge(request: {
@@ -8134,7 +8134,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1PurgeUserEventsRequest
+        body: GoogleCloudDiscoveryengineV1PurgeUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Writes a single user event. */
       write(request: {
@@ -8196,7 +8196,7 @@ declare namespace gapi.client {
           /** If set to true, the user event is written asynchronously after validation, and the API responds without waiting for the write. */
           writeAsync?: boolean;
         },
-        body: GoogleCloudDiscoveryengineV1UserEvent
+        body: GoogleCloudDiscoveryengineV1UserEvent,
       ): Request<GoogleCloudDiscoveryengineV1UserEvent>;
     }
     interface DataStoresResource {
@@ -8311,7 +8311,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1DataStore
+        body: GoogleCloudDiscoveryengineV1DataStore,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a DataStore. */
       delete(request?: {
@@ -8487,7 +8487,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1DataStore
+        body: GoogleCloudDiscoveryengineV1DataStore,
       ): Request<GoogleCloudDiscoveryengineV1DataStore>;
       /** Trains a custom model. */
       trainCustomModel(request: {
@@ -8545,7 +8545,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1TrainCustomModelRequest
+        body: GoogleCloudDiscoveryengineV1TrainCustomModelRequest,
       ): Request<GoogleLongrunningOperation>;
       branches: BranchesResource;
       completionSuggestions: CompletionSuggestionsResource;
@@ -8622,7 +8622,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Control
+        body: GoogleCloudDiscoveryengineV1Control,
       ): Request<GoogleCloudDiscoveryengineV1Control>;
       /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
@@ -8771,7 +8771,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Control
+        body: GoogleCloudDiscoveryengineV1Control,
       ): Request<GoogleCloudDiscoveryengineV1Control>;
     }
     interface ConversationsResource {
@@ -8831,7 +8831,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ConverseConversationRequest
+        body: GoogleCloudDiscoveryengineV1ConverseConversationRequest,
       ): Request<GoogleCloudDiscoveryengineV1ConverseConversationResponse>;
       /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
@@ -8889,7 +8889,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Conversation
+        body: GoogleCloudDiscoveryengineV1Conversation,
       ): Request<GoogleCloudDiscoveryengineV1Conversation>;
       /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
@@ -9040,7 +9040,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Conversation
+        body: GoogleCloudDiscoveryengineV1Conversation,
       ): Request<GoogleCloudDiscoveryengineV1Conversation>;
     }
     interface OperationsResource {
@@ -9162,7 +9162,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest
+        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest,
       ): Request<GoogleCloudDiscoveryengineV1AnswerQueryResponse>;
       /** Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
       patch(request: {
@@ -9224,7 +9224,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ServingConfig
+        body: GoogleCloudDiscoveryengineV1ServingConfig,
       ): Request<GoogleCloudDiscoveryengineV1ServingConfig>;
       /** Makes a recommendation, which requires a contextual user event. */
       recommend(request: {
@@ -9282,7 +9282,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1RecommendRequest
+        body: GoogleCloudDiscoveryengineV1RecommendRequest,
       ): Request<GoogleCloudDiscoveryengineV1RecommendResponse>;
       /** Performs a search. */
       search(request: {
@@ -9340,7 +9340,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1SearchRequest
+        body: GoogleCloudDiscoveryengineV1SearchRequest,
       ): Request<GoogleCloudDiscoveryengineV1SearchResponse>;
       /** Performs a search. Similar to the SearchService.Search method, but a lite version that allows API key for authentication, where OAuth and IAM checks are not required. Only public website search is supported by this method. If data stores and engines not associated with public website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy onboarding without having to implement an authentication backend. However, it is strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to provide better data security. */
       searchLite(request: {
@@ -9398,7 +9398,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1SearchRequest
+        body: GoogleCloudDiscoveryengineV1SearchRequest,
       ): Request<GoogleCloudDiscoveryengineV1SearchResponse>;
       /** Answer query method (streaming). It takes one AnswerQueryRequest and returns multiple AnswerQueryResponse messages in a stream. */
       streamAnswer(request: {
@@ -9456,7 +9456,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest
+        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest,
       ): Request<GoogleCloudDiscoveryengineV1AnswerQueryResponse>;
     }
     interface AnswersResource {
@@ -9545,7 +9545,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Session
+        body: GoogleCloudDiscoveryengineV1Session,
       ): Request<GoogleCloudDiscoveryengineV1Session>;
       /** Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
@@ -9698,7 +9698,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Session
+        body: GoogleCloudDiscoveryengineV1Session,
       ): Request<GoogleCloudDiscoveryengineV1Session>;
       answers: AnswersResource;
     }
@@ -9763,7 +9763,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Engine
+        body: GoogleCloudDiscoveryengineV1Engine,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a Engine. */
       delete(request?: {
@@ -9912,7 +9912,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Engine
+        body: GoogleCloudDiscoveryengineV1Engine,
       ): Request<GoogleCloudDiscoveryengineV1Engine>;
       controls: ControlsResource;
       conversations: ConversationsResource;
@@ -10049,7 +10049,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Document
+        body: GoogleCloudDiscoveryengineV1Document,
       ): Request<GoogleCloudDiscoveryengineV1Document>;
       /** Deletes a Document. */
       delete(request?: {
@@ -10161,7 +10161,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ImportDocumentsRequest
+        body: GoogleCloudDiscoveryengineV1ImportDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets a list of Documents. */
       list(request?: {
@@ -10258,7 +10258,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Document
+        body: GoogleCloudDiscoveryengineV1Document,
       ): Request<GoogleCloudDiscoveryengineV1Document>;
       /** Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false. */
       purge(request: {
@@ -10316,7 +10316,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1PurgeDocumentsRequest
+        body: GoogleCloudDiscoveryengineV1PurgeDocumentsRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface OperationsResource {
@@ -10376,7 +10376,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningCancelOperationRequest
+        body: GoogleLongrunningCancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -10531,7 +10531,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest
+        body: GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Permanently deletes all CompletionSuggestions for a DataStore. */
       purge(request: {
@@ -10589,7 +10589,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest
+        body: GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface ControlsResource {
@@ -10653,7 +10653,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Control
+        body: GoogleCloudDiscoveryengineV1Control,
       ): Request<GoogleCloudDiscoveryengineV1Control>;
       /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
@@ -10802,7 +10802,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Control
+        body: GoogleCloudDiscoveryengineV1Control,
       ): Request<GoogleCloudDiscoveryengineV1Control>;
     }
     interface ConversationsResource {
@@ -10862,7 +10862,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ConverseConversationRequest
+        body: GoogleCloudDiscoveryengineV1ConverseConversationRequest,
       ): Request<GoogleCloudDiscoveryengineV1ConverseConversationResponse>;
       /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
@@ -10920,7 +10920,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Conversation
+        body: GoogleCloudDiscoveryengineV1Conversation,
       ): Request<GoogleCloudDiscoveryengineV1Conversation>;
       /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
@@ -11071,7 +11071,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Conversation
+        body: GoogleCloudDiscoveryengineV1Conversation,
       ): Request<GoogleCloudDiscoveryengineV1Conversation>;
     }
     interface OperationsResource {
@@ -11262,7 +11262,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Schema
+        body: GoogleCloudDiscoveryengineV1Schema,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a Schema. */
       delete(request?: {
@@ -11409,7 +11409,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Schema
+        body: GoogleCloudDiscoveryengineV1Schema,
       ): Request<GoogleLongrunningOperation>;
     }
     interface ServingConfigsResource {
@@ -11469,7 +11469,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest
+        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest,
       ): Request<GoogleCloudDiscoveryengineV1AnswerQueryResponse>;
       /** Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
       patch(request: {
@@ -11531,7 +11531,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ServingConfig
+        body: GoogleCloudDiscoveryengineV1ServingConfig,
       ): Request<GoogleCloudDiscoveryengineV1ServingConfig>;
       /** Makes a recommendation, which requires a contextual user event. */
       recommend(request: {
@@ -11589,7 +11589,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1RecommendRequest
+        body: GoogleCloudDiscoveryengineV1RecommendRequest,
       ): Request<GoogleCloudDiscoveryengineV1RecommendResponse>;
       /** Performs a search. */
       search(request: {
@@ -11647,7 +11647,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1SearchRequest
+        body: GoogleCloudDiscoveryengineV1SearchRequest,
       ): Request<GoogleCloudDiscoveryengineV1SearchResponse>;
       /** Performs a search. Similar to the SearchService.Search method, but a lite version that allows API key for authentication, where OAuth and IAM checks are not required. Only public website search is supported by this method. If data stores and engines not associated with public website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy onboarding without having to implement an authentication backend. However, it is strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to provide better data security. */
       searchLite(request: {
@@ -11705,7 +11705,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1SearchRequest
+        body: GoogleCloudDiscoveryengineV1SearchRequest,
       ): Request<GoogleCloudDiscoveryengineV1SearchResponse>;
       /** Answer query method (streaming). It takes one AnswerQueryRequest and returns multiple AnswerQueryResponse messages in a stream. */
       streamAnswer(request: {
@@ -11763,7 +11763,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest
+        body: GoogleCloudDiscoveryengineV1AnswerQueryRequest,
       ): Request<GoogleCloudDiscoveryengineV1AnswerQueryResponse>;
     }
     interface AnswersResource {
@@ -11852,7 +11852,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Session
+        body: GoogleCloudDiscoveryengineV1Session,
       ): Request<GoogleCloudDiscoveryengineV1Session>;
       /** Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
@@ -12005,7 +12005,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1Session
+        body: GoogleCloudDiscoveryengineV1Session,
       ): Request<GoogleCloudDiscoveryengineV1Session>;
       answers: AnswersResource;
     }
@@ -12066,7 +12066,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest
+        body: GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates a TargetSite. */
       create(request: {
@@ -12124,7 +12124,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1TargetSite
+        body: GoogleCloudDiscoveryengineV1TargetSite,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a TargetSite. */
       delete(request?: {
@@ -12267,7 +12267,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1TargetSite
+        body: GoogleCloudDiscoveryengineV1TargetSite,
       ): Request<GoogleLongrunningOperation>;
     }
     interface SiteSearchEngineResource {
@@ -12327,7 +12327,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest
+        body: GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Upgrade from basic site search to advanced site search. */
       enableAdvancedSiteSearch(request: {
@@ -12385,7 +12385,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest
+        body: GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Request on-demand recrawl for a list of URIs. */
       recrawlUris(request: {
@@ -12443,7 +12443,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1RecrawlUrisRequest
+        body: GoogleCloudDiscoveryengineV1RecrawlUrisRequest,
       ): Request<GoogleLongrunningOperation>;
       targetSites: TargetSitesResource;
     }
@@ -12504,7 +12504,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest
+        body: GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Permanently deletes all SuggestionDenyListEntry for a DataStore. */
       purge(request: {
@@ -12562,7 +12562,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest
+        body: GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface UserEventsResource {
@@ -12655,7 +12655,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ImportUserEventsRequest
+        body: GoogleCloudDiscoveryengineV1ImportUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
       purge(request: {
@@ -12713,7 +12713,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1PurgeUserEventsRequest
+        body: GoogleCloudDiscoveryengineV1PurgeUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Writes a single user event. */
       write(request: {
@@ -12775,7 +12775,7 @@ declare namespace gapi.client {
           /** If set to true, the user event is written asynchronously after validation, and the API responds without waiting for the write. */
           writeAsync?: boolean;
         },
-        body: GoogleCloudDiscoveryengineV1UserEvent
+        body: GoogleCloudDiscoveryengineV1UserEvent,
       ): Request<GoogleCloudDiscoveryengineV1UserEvent>;
     }
     interface DataStoresResource {
@@ -12890,7 +12890,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1DataStore
+        body: GoogleCloudDiscoveryengineV1DataStore,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a DataStore. */
       delete(request?: {
@@ -13066,7 +13066,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1DataStore
+        body: GoogleCloudDiscoveryengineV1DataStore,
       ): Request<GoogleCloudDiscoveryengineV1DataStore>;
       branches: BranchesResource;
       completionSuggestions: CompletionSuggestionsResource;
@@ -13138,7 +13138,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1CheckGroundingRequest
+        body: GoogleCloudDiscoveryengineV1CheckGroundingRequest,
       ): Request<GoogleCloudDiscoveryengineV1CheckGroundingResponse>;
     }
     interface OperationsResource {
@@ -13325,7 +13325,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1RankRequest
+        body: GoogleCloudDiscoveryengineV1RankRequest,
       ): Request<GoogleCloudDiscoveryengineV1RankResponse>;
     }
     interface UserEventsResource {
@@ -13418,7 +13418,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ImportUserEventsRequest
+        body: GoogleCloudDiscoveryengineV1ImportUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Writes a single user event. */
       write(request: {
@@ -13480,7 +13480,7 @@ declare namespace gapi.client {
           /** If set to true, the user event is written asynchronously after validation, and the API responds without waiting for the write. */
           writeAsync?: boolean;
         },
-        body: GoogleCloudDiscoveryengineV1UserEvent
+        body: GoogleCloudDiscoveryengineV1UserEvent,
       ): Request<GoogleCloudDiscoveryengineV1UserEvent>;
     }
     interface LocationsResource {
@@ -13540,7 +13540,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1GenerateGroundedContentRequest
+        body: GoogleCloudDiscoveryengineV1GenerateGroundedContentRequest,
       ): Request<GoogleCloudDiscoveryengineV1GenerateGroundedContentResponse>;
       collections: CollectionsResource;
       dataStores: DataStoresResource;
@@ -13607,7 +13607,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningCancelOperationRequest
+        body: GoogleLongrunningCancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -13727,7 +13727,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDiscoveryengineV1ProvisionProjectRequest
+        body: GoogleCloudDiscoveryengineV1ProvisionProjectRequest,
       ): Request<GoogleLongrunningOperation>;
       locations: LocationsResource;
       operations: OperationsResource;

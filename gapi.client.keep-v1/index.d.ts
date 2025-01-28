@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Keep API v1 */
   function load(
-    urlOrObject: 'https://keep.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://keep.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'keep', version: 'v1'): Promise<void>;
@@ -210,7 +210,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreatePermissionsRequest
+        body: BatchCreatePermissionsRequest,
       ): Request<BatchCreatePermissionsResponse>;
       /** Deletes one or more permissions on the note. The specified entities will immediately lose access. A permission with the `OWNER` role can't be removed. If removing a permission fails, then the entire request fails and no changes are made. Returns a 400 bad request error if a specified permission does not exist on the note. */
       batchDelete(request: {
@@ -268,7 +268,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchDeletePermissionsRequest
+        body: BatchDeletePermissionsRequest,
       ): Request<{}>;
     }
     interface NotesResource {
@@ -324,7 +324,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Note
+        body: Note,
       ): Request<Note>;
       /** Deletes a note. Caller must have the `OWNER` role on the note to delete. Deleting a note removes the resource immediately and cannot be undone. Any collaborators will lose access to the note. */
       delete(request?: {

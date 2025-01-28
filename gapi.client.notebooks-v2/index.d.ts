@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Notebooks API v2 */
   function load(
-    urlOrObject: 'https://notebooks.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://notebooks.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'notebooks', version: 'v2'): Promise<void>;
@@ -486,7 +486,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Deletes a single Instance. */
       delete(request?: {
@@ -573,7 +573,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DiagnoseInstanceRequest
+        body: DiagnoseInstanceRequest,
       ): Request<Operation>;
       /** Gets details of a single Instance. */
       get(request?: {
@@ -757,7 +757,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Allows notebook instances to report their latest instance information to the Notebooks API server. The server will merge the reported information to the instance metadata store. Do not use this method directly. */
       reportInfoSystem(request: {
@@ -815,7 +815,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportInstanceInfoSystemRequest
+        body: ReportInstanceInfoSystemRequest,
       ): Request<Operation>;
       /** Resets a notebook instance. */
       reset(request: {
@@ -873,7 +873,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetInstanceRequest
+        body: ResetInstanceRequest,
       ): Request<Operation>;
       /** Resize a notebook instance disk to a higher capacity. */
       resizeDisk(request: {
@@ -931,7 +931,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResizeDiskRequest
+        body: ResizeDiskRequest,
       ): Request<Operation>;
       /** RestoreInstance restores an Instance from a BackupSource. */
       restore(request: {
@@ -989,7 +989,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestoreInstanceRequest
+        body: RestoreInstanceRequest,
       ): Request<Operation>;
       /** Rollbacks a notebook instance to the previous version. */
       rollback(request: {
@@ -1047,7 +1047,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RollbackInstanceRequest
+        body: RollbackInstanceRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1077,7 +1077,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Starts a notebook instance. */
       start(request: {
@@ -1135,7 +1135,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartInstanceRequest
+        body: StartInstanceRequest,
       ): Request<Operation>;
       /** Stops a notebook instance. */
       stop(request: {
@@ -1193,7 +1193,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopInstanceRequest
+        body: StopInstanceRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1223,7 +1223,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Upgrades a notebook instance to the latest version. */
       upgrade(request: {
@@ -1281,7 +1281,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpgradeInstanceRequest
+        body: UpgradeInstanceRequest,
       ): Request<Operation>;
       /** Allows notebook instances to upgrade themselves. Do not use this method directly. */
       upgradeSystem(request: {
@@ -1339,7 +1339,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpgradeInstanceSystemRequest
+        body: UpgradeInstanceSystemRequest,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -1399,7 +1399,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

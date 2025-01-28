@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://workflowexecutions.googleapis.com/$discovery/rest?version=v1beta'
+    'https://workflowexecutions.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.workflowexecutions */
 
@@ -36,7 +36,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new execution using the latest revision of the given workflow. */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.create(
@@ -77,14 +77,14 @@ gapi.load('client', async () => {
           ],
         },
         workflowRevisionId: 'Test string',
-      }
+      },
     );
     /** Returns an execution of the given name. */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Returns a list of executions which belong to the workflow with the given name. The method returns executions of all workflow revisions. Returned executions are ordered by their start time (newest first). */
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.list(
@@ -93,7 +93,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
   }
 });

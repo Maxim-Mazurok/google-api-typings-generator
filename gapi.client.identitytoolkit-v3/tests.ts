@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://identitytoolkit.googleapis.com/$discovery/rest?version=v3'
+    'https://identitytoolkit.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.identitytoolkit */
 
@@ -55,7 +55,7 @@ gapi.load('client', async () => {
         sessionId: 'Test string',
         tenantId: 'Test string',
         tenantProjectNumber: 'Test string',
-      }
+      },
     );
     /** Delete user account. */
     await gapi.client.identitytoolkit.relyingparty.deleteAccount(
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
         delegatedProjectNumber: 'Test string',
         idToken: 'Test string',
         localId: 'Test string',
-      }
+      },
     );
     /** Batch download user accounts. */
     await gapi.client.identitytoolkit.relyingparty.downloadAccount(
@@ -74,7 +74,7 @@ gapi.load('client', async () => {
         maxResults: 42,
         nextPageToken: 'Test string',
         targetProjectId: 'Test string',
-      }
+      },
     );
     /** Reset password for a user. */
     await gapi.client.identitytoolkit.relyingparty.emailLinkSignin(
@@ -83,7 +83,7 @@ gapi.load('client', async () => {
         email: 'Test string',
         idToken: 'Test string',
         oobCode: 'Test string',
-      }
+      },
     );
     /** Returns the account info. */
     await gapi.client.identitytoolkit.relyingparty.getAccountInfo(
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
         idToken: 'Test string',
         localId: ['Test string'],
         phoneNumber: ['Test string'],
-      }
+      },
     );
     /** Get a code for user action confirmation. */
     await gapi.client.identitytoolkit.relyingparty.getOobConfirmationCode(
@@ -115,7 +115,7 @@ gapi.load('client', async () => {
         newEmail: 'Test string',
         requestType: 'Test string',
         userIp: 'Test string',
-      }
+      },
     );
     /** Get project configuration. */
     await gapi.client.identitytoolkit.relyingparty.getProjectConfig({
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
         newPassword: 'Test string',
         oldPassword: 'Test string',
         oobCode: 'Test string',
-      }
+      },
     );
     /** Send SMS verification code. */
     await gapi.client.identitytoolkit.relyingparty.sendVerificationCode(
@@ -144,7 +144,7 @@ gapi.load('client', async () => {
         iosSecret: 'Test string',
         phoneNumber: 'Test string',
         recaptchaToken: 'Test string',
-      }
+      },
     );
     /** Set account info for a user. */
     await gapi.client.identitytoolkit.relyingparty.setAccountInfo(
@@ -173,7 +173,7 @@ gapi.load('client', async () => {
         returnSecureToken: true,
         upgradeToFederatedLogin: true,
         validSince: 'Test string',
-      }
+      },
     );
     /** Set project configuration. */
     await gapi.client.identitytoolkit.relyingparty.setProjectConfig(
@@ -227,7 +227,7 @@ gapi.load('client', async () => {
           replyTo: 'Test string',
           subject: 'Test string',
         },
-      }
+      },
     );
     /** Sign out user. */
     await gapi.client.identitytoolkit.relyingparty.signOutUser(
@@ -235,7 +235,7 @@ gapi.load('client', async () => {
       {
         instanceId: 'Test string',
         localId: 'Test string',
-      }
+      },
     );
     /** Signup new user. */
     await gapi.client.identitytoolkit.relyingparty.signupNewUser(
@@ -255,7 +255,7 @@ gapi.load('client', async () => {
         photoUrl: 'Test string',
         tenantId: 'Test string',
         tenantProjectNumber: 'Test string',
-      }
+      },
     );
     /** Batch upload existing user accounts. */
     await gapi.client.identitytoolkit.relyingparty.uploadAccount(
@@ -308,7 +308,7 @@ gapi.load('client', async () => {
             version: 42,
           },
         ],
-      }
+      },
     );
     /** Verifies the assertion returned by the IdP. */
     await gapi.client.identitytoolkit.relyingparty.verifyAssertion(
@@ -327,7 +327,7 @@ gapi.load('client', async () => {
         sessionId: 'Test string',
         tenantId: 'Test string',
         tenantProjectNumber: 'Test string',
-      }
+      },
     );
     /** Verifies the developer asserted ID token. */
     await gapi.client.identitytoolkit.relyingparty.verifyCustomToken(
@@ -337,7 +337,7 @@ gapi.load('client', async () => {
         instanceId: 'Test string',
         returnSecureToken: true,
         token: 'Test string',
-      }
+      },
     );
     /** Verifies the user entered password. */
     await gapi.client.identitytoolkit.relyingparty.verifyPassword(
@@ -354,7 +354,7 @@ gapi.load('client', async () => {
         returnSecureToken: true,
         tenantId: 'Test string',
         tenantProjectNumber: 'Test string',
-      }
+      },
     );
     /** Verifies ownership of a phone number and creates/updates the user account accordingly. */
     await gapi.client.identitytoolkit.relyingparty.verifyPhoneNumber(
@@ -367,7 +367,7 @@ gapi.load('client', async () => {
         sessionInfo: 'Test string',
         temporaryProof: 'Test string',
         verificationProof: 'Test string',
-      }
+      },
     );
   }
 });

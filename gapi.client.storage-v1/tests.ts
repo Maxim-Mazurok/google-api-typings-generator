@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://storage.googleapis.com/$discovery/rest?version=v1'
+    'https://storage.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.storage */
 
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         updateTime: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Returns a list of Anywhere Cache instances of the bucket matching the criteria. */
     await gapi.client.storage.anywhereCaches.list({
@@ -104,7 +104,7 @@ gapi.load('client', async () => {
         ttl: 'Test string',
         updateTime: 'Test string',
         zone: 'Test string',
-      }
+      },
     );
     /** Permanently deletes the ACL entry for the specified entity on the specified bucket. */
     await gapi.client.storage.bucketAccessControls.delete({
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
         },
         role: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Retrieves ACL entries on the specified bucket. */
     await gapi.client.storage.bucketAccessControls.list({
@@ -168,7 +168,7 @@ gapi.load('client', async () => {
         },
         role: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Updates an ACL entry on the specified bucket. */
     await gapi.client.storage.bucketAccessControls.update(
@@ -192,7 +192,7 @@ gapi.load('client', async () => {
         },
         role: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Deletes an empty bucket. Deletions are permanent unless soft delete is enabled on the bucket. */
     await gapi.client.storage.buckets.delete({
@@ -393,7 +393,7 @@ gapi.load('client', async () => {
           mainPageSuffix: 'Test string',
           notFoundPage: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a list of buckets for a given project. */
     await gapi.client.storage.buckets.list({
@@ -583,7 +583,7 @@ gapi.load('client', async () => {
           mainPageSuffix: 'Test string',
           notFoundPage: 'Test string',
         },
-      }
+      },
     );
     /** Initiates a long-running Relocate Bucket operation on the specified bucket. */
     await gapi.client.storage.buckets.relocate(
@@ -596,7 +596,7 @@ gapi.load('client', async () => {
         },
         destinationLocation: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Restores a soft-deleted bucket. */
     await gapi.client.storage.buckets.restore({
@@ -628,7 +628,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         resourceId: 'Test string',
         version: 42,
-      }
+      },
     );
     /** Tests a set of permissions on the given bucket to see which, if any, are held by the caller. */
     await gapi.client.storage.buckets.testIamPermissions({
@@ -808,7 +808,7 @@ gapi.load('client', async () => {
           mainPageSuffix: 'Test string',
           notFoundPage: 'Test string',
         },
-      }
+      },
     );
     /** Stop watching resources through this channel */
     await gapi.client.storage.channels.stop(
@@ -826,7 +826,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Permanently deletes the default object ACL entry for the specified entity on the specified bucket. */
     await gapi.client.storage.defaultObjectAccessControls.delete({
@@ -863,7 +863,7 @@ gapi.load('client', async () => {
         },
         role: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Retrieves default object ACL entries on the specified bucket. */
     await gapi.client.storage.defaultObjectAccessControls.list({
@@ -896,7 +896,7 @@ gapi.load('client', async () => {
         },
         role: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Updates a default object ACL entry on the specified bucket. */
     await gapi.client.storage.defaultObjectAccessControls.update(
@@ -922,7 +922,7 @@ gapi.load('client', async () => {
         },
         role: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Permanently deletes a folder. Only applicable to buckets with hierarchical namespace enabled. */
     await gapi.client.storage.folders.delete({
@@ -956,7 +956,7 @@ gapi.load('client', async () => {
         },
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of folders matching the criteria. Only applicable to buckets with hierarchical namespace enabled. */
     await gapi.client.storage.folders.list({
@@ -1012,7 +1012,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         selfLink: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Lists managed folders in the given bucket. */
     await gapi.client.storage.managedFolders.list({
@@ -1045,7 +1045,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         resourceId: 'Test string',
         version: 42,
-      }
+      },
     );
     /** Tests a set of permissions on the given managed folder to see which, if any, are held by the caller. */
     await gapi.client.storage.managedFolders.testIamPermissions({
@@ -1084,7 +1084,7 @@ gapi.load('client', async () => {
         payload_format: 'Test string',
         selfLink: 'Test string',
         topic: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of notification subscriptions for a given bucket. */
     await gapi.client.storage.notifications.list({
@@ -1132,7 +1132,7 @@ gapi.load('client', async () => {
         },
         role: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Retrieves ACL entries on the specified object. */
     await gapi.client.storage.objectAccessControls.list({
@@ -1167,7 +1167,7 @@ gapi.load('client', async () => {
         },
         role: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Updates an ACL entry on the specified object. */
     await gapi.client.storage.objectAccessControls.update(
@@ -1195,7 +1195,7 @@ gapi.load('client', async () => {
         },
         role: 'Test string',
         selfLink: 'Test string',
-      }
+      },
     );
     /** Initiates a long-running bulk restore operation on the specified bucket. */
     await gapi.client.storage.objects.bulkRestore(
@@ -1208,7 +1208,7 @@ gapi.load('client', async () => {
         matchGlobs: ['Test string'],
         softDeletedAfterTime: 'Test string',
         softDeletedBeforeTime: 'Test string',
-      }
+      },
     );
     /** Concatenates a list of existing objects into a new object in the same bucket. */
     await gapi.client.storage.objects.compose(
@@ -1301,7 +1301,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Copies a source object to a destination object. Optionally overrides metadata. */
     await gapi.client.storage.objects.copy(
@@ -1392,7 +1392,7 @@ gapi.load('client', async () => {
         timeFinalized: 'Test string',
         timeStorageClassUpdated: 'Test string',
         updated: 'Test string',
-      }
+      },
     );
     /** Deletes an object and its metadata. Deletions are permanent if versioning is not enabled for the bucket, or if the generation parameter is used. */
     await gapi.client.storage.objects.delete({
@@ -1509,7 +1509,7 @@ gapi.load('client', async () => {
         timeFinalized: 'Test string',
         timeStorageClassUpdated: 'Test string',
         updated: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of objects matching the criteria. */
     await gapi.client.storage.objects.list({
@@ -1626,7 +1626,7 @@ gapi.load('client', async () => {
         timeFinalized: 'Test string',
         timeStorageClassUpdated: 'Test string',
         updated: 'Test string',
-      }
+      },
     );
     /** Restores a soft-deleted object. */
     await gapi.client.storage.objects.restore({
@@ -1733,7 +1733,7 @@ gapi.load('client', async () => {
         timeFinalized: 'Test string',
         timeStorageClassUpdated: 'Test string',
         updated: 'Test string',
-      }
+      },
     );
     /** Updates an IAM policy for the specified object. */
     await gapi.client.storage.objects.setIamPolicy(
@@ -1760,7 +1760,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         resourceId: 'Test string',
         version: 42,
-      }
+      },
     );
     /** Tests a set of permissions on the given object to see which, if any, are held by the caller. */
     await gapi.client.storage.objects.testIamPermissions({
@@ -1853,7 +1853,7 @@ gapi.load('client', async () => {
         timeFinalized: 'Test string',
         timeStorageClassUpdated: 'Test string',
         updated: 'Test string',
-      }
+      },
     );
     /** Watch for changes on all objects in a bucket. */
     await gapi.client.storage.objects.watchAll(
@@ -1883,7 +1883,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous advancement of the relocate bucket operation in the case of required write downtime, to allow it to lock the bucket at the source location, and proceed with the bucket location swap. The server makes a best effort to advance the relocate bucket operation, but success is not guaranteed. */
     await gapi.client.storage.operations.advanceRelocateBucket(
@@ -1894,7 +1894,7 @@ gapi.load('client', async () => {
       {
         expireTime: 'Test string',
         ttl: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. */
     await gapi.client.storage.operations.cancel({
@@ -1958,7 +1958,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         timeCreated: 'Test string',
         updated: 'Test string',
-      }
+      },
     );
     /** Get the email address of this project's Google Cloud Storage service account. */
     await gapi.client.storage.projects.serviceAccount.get({

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://recommendationengine.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://recommendationengine.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.recommendationengine */
 
@@ -51,7 +51,7 @@ gapi.load('client', async () => {
         defaultEventStoreId: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Creates a catalog item. */
     await gapi.client.recommendationengine.projects.locations.catalogs.catalogItems.create(
@@ -106,19 +106,19 @@ gapi.load('client', async () => {
         },
         tags: ['Test string'],
         title: 'Test string',
-      }
+      },
     );
     /** Deletes a catalog item. */
     await gapi.client.recommendationengine.projects.locations.catalogs.catalogItems.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a specific catalog item. */
     await gapi.client.recommendationengine.projects.locations.catalogs.catalogItems.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Bulk import of multiple catalog items. Request processing may be synchronous. No partial updating supported. Non-existing items will be created. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully updated. */
     await gapi.client.recommendationengine.projects.locations.catalogs.catalogItems.import(
@@ -276,7 +276,7 @@ gapi.load('client', async () => {
         },
         requestId: 'Test string',
         updateMask: 'Test string',
-      }
+      },
     );
     /** Gets a list of catalog items. */
     await gapi.client.recommendationengine.projects.locations.catalogs.catalogItems.list(
@@ -285,7 +285,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a catalog item. Partial updating is supported. Non-existing items will be created. */
     await gapi.client.recommendationengine.projects.locations.catalogs.catalogItems.patch(
@@ -341,13 +341,13 @@ gapi.load('client', async () => {
         },
         tags: ['Test string'],
         title: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.operations.list(
@@ -356,7 +356,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Makes a recommendation prediction. If using API Key based authentication, the API Key must be registered using the PredictionApiKeyRegistry service. [Learn more](https://cloud.google.com/recommendations-ai/docs/setting-up#register-key). */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.placements.predict(
@@ -449,7 +449,7 @@ gapi.load('client', async () => {
             visitorId: 'Test string',
           },
         },
-      }
+      },
     );
     /** Register an API key for use with predict method. */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.predictionApiKeyRegistrations.create(
@@ -460,13 +460,13 @@ gapi.load('client', async () => {
         predictionApiKeyRegistration: {
           apiKey: 'Test string',
         },
-      }
+      },
     );
     /** Unregister an apiKey from using for predict method. */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.predictionApiKeyRegistrations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List the registered apiKeys for use with predict method. */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.predictionApiKeyRegistrations.list(
@@ -474,7 +474,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a 3rd party domain. This method is used only by the Recommendations AI JavaScript pixel. Users should not call this method directly. */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.userEvents.collect(
@@ -483,7 +483,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         uri: 'Test string',
         userEvent: 'Test string',
-      }
+      },
     );
     /** Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata. */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.userEvents.import(
@@ -640,7 +640,7 @@ gapi.load('client', async () => {
           },
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets a list of user events within a time range, with potential filtering. The method does not list unjoined user events. Unjoined user event definition: when a user event is ingested from Recommendations AI User Event APIs, the catalog item included in the user event is connected with the current catalog. If a catalog item of the ingested event is not in the current catalog, it could lead to degraded model quality. This is called an unjoined event. */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.userEvents.list(
@@ -649,7 +649,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.userEvents.purge(
@@ -659,7 +659,7 @@ gapi.load('client', async () => {
       {
         filter: 'Test string',
         force: true,
-      }
+      },
     );
     /** Triggers a user event rejoin operation with latest catalog data. Events will not be annotated with detailed catalog information if catalog item is missing at the time the user event is ingested, and these events are stored as unjoined events with a limited usage on training and serving. This API can be used to trigger a 'join' operation on specified events with latest version of catalog items. It can also be used to correct events joined with wrong catalog items. */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.userEvents.rejoin(
@@ -668,7 +668,7 @@ gapi.load('client', async () => {
       },
       {
         userEventRejoinScope: 'Test string',
-      }
+      },
     );
     /** Writes a single user event. */
     await gapi.client.recommendationengine.projects.locations.catalogs.eventStores.userEvents.write(
@@ -749,13 +749,13 @@ gapi.load('client', async () => {
           userId: 'Test string',
           visitorId: 'Test string',
         },
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.recommendationengine.projects.locations.catalogs.operations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
     await gapi.client.recommendationengine.projects.locations.catalogs.operations.list(
@@ -764,7 +764,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
   }
 });

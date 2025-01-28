@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load People API v1 */
   function load(
-    urlOrObject: 'https://people.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://people.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'people', version: 'v1'): Promise<void>;
@@ -788,7 +788,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ModifyContactGroupMembersRequest
+        body: ModifyContactGroupMembersRequest,
       ): Request<ModifyContactGroupMembersResponse>;
     }
     interface ContactGroupsResource {
@@ -875,7 +875,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateContactGroupRequest
+        body: CreateContactGroupRequest,
       ): Request<ContactGroup>;
       /** Delete an existing contact group owned by the authenticated user by specifying a contact group resource name. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       delete(request?: {
@@ -1026,7 +1026,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateContactGroupRequest
+        body: UpdateContactGroupRequest,
       ): Request<ContactGroup>;
       members: MembersResource;
     }
@@ -1087,7 +1087,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CopyOtherContactToMyContactsGroupRequest
+        body: CopyOtherContactToMyContactsGroupRequest,
       ): Request<Person>;
       /** List all "Other contacts", that is contacts that are not in a contact group. "Other contacts" are typically auto created contacts from interactions. Sync tokens expire 7 days after the full sync. A request with an expired sync token will get an error with an [google.rpc.ErrorInfo](https://cloud.google.com/apis/design/errors#error_info) with reason "EXPIRED_SYNC_TOKEN". In the case of such an error clients should make a full sync request without a `sync_token`. The first page of a full sync request has an additional quota. If the quota is exceeded, a 429 error will be returned. This quota is fixed and can not be increased. When the `sync_token` is specified, resources deleted since the last sync will be returned as a person with `PersonMetadata.deleted` set to true. When the `page_token` or `sync_token` is specified, all other request parameters must match the first call. Writes may have a propagation delay of several minutes for sync requests. Incremental syncs are not intended for read-after-write use cases. See example usage at [List the user's other contacts that have changed](/people/v1/other-contacts#list_the_users_other_contacts_that_have_changed). */
       list(request?: {
@@ -1256,7 +1256,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreateContactsRequest
+        body: BatchCreateContactsRequest,
       ): Request<BatchCreateContactsResponse>;
       /** Delete a batch of contacts. Any non-contact data will not be deleted. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       batchDeleteContacts(request: {
@@ -1310,7 +1310,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchDeleteContactsRequest
+        body: BatchDeleteContactsRequest,
       ): Request<{}>;
       /** Update a batch of contacts and return a map of resource names to PersonResponses for the updated contacts. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       batchUpdateContacts(request: {
@@ -1364,7 +1364,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchUpdateContactsRequest
+        body: BatchUpdateContactsRequest,
       ): Request<BatchUpdateContactsResponse>;
       /** Create a new contact and return the person resource for that contact. The request returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       createContact(request: {
@@ -1426,7 +1426,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Person
+        body: Person,
       ): Request<Person>;
       /** Delete a contact person. Any non-contact data will not be deleted. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       deleteContact(request?: {
@@ -1729,7 +1729,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Person
+        body: Person,
       ): Request<Person>;
       /** Update a contact's photo. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       updateContactPhoto(request: {
@@ -1787,7 +1787,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateContactPhotoRequest
+        body: UpdateContactPhotoRequest,
       ): Request<UpdateContactPhotoResponse>;
       connections: ConnectionsResource;
     }

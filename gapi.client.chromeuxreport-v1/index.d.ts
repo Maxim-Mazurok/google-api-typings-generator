@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Chrome UX Report API v1 */
   function load(
-    urlOrObject: 'https://chromeuxreport.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://chromeuxreport.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'chromeuxreport', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'chromeuxreport',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace chromeuxreport {
@@ -213,7 +213,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryHistoryRequest
+        body: QueryHistoryRequest,
       ): Request<QueryHistoryResponse>;
       /** Queries the Chrome User Experience for a single `record` for a given site. Returns a `record` that contains one or more `metrics` corresponding to performance data about the requested site. */
       queryRecord(request: {
@@ -267,7 +267,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryRequest
+        body: QueryRequest,
       ): Request<QueryResponse>;
     }
 

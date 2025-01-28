@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://containeranalysis.googleapis.com/$discovery/rest?version=v1'
+    'https://containeranalysis.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.containeranalysis */
 
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Creates a new note. */
     await gapi.client.containeranalysis.projects.locations.notes.create(
@@ -596,7 +596,7 @@ gapi.load('client', async () => {
           shortDescription: 'Test string',
           title: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified note. */
     await gapi.client.containeranalysis.projects.locations.notes.delete({
@@ -615,7 +615,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists notes for the specified project. */
     await gapi.client.containeranalysis.projects.locations.notes.list({
@@ -904,7 +904,7 @@ gapi.load('client', async () => {
           shortDescription: 'Test string',
           title: 'Test string',
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
     await gapi.client.containeranalysis.projects.locations.notes.setIamPolicy(
@@ -928,7 +928,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, `containeranalysis.notes.list`). The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
     await gapi.client.containeranalysis.projects.locations.notes.testIamPermissions(
@@ -937,7 +937,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. */
     await gapi.client.containeranalysis.projects.locations.notes.occurrences.list(
@@ -946,7 +946,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Creates new occurrences in batch. */
     await gapi.client.containeranalysis.projects.locations.occurrences.batchCreate(
@@ -1743,7 +1743,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Creates a new occurrence. */
     await gapi.client.containeranalysis.projects.locations.occurrences.create(
@@ -2536,7 +2536,7 @@ gapi.load('client', async () => {
             vulnerabilityId: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource. */
     await gapi.client.containeranalysis.projects.locations.occurrences.delete({
@@ -2555,20 +2555,20 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project. */
     await gapi.client.containeranalysis.projects.locations.occurrences.getNotes(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a summary of the number and severity of occurrences. */
     await gapi.client.containeranalysis.projects.locations.occurrences.getVulnerabilitySummary(
       {
         filter: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists occurrences for the specified project. */
     await gapi.client.containeranalysis.projects.locations.occurrences.list({
@@ -3369,7 +3369,7 @@ gapi.load('client', async () => {
             vulnerabilityId: 'Test string',
           },
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
     await gapi.client.containeranalysis.projects.locations.occurrences.setIamPolicy(
@@ -3393,7 +3393,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, `containeranalysis.notes.list`). The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
     await gapi.client.containeranalysis.projects.locations.occurrences.testIamPermissions(
@@ -3402,7 +3402,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Generates an SBOM for the given resource. */
     await gapi.client.containeranalysis.projects.locations.resources.exportSBOM(
@@ -3411,7 +3411,7 @@ gapi.load('client', async () => {
       },
       {
         cloudStorageLocation: {},
-      }
+      },
     );
     /** Creates new notes in batch. */
     await gapi.client.containeranalysis.projects.notes.batchCreate(
@@ -3696,7 +3696,7 @@ gapi.load('client', async () => {
             },
           },
         },
-      }
+      },
     );
     /** Creates a new note. */
     await gapi.client.containeranalysis.projects.notes.create(
@@ -3978,7 +3978,7 @@ gapi.load('client', async () => {
           shortDescription: 'Test string',
           title: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the specified note. */
     await gapi.client.containeranalysis.projects.notes.delete({
@@ -3997,7 +3997,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists notes for the specified project. */
     await gapi.client.containeranalysis.projects.notes.list({
@@ -4286,7 +4286,7 @@ gapi.load('client', async () => {
           shortDescription: 'Test string',
           title: 'Test string',
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
     await gapi.client.containeranalysis.projects.notes.setIamPolicy(
@@ -4310,7 +4310,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, `containeranalysis.notes.list`). The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
     await gapi.client.containeranalysis.projects.notes.testIamPermissions(
@@ -4319,7 +4319,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. */
     await gapi.client.containeranalysis.projects.notes.occurrences.list({
@@ -5123,7 +5123,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Creates a new occurrence. */
     await gapi.client.containeranalysis.projects.occurrences.create(
@@ -5916,7 +5916,7 @@ gapi.load('client', async () => {
             vulnerabilityId: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource. */
     await gapi.client.containeranalysis.projects.occurrences.delete({
@@ -5935,7 +5935,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project. */
     await gapi.client.containeranalysis.projects.occurrences.getNotes({
@@ -5946,7 +5946,7 @@ gapi.load('client', async () => {
       {
         filter: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists occurrences for the specified project. */
     await gapi.client.containeranalysis.projects.occurrences.list({
@@ -6747,7 +6747,7 @@ gapi.load('client', async () => {
             vulnerabilityId: 'Test string',
           },
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
     await gapi.client.containeranalysis.projects.occurrences.setIamPolicy(
@@ -6771,7 +6771,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, `containeranalysis.notes.list`). The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
     await gapi.client.containeranalysis.projects.occurrences.testIamPermissions(
@@ -6780,7 +6780,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Generates an SBOM for the given resource. */
     await gapi.client.containeranalysis.projects.resources.exportSBOM(
@@ -6789,7 +6789,7 @@ gapi.load('client', async () => {
       },
       {
         cloudStorageLocation: {},
-      }
+      },
     );
   }
 });

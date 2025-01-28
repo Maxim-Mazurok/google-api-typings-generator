@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://servicecontrol.googleapis.com/$discovery/rest?version=v2'
+    'https://servicecontrol.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.servicecontrol */
 
@@ -141,7 +141,7 @@ gapi.load('client', async () => {
           },
         ],
         serviceConfigId: 'Test string',
-      }
+      },
     );
     /** Private Preview. This feature is only available for approved services. This method provides telemetry reporting for services that are integrated with [Service Infrastructure](https://cloud.google.com/service-infrastructure). It reports a list of operations that have occurred on a service. It must be called after the operations have been executed. For more information, see [Telemetry Reporting](https://cloud.google.com/service-infrastructure/docs/telemetry-reporting). NOTE: The telemetry reporting has a hard limit of 1000 operations and 1MB per Report call. It is recommended to have no more than 100 operations per call. This method requires the `servicemanagement.services.report` permission on the specified service. For more information, see [Service Control API Access Control](https://cloud.google.com/service-infrastructure/docs/service-control/access-control). */
     await gapi.client.servicecontrol.services.report(
@@ -243,7 +243,7 @@ gapi.load('client', async () => {
           },
         ],
         serviceConfigId: 'Test string',
-      }
+      },
     );
   }
 });

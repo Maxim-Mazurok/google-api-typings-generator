@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudresourcemanager.googleapis.com/$discovery/rest?version=v3'
+    'https://cloudresourcemanager.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.cloudresourcemanager */
 
@@ -54,7 +54,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Requests deletion of a folder. The folder is moved into the DELETE_REQUESTED state immediately, and is deleted approximately 30 days later. This method may only be called on an empty folder, where a folder is empty if it doesn't contain any folders or projects in the ACTIVE state. If called on a folder in DELETE_REQUESTED state the operation will result in a no-op success. The caller must have `resourcemanager.folders.delete` permission on the identified folder. */
     await gapi.client.cloudresourcemanager.folders.delete({
@@ -73,7 +73,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists the folders that are direct descendants of supplied parent resource. `list()` provides a strongly consistent view of the folders underneath the specified parent resource. `list()` returns folders sorted based upon the (ascending) lexical ordering of their display_name. The caller must have `resourcemanager.folders.list` permission on the identified parent. */
     await gapi.client.cloudresourcemanager.folders.list({
@@ -89,7 +89,7 @@ gapi.load('client', async () => {
       },
       {
         destinationParent: 'Test string',
-      }
+      },
     );
     /** Updates a folder, changing its `display_name`. Changes to the folder `display_name` will be rejected if they violate either the `display_name` formatting rules or the naming constraints described in the CreateFolder documentation. The folder's `display_name` must start and end with a letter or digit, may contain letters, digits, spaces, hyphens and underscores and can be between 3 and 30 characters. This is captured by the regular expression: `\p{L}\p{N}{1,28}[\p{L}\p{N}]`. The caller must have `resourcemanager.folders.update` permission on the identified folder. If the update fails due to the unique name constraint then a `PreconditionFailure` explaining this violation will be returned in the Status.details field. */
     await gapi.client.cloudresourcemanager.folders.patch(
@@ -109,7 +109,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Search for folders that match specific filter criteria. `search()` provides an eventually consistent view of the folders a user has access to which meet the specified filter criteria. This will only return folders on which the caller has the permission `resourcemanager.folders.get`. */
     await gapi.client.cloudresourcemanager.folders.search({
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified folder. The `resource` field should be the folder's resource name, for example: "folders/1234". There are no permissions required for making this API call. */
     await gapi.client.cloudresourcemanager.folders.testIamPermissions(
@@ -160,14 +160,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Cancels the deletion request for a folder. This method may be called on a folder in any state. If the folder is in the ACTIVE state the result will be a no-op success. In order to succeed, the folder's parent must be in the ACTIVE state. In addition, reintroducing the folder into the tree must not violate folder naming, height, and fanout constraints described in the CreateFolder documentation. The caller must have `resourcemanager.folders.undelete` permission on the identified folder. */
     await gapi.client.cloudresourcemanager.folders.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Create a Lien which applies to the resource denoted by the `parent` field. Callers of this method will require permission on the `parent` resource. For example, applying to `projects/1234` requires permission `resourcemanager.projects.updateLiens`. NOTE: Some resources may limit the number of Liens which may be applied. */
     await gapi.client.cloudresourcemanager.liens.create(
@@ -179,7 +179,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         reason: 'Test string',
         restrictions: ['Test string'],
-      }
+      },
     );
     /** Delete a Lien by `name`. Callers of this method will require permission on the `parent` resource. For example, a Lien with a `parent` of `projects/1234` requires permission `resourcemanager.projects.updateLiens`. */
     await gapi.client.cloudresourcemanager.liens.delete({
@@ -212,7 +212,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Searches organization resources that are visible to the user and satisfy the specified filter. This method returns organizations in an unspecified order. New organizations do not necessarily appear at the end of the results, and may take a small amount of time to appear. Search will only return organizations on which the user has the permission `resourcemanager.organizations.get` or has super admin privileges. */
     await gapi.client.cloudresourcemanager.organizations.search({
@@ -254,7 +254,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns the permissions that a caller has on the specified organization. The `resource` field should be the organization's resource name, for example: "organizations/123". There are no permissions required for making this API call. */
     await gapi.client.cloudresourcemanager.organizations.testIamPermissions(
@@ -263,7 +263,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Request that a new project be created. The result is an `Operation` which can be used to track the creation process. This process usually takes a few seconds, but can sometimes take much longer. The tracking `Operation` is automatically deleted after a few hours, so there is no need to call `DeleteOperation`. */
     await gapi.client.cloudresourcemanager.projects.create(
@@ -284,7 +284,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Marks the project identified by the specified `name` (for example, `projects/415104041262`) for deletion. This method will only affect the project if it has a lifecycle state of ACTIVE. This method changes the Project's lifecycle state from ACTIVE to DELETE_REQUESTED. The deletion starts at an unspecified time, at which point the Project is no longer accessible. Until the deletion completes, you can check the lifecycle state checked by retrieving the project with GetProject, and the project remains visible to ListProjects. However, you cannot update the project. After the deletion completes, the project is not retrievable by the GetProject, ListProjects, and SearchProjects methods. This method behaves idempotently, such that deleting a `DELETE_REQUESTED` project will not cause an error, but also won't do anything. The caller must have `resourcemanager.projects.delete` permissions for this project. */
     await gapi.client.cloudresourcemanager.projects.delete({
@@ -303,7 +303,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists projects that are direct children of the specified folder or organization resource. `list()` provides a strongly consistent view of the projects underneath the specified parent resource. `list()` returns projects sorted based upon the (ascending) lexical ordering of their `display_name`. The caller must have `resourcemanager.projects.list` permission on the identified parent. */
     await gapi.client.cloudresourcemanager.projects.list({
@@ -319,7 +319,7 @@ gapi.load('client', async () => {
       },
       {
         destinationParent: 'Test string',
-      }
+      },
     );
     /** Updates the `display_name` and labels of the project identified by the specified `name` (for example, `projects/415104041262`). Deleting all labels requires an update mask for labels field. The caller must have `resourcemanager.projects.update` permission for this project. */
     await gapi.client.cloudresourcemanager.projects.patch(
@@ -343,7 +343,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Search for projects that the caller has the `resourcemanager.projects.get` permission on, and also satisfy the specified query. This method returns projects in an unspecified order. This method is eventually consistent with project mutations; this means that a newly created project may not appear in the results or recent updates to an existing project may not be reflected in the results. To retrieve the latest state of a project, use the GetProject method. */
     await gapi.client.cloudresourcemanager.projects.search({
@@ -385,7 +385,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified project, in the format `projects/{ProjectIdOrNumber}` e.g. projects/123.. */
     await gapi.client.cloudresourcemanager.projects.testIamPermissions(
@@ -394,14 +394,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Restores the project identified by the specified `name` (for example, `projects/415104041262`). You can only use this method for a project that has a lifecycle state of DELETE_REQUESTED. After deletion starts, the project cannot be restored. The caller must have `resourcemanager.projects.undelete` permission for this project. */
     await gapi.client.cloudresourcemanager.projects.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a TagBinding between a TagValue and a Google Cloud resource. */
     await gapi.client.cloudresourcemanager.tagBindings.create(
@@ -413,7 +413,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         tagValue: 'Test string',
         tagValueNamespacedName: 'Test string',
-      }
+      },
     );
     /** Deletes a TagBinding. */
     await gapi.client.cloudresourcemanager.tagBindings.delete({
@@ -443,7 +443,7 @@ gapi.load('client', async () => {
         },
         shortName: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a TagKey. The TagKey cannot be deleted if it has any child TagValues. */
     await gapi.client.cloudresourcemanager.tagKeys.delete({
@@ -464,7 +464,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Retrieves a TagKey by its namespaced name. This method will return `PERMISSION_DENIED` if the key does not exist or the user does not have permission to view it. */
     await gapi.client.cloudresourcemanager.tagKeys.getNamespaced({
@@ -496,7 +496,7 @@ gapi.load('client', async () => {
         },
         shortName: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on a TagKey, replacing any existing policy. The `resource` field should be the TagKey's resource name. For example, "tagKeys/1234". The caller must have `resourcemanager.tagKeys.setIamPolicy` permission on the identified tagValue. */
     await gapi.client.cloudresourcemanager.tagKeys.setIamPolicy(
@@ -532,7 +532,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified TagKey. The `resource` field should be the TagKey's resource name. For example, "tagKeys/1234". There are no permissions required for making this API call. */
     await gapi.client.cloudresourcemanager.tagKeys.testIamPermissions(
@@ -541,7 +541,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a TagValue as a child of the specified TagKey. If a another request with the same parameters is sent while the original request is in process the second request will receive an error. A maximum of 1000 TagValues can exist under a TagKey at any given time. */
     await gapi.client.cloudresourcemanager.tagValues.create(
@@ -557,7 +557,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         shortName: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a TagValue. The TagValue cannot have any bindings when it is deleted. */
     await gapi.client.cloudresourcemanager.tagValues.delete({
@@ -578,7 +578,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Retrieves a TagValue by its namespaced name. This method will return `PERMISSION_DENIED` if the value does not exist or the user does not have permission to view it. */
     await gapi.client.cloudresourcemanager.tagValues.getNamespaced({
@@ -606,7 +606,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         shortName: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on a TagValue, replacing any existing policy. The `resource` field should be the TagValue's resource name. For example: `tagValues/1234`. The caller must have `resourcemanager.tagValues.setIamPolicy` permission on the identified tagValue. */
     await gapi.client.cloudresourcemanager.tagValues.setIamPolicy(
@@ -642,7 +642,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified TagValue. The `resource` field should be the TagValue's resource name. For example: `tagValues/1234`. There are no permissions required for making this API call. */
     await gapi.client.cloudresourcemanager.tagValues.testIamPermissions(
@@ -651,7 +651,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a TagHold. Returns ALREADY_EXISTS if a TagHold with the same resource and origin exists under the same TagValue. */
     await gapi.client.cloudresourcemanager.tagValues.tagHolds.create(
@@ -665,7 +665,7 @@ gapi.load('client', async () => {
         holder: 'Test string',
         name: 'Test string',
         origin: 'Test string',
-      }
+      },
     );
     /** Deletes a TagHold. */
     await gapi.client.cloudresourcemanager.tagValues.tagHolds.delete({

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://workloadmanager.googleapis.com/$discovery/rest?version=v1'
+    'https://workloadmanager.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.workloadmanager */
 
@@ -80,7 +80,7 @@ gapi.load('client', async () => {
         ruleVersions: ['Test string'],
         schedule: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Evaluation. */
     await gapi.client.workloadmanager.projects.locations.evaluations.delete({
@@ -105,13 +105,13 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Execution. */
     await gapi.client.workloadmanager.projects.locations.evaluations.executions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Executions in a given project and location. */
     await gapi.client.workloadmanager.projects.locations.evaluations.executions.list(
@@ -121,7 +121,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new Execution in a given project and location. */
     await gapi.client.workloadmanager.projects.locations.evaluations.executions.run(
@@ -170,7 +170,7 @@ gapi.load('client', async () => {
         },
         executionId: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Lists the result of a single evaluation. */
     await gapi.client.workloadmanager.projects.locations.evaluations.executions.results.list(
@@ -179,7 +179,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** List all scanned resources for a single Execution. */
     await gapi.client.workloadmanager.projects.locations.evaluations.executions.scannedResources.list(
@@ -190,7 +190,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         rule: 'Test string',
-      }
+      },
     );
     /** Write the data insights to workload manager data warehouse. */
     await gapi.client.workloadmanager.projects.locations.insights.writeInsight(
@@ -379,14 +379,14 @@ gapi.load('client', async () => {
           },
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.workloadmanager.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.workloadmanager.projects.locations.operations.delete({

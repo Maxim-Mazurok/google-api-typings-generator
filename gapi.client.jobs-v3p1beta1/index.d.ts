@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Talent Solution API v3p1beta1 */
   function load(
-    urlOrObject: 'https://jobs.googleapis.com/$discovery/rest?version=v3p1beta1'
+    urlOrObject: 'https://jobs.googleapis.com/$discovery/rest?version=v3p1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'jobs', version: 'v3p1beta1'): Promise<void>;
@@ -650,7 +650,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateClientEventRequest
+        body: CreateClientEventRequest,
       ): Request<ClientEvent>;
     }
     interface CompaniesResource {
@@ -710,7 +710,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateCompanyRequest
+        body: CreateCompanyRequest,
       ): Request<Company>;
       /** Deletes specified company. Prerequisite: The company has no jobs associated with it. */
       delete(request?: {
@@ -855,7 +855,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateCompanyRequest
+        body: UpdateCompanyRequest,
       ): Request<Company>;
     }
     interface JobsResource {
@@ -915,7 +915,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchDeleteJobsRequest
+        body: BatchDeleteJobsRequest,
       ): Request<{}>;
       /** Creates a new job. Typically, the job becomes searchable within 10 seconds, but it may take up to 5 minutes. */
       create(request: {
@@ -973,7 +973,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateJobRequest
+        body: CreateJobRequest,
       ): Request<Job>;
       /** Deletes the specified job. Typically, the job becomes unsearchable within 10 seconds, but it may take up to 5 minutes. */
       delete(request?: {
@@ -1120,7 +1120,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateJobRequest
+        body: UpdateJobRequest,
       ): Request<Job>;
       /** Searches for jobs using the provided SearchJobsRequest. This call constrains the visibility of jobs present in the database, and only returns jobs that the caller has permission to search against. */
       search(request: {
@@ -1178,7 +1178,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchJobsRequest
+        body: SearchJobsRequest,
       ): Request<SearchJobsResponse>;
       /** Searches for jobs using the provided SearchJobsRequest. This API call is intended for the use case of targeting passive job seekers (for example, job seekers who have signed up to receive email alerts about potential job opportunities), and has different algorithmic adjustments that are targeted to passive job seekers. This call constrains the visibility of jobs present in the database, and only returns jobs the caller has permission to search against. */
       searchForAlert(request: {
@@ -1236,7 +1236,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchJobsRequest
+        body: SearchJobsRequest,
       ): Request<SearchJobsResponse>;
     }
     interface OperationsResource {

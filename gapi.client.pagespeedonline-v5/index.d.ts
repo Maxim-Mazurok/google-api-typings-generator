@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load PageSpeed Insights API v5 */
   function load(
-    urlOrObject: 'https://pagespeedonline.googleapis.com/$discovery/rest?version=v5'
+    urlOrObject: 'https://pagespeedonline.googleapis.com/$discovery/rest?version=v5',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'pagespeedonline', version: 'v5'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'pagespeedonline',
     version: 'v5',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace pagespeedonline {

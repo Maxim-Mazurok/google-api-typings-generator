@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://realtimebidding.googleapis.com/$discovery/rest?version=v1'
+    'https://realtimebidding.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.realtimebidding */
 
@@ -53,7 +53,7 @@ gapi.load('client', async () => {
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets a bidder endpoint by its name. */
     await gapi.client.realtimebidding.bidders.endpoints.get({
@@ -77,14 +77,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         tradingLocation: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Activates a pretargeting configuration. */
     await gapi.client.realtimebidding.bidders.pretargetingConfigs.activate(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Adds targeted apps to the pretargeting configuration. */
     await gapi.client.realtimebidding.bidders.pretargetingConfigs.addTargetedApps(
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
       {
         appIds: ['Test string'],
         targetingMode: 'Test string',
-      }
+      },
     );
     /** Adds targeted publishers to the pretargeting config. */
     await gapi.client.realtimebidding.bidders.pretargetingConfigs.addTargetedPublishers(
@@ -104,7 +104,7 @@ gapi.load('client', async () => {
       {
         publisherIds: ['Test string'],
         targetingMode: 'Test string',
-      }
+      },
     );
     /** Adds targeted sites to the pretargeting configuration. */
     await gapi.client.realtimebidding.bidders.pretargetingConfigs.addTargetedSites(
@@ -114,7 +114,7 @@ gapi.load('client', async () => {
       {
         sites: ['Test string'],
         targetingMode: 'Test string',
-      }
+      },
     );
     /** Creates a pretargeting configuration. A pretargeting configuration's state (PretargetingConfig.state) is active upon creation, and it will start to affect traffic shortly after. A bidder may create a maximum of 10 pretargeting configurations. Attempts to exceed this maximum results in a 400 bad request error. */
     await gapi.client.realtimebidding.bidders.pretargetingConfigs.create(
@@ -174,7 +174,7 @@ gapi.load('client', async () => {
           targetingMode: 'Test string',
           values: ['Test string'],
         },
-      }
+      },
     );
     /** Deletes a pretargeting configuration. */
     await gapi.client.realtimebidding.bidders.pretargetingConfigs.delete({
@@ -249,7 +249,7 @@ gapi.load('client', async () => {
           targetingMode: 'Test string',
           values: ['Test string'],
         },
-      }
+      },
     );
     /** Removes targeted apps from the pretargeting configuration. */
     await gapi.client.realtimebidding.bidders.pretargetingConfigs.removeTargetedApps(
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
       },
       {
         appIds: ['Test string'],
-      }
+      },
     );
     /** Removes targeted publishers from the pretargeting config. */
     await gapi.client.realtimebidding.bidders.pretargetingConfigs.removeTargetedPublishers(
@@ -267,7 +267,7 @@ gapi.load('client', async () => {
       },
       {
         publisherIds: ['Test string'],
-      }
+      },
     );
     /** Removes targeted sites from the pretargeting configuration. */
     await gapi.client.realtimebidding.bidders.pretargetingConfigs.removeTargetedSites(
@@ -276,14 +276,14 @@ gapi.load('client', async () => {
       },
       {
         sites: ['Test string'],
-      }
+      },
     );
     /** Suspends a pretargeting configuration. */
     await gapi.client.realtimebidding.bidders.pretargetingConfigs.suspend(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Batch approves multiple publisher connections. */
     await gapi.client.realtimebidding.bidders.publisherConnections.batchApprove(
@@ -292,7 +292,7 @@ gapi.load('client', async () => {
       },
       {
         names: ['Test string'],
-      }
+      },
     );
     /** Batch rejects multiple publisher connections. */
     await gapi.client.realtimebidding.bidders.publisherConnections.batchReject(
@@ -301,7 +301,7 @@ gapi.load('client', async () => {
       },
       {
         names: ['Test string'],
-      }
+      },
     );
     /** Gets a publisher connection. */
     await gapi.client.realtimebidding.bidders.publisherConnections.get({
@@ -710,7 +710,7 @@ gapi.load('client', async () => {
           videoUrl: 'Test string',
           videoVastXml: 'Test string',
         },
-      }
+      },
     );
     /** Gets a creative. */
     await gapi.client.realtimebidding.buyers.creatives.get({
@@ -1108,14 +1108,14 @@ gapi.load('client', async () => {
           videoUrl: 'Test string',
           videoVastXml: 'Test string',
         },
-      }
+      },
     );
     /** Changes the status of a user list to CLOSED. This prevents new users from being added to the user list. */
     await gapi.client.realtimebidding.buyers.userLists.close(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new user list. */
     await gapi.client.realtimebidding.buyers.userLists.create(
@@ -1142,7 +1142,7 @@ gapi.load('client', async () => {
           },
           url: 'Test string',
         },
-      }
+      },
     );
     /** Gets a user list by its name. */
     await gapi.client.realtimebidding.buyers.userLists.get({
@@ -1163,7 +1163,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates the given user list. Only user lists with URLRestrictions can be updated. */
     await gapi.client.realtimebidding.buyers.userLists.update(
@@ -1190,7 +1190,7 @@ gapi.load('client', async () => {
           },
           url: 'Test string',
         },
-      }
+      },
     );
   }
 });

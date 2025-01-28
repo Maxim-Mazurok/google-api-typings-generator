@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Dataform API v1beta1 */
   function load(
-    urlOrObject: 'https://dataform.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://dataform.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'dataform', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'dataform',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace dataform {
@@ -797,7 +797,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CompilationResult
+        body: CompilationResult,
       ): Request<CompilationResult>;
       /** Fetches a single CompilationResult. */
       get(request?: {
@@ -956,7 +956,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReleaseConfig
+        body: ReleaseConfig,
       ): Request<ReleaseConfig>;
       /** Deletes a single ReleaseConfig. */
       delete(request?: {
@@ -1103,7 +1103,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReleaseConfig
+        body: ReleaseConfig,
       ): Request<ReleaseConfig>;
     }
     interface WorkflowConfigsResource {
@@ -1167,7 +1167,7 @@ declare namespace gapi.client {
           /** Required. The ID to use for the workflow config, which will become the final component of the workflow config's resource name. */
           workflowConfigId?: string;
         },
-        body: WorkflowConfig
+        body: WorkflowConfig,
       ): Request<WorkflowConfig>;
       /** Deletes a single WorkflowConfig. */
       delete(request?: {
@@ -1314,7 +1314,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WorkflowConfig
+        body: WorkflowConfig,
       ): Request<WorkflowConfig>;
     }
     interface WorkflowInvocationsResource {
@@ -1374,7 +1374,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelWorkflowInvocationRequest
+        body: CancelWorkflowInvocationRequest,
       ): Request<{}>;
       /** Creates a new WorkflowInvocation in a given Repository. */
       create(request: {
@@ -1432,7 +1432,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WorkflowInvocation
+        body: WorkflowInvocation,
       ): Request<WorkflowInvocation>;
       /** Deletes a single WorkflowInvocation. */
       delete(request?: {
@@ -1612,7 +1612,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommitWorkspaceChangesRequest
+        body: CommitWorkspaceChangesRequest,
       ): Request<{}>;
       /** Creates a new Workspace in a given Repository. */
       create(request: {
@@ -1674,7 +1674,7 @@ declare namespace gapi.client {
           /** Required. The ID to use for the workspace, which will become the final component of the workspace's resource name. */
           workspaceId?: string;
         },
-        body: Workspace
+        body: Workspace,
       ): Request<Workspace>;
       /** Deletes a single Workspace. */
       delete(request?: {
@@ -1900,7 +1900,7 @@ declare namespace gapi.client {
           /** Required. The workspace's name. */
           workspace: string;
         },
-        body: InstallNpmPackagesRequest
+        body: InstallNpmPackagesRequest,
       ): Request<{}>;
       /** Lists Workspaces in a given Repository. */
       list(request?: {
@@ -1993,7 +1993,7 @@ declare namespace gapi.client {
           /** Required. The workspace's name. */
           workspace: string;
         },
-        body: MakeDirectoryRequest
+        body: MakeDirectoryRequest,
       ): Request<{}>;
       /** Moves a directory (inside a Workspace), and all of its contents, to a new location. */
       moveDirectory(request: {
@@ -2051,7 +2051,7 @@ declare namespace gapi.client {
           /** Required. The workspace's name. */
           workspace: string;
         },
-        body: MoveDirectoryRequest
+        body: MoveDirectoryRequest,
       ): Request<{}>;
       /** Moves a file (inside a Workspace) to a new location. */
       moveFile(request: {
@@ -2109,7 +2109,7 @@ declare namespace gapi.client {
           /** Required. The workspace's name. */
           workspace: string;
         },
-        body: MoveFileRequest
+        body: MoveFileRequest,
       ): Request<{}>;
       /** Pulls Git commits from the Repository's remote into a Workspace. */
       pull(request: {
@@ -2167,7 +2167,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PullGitCommitsRequest
+        body: PullGitCommitsRequest,
       ): Request<{}>;
       /** Pushes Git commits from a Workspace to the Repository's remote. */
       push(request: {
@@ -2225,7 +2225,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PushGitCommitsRequest
+        body: PushGitCommitsRequest,
       ): Request<{}>;
       /** Returns the contents of a given Workspace directory. */
       queryDirectoryContents(request?: {
@@ -2347,7 +2347,7 @@ declare namespace gapi.client {
           /** Required. The workspace's name. */
           workspace: string;
         },
-        body: RemoveDirectoryRequest
+        body: RemoveDirectoryRequest,
       ): Request<{}>;
       /** Deletes a file (inside a Workspace). */
       removeFile(request: {
@@ -2405,7 +2405,7 @@ declare namespace gapi.client {
           /** Required. The workspace's name. */
           workspace: string;
         },
-        body: RemoveFileRequest
+        body: RemoveFileRequest,
       ): Request<{}>;
       /** Performs a Git reset for uncommitted files in a Workspace. */
       reset(request: {
@@ -2463,7 +2463,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetWorkspaceChangesRequest
+        body: ResetWorkspaceChangesRequest,
       ): Request<{}>;
       /** Finds the contents of a given Workspace directory by filter. */
       searchFiles(request?: {
@@ -2526,7 +2526,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2556,7 +2556,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Writes to a file (inside a Workspace). */
       writeFile(request: {
@@ -2614,7 +2614,7 @@ declare namespace gapi.client {
           /** Required. The workspace's name. */
           workspace: string;
         },
-        body: WriteFileRequest
+        body: WriteFileRequest,
       ): Request<{}>;
     }
     interface RepositoriesResource {
@@ -2674,7 +2674,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommitRepositoryChangesRequest
+        body: CommitRepositoryChangesRequest,
       ): Request<CommitRepositoryChangesResponse>;
       /** Computes a Repository's Git access token status. */
       computeAccessTokenStatus(request?: {
@@ -2763,7 +2763,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Repository
+        body: Repository,
       ): Request<Repository>;
       /** Deletes a single Repository. */
       delete(request?: {
@@ -3003,7 +3003,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Repository
+        body: Repository,
       ): Request<Repository>;
       /** Returns the contents of a given Repository directory. The Repository must not have a value for `git_remote_settings.url`. */
       queryDirectoryContents(request?: {
@@ -3099,7 +3099,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3129,7 +3129,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       compilationResults: CompilationResultsResource;
       releaseConfigs: ReleaseConfigsResource;
@@ -3285,7 +3285,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Config
+        body: Config,
       ): Request<Config>;
       repositories: RepositoriesResource;
     }

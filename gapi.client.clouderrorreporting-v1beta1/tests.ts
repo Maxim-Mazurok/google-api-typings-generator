@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://clouderrorreporting.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://clouderrorreporting.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.clouderrorreporting */
 
@@ -81,7 +81,7 @@ gapi.load('client', async () => {
           service: 'Test string',
           version: 'Test string',
         },
-      }
+      },
     );
     /** Get the specified group. */
     await gapi.client.clouderrorreporting.projects.groups.get({
@@ -101,7 +101,7 @@ gapi.load('client', async () => {
             url: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Lists the specified groups. */
     await gapi.client.clouderrorreporting.projects.groupStats.list({
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
             url: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Lists the specified groups. */
     await gapi.client.clouderrorreporting.projects.locations.groupStats.list({

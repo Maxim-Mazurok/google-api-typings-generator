@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://networksecurity.googleapis.com/$discovery/rest?version=v1'
+    'https://networksecurity.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.networksecurity */
 
@@ -39,7 +39,7 @@ gapi.load('client', async () => {
       {
         items: ['Test string'],
         requestId: 'Test string',
-      }
+      },
     );
     /** Clones items from one address group to another. */
     await gapi.client.networksecurity.organizations.locations.addressGroups.cloneItems(
@@ -49,7 +49,7 @@ gapi.load('client', async () => {
       {
         requestId: 'Test string',
         sourceAddressGroup: 'Test string',
-      }
+      },
     );
     /** Creates a new address group in a given project and location. */
     await gapi.client.networksecurity.organizations.locations.addressGroups.create(
@@ -71,20 +71,20 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an address group. */
     await gapi.client.networksecurity.organizations.locations.addressGroups.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single address group. */
     await gapi.client.networksecurity.organizations.locations.addressGroups.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists address groups in a given project and location. */
     await gapi.client.networksecurity.organizations.locations.addressGroups.list(
@@ -92,7 +92,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists references of an address group. */
     await gapi.client.networksecurity.organizations.locations.addressGroups.listReferences(
@@ -100,7 +100,7 @@ gapi.load('client', async () => {
         addressGroup: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Updates parameters of an address group. */
     await gapi.client.networksecurity.organizations.locations.addressGroups.patch(
@@ -122,7 +122,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes items from an address group. */
     await gapi.client.networksecurity.organizations.locations.addressGroups.removeItems(
@@ -132,7 +132,7 @@ gapi.load('client', async () => {
       {
         items: ['Test string'],
         requestId: 'Test string',
-      }
+      },
     );
     /** Creates a new FirewallEndpoint in a given project and location. */
     await gapi.client.networksecurity.organizations.locations.firewallEndpoints.create(
@@ -159,20 +159,20 @@ gapi.load('client', async () => {
         reconciling: true,
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Endpoint. */
     await gapi.client.networksecurity.organizations.locations.firewallEndpoints.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Endpoint. */
     await gapi.client.networksecurity.organizations.locations.firewallEndpoints.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists FirewallEndpoints in a given project and location. */
     await gapi.client.networksecurity.organizations.locations.firewallEndpoints.list(
@@ -182,7 +182,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Update a single Endpoint. */
     await gapi.client.networksecurity.organizations.locations.firewallEndpoints.patch(
@@ -209,20 +209,20 @@ gapi.load('client', async () => {
         reconciling: true,
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.networksecurity.organizations.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.networksecurity.organizations.locations.operations.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.networksecurity.organizations.locations.operations.get({
@@ -253,20 +253,20 @@ gapi.load('client', async () => {
         name: 'Test string',
         threatPreventionProfile: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single SecurityProfileGroup. */
     await gapi.client.networksecurity.organizations.locations.securityProfileGroups.delete(
       {
         etag: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single SecurityProfileGroup. */
     await gapi.client.networksecurity.organizations.locations.securityProfileGroups.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists SecurityProfileGroups in a given organization and location. */
     await gapi.client.networksecurity.organizations.locations.securityProfileGroups.list(
@@ -274,7 +274,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single SecurityProfileGroup. */
     await gapi.client.networksecurity.organizations.locations.securityProfileGroups.patch(
@@ -294,7 +294,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         threatPreventionProfile: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new SecurityProfile in a given organization and location. */
     await gapi.client.networksecurity.organizations.locations.securityProfiles.create(
@@ -333,20 +333,20 @@ gapi.load('client', async () => {
         },
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single SecurityProfile. */
     await gapi.client.networksecurity.organizations.locations.securityProfiles.delete(
       {
         etag: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single SecurityProfile. */
     await gapi.client.networksecurity.organizations.locations.securityProfiles.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists SecurityProfiles in a given organization and location. */
     await gapi.client.networksecurity.organizations.locations.securityProfiles.list(
@@ -354,7 +354,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single SecurityProfile. */
     await gapi.client.networksecurity.organizations.locations.securityProfiles.patch(
@@ -393,7 +393,7 @@ gapi.load('client', async () => {
         },
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.networksecurity.projects.locations.get({
@@ -414,7 +414,7 @@ gapi.load('client', async () => {
       {
         items: ['Test string'],
         requestId: 'Test string',
-      }
+      },
     );
     /** Clones items from one address group to another. */
     await gapi.client.networksecurity.projects.locations.addressGroups.cloneItems(
@@ -424,7 +424,7 @@ gapi.load('client', async () => {
       {
         requestId: 'Test string',
         sourceAddressGroup: 'Test string',
-      }
+      },
     );
     /** Creates a new address group in a given project and location. */
     await gapi.client.networksecurity.projects.locations.addressGroups.create(
@@ -446,7 +446,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single address group. */
     await gapi.client.networksecurity.projects.locations.addressGroups.delete({
@@ -462,7 +462,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists address groups in a given project and location. */
     await gapi.client.networksecurity.projects.locations.addressGroups.list({
@@ -476,7 +476,7 @@ gapi.load('client', async () => {
         addressGroup: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single address group. */
     await gapi.client.networksecurity.projects.locations.addressGroups.patch(
@@ -498,7 +498,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes items from an address group. */
     await gapi.client.networksecurity.projects.locations.addressGroups.removeItems(
@@ -508,7 +508,7 @@ gapi.load('client', async () => {
       {
         items: ['Test string'],
         requestId: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networksecurity.projects.locations.addressGroups.setIamPolicy(
@@ -544,7 +544,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networksecurity.projects.locations.addressGroups.testIamPermissions(
@@ -553,7 +553,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new AuthorizationPolicy in a given project and location. */
     await gapi.client.networksecurity.projects.locations.authorizationPolicies.create(
@@ -591,26 +591,26 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single AuthorizationPolicy. */
     await gapi.client.networksecurity.projects.locations.authorizationPolicies.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single AuthorizationPolicy. */
     await gapi.client.networksecurity.projects.locations.authorizationPolicies.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.networksecurity.projects.locations.authorizationPolicies.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists AuthorizationPolicies in a given project and location. */
     await gapi.client.networksecurity.projects.locations.authorizationPolicies.list(
@@ -618,7 +618,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single AuthorizationPolicy. */
     await gapi.client.networksecurity.projects.locations.authorizationPolicies.patch(
@@ -656,7 +656,7 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networksecurity.projects.locations.authorizationPolicies.setIamPolicy(
@@ -692,7 +692,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networksecurity.projects.locations.authorizationPolicies.testIamPermissions(
@@ -701,7 +701,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new AuthzPolicy in a given project and location. */
     await gapi.client.networksecurity.projects.locations.authzPolicies.create(
@@ -866,7 +866,7 @@ gapi.load('client', async () => {
           resources: ['Test string'],
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single AuthzPolicy. */
     await gapi.client.networksecurity.projects.locations.authzPolicies.delete({
@@ -882,7 +882,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists AuthzPolicies in a given project and location. */
     await gapi.client.networksecurity.projects.locations.authzPolicies.list({
@@ -1055,7 +1055,7 @@ gapi.load('client', async () => {
           resources: ['Test string'],
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networksecurity.projects.locations.authzPolicies.setIamPolicy(
@@ -1091,7 +1091,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networksecurity.projects.locations.authzPolicies.testIamPermissions(
@@ -1100,7 +1100,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new ClientTlsPolicy in a given project and location. */
     await gapi.client.networksecurity.projects.locations.clientTlsPolicies.create(
@@ -1135,13 +1135,13 @@ gapi.load('client', async () => {
         ],
         sni: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single ClientTlsPolicy. */
     await gapi.client.networksecurity.projects.locations.clientTlsPolicies.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single ClientTlsPolicy. */
     await gapi.client.networksecurity.projects.locations.clientTlsPolicies.get({
@@ -1152,7 +1152,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists ClientTlsPolicies in a given project and location. */
     await gapi.client.networksecurity.projects.locations.clientTlsPolicies.list(
@@ -1160,7 +1160,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single ClientTlsPolicy. */
     await gapi.client.networksecurity.projects.locations.clientTlsPolicies.patch(
@@ -1195,7 +1195,7 @@ gapi.load('client', async () => {
         ],
         sni: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networksecurity.projects.locations.clientTlsPolicies.setIamPolicy(
@@ -1231,7 +1231,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networksecurity.projects.locations.clientTlsPolicies.testIamPermissions(
@@ -1240,7 +1240,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new FirewallEndpointAssociation in a given project and location. */
     await gapi.client.networksecurity.projects.locations.firewallEndpointAssociations.create(
@@ -1262,20 +1262,20 @@ gapi.load('client', async () => {
         state: 'Test string',
         tlsInspectionPolicy: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single FirewallEndpointAssociation. */
     await gapi.client.networksecurity.projects.locations.firewallEndpointAssociations.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single FirewallEndpointAssociation. */
     await gapi.client.networksecurity.projects.locations.firewallEndpointAssociations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Associations in a given project and location. */
     await gapi.client.networksecurity.projects.locations.firewallEndpointAssociations.list(
@@ -1285,7 +1285,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Update a single FirewallEndpointAssociation. */
     await gapi.client.networksecurity.projects.locations.firewallEndpointAssociations.patch(
@@ -1307,7 +1307,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         tlsInspectionPolicy: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new GatewaySecurityPolicy in a given project and location. */
     await gapi.client.networksecurity.projects.locations.gatewaySecurityPolicies.create(
@@ -1321,19 +1321,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         tlsInspectionPolicy: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single GatewaySecurityPolicy. */
     await gapi.client.networksecurity.projects.locations.gatewaySecurityPolicies.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single GatewaySecurityPolicy. */
     await gapi.client.networksecurity.projects.locations.gatewaySecurityPolicies.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists GatewaySecurityPolicies in a given project and location. */
     await gapi.client.networksecurity.projects.locations.gatewaySecurityPolicies.list(
@@ -1341,7 +1341,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single GatewaySecurityPolicy. */
     await gapi.client.networksecurity.projects.locations.gatewaySecurityPolicies.patch(
@@ -1355,7 +1355,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         tlsInspectionPolicy: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new GatewaySecurityPolicy in a given project and location. */
     await gapi.client.networksecurity.projects.locations.gatewaySecurityPolicies.rules.create(
@@ -1374,19 +1374,19 @@ gapi.load('client', async () => {
         sessionMatcher: 'Test string',
         tlsInspectionEnabled: true,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single GatewaySecurityPolicyRule. */
     await gapi.client.networksecurity.projects.locations.gatewaySecurityPolicies.rules.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single GatewaySecurityPolicyRule. */
     await gapi.client.networksecurity.projects.locations.gatewaySecurityPolicies.rules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists GatewaySecurityPolicyRules in a given project and location. */
     await gapi.client.networksecurity.projects.locations.gatewaySecurityPolicies.rules.list(
@@ -1394,7 +1394,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single GatewaySecurityPolicyRule. */
     await gapi.client.networksecurity.projects.locations.gatewaySecurityPolicies.rules.patch(
@@ -1413,14 +1413,14 @@ gapi.load('client', async () => {
         sessionMatcher: 'Test string',
         tlsInspectionEnabled: true,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.networksecurity.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.networksecurity.projects.locations.operations.delete({
@@ -1474,13 +1474,13 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single ServerTlsPolicy. */
     await gapi.client.networksecurity.projects.locations.serverTlsPolicies.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single ServerTlsPolicy. */
     await gapi.client.networksecurity.projects.locations.serverTlsPolicies.get({
@@ -1491,7 +1491,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists ServerTlsPolicies in a given project and location. */
     await gapi.client.networksecurity.projects.locations.serverTlsPolicies.list(
@@ -1499,7 +1499,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single ServerTlsPolicy. */
     await gapi.client.networksecurity.projects.locations.serverTlsPolicies.patch(
@@ -1538,7 +1538,7 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.networksecurity.projects.locations.serverTlsPolicies.setIamPolicy(
@@ -1574,7 +1574,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.networksecurity.projects.locations.serverTlsPolicies.testIamPermissions(
@@ -1583,7 +1583,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new TlsInspectionPolicy in a given project and location. */
     await gapi.client.networksecurity.projects.locations.tlsInspectionPolicies.create(
@@ -1602,20 +1602,20 @@ gapi.load('client', async () => {
         tlsFeatureProfile: 'Test string',
         trustConfig: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single TlsInspectionPolicy. */
     await gapi.client.networksecurity.projects.locations.tlsInspectionPolicies.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single TlsInspectionPolicy. */
     await gapi.client.networksecurity.projects.locations.tlsInspectionPolicies.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists TlsInspectionPolicies in a given project and location. */
     await gapi.client.networksecurity.projects.locations.tlsInspectionPolicies.list(
@@ -1623,7 +1623,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single TlsInspectionPolicy. */
     await gapi.client.networksecurity.projects.locations.tlsInspectionPolicies.patch(
@@ -1642,7 +1642,7 @@ gapi.load('client', async () => {
         tlsFeatureProfile: 'Test string',
         trustConfig: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new UrlList in a given project and location. */
     await gapi.client.networksecurity.projects.locations.urlLists.create(
@@ -1656,7 +1656,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         updateTime: 'Test string',
         values: ['Test string'],
-      }
+      },
     );
     /** Deletes a single UrlList. */
     await gapi.client.networksecurity.projects.locations.urlLists.delete({
@@ -1684,7 +1684,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         updateTime: 'Test string',
         values: ['Test string'],
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://analyticshub.googleapis.com/$discovery/rest?version=v1'
+    'https://analyticshub.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.analyticshub */
 
@@ -61,7 +61,7 @@ gapi.load('client', async () => {
           },
           defaultExchangeConfig: {},
         },
-      }
+      },
     );
     /** Deletes an existing data exchange. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.delete({
@@ -80,7 +80,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all data exchanges in a given project and location. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.list({
@@ -95,7 +95,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         resource: 'Test string',
-      }
+      },
     );
     /** Updates an existing data exchange. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.patch(
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
           },
           defaultExchangeConfig: {},
         },
-      }
+      },
     );
     /** Sets the IAM policy. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.setIamPolicy(
@@ -155,7 +155,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Creates a Subscription to a Data Clean Room. This is a long-running operation as it will create one or more linked datasets. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.subscribe(
@@ -178,7 +178,7 @@ gapi.load('client', async () => {
         },
         subscriberContact: 'Test string',
         subscription: 'Test string',
-      }
+      },
     );
     /** Returns the permissions that a caller has. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.testIamPermissions(
@@ -187,7 +187,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new listing. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.listings.create(
@@ -243,19 +243,19 @@ gapi.load('client', async () => {
           restrictQueryResult: true,
         },
         state: 'Test string',
-      }
+      },
     );
     /** Deletes a listing. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.listings.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the details of a listing. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.listings.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the IAM policy. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.listings.getIamPolicy(
@@ -266,7 +266,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all listings in a given project and location. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.listings.list(
@@ -274,7 +274,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists all subscriptions on a given Data Exchange or Listing. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.listings.listSubscriptions(
@@ -283,7 +283,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         resource: 'Test string',
-      }
+      },
     );
     /** Updates an existing listing. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.listings.patch(
@@ -339,7 +339,7 @@ gapi.load('client', async () => {
           restrictQueryResult: true,
         },
         state: 'Test string',
-      }
+      },
     );
     /** Sets the IAM policy. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.listings.setIamPolicy(
@@ -375,7 +375,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Subscribes to a listing. Currently, with Analytics Hub, you can create listings that reference only BigQuery datasets. Upon subscription to a listing for a BigQuery dataset, Analytics Hub creates a linked dataset in the subscriber's project. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.listings.subscribe(
@@ -466,7 +466,7 @@ gapi.load('client', async () => {
             topicMessageRetentionDuration: 'Test string',
           },
         },
-      }
+      },
     );
     /** Returns the permissions that a caller has. */
     await gapi.client.analyticshub.projects.locations.dataExchanges.listings.testIamPermissions(
@@ -475,7 +475,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Deletes a subscription. */
     await gapi.client.analyticshub.projects.locations.subscriptions.delete({
@@ -494,7 +494,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all subscriptions in a given project and location. */
     await gapi.client.analyticshub.projects.locations.subscriptions.list({
@@ -508,14 +508,14 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Revokes a given subscription. */
     await gapi.client.analyticshub.projects.locations.subscriptions.revoke(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Sets the IAM policy. */
     await gapi.client.analyticshub.projects.locations.subscriptions.setIamPolicy(
@@ -551,7 +551,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
   }
 });

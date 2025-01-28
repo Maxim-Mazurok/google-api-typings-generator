@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://airquality.googleapis.com/$discovery/rest?version=v1'
+    'https://airquality.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.airquality */
 
@@ -49,7 +49,7 @@ gapi.load('client', async () => {
         },
         uaqiColorPalette: 'Test string',
         universalAqi: true,
-      }
+      },
     );
     /** Returns air quality forecast for a specific location for a given time range. */
     await gapi.client.airquality.forecast.lookup(
@@ -76,7 +76,7 @@ gapi.load('client', async () => {
         },
         uaqiColorPalette: 'Test string',
         universalAqi: true,
-      }
+      },
     );
     /** Returns air quality history for a specific location for a given time range. */
     await gapi.client.airquality.history.lookup(
@@ -104,7 +104,7 @@ gapi.load('client', async () => {
         },
         uaqiColorPalette: 'Test string',
         universalAqi: true,
-      }
+      },
     );
     /** Returns a bytes array containing the data of the tile PNG image. */
     await gapi.client.airquality.mapTypes.heatmapTiles.lookupHeatmapTile({

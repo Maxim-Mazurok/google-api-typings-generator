@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Drive Activity API v2 */
   function load(
-    urlOrObject: 'https://driveactivity.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://driveactivity.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'driveactivity', version: 'v2'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'driveactivity',
     version: 'v2',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace driveactivity {
@@ -499,7 +499,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryDriveActivityRequest
+        body: QueryDriveActivityRequest,
       ): Request<QueryDriveActivityResponse>;
     }
 

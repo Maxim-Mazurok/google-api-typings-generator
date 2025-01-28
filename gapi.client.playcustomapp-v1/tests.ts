@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://playcustomapp.googleapis.com/$discovery/rest?version=v1'
+    'https://playcustomapp.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.playcustomapp */
 
@@ -46,7 +46,7 @@ gapi.load('client', async () => {
         ],
         packageName: 'Test string',
         title: 'Test string',
-      }
+      },
     );
   }
 });

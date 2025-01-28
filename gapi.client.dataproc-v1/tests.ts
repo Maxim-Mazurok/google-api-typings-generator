@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://dataproc.googleapis.com/$discovery/rest?version=v1'
+    'https://dataproc.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.dataproc */
 
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
           minInstances: 42,
           weight: 42,
         },
-      }
+      },
     );
     /** Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. */
     await gapi.client.dataproc.projects.locations.autoscalingPolicies.delete({
@@ -89,7 +89,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists autoscaling policies in the project. */
     await gapi.client.dataproc.projects.locations.autoscalingPolicies.list({
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataproc.projects.locations.autoscalingPolicies.testIamPermissions(
@@ -128,7 +128,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. */
     await gapi.client.dataproc.projects.locations.autoscalingPolicies.update(
@@ -169,7 +169,7 @@ gapi.load('client', async () => {
           minInstances: 42,
           weight: 42,
         },
-      }
+      },
     );
     /** Analyze a Batch for possible recommendations and insights. */
     await gapi.client.dataproc.projects.locations.batches.analyze(
@@ -178,7 +178,7 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Creates a batch workload that executes asynchronously. */
     await gapi.client.dataproc.projects.locations.batches.create(
@@ -291,7 +291,7 @@ gapi.load('client', async () => {
         stateMessage: 'Test string',
         stateTime: 'Test string',
         uuid: 'Test string',
-      }
+      },
     );
     /** Deletes the batch workload resource. If the batch is not in a CANCELLED, SUCCEEDED or FAILED State, the delete operation fails and the response returns FAILED_PRECONDITION. */
     await gapi.client.dataproc.projects.locations.batches.delete({
@@ -314,14 +314,14 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain environment details for a Spark Application */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.accessEnvironmentInfo(
       {
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to a spark job for a Spark Application. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.accessJob(
@@ -329,7 +329,7 @@ gapi.load('client', async () => {
         jobId: 'Test string',
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain Spark Plan Graph for a Spark Application SQL execution. Limits the number of clusters returned as part of the graph to 10000. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.accessSqlPlan(
@@ -337,7 +337,7 @@ gapi.load('client', async () => {
         executionId: 'Test string',
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to a particular SQL Query for a Spark Application. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.accessSqlQuery(
@@ -347,7 +347,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         parent: 'Test string',
         planDescription: true,
-      }
+      },
     );
     /** Obtain data corresponding to a spark stage attempt for a Spark Application. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.accessStageAttempt(
@@ -357,7 +357,7 @@ gapi.load('client', async () => {
         stageAttemptId: 42,
         stageId: 'Test string',
         summaryMetricsMask: 'Test string',
-      }
+      },
     );
     /** Obtain RDD operation graph for a Spark Application Stage. Limits the number of clusters returned as part of the graph to 10000. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.accessStageRddGraph(
@@ -365,7 +365,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         parent: 'Test string',
         stageId: 'Test string',
-      }
+      },
     );
     /** Obtain high level information and list of Spark Applications corresponding to a batch */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.search(
@@ -378,7 +378,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to executors for a Spark Application. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.searchExecutors(
@@ -388,7 +388,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain executor summary with respect to a spark stage attempt. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.searchExecutorStageSummary(
@@ -399,7 +399,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         stageAttemptId: 42,
         stageId: 'Test string',
-      }
+      },
     );
     /** Obtain list of spark jobs corresponding to a Spark Application. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.searchJobs(
@@ -409,7 +409,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to SQL Queries for a Spark Application. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.searchSqlQueries(
@@ -420,7 +420,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         planDescription: true,
-      }
+      },
     );
     /** Obtain data corresponding to a spark stage attempts for a Spark Application. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.searchStageAttempts(
@@ -431,7 +431,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         stageId: 'Test string',
         summaryMetricsMask: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to tasks for a spark stage attempt for a Spark Application. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.searchStageAttemptTasks(
@@ -444,7 +444,7 @@ gapi.load('client', async () => {
         stageAttemptId: 42,
         stageId: 'Test string',
         taskStatus: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to stages for a Spark Application. */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.searchStages(
@@ -455,21 +455,21 @@ gapi.load('client', async () => {
         parent: 'Test string',
         stageStatus: 'Test string',
         summaryMetricsMask: 'Test string',
-      }
+      },
     );
     /** Obtain summary of Executor Summary for a Spark Application */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.summarizeExecutors(
       {
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain summary of Jobs for a Spark Application */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.summarizeJobs(
       {
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain summary of Tasks for a Spark Application Stage Attempt */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.summarizeStageAttemptTasks(
@@ -478,14 +478,14 @@ gapi.load('client', async () => {
         parent: 'Test string',
         stageAttemptId: 42,
         stageId: 'Test string',
-      }
+      },
     );
     /** Obtain summary of Stages for a Spark Application */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.summarizeStages(
       {
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Write wrapper objects from dataplane to spanner */
     await gapi.client.dataproc.projects.locations.batches.sparkApplications.write(
@@ -1580,7 +1580,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
     await gapi.client.dataproc.projects.locations.operations.cancel({
@@ -1689,7 +1689,7 @@ gapi.load('client', async () => {
         stateTime: 'Test string',
         user: 'Test string',
         uuid: 'Test string',
-      }
+      },
     );
     /** Deletes the interactive session resource. If the session is not in terminal state, it is terminated, and then deleted. */
     await gapi.client.dataproc.projects.locations.sessions.delete({
@@ -1714,21 +1714,21 @@ gapi.load('client', async () => {
       },
       {
         requestId: 'Test string',
-      }
+      },
     );
     /** Obtain high level information corresponding to a single Spark Application. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.access(
       {
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain environment details for a Spark Application */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.accessEnvironmentInfo(
       {
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to a spark job for a Spark Application. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.accessJob(
@@ -1736,7 +1736,7 @@ gapi.load('client', async () => {
         jobId: 'Test string',
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain Spark Plan Graph for a Spark Application SQL execution. Limits the number of clusters returned as part of the graph to 10000. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.accessSqlPlan(
@@ -1744,7 +1744,7 @@ gapi.load('client', async () => {
         executionId: 'Test string',
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to a particular SQL Query for a Spark Application. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.accessSqlQuery(
@@ -1754,7 +1754,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         parent: 'Test string',
         planDescription: true,
-      }
+      },
     );
     /** Obtain data corresponding to a spark stage attempt for a Spark Application. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.accessStageAttempt(
@@ -1764,7 +1764,7 @@ gapi.load('client', async () => {
         stageAttemptId: 42,
         stageId: 'Test string',
         summaryMetricsMask: 'Test string',
-      }
+      },
     );
     /** Obtain RDD operation graph for a Spark Application Stage. Limits the number of clusters returned as part of the graph to 10000. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.accessStageRddGraph(
@@ -1772,7 +1772,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         parent: 'Test string',
         stageId: 'Test string',
-      }
+      },
     );
     /** Obtain high level information and list of Spark Applications corresponding to a batch */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.search(
@@ -1785,7 +1785,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to executors for a Spark Application. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.searchExecutors(
@@ -1795,7 +1795,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain executor summary with respect to a spark stage attempt. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.searchExecutorStageSummary(
@@ -1806,7 +1806,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         stageAttemptId: 42,
         stageId: 'Test string',
-      }
+      },
     );
     /** Obtain list of spark jobs corresponding to a Spark Application. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.searchJobs(
@@ -1816,7 +1816,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to SQL Queries for a Spark Application. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.searchSqlQueries(
@@ -1827,7 +1827,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         planDescription: true,
-      }
+      },
     );
     /** Obtain data corresponding to a spark stage attempts for a Spark Application. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.searchStageAttempts(
@@ -1838,7 +1838,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         stageId: 'Test string',
         summaryMetricsMask: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to tasks for a spark stage attempt for a Spark Application. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.searchStageAttemptTasks(
@@ -1851,7 +1851,7 @@ gapi.load('client', async () => {
         stageAttemptId: 42,
         stageId: 'Test string',
         taskStatus: 'Test string',
-      }
+      },
     );
     /** Obtain data corresponding to stages for a Spark Application. */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.searchStages(
@@ -1862,21 +1862,21 @@ gapi.load('client', async () => {
         parent: 'Test string',
         stageStatus: 'Test string',
         summaryMetricsMask: 'Test string',
-      }
+      },
     );
     /** Obtain summary of Executor Summary for a Spark Application */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.summarizeExecutors(
       {
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain summary of Jobs for a Spark Application */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.summarizeJobs(
       {
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Obtain summary of Tasks for a Spark Application Stage Attempt */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.summarizeStageAttemptTasks(
@@ -1885,14 +1885,14 @@ gapi.load('client', async () => {
         parent: 'Test string',
         stageAttemptId: 42,
         stageId: 'Test string',
-      }
+      },
     );
     /** Obtain summary of Stages for a Spark Application */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.summarizeStages(
       {
         name: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Write wrapper objects from dataplane to spanner */
     await gapi.client.dataproc.projects.locations.sessions.sparkApplications.write(
@@ -2987,7 +2987,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Create a session template synchronously. */
     await gapi.client.dataproc.projects.locations.sessionTemplates.create(
@@ -3043,7 +3043,7 @@ gapi.load('client', async () => {
         sparkConnectSession: {},
         updateTime: 'Test string',
         uuid: 'Test string',
-      }
+      },
     );
     /** Deletes a session template. */
     await gapi.client.dataproc.projects.locations.sessionTemplates.delete({
@@ -3114,7 +3114,7 @@ gapi.load('client', async () => {
         sparkConnectSession: {},
         updateTime: 'Test string',
         uuid: 'Test string',
-      }
+      },
     );
     /** Creates new workflow template. */
     await gapi.client.dataproc.projects.locations.workflowTemplates.create(
@@ -3717,7 +3717,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         version: 42,
-      }
+      },
     );
     /** Deletes a workflow template. It does not cancel in-progress workflows. */
     await gapi.client.dataproc.projects.locations.workflowTemplates.delete({
@@ -3738,7 +3738,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
     await gapi.client.dataproc.projects.locations.workflowTemplates.instantiate(
@@ -3751,7 +3751,7 @@ gapi.load('client', async () => {
         },
         requestId: 'Test string',
         version: 42,
-      }
+      },
     );
     /** Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
     await gapi.client.dataproc.projects.locations.workflowTemplates.instantiateInline(
@@ -4355,7 +4355,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         version: 42,
-      }
+      },
     );
     /** Lists workflows that match the specified filter in the request. */
     await gapi.client.dataproc.projects.locations.workflowTemplates.list({
@@ -4385,7 +4385,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataproc.projects.locations.workflowTemplates.testIamPermissions(
@@ -4394,7 +4394,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates (replaces) workflow template. The updated template must contain version that matches the current server version. */
     await gapi.client.dataproc.projects.locations.workflowTemplates.update(
@@ -4997,7 +4997,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         version: 42,
-      }
+      },
     );
     /** Creates new autoscaling policy. */
     await gapi.client.dataproc.projects.regions.autoscalingPolicies.create(
@@ -5038,7 +5038,7 @@ gapi.load('client', async () => {
           minInstances: 42,
           weight: 42,
         },
-      }
+      },
     );
     /** Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. */
     await gapi.client.dataproc.projects.regions.autoscalingPolicies.delete({
@@ -5057,7 +5057,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists autoscaling policies in the project. */
     await gapi.client.dataproc.projects.regions.autoscalingPolicies.list({
@@ -5087,7 +5087,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataproc.projects.regions.autoscalingPolicies.testIamPermissions(
@@ -5096,7 +5096,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. */
     await gapi.client.dataproc.projects.regions.autoscalingPolicies.update(
@@ -5137,7 +5137,7 @@ gapi.load('client', async () => {
           minInstances: 42,
           weight: 42,
         },
-      }
+      },
     );
     /** Creates a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). */
     await gapi.client.dataproc.projects.regions.clusters.create(
@@ -5612,7 +5612,7 @@ gapi.load('client', async () => {
           },
           stagingBucket: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). */
     await gapi.client.dataproc.projects.regions.clusters.delete({
@@ -5641,7 +5641,7 @@ gapi.load('client', async () => {
         tarballGcsDir: 'Test string',
         yarnApplicationId: 'Test string',
         yarnApplicationIds: ['Test string'],
-      }
+      },
     );
     /** Gets the resource representation for a cluster in a project. */
     await gapi.client.dataproc.projects.regions.clusters.get({
@@ -5658,7 +5658,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Inject encrypted credentials into all of the VMs in a cluster.The target cluster must be a personal auth cluster assigned to the user who is issuing the RPC. */
     await gapi.client.dataproc.projects.regions.clusters.injectCredentials(
@@ -5670,7 +5670,7 @@ gapi.load('client', async () => {
       {
         clusterUuid: 'Test string',
         credentialsCiphertext: 'Test string',
-      }
+      },
     );
     /** Lists all regions/{region}/clusters in a project alphabetically. */
     await gapi.client.dataproc.projects.regions.clusters.list({
@@ -6155,7 +6155,7 @@ gapi.load('client', async () => {
           },
           stagingBucket: 'Test string',
         },
-      }
+      },
     );
     /** Repairs a cluster. */
     await gapi.client.dataproc.projects.regions.clusters.repair(
@@ -6179,7 +6179,7 @@ gapi.load('client', async () => {
         ],
         parentOperationId: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataproc.projects.regions.clusters.setIamPolicy(
@@ -6203,7 +6203,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Starts a cluster in a project. */
     await gapi.client.dataproc.projects.regions.clusters.start(
@@ -6215,7 +6215,7 @@ gapi.load('client', async () => {
       {
         clusterUuid: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Stops a cluster in a project. */
     await gapi.client.dataproc.projects.regions.clusters.stop(
@@ -6227,7 +6227,7 @@ gapi.load('client', async () => {
       {
         clusterUuid: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataproc.projects.regions.clusters.testIamPermissions(
@@ -6236,7 +6236,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata). */
     await gapi.client.dataproc.projects.regions.clusters.nodeGroups.create(
@@ -6310,7 +6310,7 @@ gapi.load('client', async () => {
           },
         },
         roles: ['Test string'],
-      }
+      },
     );
     /** Gets the resource representation for a node group in a cluster. */
     await gapi.client.dataproc.projects.regions.clusters.nodeGroups.get({
@@ -6325,7 +6325,7 @@ gapi.load('client', async () => {
         instanceNames: ['Test string'],
         repairAction: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Resizes a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata). */
     await gapi.client.dataproc.projects.regions.clusters.nodeGroups.resize(
@@ -6337,7 +6337,7 @@ gapi.load('client', async () => {
         parentOperationId: 'Test string',
         requestId: 'Test string',
         size: 42,
-      }
+      },
     );
     /** Starts a job cancellation request. To access the job resource after cancellation, call regions/{region}/jobs.list (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/list) or regions/{region}/jobs.get (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/get). */
     await gapi.client.dataproc.projects.regions.jobs.cancel(
@@ -6346,7 +6346,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         region: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes the job from the project. If the job is active, the delete fails, and the response returns FAILED_PRECONDITION. */
     await gapi.client.dataproc.projects.regions.jobs.delete({
@@ -6369,7 +6369,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists regions/{region}/jobs in a project. */
     await gapi.client.dataproc.projects.regions.jobs.list({
@@ -6600,7 +6600,7 @@ gapi.load('client', async () => {
             trackingUrl: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
     await gapi.client.dataproc.projects.regions.jobs.setIamPolicy(
@@ -6624,7 +6624,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Submits a job to a cluster. */
     await gapi.client.dataproc.projects.regions.jobs.submit(
@@ -6846,7 +6846,7 @@ gapi.load('client', async () => {
           ],
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Submits job to a cluster. */
     await gapi.client.dataproc.projects.regions.jobs.submitAsOperation(
@@ -7068,7 +7068,7 @@ gapi.load('client', async () => {
           ],
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataproc.projects.regions.jobs.testIamPermissions(
@@ -7077,7 +7077,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
     await gapi.client.dataproc.projects.regions.operations.cancel({
@@ -7100,7 +7100,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED. */
     await gapi.client.dataproc.projects.regions.operations.list({
@@ -7131,7 +7131,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataproc.projects.regions.operations.testIamPermissions(
@@ -7140,7 +7140,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates new workflow template. */
     await gapi.client.dataproc.projects.regions.workflowTemplates.create(
@@ -7743,7 +7743,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         version: 42,
-      }
+      },
     );
     /** Deletes a workflow template. It does not cancel in-progress workflows. */
     await gapi.client.dataproc.projects.regions.workflowTemplates.delete({
@@ -7764,7 +7764,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
     await gapi.client.dataproc.projects.regions.workflowTemplates.instantiate(
@@ -7777,7 +7777,7 @@ gapi.load('client', async () => {
         },
         requestId: 'Test string',
         version: 42,
-      }
+      },
     );
     /** Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
     await gapi.client.dataproc.projects.regions.workflowTemplates.instantiateInline(
@@ -8381,7 +8381,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         version: 42,
-      }
+      },
     );
     /** Lists workflows that match the specified filter in the request. */
     await gapi.client.dataproc.projects.regions.workflowTemplates.list({
@@ -8411,7 +8411,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.dataproc.projects.regions.workflowTemplates.testIamPermissions(
@@ -8420,7 +8420,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates (replaces) workflow template. The updated template must contain version that matches the current server version. */
     await gapi.client.dataproc.projects.regions.workflowTemplates.update(
@@ -9023,7 +9023,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         version: 42,
-      }
+      },
     );
   }
 });

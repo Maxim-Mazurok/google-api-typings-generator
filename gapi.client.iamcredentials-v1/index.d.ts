@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load IAM Service Account Credentials API v1 */
   function load(
-    urlOrObject: 'https://iamcredentials.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://iamcredentials.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'iamcredentials', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'iamcredentials',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace iamcredentials {
@@ -141,7 +141,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateAccessTokenRequest
+        body: GenerateAccessTokenRequest,
       ): Request<GenerateAccessTokenResponse>;
       /** Generates an OpenID Connect ID token for a service account. */
       generateIdToken(request: {
@@ -199,7 +199,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateIdTokenRequest
+        body: GenerateIdTokenRequest,
       ): Request<GenerateIdTokenResponse>;
       /** Returns the trust boundary info for a given service account. */
       getAllowedLocations(request?: {
@@ -284,7 +284,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SignBlobRequest
+        body: SignBlobRequest,
       ): Request<SignBlobResponse>;
       /** Signs a JWT using a service account's system-managed private key. */
       signJwt(request: {
@@ -342,7 +342,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SignJwtRequest
+        body: SignJwtRequest,
       ): Request<SignJwtResponse>;
     }
     interface ProjectsResource {

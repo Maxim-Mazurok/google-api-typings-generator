@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Certificate Authority API v1 */
   function load(
-    urlOrObject: 'https://privateca.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://privateca.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'privateca', version: 'v1'): Promise<void>;
@@ -796,7 +796,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CertificateRevocationList
+        body: CertificateRevocationList,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -826,7 +826,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -856,7 +856,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface CertificateAuthoritiesResource {
@@ -916,7 +916,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ActivateCertificateAuthorityRequest
+        body: ActivateCertificateAuthorityRequest,
       ): Request<Operation>;
       /** Create a new CertificateAuthority in a given Project and Location. */
       create(request: {
@@ -982,7 +982,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CertificateAuthority
+        body: CertificateAuthority,
       ): Request<Operation>;
       /** Delete a CertificateAuthority. */
       delete(request?: {
@@ -1075,7 +1075,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableCertificateAuthorityRequest
+        body: DisableCertificateAuthorityRequest,
       ): Request<Operation>;
       /** Enable a CertificateAuthority. */
       enable(request: {
@@ -1133,7 +1133,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnableCertificateAuthorityRequest
+        body: EnableCertificateAuthorityRequest,
       ): Request<Operation>;
       /** Fetch a certificate signing request (CSR) from a CertificateAuthority that is in state AWAITING_USER_ACTIVATION and is of type SUBORDINATE. The CSR must then be signed by the desired parent Certificate Authority, which could be another CertificateAuthority resource, or could be an on-prem certificate authority. See also ActivateCertificateAuthority. */
       fetch(request?: {
@@ -1288,7 +1288,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CertificateAuthority
+        body: CertificateAuthority,
       ): Request<Operation>;
       /** Undelete a CertificateAuthority that has been deleted. */
       undelete(request: {
@@ -1346,7 +1346,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteCertificateAuthorityRequest
+        body: UndeleteCertificateAuthorityRequest,
       ): Request<Operation>;
       certificateRevocationLists: CertificateRevocationListsResource;
     }
@@ -1423,7 +1423,7 @@ declare namespace gapi.client {
           /** Optional. If this is true, no Certificate resource will be persisted regardless of the CaPool's tier, and the returned Certificate will not contain the pem_certificate field. */
           validateOnly?: boolean;
         },
-        body: Certificate
+        body: Certificate,
       ): Request<Certificate>;
       /** Returns a Certificate. */
       get(request?: {
@@ -1551,7 +1551,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Certificate
+        body: Certificate,
       ): Request<Certificate>;
       /** Revoke a Certificate. */
       revoke(request: {
@@ -1609,7 +1609,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RevokeCertificateRequest
+        body: RevokeCertificateRequest,
       ): Request<Certificate>;
     }
     interface CaPoolsResource {
@@ -1677,7 +1677,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CaPool
+        body: CaPool,
       ): Request<Operation>;
       /** Delete a CaPool. */
       delete(request?: {
@@ -1766,7 +1766,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FetchCaCertsRequest
+        body: FetchCaCertsRequest,
       ): Request<FetchCaCertsResponse>;
       /** Returns a CaPool. */
       get(request?: {
@@ -1923,7 +1923,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CaPool
+        body: CaPool,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1953,7 +1953,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1983,7 +1983,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       certificateAuthorities: CertificateAuthoritiesResource;
       certificates: CertificatesResource;
@@ -2053,7 +2053,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CertificateTemplate
+        body: CertificateTemplate,
       ): Request<Operation>;
       /** DeleteCertificateTemplate deletes a CertificateTemplate. */
       delete(request?: {
@@ -2239,7 +2239,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CertificateTemplate
+        body: CertificateTemplate,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2269,7 +2269,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2299,7 +2299,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface OperationsResource {
@@ -2359,7 +2359,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {

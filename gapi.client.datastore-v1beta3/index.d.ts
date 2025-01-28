@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Datastore API v1beta3 */
   function load(
-    urlOrObject: 'https://datastore.googleapis.com/$discovery/rest?version=v1beta3'
+    urlOrObject: 'https://datastore.googleapis.com/$discovery/rest?version=v1beta3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'datastore', version: 'v1beta3'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'datastore',
     version: 'v1beta3',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace datastore {
@@ -651,7 +651,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AllocateIdsRequest
+        body: AllocateIdsRequest,
       ): Request<AllocateIdsResponse>;
       /** Begins a new transaction. */
       beginTransaction(request: {
@@ -709,7 +709,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BeginTransactionRequest
+        body: BeginTransactionRequest,
       ): Request<BeginTransactionResponse>;
       /** Commits a transaction, optionally creating, deleting or modifying some entities. */
       commit(request: {
@@ -767,7 +767,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CommitRequest
+        body: CommitRequest,
       ): Request<CommitResponse>;
       /** Looks up entities by key. */
       lookup(request: {
@@ -825,7 +825,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LookupRequest
+        body: LookupRequest,
       ): Request<LookupResponse>;
       /** Prevents the supplied keys' IDs from being auto-allocated by Cloud Datastore. */
       reserveIds(request: {
@@ -883,7 +883,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReserveIdsRequest
+        body: ReserveIdsRequest,
       ): Request<{}>;
       /** Rolls back a transaction. */
       rollback(request: {
@@ -941,7 +941,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RollbackRequest
+        body: RollbackRequest,
       ): Request<{}>;
       /** Runs an aggregation query. */
       runAggregationQuery(request: {
@@ -999,7 +999,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunAggregationQueryRequest
+        body: RunAggregationQueryRequest,
       ): Request<RunAggregationQueryResponse>;
       /** Queries for entities. */
       runQuery(request: {
@@ -1057,7 +1057,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunQueryRequest
+        body: RunQueryRequest,
       ): Request<RunQueryResponse>;
     }
 

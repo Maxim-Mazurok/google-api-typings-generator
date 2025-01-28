@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://accesscontextmanager.googleapis.com/$discovery/rest?version=v1'
+    'https://accesscontextmanager.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.accesscontextmanager */
 
@@ -40,7 +40,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         scopes: ['Test string'],
         title: 'Test string',
-      }
+      },
     );
     /** Deletes an access policy based on the resource name. The long-running operation has a successful status after the access policy is removed from long-lasting storage. */
     await gapi.client.accesscontextmanager.accessPolicies.delete({
@@ -59,7 +59,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all access policies in an organization. */
     await gapi.client.accesscontextmanager.accessPolicies.list({
@@ -79,7 +79,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         scopes: ['Test string'],
         title: 'Test string',
-      }
+      },
     );
     /** Sets the IAM policy for the specified Access Context Manager access policy. This method replaces the existing IAM policy on the access policy. The IAM policy controls the set of users who can perform specific operations on the Access Context Manager access policy. */
     await gapi.client.accesscontextmanager.accessPolicies.setIamPolicy(
@@ -115,7 +115,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns the IAM permissions that the caller has on the specified Access Context Manager resource. The resource can be an AccessPolicy, AccessLevel, or ServicePerimeter. This method does not support other resources. */
     await gapi.client.accesscontextmanager.accessPolicies.testIamPermissions(
@@ -124,7 +124,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates an access level. The long-running operation from this RPC has a successful status after the access level propagates to long-lasting storage. If access levels contain errors, an error response is returned for the first error encountered. */
     await gapi.client.accesscontextmanager.accessPolicies.accessLevels.create(
@@ -177,7 +177,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         name: 'Test string',
         title: 'Test string',
-      }
+      },
     );
     /** Deletes an access level based on the resource name. The long-running operation from this RPC has a successful status after the access level has been removed from long-lasting storage. */
     await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
@@ -247,7 +247,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         name: 'Test string',
         title: 'Test string',
-      }
+      },
     );
     /** Replaces all existing access levels in an access policy with the access levels provided. This is done atomically. The long-running operation from this RPC has a successful status after all replacements propagate to long-lasting storage. If the replacement contains errors, an error response is returned for the first error encountered. Upon error, the replacement is cancelled, and existing access levels are not affected. The Operation.response field contains ReplaceAccessLevelsResponse. Removing access levels contained in existing service perimeters result in an error. */
     await gapi.client.accesscontextmanager.accessPolicies.accessLevels.replaceAll(
@@ -305,7 +305,7 @@ gapi.load('client', async () => {
           },
         ],
         etag: 'Test string',
-      }
+      },
     );
     /** Returns the IAM permissions that the caller has on the specified Access Context Manager resource. The resource can be an AccessPolicy, AccessLevel, or ServicePerimeter. This method does not support other resources. */
     await gapi.client.accesscontextmanager.accessPolicies.accessLevels.testIamPermissions(
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates an authorized orgs desc. The long-running operation from this RPC has a successful status after the authorized orgs desc propagates to long-lasting storage. If a authorized orgs desc contains errors, an error response is returned for the first error encountered. The name of this `AuthorizedOrgsDesc` will be assigned during creation. */
     await gapi.client.accesscontextmanager.accessPolicies.authorizedOrgsDescs.create(
@@ -327,19 +327,19 @@ gapi.load('client', async () => {
         authorizationType: 'Test string',
         name: 'Test string',
         orgs: ['Test string'],
-      }
+      },
     );
     /** Deletes an authorized orgs desc based on the resource name. The long-running operation from this RPC has a successful status after the authorized orgs desc is removed from long-lasting storage. */
     await gapi.client.accesscontextmanager.accessPolicies.authorizedOrgsDescs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an authorized orgs desc based on the resource name. */
     await gapi.client.accesscontextmanager.accessPolicies.authorizedOrgsDescs.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all authorized orgs descs for an access policy. */
     await gapi.client.accesscontextmanager.accessPolicies.authorizedOrgsDescs.list(
@@ -347,7 +347,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an authorized orgs desc. The long-running operation from this RPC has a successful status after the authorized orgs desc propagates to long-lasting storage. If a authorized orgs desc contains errors, an error response is returned for the first error encountered. Only the organization list in `AuthorizedOrgsDesc` can be updated. The name, authorization_type, asset_type and authorization_direction cannot be updated. */
     await gapi.client.accesscontextmanager.accessPolicies.authorizedOrgsDescs.patch(
@@ -361,7 +361,7 @@ gapi.load('client', async () => {
         authorizationType: 'Test string',
         name: 'Test string',
         orgs: ['Test string'],
-      }
+      },
     );
     /** Commits the dry-run specification for all the service perimeters in an access policy. A commit operation on a service perimeter involves copying its `spec` field to the `status` field of the service perimeter. Only service perimeters with `use_explicit_dry_run_spec` field set to true are affected by a commit operation. The long-running operation from this RPC has a successful status after the dry-run specifications for all the service perimeters have been committed. If a commit fails, it causes the long-running operation to return an error response and the entire commit operation is cancelled. When successful, the Operation.response field contains CommitServicePerimetersResponse. The `dry_run` and the `spec` fields are cleared after a successful commit operation. */
     await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.commit(
@@ -370,7 +370,7 @@ gapi.load('client', async () => {
       },
       {
         etag: 'Test string',
-      }
+      },
     );
     /** Creates a service perimeter. The long-running operation from this RPC has a successful status after the service perimeter propagates to long-lasting storage. If a service perimeter contains errors, an error response is returned for the first error encountered. */
     await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create(
@@ -522,19 +522,19 @@ gapi.load('client', async () => {
         },
         title: 'Test string',
         useExplicitDryRunSpec: true,
-      }
+      },
     );
     /** Deletes a service perimeter based on the resource name. The long-running operation from this RPC has a successful status after the service perimeter is removed from long-lasting storage. */
     await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a service perimeter based on the resource name. */
     await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all service perimeters for an access policy. */
     await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.list(
@@ -542,7 +542,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a service perimeter. The long-running operation from this RPC has a successful status after the service perimeter propagates to long-lasting storage. If a service perimeter contains errors, an error response is returned for the first error encountered. */
     await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.patch(
@@ -695,7 +695,7 @@ gapi.load('client', async () => {
         },
         title: 'Test string',
         useExplicitDryRunSpec: true,
-      }
+      },
     );
     /** Replace all existing service perimeters in an access policy with the service perimeters provided. This is done atomically. The long-running operation from this RPC has a successful status after all replacements propagate to long-lasting storage. Replacements containing errors result in an error response for the first error encountered. Upon an error, replacement are cancelled and existing service perimeters are not affected. The Operation.response field contains ReplaceServicePerimetersResponse. */
     await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.replaceAll(
@@ -852,7 +852,7 @@ gapi.load('client', async () => {
             useExplicitDryRunSpec: true,
           },
         ],
-      }
+      },
     );
     /** Returns the IAM permissions that the caller has on the specified Access Context Manager resource. The resource can be an AccessPolicy, AccessLevel, or ServicePerimeter. This method does not support other resources. */
     await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.testIamPermissions(
@@ -861,14 +861,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.accesscontextmanager.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.accesscontextmanager.operations.delete({
@@ -940,19 +940,19 @@ gapi.load('client', async () => {
           sessionReauthMethod: 'Test string',
           useOidcMaxAge: true,
         },
-      }
+      },
     );
     /** Deletes a GcpUserAccessBinding. Completion of this long-running operation does not necessarily signify that the binding deletion is deployed onto all affected users, which may take more time. */
     await gapi.client.accesscontextmanager.organizations.gcpUserAccessBindings.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the GcpUserAccessBinding with the given name. */
     await gapi.client.accesscontextmanager.organizations.gcpUserAccessBindings.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all GcpUserAccessBindings for a Google Cloud organization. */
     await gapi.client.accesscontextmanager.organizations.gcpUserAccessBindings.list(
@@ -960,7 +960,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a GcpUserAccessBinding. Completion of this long-running operation does not necessarily signify that the changed binding is deployed onto all affected users, which may take more time. */
     await gapi.client.accesscontextmanager.organizations.gcpUserAccessBindings.patch(
@@ -1019,7 +1019,7 @@ gapi.load('client', async () => {
           sessionReauthMethod: 'Test string',
           useOidcMaxAge: true,
         },
-      }
+      },
     );
     /** Returns a VPC-SC supported service based on the service name. */
     await gapi.client.accesscontextmanager.services.get({

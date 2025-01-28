@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Accelerated Mobile Pages (AMP) URL API v1 */
   function load(
-    urlOrObject: 'https://acceleratedmobilepageurl.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://acceleratedmobilepageurl.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'acceleratedmobilepageurl', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'acceleratedmobilepageurl',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace acceleratedmobilepageurl {
@@ -109,7 +109,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchGetAmpUrlsRequest
+        body: BatchGetAmpUrlsRequest,
       ): Request<BatchGetAmpUrlsResponse>;
     }
 

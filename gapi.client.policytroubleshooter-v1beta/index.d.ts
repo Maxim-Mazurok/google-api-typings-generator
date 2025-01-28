@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Policy Troubleshooter API v1beta */
   function load(
-    urlOrObject: 'https://policytroubleshooter.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://policytroubleshooter.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'policytroubleshooter', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'policytroubleshooter',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace policytroubleshooter {
@@ -175,7 +175,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyRequest
+        body: GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyRequest,
       ): Request<GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyResponse>;
     }
 

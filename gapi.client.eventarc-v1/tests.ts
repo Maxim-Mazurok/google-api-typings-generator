@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://eventarc.googleapis.com/$discovery/rest?version=v1'
+    'https://eventarc.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.eventarc */
 
@@ -56,7 +56,7 @@ gapi.load('client', async () => {
         cryptoKeyName: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Create a new ChannelConnection in a particular project and location. */
     await gapi.client.eventarc.projects.locations.channelConnections.create(
@@ -74,7 +74,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a single ChannelConnection. */
     await gapi.client.eventarc.projects.locations.channelConnections.delete({
@@ -89,7 +89,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** List channel connections. */
     await gapi.client.eventarc.projects.locations.channelConnections.list({
@@ -131,7 +131,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.eventarc.projects.locations.channelConnections.testIamPermissions(
@@ -140,7 +140,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create a new channel in a particular project and location. */
     await gapi.client.eventarc.projects.locations.channels.create(
@@ -163,7 +163,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a single channel. */
     await gapi.client.eventarc.projects.locations.channels.delete({
@@ -207,7 +207,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.eventarc.projects.locations.channels.setIamPolicy(
@@ -243,7 +243,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.eventarc.projects.locations.channels.testIamPermissions(
@@ -252,7 +252,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create a new Enrollment in a particular project and location. */
     await gapi.client.eventarc.projects.locations.enrollments.create(
@@ -277,7 +277,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a single Enrollment. */
     await gapi.client.eventarc.projects.locations.enrollments.delete({
@@ -327,7 +327,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.eventarc.projects.locations.enrollments.setIamPolicy(
@@ -363,7 +363,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.eventarc.projects.locations.enrollments.testIamPermissions(
@@ -372,7 +372,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create a new GoogleApiSource in a particular project and location. */
     await gapi.client.eventarc.projects.locations.googleApiSources.create(
@@ -399,7 +399,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a single GoogleApiSource. */
     await gapi.client.eventarc.projects.locations.googleApiSources.delete({
@@ -417,7 +417,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** List GoogleApiSources. */
     await gapi.client.eventarc.projects.locations.googleApiSources.list({
@@ -453,7 +453,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.eventarc.projects.locations.googleApiSources.setIamPolicy(
@@ -489,7 +489,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.eventarc.projects.locations.googleApiSources.testIamPermissions(
@@ -498,7 +498,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.eventarc.projects.locations.kafkaSources.getIamPolicy({
@@ -539,7 +539,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.eventarc.projects.locations.kafkaSources.testIamPermissions(
@@ -548,7 +548,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Create a new MessageBus in a particular project and location. */
     await gapi.client.eventarc.projects.locations.messageBuses.create(
@@ -574,7 +574,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a single message bus. */
     await gapi.client.eventarc.projects.locations.messageBuses.delete({
@@ -631,7 +631,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.eventarc.projects.locations.messageBuses.setIamPolicy(
@@ -667,7 +667,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.eventarc.projects.locations.messageBuses.testIamPermissions(
@@ -676,14 +676,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.eventarc.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.eventarc.projects.locations.operations.delete({
@@ -778,7 +778,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a single pipeline. */
     await gapi.client.eventarc.projects.locations.pipelines.delete({
@@ -883,7 +883,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.eventarc.projects.locations.pipelines.setIamPolicy(
@@ -919,7 +919,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.eventarc.projects.locations.pipelines.testIamPermissions(
@@ -928,7 +928,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Get a single Provider. */
     await gapi.client.eventarc.projects.locations.providers.get({
@@ -1003,7 +1003,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a single trigger. */
     await gapi.client.eventarc.projects.locations.triggers.delete({
@@ -1091,7 +1091,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.eventarc.projects.locations.triggers.setIamPolicy(
@@ -1127,7 +1127,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.eventarc.projects.locations.triggers.testIamPermissions(
@@ -1136,7 +1136,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

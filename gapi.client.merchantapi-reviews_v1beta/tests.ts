@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://merchantapi.googleapis.com/$discovery/rest?version=reviews_v1beta'
+    'https://merchantapi.googleapis.com/$discovery/rest?version=reviews_v1beta',
   );
   /** now we can use gapi.client.merchantapi */
 
@@ -95,7 +95,7 @@ gapi.load('client', async () => {
           lastUpdateTime: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Lists merchant reviews. */
     await gapi.client.merchantapi.accounts.merchantReviews.list({
@@ -183,7 +183,7 @@ gapi.load('client', async () => {
           ],
           lastUpdateTime: 'Test string',
         },
-      }
+      },
     );
     /** Lists product reviews. */
     await gapi.client.merchantapi.accounts.productReviews.list({

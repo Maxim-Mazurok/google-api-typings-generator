@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://bigquery.googleapis.com/$discovery/rest?version=v2'
+    'https://bigquery.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.bigquery */
 
@@ -156,7 +156,7 @@ gapi.load('client', async () => {
           },
         ],
         type: 'Test string',
-      }
+      },
     );
     /** Lists all datasets in the specified project to which the user has been granted the READER dataset role. */
     await gapi.client.bigquery.datasets.list({
@@ -267,7 +267,7 @@ gapi.load('client', async () => {
           },
         ],
         type: 'Test string',
-      }
+      },
     );
     /** Undeletes a dataset which is within time travel window based on datasetId. If a time is specified, the dataset version deleted at that time is undeleted, else the last live version is undeleted. */
     await gapi.client.bigquery.datasets.undelete(
@@ -277,7 +277,7 @@ gapi.load('client', async () => {
       },
       {
         deletionTime: 'Test string',
-      }
+      },
     );
     /** Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. */
     await gapi.client.bigquery.datasets.update(
@@ -380,7 +380,7 @@ gapi.load('client', async () => {
           },
         ],
         type: 'Test string',
-      }
+      },
     );
     /** Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed successfully. Cancelled jobs may still incur costs. */
     await gapi.client.bigquery.jobs.cancel({
@@ -1693,7 +1693,7 @@ gapi.load('client', async () => {
           state: 'Test string',
         },
         user_email: 'Test string',
-      }
+      },
     );
     /** Lists all jobs that you started in the specified project. Job information is available for a six month period after creation. The job list is sorted in reverse chronological order, by job creation time. Requires the Can View project role, or the Is Owner project role if you set the allUsers property. */
     await gapi.client.bigquery.jobs.list({
@@ -1770,7 +1770,7 @@ gapi.load('client', async () => {
         timeoutMs: 42,
         useLegacySql: true,
         useQueryCache: true,
-      }
+      },
     );
     /** Deletes the model specified by modelId from the dataset. */
     await gapi.client.bigquery.models.delete({
@@ -2752,7 +2752,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** RPC to get the service account for a project used for interactions with Google Cloud KMS */
     await gapi.client.bigquery.projects.getServiceAccount({
@@ -2785,7 +2785,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Creates a new routine in the dataset. */
     await gapi.client.bigquery.routines.insert(
@@ -2882,7 +2882,7 @@ gapi.load('client', async () => {
           runtimeVersion: 'Test string',
         },
         strictMode: true,
-      }
+      },
     );
     /** Lists all routines in the specified dataset. Requires the READER dataset role. */
     await gapi.client.bigquery.routines.list({
@@ -2927,7 +2927,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Updates information in an existing routine. The update method replaces the entire Routine resource. */
     await gapi.client.bigquery.routines.update(
@@ -3025,7 +3025,7 @@ gapi.load('client', async () => {
           runtimeVersion: 'Test string',
         },
         strictMode: true,
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.bigquery.rowAccessPolicies.getIamPolicy(
@@ -3036,7 +3036,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all row access policies on the specified table. */
     await gapi.client.bigquery.rowAccessPolicies.list({
@@ -3053,7 +3053,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Streams data into BigQuery one record at a time without needing to run a load job. */
     await gapi.client.bigquery.tabledata.insertAll(
@@ -3076,7 +3076,7 @@ gapi.load('client', async () => {
         skipInvalidRows: true,
         templateSuffix: 'Test string',
         traceId: 'Test string',
-      }
+      },
     );
     /** List the content of a table in rows. */
     await gapi.client.bigquery.tabledata.list({
@@ -3112,7 +3112,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Creates a new, empty table in the dataset. */
     await gapi.client.bigquery.tables.insert(
@@ -3506,7 +3506,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Lists all tables in the specified dataset. Requires the READER dataset role. */
     await gapi.client.bigquery.tables.list({
@@ -3909,7 +3909,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.bigquery.tables.setIamPolicy(
@@ -3945,7 +3945,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.bigquery.tables.testIamPermissions(
@@ -3954,7 +3954,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates information in an existing table. The update method replaces the entire Table resource, whereas the patch method only replaces fields that are provided in the submitted Table resource. */
     await gapi.client.bigquery.tables.update(
@@ -4350,7 +4350,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
   }
 });

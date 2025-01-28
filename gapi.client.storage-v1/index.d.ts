@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Storage JSON API v1 */
   function load(
-    urlOrObject: 'https://storage.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://storage.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'storage', version: 'v1'): Promise<void>;
@@ -914,7 +914,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: AnywhereCache
+        body: AnywhereCache,
       ): Request<GoogleLongrunningOperation>;
       /** Returns a list of Anywhere Cache instances of the bucket matching the criteria. */
       list(request?: {
@@ -1035,7 +1035,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: AnywhereCache
+        body: AnywhereCache,
       ): Request<GoogleLongrunningOperation>;
     }
     interface BucketAccessControlsResource {
@@ -1137,7 +1137,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: BucketAccessControl
+        body: BucketAccessControl,
       ): Request<BucketAccessControl>;
       /** Retrieves ACL entries on the specified bucket. */
       list(request?: {
@@ -1214,7 +1214,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: BucketAccessControl
+        body: BucketAccessControl,
       ): Request<BucketAccessControl>;
       /** Updates an ACL entry on the specified bucket. */
       update(request: {
@@ -1268,7 +1268,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: BucketAccessControl
+        body: BucketAccessControl,
       ): Request<BucketAccessControl>;
     }
     interface BucketsResource {
@@ -1444,7 +1444,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. */
           userProject?: string;
         },
-        body: Bucket
+        body: Bucket,
       ): Request<Bucket>;
       /** Retrieves a list of buckets for a given project. */
       list(request?: {
@@ -1572,7 +1572,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: Bucket
+        body: Bucket,
       ): Request<Bucket>;
       /** Initiates a long-running Relocate Bucket operation on the specified bucket. */
       relocate(request: {
@@ -1618,7 +1618,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: RelocateBucketRequest
+        body: RelocateBucketRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Restores a soft-deleted bucket. */
       restore(request?: {
@@ -1695,7 +1695,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: Policy
+        body: Policy,
       ): Request<Policy>;
       /** Tests a set of permissions on the given bucket to see which, if any, are held by the caller. */
       testIamPermissions(request?: {
@@ -1790,7 +1790,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: Bucket
+        body: Bucket,
       ): Request<Bucket>;
     }
     interface ChannelsResource {
@@ -1834,7 +1834,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<void>;
     }
     interface DefaultObjectAccessControlsResource {
@@ -1936,7 +1936,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: ObjectAccessControl
+        body: ObjectAccessControl,
       ): Request<ObjectAccessControl>;
       /** Retrieves default object ACL entries on the specified bucket. */
       list(request?: {
@@ -2017,7 +2017,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: ObjectAccessControl
+        body: ObjectAccessControl,
       ): Request<ObjectAccessControl>;
       /** Updates a default object ACL entry on the specified bucket. */
       update(request: {
@@ -2071,7 +2071,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: ObjectAccessControl
+        body: ObjectAccessControl,
       ): Request<ObjectAccessControl>;
     }
     interface FoldersResource {
@@ -2177,7 +2177,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Folder
+        body: Folder,
       ): Request<Folder>;
       /** Retrieves a list of folders matching the criteria. Only applicable to buckets with hierarchical namespace enabled. */
       list(request?: {
@@ -2370,7 +2370,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: ManagedFolder
+        body: ManagedFolder,
       ): Request<ManagedFolder>;
       /** Lists managed folders in the given bucket. */
       list(request?: {
@@ -2451,7 +2451,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: Policy
+        body: Policy,
       ): Request<Policy>;
       /** Tests a set of permissions on the given managed folder to see which, if any, are held by the caller. */
       testIamPermissions(request?: {
@@ -2580,7 +2580,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: Notification
+        body: Notification,
       ): Request<Notification>;
       /** Retrieves a list of notification subscriptions for a given bucket. */
       list(request?: {
@@ -2721,7 +2721,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: ObjectAccessControl
+        body: ObjectAccessControl,
       ): Request<ObjectAccessControl>;
       /** Retrieves ACL entries on the specified object. */
       list(request?: {
@@ -2810,7 +2810,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: ObjectAccessControl
+        body: ObjectAccessControl,
       ): Request<ObjectAccessControl>;
       /** Updates an ACL entry on the specified object. */
       update(request: {
@@ -2872,7 +2872,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: ObjectAccessControl
+        body: ObjectAccessControl,
       ): Request<ObjectAccessControl>;
     }
     interface ObjectsResource {
@@ -2920,7 +2920,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: BulkRestoreObjectsRequest
+        body: BulkRestoreObjectsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Concatenates a list of existing objects into a new object in the same bucket. */
       compose(
@@ -2957,7 +2957,7 @@ declare namespace gapi.client {
           userProject?: string;
           /** Request body */
           resource: ComposeRequest;
-        }
+        },
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       compose(
@@ -2993,7 +2993,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: ComposeRequest
+        body: ComposeRequest,
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Copies a source object to a destination object. Optionally overrides metadata. */
@@ -3052,7 +3052,7 @@ declare namespace gapi.client {
           /** Request body */
           resource: // eslint-disable-next-line @typescript-eslint/ban-types
           Object;
-        }
+        },
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       copy(
@@ -3109,7 +3109,7 @@ declare namespace gapi.client {
           userProject?: string;
         },
         // eslint-disable-next-line @typescript-eslint/ban-types
-        body: Object
+        body: Object,
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Deletes an object and its metadata. Deletions are permanent if versioning is not enabled for the bucket, or if the generation parameter is used. */
@@ -3188,7 +3188,7 @@ declare namespace gapi.client {
           userIp?: string;
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
-        }
+        },
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Returns an IAM policy for the specified object. */
@@ -3262,7 +3262,7 @@ declare namespace gapi.client {
           /** Request body */
           resource: // eslint-disable-next-line @typescript-eslint/ban-types
           Object;
-        }
+        },
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       insert(
@@ -3307,7 +3307,7 @@ declare namespace gapi.client {
           userProject?: string;
         },
         // eslint-disable-next-line @typescript-eslint/ban-types
-        body: Object
+        body: Object,
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Retrieves a list of objects matching the criteria. */
@@ -3400,7 +3400,7 @@ declare namespace gapi.client {
           userIp?: string;
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
-        }
+        },
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Patches an object's metadata. */
@@ -3447,7 +3447,7 @@ declare namespace gapi.client {
           /** Request body */
           resource: // eslint-disable-next-line @typescript-eslint/ban-types
           Object;
-        }
+        },
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       patch(
@@ -3492,7 +3492,7 @@ declare namespace gapi.client {
           userProject?: string;
         },
         // eslint-disable-next-line @typescript-eslint/ban-types
-        body: Object
+        body: Object,
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Restores a soft-deleted object. */
@@ -3536,7 +3536,7 @@ declare namespace gapi.client {
           userIp?: string;
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
-        }
+        },
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Rewrites a source object to a destination object. Optionally overrides metadata. */
@@ -3657,7 +3657,7 @@ declare namespace gapi.client {
           userProject?: string;
         },
         // eslint-disable-next-line @typescript-eslint/ban-types
-        body: Object
+        body: Object,
       ): Request<RewriteResponse>;
       /** Updates an IAM policy for the specified object. */
       setIamPolicy(request: {
@@ -3715,7 +3715,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        body: Policy
+        body: Policy,
       ): Request<Policy>;
       /** Tests a set of permissions on the given object to see which, if any, are held by the caller. */
       testIamPermissions(request?: {
@@ -3790,7 +3790,7 @@ declare namespace gapi.client {
           /** Request body */
           resource: // eslint-disable-next-line @typescript-eslint/ban-types
           Object;
-        }
+        },
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       update(
@@ -3835,7 +3835,7 @@ declare namespace gapi.client {
           userProject?: string;
         },
         // eslint-disable-next-line @typescript-eslint/ban-types
-        body: Object
+        body: Object,
         // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Watch for changes on all objects in a bucket. */
@@ -3922,7 +3922,7 @@ declare namespace gapi.client {
           /** If true, lists all versions of an object as distinct results. The default is false. For more information, see [Object Versioning](https://cloud.google.com/storage/docs/object-versioning). */
           versions?: boolean;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
     }
     interface OperationsResource {
@@ -3974,7 +3974,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: AdvanceRelocateBucketOperationRequest
+        body: AdvanceRelocateBucketOperationRequest,
       ): Request<void>;
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. */
       cancel(request?: {
@@ -4209,7 +4209,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. */
           userProject?: string;
         },
-        body: HmacKeyMetadata
+        body: HmacKeyMetadata,
       ): Request<HmacKeyMetadata>;
     }
     interface ServiceAccountResource {

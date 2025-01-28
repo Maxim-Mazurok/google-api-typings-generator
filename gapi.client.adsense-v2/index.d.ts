@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load AdSense Management API v2 */
   function load(
-    urlOrObject: 'https://adsense.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://adsense.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'adsense', version: 'v2'): Promise<void>;
@@ -360,7 +360,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AdUnit
+        body: AdUnit,
       ): Request<AdUnit>;
       /** Gets an ad unit from a specified account and ad client. */
       get(request?: {
@@ -538,7 +538,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AdUnit
+        body: AdUnit,
       ): Request<AdUnit>;
     }
     interface CustomchannelsResource {
@@ -598,7 +598,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomChannel
+        body: CustomChannel,
       ): Request<CustomChannel>;
       /** Deletes a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
       delete(request?: {
@@ -776,7 +776,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomChannel
+        body: CustomChannel,
       ): Request<CustomChannel>;
     }
     interface UrlchannelsResource {

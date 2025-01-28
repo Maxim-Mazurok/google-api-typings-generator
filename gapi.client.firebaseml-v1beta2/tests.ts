@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://firebaseml.googleapis.com/$discovery/rest?version=v1beta2'
+    'https://firebaseml.googleapis.com/$discovery/rest?version=v1beta2',
   );
   /** now we can use gapi.client.firebaseml */
 
@@ -82,7 +82,7 @@ gapi.load('client', async () => {
           sizeBytes: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a model */
     await gapi.client.firebaseml.projects.models.delete({
@@ -155,7 +155,7 @@ gapi.load('client', async () => {
           sizeBytes: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.firebaseml.projects.operations.get({

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Binary Authorization API v1beta1 */
   function load(
-    urlOrObject: 'https://binaryauthorization.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://binaryauthorization.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'binaryauthorization', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'binaryauthorization',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace binaryauthorization {
@@ -237,7 +237,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Attestor
+        body: Attestor,
       ): Request<Attestor>;
       /** Deletes an attestor. Returns NOT_FOUND if the attestor does not exist. */
       delete(request?: {
@@ -381,7 +381,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<IamPolicy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -411,7 +411,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Updates an attestor. Returns NOT_FOUND if the attestor does not exist. */
       update(request: {
@@ -469,7 +469,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Attestor
+        body: Attestor,
       ): Request<Attestor>;
       /** Returns whether the given `Attestation` for the given image URI was signed by the given `Attestor` */
       validateAttestationOccurrence(request: {
@@ -527,7 +527,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ValidateAttestationOccurrenceRequest
+        body: ValidateAttestationOccurrenceRequest,
       ): Request<ValidateAttestationOccurrenceResponse>;
     }
     interface PolicyResource {
@@ -588,7 +588,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<IamPolicy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -618,7 +618,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface ProjectsResource {
@@ -705,7 +705,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Policy
+        body: Policy,
       ): Request<Policy>;
       attestors: AttestorsResource;
       policy: PolicyResource;

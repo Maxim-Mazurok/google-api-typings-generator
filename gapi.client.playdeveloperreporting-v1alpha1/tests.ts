@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://playdeveloperreporting.googleapis.com/$discovery/rest?version=v1alpha1'
+    'https://playdeveloperreporting.googleapis.com/$discovery/rest?version=v1alpha1',
   );
   /** now we can use gapi.client.playdeveloperreporting */
 
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
           },
         },
         userCohort: 'Test string',
-      }
+      },
     );
     /** Describes the properties of the metric set. */
     await gapi.client.playdeveloperreporting.vitals.crashrate.get({
@@ -143,7 +143,7 @@ gapi.load('client', async () => {
           },
         },
         userCohort: 'Test string',
-      }
+      },
     );
     /** Describes the properties of the metrics set. */
     await gapi.client.playdeveloperreporting.vitals.errors.counts.get({
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
             year: 42,
           },
         },
-      }
+      },
     );
     /** Searches all error issues in which reports have been grouped. */
     await gapi.client.playdeveloperreporting.vitals.errors.issues.search({
@@ -296,7 +296,7 @@ gapi.load('client', async () => {
           },
         },
         userCohort: 'Test string',
-      }
+      },
     );
     /** Describes the properties of the metric set. */
     await gapi.client.playdeveloperreporting.vitals.slowrenderingrate.get({
@@ -345,7 +345,7 @@ gapi.load('client', async () => {
           },
         },
         userCohort: 'Test string',
-      }
+      },
     );
     /** Describes the properties of the metric set. */
     await gapi.client.playdeveloperreporting.vitals.slowstartrate.get({
@@ -394,13 +394,13 @@ gapi.load('client', async () => {
           },
         },
         userCohort: 'Test string',
-      }
+      },
     );
     /** Describes the properties of the metric set. */
     await gapi.client.playdeveloperreporting.vitals.stuckbackgroundwakelockrate.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Queries the metrics in the metric set. */
     await gapi.client.playdeveloperreporting.vitals.stuckbackgroundwakelockrate.query(
@@ -445,7 +445,7 @@ gapi.load('client', async () => {
           },
         },
         userCohort: 'Test string',
-      }
+      },
     );
   }
 });

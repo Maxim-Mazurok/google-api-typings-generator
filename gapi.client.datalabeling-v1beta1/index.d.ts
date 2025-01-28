@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Data Labeling API v1beta1 */
   function load(
-    urlOrObject: 'https://datalabeling.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://datalabeling.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'datalabeling', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'datalabeling',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace datalabeling {
@@ -1549,7 +1549,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1CreateAnnotationSpecSetRequest
+        body: GoogleCloudDatalabelingV1beta1CreateAnnotationSpecSetRequest,
       ): Request<GoogleCloudDatalabelingV1beta1AnnotationSpecSet>;
       /** Deletes an annotation spec set by resource name. */
       delete(request?: {
@@ -1822,7 +1822,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1FeedbackMessage
+        body: GoogleCloudDatalabelingV1beta1FeedbackMessage,
       ): Request<GoogleLongrunningOperation>;
       /** Delete a FeedbackMessage. */
       delete(request?: {
@@ -2209,7 +2209,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1SearchExampleComparisonsRequest
+        body: GoogleCloudDatalabelingV1beta1SearchExampleComparisonsRequest,
       ): Request<GoogleCloudDatalabelingV1beta1SearchExampleComparisonsResponse>;
     }
     interface EvaluationsResource {
@@ -2299,7 +2299,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1LabelImageRequest
+        body: GoogleCloudDatalabelingV1beta1LabelImageRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface TextResource {
@@ -2359,7 +2359,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1LabelTextRequest
+        body: GoogleCloudDatalabelingV1beta1LabelTextRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface VideoResource {
@@ -2419,7 +2419,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1LabelVideoRequest
+        body: GoogleCloudDatalabelingV1beta1LabelVideoRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface DatasetsResource {
@@ -2479,7 +2479,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1CreateDatasetRequest
+        body: GoogleCloudDatalabelingV1beta1CreateDatasetRequest,
       ): Request<GoogleCloudDatalabelingV1beta1Dataset>;
       /** Deletes a dataset by resource name. */
       delete(request?: {
@@ -2564,7 +2564,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1ExportDataRequest
+        body: GoogleCloudDatalabelingV1beta1ExportDataRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets dataset by resource name. */
       get(request?: {
@@ -2649,7 +2649,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1ImportDataRequest
+        body: GoogleCloudDatalabelingV1beta1ImportDataRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Lists datasets under a project. Pagination is supported. */
       list(request?: {
@@ -2748,7 +2748,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1CreateEvaluationJobRequest
+        body: GoogleCloudDatalabelingV1beta1CreateEvaluationJobRequest,
       ): Request<GoogleCloudDatalabelingV1beta1EvaluationJob>;
       /** Stops and deletes an evaluation job. */
       delete(request?: {
@@ -2897,7 +2897,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1EvaluationJob
+        body: GoogleCloudDatalabelingV1beta1EvaluationJob,
       ): Request<GoogleCloudDatalabelingV1beta1EvaluationJob>;
       /** Pauses an evaluation job. Pausing an evaluation job that is already in a `PAUSED` state is a no-op. */
       pause(request: {
@@ -2955,7 +2955,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1PauseEvaluationJobRequest
+        body: GoogleCloudDatalabelingV1beta1PauseEvaluationJobRequest,
       ): Request<{}>;
       /** Resumes a paused evaluation job. A deleted evaluation job can't be resumed. Resuming a running or scheduled evaluation job is a no-op. */
       resume(request: {
@@ -3013,7 +3013,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1ResumeEvaluationJobRequest
+        body: GoogleCloudDatalabelingV1beta1ResumeEvaluationJobRequest,
       ): Request<{}>;
     }
     interface EvaluationsResource {
@@ -3108,7 +3108,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatalabelingV1beta1CreateInstructionRequest
+        body: GoogleCloudDatalabelingV1beta1CreateInstructionRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes an instruction object by resource name. */
       delete(request?: {

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Deploy API v1 */
   function load(
-    urlOrObject: 'https://clouddeploy.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://clouddeploy.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'clouddeploy', version: 'v1'): Promise<void>;
@@ -1597,7 +1597,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: CustomTargetType
+        body: CustomTargetType,
       ): Request<Operation>;
       /** Deletes a single CustomTargetType. */
       delete(request?: {
@@ -1797,7 +1797,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: CustomTargetType
+        body: CustomTargetType,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1827,7 +1827,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
     }
     interface AutomationRunsResource {
@@ -1887,7 +1887,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelAutomationRunRequest
+        body: CancelAutomationRunRequest,
       ): Request<{}>;
       /** Gets details of a single AutomationRun. */
       get(request?: {
@@ -2021,7 +2021,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: Automation
+        body: Automation,
       ): Request<Operation>;
       /** Deletes a single Automation resource. */
       delete(request?: {
@@ -2192,7 +2192,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: Automation
+        body: Automation,
       ): Request<Operation>;
     }
     interface JobRunsResource {
@@ -2314,7 +2314,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TerminateJobRunRequest
+        body: TerminateJobRunRequest,
       ): Request<{}>;
     }
     interface RolloutsResource {
@@ -2374,7 +2374,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AdvanceRolloutRequest
+        body: AdvanceRolloutRequest,
       ): Request<{}>;
       /** Approves a Rollout. */
       approve(request: {
@@ -2432,7 +2432,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApproveRolloutRequest
+        body: ApproveRolloutRequest,
       ): Request<{}>;
       /** Cancels a Rollout in a given project and location. */
       cancel(request: {
@@ -2490,7 +2490,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelRolloutRequest
+        body: CancelRolloutRequest,
       ): Request<{}>;
       /** Creates a new Rollout in a given project and location. */
       create(request: {
@@ -2568,7 +2568,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: Rollout
+        body: Rollout,
       ): Request<Operation>;
       /** Gets details of a single Rollout. */
       get(request?: {
@@ -2653,7 +2653,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: IgnoreJobRequest
+        body: IgnoreJobRequest,
       ): Request<{}>;
       /** Lists Rollouts in a given project and location. */
       list(request?: {
@@ -2746,7 +2746,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RetryJobRequest
+        body: RetryJobRequest,
       ): Request<{}>;
       jobRuns: JobRunsResource;
     }
@@ -2807,7 +2807,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AbandonReleaseRequest
+        body: AbandonReleaseRequest,
       ): Request<{}>;
       /** Creates a new Release in a given project and location. */
       create(request: {
@@ -2881,7 +2881,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: Release
+        body: Release,
       ): Request<Operation>;
       /** Gets details of a single Release. */
       get(request?: {
@@ -3016,7 +3016,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: DeliveryPipeline
+        body: DeliveryPipeline,
       ): Request<Operation>;
       /** Deletes a single DeliveryPipeline. */
       delete(request?: {
@@ -3218,7 +3218,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: DeliveryPipeline
+        body: DeliveryPipeline,
       ): Request<Operation>;
       /** Creates a `Rollout` to roll back the specified target. */
       rollbackTarget(request: {
@@ -3276,7 +3276,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RollbackTargetRequest
+        body: RollbackTargetRequest,
       ): Request<RollbackTargetResponse>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -3306,7 +3306,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3336,7 +3336,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       automationRuns: AutomationRunsResource;
       automations: AutomationsResource;
@@ -3411,7 +3411,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: DeployPolicy
+        body: DeployPolicy,
       ): Request<Operation>;
       /** Deletes a single DeployPolicy. */
       delete(request?: {
@@ -3611,7 +3611,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: DeployPolicy
+        body: DeployPolicy,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -3641,7 +3641,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
     }
     interface OperationsResource {
@@ -3701,7 +3701,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -3860,7 +3860,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: Target
+        body: Target,
       ): Request<Operation>;
       /** Deletes a single Target. */
       delete(request?: {
@@ -4060,7 +4060,7 @@ declare namespace gapi.client {
           /** Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made. */
           validateOnly?: boolean;
         },
-        body: Target
+        body: Target,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -4090,7 +4090,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -4120,7 +4120,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface LocationsResource {

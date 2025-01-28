@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://youtubereporting.googleapis.com/$discovery/rest?version=v1'
+    'https://youtubereporting.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.youtubereporting */
 
@@ -45,7 +45,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         reportTypeId: 'Test string',
         systemManaged: true,
-      }
+      },
     );
     /** Deletes a job. */
     await gapi.client.youtubereporting.jobs.delete({

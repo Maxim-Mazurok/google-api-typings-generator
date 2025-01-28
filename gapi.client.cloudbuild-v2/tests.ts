@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudbuild.googleapis.com/$discovery/rest?version=v2'
+    'https://cloudbuild.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.cloudbuild */
 
@@ -130,7 +130,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         reconciling: true,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single connection. */
     await gapi.client.cloudbuild.projects.locations.connections.delete({
@@ -144,7 +144,7 @@ gapi.load('client', async () => {
         connection: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Gets details of a single connection. */
     await gapi.client.cloudbuild.projects.locations.connections.get({
@@ -251,7 +251,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         reconciling: true,
         updateTime: 'Test string',
-      }
+      },
     );
     /** ProcessWebhook is called by the external SCM for notifying of events. */
     await gapi.client.cloudbuild.projects.locations.connections.processWebhook(
@@ -267,7 +267,7 @@ gapi.load('client', async () => {
             A: 42,
           },
         ],
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.cloudbuild.projects.locations.connections.setIamPolicy(
@@ -303,7 +303,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.cloudbuild.projects.locations.connections.testIamPermissions(
@@ -312,21 +312,21 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Fetches read token of a given repository. */
     await gapi.client.cloudbuild.projects.locations.connections.repositories.accessReadToken(
       {
         repository: 'Test string',
       },
-      {}
+      {},
     );
     /** Fetches read/write token of a given repository. */
     await gapi.client.cloudbuild.projects.locations.connections.repositories.accessReadWriteToken(
       {
         repository: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates multiple repositories inside a connection. */
     await gapi.client.cloudbuild.projects.locations.connections.repositories.batchCreate(
@@ -351,7 +351,7 @@ gapi.load('client', async () => {
             repositoryId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Creates a Repository. */
     await gapi.client.cloudbuild.projects.locations.connections.repositories.create(
@@ -369,7 +369,7 @@ gapi.load('client', async () => {
         remoteUri: 'Test string',
         updateTime: 'Test string',
         webhookId: 'Test string',
-      }
+      },
     );
     /** Deletes a single repository. */
     await gapi.client.cloudbuild.projects.locations.connections.repositories.delete(
@@ -377,7 +377,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Fetch the list of branches or tags for a given repository. */
     await gapi.client.cloudbuild.projects.locations.connections.repositories.fetchGitRefs(
@@ -386,13 +386,13 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         refType: 'Test string',
         repository: 'Test string',
-      }
+      },
     );
     /** Gets details of a single repository. */
     await gapi.client.cloudbuild.projects.locations.connections.repositories.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Repositories in a given connection. */
     await gapi.client.cloudbuild.projects.locations.connections.repositories.list(
@@ -401,14 +401,14 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.cloudbuild.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.cloudbuild.projects.locations.operations.get({

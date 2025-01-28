@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load VMware Engine API v1 */
   function load(
-    urlOrObject: 'https://vmwareengine.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://vmwareengine.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'vmwareengine', version: 'v1'): Promise<void>;
@@ -820,7 +820,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GrantDnsBindPermissionRequest
+        body: GrantDnsBindPermissionRequest,
       ): Request<Operation>;
       /** Revokes the bind permission from the customer provided principal(user / service account) on the intranet VPC associated with the consumer project. DnsBindPermission is a global resource and location can only be global. */
       revoke(request: {
@@ -878,7 +878,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RevokeDnsBindPermissionRequest
+        body: RevokeDnsBindPermissionRequest,
       ): Request<Operation>;
     }
     interface PeeringRoutesResource {
@@ -981,7 +981,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NetworkPeering
+        body: NetworkPeering,
       ): Request<Operation>;
       /** Deletes a `NetworkPeering` resource. When a network peering is deleted for a VMware Engine network, the peer network becomes inaccessible to that VMware Engine network. NetworkPeering is a global resource and location can only be global. */
       delete(request?: {
@@ -1138,7 +1138,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NetworkPeering
+        body: NetworkPeering,
       ): Request<Operation>;
       peeringRoutes: PeeringRoutesResource;
     }
@@ -1207,7 +1207,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExternalAccessRule
+        body: ExternalAccessRule,
       ): Request<Operation>;
       /** Deletes a single external access rule. */
       delete(request?: {
@@ -1364,7 +1364,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExternalAccessRule
+        body: ExternalAccessRule,
       ): Request<Operation>;
     }
     interface NetworkPoliciesResource {
@@ -1432,7 +1432,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NetworkPolicy
+        body: NetworkPolicy,
       ): Request<Operation>;
       /** Deletes a `NetworkPolicy` resource. A network policy cannot be deleted when `NetworkService.state` is set to `RECONCILING` for either its external IP or internet access service. */
       delete(request?: {
@@ -1620,7 +1620,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: NetworkPolicy
+        body: NetworkPolicy,
       ): Request<Operation>;
       externalAccessRules: ExternalAccessRulesResource;
     }
@@ -1904,7 +1904,7 @@ declare namespace gapi.client {
           /** Optional. True if you want the request to be validated and not executed; false otherwise. */
           validateOnly?: boolean;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       /** Deletes a `Cluster` resource. To avoid unintended data loss, migrate or gracefully shut down any workloads running on the cluster before deletion. You cannot delete the management cluster of a private cloud using this method. */
       delete(request?: {
@@ -2094,7 +2094,7 @@ declare namespace gapi.client {
           /** Optional. True if you want the request to be validated and not executed; false otherwise. */
           validateOnly?: boolean;
         },
-        body: Cluster
+        body: Cluster,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2124,7 +2124,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2154,7 +2154,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       nodes: NodesResource;
     }
@@ -2223,7 +2223,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExternalAddress
+        body: ExternalAddress,
       ): Request<Operation>;
       /** Deletes a single external IP address. When you delete an external IP address, connectivity between the external IP address and the corresponding internal IP address is lost. */
       delete(request?: {
@@ -2380,7 +2380,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExternalAddress
+        body: ExternalAddress,
       ): Request<Operation>;
     }
     interface HcxActivationKeysResource {
@@ -2448,7 +2448,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: HcxActivationKey
+        body: HcxActivationKey,
       ): Request<Operation>;
       /** Retrieves a `HcxActivationKey` resource by its resource name. */
       get(request?: {
@@ -2565,7 +2565,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2595,7 +2595,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface LoggingServersResource {
@@ -2663,7 +2663,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LoggingServer
+        body: LoggingServer,
       ): Request<Operation>;
       /** Deletes a single logging server. */
       delete(request?: {
@@ -2820,7 +2820,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LoggingServer
+        body: LoggingServer,
       ): Request<Operation>;
     }
     interface ManagementDnsZoneBindingsResource {
@@ -2888,7 +2888,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ManagementDnsZoneBinding
+        body: ManagementDnsZoneBinding,
       ): Request<Operation>;
       /** Deletes a `ManagementDnsZoneBinding` resource. When a management DNS zone binding is deleted, the corresponding consumer VPC network is no longer bound to the management DNS zone. */
       delete(request?: {
@@ -3045,7 +3045,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ManagementDnsZoneBinding
+        body: ManagementDnsZoneBinding,
       ): Request<Operation>;
       /** Retries to create a `ManagementDnsZoneBinding` resource that is in failed state. */
       repair(request: {
@@ -3103,7 +3103,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RepairManagementDnsZoneBindingRequest
+        body: RepairManagementDnsZoneBindingRequest,
       ): Request<Operation>;
     }
     interface SubnetsResource {
@@ -3225,7 +3225,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Subnet
+        body: Subnet,
       ): Request<Operation>;
     }
     interface PrivateCloudsResource {
@@ -3297,7 +3297,7 @@ declare namespace gapi.client {
           /** Optional. True if you want the request to be validated and not executed; false otherwise. */
           validateOnly?: boolean;
         },
-        body: PrivateCloud
+        body: PrivateCloud,
       ): Request<Operation>;
       /** Schedules a `PrivateCloud` resource for deletion. A `PrivateCloud` resource scheduled for deletion has `PrivateCloud.state` set to `DELETED` and `expireTime` set to the time when deletion is final and can no longer be reversed. The delete operation is marked as done as soon as the `PrivateCloud` is successfully scheduled for deletion (this also applies when `delayHours` is set to zero), and the operation is not kept in pending state until `PrivateCloud` is purged. `PrivateCloud` can be restored using `UndeletePrivateCloud` method before the `expireTime` elapses. When `expireTime` is reached, deletion is final and all private cloud resources are irreversibly removed and billing stops. During the final removal process, `PrivateCloud.state` is set to `PURGING`. `PrivateCloud` can be polled using standard `GET` method for the whole period of deletion and purging. It will not be returned only when it is completely purged. */
       delete(request?: {
@@ -3514,7 +3514,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PrivateCloud
+        body: PrivateCloud,
       ): Request<Operation>;
       /** Resets credentials of the NSX appliance. */
       resetNsxCredentials(request: {
@@ -3572,7 +3572,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetNsxCredentialsRequest
+        body: ResetNsxCredentialsRequest,
       ): Request<Operation>;
       /** Resets credentials of the Vcenter appliance. */
       resetVcenterCredentials(request: {
@@ -3630,7 +3630,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetVcenterCredentialsRequest
+        body: ResetVcenterCredentialsRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -3660,7 +3660,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Gets details of credentials for NSX appliance. */
       showNsxCredentials(request?: {
@@ -3746,7 +3746,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Restores a private cloud that was previously scheduled for deletion by `DeletePrivateCloud`. A `PrivateCloud` resource scheduled for deletion has `PrivateCloud.state` set to `DELETED` and `PrivateCloud.expireTime` set to the time when deletion can no longer be reversed. */
       undelete(request: {
@@ -3804,7 +3804,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeletePrivateCloudRequest
+        body: UndeletePrivateCloudRequest,
       ): Request<Operation>;
       /** Updates the parameters of the `DnsForwarding` config, like associated domains. Only fields specified in `update_mask` are applied. */
       updateDnsForwarding(request: {
@@ -3870,7 +3870,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DnsForwarding
+        body: DnsForwarding,
       ): Request<Operation>;
       clusters: ClustersResource;
       externalAddresses: ExternalAddressesResource;
@@ -3977,7 +3977,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PrivateConnection
+        body: PrivateConnection,
       ): Request<Operation>;
       /** Deletes a `PrivateConnection` resource. When a private connection is deleted for a VMware Engine network, the connected network becomes inaccessible to that VMware Engine network. */
       delete(request?: {
@@ -4134,7 +4134,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PrivateConnection
+        body: PrivateConnection,
       ): Request<Operation>;
       peeringRoutes: PeeringRoutesResource;
     }
@@ -4203,7 +4203,7 @@ declare namespace gapi.client {
           /** Required. The user-provided identifier of the new VMware Engine network. This identifier must be unique among VMware Engine network resources within the parent and becomes the final token in the name URI. The identifier must meet the following requirements: * For networks of type LEGACY, adheres to the format: `{region-id}-default`. Replace `{region-id}` with the region where you want to create the VMware Engine network. For example, "us-central1-default". * Only contains 1-63 alphanumeric characters and hyphens * Begins with an alphabetical character * Ends with a non-hyphen character * Not formatted as a UUID * Complies with [RFC 1034](https://datatracker.ietf.org/doc/html/rfc1034) (section 3.5) */
           vmwareEngineNetworkId?: string;
         },
-        body: VmwareEngineNetwork
+        body: VmwareEngineNetwork,
       ): Request<Operation>;
       /** Deletes a `VmwareEngineNetwork` resource. You can only delete a VMware Engine network after all resources that refer to it are deleted. For example, a private cloud, a network peering, and a network policy can all refer to the same VMware Engine network. */
       delete(request?: {
@@ -4362,7 +4362,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: VmwareEngineNetwork
+        body: VmwareEngineNetwork,
       ): Request<Operation>;
     }
     interface LocationsResource {

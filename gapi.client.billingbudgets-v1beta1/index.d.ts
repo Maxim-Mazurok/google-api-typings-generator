@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Billing Budget API v1beta1 */
   function load(
-    urlOrObject: 'https://billingbudgets.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://billingbudgets.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'billingbudgets', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'billingbudgets',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace billingbudgets {
@@ -186,7 +186,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBillingBudgetsV1beta1CreateBudgetRequest
+        body: GoogleCloudBillingBudgetsV1beta1CreateBudgetRequest,
       ): Request<GoogleCloudBillingBudgetsV1beta1Budget>;
       /** Deletes a budget. Returns successfully if already deleted. */
       delete(request?: {
@@ -331,7 +331,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudBillingBudgetsV1beta1UpdateBudgetRequest
+        body: GoogleCloudBillingBudgetsV1beta1UpdateBudgetRequest,
       ): Request<GoogleCloudBillingBudgetsV1beta1Budget>;
     }
     interface BillingAccountsResource {

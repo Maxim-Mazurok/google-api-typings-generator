@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Identity Toolkit API v3 */
   function load(
-    urlOrObject: 'https://identitytoolkit.googleapis.com/$discovery/rest?version=v3'
+    urlOrObject: 'https://identitytoolkit.googleapis.com/$discovery/rest?version=v3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'identitytoolkit', version: 'v3'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'identitytoolkit',
     version: 'v3',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace identitytoolkit {
@@ -793,7 +793,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartyCreateAuthUriRequest
+        body: IdentitytoolkitRelyingpartyCreateAuthUriRequest,
       ): Request<CreateAuthUriResponse>;
       /** Delete user account. */
       deleteAccount(request: {
@@ -831,7 +831,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartyDeleteAccountRequest
+        body: IdentitytoolkitRelyingpartyDeleteAccountRequest,
       ): Request<DeleteAccountResponse>;
       /** Batch download user accounts. */
       downloadAccount(request: {
@@ -869,7 +869,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartyDownloadAccountRequest
+        body: IdentitytoolkitRelyingpartyDownloadAccountRequest,
       ): Request<DownloadAccountResponse>;
       /** Reset password for a user. */
       emailLinkSignin(request: {
@@ -907,7 +907,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartyEmailLinkSigninRequest
+        body: IdentitytoolkitRelyingpartyEmailLinkSigninRequest,
       ): Request<EmailLinkSigninResponse>;
       /** Returns the account info. */
       getAccountInfo(request: {
@@ -945,7 +945,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartyGetAccountInfoRequest
+        body: IdentitytoolkitRelyingpartyGetAccountInfoRequest,
       ): Request<GetAccountInfoResponse>;
       /** Get a code for user action confirmation. */
       getOobConfirmationCode(request: {
@@ -983,7 +983,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: Relyingparty
+        body: Relyingparty,
       ): Request<GetOobConfirmationCodeResponse>;
       /** Get project configuration. */
       getProjectConfig(request?: {
@@ -1076,7 +1076,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartyResetPasswordRequest
+        body: IdentitytoolkitRelyingpartyResetPasswordRequest,
       ): Request<ResetPasswordResponse>;
       /** Send SMS verification code. */
       sendVerificationCode(request: {
@@ -1114,7 +1114,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartySendVerificationCodeRequest
+        body: IdentitytoolkitRelyingpartySendVerificationCodeRequest,
       ): Request<IdentitytoolkitRelyingpartySendVerificationCodeResponse>;
       /** Set account info for a user. */
       setAccountInfo(request: {
@@ -1152,7 +1152,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartySetAccountInfoRequest
+        body: IdentitytoolkitRelyingpartySetAccountInfoRequest,
       ): Request<SetAccountInfoResponse>;
       /** Set project configuration. */
       setProjectConfig(request: {
@@ -1190,7 +1190,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartySetProjectConfigRequest
+        body: IdentitytoolkitRelyingpartySetProjectConfigRequest,
       ): Request<IdentitytoolkitRelyingpartySetProjectConfigResponse>;
       /** Sign out user. */
       signOutUser(request: {
@@ -1228,7 +1228,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartySignOutUserRequest
+        body: IdentitytoolkitRelyingpartySignOutUserRequest,
       ): Request<IdentitytoolkitRelyingpartySignOutUserResponse>;
       /** Signup new user. */
       signupNewUser(request: {
@@ -1266,7 +1266,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartySignupNewUserRequest
+        body: IdentitytoolkitRelyingpartySignupNewUserRequest,
       ): Request<SignupNewUserResponse>;
       /** Batch upload existing user accounts. */
       uploadAccount(request: {
@@ -1304,7 +1304,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartyUploadAccountRequest
+        body: IdentitytoolkitRelyingpartyUploadAccountRequest,
       ): Request<UploadAccountResponse>;
       /** Verifies the assertion returned by the IdP. */
       verifyAssertion(request: {
@@ -1342,7 +1342,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartyVerifyAssertionRequest
+        body: IdentitytoolkitRelyingpartyVerifyAssertionRequest,
       ): Request<VerifyAssertionResponse>;
       /** Verifies the developer asserted ID token. */
       verifyCustomToken(request: {
@@ -1380,7 +1380,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartyVerifyCustomTokenRequest
+        body: IdentitytoolkitRelyingpartyVerifyCustomTokenRequest,
       ): Request<VerifyCustomTokenResponse>;
       /** Verifies the user entered password. */
       verifyPassword(request: {
@@ -1418,7 +1418,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartyVerifyPasswordRequest
+        body: IdentitytoolkitRelyingpartyVerifyPasswordRequest,
       ): Request<VerifyPasswordResponse>;
       /** Verifies ownership of a phone number and creates/updates the user account accordingly. */
       verifyPhoneNumber(request: {
@@ -1456,7 +1456,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: IdentitytoolkitRelyingpartyVerifyPhoneNumberRequest
+        body: IdentitytoolkitRelyingpartyVerifyPhoneNumberRequest,
       ): Request<IdentitytoolkitRelyingpartyVerifyPhoneNumberResponse>;
     }
 

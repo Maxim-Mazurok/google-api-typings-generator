@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://advisorynotifications.googleapis.com/$discovery/rest?version=v1'
+    'https://advisorynotifications.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.advisorynotifications */
 
@@ -35,7 +35,7 @@ gapi.load('client', async () => {
     await gapi.client.advisorynotifications.organizations.locations.getSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Update notification settings. */
     await gapi.client.advisorynotifications.organizations.locations.updateSettings(
@@ -50,14 +50,14 @@ gapi.load('client', async () => {
             enabled: true,
           },
         },
-      }
+      },
     );
     /** Gets a notification. */
     await gapi.client.advisorynotifications.organizations.locations.notifications.get(
       {
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Lists notifications under a given parent. */
     await gapi.client.advisorynotifications.organizations.locations.notifications.list(
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Get notification settings. */
     await gapi.client.advisorynotifications.projects.locations.getSettings({
@@ -86,14 +86,14 @@ gapi.load('client', async () => {
             enabled: true,
           },
         },
-      }
+      },
     );
     /** Gets a notification. */
     await gapi.client.advisorynotifications.projects.locations.notifications.get(
       {
         languageCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Lists notifications under a given parent. */
     await gapi.client.advisorynotifications.projects.locations.notifications.list(
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
   }
 });

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Storage for Firebase API v1beta */
   function load(
-    urlOrObject: 'https://firebasestorage.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://firebasestorage.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firebasestorage', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firebasestorage',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firebasestorage {
@@ -108,7 +108,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddFirebaseRequest
+        body: AddFirebaseRequest,
       ): Request<Bucket>;
       /** Gets a single linked storage bucket. */
       get(request?: {
@@ -224,7 +224,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveFirebaseRequest
+        body: RemoveFirebaseRequest,
       ): Request<{}>;
     }
     interface DefaultBucketResource {
@@ -284,7 +284,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DefaultBucket
+        body: DefaultBucket,
       ): Request<DefaultBucket>;
     }
     interface ProjectsResource {

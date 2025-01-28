@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://deploymentmanager.googleapis.com/$discovery/rest?version=v2'
+    'https://deploymentmanager.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.deploymentmanager */
 
@@ -45,7 +45,7 @@ gapi.load('client', async () => {
       },
       {
         fingerprint: 'Test string',
-      }
+      },
     );
     /** Deletes a deployment and all of the resources in the deployment. */
     await gapi.client.deploymentmanager.deployments.delete({
@@ -223,7 +223,7 @@ gapi.load('client', async () => {
           manifest: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Lists all deployments for a given project. */
     await gapi.client.deploymentmanager.deployments.list({
@@ -391,7 +391,7 @@ gapi.load('client', async () => {
           manifest: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. */
     await gapi.client.deploymentmanager.deployments.setIamPolicy(
@@ -441,7 +441,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Stops an ongoing operation. This does not roll back any work that has already been completed, but prevents any new work from being started. */
     await gapi.client.deploymentmanager.deployments.stop(
@@ -451,7 +451,7 @@ gapi.load('client', async () => {
       },
       {
         fingerprint: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.deploymentmanager.deployments.testIamPermissions(
@@ -462,7 +462,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Updates a deployment and all of the resources described by the deployment manifest. */
     await gapi.client.deploymentmanager.deployments.update(
@@ -622,7 +622,7 @@ gapi.load('client', async () => {
           manifest: 'Test string',
         },
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets information about a specific manifest. */
     await gapi.client.deploymentmanager.manifests.get({

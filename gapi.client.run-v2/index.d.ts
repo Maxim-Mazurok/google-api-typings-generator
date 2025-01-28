@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Run Admin API v2 */
   function load(
-    urlOrObject: 'https://run.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://run.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'run', version: 'v2'): Promise<void>;
@@ -1444,7 +1444,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRunV2SubmitBuildRequest
+        body: GoogleCloudRunV2SubmitBuildRequest,
       ): Request<GoogleCloudRunV2SubmitBuildResponse>;
     }
     interface TasksResource {
@@ -1566,7 +1566,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRunV2CancelExecutionRequest
+        body: GoogleCloudRunV2CancelExecutionRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes an Execution. */
       delete(request?: {
@@ -1755,7 +1755,7 @@ declare namespace gapi.client {
           /** Indicates that the request should be validated and default values populated, without persisting the request or creating any resources. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudRunV2Job
+        body: GoogleCloudRunV2Job,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a Job. */
       delete(request?: {
@@ -1941,7 +1941,7 @@ declare namespace gapi.client {
           /** Indicates that the request should be validated and default values populated, without persisting the request or updating any resources. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudRunV2Job
+        body: GoogleCloudRunV2Job,
       ): Request<GoogleLongrunningOperation>;
       /** Triggers creation of a new Execution of this Job. */
       run(request: {
@@ -1999,7 +1999,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRunV2RunJobRequest
+        body: GoogleCloudRunV2RunJobRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the IAM Access control policy for the specified Job. Overwrites any existing policy. */
       setIamPolicy(
@@ -2029,7 +2029,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
       testIamPermissions(
@@ -2059,7 +2059,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
       executions: ExecutionsResource;
     }
@@ -2207,7 +2207,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningWaitOperationRequest
+        body: GoogleLongrunningWaitOperationRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface RevisionsResource {
@@ -2397,7 +2397,7 @@ declare namespace gapi.client {
           /** Indicates that the request should be validated and default values populated, without persisting the request or creating any resources. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudRunV2Service
+        body: GoogleCloudRunV2Service,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a Service. This will cause the Service to stop serving traffic and will delete all revisions. */
       delete(request?: {
@@ -2587,7 +2587,7 @@ declare namespace gapi.client {
           /** Indicates that the request should be validated and default values populated, without persisting the request or updating any resources. */
           validateOnly?: boolean;
         },
-        body: GoogleCloudRunV2Service
+        body: GoogleCloudRunV2Service,
       ): Request<GoogleLongrunningOperation>;
       /** Sets the IAM Access control policy for the specified Service. Overwrites any existing policy. */
       setIamPolicy(
@@ -2617,7 +2617,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1SetIamPolicyRequest
+        body: GoogleIamV1SetIamPolicyRequest,
       ): Request<GoogleIamV1Policy>;
       /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
       testIamPermissions(
@@ -2647,7 +2647,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV1TestIamPermissionsRequest
+        body: GoogleIamV1TestIamPermissionsRequest,
       ): Request<GoogleIamV1TestIamPermissionsResponse>;
       revisions: RevisionsResource;
     }
@@ -2804,7 +2804,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRunV2ExportImageRequest
+        body: GoogleCloudRunV2ExportImageRequest,
       ): Request<GoogleCloudRunV2ExportImageResponse>;
       /** Export image metadata for a given resource. */
       exportImageMetadata(request?: {

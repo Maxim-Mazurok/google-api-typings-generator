@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://notebooks.googleapis.com/$discovery/rest?version=v2'
+    'https://notebooks.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.notebooks */
 
@@ -46,7 +46,7 @@ gapi.load('client', async () => {
     await gapi.client.notebooks.projects.locations.instances.checkUpgradability(
       {
         notebookInstance: 'Test string',
-      }
+      },
     );
     /** Creates a new Instance in a given project and location. */
     await gapi.client.notebooks.projects.locations.instances.create(
@@ -155,7 +155,7 @@ gapi.load('client', async () => {
             vmImage: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a single Instance. */
     await gapi.client.notebooks.projects.locations.instances.delete({
@@ -176,7 +176,7 @@ gapi.load('client', async () => {
           relativePath: 'Test string',
         },
         timeoutMinutes: 42,
-      }
+      },
     );
     /** Gets details of a single Instance. */
     await gapi.client.notebooks.projects.locations.instances.get({
@@ -306,7 +306,7 @@ gapi.load('client', async () => {
             vmImage: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Allows notebook instances to report their latest instance information to the Notebooks API server. The server will merge the reported information to the instance metadata store. Do not use this method directly. */
     await gapi.client.notebooks.projects.locations.instances.reportInfoSystem(
@@ -322,14 +322,14 @@ gapi.load('client', async () => {
           type: 'Test string',
         },
         vmId: 'Test string',
-      }
+      },
     );
     /** Resets a notebook instance. */
     await gapi.client.notebooks.projects.locations.instances.reset(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Resize a notebook instance disk to a higher capacity. */
     await gapi.client.notebooks.projects.locations.instances.resizeDisk(
@@ -349,7 +349,7 @@ gapi.load('client', async () => {
           diskType: 'Test string',
           kmsKey: 'Test string',
         },
-      }
+      },
     );
     /** RestoreInstance restores an Instance from a BackupSource. */
     await gapi.client.notebooks.projects.locations.instances.restore(
@@ -361,7 +361,7 @@ gapi.load('client', async () => {
           projectId: 'Test string',
           snapshotId: 'Test string',
         },
-      }
+      },
     );
     /** Rollbacks a notebook instance to the previous version. */
     await gapi.client.notebooks.projects.locations.instances.rollback(
@@ -371,7 +371,7 @@ gapi.load('client', async () => {
       {
         revisionId: 'Test string',
         targetSnapshot: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.notebooks.projects.locations.instances.setIamPolicy(
@@ -395,21 +395,21 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Starts a notebook instance. */
     await gapi.client.notebooks.projects.locations.instances.start(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Stops a notebook instance. */
     await gapi.client.notebooks.projects.locations.instances.stop(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.notebooks.projects.locations.instances.testIamPermissions(
@@ -418,14 +418,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Upgrades a notebook instance to the latest version. */
     await gapi.client.notebooks.projects.locations.instances.upgrade(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Allows notebook instances to upgrade themselves. Do not use this method directly. */
     await gapi.client.notebooks.projects.locations.instances.upgradeSystem(
@@ -434,14 +434,14 @@ gapi.load('client', async () => {
       },
       {
         vmId: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.notebooks.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.notebooks.projects.locations.operations.delete({

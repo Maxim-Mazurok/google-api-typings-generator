@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Blogger API v3 */
   function load(
-    urlOrObject: 'https://blogger.googleapis.com/$discovery/rest?version=v3'
+    urlOrObject: 'https://blogger.googleapis.com/$discovery/rest?version=v3',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'blogger', version: 'v3'): Promise<void>;
@@ -810,7 +810,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Page
+        body: Page,
       ): Request<Page>;
       /** Lists pages. */
       list(request?: {
@@ -903,7 +903,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Page
+        body: Page,
       ): Request<Page>;
       /** Publishes a page. */
       publish(request?: {
@@ -1019,7 +1019,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Page
+        body: Page,
       ): Request<Page>;
     }
     interface PageViewsResource {
@@ -1201,7 +1201,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Post
+        body: Post,
       ): Request<Post>;
       /** Lists posts. */
       list(request?: {
@@ -1307,7 +1307,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Post
+        body: Post,
       ): Request<Post>;
       /** Publishes a post. */
       publish(request?: {
@@ -1459,7 +1459,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Post
+        body: Post,
       ): Request<Post>;
     }
     interface PostUserInfosResource {

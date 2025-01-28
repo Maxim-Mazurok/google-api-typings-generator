@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Identity and Access Management (IAM) API v2beta */
   function load(
-    urlOrObject: 'https://iam.googleapis.com/$discovery/rest?version=v2beta'
+    urlOrObject: 'https://iam.googleapis.com/$discovery/rest?version=v2beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'iam', version: 'v2beta'): Promise<void>;
@@ -309,7 +309,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV2betaPolicy
+        body: GoogleIamV2betaPolicy,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a policy. This action is permanent. */
       delete(request?: {
@@ -454,7 +454,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleIamV2betaPolicy
+        body: GoogleIamV2betaPolicy,
       ): Request<GoogleLongrunningOperation>;
       operations: OperationsResource;
     }

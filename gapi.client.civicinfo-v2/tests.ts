@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://civicinfo.googleapis.com/$discovery/rest?version=v2'
+    'https://civicinfo.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.civicinfo */
 

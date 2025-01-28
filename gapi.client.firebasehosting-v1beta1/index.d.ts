@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Firebase Hosting API v1beta1 */
   function load(
-    urlOrObject: 'https://firebasehosting.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://firebasehosting.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firebasehosting', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firebasehosting',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firebasehosting {
@@ -537,7 +537,7 @@ declare namespace gapi.client {
           /** The unique identifier for a version, in the format: sites/SITE_ID/versions/ VERSION_ID The SITE_ID in this version identifier must match the SITE_ID in the `parent` parameter. This query parameter must be empty if the `type` field in the request body is `SITE_DISABLE`. */
           versionName?: string;
         },
-        body: Release
+        body: Release,
       ): Request<Release>;
       /** Gets the specified release for a site or channel. When used to get a release for a site, this can get releases for both the default `live` channel and any active preview channels for the specified site. */
       get(request?: {
@@ -659,7 +659,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
       /** Deletes the specified channel of the specified site. The `live` channel cannot be deleted. */
       delete(request?: {
@@ -806,7 +806,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
       releases: ReleasesResource;
     }
@@ -937,7 +937,7 @@ declare namespace gapi.client {
           /** If true, Hosting validates that it's possible to complete your request but doesn't actually create a new `CustomDomain`. */
           validateOnly?: boolean;
         },
-        body: CustomDomain
+        body: CustomDomain,
       ): Request<Operation>;
       /** Deletes the specified `CustomDomain`. */
       delete(request?: {
@@ -1100,7 +1100,7 @@ declare namespace gapi.client {
           /** If true, Hosting validates that it's possible to complete your request but doesn't actually create or update the `CustomDomain`. */
           validateOnly?: boolean;
         },
-        body: CustomDomain
+        body: CustomDomain,
       ): Request<Operation>;
       /** Undeletes the specified `CustomDomain` if it has been soft-deleted. Hosting retains soft-deleted custom domains for around 30 days before permanently deleting them. */
       undelete(request: {
@@ -1158,7 +1158,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UndeleteCustomDomainRequest
+        body: UndeleteCustomDomainRequest,
       ): Request<Operation>;
       operations: OperationsResource;
     }
@@ -1219,7 +1219,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Domain
+        body: Domain,
       ): Request<Domain>;
       /** Deletes the existing domain mapping on the specified site. */
       delete(request?: {
@@ -1362,7 +1362,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Domain
+        body: Domain,
       ): Request<Domain>;
     }
     interface ReleasesResource {
@@ -1426,7 +1426,7 @@ declare namespace gapi.client {
           /** The unique identifier for a version, in the format: sites/SITE_ID/versions/ VERSION_ID The SITE_ID in this version identifier must match the SITE_ID in the `parent` parameter. This query parameter must be empty if the `type` field in the request body is `SITE_DISABLE`. */
           versionName?: string;
         },
-        body: Release
+        body: Release,
       ): Request<Release>;
       /** Gets the specified release for a site or channel. When used to get a release for a site, this can get releases for both the default `live` channel and any active preview channels for the specified site. */
       get(request?: {
@@ -1579,7 +1579,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CloneVersionRequest
+        body: CloneVersionRequest,
       ): Request<Operation>;
       /** Creates a new version for the specified site. */
       create(request: {
@@ -1645,7 +1645,7 @@ declare namespace gapi.client {
           /** A unique id for the new version. This is was only specified for legacy version creations, and should be blank. */
           versionId?: string;
         },
-        body: Version
+        body: Version,
       ): Request<Version>;
       /** Deletes the specified version. */
       delete(request?: {
@@ -1794,7 +1794,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Version
+        body: Version,
       ): Request<Version>;
       /** Adds content files to the specified version. Each file must be under 2 GB. */
       populateFiles(request: {
@@ -1852,7 +1852,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PopulateVersionFilesRequest
+        body: PopulateVersionFilesRequest,
       ): Request<PopulateVersionFilesResponse>;
       files: FilesResource;
     }
@@ -1921,7 +1921,7 @@ declare namespace gapi.client {
           /** Optional. If set, validates that the site_id is available and that the request would succeed, returning the expected resulting site or error. */
           validateOnly?: boolean;
         },
-        body: Site
+        body: Site,
       ): Request<Site>;
       /** Deletes the specified Hosting Site from the specified parent Firebase project. */
       delete(request?: {
@@ -2095,7 +2095,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Site
+        body: Site,
       ): Request<Site>;
       /** Sets the Hosting metadata for a specific site. */
       updateConfig(request: {
@@ -2157,7 +2157,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SiteConfig
+        body: SiteConfig,
       ): Request<SiteConfig>;
       channels: ChannelsResource;
       customDomains: CustomDomainsResource;
@@ -2230,7 +2230,7 @@ declare namespace gapi.client {
           /** The unique identifier for a version, in the format: sites/SITE_ID/versions/ VERSION_ID The SITE_ID in this version identifier must match the SITE_ID in the `parent` parameter. This query parameter must be empty if the `type` field in the request body is `SITE_DISABLE`. */
           versionName?: string;
         },
-        body: Release
+        body: Release,
       ): Request<Release>;
       /** Gets the specified release for a site or channel. When used to get a release for a site, this can get releases for both the default `live` channel and any active preview channels for the specified site. */
       get(request?: {
@@ -2352,7 +2352,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
       /** Deletes the specified channel of the specified site. The `live` channel cannot be deleted. */
       delete(request?: {
@@ -2499,7 +2499,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Channel
+        body: Channel,
       ): Request<Channel>;
       releases: ReleasesResource;
     }
@@ -2560,7 +2560,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Domain
+        body: Domain,
       ): Request<Domain>;
       /** Deletes the existing domain mapping on the specified site. */
       delete(request?: {
@@ -2703,7 +2703,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Domain
+        body: Domain,
       ): Request<Domain>;
     }
     interface ReleasesResource {
@@ -2767,7 +2767,7 @@ declare namespace gapi.client {
           /** The unique identifier for a version, in the format: sites/SITE_ID/versions/ VERSION_ID The SITE_ID in this version identifier must match the SITE_ID in the `parent` parameter. This query parameter must be empty if the `type` field in the request body is `SITE_DISABLE`. */
           versionName?: string;
         },
-        body: Release
+        body: Release,
       ): Request<Release>;
       /** Gets the specified release for a site or channel. When used to get a release for a site, this can get releases for both the default `live` channel and any active preview channels for the specified site. */
       get(request?: {
@@ -2920,7 +2920,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CloneVersionRequest
+        body: CloneVersionRequest,
       ): Request<Operation>;
       /** Creates a new version for the specified site. */
       create(request: {
@@ -2986,7 +2986,7 @@ declare namespace gapi.client {
           /** A unique id for the new version. This is was only specified for legacy version creations, and should be blank. */
           versionId?: string;
         },
-        body: Version
+        body: Version,
       ): Request<Version>;
       /** Deletes the specified version. */
       delete(request?: {
@@ -3135,7 +3135,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Version
+        body: Version,
       ): Request<Version>;
       /** Adds content files to the specified version. Each file must be under 2 GB. */
       populateFiles(request: {
@@ -3193,7 +3193,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PopulateVersionFilesRequest
+        body: PopulateVersionFilesRequest,
       ): Request<PopulateVersionFilesResponse>;
       files: FilesResource;
     }
@@ -3285,7 +3285,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SiteConfig
+        body: SiteConfig,
       ): Request<SiteConfig>;
       channels: ChannelsResource;
       domains: DomainsResource;

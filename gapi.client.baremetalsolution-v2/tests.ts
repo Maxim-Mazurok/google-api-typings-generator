@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://baremetalsolution.googleapis.com/$discovery/rest?version=v2'
+    'https://baremetalsolution.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.baremetalsolution */
 
@@ -50,35 +50,35 @@ gapi.load('client', async () => {
       {
         lun: 'Test string',
         skipReboot: true,
-      }
+      },
     );
     /** Perform disable hyperthreading operation on a single server. */
     await gapi.client.baremetalsolution.projects.locations.instances.disableHyperthreading(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Disable the interactive serial console feature on an instance. */
     await gapi.client.baremetalsolution.projects.locations.instances.disableInteractiveSerialConsole(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Perform enable hyperthreading operation on a single server. */
     await gapi.client.baremetalsolution.projects.locations.instances.enableHyperthreading(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Enable the interactive serial console feature on an instance. */
     await gapi.client.baremetalsolution.projects.locations.instances.enableInteractiveSerialConsole(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Get details about a single server. */
     await gapi.client.baremetalsolution.projects.locations.instances.get({
@@ -95,7 +95,7 @@ gapi.load('client', async () => {
     await gapi.client.baremetalsolution.projects.locations.instances.loadAuthInfo(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Update details of a single server. */
     await gapi.client.baremetalsolution.projects.locations.instances.patch(
@@ -244,7 +244,7 @@ gapi.load('client', async () => {
           },
         ],
         workloadProfile: 'Test string',
-      }
+      },
     );
     /** Perform reimage operation on a single server. */
     await gapi.client.baremetalsolution.projects.locations.instances.reimage(
@@ -255,7 +255,7 @@ gapi.load('client', async () => {
         kmsKeyVersion: 'Test string',
         osImage: 'Test string',
         sshKeys: ['Test string'],
-      }
+      },
     );
     /** RenameInstance sets a new name for an instance. Use with caution, previous names become immediately invalidated. */
     await gapi.client.baremetalsolution.projects.locations.instances.rename(
@@ -264,28 +264,28 @@ gapi.load('client', async () => {
       },
       {
         newInstanceId: 'Test string',
-      }
+      },
     );
     /** Perform an ungraceful, hard reset on a server. Equivalent to shutting the power off and then turning it back on. */
     await gapi.client.baremetalsolution.projects.locations.instances.reset(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Starts a server that was shutdown. */
     await gapi.client.baremetalsolution.projects.locations.instances.start(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Stop a running server. */
     await gapi.client.baremetalsolution.projects.locations.instances.stop(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Get details of a single network. */
     await gapi.client.baremetalsolution.projects.locations.networks.get({
@@ -302,7 +302,7 @@ gapi.load('client', async () => {
     await gapi.client.baremetalsolution.projects.locations.networks.listNetworkUsage(
       {
         location: 'Test string',
-      }
+      },
     );
     /** Update details of a single network. */
     await gapi.client.baremetalsolution.projects.locations.networks.patch(
@@ -362,7 +362,7 @@ gapi.load('client', async () => {
           ],
         },
         vrfAttachment: 'Test string',
-      }
+      },
     );
     /** RenameNetwork sets a new name for a network. Use with caution, previous names become immediately invalidated. */
     await gapi.client.baremetalsolution.projects.locations.networks.rename(
@@ -371,7 +371,7 @@ gapi.load('client', async () => {
       },
       {
         newNetworkId: 'Test string',
-      }
+      },
     );
     /** Create an NFS share. */
     await gapi.client.baremetalsolution.projects.locations.nfsShares.create(
@@ -402,7 +402,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         storageType: 'Test string',
         volume: 'Test string',
-      }
+      },
     );
     /** Delete an NFS share. The underlying volume is automatically deleted. */
     await gapi.client.baremetalsolution.projects.locations.nfsShares.delete({
@@ -449,7 +449,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         storageType: 'Test string',
         volume: 'Test string',
-      }
+      },
     );
     /** RenameNfsShare sets a new name for an nfsshare. Use with caution, previous names become immediately invalidated. */
     await gapi.client.baremetalsolution.projects.locations.nfsShares.rename(
@@ -458,7 +458,7 @@ gapi.load('client', async () => {
       },
       {
         newNfsshareId: 'Test string',
-      }
+      },
     );
     /** Get details about an operation. */
     await gapi.client.baremetalsolution.projects.locations.operations.get({
@@ -585,13 +585,13 @@ gapi.load('client', async () => {
           },
         ],
         vpcScEnabled: true,
-      }
+      },
     );
     /** Get ProvisioningConfig by name. */
     await gapi.client.baremetalsolution.projects.locations.provisioningConfigs.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Update existing ProvisioningConfig. */
     await gapi.client.baremetalsolution.projects.locations.provisioningConfigs.patch(
@@ -705,7 +705,7 @@ gapi.load('client', async () => {
           },
         ],
         vpcScEnabled: true,
-      }
+      },
     );
     /** Submit a provisiong configuration for a given project. */
     await gapi.client.baremetalsolution.projects.locations.provisioningConfigs.submit(
@@ -820,7 +820,7 @@ gapi.load('client', async () => {
           ],
           vpcScEnabled: true,
         },
-      }
+      },
     );
     /** List the budget details to provision resources on a given project. */
     await gapi.client.baremetalsolution.projects.locations.provisioningQuotas.list(
@@ -828,7 +828,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Register a public SSH key in the specified project for use with the interactive serial console feature. */
     await gapi.client.baremetalsolution.projects.locations.sshKeys.create(
@@ -839,7 +839,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         publicKey: 'Test string',
-      }
+      },
     );
     /** Deletes a public SSH key registered in the specified project. */
     await gapi.client.baremetalsolution.projects.locations.sshKeys.delete({
@@ -856,7 +856,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Get details of a single storage volume. */
     await gapi.client.baremetalsolution.projects.locations.volumes.get({
@@ -907,7 +907,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         storageType: 'Test string',
         workloadProfile: 'Test string',
-      }
+      },
     );
     /** RenameVolume sets a new name for a volume. Use with caution, previous names become immediately invalidated. */
     await gapi.client.baremetalsolution.projects.locations.volumes.rename(
@@ -916,7 +916,7 @@ gapi.load('client', async () => {
       },
       {
         newVolumeId: 'Test string',
-      }
+      },
     );
     /** Emergency Volume resize. */
     await gapi.client.baremetalsolution.projects.locations.volumes.resize(
@@ -925,14 +925,14 @@ gapi.load('client', async () => {
       },
       {
         sizeGib: 'Test string',
-      }
+      },
     );
     /** Skips lun's cooloff and deletes it now. Lun must be in cooloff state. */
     await gapi.client.baremetalsolution.projects.locations.volumes.luns.evict(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Get details of a single storage logical unit number(LUN). */
     await gapi.client.baremetalsolution.projects.locations.volumes.luns.get({
@@ -956,19 +956,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         storageVolume: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Deletes a volume snapshot. Returns INVALID_ARGUMENT if called for a non-boot volume. */
     await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the specified snapshot resource. Returns INVALID_ARGUMENT if called for a non-boot volume. */
     await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the list of snapshots for the specified volume. Returns a response with an empty list of snapshots if called for a non-boot volume. */
     await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.list(
@@ -976,14 +976,14 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Uses the specified snapshot to restore its parent volume. Returns INVALID_ARGUMENT if called for a non-boot volume. */
     await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.restoreVolumeSnapshot(
       {
         volumeSnapshot: 'Test string',
       },
-      {}
+      {},
     );
   }
 });

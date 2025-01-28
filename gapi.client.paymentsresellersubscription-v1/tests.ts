@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://paymentsresellersubscription.googleapis.com/$discovery/rest?version=v1'
+    'https://paymentsresellersubscription.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.paymentsresellersubscription */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Retrieves the promotions, such as free trial, that can be used by the partner. - This API doesn't apply to YouTube promotions currently. It should be autenticated with a service account. */
     await gapi.client.paymentsresellersubscription.partners.promotions.list({
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
       {
         cancelImmediately: true,
         cancellationReason: 'Test string',
-      }
+      },
     );
     /** Used by partners to create a subscription for their customers. The created subscription is associated with the end user inferred from the end user credentials. This API must be authorized by the end user using OAuth. */
     await gapi.client.paymentsresellersubscription.partners.subscriptions.create(
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
           billingCycleSpec: 'Test string',
           previousSubscriptionId: 'Test string',
         },
-      }
+      },
     );
     /** Used by partners to entitle a previously provisioned subscription to the current end user. The end user identity is inferred from the authorized credential of the request. This API must be authorized by the end user using OAuth. */
     await gapi.client.paymentsresellersubscription.partners.subscriptions.entitle(
@@ -205,7 +205,7 @@ gapi.load('client', async () => {
             products: ['Test string'],
           },
         ],
-      }
+      },
     );
     /** [Opt-in only] Most partners should be on auto-extend by default. Used by partners to extend a subscription service for their customers on an ongoing basis for the subscription to remain active and renewable. It should be called directly by the partner using service accounts. */
     await gapi.client.paymentsresellersubscription.partners.subscriptions.extend(
@@ -221,7 +221,7 @@ gapi.load('client', async () => {
           partnerUserToken: 'Test string',
         },
         requestId: 'Test string',
-      }
+      },
     );
     /** Used by partners to get a subscription by id. It should be called directly by the partner using service accounts. */
     await gapi.client.paymentsresellersubscription.partners.subscriptions.get({
@@ -352,14 +352,14 @@ gapi.load('client', async () => {
           billingCycleSpec: 'Test string',
           previousSubscriptionId: 'Test string',
         },
-      }
+      },
     );
     /** Revokes the pending cancellation of a subscription, which is currently in `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is already cancelled, the request will fail. - **This API doesn't apply to YouTube subscriptions.** It should be called directly by the partner using service accounts. */
     await gapi.client.paymentsresellersubscription.partners.subscriptions.undoCancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** This API replaces user authorized OAuth consent based APIs (Create, Entitle). Generates a short-lived token for a user session based on the user intent. You can use the session token to redirect the user to Google to finish the signup flow. You can re-generate new session token repeatedly for the same request if necessary, regardless of the previous tokens being expired or not. */
     await gapi.client.paymentsresellersubscription.partners.userSessions.generate(
@@ -496,7 +496,7 @@ gapi.load('client', async () => {
             name: 'Test string',
           },
         },
-      }
+      },
     );
   }
 });

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://serviceusage.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://serviceusage.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.serviceusage */
 
@@ -53,21 +53,21 @@ gapi.load('client', async () => {
       },
       {
         serviceIds: ['Test string'],
-      }
+      },
     );
     /** Disables a service so that it can no longer be used with a project. This prevents unintended usage that may cause unexpected billing charges or security leaks. It is not valid to call the disable method on a service that is not currently enabled. Callers will receive a `FAILED_PRECONDITION` status if the target service is not currently enabled. Operation response type: `google.protobuf.Empty` */
     await gapi.client.serviceusage.services.disable(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Enables a service so that it can be used with a project. Operation response type: `google.protobuf.Empty` */
     await gapi.client.serviceusage.services.enable(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Generates service identity for service. */
     await gapi.client.serviceusage.services.generateServiceIdentity({
@@ -111,7 +111,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Creates or updates multiple consumer overrides atomically, all on the same consumer, but on many different metrics or limits. The name field in the quota override message should not be set. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.importConsumerOverrides(
@@ -135,7 +135,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Retrieves a summary of all quota information visible to the service consumer, organized by service metric. Each metric includes information about all of its defined limits. Each limit includes the limit configuration (quota unit, preciseness, default value), the current effective limit value, and all of the overrides applied to the limit. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.list({
@@ -165,7 +165,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         overrideValue: 'Test string',
         unit: 'Test string',
-      }
+      },
     );
     /** Deletes an admin override. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.adminOverrides.delete(
@@ -173,7 +173,7 @@ gapi.load('client', async () => {
         force: true,
         forceOnly: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Lists all admin overrides on this limit. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.adminOverrides.list(
@@ -181,7 +181,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an admin override. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.adminOverrides.patch(
@@ -200,7 +200,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         overrideValue: 'Test string',
         unit: 'Test string',
-      }
+      },
     );
     /** Creates a consumer override. A consumer override is applied to the consumer on its own authority to limit its own quota usage. Consumer overrides cannot be used to grant more quota than would be allowed by admin overrides, producer overrides, or the default limit of the service. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.consumerOverrides.create(
@@ -218,7 +218,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         overrideValue: 'Test string',
         unit: 'Test string',
-      }
+      },
     );
     /** Deletes a consumer override. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.consumerOverrides.delete(
@@ -226,7 +226,7 @@ gapi.load('client', async () => {
         force: true,
         forceOnly: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Lists all consumer overrides on this limit. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.consumerOverrides.list(
@@ -234,7 +234,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a consumer override. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.consumerOverrides.patch(
@@ -253,7 +253,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         overrideValue: 'Test string',
         unit: 'Test string',
-      }
+      },
     );
   }
 });

@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load My Business Business Information API v1 */
   function load(
-    urlOrObject: 'https://mybusinessbusinessinformation.googleapis.com/$discovery/rest?version=v1'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'mybusinessbusinessinformation',
-    version: 'v1'
+    urlOrObject: 'https://mybusinessbusinessinformation.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'mybusinessbusinessinformation',
     version: 'v1',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'mybusinessbusinessinformation',
+    version: 'v1',
+    callback: () => any,
   ): void;
 
   namespace mybusinessbusinessinformation {
@@ -499,7 +499,7 @@ declare namespace gapi.client {
           /** Optional. If true, the request is validated without actually creating the location. */
           validateOnly?: boolean;
         },
-        body: Location
+        body: Location,
       ): Request<Location>;
       /** Lists the locations for the specified account. */
       list(request?: {
@@ -766,7 +766,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchGoogleLocationsRequest
+        body: SearchGoogleLocationsRequest,
       ): Request<SearchGoogleLocationsResponse>;
     }
     interface AttributesResource {
@@ -975,7 +975,7 @@ declare namespace gapi.client {
           /** Optional. If true, the request is validated without actually updating the location. When this field is set, we will only return validation errors if there were any. The response will be empty if no errors were found. */
           validateOnly?: boolean;
         },
-        body: Location
+        body: Location,
       ): Request<Location>;
       /** Update attributes for a given location. */
       updateAttributes(request: {
@@ -1037,7 +1037,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Attributes
+        body: Attributes,
       ): Request<Attributes>;
       attributes: AttributesResource;
     }

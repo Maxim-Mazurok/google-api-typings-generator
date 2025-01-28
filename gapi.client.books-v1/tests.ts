@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://books.googleapis.com/$discovery/rest?version=v1'
+    'https://books.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.books */
 
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
         processingState: 'Test string',
         title: 'Test string',
         volumeId: 'Test string',
-      }
+      },
     );
     /** Returns a list of offline dictionary metadata available */
     await gapi.client.books.dictionary.listOfflineMetadata({
@@ -219,7 +219,7 @@ gapi.load('client', async () => {
             opted_state: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deletes an annotation. */
     await gapi.client.books.mylibrary.annotations.delete({
@@ -308,7 +308,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         updated: 'Test string',
         volumeId: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of annotations, possibly filtered. */
     await gapi.client.books.mylibrary.annotations.list({
@@ -409,7 +409,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         updated: 'Test string',
         volumeId: 'Test string',
-      }
+      },
     );
     /** Adds a volume to a bookshelf. */
     await gapi.client.books.mylibrary.bookshelves.addVolume({

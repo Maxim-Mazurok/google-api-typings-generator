@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Firebase App Check API v1beta */
   function load(
-    urlOrObject: 'https://firebaseappcheck.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://firebaseappcheck.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'firebaseappcheck', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'firebaseappcheck',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace firebaseappcheck {
@@ -409,7 +409,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest,
       ): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
       /** Accepts an App Attest CBOR attestation and verifies it with Apple using your preconfigured team and bundle IDs. If valid, returns an attestation artifact that can later be exchanged for an AppCheckToken using ExchangeAppAttestAssertion. For convenience and performance, this method's response object will also contain an AppCheckToken (if the verification is successful). */
       exchangeAppAttestAttestation(request: {
@@ -467,7 +467,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest,
       ): Request<GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse>;
       /** Validates a debug token secret that you have previously created using CreateDebugToken. If valid, returns an AppCheckToken. Note that a restrictive quota is enforced on this method to prevent accidental exposure of the app to abuse. */
       exchangeDebugToken(request: {
@@ -525,7 +525,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest,
       ): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
       /** Generates a challenge that protects the integrity of an immediately following call to ExchangeAppAttestAttestation or ExchangeAppAttestAssertion. A challenge should not be reused for multiple calls. */
       generateAppAttestChallenge(request: {
@@ -583,7 +583,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest
+        body: GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest,
       ): Request<GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse>;
     }
     interface AppAttestConfigResource {
@@ -703,7 +703,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaAppAttestConfig
+        body: GoogleFirebaseAppcheckV1betaAppAttestConfig,
       ): Request<GoogleFirebaseAppcheckV1betaAppAttestConfig>;
     }
     interface DebugTokensResource {
@@ -763,7 +763,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaDebugToken
+        body: GoogleFirebaseAppcheckV1betaDebugToken,
       ): Request<GoogleFirebaseAppcheckV1betaDebugToken>;
       /** Deletes the specified DebugToken. A deleted debug token cannot be used to exchange for an App Check token. Use this method when you suspect the secret `token` has been compromised or when you no longer need the debug token. */
       delete(request?: {
@@ -910,7 +910,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaDebugToken
+        body: GoogleFirebaseAppcheckV1betaDebugToken,
       ): Request<GoogleFirebaseAppcheckV1betaDebugToken>;
     }
     interface DeviceCheckConfigResource {
@@ -1030,7 +1030,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaDeviceCheckConfig
+        body: GoogleFirebaseAppcheckV1betaDeviceCheckConfig,
       ): Request<GoogleFirebaseAppcheckV1betaDeviceCheckConfig>;
     }
     interface PlayIntegrityConfigResource {
@@ -1150,7 +1150,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaPlayIntegrityConfig
+        body: GoogleFirebaseAppcheckV1betaPlayIntegrityConfig,
       ): Request<GoogleFirebaseAppcheckV1betaPlayIntegrityConfig>;
     }
     interface RecaptchaConfigResource {
@@ -1270,7 +1270,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaRecaptchaConfig
+        body: GoogleFirebaseAppcheckV1betaRecaptchaConfig,
       ): Request<GoogleFirebaseAppcheckV1betaRecaptchaConfig>;
     }
     interface RecaptchaEnterpriseConfigResource {
@@ -1390,7 +1390,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig
+        body: GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig,
       ): Request<GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig>;
     }
     interface RecaptchaV3ConfigResource {
@@ -1510,7 +1510,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaRecaptchaV3Config
+        body: GoogleFirebaseAppcheckV1betaRecaptchaV3Config,
       ): Request<GoogleFirebaseAppcheckV1betaRecaptchaV3Config>;
     }
     interface SafetyNetConfigResource {
@@ -1630,7 +1630,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaSafetyNetConfig
+        body: GoogleFirebaseAppcheckV1betaSafetyNetConfig,
       ): Request<GoogleFirebaseAppcheckV1betaSafetyNetConfig>;
     }
     interface AppsResource {
@@ -1690,7 +1690,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest,
       ): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
       /** Accepts an App Attest CBOR attestation and verifies it with Apple using your preconfigured team and bundle IDs. If valid, returns an attestation artifact that can later be exchanged for an AppCheckToken using ExchangeAppAttestAssertion. For convenience and performance, this method's response object will also contain an AppCheckToken (if the verification is successful). */
       exchangeAppAttestAttestation(request: {
@@ -1748,7 +1748,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest,
       ): Request<GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse>;
       /** Validates a custom token signed using your project's Admin SDK service account credentials. If valid, returns an AppCheckToken. */
       exchangeCustomToken(request: {
@@ -1806,7 +1806,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest,
       ): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
       /** Validates a debug token secret that you have previously created using CreateDebugToken. If valid, returns an AppCheckToken. Note that a restrictive quota is enforced on this method to prevent accidental exposure of the app to abuse. */
       exchangeDebugToken(request: {
@@ -1864,7 +1864,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest,
       ): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
       /** Accepts a [`device_token`](https://developer.apple.com/documentation/devicecheck/dcdevice) issued by DeviceCheck, and attempts to validate it with Apple. If valid, returns an AppCheckToken. */
       exchangeDeviceCheckToken(request: {
@@ -1922,7 +1922,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest,
       ): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
       /** Validates an [integrity verdict response token from Play Integrity](https://developer.android.com/google/play/integrity/verdict#decrypt-verify). If valid, returns an AppCheckToken. */
       exchangePlayIntegrityToken(request: {
@@ -1980,7 +1980,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest
+        body: GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest,
       ): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
       /** Validates a [reCAPTCHA Enterprise response token](https://cloud.google.com/recaptcha-enterprise/docs/create-assessment#retrieve_token). If valid, returns an App Check token AppCheckToken. */
       exchangeRecaptchaEnterpriseToken(request: {
@@ -2038,7 +2038,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest,
       ): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
       /** Validates a [reCAPTCHA v3 response token](https://developers.google.com/recaptcha/docs/v3). If valid, returns an AppCheckToken. */
       exchangeRecaptchaToken(request: {
@@ -2096,7 +2096,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest,
       ): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
       /** Validates a [reCAPTCHA v3 response token](https://developers.google.com/recaptcha/docs/v3). If valid, returns an AppCheckToken. */
       exchangeRecaptchaV3Token(request: {
@@ -2154,7 +2154,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest,
       ): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
       /** Validates a [SafetyNet token](https://developer.android.com/training/safetynet/attestation#request-attestation-step). If valid, returns an AppCheckToken. */
       exchangeSafetyNetToken(request: {
@@ -2212,7 +2212,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest
+        body: GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest,
       ): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
       /** Generates a challenge that protects the integrity of an immediately following call to ExchangeAppAttestAttestation or ExchangeAppAttestAssertion. A challenge should not be reused for multiple calls. */
       generateAppAttestChallenge(request: {
@@ -2270,7 +2270,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest
+        body: GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest,
       ): Request<GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse>;
       /** Generates a challenge that protects the integrity of an immediately following integrity verdict request to the Play Integrity API. The next call to ExchangePlayIntegrityToken using the resulting integrity token will verify the presence and validity of the challenge. A challenge should not be reused for multiple calls. */
       generatePlayIntegrityChallenge(request: {
@@ -2328,7 +2328,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest
+        body: GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest,
       ): Request<GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse>;
       appAttestConfig: AppAttestConfigResource;
       debugTokens: DebugTokensResource;
@@ -2396,7 +2396,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaBatchUpdateResourcePoliciesRequest
+        body: GoogleFirebaseAppcheckV1betaBatchUpdateResourcePoliciesRequest,
       ): Request<GoogleFirebaseAppcheckV1betaBatchUpdateResourcePoliciesResponse>;
       /** Creates the specified ResourcePolicy configuration. */
       create(request: {
@@ -2454,7 +2454,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaResourcePolicy
+        body: GoogleFirebaseAppcheckV1betaResourcePolicy,
       ): Request<GoogleFirebaseAppcheckV1betaResourcePolicy>;
       /** Deletes the specified ResourcePolicy configuration. */
       delete(request?: {
@@ -2605,7 +2605,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaResourcePolicy
+        body: GoogleFirebaseAppcheckV1betaResourcePolicy,
       ): Request<GoogleFirebaseAppcheckV1betaResourcePolicy>;
     }
     interface ServicesResource {
@@ -2665,7 +2665,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaBatchUpdateServicesRequest
+        body: GoogleFirebaseAppcheckV1betaBatchUpdateServicesRequest,
       ): Request<GoogleFirebaseAppcheckV1betaBatchUpdateServicesResponse>;
       /** Gets the Service configuration for the specified service name. */
       get(request?: {
@@ -2785,7 +2785,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaService
+        body: GoogleFirebaseAppcheckV1betaService,
       ): Request<GoogleFirebaseAppcheckV1betaService>;
       resourcePolicies: ResourcePoliciesResource;
     }
@@ -2846,7 +2846,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleFirebaseAppcheckV1betaVerifyAppCheckTokenRequest
+        body: GoogleFirebaseAppcheckV1betaVerifyAppCheckTokenRequest,
       ): Request<GoogleFirebaseAppcheckV1betaVerifyAppCheckTokenResponse>;
       apps: AppsResource;
       services: ServicesResource;

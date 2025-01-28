@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Data Portability API v1 */
   function load(
-    urlOrObject: 'https://dataportability.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://dataportability.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'dataportability', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'dataportability',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace dataportability {
@@ -135,7 +135,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RetryPortabilityArchiveRequest
+        body: RetryPortabilityArchiveRequest,
       ): Request<RetryPortabilityArchiveResponse>;
     }
     interface AuthorizationResource {
@@ -191,7 +191,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetAuthorizationRequest
+        body: ResetAuthorizationRequest,
       ): Request<{}>;
     }
     interface PortabilityArchiveResource {
@@ -247,7 +247,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InitiatePortabilityArchiveRequest
+        body: InitiatePortabilityArchiveRequest,
       ): Request<InitiatePortabilityArchiveResponse>;
     }
 

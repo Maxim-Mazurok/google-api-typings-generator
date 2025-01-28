@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://areainsights.googleapis.com/$discovery/rest?version=v1'
+    'https://areainsights.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.areainsights */
 
@@ -73,7 +73,7 @@ gapi.load('client', async () => {
           },
         },
         insights: ['Test string'],
-      }
+      },
     );
   }
 });

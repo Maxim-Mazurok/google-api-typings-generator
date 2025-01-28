@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://analyticsreporting.googleapis.com/$discovery/rest?version=v4'
+    'https://analyticsreporting.googleapis.com/$discovery/rest?version=v4',
   );
   /** now we can use gapi.client.analyticsreporting */
 
@@ -287,7 +287,7 @@ gapi.load('client', async () => {
           },
         ],
         useResourceQuotas: true,
-      }
+      },
     );
     /** Returns User Activity data. */
     await gapi.client.analyticsreporting.userActivity.search(
@@ -305,7 +305,7 @@ gapi.load('client', async () => {
           userId: 'Test string',
         },
         viewId: 'Test string',
-      }
+      },
     );
   }
 });

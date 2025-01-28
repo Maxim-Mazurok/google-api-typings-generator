@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Meet API v2 */
   function load(
-    urlOrObject: 'https://meet.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://meet.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'meet', version: 'v2'): Promise<void>;
@@ -606,7 +606,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Space
+        body: Space,
       ): Request<Space>;
       /** Ends an active conference (if there's one). For an example, see [End active conference](https://developers.google.com/meet/api/guides/meeting-spaces#end-active-conference). */
       endActiveConference(request: {
@@ -664,7 +664,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EndActiveConferenceRequest
+        body: EndActiveConferenceRequest,
       ): Request<{}>;
       /** Gets details about a meeting space. For an example, see [Get a meeting space](https://developers.google.com/meet/api/guides/meeting-spaces#get-meeting-space). */
       get(request?: {
@@ -753,7 +753,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Space
+        body: Space,
       ): Request<Space>;
     }
 

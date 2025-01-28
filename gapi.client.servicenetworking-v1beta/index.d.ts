@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Service Networking API v1beta */
   function load(
-    urlOrObject: 'https://servicenetworking.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://servicenetworking.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'servicenetworking', version: 'v1beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'servicenetworking',
     version: 'v1beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace servicenetworking {
@@ -1002,7 +1002,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudServicenetworkingV1betaConnection
+        body: GoogleCloudServicenetworkingV1betaConnection,
       ): Request<Operation>;
       /** List the private connections that are configured in a service consumer's VPC network. */
       list(request?: {
@@ -1091,7 +1091,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AddSubnetworkRequest
+        body: AddSubnetworkRequest,
       ): Request<Operation>;
       /** Service producers can use this method to find a currently unused range within consumer allocated ranges. This returned range is not reserved, and not guaranteed to remain unused. It will validate previously provided allocated ranges, find non-conflicting sub-range of requested size (expressed in number of leading bits of ipv4 network mask, as in CIDR range notation). Operation */
       searchRange(request: {
@@ -1149,7 +1149,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SearchRangeRequest
+        body: SearchRangeRequest,
       ): Request<Operation>;
       /** Updates the allocated ranges that are assigned to a connection. The response from the `get` operation will be of type `Connection` if the operation successfully completes. */
       updateConnections(request: {
@@ -1215,7 +1215,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudServicenetworkingV1betaConnection
+        body: GoogleCloudServicenetworkingV1betaConnection,
       ): Request<Operation>;
       connections: ConnectionsResource;
     }

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Translation API v3beta1 */
   function load(
-    urlOrObject: 'https://translation.googleapis.com/$discovery/rest?version=v3beta1'
+    urlOrObject: 'https://translation.googleapis.com/$discovery/rest?version=v3beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'translate', version: 'v3beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'translate',
     version: 'v3beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace translate {
@@ -365,7 +365,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Glossary
+        body: Glossary,
       ): Request<Operation>;
       /** Deletes a glossary, or cancels glossary construction if the glossary isn't created yet. Returns NOT_FOUND, if the glossary doesn't exist. */
       delete(request?: {
@@ -512,7 +512,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -657,7 +657,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: WaitOperationRequest
+        body: WaitOperationRequest,
       ): Request<Operation>;
     }
     interface LocationsResource {
@@ -717,7 +717,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchTranslateDocumentRequest
+        body: BatchTranslateDocumentRequest,
       ): Request<Operation>;
       /** Translates a large volume of text in asynchronous batch mode. This function provides real-time output as the inputs are being processed. If caller cancels a request, the partial results (for an input file, it's all or nothing) may still be available on the specified output location. This call returns immediately and you can use google.longrunning.Operation.name to poll the status of the call. */
       batchTranslateText(request: {
@@ -775,7 +775,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchTranslateTextRequest
+        body: BatchTranslateTextRequest,
       ): Request<Operation>;
       /** Detects the language of text within a request. */
       detectLanguage(request: {
@@ -833,7 +833,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DetectLanguageRequest
+        body: DetectLanguageRequest,
       ): Request<DetectLanguageResponse>;
       /** Gets information about a location. */
       get(request?: {
@@ -982,7 +982,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TranslateDocumentRequest
+        body: TranslateDocumentRequest,
       ): Request<TranslateDocumentResponse>;
       /** Translates input text and returns translated text. */
       translateText(request: {
@@ -1040,7 +1040,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TranslateTextRequest
+        body: TranslateTextRequest,
       ): Request<TranslateTextResponse>;
       glossaries: GlossariesResource;
       operations: OperationsResource;
@@ -1102,7 +1102,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DetectLanguageRequest
+        body: DetectLanguageRequest,
       ): Request<DetectLanguageResponse>;
       /** Returns a list of supported languages for translation. */
       getSupportedLanguages(request?: {
@@ -1191,7 +1191,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TranslateTextRequest
+        body: TranslateTextRequest,
       ): Request<TranslateTextResponse>;
       locations: LocationsResource;
     }

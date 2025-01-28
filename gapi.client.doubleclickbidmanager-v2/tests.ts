@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://doubleclickbidmanager.googleapis.com/$discovery/rest?version=v2'
+    'https://doubleclickbidmanager.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.doubleclickbidmanager */
 
@@ -83,7 +83,7 @@ gapi.load('client', async () => {
             year: 42,
           },
         },
-      }
+      },
     );
     /** Deletes an existing query as well as its generated reports. */
     await gapi.client.doubleclickbidmanager.queries.delete({
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
           },
           range: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a report. */
     await gapi.client.doubleclickbidmanager.queries.reports.get({

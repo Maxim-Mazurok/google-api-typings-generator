@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Tag Manager API v2 */
   function load(
-    urlOrObject: 'https://tagmanager.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://tagmanager.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'tagmanager', version: 'v2'): Promise<void>;
@@ -1046,7 +1046,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Environment
+        body: Environment,
       ): Request<Environment>;
       /** Deletes a GTM Environment. */
       delete(request?: {
@@ -1187,7 +1187,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Environment
+        body: Environment,
       ): Request<Environment>;
       /** Updates a GTM Environment. */
       update(request: {
@@ -1249,7 +1249,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Environment
+        body: Environment,
       ): Request<Environment>;
     }
     interface Version_headersResource {
@@ -1539,7 +1539,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ContainerVersion
+        body: ContainerVersion,
       ): Request<ContainerVersion>;
     }
     interface Built_in_variablesResource {
@@ -1717,7 +1717,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Client
+        body: Client,
       ): Request<Client>;
       /** Deletes a GTM Client. */
       delete(request?: {
@@ -1891,7 +1891,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Client
+        body: Client,
       ): Request<Client>;
     }
     interface FoldersResource {
@@ -1951,7 +1951,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Folder
+        body: Folder,
       ): Request<Folder>;
       /** Deletes a GTM Folder. */
       delete(request?: {
@@ -2133,7 +2133,7 @@ declare namespace gapi.client {
           /** The variables to be moved to the folder. */
           variableId?: string | string[];
         },
-        body: Folder
+        body: Folder,
       ): Request<void>;
       /** Reverts changes to a GTM Folder in a GTM Workspace. */
       revert(request?: {
@@ -2224,7 +2224,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Folder
+        body: Folder,
       ): Request<Folder>;
     }
     interface Gtag_configResource {
@@ -2284,7 +2284,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GtagConfig
+        body: GtagConfig,
       ): Request<GtagConfig>;
       /** Deletes a Google tag config. */
       delete(request?: {
@@ -2429,7 +2429,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GtagConfig
+        body: GtagConfig,
       ): Request<GtagConfig>;
     }
     interface TagsResource {
@@ -2489,7 +2489,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Tag
+        body: Tag,
       ): Request<Tag>;
       /** Deletes a GTM Tag. */
       delete(request?: {
@@ -2663,7 +2663,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Tag
+        body: Tag,
       ): Request<Tag>;
     }
     interface TemplatesResource {
@@ -2723,7 +2723,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomTemplate
+        body: CustomTemplate,
       ): Request<CustomTemplate>;
       /** Deletes a GTM Template. */
       delete(request?: {
@@ -2897,7 +2897,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomTemplate
+        body: CustomTemplate,
       ): Request<CustomTemplate>;
     }
     interface TransformationsResource {
@@ -2957,7 +2957,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Transformation
+        body: Transformation,
       ): Request<Transformation>;
       /** Deletes a GTM Transformation. */
       delete(request?: {
@@ -3131,7 +3131,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Transformation
+        body: Transformation,
       ): Request<Transformation>;
     }
     interface TriggersResource {
@@ -3191,7 +3191,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Trigger
+        body: Trigger,
       ): Request<Trigger>;
       /** Deletes a GTM Trigger. */
       delete(request?: {
@@ -3365,7 +3365,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Trigger
+        body: Trigger,
       ): Request<Trigger>;
     }
     interface VariablesResource {
@@ -3425,7 +3425,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Variable
+        body: Variable,
       ): Request<Variable>;
       /** Deletes a GTM Variable. */
       delete(request?: {
@@ -3599,7 +3599,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Variable
+        body: Variable,
       ): Request<Variable>;
     }
     interface ZonesResource {
@@ -3659,7 +3659,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Zone
+        body: Zone,
       ): Request<Zone>;
       /** Deletes a GTM Zone. */
       delete(request?: {
@@ -3833,7 +3833,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Zone
+        body: Zone,
       ): Request<Zone>;
     }
     interface WorkspacesResource {
@@ -3893,7 +3893,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Workspace
+        body: Workspace,
       ): Request<Workspace>;
       /** Creates a Container Version from the entities present in the workspace, deletes the workspace, and sets the base container version to the newly created version. */
       create_version(request: {
@@ -3951,7 +3951,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateContainerVersionRequestVersionOptions
+        body: CreateContainerVersionRequestVersionOptions,
       ): Request<CreateContainerVersionResponse>;
       /** Deletes a Workspace. */
       delete(request?: {
@@ -4150,7 +4150,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Entity
+        body: Entity,
       ): Request<void>;
       /** Syncs a workspace to the latest container version by updating all unmodified workspace entities and displaying conflicts for modified entities. */
       sync(request?: {
@@ -4239,7 +4239,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Workspace
+        body: Workspace,
       ): Request<Workspace>;
       built_in_variables: Built_in_variablesResource;
       clients: ClientsResource;
@@ -4342,7 +4342,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Container
+        body: Container,
       ): Request<Container>;
       /** Deletes a Container. */
       delete(request?: {
@@ -4582,7 +4582,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Container
+        body: Container,
       ): Request<Container>;
       destinations: DestinationsResource;
       environments: EnvironmentsResource;
@@ -4647,7 +4647,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UserPermission
+        body: UserPermission,
       ): Request<UserPermission>;
       /** Removes a user from the account, revoking access to it and all of its containers. */
       delete(request?: {
@@ -4788,7 +4788,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UserPermission
+        body: UserPermission,
       ): Request<UserPermission>;
     }
     interface AccountsResource {
@@ -4908,7 +4908,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Account
+        body: Account,
       ): Request<Account>;
       containers: ContainersResource;
       user_permissions: User_permissionsResource;

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://playgrouping.googleapis.com/$discovery/rest?version=v1alpha1'
+    'https://playgrouping.googleapis.com/$discovery/rest?version=v1alpha1',
   );
   /** now we can use gapi.client.playgrouping */
 
@@ -24,7 +24,7 @@ gapi.load('client', async () => {
       },
       {
         persona: 'Test string',
-      }
+      },
     );
     /** Create or update tags for the user and app that are represented by the given token. */
     await gapi.client.playgrouping.apps.tokens.tags.createOrUpdate(
@@ -42,7 +42,7 @@ gapi.load('client', async () => {
             timeValue: 'Test string',
           },
         ],
-      }
+      },
     );
   }
 });

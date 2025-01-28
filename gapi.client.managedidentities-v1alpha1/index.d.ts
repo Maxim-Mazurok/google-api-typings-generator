@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Managed Service for Microsoft Active Directory API v1alpha1 */
   function load(
-    urlOrObject: 'https://managedidentities.googleapis.com/$discovery/rest?version=v1alpha1'
+    urlOrObject: 'https://managedidentities.googleapis.com/$discovery/rest?version=v1alpha1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'managedidentities', version: 'v1alpha1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'managedidentities',
     version: 'v1alpha1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace managedidentities {
@@ -632,7 +632,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Backup
+        body: Backup,
       ): Request<Operation>;
       /** Deletes identified Backup. */
       delete(request?: {
@@ -812,7 +812,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Backup
+        body: Backup,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -842,7 +842,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -872,7 +872,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface SqlIntegrationsResource {
@@ -996,7 +996,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AttachTrustRequest
+        body: AttachTrustRequest,
       ): Request<Operation>;
       /** AuditMigration API gets the current state of DomainMigration */
       checkMigrationPermission(request: {
@@ -1054,7 +1054,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CheckMigrationPermissionRequest
+        body: CheckMigrationPermissionRequest,
       ): Request<CheckMigrationPermissionResponse>;
       /** Creates a Microsoft AD Domain in a given project. Operation */
       create(request: {
@@ -1116,7 +1116,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Domain
+        body: Domain,
       ): Request<Operation>;
       /** Deletes identified domain. Operation */
       delete(request?: {
@@ -1201,7 +1201,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DetachTrustRequest
+        body: DetachTrustRequest,
       ): Request<Operation>;
       /** Disable Domain Migration */
       disableMigration(request: {
@@ -1259,7 +1259,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DisableMigrationRequest
+        body: DisableMigrationRequest,
       ): Request<Operation>;
       /** DomainJoinMachine API joins a Compute Engine VM to the domain */
       domainJoinMachine(request: {
@@ -1317,7 +1317,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DomainJoinMachineRequest
+        body: DomainJoinMachineRequest,
       ): Request<DomainJoinMachineResponse>;
       /** Enable Domain Migration */
       enableMigration(request: {
@@ -1375,7 +1375,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnableMigrationRequest
+        body: EnableMigrationRequest,
       ): Request<Operation>;
       /** Extend Schema for Domain */
       extendSchema(request: {
@@ -1433,7 +1433,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExtendSchemaRequest
+        body: ExtendSchemaRequest,
       ): Request<Operation>;
       /** Gets details of a single Domain. */
       get(request?: {
@@ -1613,7 +1613,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Domain
+        body: Domain,
       ): Request<Operation>;
       /** Updates the dns conditional forwarder. Operation */
       reconfigureTrust(request: {
@@ -1671,7 +1671,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReconfigureTrustRequest
+        body: ReconfigureTrustRequest,
       ): Request<Operation>;
       /** Resets managed identities admin password identified by managed_identities_admin_name */
       resetAdminPassword(request: {
@@ -1729,7 +1729,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetAdminPasswordRequest
+        body: ResetAdminPasswordRequest,
       ): Request<ResetAdminPasswordResponse>;
       /** RestoreDomain restores domain backup mentioned in the RestoreDomainRequest */
       restore(request: {
@@ -1787,7 +1787,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestoreDomainRequest
+        body: RestoreDomainRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1817,7 +1817,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1847,7 +1847,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Patches a single ldaps settings. */
       updateLdapssettings(request: {
@@ -1909,7 +1909,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LDAPSSettings
+        body: LDAPSSettings,
       ): Request<Operation>;
       /** Validate the trust state Operation */
       validateTrust(request: {
@@ -1967,7 +1967,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ValidateTrustRequest
+        body: ValidateTrustRequest,
       ): Request<Operation>;
       backups: BackupsResource;
       sqlIntegrations: SqlIntegrationsResource;
@@ -2029,7 +2029,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -2180,7 +2180,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Peering
+        body: Peering,
       ): Request<Operation>;
       /** Deletes identified Peering. */
       delete(request?: {
@@ -2360,7 +2360,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Peering
+        body: Peering,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2390,7 +2390,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2420,7 +2420,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface GlobalResource {

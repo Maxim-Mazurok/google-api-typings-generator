@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Policy Simulator API v1 */
   function load(
-    urlOrObject: 'https://policysimulator.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://policysimulator.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'policysimulator', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'policysimulator',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace policysimulator {
@@ -620,7 +620,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPolicysimulatorV1Replay
+        body: GoogleCloudPolicysimulatorV1Replay,
       ): Request<GoogleLongrunningOperation>;
       /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
       get(request?: {
@@ -905,7 +905,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPolicysimulatorV1Replay
+        body: GoogleCloudPolicysimulatorV1Replay,
       ): Request<GoogleLongrunningOperation>;
       /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
       get(request?: {
@@ -1128,7 +1128,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPolicysimulatorV1Replay
+        body: GoogleCloudPolicysimulatorV1Replay,
       ): Request<GoogleLongrunningOperation>;
       /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
       get(request?: {

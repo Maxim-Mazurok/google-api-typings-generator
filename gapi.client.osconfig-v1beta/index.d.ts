@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load OS Config API v1beta */
   function load(
-    urlOrObject: 'https://osconfig.googleapis.com/$discovery/rest?version=v1beta'
+    urlOrObject: 'https://osconfig.googleapis.com/$discovery/rest?version=v1beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'osconfig', version: 'v1beta'): Promise<void>;
@@ -682,7 +682,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GuestPolicy
+        body: GuestPolicy,
       ): Request<GuestPolicy>;
       /** Delete an OS Config guest policy. */
       delete(request?: {
@@ -829,7 +829,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GuestPolicy
+        body: GuestPolicy,
       ): Request<GuestPolicy>;
     }
     interface PatchDeploymentsResource {
@@ -893,7 +893,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PatchDeployment
+        body: PatchDeployment,
       ): Request<PatchDeployment>;
       /** Delete an OS Config patch deployment. */
       delete(request?: {
@@ -1040,7 +1040,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PatchDeployment
+        body: PatchDeployment,
       ): Request<PatchDeployment>;
       /** Change state of patch deployment to "PAUSED". Patch deployment in paused state doesn't generate patch jobs. */
       pause(request: {
@@ -1098,7 +1098,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: PausePatchDeploymentRequest
+        body: PausePatchDeploymentRequest,
       ): Request<PatchDeployment>;
       /** Change state of patch deployment back to "ACTIVE". Patch deployment in active state continues to generate patch jobs. */
       resume(request: {
@@ -1156,7 +1156,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResumePatchDeploymentRequest
+        body: ResumePatchDeploymentRequest,
       ): Request<PatchDeployment>;
     }
     interface InstanceDetailsResource {
@@ -1251,7 +1251,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelPatchJobRequest
+        body: CancelPatchJobRequest,
       ): Request<PatchJob>;
       /** Patch VM instances by creating and running a patch job. */
       execute(request: {
@@ -1309,7 +1309,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ExecutePatchJobRequest
+        body: ExecutePatchJobRequest,
       ): Request<PatchJob>;
       /** Get the patch job. This can be used to track the progress of an ongoing patch job or review the details of completed jobs. */
       get(request?: {
@@ -1430,7 +1430,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: LookupEffectiveGuestPolicyRequest
+        body: LookupEffectiveGuestPolicyRequest,
       ): Request<EffectiveGuestPolicy>;
     }
     interface ZonesResource {

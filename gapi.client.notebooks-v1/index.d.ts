@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Notebooks API v1 */
   function load(
-    urlOrObject: 'https://notebooks.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://notebooks.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'notebooks', version: 'v1'): Promise<void>;
@@ -855,7 +855,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Environment
+        body: Environment,
       ): Request<Operation>;
       /** Deletes a single Environment. */
       delete(request?: {
@@ -1004,7 +1004,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Execution
+        body: Execution,
       ): Request<Operation>;
       /** Deletes execution */
       delete(request?: {
@@ -1157,7 +1157,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Instance
+        body: Instance,
       ): Request<Operation>;
       /** Deletes a single Instance. */
       delete(request?: {
@@ -1242,7 +1242,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DiagnoseInstanceRequest
+        body: DiagnoseInstanceRequest,
       ): Request<Operation>;
       /** Gets details of a single Instance. */
       get(request?: {
@@ -1447,7 +1447,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MigrateInstanceRequest
+        body: MigrateInstanceRequest,
       ): Request<Operation>;
       /** Registers an existing legacy notebook instance to the Notebooks API server. Legacy instances are instances created with the legacy Compute Engine calls. They are not manageable by the Notebooks API out of the box. This call makes these instances manageable by the Notebooks API. */
       register(request: {
@@ -1505,7 +1505,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RegisterInstanceRequest
+        body: RegisterInstanceRequest,
       ): Request<Operation>;
       /** Allows notebook instances to report their latest instance information to the Notebooks API server. The server will merge the reported information to the instance metadata store. Do not use this method directly. */
       report(request: {
@@ -1563,7 +1563,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportInstanceInfoRequest
+        body: ReportInstanceInfoRequest,
       ): Request<Operation>;
       /** Reports and processes an instance event. */
       reportEvent(request: {
@@ -1621,7 +1621,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportInstanceEventRequest
+        body: ReportInstanceEventRequest,
       ): Request<Operation>;
       /** Resets a notebook instance. */
       reset(request: {
@@ -1679,7 +1679,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetInstanceRequest
+        body: ResetInstanceRequest,
       ): Request<Operation>;
       /** Rollbacks a notebook instance to the previous version. */
       rollback(request: {
@@ -1737,7 +1737,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RollbackInstanceRequest
+        body: RollbackInstanceRequest,
       ): Request<Operation>;
       /** Updates the guest accelerators of a single Instance. */
       setAccelerator(request: {
@@ -1795,7 +1795,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetInstanceAcceleratorRequest
+        body: SetInstanceAcceleratorRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1825,7 +1825,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Replaces all the labels of an Instance. */
       setLabels(request: {
@@ -1883,7 +1883,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetInstanceLabelsRequest
+        body: SetInstanceLabelsRequest,
       ): Request<Operation>;
       /** Updates the machine type of a single Instance. */
       setMachineType(request: {
@@ -1941,7 +1941,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetInstanceMachineTypeRequest
+        body: SetInstanceMachineTypeRequest,
       ): Request<Operation>;
       /** Starts a notebook instance. */
       start(request: {
@@ -1999,7 +1999,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartInstanceRequest
+        body: StartInstanceRequest,
       ): Request<Operation>;
       /** Stops a notebook instance. */
       stop(request: {
@@ -2057,7 +2057,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopInstanceRequest
+        body: StopInstanceRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2087,7 +2087,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Update Notebook Instance configurations. */
       updateConfig(request: {
@@ -2145,7 +2145,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateInstanceConfigRequest
+        body: UpdateInstanceConfigRequest,
       ): Request<Operation>;
       /** Add/update metadata items for an instance. */
       updateMetadataItems(request: {
@@ -2203,7 +2203,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateInstanceMetadataItemsRequest
+        body: UpdateInstanceMetadataItemsRequest,
       ): Request<UpdateInstanceMetadataItemsResponse>;
       /** Updates the Shielded instance configuration of a single Instance. */
       updateShieldedInstanceConfig(request: {
@@ -2261,7 +2261,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateShieldedInstanceConfigRequest
+        body: UpdateShieldedInstanceConfigRequest,
       ): Request<Operation>;
       /** Upgrades a notebook instance to the latest version. */
       upgrade(request: {
@@ -2319,7 +2319,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpgradeInstanceRequest
+        body: UpgradeInstanceRequest,
       ): Request<Operation>;
       /** Allows notebook instances to call this endpoint to upgrade themselves. Do not use this method directly. */
       upgradeInternal(request: {
@@ -2377,7 +2377,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpgradeInstanceInternalRequest
+        body: UpgradeInstanceInternalRequest,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -2437,7 +2437,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -2592,7 +2592,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Runtime
+        body: Runtime,
       ): Request<Operation>;
       /** Deletes a single Runtime. */
       delete(request?: {
@@ -2679,7 +2679,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DiagnoseRuntimeRequest
+        body: DiagnoseRuntimeRequest,
       ): Request<Operation>;
       /** Gets details of a single Runtime. The location must be a regional endpoint rather than zonal. */
       get(request?: {
@@ -2828,7 +2828,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MigrateRuntimeRequest
+        body: MigrateRuntimeRequest,
       ): Request<Operation>;
       /** Update Notebook Runtime configuration. */
       patch(request: {
@@ -2894,7 +2894,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Runtime
+        body: Runtime,
       ): Request<Operation>;
       /** Gets an access token for the consumer service account that the customer attached to the runtime. Only accessible from the tenant instance. */
       refreshRuntimeTokenInternal(request: {
@@ -2952,7 +2952,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RefreshRuntimeTokenInternalRequest
+        body: RefreshRuntimeTokenInternalRequest,
       ): Request<RefreshRuntimeTokenInternalResponse>;
       /** Reports and processes a runtime event. */
       reportEvent(request: {
@@ -3010,7 +3010,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ReportRuntimeEventRequest
+        body: ReportRuntimeEventRequest,
       ): Request<Operation>;
       /** Resets a Managed Notebook Runtime. */
       reset(request: {
@@ -3068,7 +3068,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetRuntimeRequest
+        body: ResetRuntimeRequest,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -3098,7 +3098,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Starts a Managed Notebook Runtime. Perform "Start" on GPU instances; "Resume" on CPU instances See: https://cloud.google.com/compute/docs/instances/stop-start-instance https://cloud.google.com/compute/docs/instances/suspend-resume-instance */
       start(request: {
@@ -3156,7 +3156,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartRuntimeRequest
+        body: StartRuntimeRequest,
       ): Request<Operation>;
       /** Stops a Managed Notebook Runtime. Perform "Stop" on GPU instances; "Suspend" on CPU instances See: https://cloud.google.com/compute/docs/instances/stop-start-instance https://cloud.google.com/compute/docs/instances/suspend-resume-instance */
       stop(request: {
@@ -3214,7 +3214,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopRuntimeRequest
+        body: StopRuntimeRequest,
       ): Request<Operation>;
       /** Switch a Managed Notebook Runtime. */
       switch(request: {
@@ -3272,7 +3272,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SwitchRuntimeRequest
+        body: SwitchRuntimeRequest,
       ): Request<Operation>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3302,7 +3302,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Upgrades a Managed Notebook Runtime to the latest version. */
       upgrade(request: {
@@ -3360,7 +3360,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpgradeRuntimeRequest
+        body: UpgradeRuntimeRequest,
       ): Request<Operation>;
     }
     interface SchedulesResource {
@@ -3424,7 +3424,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Schedule
+        body: Schedule,
       ): Request<Operation>;
       /** Deletes schedule and all underlying jobs */
       delete(request?: {
@@ -3571,7 +3571,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TriggerScheduleRequest
+        body: TriggerScheduleRequest,
       ): Request<Operation>;
     }
     interface LocationsResource {

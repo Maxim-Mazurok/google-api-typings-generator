@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://run.googleapis.com/$discovery/rest?version=v1'
+    'https://run.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.run */
 
@@ -118,7 +118,7 @@ gapi.load('client', async () => {
           ],
           url: 'Test string',
         },
-      }
+      },
     );
     /** Delete a domain mapping. */
     await gapi.client.run.namespaces.domainmappings.delete({
@@ -148,7 +148,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Delete an execution. */
     await gapi.client.run.namespaces.executions.delete({
@@ -494,7 +494,7 @@ gapi.load('client', async () => {
           },
           observedGeneration: 42,
         },
-      }
+      },
     );
     /** Delete a job. */
     await gapi.client.run.namespaces.jobs.delete({
@@ -840,7 +840,7 @@ gapi.load('client', async () => {
           },
           observedGeneration: 42,
         },
-      }
+      },
     );
     /** Trigger creation of a new execution of this job. */
     await gapi.client.run.namespaces.jobs.run(
@@ -883,7 +883,7 @@ gapi.load('client', async () => {
           taskCount: 42,
           timeoutSeconds: 42,
         },
-      }
+      },
     );
     /** Delete a revision. */
     await gapi.client.run.namespaces.revisions.delete({
@@ -1266,7 +1266,7 @@ gapi.load('client', async () => {
           ],
           url: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the provided service. This will cause the Service to stop serving traffic and will delete all associated Revisions. */
     await gapi.client.run.namespaces.services.delete({
@@ -1634,7 +1634,7 @@ gapi.load('client', async () => {
           ],
           url: 'Test string',
         },
-      }
+      },
     );
     /** Get information about a task. */
     await gapi.client.run.namespaces.tasks.get({
@@ -1751,7 +1751,7 @@ gapi.load('client', async () => {
           ],
           url: 'Test string',
         },
-      }
+      },
     );
     /** Delete a domain mapping. */
     await gapi.client.run.projects.locations.domainmappings.delete({
@@ -1815,7 +1815,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified job. There are no permissions required for making this API call. */
     await gapi.client.run.projects.locations.jobs.testIamPermissions(
@@ -1824,7 +1824,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.run.projects.locations.operations.delete({
@@ -1848,7 +1848,7 @@ gapi.load('client', async () => {
       },
       {
         timeout: 'Test string',
-      }
+      },
     );
     /** Delete a revision. */
     await gapi.client.run.projects.locations.revisions.delete({
@@ -2231,7 +2231,7 @@ gapi.load('client', async () => {
           ],
           url: 'Test string',
         },
-      }
+      },
     );
     /** Deletes the provided service. This will cause the Service to stop serving traffic and will delete all associated Revisions. */
     await gapi.client.run.projects.locations.services.delete({
@@ -2604,7 +2604,7 @@ gapi.load('client', async () => {
           ],
           url: 'Test string',
         },
-      }
+      },
     );
     /** Sets the IAM Access control policy for the specified Service. Overwrites any existing policy. */
     await gapi.client.run.projects.locations.services.setIamPolicy(
@@ -2640,7 +2640,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
     await gapi.client.run.projects.locations.services.testIamPermissions(
@@ -2649,7 +2649,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

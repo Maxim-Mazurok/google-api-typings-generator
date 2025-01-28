@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://gamesconfiguration.googleapis.com/$discovery/rest?version=v1configuration'
+    'https://gamesconfiguration.googleapis.com/$discovery/rest?version=v1configuration',
   );
   /** now we can use gapi.client.gamesConfiguration */
 
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
         },
         stepsToUnlock: 42,
         token: 'Test string',
-      }
+      },
     );
     /** Returns a list of the achievement configurations in this application. */
     await gapi.client.gamesConfiguration.achievementConfigurations.list({
@@ -175,7 +175,7 @@ gapi.load('client', async () => {
         },
         stepsToUnlock: 42,
         token: 'Test string',
-      }
+      },
     );
     /** Delete the leaderboard configuration with the given ID. */
     await gapi.client.gamesConfiguration.leaderboardConfigurations.delete({
@@ -361,7 +361,7 @@ gapi.load('client', async () => {
         scoreMin: 'Test string',
         scoreOrder: 'Test string',
         token: 'Test string',
-      }
+      },
     );
     /** Returns a list of the leaderboard configurations in this application. */
     await gapi.client.gamesConfiguration.leaderboardConfigurations.list({
@@ -545,7 +545,7 @@ gapi.load('client', async () => {
         scoreMin: 'Test string',
         scoreOrder: 'Test string',
         token: 'Test string',
-      }
+      },
     );
   }
 });

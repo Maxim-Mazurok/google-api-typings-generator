@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://admin.googleapis.com/$discovery/rest?version=directory_v1'
+    'https://admin.googleapis.com/$discovery/rest?version=directory_v1',
   );
   /** now we can use gapi.client.admin, gapi.client.directory */
 
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Changes the status of a batch of ChromeOS devices. For more information about changing a ChromeOS device state [Repair, repurpose, or retire ChromeOS devices](https://support.google.com/chrome/a/answer/3523633). */
     await gapi.client.admin.customer.devices.chromeos.batchChangeStatus(
@@ -114,7 +114,7 @@ gapi.load('client', async () => {
         changeChromeOsDeviceStatusAction: 'Test string',
         deprovisionReason: 'Test string',
         deviceIds: ['Test string'],
-      }
+      },
     );
     /** Issues a command for the device to execute. */
     await gapi.client.admin.customer.devices.chromeos.issueCommand(
@@ -125,7 +125,7 @@ gapi.load('client', async () => {
       {
         commandType: 'Test string',
         payload: 'Test string',
-      }
+      },
     );
     /** Gets command data a specific command issued to the device. */
     await gapi.client.admin.customer.devices.chromeos.commands.get({
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Deletes printers in batch. */
     await gapi.client.admin.customers.chrome.printers.batchDeletePrinters(
@@ -171,7 +171,7 @@ gapi.load('client', async () => {
       },
       {
         printerIds: ['Test string'],
-      }
+      },
     );
     /** Creates a printer under given Organization Unit. */
     await gapi.client.admin.customers.chrome.printers.create(
@@ -195,7 +195,7 @@ gapi.load('client', async () => {
         orgUnitId: 'Test string',
         uri: 'Test string',
         useDriverlessConfig: true,
-      }
+      },
     );
     /** Deletes a `Printer`. */
     await gapi.client.admin.customers.chrome.printers.delete({
@@ -245,7 +245,7 @@ gapi.load('client', async () => {
         orgUnitId: 'Test string',
         uri: 'Test string',
         useDriverlessConfig: true,
-      }
+      },
     );
     /** Creates multiple print servers. */
     await gapi.client.admin.customers.chrome.printServers.batchCreatePrintServers(
@@ -267,7 +267,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Deletes multiple print servers. */
     await gapi.client.admin.customers.chrome.printServers.batchDeletePrintServers(
@@ -276,7 +276,7 @@ gapi.load('client', async () => {
       },
       {
         printServerIds: ['Test string'],
-      }
+      },
     );
     /** Creates a print server. */
     await gapi.client.admin.customers.chrome.printServers.create(
@@ -291,7 +291,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         orgUnitId: 'Test string',
         uri: 'Test string',
-      }
+      },
     );
     /** Deletes a print server. */
     await gapi.client.admin.customers.chrome.printServers.delete({
@@ -324,7 +324,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         orgUnitId: 'Test string',
         uri: 'Test string',
-      }
+      },
     );
     /** Deletes an ASP issued by a user. */
     await gapi.client.directory.asps.delete({
@@ -349,7 +349,7 @@ gapi.load('client', async () => {
       {
         action: 'Test string',
         deprovisionReason: 'Test string',
-      }
+      },
     );
     /** Retrieves a Chrome OS device's properties. */
     await gapi.client.directory.chromeosdevices.get({
@@ -377,7 +377,7 @@ gapi.load('client', async () => {
       },
       {
         deviceIds: ['Test string'],
-      }
+      },
     );
     /** Updates a device's updatable properties, such as `annotatedUser`, `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
     await gapi.client.directory.chromeosdevices.patch(
@@ -540,7 +540,7 @@ gapi.load('client', async () => {
           vendorSpecific: 'Test string',
         },
         willAutoRenew: true,
-      }
+      },
     );
     /** Updates a device's updatable properties, such as `annotatedUser`, `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`. */
     await gapi.client.directory.chromeosdevices.update(
@@ -703,7 +703,7 @@ gapi.load('client', async () => {
           vendorSpecific: 'Test string',
         },
         willAutoRenew: true,
-      }
+      },
     );
     /** Retrieves a customer. */
     await gapi.client.directory.customers.get({
@@ -734,7 +734,7 @@ gapi.load('client', async () => {
           postalCode: 'Test string',
           region: 'Test string',
         },
-      }
+      },
     );
     /** Updates a customer. */
     await gapi.client.directory.customers.update(
@@ -761,7 +761,7 @@ gapi.load('client', async () => {
           postalCode: 'Test string',
           region: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a domain Alias of the customer. */
     await gapi.client.directory.domainAliases.delete({
@@ -785,7 +785,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         parentDomainName: 'Test string',
         verified: true,
-      }
+      },
     );
     /** Lists the domain aliases of the customer. */
     await gapi.client.directory.domainAliases.list({
@@ -824,7 +824,7 @@ gapi.load('client', async () => {
         isPrimary: true,
         kind: 'Test string',
         verified: true,
-      }
+      },
     );
     /** Lists the domains of the customer. */
     await gapi.client.directory.domains.list({
@@ -852,7 +852,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         nonEditableAliases: ['Test string'],
-      }
+      },
     );
     /** Retrieves all groups of a domain or of a user given a userKey (paginated). */
     await gapi.client.directory.groups.list({
@@ -881,7 +881,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         nonEditableAliases: ['Test string'],
-      }
+      },
     );
     /** Updates a group's properties. */
     await gapi.client.directory.groups.update(
@@ -899,7 +899,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         nonEditableAliases: ['Test string'],
-      }
+      },
     );
     /** Removes an alias. */
     await gapi.client.directory.groups.aliases.delete({
@@ -917,7 +917,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         primaryEmail: 'Test string',
-      }
+      },
     );
     /** Lists all aliases for a group. */
     await gapi.client.directory.groups.aliases.list({
@@ -952,7 +952,7 @@ gapi.load('client', async () => {
         role: 'Test string',
         status: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Retrieves a paginated list of all members in a group. This method times out after 60 minutes. For more information, see [Troubleshoot error codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes). */
     await gapi.client.directory.members.list({
@@ -977,7 +977,7 @@ gapi.load('client', async () => {
         role: 'Test string',
         status: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Updates the membership of a user in the specified group. */
     await gapi.client.directory.members.update(
@@ -994,7 +994,7 @@ gapi.load('client', async () => {
         role: 'Test string',
         status: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Takes an action that affects a mobile device. For example, remotely wiping a device. */
     await gapi.client.directory.mobiledevices.action(
@@ -1004,7 +1004,7 @@ gapi.load('client', async () => {
       },
       {
         action: 'Test string',
-      }
+      },
     );
     /** Removes a mobile device. */
     await gapi.client.directory.mobiledevices.delete({
@@ -1052,7 +1052,7 @@ gapi.load('client', async () => {
         orgUnitPath: 'Test string',
         parentOrgUnitId: 'Test string',
         parentOrgUnitPath: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of all organizational units for an account. */
     await gapi.client.directory.orgunits.list({
@@ -1076,7 +1076,7 @@ gapi.load('client', async () => {
         orgUnitPath: 'Test string',
         parentOrgUnitId: 'Test string',
         parentOrgUnitPath: 'Test string',
-      }
+      },
     );
     /** Updates an organizational unit. */
     await gapi.client.directory.orgunits.update(
@@ -1094,7 +1094,7 @@ gapi.load('client', async () => {
         orgUnitPath: 'Test string',
         parentOrgUnitId: 'Test string',
         parentOrgUnitPath: 'Test string',
-      }
+      },
     );
     /** Retrieves a paginated list of all privileges for a customer. */
     await gapi.client.directory.privileges.list({
@@ -1136,7 +1136,7 @@ gapi.load('client', async () => {
         etags: 'Test string',
         floorNames: ['Test string'],
         kind: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of buildings for an account. */
     await gapi.client.directory.resources.buildings.list({
@@ -1171,7 +1171,7 @@ gapi.load('client', async () => {
         etags: 'Test string',
         floorNames: ['Test string'],
         kind: 'Test string',
-      }
+      },
     );
     /** Updates a building. */
     await gapi.client.directory.resources.buildings.update(
@@ -1200,7 +1200,7 @@ gapi.load('client', async () => {
         etags: 'Test string',
         floorNames: ['Test string'],
         kind: 'Test string',
-      }
+      },
     );
     /** Deletes a calendar resource. */
     await gapi.client.directory.resources.calendars.delete({
@@ -1233,7 +1233,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         resourceType: 'Test string',
         userVisibleDescription: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of calendar resources for an account. */
     await gapi.client.directory.resources.calendars.list({
@@ -1265,7 +1265,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         resourceType: 'Test string',
         userVisibleDescription: 'Test string',
-      }
+      },
     );
     /** Updates a calendar resource. This method supports patch semantics, meaning you only need to include the fields you wish to update. Fields that are not present in the request will be preserved. */
     await gapi.client.directory.resources.calendars.update(
@@ -1289,7 +1289,7 @@ gapi.load('client', async () => {
         resourceName: 'Test string',
         resourceType: 'Test string',
         userVisibleDescription: 'Test string',
-      }
+      },
     );
     /** Deletes a feature. */
     await gapi.client.directory.resources.features.delete({
@@ -1310,7 +1310,7 @@ gapi.load('client', async () => {
         etags: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of features for an account. */
     await gapi.client.directory.resources.features.list({
@@ -1328,7 +1328,7 @@ gapi.load('client', async () => {
         etags: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Renames a feature. */
     await gapi.client.directory.resources.features.rename(
@@ -1338,7 +1338,7 @@ gapi.load('client', async () => {
       },
       {
         newName: 'Test string',
-      }
+      },
     );
     /** Updates a feature. */
     await gapi.client.directory.resources.features.update(
@@ -1350,7 +1350,7 @@ gapi.load('client', async () => {
         etags: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a role assignment. */
     await gapi.client.directory.roleAssignments.delete({
@@ -1377,7 +1377,7 @@ gapi.load('client', async () => {
         roleAssignmentId: 'Test string',
         roleId: 'Test string',
         scopeType: 'Test string',
-      }
+      },
     );
     /** Retrieves a paginated list of all roleAssignments. */
     await gapi.client.directory.roleAssignments.list({
@@ -1417,7 +1417,7 @@ gapi.load('client', async () => {
             serviceId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Retrieves a paginated list of all the roles in a domain. */
     await gapi.client.directory.roles.list({
@@ -1445,7 +1445,7 @@ gapi.load('client', async () => {
             serviceId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Updates a role. */
     await gapi.client.directory.roles.update(
@@ -1467,7 +1467,7 @@ gapi.load('client', async () => {
             serviceId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes a schema. */
     await gapi.client.directory.schemas.delete({
@@ -1507,7 +1507,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         schemaId: 'Test string',
         schemaName: 'Test string',
-      }
+      },
     );
     /** Retrieves all schemas for a customer. */
     await gapi.client.directory.schemas.list({
@@ -1542,7 +1542,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         schemaId: 'Test string',
         schemaName: 'Test string',
-      }
+      },
     );
     /** Updates a schema. */
     await gapi.client.directory.schemas.update(
@@ -1573,7 +1573,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         schemaId: 'Test string',
         schemaName: 'Test string',
-      }
+      },
     );
     /** Deletes all access tokens issued by a user for an application. */
     await gapi.client.directory.tokens.delete({
@@ -1665,7 +1665,7 @@ gapi.load('client', async () => {
         thumbnailPhotoEtag: 'Test string',
         thumbnailPhotoUrl: 'Test string',
         websites: 42,
-      }
+      },
     );
     /** Retrieves a paginated list of either deleted users or all users in a domain. */
     await gapi.client.directory.users.list({
@@ -1689,7 +1689,7 @@ gapi.load('client', async () => {
       },
       {
         status: true,
-      }
+      },
     );
     /** Updates a user using patch semantics. The update method should be used instead, because it also supports patch semantics and has better performance. If you're mapping an external identity to a Google identity, use the [`update`](https://developers.google.com/admin-sdk/directory/v1/reference/users/update) method instead of the `patch` method. This method is unable to clear fields that contain repeated objects (`addresses`, `phones`, etc). Use the update method instead. */
     await gapi.client.directory.users.patch(
@@ -1752,7 +1752,7 @@ gapi.load('client', async () => {
         thumbnailPhotoEtag: 'Test string',
         thumbnailPhotoUrl: 'Test string',
         websites: 42,
-      }
+      },
     );
     /** Signs a user out of all web and device sessions and reset their sign-in cookies. User will have to sign in by authenticating again. */
     await gapi.client.directory.users.signOut({
@@ -1765,7 +1765,7 @@ gapi.load('client', async () => {
       },
       {
         orgUnitPath: 'Test string',
-      }
+      },
     );
     /** Updates a user. This method supports patch semantics, meaning that you only need to include the fields you wish to update. Fields that are not present in the request will be preserved, and fields set to `null` will be cleared. For repeating fields that contain arrays, individual items in the array can't be patched piecemeal; they must be supplied in the request body with the desired values for all items. See the [user accounts guide](https://developers.google.com/admin-sdk/directory/v1/guides/manage-users#update_user) for more information. */
     await gapi.client.directory.users.update(
@@ -1828,7 +1828,7 @@ gapi.load('client', async () => {
         thumbnailPhotoEtag: 'Test string',
         thumbnailPhotoUrl: 'Test string',
         websites: 42,
-      }
+      },
     );
     /** Watches for changes in users list. */
     await gapi.client.directory.users.watch(
@@ -1859,7 +1859,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Removes an alias. */
     await gapi.client.directory.users.aliases.delete({
@@ -1877,7 +1877,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         primaryEmail: 'Test string',
-      }
+      },
     );
     /** Lists all aliases for a user. */
     await gapi.client.directory.users.aliases.list({
@@ -1903,7 +1903,7 @@ gapi.load('client', async () => {
         resourceUri: 'Test string',
         token: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Removes the user's photo. */
     await gapi.client.directory.users.photos.delete({
@@ -1927,7 +1927,7 @@ gapi.load('client', async () => {
         photoData: 'Test string',
         primaryEmail: 'Test string',
         width: 42,
-      }
+      },
     );
     /** Adds a photo for the user. */
     await gapi.client.directory.users.photos.update(
@@ -1943,7 +1943,7 @@ gapi.load('client', async () => {
         photoData: 'Test string',
         primaryEmail: 'Test string',
         width: 42,
-      }
+      },
     );
     /** Generates new backup verification codes for the user. */
     await gapi.client.directory.verificationCodes.generate({

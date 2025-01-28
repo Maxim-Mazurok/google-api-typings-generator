@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://securitycenter.googleapis.com/$discovery/rest?version=v1'
+    'https://securitycenter.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.securitycenter */
 
@@ -43,7 +43,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         readTime: 'Test string',
-      }
+      },
     );
     /** Lists an organization's assets. */
     await gapi.client.securitycenter.folders.assets.list({
@@ -69,7 +69,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Creates a BigQuery export. */
     await gapi.client.securitycenter.folders.bigQueryExports.create(
@@ -86,7 +86,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         principal: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing BigQuery export. */
     await gapi.client.securitycenter.folders.bigQueryExports.delete({
@@ -117,7 +117,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         principal: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Validates the given Event Threat Detection custom module. */
     await gapi.client.securitycenter.folders.eventThreatDetectionSettings.validateCustomModule(
@@ -127,7 +127,7 @@ gapi.load('client', async () => {
       {
         rawText: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Creates a resident Event Threat Detection custom module at the scope of the given Resource Manager parent, and also creates inherited custom modules for all descendants of the given parent. These modules are enabled by default. */
     await gapi.client.securitycenter.folders.eventThreatDetectionSettings.customModules.create(
@@ -147,19 +147,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified Event Threat Detection custom module and all of its descendants in the Resource Manager hierarchy. This method is only supported for resident custom modules. */
     await gapi.client.securitycenter.folders.eventThreatDetectionSettings.customModules.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an Event Threat Detection custom module. */
     await gapi.client.securitycenter.folders.eventThreatDetectionSettings.customModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Event Threat Detection custom modules for the given Resource Manager parent. This includes resident modules defined at the scope of the parent along with modules inherited from ancestors. */
     await gapi.client.securitycenter.folders.eventThreatDetectionSettings.customModules.list(
@@ -167,7 +167,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants. */
     await gapi.client.securitycenter.folders.eventThreatDetectionSettings.customModules.listDescendant(
@@ -175,7 +175,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the Event Threat Detection custom module with the given name based on the given update mask. Updating the enablement state is supported for both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name or configuration of a module is supported for resident modules only. The type of a module cannot be changed. */
     await gapi.client.securitycenter.folders.eventThreatDetectionSettings.customModules.patch(
@@ -196,13 +196,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets an effective Event Threat Detection custom module at the given level. */
     await gapi.client.securitycenter.folders.eventThreatDetectionSettings.effectiveCustomModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all effective Event Threat Detection custom modules for the given parent. This includes resident modules defined at the scope of the parent along with modules inherited from its ancestors. */
     await gapi.client.securitycenter.folders.eventThreatDetectionSettings.effectiveCustomModules.list(
@@ -210,7 +210,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done. */
     await gapi.client.securitycenter.folders.findings.bulkMute(
@@ -221,7 +221,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         muteAnnotation: 'Test string',
         muteState: 'Test string',
-      }
+      },
     );
     /** Deletes an existing mute config. */
     await gapi.client.securitycenter.folders.locations.muteConfigs.delete({
@@ -247,7 +247,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a mute config. */
     await gapi.client.securitycenter.folders.muteConfigs.create(
@@ -265,7 +265,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing mute config. */
     await gapi.client.securitycenter.folders.muteConfigs.delete({
@@ -297,7 +297,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a notification config. */
     await gapi.client.securitycenter.folders.notificationConfigs.create(
@@ -313,7 +313,7 @@ gapi.load('client', async () => {
         streamingConfig: {
           filter: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a notification config. */
     await gapi.client.securitycenter.folders.notificationConfigs.delete({
@@ -343,7 +343,7 @@ gapi.load('client', async () => {
         streamingConfig: {
           filter: 'Test string',
         },
-      }
+      },
     );
     /** Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the given CRM parent, and also creates inherited SecurityHealthAnalyticsCustomModules for all CRM descendants of the given parent. These modules are enabled by default. */
     await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.create(
@@ -385,19 +385,19 @@ gapi.load('client', async () => {
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. */
     await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves a SecurityHealthAnalyticsCustomModule. */
     await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors. */
     await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.list(
@@ -405,7 +405,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. */
     await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.listDescendant(
@@ -413,7 +413,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name and custom config of a module is supported on resident modules only. */
     await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.patch(
@@ -456,7 +456,7 @@ gapi.load('client', async () => {
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Simulates a given SecurityHealthAnalyticsCustomModule and Resource. */
     await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.simulate(
@@ -524,13 +524,13 @@ gapi.load('client', async () => {
           },
           resourceType: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves an EffectiveSecurityHealthAnalyticsCustomModule. */
     await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.effectiveCustomModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors. */
     await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.effectiveCustomModules.list(
@@ -538,7 +538,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists all sources belonging to an organization. */
     await gapi.client.securitycenter.folders.sources.list({
@@ -558,7 +558,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         readTime: 'Test string',
-      }
+      },
     );
     /** Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings */
     await gapi.client.securitycenter.folders.sources.findings.list({
@@ -1124,7 +1124,7 @@ gapi.load('client', async () => {
             suggestedUpgradeVersion: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates the mute state of a finding. */
     await gapi.client.securitycenter.folders.sources.findings.setMute(
@@ -1133,7 +1133,7 @@ gapi.load('client', async () => {
       },
       {
         mute: 'Test string',
-      }
+      },
     );
     /** Updates the state of a finding. */
     await gapi.client.securitycenter.folders.sources.findings.setState(
@@ -1143,7 +1143,7 @@ gapi.load('client', async () => {
       {
         startTime: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Updates security marks. */
     await gapi.client.securitycenter.folders.sources.findings.updateSecurityMarks(
@@ -1158,7 +1158,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Updates external system. This is for a given finding. */
     await gapi.client.securitycenter.folders.sources.findings.externalSystems.patch(
@@ -1185,7 +1185,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
           uri: 'Test string',
         },
-      }
+      },
     );
     /** Gets the settings for an organization. */
     await gapi.client.securitycenter.organizations.getOrganizationSettings({
@@ -1205,7 +1205,7 @@ gapi.load('client', async () => {
         },
         enableAssetDiscovery: true,
         name: 'Test string',
-      }
+      },
     );
     /** Filters an organization's assets and groups them by their specified properties. */
     await gapi.client.securitycenter.organizations.assets.group(
@@ -1219,7 +1219,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         readTime: 'Test string',
-      }
+      },
     );
     /** Lists an organization's assets. */
     await gapi.client.securitycenter.organizations.assets.list({
@@ -1237,7 +1237,7 @@ gapi.load('client', async () => {
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates security marks. */
     await gapi.client.securitycenter.organizations.assets.updateSecurityMarks(
@@ -1252,7 +1252,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Lists the attack paths for a set of simulation results or valued resources and filter. */
     await gapi.client.securitycenter.organizations.attackPaths.list({
@@ -1276,7 +1276,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         principal: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing BigQuery export. */
     await gapi.client.securitycenter.organizations.bigQueryExports.delete({
@@ -1307,7 +1307,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         principal: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Validates the given Event Threat Detection custom module. */
     await gapi.client.securitycenter.organizations.eventThreatDetectionSettings.validateCustomModule(
@@ -1317,7 +1317,7 @@ gapi.load('client', async () => {
       {
         rawText: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Creates a resident Event Threat Detection custom module at the scope of the given Resource Manager parent, and also creates inherited custom modules for all descendants of the given parent. These modules are enabled by default. */
     await gapi.client.securitycenter.organizations.eventThreatDetectionSettings.customModules.create(
@@ -1337,19 +1337,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified Event Threat Detection custom module and all of its descendants in the Resource Manager hierarchy. This method is only supported for resident custom modules. */
     await gapi.client.securitycenter.organizations.eventThreatDetectionSettings.customModules.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an Event Threat Detection custom module. */
     await gapi.client.securitycenter.organizations.eventThreatDetectionSettings.customModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Event Threat Detection custom modules for the given Resource Manager parent. This includes resident modules defined at the scope of the parent along with modules inherited from ancestors. */
     await gapi.client.securitycenter.organizations.eventThreatDetectionSettings.customModules.list(
@@ -1357,7 +1357,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants. */
     await gapi.client.securitycenter.organizations.eventThreatDetectionSettings.customModules.listDescendant(
@@ -1365,7 +1365,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the Event Threat Detection custom module with the given name based on the given update mask. Updating the enablement state is supported for both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name or configuration of a module is supported for resident modules only. The type of a module cannot be changed. */
     await gapi.client.securitycenter.organizations.eventThreatDetectionSettings.customModules.patch(
@@ -1386,13 +1386,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets an effective Event Threat Detection custom module at the given level. */
     await gapi.client.securitycenter.organizations.eventThreatDetectionSettings.effectiveCustomModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all effective Event Threat Detection custom modules for the given parent. This includes resident modules defined at the scope of the parent along with modules inherited from its ancestors. */
     await gapi.client.securitycenter.organizations.eventThreatDetectionSettings.effectiveCustomModules.list(
@@ -1400,7 +1400,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done. */
     await gapi.client.securitycenter.organizations.findings.bulkMute(
@@ -1411,13 +1411,13 @@ gapi.load('client', async () => {
         filter: 'Test string',
         muteAnnotation: 'Test string',
         muteState: 'Test string',
-      }
+      },
     );
     /** Deletes an existing mute config. */
     await gapi.client.securitycenter.organizations.locations.muteConfigs.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a mute config. */
     await gapi.client.securitycenter.organizations.locations.muteConfigs.get({
@@ -1439,7 +1439,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a mute config. */
     await gapi.client.securitycenter.organizations.muteConfigs.create(
@@ -1457,7 +1457,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing mute config. */
     await gapi.client.securitycenter.organizations.muteConfigs.delete({
@@ -1489,7 +1489,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a notification config. */
     await gapi.client.securitycenter.organizations.notificationConfigs.create(
@@ -1505,7 +1505,7 @@ gapi.load('client', async () => {
         streamingConfig: {
           filter: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a notification config. */
     await gapi.client.securitycenter.organizations.notificationConfigs.delete({
@@ -1535,7 +1535,7 @@ gapi.load('client', async () => {
         streamingConfig: {
           filter: 'Test string',
         },
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.securitycenter.organizations.operations.cancel({
@@ -1585,7 +1585,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Deletes a ResourceValueConfig. */
     await gapi.client.securitycenter.organizations.resourceValueConfigs.delete({
@@ -1624,7 +1624,7 @@ gapi.load('client', async () => {
         },
         tagValues: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the given CRM parent, and also creates inherited SecurityHealthAnalyticsCustomModules for all CRM descendants of the given parent. These modules are enabled by default. */
     await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.create(
@@ -1666,19 +1666,19 @@ gapi.load('client', async () => {
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. */
     await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves a SecurityHealthAnalyticsCustomModule. */
     await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors. */
     await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.list(
@@ -1686,7 +1686,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. */
     await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.listDescendant(
@@ -1694,7 +1694,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name and custom config of a module is supported on resident modules only. */
     await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.patch(
@@ -1737,7 +1737,7 @@ gapi.load('client', async () => {
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Simulates a given SecurityHealthAnalyticsCustomModule and Resource. */
     await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.simulate(
@@ -1805,13 +1805,13 @@ gapi.load('client', async () => {
           },
           resourceType: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves an EffectiveSecurityHealthAnalyticsCustomModule. */
     await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.effectiveCustomModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors. */
     await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.effectiveCustomModules.list(
@@ -1819,7 +1819,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Get the simulation by name or the latest simulation for the given organization. */
     await gapi.client.securitycenter.organizations.simulations.get({
@@ -1832,7 +1832,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists the valued resources for a set of simulation results and filter. */
     await gapi.client.securitycenter.organizations.simulations.attackExposureResults.valuedResources.list(
@@ -1842,7 +1842,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists the attack paths for a set of simulation results or valued resources and filter. */
     await gapi.client.securitycenter.organizations.simulations.attackPaths.list(
@@ -1851,13 +1851,13 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Get the valued resource by name */
     await gapi.client.securitycenter.organizations.simulations.valuedResources.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the valued resources for a set of simulation results and filter. */
     await gapi.client.securitycenter.organizations.simulations.valuedResources.list(
@@ -1867,7 +1867,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists the attack paths for a set of simulation results or valued resources and filter. */
     await gapi.client.securitycenter.organizations.simulations.valuedResources.attackPaths.list(
@@ -1876,7 +1876,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a source. */
     await gapi.client.securitycenter.organizations.sources.create(
@@ -1888,7 +1888,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Gets a source. */
     await gapi.client.securitycenter.organizations.sources.get({
@@ -1903,7 +1903,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all sources belonging to an organization. */
     await gapi.client.securitycenter.organizations.sources.list({
@@ -1922,7 +1922,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified Source. */
     await gapi.client.securitycenter.organizations.sources.setIamPolicy(
@@ -1958,7 +1958,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns the permissions that a caller has on the specified source. */
     await gapi.client.securitycenter.organizations.sources.testIamPermissions(
@@ -1967,7 +1967,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a finding. The corresponding source must exist for finding creation to succeed. */
     await gapi.client.securitycenter.organizations.sources.findings.create(
@@ -2522,7 +2522,7 @@ gapi.load('client', async () => {
             suggestedUpgradeVersion: 'Test string',
           },
         },
-      }
+      },
     );
     /** Filters an organization or source's findings and groups them by their specified properties. To group across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings, /v1/folders/{folder_id}/sources/-/findings, /v1/projects/{project_id}/sources/-/findings */
     await gapi.client.securitycenter.organizations.sources.findings.group(
@@ -2536,7 +2536,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         readTime: 'Test string',
-      }
+      },
     );
     /** Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings */
     await gapi.client.securitycenter.organizations.sources.findings.list({
@@ -3102,7 +3102,7 @@ gapi.load('client', async () => {
             suggestedUpgradeVersion: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates the mute state of a finding. */
     await gapi.client.securitycenter.organizations.sources.findings.setMute(
@@ -3111,7 +3111,7 @@ gapi.load('client', async () => {
       },
       {
         mute: 'Test string',
-      }
+      },
     );
     /** Updates the state of a finding. */
     await gapi.client.securitycenter.organizations.sources.findings.setState(
@@ -3121,7 +3121,7 @@ gapi.load('client', async () => {
       {
         startTime: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Updates security marks. */
     await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks(
@@ -3136,7 +3136,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Updates external system. This is for a given finding. */
     await gapi.client.securitycenter.organizations.sources.findings.externalSystems.patch(
@@ -3163,7 +3163,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
           uri: 'Test string',
         },
-      }
+      },
     );
     /** Lists the valued resources for a set of simulation results and filter. */
     await gapi.client.securitycenter.organizations.valuedResources.list({
@@ -3185,7 +3185,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         readTime: 'Test string',
-      }
+      },
     );
     /** Lists an organization's assets. */
     await gapi.client.securitycenter.projects.assets.list({
@@ -3211,7 +3211,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Creates a BigQuery export. */
     await gapi.client.securitycenter.projects.bigQueryExports.create(
@@ -3228,7 +3228,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         principal: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing BigQuery export. */
     await gapi.client.securitycenter.projects.bigQueryExports.delete({
@@ -3259,7 +3259,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         principal: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Validates the given Event Threat Detection custom module. */
     await gapi.client.securitycenter.projects.eventThreatDetectionSettings.validateCustomModule(
@@ -3269,7 +3269,7 @@ gapi.load('client', async () => {
       {
         rawText: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Creates a resident Event Threat Detection custom module at the scope of the given Resource Manager parent, and also creates inherited custom modules for all descendants of the given parent. These modules are enabled by default. */
     await gapi.client.securitycenter.projects.eventThreatDetectionSettings.customModules.create(
@@ -3289,19 +3289,19 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified Event Threat Detection custom module and all of its descendants in the Resource Manager hierarchy. This method is only supported for resident custom modules. */
     await gapi.client.securitycenter.projects.eventThreatDetectionSettings.customModules.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an Event Threat Detection custom module. */
     await gapi.client.securitycenter.projects.eventThreatDetectionSettings.customModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all Event Threat Detection custom modules for the given Resource Manager parent. This includes resident modules defined at the scope of the parent along with modules inherited from ancestors. */
     await gapi.client.securitycenter.projects.eventThreatDetectionSettings.customModules.list(
@@ -3309,7 +3309,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants. */
     await gapi.client.securitycenter.projects.eventThreatDetectionSettings.customModules.listDescendant(
@@ -3317,7 +3317,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the Event Threat Detection custom module with the given name based on the given update mask. Updating the enablement state is supported for both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name or configuration of a module is supported for resident modules only. The type of a module cannot be changed. */
     await gapi.client.securitycenter.projects.eventThreatDetectionSettings.customModules.patch(
@@ -3338,13 +3338,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets an effective Event Threat Detection custom module at the given level. */
     await gapi.client.securitycenter.projects.eventThreatDetectionSettings.effectiveCustomModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all effective Event Threat Detection custom modules for the given parent. This includes resident modules defined at the scope of the parent along with modules inherited from its ancestors. */
     await gapi.client.securitycenter.projects.eventThreatDetectionSettings.effectiveCustomModules.list(
@@ -3352,7 +3352,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done. */
     await gapi.client.securitycenter.projects.findings.bulkMute(
@@ -3363,7 +3363,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         muteAnnotation: 'Test string',
         muteState: 'Test string',
-      }
+      },
     );
     /** Deletes an existing mute config. */
     await gapi.client.securitycenter.projects.locations.muteConfigs.delete({
@@ -3389,7 +3389,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a mute config. */
     await gapi.client.securitycenter.projects.muteConfigs.create(
@@ -3407,7 +3407,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes an existing mute config. */
     await gapi.client.securitycenter.projects.muteConfigs.delete({
@@ -3439,7 +3439,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         type: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a notification config. */
     await gapi.client.securitycenter.projects.notificationConfigs.create(
@@ -3455,7 +3455,7 @@ gapi.load('client', async () => {
         streamingConfig: {
           filter: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a notification config. */
     await gapi.client.securitycenter.projects.notificationConfigs.delete({
@@ -3485,7 +3485,7 @@ gapi.load('client', async () => {
         streamingConfig: {
           filter: 'Test string',
         },
-      }
+      },
     );
     /** Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the given CRM parent, and also creates inherited SecurityHealthAnalyticsCustomModules for all CRM descendants of the given parent. These modules are enabled by default. */
     await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.create(
@@ -3527,19 +3527,19 @@ gapi.load('client', async () => {
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. */
     await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves a SecurityHealthAnalyticsCustomModule. */
     await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors. */
     await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.list(
@@ -3547,7 +3547,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. */
     await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.listDescendant(
@@ -3555,7 +3555,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name and custom config of a module is supported on resident modules only. */
     await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.patch(
@@ -3598,7 +3598,7 @@ gapi.load('client', async () => {
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Simulates a given SecurityHealthAnalyticsCustomModule and Resource. */
     await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.simulate(
@@ -3666,13 +3666,13 @@ gapi.load('client', async () => {
           },
           resourceType: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves an EffectiveSecurityHealthAnalyticsCustomModule. */
     await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.effectiveCustomModules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors. */
     await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.effectiveCustomModules.list(
@@ -3680,7 +3680,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists all sources belonging to an organization. */
     await gapi.client.securitycenter.projects.sources.list({
@@ -3700,7 +3700,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         readTime: 'Test string',
-      }
+      },
     );
     /** Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings */
     await gapi.client.securitycenter.projects.sources.findings.list({
@@ -4266,7 +4266,7 @@ gapi.load('client', async () => {
             suggestedUpgradeVersion: 'Test string',
           },
         },
-      }
+      },
     );
     /** Updates the mute state of a finding. */
     await gapi.client.securitycenter.projects.sources.findings.setMute(
@@ -4275,7 +4275,7 @@ gapi.load('client', async () => {
       },
       {
         mute: 'Test string',
-      }
+      },
     );
     /** Updates the state of a finding. */
     await gapi.client.securitycenter.projects.sources.findings.setState(
@@ -4285,7 +4285,7 @@ gapi.load('client', async () => {
       {
         startTime: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Updates security marks. */
     await gapi.client.securitycenter.projects.sources.findings.updateSecurityMarks(
@@ -4300,7 +4300,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-      }
+      },
     );
     /** Updates external system. This is for a given finding. */
     await gapi.client.securitycenter.projects.sources.findings.externalSystems.patch(
@@ -4327,7 +4327,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
           uri: 'Test string',
         },
-      }
+      },
     );
   }
 });

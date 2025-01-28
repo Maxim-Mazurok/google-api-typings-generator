@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Address Validation API v1 */
   function load(
-    urlOrObject: 'https://addressvalidation.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://addressvalidation.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'addressvalidation', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'addressvalidation',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace addressvalidation {
@@ -336,7 +336,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleMapsAddressvalidationV1ProvideValidationFeedbackRequest
+        body: GoogleMapsAddressvalidationV1ProvideValidationFeedbackRequest,
       ): Request<{}>;
       /** Validates an address. */
       validateAddress(request: {
@@ -390,7 +390,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleMapsAddressvalidationV1ValidateAddressRequest
+        body: GoogleMapsAddressvalidationV1ValidateAddressRequest,
       ): Request<GoogleMapsAddressvalidationV1ValidateAddressResponse>;
     }
 

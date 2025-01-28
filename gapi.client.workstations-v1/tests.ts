@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://workstations.googleapis.com/$discovery/rest?version=v1'
+    'https://workstations.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.workstations */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.workstations.projects.locations.operations.delete({
@@ -113,7 +113,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified workstation cluster. */
     await gapi.client.workstations.projects.locations.workstationClusters.delete(
@@ -122,7 +122,7 @@ gapi.load('client', async () => {
         force: true,
         name: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Returns the requested workstation cluster. */
     await gapi.client.workstations.projects.locations.workstationClusters.get({
@@ -184,7 +184,7 @@ gapi.load('client', async () => {
         },
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new workstation configuration. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.create(
@@ -322,7 +322,7 @@ gapi.load('client', async () => {
         runningTimeout: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified workstation configuration. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.delete(
@@ -331,20 +331,20 @@ gapi.load('client', async () => {
         force: true,
         name: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Returns the requested workstation configuration. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Returns all workstation configurations in the specified cluster. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.list(
@@ -352,7 +352,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Returns all workstation configurations in the specified cluster on which the caller has the "workstations.workstation.create" permission. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.listUsable(
@@ -360,7 +360,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an existing workstation configuration. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.patch(
@@ -499,7 +499,7 @@ gapi.load('client', async () => {
         runningTimeout: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.setIamPolicy(
@@ -535,7 +535,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.testIamPermissions(
@@ -544,7 +544,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a new workstation. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.create(
@@ -583,7 +583,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the specified workstation. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.delete(
@@ -591,7 +591,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Returns a short-lived credential that can be used to send authenticated and authorized traffic to a workstation. Once generated this token cannot be revoked and is good for the lifetime of the token. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.generateAccessToken(
@@ -602,20 +602,20 @@ gapi.load('client', async () => {
         expireTime: 'Test string',
         port: 42,
         ttl: 'Test string',
-      }
+      },
     );
     /** Returns the requested workstation. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Returns all Workstations using the specified workstation configuration. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.list(
@@ -623,7 +623,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Returns all workstations using the specified workstation configuration on which the caller has the "workstations.workstations.use" permission. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.listUsable(
@@ -631,7 +631,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an existing workstation. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.patch(
@@ -671,7 +671,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.setIamPolicy(
@@ -707,7 +707,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Starts running a workstation so that users can connect to it. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.start(
@@ -718,7 +718,7 @@ gapi.load('client', async () => {
         boostConfig: 'Test string',
         etag: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Stops running a workstation, reducing costs. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.stop(
@@ -728,7 +728,7 @@ gapi.load('client', async () => {
       {
         etag: 'Test string',
         validateOnly: true,
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.testIamPermissions(
@@ -737,7 +737,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

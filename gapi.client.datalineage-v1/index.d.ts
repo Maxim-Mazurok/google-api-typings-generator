@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Data Lineage API v1 */
   function load(
-    urlOrObject: 'https://datalineage.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://datalineage.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'datalineage', version: 'v1'): Promise<void>;
@@ -255,7 +255,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleLongrunningCancelOperationRequest
+        body: GoogleLongrunningCancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -406,7 +406,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogLineageV1LineageEvent
+        body: GoogleCloudDatacatalogLineageV1LineageEvent,
       ): Request<GoogleCloudDatacatalogLineageV1LineageEvent>;
       /** Deletes the lineage event with the specified name. */
       delete(request?: {
@@ -557,7 +557,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogLineageV1Run
+        body: GoogleCloudDatacatalogLineageV1Run,
       ): Request<GoogleCloudDatacatalogLineageV1Run>;
       /** Deletes the run with the specified name. */
       delete(request?: {
@@ -710,7 +710,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogLineageV1Run
+        body: GoogleCloudDatacatalogLineageV1Run,
       ): Request<GoogleCloudDatacatalogLineageV1Run>;
       lineageEvents: LineageEventsResource;
     }
@@ -775,7 +775,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogLineageV1Process
+        body: GoogleCloudDatacatalogLineageV1Process,
       ): Request<GoogleCloudDatacatalogLineageV1Process>;
       /** Deletes the process with the specified name. */
       delete(request?: {
@@ -928,7 +928,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogLineageV1Process
+        body: GoogleCloudDatacatalogLineageV1Process,
       ): Request<GoogleCloudDatacatalogLineageV1Process>;
       runs: RunsResource;
     }
@@ -989,7 +989,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogLineageV1BatchSearchLinkProcessesRequest
+        body: GoogleCloudDatacatalogLineageV1BatchSearchLinkProcessesRequest,
       ): Request<GoogleCloudDatacatalogLineageV1BatchSearchLinkProcessesResponse>;
       /** Creates new lineage events together with their parents: process and run. Updates the process and run if they already exist. Mapped from Open Lineage specification: https://github.com/OpenLineage/OpenLineage/blob/main/spec/OpenLineage.json. */
       processOpenLineageRunEvent(request?: {
@@ -1076,7 +1076,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogLineageV1SearchLinksRequest
+        body: GoogleCloudDatacatalogLineageV1SearchLinksRequest,
       ): Request<GoogleCloudDatacatalogLineageV1SearchLinksResponse>;
       operations: OperationsResource;
       processes: ProcessesResource;

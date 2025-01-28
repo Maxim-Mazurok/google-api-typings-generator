@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud TPU API v2 */
   function load(
-    urlOrObject: 'https://tpu.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://tpu.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'tpu', version: 'v2'): Promise<void>;
@@ -506,7 +506,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Node
+        body: Node,
       ): Request<Operation>;
       /** Deletes a node. */
       delete(request?: {
@@ -618,7 +618,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetGuestAttributesRequest
+        body: GetGuestAttributesRequest,
       ): Request<GetGuestAttributesResponse>;
       /** Lists nodes. */
       list(request?: {
@@ -711,7 +711,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Node
+        body: Node,
       ): Request<Operation>;
       /** Starts a node. */
       start(request: {
@@ -769,7 +769,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StartNodeRequest
+        body: StartNodeRequest,
       ): Request<Operation>;
       /** Stops a node. This operation is only available with single TPU nodes. */
       stop(request: {
@@ -827,7 +827,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: StopNodeRequest
+        body: StopNodeRequest,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -1011,7 +1011,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueuedResource
+        body: QueuedResource,
       ): Request<Operation>;
       /** Deletes a QueuedResource TPU instance. */
       delete(request?: {
@@ -1158,7 +1158,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ResetQueuedResourceRequest
+        body: ResetQueuedResourceRequest,
       ): Request<Operation>;
     }
     interface RuntimeVersionsResource {
@@ -1282,7 +1282,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateServiceIdentityRequest
+        body: GenerateServiceIdentityRequest,
       ): Request<GenerateServiceIdentityResponse>;
       /** Gets information about a location. */
       get(request?: {

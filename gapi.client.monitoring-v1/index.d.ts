@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Monitoring API v1 */
   function load(
-    urlOrObject: 'https://monitoring.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://monitoring.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'monitoring', version: 'v1'): Promise<void>;
@@ -721,7 +721,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MonitoredProject
+        body: MonitoredProject,
       ): Request<Operation>;
       /** Deletes a MonitoredProject from the specified Metrics Scope. */
       delete(request?: {
@@ -904,7 +904,7 @@ declare namespace gapi.client {
           /** If set, validate the request and preview the review, but do not actually save it. */
           validateOnly?: boolean;
         },
-        body: Dashboard
+        body: Dashboard,
       ): Request<Dashboard>;
       /** Deletes an existing custom dashboard.This method requires the monitoring.dashboards.delete permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam). */
       delete(request?: {
@@ -1051,7 +1051,7 @@ declare namespace gapi.client {
           /** If set, validate the request and preview the review, but do not actually save it. */
           validateOnly?: boolean;
         },
-        body: Dashboard
+        body: Dashboard,
       ): Request<Dashboard>;
     }
     interface LabelResource {
@@ -1189,7 +1189,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryLabelsRequest
+        body: QueryLabelsRequest,
       ): Request<HttpBody>;
       /** Evaluate a PromQL query at a single point in time. */
       query(request: {
@@ -1251,7 +1251,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryInstantRequest
+        body: QueryInstantRequest,
       ): Request<HttpBody>;
       /** Lists exemplars relevant to a given PromQL query, */
       query_exemplars(request: {
@@ -1313,7 +1313,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryExemplarsRequest
+        body: QueryExemplarsRequest,
       ): Request<HttpBody>;
       /** Evaluate a PromQL query with start, end time range. */
       query_range(request: {
@@ -1375,7 +1375,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QueryRangeRequest
+        body: QueryRangeRequest,
       ): Request<HttpBody>;
       /** Lists metadata for metrics. */
       series(request: {
@@ -1437,7 +1437,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: QuerySeriesRequest
+        body: QuerySeriesRequest,
       ): Request<HttpBody>;
       label: LabelResource;
       metadata: MetadataResource;

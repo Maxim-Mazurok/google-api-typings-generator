@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://discovery.googleapis.com/$discovery/rest?version=v1'
+    'https://discovery.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.discovery */
 

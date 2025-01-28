@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://batch.googleapis.com/$discovery/rest?version=v1'
+    'https://batch.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.batch */
 
@@ -293,7 +293,7 @@ gapi.load('client', async () => {
         ],
         uid: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Delete a Job. */
     await gapi.client.batch.projects.locations.jobs.delete({
@@ -329,7 +329,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.batch.projects.locations.operations.delete({
@@ -397,7 +397,7 @@ gapi.load('client', async () => {
           version: 'Test string',
           zone: 'Test string',
         },
-      }
+      },
     );
   }
 });

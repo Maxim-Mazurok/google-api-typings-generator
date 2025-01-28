@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://www.googleapis.com/discovery/v1/apis/oauth2/v2/rest'
+    'https://www.googleapis.com/discovery/v1/apis/oauth2/v2/rest',
   );
   /** now we can use gapi.client.oauth2 */
 

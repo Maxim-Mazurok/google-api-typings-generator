@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Cloud Data Catalog API v1beta1 */
   function load(
-    urlOrObject: 'https://datacatalog.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://datacatalog.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'datacatalog', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'datacatalog',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace datacatalog {
@@ -974,7 +974,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1SearchCatalogRequest
+        body: GoogleCloudDatacatalogV1beta1SearchCatalogRequest,
       ): Request<GoogleCloudDatacatalogV1beta1SearchCatalogResponse>;
     }
     interface EntriesResource {
@@ -1065,7 +1065,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1Tag
+        body: GoogleCloudDatacatalogV1beta1Tag,
       ): Request<GoogleCloudDatacatalogV1beta1Tag>;
       /** Deletes a tag. */
       delete(request?: {
@@ -1185,7 +1185,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1Tag
+        body: GoogleCloudDatacatalogV1beta1Tag,
       ): Request<GoogleCloudDatacatalogV1beta1Tag>;
     }
     interface EntriesResource {
@@ -1249,7 +1249,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1Entry
+        body: GoogleCloudDatacatalogV1beta1Entry,
       ): Request<GoogleCloudDatacatalogV1beta1Entry>;
       /** Deletes an existing entry. Only entries created through CreateEntry method can be deleted. Users should enable the Data Catalog API in the project identified by the `name` parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information). */
       delete(request?: {
@@ -1333,7 +1333,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists entries. */
       list(request?: {
@@ -1428,7 +1428,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1Entry
+        body: GoogleCloudDatacatalogV1beta1Entry,
       ): Request<GoogleCloudDatacatalogV1beta1Entry>;
       /** Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (We don't return a `NOT_FOUND` error). Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. A caller is not required to have Google IAM permission to make this request. */
       testIamPermissions(
@@ -1458,7 +1458,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       tags: TagsResource;
     }
@@ -1519,7 +1519,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1Tag
+        body: GoogleCloudDatacatalogV1beta1Tag,
       ): Request<GoogleCloudDatacatalogV1beta1Tag>;
       /** Deletes a tag. */
       delete(request?: {
@@ -1639,7 +1639,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1Tag
+        body: GoogleCloudDatacatalogV1beta1Tag,
       ): Request<GoogleCloudDatacatalogV1beta1Tag>;
     }
     interface EntryGroupsResource {
@@ -1703,7 +1703,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1EntryGroup
+        body: GoogleCloudDatacatalogV1beta1EntryGroup,
       ): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
       /** Deletes an EntryGroup. Only entry groups that do not contain entries can be deleted. Users should enable the Data Catalog API in the project identified by the `name` parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information). */
       delete(request?: {
@@ -1791,7 +1791,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists entry groups. */
       list(request?: {
@@ -1884,7 +1884,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1EntryGroup
+        body: GoogleCloudDatacatalogV1beta1EntryGroup,
       ): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
       /** Sets the access control policy for a resource. Replaces any existing policy. Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. Callers must have following Google IAM permission - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. - `datacatalog.entries.setIamPolicy` to set policies on entries. - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups. */
       setIamPolicy(
@@ -1914,7 +1914,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (We don't return a `NOT_FOUND` error). Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. A caller is not required to have Google IAM permission to make this request. */
       testIamPermissions(
@@ -1944,7 +1944,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       entries: EntriesResource;
       tags: TagsResource;
@@ -2006,7 +2006,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest
+        body: GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest,
       ): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
     }
     interface FieldsResource {
@@ -2070,7 +2070,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1TagTemplateField
+        body: GoogleCloudDatacatalogV1beta1TagTemplateField,
       ): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
       /** Deletes a field in a tag template and all uses of that field. Users should enable the Data Catalog API in the project identified by the `name` parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information). */
       delete(request?: {
@@ -2161,7 +2161,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1TagTemplateField
+        body: GoogleCloudDatacatalogV1beta1TagTemplateField,
       ): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
       /** Renames a field in a tag template. The user should enable the Data Catalog API in the project identified by the `name` parameter (see [Data Catalog Resource Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information). */
       rename(request: {
@@ -2219,7 +2219,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest
+        body: GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest,
       ): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
       enumValues: EnumValuesResource;
     }
@@ -2284,7 +2284,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1TagTemplate
+        body: GoogleCloudDatacatalogV1beta1TagTemplate,
       ): Request<GoogleCloudDatacatalogV1beta1TagTemplate>;
       /** Deletes a tag template and all tags using the template. Users should enable the Data Catalog API in the project identified by the `name` parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information). */
       delete(request?: {
@@ -2370,7 +2370,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Updates a tag template. This method cannot be used to update the fields of a template. The tag template fields are represented as separate resources and should be updated using their own create/update/delete methods. Users should enable the Data Catalog API in the project identified by the `tag_template.name` parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information). */
       patch(request: {
@@ -2432,7 +2432,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1TagTemplate
+        body: GoogleCloudDatacatalogV1beta1TagTemplate,
       ): Request<GoogleCloudDatacatalogV1beta1TagTemplate>;
       /** Sets the access control policy for a resource. Replaces any existing policy. Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. Callers must have following Google IAM permission - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. - `datacatalog.entries.setIamPolicy` to set policies on entries. - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups. */
       setIamPolicy(
@@ -2462,7 +2462,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (We don't return a `NOT_FOUND` error). Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. A caller is not required to have Google IAM permission to make this request. */
       testIamPermissions(
@@ -2492,7 +2492,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       fields: FieldsResource;
     }
@@ -2553,7 +2553,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1PolicyTag
+        body: GoogleCloudDatacatalogV1beta1PolicyTag,
       ): Request<GoogleCloudDatacatalogV1beta1PolicyTag>;
       /** Deletes a policy tag. Also deletes all of its descendant policy tags. */
       delete(request?: {
@@ -2637,7 +2637,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists all policy tags in a taxonomy. */
       list(request?: {
@@ -2730,7 +2730,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1PolicyTag
+        body: GoogleCloudDatacatalogV1beta1PolicyTag,
       ): Request<GoogleCloudDatacatalogV1beta1PolicyTag>;
       /** Sets the IAM policy for a taxonomy or a policy tag. */
       setIamPolicy(
@@ -2760,7 +2760,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns the permissions that a caller has on the specified taxonomy or policy tag. */
       testIamPermissions(
@@ -2790,7 +2790,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface TaxonomiesResource {
@@ -2850,7 +2850,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1Taxonomy
+        body: GoogleCloudDatacatalogV1beta1Taxonomy,
       ): Request<GoogleCloudDatacatalogV1beta1Taxonomy>;
       /** Deletes a taxonomy. This operation will also delete all policy tags in this taxonomy along with their associated policies. */
       delete(request?: {
@@ -2965,7 +2965,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Imports all taxonomies and their policy tags to a project as new taxonomies. This method provides a bulk taxonomy / policy tag creation using nested proto structure. */
       import(request: {
@@ -3023,7 +3023,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest
+        body: GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest,
       ): Request<GoogleCloudDatacatalogV1beta1ImportTaxonomiesResponse>;
       /** Lists all taxonomies in a project in a particular location that the caller has permission to view. */
       list(request?: {
@@ -3118,7 +3118,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudDatacatalogV1beta1Taxonomy
+        body: GoogleCloudDatacatalogV1beta1Taxonomy,
       ): Request<GoogleCloudDatacatalogV1beta1Taxonomy>;
       /** Sets the IAM policy for a taxonomy or a policy tag. */
       setIamPolicy(
@@ -3148,7 +3148,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns the permissions that a caller has on the specified taxonomy or policy tag. */
       testIamPermissions(
@@ -3178,7 +3178,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       policyTags: PolicyTagsResource;
     }

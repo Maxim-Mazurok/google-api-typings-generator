@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://speech.googleapis.com/$discovery/rest?version=v1'
+    'https://speech.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.speech */
 
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
           uid: 'Test string',
         },
         customClassId: 'Test string',
-      }
+      },
     );
     /** Delete a custom class. */
     await gapi.client.speech.projects.locations.customClasses.delete({
@@ -112,7 +112,7 @@ gapi.load('client', async () => {
         reconciling: true,
         state: 'Test string',
         uid: 'Test string',
-      }
+      },
     );
     /** Create a set of phrase hints. Each item in the set can be a single word or a multi-word phrase. The items in the PhraseSet are favored by the recognition model when you send a call that includes the PhraseSet. */
     await gapi.client.speech.projects.locations.phraseSets.create(
@@ -143,7 +143,7 @@ gapi.load('client', async () => {
           uid: 'Test string',
         },
         phraseSetId: 'Test string',
-      }
+      },
     );
     /** Delete a phrase set. */
     await gapi.client.speech.projects.locations.phraseSets.delete({
@@ -186,7 +186,7 @@ gapi.load('client', async () => {
         reconciling: true,
         state: 'Test string',
         uid: 'Test string',
-      }
+      },
     );
     /** Performs asynchronous speech recognition: receive results via the google.longrunning.Operations interface. Returns either an `Operation.error` or an `Operation.response` which contains a `LongRunningRecognizeResponse` message. For more information on asynchronous speech recognition, see the [how-to](https://cloud.google.com/speech-to-text/docs/async-recognize). */
     await gapi.client.speech.speech.longrunningrecognize(
@@ -300,7 +300,7 @@ gapi.load('client', async () => {
         outputConfig: {
           gcsUri: 'Test string',
         },
-      }
+      },
     );
     /** Performs synchronous speech recognition: receive results after all audio has been sent and processed. */
     await gapi.client.speech.speech.recognize(
@@ -411,7 +411,7 @@ gapi.load('client', async () => {
           },
           useEnhanced: true,
         },
-      }
+      },
     );
   }
 });

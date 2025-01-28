@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://safebrowsing.googleapis.com/$discovery/rest?version=v5'
+    'https://safebrowsing.googleapis.com/$discovery/rest?version=v5',
   );
   /** now we can use gapi.client.safebrowsing */
 

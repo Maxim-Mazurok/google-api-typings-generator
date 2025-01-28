@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://gamesmanagement.googleapis.com/$discovery/rest?version=v1management'
+    'https://gamesmanagement.googleapis.com/$discovery/rest?version=v1management',
   );
   /** now we can use gapi.client.gamesManagement */
 
@@ -49,7 +49,7 @@ gapi.load('client', async () => {
       {
         achievement_ids: ['Test string'],
         kind: 'Test string',
-      }
+      },
     );
     /** Get the list of players hidden from the given application. This method is only available to user accounts for your developer console. */
     await gapi.client.gamesManagement.applications.listHidden({
@@ -75,7 +75,7 @@ gapi.load('client', async () => {
       {
         event_ids: ['Test string'],
         kind: 'Test string',
-      }
+      },
     );
     /** Hide the given player's leaderboard scores from the given application. This method is only available to user accounts for your developer console. */
     await gapi.client.gamesManagement.players.hide({
@@ -105,7 +105,7 @@ gapi.load('client', async () => {
       {
         kind: 'Test string',
         leaderboard_ids: ['Test string'],
-      }
+      },
     );
   }
 });

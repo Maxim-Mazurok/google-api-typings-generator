@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://artifactregistry.googleapis.com/$discovery/rest?version=v1beta2'
+    'https://artifactregistry.googleapis.com/$discovery/rest?version=v1beta2',
   );
   /** now we can use gapi.client.artifactregistry */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
         legacyRedirectionState: 'Test string',
         name: 'Test string',
         pullPercent: 42,
-      }
+      },
     );
     /** Gets information about a location. */
     await gapi.client.artifactregistry.projects.locations.get({
@@ -87,7 +87,7 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         sizeBytes: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a repository and all of its contents. The returned Operation will finish once the repository has been deleted. It will not have any Operation metadata and will return a google.protobuf.Empty response. */
     await gapi.client.artifactregistry.projects.locations.repositories.delete({
@@ -102,7 +102,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Lists repositories. */
     await gapi.client.artifactregistry.projects.locations.repositories.list({
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         sizeBytes: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Updates the IAM policy for a given resource. */
     await gapi.client.artifactregistry.projects.locations.repositories.setIamPolicy(
@@ -158,7 +158,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Tests if the caller has a list of permissions on a resource. */
     await gapi.client.artifactregistry.projects.locations.repositories.testIamPermissions(
@@ -167,7 +167,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Imports Apt artifacts. The returned Operation will complete once the resources are imported. Package, Version, and File resources are created based on the imported artifacts. Imported artifacts that conflict with existing resources are ignored. */
     await gapi.client.artifactregistry.projects.locations.repositories.aptArtifacts.import(
@@ -179,26 +179,26 @@ gapi.load('client', async () => {
           uris: ['Test string'],
           useWildcards: true,
         },
-      }
+      },
     );
     /** Directly uploads an Apt artifact. The returned Operation will complete once the resources are uploaded. Package, Version, and File resources are created based on the imported artifact. Imported artifacts that conflict with existing resources are ignored. */
     await gapi.client.artifactregistry.projects.locations.repositories.aptArtifacts.upload(
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
     /** Download a file. */
     await gapi.client.artifactregistry.projects.locations.repositories.files.download(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a file. */
     await gapi.client.artifactregistry.projects.locations.repositories.files.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists files. */
     await gapi.client.artifactregistry.projects.locations.repositories.files.list(
@@ -207,19 +207,19 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Deletes a package and all of its versions and tags. The returned operation will complete once the package has been deleted. */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a package. */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists packages. */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.list(
@@ -228,7 +228,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a package. */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.patch(
@@ -244,7 +244,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a tag. */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.create(
@@ -255,19 +255,19 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Deletes a tag. */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a tag. */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists tags. */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.list(
@@ -276,7 +276,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a tag. */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.patch(
@@ -287,21 +287,21 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         version: 'Test string',
-      }
+      },
     );
     /** Deletes a version and all of its content. The returned operation will complete once the version has been deleted. */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Gets a version */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Lists versions. */
     await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.list(
@@ -311,7 +311,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Imports Yum (RPM) artifacts. The returned Operation will complete once the resources are imported. Package, Version, and File resources are created based on the imported artifacts. Imported artifacts that conflict with existing resources are ignored. */
     await gapi.client.artifactregistry.projects.locations.repositories.yumArtifacts.import(
@@ -323,14 +323,14 @@ gapi.load('client', async () => {
           uris: ['Test string'],
           useWildcards: true,
         },
-      }
+      },
     );
     /** Directly uploads a Yum artifact. The returned Operation will complete once the resources are uploaded. Package, Version, and File resources are created based on the imported artifact. Imported artifacts that conflict with existing resources are ignored. */
     await gapi.client.artifactregistry.projects.locations.repositories.yumArtifacts.upload(
       {
         parent: 'Test string',
       },
-      {}
+      {},
     );
   }
 });

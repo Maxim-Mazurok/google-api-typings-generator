@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Vertex AI Search for commerce API v2beta */
   function load(
-    urlOrObject: 'https://retail.googleapis.com/$discovery/rest?version=v2beta'
+    urlOrObject: 'https://retail.googleapis.com/$discovery/rest?version=v2beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'retail', version: 'v2beta'): Promise<void>;
@@ -1971,7 +1971,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaAddCatalogAttributeRequest
+        body: GoogleCloudRetailV2betaAddCatalogAttributeRequest,
       ): Request<GoogleCloudRetailV2betaAttributesConfig>;
       /** Removes all specified CatalogAttributes from the AttributesConfig. */
       batchRemoveCatalogAttributes(request: {
@@ -2029,7 +2029,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaBatchRemoveCatalogAttributesRequest
+        body: GoogleCloudRetailV2betaBatchRemoveCatalogAttributesRequest,
       ): Request<GoogleCloudRetailV2betaBatchRemoveCatalogAttributesResponse>;
       /** Removes the specified CatalogAttribute from the AttributesConfig. If the CatalogAttribute to remove does not exist, a NOT_FOUND error is returned. */
       removeCatalogAttribute(request: {
@@ -2087,7 +2087,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaRemoveCatalogAttributeRequest
+        body: GoogleCloudRetailV2betaRemoveCatalogAttributeRequest,
       ): Request<GoogleCloudRetailV2betaAttributesConfig>;
       /** Replaces the specified CatalogAttribute in the AttributesConfig by updating the catalog attribute with the same CatalogAttribute.key. If the CatalogAttribute to replace does not exist, a NOT_FOUND error is returned. */
       replaceCatalogAttribute(request: {
@@ -2145,7 +2145,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaReplaceCatalogAttributeRequest
+        body: GoogleCloudRetailV2betaReplaceCatalogAttributeRequest,
       ): Request<GoogleCloudRetailV2betaAttributesConfig>;
     }
     interface OperationsResource {
@@ -2234,7 +2234,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaAddFulfillmentPlacesRequest
+        body: GoogleCloudRetailV2betaAddFulfillmentPlacesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates local inventory information for a Product at a list of places, while respecting the last update timestamps of each inventory field. This process is asynchronous and does not require the Product to exist before updating inventory information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, updates are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. Local inventory information can only be modified using this method. ProductService.CreateProduct and ProductService.UpdateProduct has no effect on local inventories. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
       addLocalInventories(request: {
@@ -2292,7 +2292,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaAddLocalInventoriesRequest
+        body: GoogleCloudRetailV2betaAddLocalInventoriesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates a Product. */
       create(request: {
@@ -2354,7 +2354,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaProduct
+        body: GoogleCloudRetailV2betaProduct,
       ): Request<GoogleCloudRetailV2betaProduct>;
       /** Deletes a Product. */
       delete(request?: {
@@ -2439,7 +2439,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaExportProductsRequest
+        body: GoogleCloudRetailV2betaExportProductsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets a Product. */
       get(request?: {
@@ -2524,7 +2524,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaImportProductsRequest
+        body: GoogleCloudRetailV2betaImportProductsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets a list of Products. */
       list(request?: {
@@ -2625,7 +2625,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaProduct
+        body: GoogleCloudRetailV2betaProduct,
       ): Request<GoogleCloudRetailV2betaProduct>;
       /** Permanently deletes all selected Products under a branch. This process is asynchronous. If the request is valid, the removal will be enqueued and processed offline. Depending on the number of Products, this operation could take hours to complete. Before the operation completes, some Products may still be returned by ProductService.GetProduct or ProductService.ListProducts. Depending on the number of Products, this operation could take hours to complete. To get a sample of Products that would be deleted, set PurgeProductsRequest.force to false. */
       purge(request: {
@@ -2683,7 +2683,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaPurgeProductsRequest
+        body: GoogleCloudRetailV2betaPurgeProductsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** We recommend that you use the ProductService.RemoveLocalInventories method instead of the ProductService.RemoveFulfillmentPlaces method. ProductService.RemoveLocalInventories achieves the same results but provides more fine-grained control over ingesting local inventory data. Incrementally removes place IDs from a Product.fulfillment_info.place_ids. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, the removed place IDs are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
       removeFulfillmentPlaces(request: {
@@ -2741,7 +2741,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaRemoveFulfillmentPlacesRequest
+        body: GoogleCloudRetailV2betaRemoveFulfillmentPlacesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Remove local inventory information for a Product at a list of places at a removal timestamp. This process is asynchronous. If the request is valid, the removal will be enqueued and processed downstream. As a consequence, when a response is returned, removals are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. Local inventory information can only be removed using this method. ProductService.CreateProduct and ProductService.UpdateProduct has no effect on local inventories. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
       removeLocalInventories(request: {
@@ -2799,7 +2799,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaRemoveLocalInventoriesRequest
+        body: GoogleCloudRetailV2betaRemoveLocalInventoriesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates inventory information for a Product while respecting the last update timestamps of each inventory field. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update is enqueued and processed downstream. As a consequence, when a response is returned, updates are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. When inventory is updated with ProductService.CreateProduct and ProductService.UpdateProduct, the specified inventory field value(s) overwrite any existing value(s) while ignoring the last update time for this field. Furthermore, the last update times for the specified inventory fields are overwritten by the times of the ProductService.CreateProduct or ProductService.UpdateProduct request. If no inventory fields are set in CreateProductRequest.product, then any pre-existing inventory information for this product is used. If no inventory fields are set in SetInventoryRequest.set_mask, then any existing inventory information is preserved. Pre-existing inventory information can only be updated with ProductService.SetInventory, ProductService.AddFulfillmentPlaces, and ProductService.RemoveFulfillmentPlaces. The returned Operations is obsolete after one day, and the GetOperation API returns `NOT_FOUND` afterwards. If conflicting updates are issued, the Operations associated with the stale updates are not marked as done until they are obsolete. */
       setInventory(request: {
@@ -2857,7 +2857,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaSetInventoryRequest
+        body: GoogleCloudRetailV2betaSetInventoryRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface BranchesResource {
@@ -2921,7 +2921,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaImportCompletionDataRequest
+        body: GoogleCloudRetailV2betaImportCompletionDataRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface ControlsResource {
@@ -2985,7 +2985,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaControl
+        body: GoogleCloudRetailV2betaControl,
       ): Request<GoogleCloudRetailV2betaControl>;
       /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
@@ -3134,7 +3134,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaControl
+        body: GoogleCloudRetailV2betaControl,
       ): Request<GoogleCloudRetailV2betaControl>;
     }
     interface GenerativeQuestionResource {
@@ -3194,7 +3194,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaBatchUpdateGenerativeQuestionConfigsRequest
+        body: GoogleCloudRetailV2betaBatchUpdateGenerativeQuestionConfigsRequest,
       ): Request<GoogleCloudRetailV2betaBatchUpdateGenerativeQuestionConfigsResponse>;
     }
     interface GenerativeQuestionsResource {
@@ -3287,7 +3287,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaModel
+        body: GoogleCloudRetailV2betaModel,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes an existing model. */
       delete(request?: {
@@ -3434,7 +3434,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaModel
+        body: GoogleCloudRetailV2betaModel,
       ): Request<GoogleCloudRetailV2betaModel>;
       /** Pauses the training of an existing model. */
       pause(request: {
@@ -3492,7 +3492,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaPauseModelRequest
+        body: GoogleCloudRetailV2betaPauseModelRequest,
       ): Request<GoogleCloudRetailV2betaModel>;
       /** Resumes the training of an existing model. */
       resume(request: {
@@ -3550,7 +3550,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaResumeModelRequest
+        body: GoogleCloudRetailV2betaResumeModelRequest,
       ): Request<GoogleCloudRetailV2betaModel>;
       /** Tunes an existing model. */
       tune(request: {
@@ -3608,7 +3608,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaTuneModelRequest
+        body: GoogleCloudRetailV2betaTuneModelRequest,
       ): Request<GoogleLongrunningOperation>;
     }
     interface OperationsResource {
@@ -3730,7 +3730,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaPredictRequest
+        body: GoogleCloudRetailV2betaPredictRequest,
       ): Request<GoogleCloudRetailV2betaPredictResponse>;
       /** Performs a search. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
       search(request: {
@@ -3788,7 +3788,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaSearchRequest
+        body: GoogleCloudRetailV2betaSearchRequest,
       ): Request<GoogleCloudRetailV2betaSearchResponse>;
     }
     interface ServingConfigsResource {
@@ -3848,7 +3848,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaAddControlRequest
+        body: GoogleCloudRetailV2betaAddControlRequest,
       ): Request<GoogleCloudRetailV2betaServingConfig>;
       /** Creates a ServingConfig. A maximum of 100 ServingConfigs are allowed in a Catalog, otherwise a FAILED_PRECONDITION error is returned. */
       create(request: {
@@ -3910,7 +3910,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaServingConfig
+        body: GoogleCloudRetailV2betaServingConfig,
       ): Request<GoogleCloudRetailV2betaServingConfig>;
       /** Deletes a ServingConfig. Returns a NotFound error if the ServingConfig does not exist. */
       delete(request?: {
@@ -4057,7 +4057,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaServingConfig
+        body: GoogleCloudRetailV2betaServingConfig,
       ): Request<GoogleCloudRetailV2betaServingConfig>;
       /** Makes a recommendation prediction. */
       predict(request: {
@@ -4115,7 +4115,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaPredictRequest
+        body: GoogleCloudRetailV2betaPredictRequest,
       ): Request<GoogleCloudRetailV2betaPredictResponse>;
       /** Disables a Control on the specified ServingConfig. The control is removed from the ServingConfig. Returns a NOT_FOUND error if the Control is not enabled for the ServingConfig. */
       removeControl(request: {
@@ -4173,7 +4173,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaRemoveControlRequest
+        body: GoogleCloudRetailV2betaRemoveControlRequest,
       ): Request<GoogleCloudRetailV2betaServingConfig>;
       /** Performs a search. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
       search(request: {
@@ -4231,7 +4231,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaSearchRequest
+        body: GoogleCloudRetailV2betaSearchRequest,
       ): Request<GoogleCloudRetailV2betaSearchResponse>;
     }
     interface UserEventsResource {
@@ -4291,7 +4291,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaCollectUserEventRequest
+        body: GoogleCloudRetailV2betaCollectUserEventRequest,
       ): Request<GoogleApiHttpBody>;
       /** Exports user events. `Operation.response` is of type `ExportResponse`. `Operation.metadata` is of type `ExportMetadata`. */
       export(request: {
@@ -4349,7 +4349,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaExportUserEventsRequest
+        body: GoogleCloudRetailV2betaExportUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. `Operation.response` is of type `ImportResponse`. Note that it is possible for a subset of the items to be successfully inserted. `Operation.metadata` is of type `ImportMetadata`. */
       import(request: {
@@ -4407,7 +4407,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaImportUserEventsRequest
+        body: GoogleCloudRetailV2betaImportUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
       purge(request: {
@@ -4465,7 +4465,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaPurgeUserEventsRequest
+        body: GoogleCloudRetailV2betaPurgeUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Starts a user-event rejoin operation with latest product catalog. Events are not annotated with detailed product information for products that are missing from the catalog when the user event is ingested. These events are stored as unjoined events with limited usage on training and serving. You can use this method to start a join operation on specified events with the latest version of product catalog. You can also use this method to correct events joined with the wrong product catalog. A rejoin operation can take hours or days to complete. */
       rejoin(request: {
@@ -4523,7 +4523,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaRejoinUserEventsRequest
+        body: GoogleCloudRetailV2betaRejoinUserEventsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Writes a single user event. */
       write(request: {
@@ -4585,7 +4585,7 @@ declare namespace gapi.client {
           /** If set to true, the user event will be written asynchronously after validation, and the API will respond without waiting for the write. Therefore, silent failures can occur even if the API returns success. In case of silent failures, error messages can be found in Stackdriver logs. */
           writeAsync?: boolean;
         },
-        body: GoogleCloudRetailV2betaUserEvent
+        body: GoogleCloudRetailV2betaUserEvent,
       ): Request<GoogleCloudRetailV2betaUserEvent>;
     }
     interface CatalogsResource {
@@ -4688,7 +4688,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaExportAnalyticsMetricsRequest
+        body: GoogleCloudRetailV2betaExportAnalyticsMetricsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets an AttributesConfig. */
       getAttributesConfig(request?: {
@@ -4889,7 +4889,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaCatalog
+        body: GoogleCloudRetailV2betaCatalog,
       ): Request<GoogleCloudRetailV2betaCatalog>;
       /** Set a specified branch id as default branch. API methods such as SearchService.Search, ProductService.GetProduct, ProductService.ListProducts will treat requests using "default_branch" to the actual branch id set as default. For example, if `projects/*‍/locations/*‍/catalogs/*‍/branches/1` is set as default, setting SearchRequest.branch to `projects/*‍/locations/*‍/catalogs/*‍/branches/default_branch` is equivalent to setting SearchRequest.branch to `projects/*‍/locations/*‍/catalogs/*‍/branches/1`. Using multiple branches can be useful when developers would like to have a staging branch to test and verify for future usage. When it becomes ready, developers switch on the staging branch using this API while keeping using `projects/*‍/locations/*‍/catalogs/*‍/branches/default_branch` as SearchRequest.branch to route the traffic to this staging branch. CAUTION: If you have live predict/search traffic, switching the default branch could potentially cause outages if the ID space of the new branch is very different from the old one. More specifically: * PredictionService will only return product IDs from branch {newBranch}. * SearchService will only return product IDs from branch {newBranch} (if branch is not explicitly set). * UserEventService will only join events with products from branch {newBranch}. */
       setDefaultBranch(request: {
@@ -4947,7 +4947,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaSetDefaultBranchRequest
+        body: GoogleCloudRetailV2betaSetDefaultBranchRequest,
       ): Request<{}>;
       /** Updates the AttributesConfig. The catalog attributes in the request will be updated in the catalog, or inserted if they do not exist. Existing catalog attributes not included in the request will remain unchanged. Attributes that are assigned to products, but do not exist at the catalog level, are always included in the response. The product attribute is assigned default values for missing catalog attribute fields, e.g., searchable and dynamic facetable options. */
       updateAttributesConfig(request: {
@@ -5009,7 +5009,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaAttributesConfig
+        body: GoogleCloudRetailV2betaAttributesConfig,
       ): Request<GoogleCloudRetailV2betaAttributesConfig>;
       /** Updates the CompletionConfigs. */
       updateCompletionConfig(request: {
@@ -5071,7 +5071,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaCompletionConfig
+        body: GoogleCloudRetailV2betaCompletionConfig,
       ): Request<GoogleCloudRetailV2betaCompletionConfig>;
       /** Allows management of individual questions. */
       updateGenerativeQuestion(request: {
@@ -5133,7 +5133,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaGenerativeQuestionConfig
+        body: GoogleCloudRetailV2betaGenerativeQuestionConfig,
       ): Request<GoogleCloudRetailV2betaGenerativeQuestionConfig>;
       /** Manages overal generative question feature state -- enables toggling feature on and off. */
       updateGenerativeQuestionFeature(request: {
@@ -5195,7 +5195,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaGenerativeQuestionsFeatureConfig
+        body: GoogleCloudRetailV2betaGenerativeQuestionsFeatureConfig,
       ): Request<GoogleCloudRetailV2betaGenerativeQuestionsFeatureConfig>;
       attributesConfig: AttributesConfigResource;
       branches: BranchesResource;
@@ -5425,7 +5425,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudRetailV2betaAlertConfig
+        body: GoogleCloudRetailV2betaAlertConfig,
       ): Request<GoogleCloudRetailV2betaAlertConfig>;
       locations: LocationsResource;
       operations: OperationsResource;

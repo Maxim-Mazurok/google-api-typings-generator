@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Access Approval API v1 */
   function load(
-    urlOrObject: 'https://accessapproval.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://accessapproval.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'accessapproval', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'accessapproval',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace accessapproval {
@@ -210,7 +210,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApproveApprovalRequestMessage
+        body: ApproveApprovalRequestMessage,
       ): Request<ApprovalRequest>;
       /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and approved. It is equivalent in effect to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       dismiss(request: {
@@ -268,7 +268,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DismissApprovalRequestMessage
+        body: DismissApprovalRequestMessage,
       ): Request<ApprovalRequest>;
       /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
       get(request?: {
@@ -353,7 +353,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InvalidateApprovalRequestMessage
+        body: InvalidateApprovalRequestMessage,
       ): Request<ApprovalRequest>;
       /** Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse chronological. */
       list(request?: {
@@ -531,7 +531,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccessApprovalSettings
+        body: AccessApprovalSettings,
       ): Request<AccessApprovalSettings>;
       approvalRequests: ApprovalRequestsResource;
     }
@@ -592,7 +592,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApproveApprovalRequestMessage
+        body: ApproveApprovalRequestMessage,
       ): Request<ApprovalRequest>;
       /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and approved. It is equivalent in effect to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       dismiss(request: {
@@ -650,7 +650,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DismissApprovalRequestMessage
+        body: DismissApprovalRequestMessage,
       ): Request<ApprovalRequest>;
       /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
       get(request?: {
@@ -735,7 +735,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InvalidateApprovalRequestMessage
+        body: InvalidateApprovalRequestMessage,
       ): Request<ApprovalRequest>;
       /** Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse chronological. */
       list(request?: {
@@ -913,7 +913,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccessApprovalSettings
+        body: AccessApprovalSettings,
       ): Request<AccessApprovalSettings>;
       approvalRequests: ApprovalRequestsResource;
     }
@@ -974,7 +974,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApproveApprovalRequestMessage
+        body: ApproveApprovalRequestMessage,
       ): Request<ApprovalRequest>;
       /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and approved. It is equivalent in effect to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       dismiss(request: {
@@ -1032,7 +1032,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DismissApprovalRequestMessage
+        body: DismissApprovalRequestMessage,
       ): Request<ApprovalRequest>;
       /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
       get(request?: {
@@ -1117,7 +1117,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: InvalidateApprovalRequestMessage
+        body: InvalidateApprovalRequestMessage,
       ): Request<ApprovalRequest>;
       /** Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse chronological. */
       list(request?: {
@@ -1295,7 +1295,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AccessApprovalSettings
+        body: AccessApprovalSettings,
       ): Request<AccessApprovalSettings>;
       approvalRequests: ApprovalRequestsResource;
     }

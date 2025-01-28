@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Analytics Admin API v1alpha */
   function load(
-    urlOrObject: 'https://analyticsadmin.googleapis.com/$discovery/rest?version=v1alpha'
+    urlOrObject: 'https://analyticsadmin.googleapis.com/$discovery/rest?version=v1alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'analyticsadmin', version: 'v1alpha'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'analyticsadmin',
     version: 'v1alpha',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace analyticsadmin {
@@ -1408,7 +1408,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaBatchCreateAccessBindingsRequest
+        body: GoogleAnalyticsAdminV1alphaBatchCreateAccessBindingsRequest,
       ): Request<GoogleAnalyticsAdminV1alphaBatchCreateAccessBindingsResponse>;
       /** Deletes information about multiple users' links to an account or property. */
       batchDelete(request: {
@@ -1466,7 +1466,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaBatchDeleteAccessBindingsRequest
+        body: GoogleAnalyticsAdminV1alphaBatchDeleteAccessBindingsRequest,
       ): Request<{}>;
       /** Gets information about multiple access bindings to an account or property. */
       batchGet(request?: {
@@ -1553,7 +1553,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaBatchUpdateAccessBindingsRequest
+        body: GoogleAnalyticsAdminV1alphaBatchUpdateAccessBindingsRequest,
       ): Request<GoogleAnalyticsAdminV1alphaBatchUpdateAccessBindingsResponse>;
       /** Creates an access binding on an account or property. */
       create(request: {
@@ -1611,7 +1611,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaAccessBinding
+        body: GoogleAnalyticsAdminV1alphaAccessBinding,
       ): Request<GoogleAnalyticsAdminV1alphaAccessBinding>;
       /** Deletes an access binding on an account or property. */
       delete(request?: {
@@ -1754,7 +1754,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaAccessBinding
+        body: GoogleAnalyticsAdminV1alphaAccessBinding,
       ): Request<GoogleAnalyticsAdminV1alphaAccessBinding>;
     }
     interface AccountsResource {
@@ -1930,7 +1930,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaAccount
+        body: GoogleAnalyticsAdminV1alphaAccount,
       ): Request<GoogleAnalyticsAdminV1alphaAccount>;
       /** Requests a ticket for creating an account. */
       provisionAccountTicket(request: {
@@ -1984,7 +1984,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaProvisionAccountTicketRequest
+        body: GoogleAnalyticsAdminV1alphaProvisionAccountTicketRequest,
       ): Request<GoogleAnalyticsAdminV1alphaProvisionAccountTicketResponse>;
       /** Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. Reports may be requested for any property, but dimensions that aren't related to quota can only be requested on Google Analytics 360 properties. This method is only available to Administrators. These data access records include GA UI Reporting, GA UI Explorations, GA Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents). To give your feedback on this API, complete the [Google Analytics Access Reports feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform) form. */
       runAccessReport(request: {
@@ -2042,7 +2042,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaRunAccessReportRequest
+        body: GoogleAnalyticsAdminV1alphaRunAccessReportRequest,
       ): Request<GoogleAnalyticsAdminV1alphaRunAccessReportResponse>;
       /** Searches through all changes to an account or its children given the specified set of filters. Only returns the subset of changes supported by the API. The UI may return additional changes. */
       searchChangeHistoryEvents(request: {
@@ -2100,7 +2100,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaSearchChangeHistoryEventsRequest
+        body: GoogleAnalyticsAdminV1alphaSearchChangeHistoryEventsRequest,
       ): Request<GoogleAnalyticsAdminV1alphaSearchChangeHistoryEventsResponse>;
       accessBindings: AccessBindingsResource;
     }
@@ -2192,7 +2192,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaBatchCreateAccessBindingsRequest
+        body: GoogleAnalyticsAdminV1alphaBatchCreateAccessBindingsRequest,
       ): Request<GoogleAnalyticsAdminV1alphaBatchCreateAccessBindingsResponse>;
       /** Deletes information about multiple users' links to an account or property. */
       batchDelete(request: {
@@ -2250,7 +2250,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaBatchDeleteAccessBindingsRequest
+        body: GoogleAnalyticsAdminV1alphaBatchDeleteAccessBindingsRequest,
       ): Request<{}>;
       /** Gets information about multiple access bindings to an account or property. */
       batchGet(request?: {
@@ -2337,7 +2337,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaBatchUpdateAccessBindingsRequest
+        body: GoogleAnalyticsAdminV1alphaBatchUpdateAccessBindingsRequest,
       ): Request<GoogleAnalyticsAdminV1alphaBatchUpdateAccessBindingsResponse>;
       /** Creates an access binding on an account or property. */
       create(request: {
@@ -2395,7 +2395,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaAccessBinding
+        body: GoogleAnalyticsAdminV1alphaAccessBinding,
       ): Request<GoogleAnalyticsAdminV1alphaAccessBinding>;
       /** Deletes an access binding on an account or property. */
       delete(request?: {
@@ -2538,7 +2538,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaAccessBinding
+        body: GoogleAnalyticsAdminV1alphaAccessBinding,
       ): Request<GoogleAnalyticsAdminV1alphaAccessBinding>;
     }
     interface AdSenseLinksResource {
@@ -2598,7 +2598,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaAdSenseLink
+        body: GoogleAnalyticsAdminV1alphaAdSenseLink,
       ): Request<GoogleAnalyticsAdminV1alphaAdSenseLink>;
       /** Deletes an AdSenseLink. */
       delete(request?: {
@@ -2743,7 +2743,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaArchiveAudienceRequest
+        body: GoogleAnalyticsAdminV1alphaArchiveAudienceRequest,
       ): Request<{}>;
       /** Creates an Audience. */
       create(request: {
@@ -2801,7 +2801,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaAudience
+        body: GoogleAnalyticsAdminV1alphaAudience,
       ): Request<GoogleAnalyticsAdminV1alphaAudience>;
       /** Lookup for a single Audience. Audiences created before 2020 may not be supported. Default audiences will not show filter definitions. */
       get(request?: {
@@ -2921,7 +2921,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaAudience
+        body: GoogleAnalyticsAdminV1alphaAudience,
       ): Request<GoogleAnalyticsAdminV1alphaAudience>;
     }
     interface BigQueryLinksResource {
@@ -2981,7 +2981,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaBigQueryLink
+        body: GoogleAnalyticsAdminV1alphaBigQueryLink,
       ): Request<GoogleAnalyticsAdminV1alphaBigQueryLink>;
       /** Deletes a BigQueryLink on a property. */
       delete(request?: {
@@ -3128,7 +3128,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaBigQueryLink
+        body: GoogleAnalyticsAdminV1alphaBigQueryLink,
       ): Request<GoogleAnalyticsAdminV1alphaBigQueryLink>;
     }
     interface CalculatedMetricsResource {
@@ -3192,7 +3192,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaCalculatedMetric
+        body: GoogleAnalyticsAdminV1alphaCalculatedMetric,
       ): Request<GoogleAnalyticsAdminV1alphaCalculatedMetric>;
       /** Deletes a CalculatedMetric on a property. */
       delete(request?: {
@@ -3339,7 +3339,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaCalculatedMetric
+        body: GoogleAnalyticsAdminV1alphaCalculatedMetric,
       ): Request<GoogleAnalyticsAdminV1alphaCalculatedMetric>;
     }
     interface ChannelGroupsResource {
@@ -3399,7 +3399,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaChannelGroup
+        body: GoogleAnalyticsAdminV1alphaChannelGroup,
       ): Request<GoogleAnalyticsAdminV1alphaChannelGroup>;
       /** Deletes a ChannelGroup on a property. */
       delete(request?: {
@@ -3546,7 +3546,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaChannelGroup
+        body: GoogleAnalyticsAdminV1alphaChannelGroup,
       ): Request<GoogleAnalyticsAdminV1alphaChannelGroup>;
     }
     interface ConversionEventsResource {
@@ -3606,7 +3606,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaConversionEvent
+        body: GoogleAnalyticsAdminV1alphaConversionEvent,
       ): Request<GoogleAnalyticsAdminV1alphaConversionEvent>;
       /** Deprecated: Use `DeleteKeyEvent` instead. Deletes a conversion event in a property. */
       delete(request?: {
@@ -3753,7 +3753,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaConversionEvent
+        body: GoogleAnalyticsAdminV1alphaConversionEvent,
       ): Request<GoogleAnalyticsAdminV1alphaConversionEvent>;
     }
     interface CustomDimensionsResource {
@@ -3813,7 +3813,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaArchiveCustomDimensionRequest
+        body: GoogleAnalyticsAdminV1alphaArchiveCustomDimensionRequest,
       ): Request<{}>;
       /** Creates a CustomDimension. */
       create(request: {
@@ -3871,7 +3871,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaCustomDimension
+        body: GoogleAnalyticsAdminV1alphaCustomDimension,
       ): Request<GoogleAnalyticsAdminV1alphaCustomDimension>;
       /** Lookup for a single CustomDimension. */
       get(request?: {
@@ -3991,7 +3991,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaCustomDimension
+        body: GoogleAnalyticsAdminV1alphaCustomDimension,
       ): Request<GoogleAnalyticsAdminV1alphaCustomDimension>;
     }
     interface CustomMetricsResource {
@@ -4051,7 +4051,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaArchiveCustomMetricRequest
+        body: GoogleAnalyticsAdminV1alphaArchiveCustomMetricRequest,
       ): Request<{}>;
       /** Creates a CustomMetric. */
       create(request: {
@@ -4109,7 +4109,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaCustomMetric
+        body: GoogleAnalyticsAdminV1alphaCustomMetric,
       ): Request<GoogleAnalyticsAdminV1alphaCustomMetric>;
       /** Lookup for a single CustomMetric. */
       get(request?: {
@@ -4229,7 +4229,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaCustomMetric
+        body: GoogleAnalyticsAdminV1alphaCustomMetric,
       ): Request<GoogleAnalyticsAdminV1alphaCustomMetric>;
     }
     interface EventCreateRulesResource {
@@ -4289,7 +4289,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaEventCreateRule
+        body: GoogleAnalyticsAdminV1alphaEventCreateRule,
       ): Request<GoogleAnalyticsAdminV1alphaEventCreateRule>;
       /** Deletes an EventCreateRule. */
       delete(request?: {
@@ -4436,7 +4436,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaEventCreateRule
+        body: GoogleAnalyticsAdminV1alphaEventCreateRule,
       ): Request<GoogleAnalyticsAdminV1alphaEventCreateRule>;
     }
     interface EventEditRulesResource {
@@ -4496,7 +4496,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaEventEditRule
+        body: GoogleAnalyticsAdminV1alphaEventEditRule,
       ): Request<GoogleAnalyticsAdminV1alphaEventEditRule>;
       /** Deletes an EventEditRule. */
       delete(request?: {
@@ -4643,7 +4643,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaEventEditRule
+        body: GoogleAnalyticsAdminV1alphaEventEditRule,
       ): Request<GoogleAnalyticsAdminV1alphaEventEditRule>;
       /** Changes the processing order of event edit rules on the specified stream. */
       reorder(request: {
@@ -4701,7 +4701,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaReorderEventEditRulesRequest
+        body: GoogleAnalyticsAdminV1alphaReorderEventEditRulesRequest,
       ): Request<{}>;
     }
     interface MeasurementProtocolSecretsResource {
@@ -4761,7 +4761,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret
+        body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret,
       ): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
       /** Deletes target MeasurementProtocolSecret. */
       delete(request?: {
@@ -4908,7 +4908,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret
+        body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret,
       ): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
     }
     interface SKAdNetworkConversionValueSchemaResource {
@@ -4968,7 +4968,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaSKAdNetworkConversionValueSchema
+        body: GoogleAnalyticsAdminV1alphaSKAdNetworkConversionValueSchema,
       ): Request<GoogleAnalyticsAdminV1alphaSKAdNetworkConversionValueSchema>;
       /** Deletes target SKAdNetworkConversionValueSchema. */
       delete(request?: {
@@ -5115,7 +5115,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaSKAdNetworkConversionValueSchema
+        body: GoogleAnalyticsAdminV1alphaSKAdNetworkConversionValueSchema,
       ): Request<GoogleAnalyticsAdminV1alphaSKAdNetworkConversionValueSchema>;
     }
     interface DataStreamsResource {
@@ -5175,7 +5175,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaDataStream
+        body: GoogleAnalyticsAdminV1alphaDataStream,
       ): Request<GoogleAnalyticsAdminV1alphaDataStream>;
       /** Deletes a DataStream on a property. */
       delete(request?: {
@@ -5403,7 +5403,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaDataStream
+        body: GoogleAnalyticsAdminV1alphaDataStream,
       ): Request<GoogleAnalyticsAdminV1alphaDataStream>;
       /** Updates a DataRedactionSettings on a property. */
       updateDataRedactionSettings(request: {
@@ -5465,7 +5465,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaDataRedactionSettings
+        body: GoogleAnalyticsAdminV1alphaDataRedactionSettings,
       ): Request<GoogleAnalyticsAdminV1alphaDataRedactionSettings>;
       /** Updates the enhanced measurement settings for this data stream. Note that the stream must enable enhanced measurement for these settings to take effect. */
       updateEnhancedMeasurementSettings(request: {
@@ -5527,7 +5527,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaEnhancedMeasurementSettings
+        body: GoogleAnalyticsAdminV1alphaEnhancedMeasurementSettings,
       ): Request<GoogleAnalyticsAdminV1alphaEnhancedMeasurementSettings>;
       eventCreateRules: EventCreateRulesResource;
       eventEditRules: EventEditRulesResource;
@@ -5591,7 +5591,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest
+        body: GoogleAnalyticsAdminV1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest,
       ): Request<GoogleAnalyticsAdminV1alphaApproveDisplayVideo360AdvertiserLinkProposalResponse>;
       /** Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either: - Declining a proposal initiated from Display & Video 360 - Withdrawing a proposal initiated from Google Analytics After being cancelled, a proposal will eventually be deleted automatically. */
       cancel(request: {
@@ -5649,7 +5649,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest
+        body: GoogleAnalyticsAdminV1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest,
       ): Request<GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLinkProposal>;
       /** Creates a DisplayVideo360AdvertiserLinkProposal. */
       create(request: {
@@ -5707,7 +5707,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLinkProposal
+        body: GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLinkProposal,
       ): Request<GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLinkProposal>;
       /** Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only be used on cancelled proposals. */
       delete(request?: {
@@ -5852,7 +5852,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLink
+        body: GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLink,
       ): Request<GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLink>;
       /** Deletes a DisplayVideo360AdvertiserLink on a property. */
       delete(request?: {
@@ -5999,7 +5999,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLink
+        body: GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLink,
       ): Request<GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLink>;
     }
     interface ExpandedDataSetsResource {
@@ -6059,7 +6059,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaExpandedDataSet
+        body: GoogleAnalyticsAdminV1alphaExpandedDataSet,
       ): Request<GoogleAnalyticsAdminV1alphaExpandedDataSet>;
       /** Deletes a ExpandedDataSet on a property. */
       delete(request?: {
@@ -6206,7 +6206,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaExpandedDataSet
+        body: GoogleAnalyticsAdminV1alphaExpandedDataSet,
       ): Request<GoogleAnalyticsAdminV1alphaExpandedDataSet>;
     }
     interface FirebaseLinksResource {
@@ -6266,7 +6266,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaFirebaseLink
+        body: GoogleAnalyticsAdminV1alphaFirebaseLink,
       ): Request<GoogleAnalyticsAdminV1alphaFirebaseLink>;
       /** Deletes a FirebaseLink on a property */
       delete(request?: {
@@ -6384,7 +6384,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaGoogleAdsLink
+        body: GoogleAnalyticsAdminV1alphaGoogleAdsLink,
       ): Request<GoogleAnalyticsAdminV1alphaGoogleAdsLink>;
       /** Deletes a GoogleAdsLink on a property */
       delete(request?: {
@@ -6504,7 +6504,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaGoogleAdsLink
+        body: GoogleAnalyticsAdminV1alphaGoogleAdsLink,
       ): Request<GoogleAnalyticsAdminV1alphaGoogleAdsLink>;
     }
     interface KeyEventsResource {
@@ -6564,7 +6564,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaKeyEvent
+        body: GoogleAnalyticsAdminV1alphaKeyEvent,
       ): Request<GoogleAnalyticsAdminV1alphaKeyEvent>;
       /** Deletes a Key Event. */
       delete(request?: {
@@ -6711,7 +6711,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaKeyEvent
+        body: GoogleAnalyticsAdminV1alphaKeyEvent,
       ): Request<GoogleAnalyticsAdminV1alphaKeyEvent>;
     }
     interface RollupPropertySourceLinksResource {
@@ -6771,7 +6771,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaRollupPropertySourceLink
+        body: GoogleAnalyticsAdminV1alphaRollupPropertySourceLink,
       ): Request<GoogleAnalyticsAdminV1alphaRollupPropertySourceLink>;
       /** Deletes a roll-up property source link. Only roll-up properties can have source links, so this method will throw an error if used on other types of properties. */
       delete(request?: {
@@ -6916,7 +6916,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaSearchAds360Link
+        body: GoogleAnalyticsAdminV1alphaSearchAds360Link,
       ): Request<GoogleAnalyticsAdminV1alphaSearchAds360Link>;
       /** Deletes a SearchAds360Link on a property. */
       delete(request?: {
@@ -7063,7 +7063,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaSearchAds360Link
+        body: GoogleAnalyticsAdminV1alphaSearchAds360Link,
       ): Request<GoogleAnalyticsAdminV1alphaSearchAds360Link>;
     }
     interface SubpropertyEventFiltersResource {
@@ -7123,7 +7123,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaSubpropertyEventFilter
+        body: GoogleAnalyticsAdminV1alphaSubpropertyEventFilter,
       ): Request<GoogleAnalyticsAdminV1alphaSubpropertyEventFilter>;
       /** Deletes a subproperty event filter. */
       delete(request?: {
@@ -7270,7 +7270,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaSubpropertyEventFilter
+        body: GoogleAnalyticsAdminV1alphaSubpropertyEventFilter,
       ): Request<GoogleAnalyticsAdminV1alphaSubpropertyEventFilter>;
     }
     interface PropertiesResource {
@@ -7330,7 +7330,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaAcknowledgeUserDataCollectionRequest
+        body: GoogleAnalyticsAdminV1alphaAcknowledgeUserDataCollectionRequest,
       ): Request<{}>;
       /** Creates a Google Analytics property with the specified location and attributes. */
       create(request: {
@@ -7384,7 +7384,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaProperty
+        body: GoogleAnalyticsAdminV1alphaProperty,
       ): Request<GoogleAnalyticsAdminV1alphaProperty>;
       /** Creates a connected site tag for a Universal Analytics property. You can create a maximum of 20 connected site tags per property. Note: This API cannot be used on GA4 properties. */
       createConnectedSiteTag(request: {
@@ -7438,7 +7438,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaCreateConnectedSiteTagRequest
+        body: GoogleAnalyticsAdminV1alphaCreateConnectedSiteTagRequest,
       ): Request<{}>;
       /** Create a roll-up property and all roll-up property source links. */
       createRollupProperty(request: {
@@ -7492,7 +7492,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaCreateRollupPropertyRequest
+        body: GoogleAnalyticsAdminV1alphaCreateRollupPropertyRequest,
       ): Request<GoogleAnalyticsAdminV1alphaCreateRollupPropertyResponse>;
       /** Marks target Property as soft-deleted (ie: "trashed") and returns it. This API does not have a method to restore soft-deleted properties. However, they can be restored using the Trash Can UI. If the properties are not restored before the expiration time, the Property and all child resources (eg: GoogleAdsLinks, Streams, AccessBindings) will be permanently purged. https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found. */
       delete(request?: {
@@ -7573,7 +7573,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaDeleteConnectedSiteTagRequest
+        body: GoogleAnalyticsAdminV1alphaDeleteConnectedSiteTagRequest,
       ): Request<{}>;
       /** Fetches the opt out status for the automated GA4 setup process for a UA property. Note: this has no effect on GA4 property. */
       fetchAutomatedGa4ConfigurationOptOut(request: {
@@ -7627,7 +7627,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaFetchAutomatedGa4ConfigurationOptOutRequest
+        body: GoogleAnalyticsAdminV1alphaFetchAutomatedGa4ConfigurationOptOutRequest,
       ): Request<GoogleAnalyticsAdminV1alphaFetchAutomatedGa4ConfigurationOptOutResponse>;
       /** Given a specified UA property, looks up the GA4 property connected to it. Note: this cannot be used with GA4 properties. */
       fetchConnectedGa4Property(request?: {
@@ -7849,7 +7849,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaListConnectedSiteTagsRequest
+        body: GoogleAnalyticsAdminV1alphaListConnectedSiteTagsRequest,
       ): Request<GoogleAnalyticsAdminV1alphaListConnectedSiteTagsResponse>;
       /** Updates a property. */
       patch(request: {
@@ -7911,7 +7911,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaProperty
+        body: GoogleAnalyticsAdminV1alphaProperty,
       ): Request<GoogleAnalyticsAdminV1alphaProperty>;
       /** Create a subproperty and a subproperty event filter that applies to the created subproperty. */
       provisionSubproperty(request: {
@@ -7965,7 +7965,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaProvisionSubpropertyRequest
+        body: GoogleAnalyticsAdminV1alphaProvisionSubpropertyRequest,
       ): Request<GoogleAnalyticsAdminV1alphaProvisionSubpropertyResponse>;
       /** Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. Reports may be requested for any property, but dimensions that aren't related to quota can only be requested on Google Analytics 360 properties. This method is only available to Administrators. These data access records include GA UI Reporting, GA UI Explorations, GA Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents). To give your feedback on this API, complete the [Google Analytics Access Reports feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform) form. */
       runAccessReport(request: {
@@ -8023,7 +8023,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaRunAccessReportRequest
+        body: GoogleAnalyticsAdminV1alphaRunAccessReportRequest,
       ): Request<GoogleAnalyticsAdminV1alphaRunAccessReportResponse>;
       /** Sets the opt out status for the automated GA4 setup process for a UA property. Note: this has no effect on GA4 property. */
       setAutomatedGa4ConfigurationOptOut(request: {
@@ -8077,7 +8077,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaSetAutomatedGa4ConfigurationOptOutRequest
+        body: GoogleAnalyticsAdminV1alphaSetAutomatedGa4ConfigurationOptOutRequest,
       ): Request<{}>;
       /** Updates attribution settings on a property. */
       updateAttributionSettings(request: {
@@ -8139,7 +8139,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaAttributionSettings
+        body: GoogleAnalyticsAdminV1alphaAttributionSettings,
       ): Request<GoogleAnalyticsAdminV1alphaAttributionSettings>;
       /** Updates the singleton data retention settings for this property. */
       updateDataRetentionSettings(request: {
@@ -8201,7 +8201,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaDataRetentionSettings
+        body: GoogleAnalyticsAdminV1alphaDataRetentionSettings,
       ): Request<GoogleAnalyticsAdminV1alphaDataRetentionSettings>;
       /** Updates Google Signals settings for a property. */
       updateGoogleSignalsSettings(request: {
@@ -8263,7 +8263,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleAnalyticsAdminV1alphaGoogleSignalsSettings
+        body: GoogleAnalyticsAdminV1alphaGoogleSignalsSettings,
       ): Request<GoogleAnalyticsAdminV1alphaGoogleSignalsSettings>;
       accessBindings: AccessBindingsResource;
       adSenseLinks: AdSenseLinksResource;

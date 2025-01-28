@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Books API v1 */
   function load(
-    urlOrObject: 'https://books.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://books.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'books', version: 'v1'): Promise<void>;
@@ -1194,7 +1194,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BooksCloudloadingResource
+        body: BooksCloudloadingResource,
       ): Request<BooksCloudloadingResource>;
     }
     interface DictionaryResource {
@@ -1770,7 +1770,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Usersettings
+        body: Usersettings,
       ): Request<Usersettings>;
     }
     interface AnnotationsResource {
@@ -1871,7 +1871,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Annotation
+        body: Annotation,
       ): Request<Annotation>;
       /** Retrieves a list of annotations, possibly filtered. */
       list(request?: {
@@ -2009,7 +2009,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Annotation
+        body: Annotation,
       ): Request<Annotation>;
     }
     interface VolumesResource {

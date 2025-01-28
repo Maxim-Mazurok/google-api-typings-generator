@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Civic Information API v2 */
   function load(
-    urlOrObject: 'https://civicinfo.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://civicinfo.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'civicinfo', version: 'v2'): Promise<void>;

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://connectors.googleapis.com/$discovery/rest?version=v1'
+    'https://connectors.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.connectors */
 
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
           egressMode: 'Test string',
         },
         provisioned: true,
-      }
+      },
     );
     /** Creates a new Connection in a given project and location. */
     await gapi.client.connectors.projects.locations.connections.create(
@@ -505,7 +505,7 @@ gapi.load('client', async () => {
         suspended: true,
         tlsServiceDirectory: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single Connection. */
     await gapi.client.connectors.projects.locations.connections.delete({
@@ -520,7 +520,7 @@ gapi.load('client', async () => {
     await gapi.client.connectors.projects.locations.connections.getConnectionSchemaMetadata(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.connectors.projects.locations.connections.getIamPolicy({
@@ -545,7 +545,7 @@ gapi.load('client', async () => {
         payload: {
           A: 42,
         },
-      }
+      },
     );
     /** Updates the parameters of a single Connection. */
     await gapi.client.connectors.projects.locations.connections.patch(
@@ -983,14 +983,14 @@ gapi.load('client', async () => {
         suspended: true,
         tlsServiceDirectory: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** RepaiEventing tries to repair eventing related event subscriptions. */
     await gapi.client.connectors.projects.locations.connections.repairEventing(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Returns Top matching Connections for a given query. */
     await gapi.client.connectors.projects.locations.connections.search({
@@ -1033,7 +1033,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.connectors.projects.locations.connections.testIamPermissions(
@@ -1042,21 +1042,21 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Get action. */
     await gapi.client.connectors.projects.locations.connections.connectionSchemaMetadata.getAction(
       {
         actionId: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Get entity type. */
     await gapi.client.connectors.projects.locations.connections.connectionSchemaMetadata.getEntityType(
       {
         entityId: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** List actions. */
     await gapi.client.connectors.projects.locations.connections.connectionSchemaMetadata.listActions(
@@ -1066,7 +1066,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** List entity types. */
     await gapi.client.connectors.projects.locations.connections.connectionSchemaMetadata.listEntityTypes(
@@ -1076,14 +1076,14 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Refresh runtime schema of a connection. */
     await gapi.client.connectors.projects.locations.connections.connectionSchemaMetadata.refresh(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new EventSubscription in a given project,location and connection. */
     await gapi.client.connectors.projects.locations.connections.eventSubscriptions.create(
@@ -1134,19 +1134,19 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single EventSubscription. */
     await gapi.client.connectors.projects.locations.connections.eventSubscriptions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single EventSubscription. */
     await gapi.client.connectors.projects.locations.connections.eventSubscriptions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List EventSubscriptions in a given project,location and connection. */
     await gapi.client.connectors.projects.locations.connections.eventSubscriptions.list(
@@ -1156,7 +1156,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a single EventSubscription. */
     await gapi.client.connectors.projects.locations.connections.eventSubscriptions.patch(
@@ -1207,14 +1207,14 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
-      }
+      },
     );
     /** RetryEventSubscription retries the registration of Subscription. */
     await gapi.client.connectors.projects.locations.connections.eventSubscriptions.retry(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** List schema of a runtime actions filtered by action name. */
     await gapi.client.connectors.projects.locations.connections.runtimeActionSchemas.list(
@@ -1224,7 +1224,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         schemaAsString: true,
-      }
+      },
     );
     /** List schema of a runtime entities filtered by entity name. */
     await gapi.client.connectors.projects.locations.connections.runtimeEntitySchemas.list(
@@ -1233,7 +1233,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Validates a Custom Connector Spec. */
     await gapi.client.connectors.projects.locations.customConnectors.validateCustomConnectorSpec(
@@ -1244,20 +1244,20 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         specLocation: 'Test string',
         specType: 'Test string',
-      }
+      },
     );
     /** Deletes a single CustomConnectorVersion. */
     await gapi.client.connectors.projects.locations.customConnectors.customConnectorVersions.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Deprecates a single CustomConnectorVersion. */
     await gapi.client.connectors.projects.locations.customConnectors.customConnectorVersions.deprecate(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Publish request for the CustomConnectorVersion. Once approved, the CustomConnectorVersion will be published as PartnerConnector. */
     await gapi.client.connectors.projects.locations.customConnectors.customConnectorVersions.publish(
@@ -1282,14 +1282,14 @@ gapi.load('client', async () => {
           targetCustomerSegment: 'Test string',
           useCases: 'Test string',
         },
-      }
+      },
     );
     /** Withdraw the publish request for the CustomConnectorVersion. This can only be used before the CustomConnectorVersion is published. */
     await gapi.client.connectors.projects.locations.customConnectors.customConnectorVersions.withdraw(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a new EndpointAttachment in a given project and location. */
     await gapi.client.connectors.projects.locations.endpointAttachments.create(
@@ -1309,7 +1309,7 @@ gapi.load('client', async () => {
         serviceAttachment: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single EndpointAttachment. */
     await gapi.client.connectors.projects.locations.endpointAttachments.delete({
@@ -1347,7 +1347,7 @@ gapi.load('client', async () => {
         serviceAttachment: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** GetGlobalSettings gets settings of a project. GlobalSettings is a singleton resource. */
     await gapi.client.connectors.projects.locations.global.getSettings({
@@ -1364,7 +1364,7 @@ gapi.load('client', async () => {
         payg: true,
         tenantProjectId: 'Test string',
         vpcsc: true,
-      }
+      },
     );
     /** Creates a new CustomConnector in a given project and location. */
     await gapi.client.connectors.projects.locations.global.customConnectors.create(
@@ -1387,20 +1387,20 @@ gapi.load('client', async () => {
         name: 'Test string',
         publishedMarketplaceVersions: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single CustomConnector. */
     await gapi.client.connectors.projects.locations.global.customConnectors.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Gets details of a single CustomConnector. */
     await gapi.client.connectors.projects.locations.global.customConnectors.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List CustomConnectorVersions in a given project */
     await gapi.client.connectors.projects.locations.global.customConnectors.list(
@@ -1409,7 +1409,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates the parameters of a CustomConnector. */
     await gapi.client.connectors.projects.locations.global.customConnectors.patch(
@@ -1432,7 +1432,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         publishedMarketplaceVersions: ['Test string'],
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a new CustomConnectorVersion in a given project and location. */
     await gapi.client.connectors.projects.locations.global.customConnectors.customConnectorVersions.create(
@@ -1619,13 +1619,13 @@ gapi.load('client', async () => {
         specServerUrls: ['Test string'],
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Gets details of a single CustomConnectorVersion. */
     await gapi.client.connectors.projects.locations.global.customConnectors.customConnectorVersions.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** List CustomConnectorVersions in a given project */
     await gapi.client.connectors.projects.locations.global.customConnectors.customConnectorVersions.list(
@@ -1633,7 +1633,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new ManagedZone in a given project and location. */
     await gapi.client.connectors.projects.locations.global.managedZones.create(
@@ -1652,7 +1652,7 @@ gapi.load('client', async () => {
         targetProject: 'Test string',
         targetVpc: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a single ManagedZone. */
     await gapi.client.connectors.projects.locations.global.managedZones.delete({
@@ -1687,14 +1687,14 @@ gapi.load('client', async () => {
         targetProject: 'Test string',
         targetVpc: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.connectors.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.connectors.projects.locations.operations.delete({
@@ -1760,7 +1760,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.connectors.projects.locations.providers.testIamPermissions(
@@ -1769,7 +1769,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets details of a single Connector. */
     await gapi.client.connectors.projects.locations.providers.connectors.get({
@@ -1787,14 +1787,14 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Gets details of a single connector version. */
     await gapi.client.connectors.projects.locations.providers.connectors.versions.get(
       {
         name: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Lists Connector Versions in a given project and location. */
     await gapi.client.connectors.projects.locations.providers.connectors.versions.list(
@@ -1803,13 +1803,13 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         view: 'Test string',
-      }
+      },
     );
     /** Gets details of a single event type. */
     await gapi.client.connectors.projects.locations.providers.connectors.versions.eventtypes.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Event Types in a given Connector Version. */
     await gapi.client.connectors.projects.locations.providers.connectors.versions.eventtypes.list(
@@ -1817,7 +1817,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
   }
 });

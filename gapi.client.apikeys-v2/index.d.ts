@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load API Keys API v2 */
   function load(
-    urlOrObject: 'https://apikeys.googleapis.com/$discovery/rest?version=v2'
+    urlOrObject: 'https://apikeys.googleapis.com/$discovery/rest?version=v2',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'apikeys', version: 'v2'): Promise<void>;
@@ -244,7 +244,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: V2Key
+        body: V2Key,
       ): Request<Operation>;
       /** Deletes an API key. Deleted key can be retrieved within 30 days of deletion. Afterward, key will be purged from the project. NOTE: Key is a global resource; hence the only supported value for location is `global`. */
       delete(request?: {
@@ -422,7 +422,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: V2Key
+        body: V2Key,
       ): Request<Operation>;
       /** Undeletes an API key which was deleted within 30 days. NOTE: Key is a global resource; hence the only supported value for location is `global`. */
       undelete(request: {
@@ -480,7 +480,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: V2UndeleteKeyRequest
+        body: V2UndeleteKeyRequest,
       ): Request<Operation>;
     }
     interface LocationsResource {

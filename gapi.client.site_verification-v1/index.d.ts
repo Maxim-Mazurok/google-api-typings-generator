@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Google Site Verification API v1 */
   function load(
-    urlOrObject: 'https://siteverification.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://siteverification.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'siteVerification', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'siteVerification',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace siteVerification {
@@ -137,7 +137,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: SiteVerificationWebResourceGettokenRequest
+        body: SiteVerificationWebResourceGettokenRequest,
       ): Request<SiteVerificationWebResourceGettokenResponse>;
       /** Attempt verification of a website or domain. */
       insert(request: {
@@ -179,7 +179,7 @@ declare namespace gapi.client {
           /** The method to use for verifying a site or domain. */
           verificationMethod: string;
         },
-        body: SiteVerificationWebResourceResource
+        body: SiteVerificationWebResourceResource,
       ): Request<SiteVerificationWebResourceResource>;
       /** Get the list of your verified websites and domains. */
       list(request?: {
@@ -238,7 +238,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: SiteVerificationWebResourceResource
+        body: SiteVerificationWebResourceResource,
       ): Request<SiteVerificationWebResourceResource>;
       /** Modify the list of owners for your website or domain. */
       update(request: {
@@ -280,7 +280,7 @@ declare namespace gapi.client {
           /** Deprecated. Please use quotaUser instead. */
           userIp?: string;
         },
-        body: SiteVerificationWebResourceResource
+        body: SiteVerificationWebResourceResource,
       ): Request<SiteVerificationWebResourceResource>;
     }
 

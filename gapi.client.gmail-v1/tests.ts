@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://gmail.googleapis.com/$discovery/rest?version=v1'
+    'https://gmail.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.gmail */
 
@@ -75,7 +75,7 @@ gapi.load('client', async () => {
         labelFilterBehavior: 'Test string',
         labelIds: ['Test string'],
         topicName: 'Test string',
-      }
+      },
     );
     /** Creates a new draft with the `DRAFT` label. */
     await gapi.client.gmail.users.drafts.create(
@@ -111,7 +111,7 @@ gapi.load('client', async () => {
           snippet: 'Test string',
           threadId: 'Test string',
         },
-      }
+      },
     );
     /** Immediately and permanently deletes the specified draft. Does not simply trash it. */
     await gapi.client.gmail.users.drafts.delete({
@@ -166,7 +166,7 @@ gapi.load('client', async () => {
           snippet: 'Test string',
           threadId: 'Test string',
         },
-      }
+      },
     );
     /** Replaces a draft's content. */
     await gapi.client.gmail.users.drafts.update(
@@ -203,7 +203,7 @@ gapi.load('client', async () => {
           snippet: 'Test string',
           threadId: 'Test string',
         },
-      }
+      },
     );
     /** Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`). */
     await gapi.client.gmail.users.history.list({
@@ -233,7 +233,7 @@ gapi.load('client', async () => {
         threadsTotal: 42,
         threadsUnread: 42,
         type: 'Test string',
-      }
+      },
     );
     /** Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to. */
     await gapi.client.gmail.users.labels.delete({
@@ -269,7 +269,7 @@ gapi.load('client', async () => {
         threadsTotal: 42,
         threadsUnread: 42,
         type: 'Test string',
-      }
+      },
     );
     /** Updates the specified label. */
     await gapi.client.gmail.users.labels.update(
@@ -291,7 +291,7 @@ gapi.load('client', async () => {
         threadsTotal: 42,
         threadsUnread: 42,
         type: 'Test string',
-      }
+      },
     );
     /** Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all. */
     await gapi.client.gmail.users.messages.batchDelete(
@@ -300,7 +300,7 @@ gapi.load('client', async () => {
       },
       {
         ids: ['Test string'],
-      }
+      },
     );
     /** Modifies the labels on the specified messages. */
     await gapi.client.gmail.users.messages.batchModify(
@@ -311,7 +311,7 @@ gapi.load('client', async () => {
         addLabelIds: ['Test string'],
         ids: ['Test string'],
         removeLabelIds: ['Test string'],
-      }
+      },
     );
     /** Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer `messages.trash` instead. */
     await gapi.client.gmail.users.messages.delete({
@@ -360,7 +360,7 @@ gapi.load('client', async () => {
         sizeEstimate: 42,
         snippet: 'Test string',
         threadId: 'Test string',
-      }
+      },
     );
     /** Directly inserts a message into only this user's mailbox similar to `IMAP APPEND`, bypassing most scanning and classification. Does not send a message. */
     await gapi.client.gmail.users.messages.insert(
@@ -395,7 +395,7 @@ gapi.load('client', async () => {
         sizeEstimate: 42,
         snippet: 'Test string',
         threadId: 'Test string',
-      }
+      },
     );
     /** Lists the messages in the user's mailbox. */
     await gapi.client.gmail.users.messages.list({
@@ -415,7 +415,7 @@ gapi.load('client', async () => {
       {
         addLabelIds: ['Test string'],
         removeLabelIds: ['Test string'],
-      }
+      },
     );
     /** Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. For example usage, see [Sending email](https://developers.google.com/gmail/api/guides/sending). */
     await gapi.client.gmail.users.messages.send(
@@ -448,7 +448,7 @@ gapi.load('client', async () => {
         sizeEstimate: 42,
         snippet: 'Test string',
         threadId: 'Test string',
-      }
+      },
     );
     /** Moves the specified message to the trash. */
     await gapi.client.gmail.users.messages.trash({
@@ -495,7 +495,7 @@ gapi.load('client', async () => {
         disposition: 'Test string',
         emailAddress: 'Test string',
         enabled: true,
-      }
+      },
     );
     /** Updates IMAP settings. */
     await gapi.client.gmail.users.settings.updateImap(
@@ -507,7 +507,7 @@ gapi.load('client', async () => {
         enabled: true,
         expungeBehavior: 'Test string',
         maxFolderSize: 42,
-      }
+      },
     );
     /** Updates language settings. If successful, the return object contains the `displayLanguage` that was saved for the user, which may differ from the value passed into the request. This is because the requested `displayLanguage` may not be directly supported by Gmail but have a close variant that is, and so the variant may be chosen and saved instead. */
     await gapi.client.gmail.users.settings.updateLanguage(
@@ -516,7 +516,7 @@ gapi.load('client', async () => {
       },
       {
         displayLanguage: 'Test string',
-      }
+      },
     );
     /** Updates POP settings. */
     await gapi.client.gmail.users.settings.updatePop(
@@ -526,7 +526,7 @@ gapi.load('client', async () => {
       {
         accessWindow: 'Test string',
         disposition: 'Test string',
-      }
+      },
     );
     /** Updates vacation responder settings. */
     await gapi.client.gmail.users.settings.updateVacation(
@@ -542,7 +542,7 @@ gapi.load('client', async () => {
         restrictToContacts: true,
         restrictToDomain: true,
         startTime: 'Test string',
-      }
+      },
     );
     /** Creates and configures a client-side encryption identity that's authorized to send mail from the user account. Google publishes the S/MIME certificate to a shared domain-wide directory so that people within a Google Workspace organization can encrypt and send mail to the identity. */
     await gapi.client.gmail.users.settings.cse.identities.create(
@@ -556,7 +556,7 @@ gapi.load('client', async () => {
           encryptionKeyPairId: 'Test string',
           signingKeyPairId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a client-side encryption identity. The authenticated user can no longer use the identity to send encrypted messages. You cannot restore the identity after you delete it. Instead, use the CreateCseIdentity method to create another identity with the same configuration. */
     await gapi.client.gmail.users.settings.cse.identities.delete({
@@ -587,7 +587,7 @@ gapi.load('client', async () => {
           encryptionKeyPairId: 'Test string',
           signingKeyPairId: 'Test string',
         },
-      }
+      },
     );
     /** Creates and uploads a client-side encryption S/MIME public key certificate chain and private key metadata for the authenticated user. */
     await gapi.client.gmail.users.settings.cse.keypairs.create(
@@ -613,7 +613,7 @@ gapi.load('client', async () => {
           },
         ],
         subjectEmailAddresses: ['Test string'],
-      }
+      },
     );
     /** Turns off a client-side encryption key pair. The authenticated user can no longer use the key pair to decrypt incoming CSE message texts or sign outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on the key pair. After 30 days, you can permanently delete the key pair by using the ObliterateCseKeyPair method. */
     await gapi.client.gmail.users.settings.cse.keypairs.disable(
@@ -621,7 +621,7 @@ gapi.load('client', async () => {
         keyPairId: 'Test string',
         userId: 'Test string',
       },
-      {}
+      {},
     );
     /** Turns on a client-side encryption key pair that was turned off. The key pair becomes active again for any associated client-side encryption identities. */
     await gapi.client.gmail.users.settings.cse.keypairs.enable(
@@ -629,7 +629,7 @@ gapi.load('client', async () => {
         keyPairId: 'Test string',
         userId: 'Test string',
       },
-      {}
+      {},
     );
     /** Retrieves an existing client-side encryption key pair. */
     await gapi.client.gmail.users.settings.cse.keypairs.get({
@@ -648,7 +648,7 @@ gapi.load('client', async () => {
         keyPairId: 'Test string',
         userId: 'Test string',
       },
-      {}
+      {},
     );
     /** Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of the same Google Workspace organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a Google Workspace organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been delegated domain-wide authority. */
     await gapi.client.gmail.users.settings.delegates.create(
@@ -658,7 +658,7 @@ gapi.load('client', async () => {
       {
         delegateEmail: 'Test string',
         verificationStatus: 'Test string',
-      }
+      },
     );
     /** Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority. */
     await gapi.client.gmail.users.settings.delegates.delete({
@@ -697,7 +697,7 @@ gapi.load('client', async () => {
           to: 'Test string',
         },
         id: 'Test string',
-      }
+      },
     );
     /** Immediately and permanently deletes the specified filter. */
     await gapi.client.gmail.users.settings.filters.delete({
@@ -721,7 +721,7 @@ gapi.load('client', async () => {
       {
         forwardingEmail: 'Test string',
         verificationStatus: 'Test string',
-      }
+      },
     );
     /** Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account clients that have been delegated domain-wide authority. */
     await gapi.client.gmail.users.settings.forwardingAddresses.delete({
@@ -758,7 +758,7 @@ gapi.load('client', async () => {
         },
         treatAsAlias: true,
         verificationStatus: 'Test string',
-      }
+      },
     );
     /** Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service account clients that have been delegated domain-wide authority. */
     await gapi.client.gmail.users.settings.sendAs.delete({
@@ -796,7 +796,7 @@ gapi.load('client', async () => {
         },
         treatAsAlias: true,
         verificationStatus: 'Test string',
-      }
+      },
     );
     /** Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority. */
     await gapi.client.gmail.users.settings.sendAs.update(
@@ -820,7 +820,7 @@ gapi.load('client', async () => {
         },
         treatAsAlias: true,
         verificationStatus: 'Test string',
-      }
+      },
     );
     /** Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service account clients that have been delegated domain-wide authority. */
     await gapi.client.gmail.users.settings.sendAs.verify({
@@ -853,7 +853,7 @@ gapi.load('client', async () => {
         issuerCn: 'Test string',
         pem: 'Test string',
         pkcs12: 'Test string',
-      }
+      },
     );
     /** Lists S/MIME configs for the specified send-as alias. */
     await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
@@ -896,7 +896,7 @@ gapi.load('client', async () => {
       {
         addLabelIds: ['Test string'],
         removeLabelIds: ['Test string'],
-      }
+      },
     );
     /** Moves the specified thread to the trash. Any messages that belong to the thread are also moved to the trash. */
     await gapi.client.gmail.users.threads.trash({

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Functions API v1 */
   function load(
-    urlOrObject: 'https://cloudfunctions.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://cloudfunctions.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudfunctions', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'cloudfunctions',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace cloudfunctions {
@@ -429,7 +429,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CallFunctionRequest
+        body: CallFunctionRequest,
       ): Request<CallFunctionResponse>;
       /** Creates a new function. If a function with the given name already exists in the specified project, the long running operation will return `ALREADY_EXISTS` error. */
       create(request: {
@@ -487,7 +487,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CloudFunction
+        body: CloudFunction,
       ): Request<Operation>;
       /** Deletes a function with the given name from the specified project. If the given function is used by some trigger, the trigger will be updated to remove this function. */
       delete(request?: {
@@ -572,7 +572,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateDownloadUrlRequest
+        body: GenerateDownloadUrlRequest,
       ): Request<GenerateDownloadUrlResponse>;
       /** Returns a signed URL for uploading a function source code. For more information about the signed URL usage see: https://cloud.google.com/storage/docs/access-control/signed-urls. Once the function source code upload is complete, the used signed URL should be provided in CreateFunction or UpdateFunction request as a reference to the function source code. When uploading source code to the generated signed URL, please follow these restrictions: * Source file type should be a zip file. * Source file size should not exceed 100MB limit. * No credentials should be attached - the signed URLs provide access to the target bucket using internal service identity; if credentials were attached, the identity from the credentials would be used, but that identity does not have permissions to upload files to the URL. When making a HTTP PUT request, these two headers need to be specified: * `content-type: application/zip` * `x-goog-content-length-range: 0,104857600` And this header SHOULD NOT be specified: * `Authorization: Bearer YOUR_TOKEN` */
       generateUploadUrl(request: {
@@ -630,7 +630,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateUploadUrlRequest
+        body: GenerateUploadUrlRequest,
       ): Request<GenerateUploadUrlResponse>;
       /** Returns a function with the given name from the requested project. */
       get(request?: {
@@ -781,7 +781,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CloudFunction
+        body: CloudFunction,
       ): Request<Operation>;
       /** Sets the IAM access control policy on the specified function. Replaces any existing policy. */
       setIamPolicy(
@@ -811,7 +811,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Tests the specified permissions against the IAM access control policy for a function. If the function does not exist, this will return an empty set of permissions, not a NOT_FOUND error. */
       testIamPermissions(
@@ -841,7 +841,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface LocationsResource {

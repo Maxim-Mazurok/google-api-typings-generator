@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://vpcaccess.googleapis.com/$discovery/rest?version=v1beta1'
+    'https://vpcaccess.googleapis.com/$discovery/rest?version=v1beta1',
   );
   /** now we can use gapi.client.vpcaccess */
 
@@ -61,7 +61,7 @@ gapi.load('client', async () => {
           name: 'Test string',
           projectId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist. */
     await gapi.client.vpcaccess.projects.locations.connectors.delete({
@@ -100,7 +100,7 @@ gapi.load('client', async () => {
           name: 'Test string',
           projectId: 'Test string',
         },
-      }
+      },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.vpcaccess.projects.locations.operations.get({

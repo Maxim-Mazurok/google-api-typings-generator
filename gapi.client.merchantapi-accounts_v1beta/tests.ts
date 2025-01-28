@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://merchantapi.googleapis.com/$discovery/rest?version=accounts_v1beta'
+    'https://merchantapi.googleapis.com/$discovery/rest?version=accounts_v1beta',
   );
   /** now we can use gapi.client.merchantapi */
 
@@ -74,7 +74,7 @@ gapi.load('client', async () => {
             userId: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes the specified account regardless of its type: standalone, MCA or sub-account. Deleting an MCA leads to the deletion of all of its sub-accounts. Executing this method requires admin access. The deletion succeeds only if the account does not provide services to any other account and has no processed offers. You can use the `force` parameter to override this. */
     await gapi.client.merchantapi.accounts.delete({
@@ -114,13 +114,13 @@ gapi.load('client', async () => {
           id: 'Test string',
           version: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves the autofeed settings of an account. */
     await gapi.client.merchantapi.accounts.autofeedSettings.getAutofeedSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Updates the autofeed settings of an account. */
     await gapi.client.merchantapi.accounts.autofeedSettings.updateAutofeedSettings(
@@ -132,13 +132,13 @@ gapi.load('client', async () => {
         eligible: true,
         enableProducts: true,
         name: 'Test string',
-      }
+      },
     );
     /** Retrieves the business identity of an account. */
     await gapi.client.merchantapi.accounts.businessIdentity.getBusinessIdentity(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Updates the business identity of an account. Executing this method requires admin access. */
     await gapi.client.merchantapi.accounts.businessIdentity.updateBusinessIdentity(
@@ -164,7 +164,7 @@ gapi.load('client', async () => {
         womenOwned: {
           identityDeclaration: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves the business info of an account. */
     await gapi.client.merchantapi.accounts.businessInfo.getBusinessInfo({
@@ -213,13 +213,13 @@ gapi.load('client', async () => {
           },
         },
         phoneVerificationState: 'Test string',
-      }
+      },
     );
     /** Returns the email preferences for a Merchant Center account user. This service only permits retrieving and updating email preferences for the authenticated user. Use the name=accounts/*‍/users/me/emailPreferences alias to get preferences for the authenticated user. */
     await gapi.client.merchantapi.accounts.emailPreferences.getEmailPreferences(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Updates the email preferences for a Merchant Center account user. MCA users should specify the MCA account rather than a sub-account of the MCA. Preferences which are not explicitly selected in the update mask will not be updated. It is invalid for updates to specify an UNCONFIRMED opt-in status value. Use the name=accounts/*‍/users/me/emailPreferences alias to update preferences for the authenticated user. */
     await gapi.client.merchantapi.accounts.emailPreferences.updateEmailPreferences(
@@ -230,7 +230,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         newsAndTips: 'Test string',
-      }
+      },
     );
     /** Claims a store's homepage. Executing this method requires admin access. If the homepage is already claimed, this will recheck the verification (unless the merchant is exempted from claiming, which also exempts from verification) and return a successful response. If ownership can no longer be verified, it will return an error, but it won't clear the claim. In case of failure, a canonical error message will be returned: * PERMISSION_DENIED: user doesn't have the necessary permissions on this MC account; * FAILED_PRECONDITION: - The account is not a Merchant Center account; - MC account doesn't have a homepage; - claiming failed (in this case the error message will contain more details). */
     await gapi.client.merchantapi.accounts.homepage.claim(
@@ -239,7 +239,7 @@ gapi.load('client', async () => {
       },
       {
         overwrite: true,
-      }
+      },
     );
     /** Retrieves a store's homepage. */
     await gapi.client.merchantapi.accounts.homepage.getHomepage({
@@ -250,7 +250,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Updates a store's homepage. Executing this method requires admin access. */
     await gapi.client.merchantapi.accounts.homepage.updateHomepage(
@@ -262,7 +262,7 @@ gapi.load('client', async () => {
         claimed: true,
         name: 'Test string',
         uri: 'Test string',
-      }
+      },
     );
     /** Lists all account issues of a Merchant Center account. */
     await gapi.client.merchantapi.accounts.issues.list({
@@ -287,14 +287,14 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Enable participation in the specified program for the account. Executing this method requires admin access. */
     await gapi.client.merchantapi.accounts.programs.enable(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Retrieves the specified program for the account. */
     await gapi.client.merchantapi.accounts.programs.get({
@@ -329,7 +329,7 @@ gapi.load('client', async () => {
         },
         regionalInventoryEligible: true,
         shippingEligible: true,
-      }
+      },
     );
     /** Deletes a region definition from your Merchant Center account. Executing this method requires admin access. */
     await gapi.client.merchantapi.accounts.regions.delete({
@@ -368,13 +368,13 @@ gapi.load('client', async () => {
         },
         regionalInventoryEligible: true,
         shippingEligible: true,
-      }
+      },
     );
     /** Retrieve shipping setting information. */
     await gapi.client.merchantapi.accounts.shippingSettings.getShippingSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Replace the shipping setting of a merchant with the request shipping setting. Executing this method requires admin access. */
     await gapi.client.merchantapi.accounts.shippingSettings.insert(
@@ -645,7 +645,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Returns the state of a terms of service agreement. */
     await gapi.client.merchantapi.accounts.termsOfServiceAgreementStates.get({
@@ -655,7 +655,7 @@ gapi.load('client', async () => {
     await gapi.client.merchantapi.accounts.termsOfServiceAgreementStates.retrieveForApplication(
       {
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a Merchant Center account user. Executing this method requires admin access. */
     await gapi.client.merchantapi.accounts.users.create(
@@ -667,7 +667,7 @@ gapi.load('client', async () => {
         accessRights: ['Test string'],
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes a Merchant Center account user. Executing this method requires admin access. The user to be deleted can't be the last admin user of that account. Also a user is protected from deletion if it is managed by Business Manager" */
     await gapi.client.merchantapi.accounts.users.delete({
@@ -693,7 +693,7 @@ gapi.load('client', async () => {
         accessRights: ['Test string'],
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Accepts a `TermsOfService`. Executing this method requires admin access. */
     await gapi.client.merchantapi.termsOfService.accept({

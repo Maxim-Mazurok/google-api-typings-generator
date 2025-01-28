@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://youtube.googleapis.com/$discovery/rest?version=v3'
+    'https://youtube.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.youtube */
 
@@ -69,7 +69,7 @@ gapi.load('client', async () => {
           typeId: 'Test string',
           url: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.activities.list({
@@ -124,7 +124,7 @@ gapi.load('client', async () => {
           trackKind: 'Test string',
           videoId: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.captions.list({
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
           trackKind: 'Test string',
           videoId: 'Test string',
         },
-      }
+      },
     );
     /** Inserts a new resource into this collection. */
     await gapi.client.youtube.channelBanners.insert(
@@ -174,7 +174,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         kind: 'Test string',
         url: 'Test string',
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.channels.list({
@@ -398,7 +398,7 @@ gapi.load('client', async () => {
           topicCategories: ['Test string'],
           topicIds: ['Test string'],
         },
-      }
+      },
     );
     /** Deletes a resource. */
     await gapi.client.youtube.channelSections.delete({
@@ -441,7 +441,7 @@ gapi.load('client', async () => {
           languages: ['Test string'],
           regions: ['Test string'],
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.channelSections.list({
@@ -487,7 +487,7 @@ gapi.load('client', async () => {
           languages: ['Test string'],
           regions: ['Test string'],
         },
-      }
+      },
     );
     /** Deletes a resource. */
     await gapi.client.youtube.comments.delete({
@@ -521,7 +521,7 @@ gapi.load('client', async () => {
           videoId: 'Test string',
           viewerRating: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.comments.list({
@@ -570,7 +570,7 @@ gapi.load('client', async () => {
           videoId: 'Test string',
           viewerRating: 'Test string',
         },
-      }
+      },
     );
     /** Inserts a new resource into this collection. */
     await gapi.client.youtube.commentThreads.insert(
@@ -640,7 +640,7 @@ gapi.load('client', async () => {
           totalReplyCount: 42,
           videoId: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.commentThreads.list({
@@ -772,7 +772,7 @@ gapi.load('client', async () => {
           recordingStatus: 'Test string',
           selfDeclaredMadeForKids: true,
         },
-      }
+      },
     );
     /** Insert cuepoints in a broadcast */
     await gapi.client.youtube.liveBroadcasts.insertCuepoint(
@@ -789,7 +789,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         insertionOffsetTimeMs: 'Test string',
         walltimeMs: 'Test string',
-      }
+      },
     );
     /** Retrieve the list of broadcasts associated with the given channel. */
     await gapi.client.youtube.liveBroadcasts.list({
@@ -903,7 +903,7 @@ gapi.load('client', async () => {
           recordingStatus: 'Test string',
           selfDeclaredMadeForKids: true,
         },
-      }
+      },
     );
     /** Deletes a chat ban. */
     await gapi.client.youtube.liveChatBans.delete({
@@ -929,7 +929,7 @@ gapi.load('client', async () => {
           liveChatId: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a chat message. */
     await gapi.client.youtube.liveChatMessages.delete({
@@ -1035,7 +1035,7 @@ gapi.load('client', async () => {
             banType: 'Test string',
           },
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.liveChatMessages.list({
@@ -1073,7 +1073,7 @@ gapi.load('client', async () => {
             profileImageUrl: 'Test string',
           },
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.liveChatModerators.list({
@@ -1138,7 +1138,7 @@ gapi.load('client', async () => {
           },
           streamStatus: 'Test string',
         },
-      }
+      },
     );
     /** Retrieve the list of streams associated with the given channel. -- */
     await gapi.client.youtube.liveStreams.list({
@@ -1200,7 +1200,7 @@ gapi.load('client', async () => {
           },
           streamStatus: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a list of members that match the request criteria for a channel. */
     await gapi.client.youtube.members.list({
@@ -1236,7 +1236,7 @@ gapi.load('client', async () => {
           type: 'Test string',
           width: 42,
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.playlistImages.list({
@@ -1262,7 +1262,7 @@ gapi.load('client', async () => {
           type: 'Test string',
           width: 42,
         },
-      }
+      },
     );
     /** Deletes a resource. */
     await gapi.client.youtube.playlistItems.delete({
@@ -1333,7 +1333,7 @@ gapi.load('client', async () => {
         status: {
           privacyStatus: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.playlistItems.list({
@@ -1409,7 +1409,7 @@ gapi.load('client', async () => {
         status: {
           privacyStatus: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a resource. */
     await gapi.client.youtube.playlists.delete({
@@ -1484,7 +1484,7 @@ gapi.load('client', async () => {
           podcastStatus: 'Test string',
           privacyStatus: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.playlists.list({
@@ -1565,7 +1565,7 @@ gapi.load('client', async () => {
           podcastStatus: 'Test string',
           privacyStatus: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a list of search resources */
     await gapi.client.youtube.search.list({
@@ -1690,7 +1690,7 @@ gapi.load('client', async () => {
           },
           title: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.subscriptions.list({
@@ -1726,7 +1726,7 @@ gapi.load('client', async () => {
         gaia: 'Test string',
         id: 'Test string',
         snippet: {},
-      }
+      },
     );
     /** Deletes a resource. */
     await gapi.client.youtube.thirdPartyLinks.delete({
@@ -1762,7 +1762,7 @@ gapi.load('client', async () => {
         status: {
           linkStatus: 'Test string',
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.thirdPartyLinks.list({
@@ -1798,7 +1798,7 @@ gapi.load('client', async () => {
         status: {
           linkStatus: 'Test string',
         },
-      }
+      },
     );
     /** As this is not an insert in a strict sense (it supports uploading/setting of a thumbnail for multiple videos, which doesn't result in creation of a single resource), I use a custom verb here. */
     await gapi.client.youtube.thumbnails.set({
@@ -2097,7 +2097,7 @@ gapi.load('client', async () => {
           topicCategories: ['Test string'],
           topicIds: ['Test string'],
         },
-      }
+      },
     );
     /** Retrieves a list of resources, possibly filtered. */
     await gapi.client.youtube.videos.list({
@@ -2131,7 +2131,7 @@ gapi.load('client', async () => {
         reasonId: 'Test string',
         secondaryReasonId: 'Test string',
         videoId: 'Test string',
-      }
+      },
     );
     /** Updates an existing resource. */
     await gapi.client.youtube.videos.update(
@@ -2399,7 +2399,7 @@ gapi.load('client', async () => {
           topicCategories: ['Test string'],
           topicIds: ['Test string'],
         },
-      }
+      },
     );
     /** Returns the trainability status of a video. */
     await gapi.client.youtube.videoTrainability.get({
@@ -2424,7 +2424,7 @@ gapi.load('client', async () => {
           offsetMs: 'Test string',
           type: 'Test string',
         },
-      }
+      },
     );
     /** Allows removal of channel watermark. */
     await gapi.client.youtube.watermarks.unset({
@@ -2499,7 +2499,7 @@ gapi.load('client', async () => {
           totalReplyCount: 42,
           videoId: 'Test string',
         },
-      }
+      },
     );
   }
 });

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Policy Simulator API v1alpha */
   function load(
-    urlOrObject: 'https://policysimulator.googleapis.com/$discovery/rest?version=v1alpha'
+    urlOrObject: 'https://policysimulator.googleapis.com/$discovery/rest?version=v1alpha',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'policysimulator', version: 'v1alpha'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'policysimulator',
     version: 'v1alpha',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace policysimulator {
@@ -686,7 +686,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPolicysimulatorV1alphaReplay
+        body: GoogleCloudPolicysimulatorV1alphaReplay,
       ): Request<GoogleLongrunningOperation>;
       /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
       get(request?: {
@@ -941,7 +941,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview
+        body: GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview,
       ): Request<GoogleLongrunningOperation>;
       /** GenerateOrgPolicyViolationsPreview generates an OrgPolicyViolationsPreview for the proposed changes in the provided OrgPolicyViolationsPreview.OrgPolicyOverlay. The changes to OrgPolicy are specified by this `OrgPolicyOverlay`. The resources to scan are inferred from these specified changes. */
       generate(request: {
@@ -999,7 +999,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview
+        body: GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview,
       ): Request<GoogleLongrunningOperation>;
       /** GetOrgPolicyViolationsPreview gets the specified OrgPolicyViolationsPreview. Each OrgPolicyViolationsPreview is available for at least 7 days. */
       get(request?: {
@@ -1214,7 +1214,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPolicysimulatorV1alphaReplay
+        body: GoogleCloudPolicysimulatorV1alphaReplay,
       ): Request<GoogleLongrunningOperation>;
       /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
       get(request?: {
@@ -1468,7 +1468,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudPolicysimulatorV1alphaReplay
+        body: GoogleCloudPolicysimulatorV1alphaReplay,
       ): Request<GoogleLongrunningOperation>;
       /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
       get(request?: {

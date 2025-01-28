@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Certificate Manager API v1 */
   function load(
-    urlOrObject: 'https://certificatemanager.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://certificatemanager.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'certificatemanager', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'certificatemanager',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace certificatemanager {
@@ -397,7 +397,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CertificateIssuanceConfig
+        body: CertificateIssuanceConfig,
       ): Request<Operation>;
       /** Deletes a single CertificateIssuanceConfig. */
       delete(request?: {
@@ -548,7 +548,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CertificateIssuanceConfig
+        body: CertificateIssuanceConfig,
       ): Request<Operation>;
     }
     interface CertificateMapEntriesResource {
@@ -612,7 +612,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CertificateMapEntry
+        body: CertificateMapEntry,
       ): Request<Operation>;
       /** Deletes a single CertificateMapEntry. */
       delete(request?: {
@@ -763,7 +763,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CertificateMapEntry
+        body: CertificateMapEntry,
       ): Request<Operation>;
     }
     interface CertificateMapsResource {
@@ -827,7 +827,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CertificateMap
+        body: CertificateMap,
       ): Request<Operation>;
       /** Deletes a single CertificateMap. A Certificate Map can't be deleted if it contains Certificate Map Entries. Remove all the entries from the map before calling this method. */
       delete(request?: {
@@ -978,7 +978,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CertificateMap
+        body: CertificateMap,
       ): Request<Operation>;
       certificateMapEntries: CertificateMapEntriesResource;
     }
@@ -1043,7 +1043,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Certificate
+        body: Certificate,
       ): Request<Operation>;
       /** Deletes a single Certificate. */
       delete(request?: {
@@ -1194,7 +1194,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Certificate
+        body: Certificate,
       ): Request<Operation>;
     }
     interface DnsAuthorizationsResource {
@@ -1258,7 +1258,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DnsAuthorization
+        body: DnsAuthorization,
       ): Request<Operation>;
       /** Deletes a single DnsAuthorization. */
       delete(request?: {
@@ -1409,7 +1409,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DnsAuthorization
+        body: DnsAuthorization,
       ): Request<Operation>;
     }
     interface OperationsResource {
@@ -1469,7 +1469,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -1620,7 +1620,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TrustConfig
+        body: TrustConfig,
       ): Request<Operation>;
       /** Deletes a single TrustConfig. */
       delete(request?: {
@@ -1773,7 +1773,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TrustConfig
+        body: TrustConfig,
       ): Request<Operation>;
     }
     interface LocationsResource {

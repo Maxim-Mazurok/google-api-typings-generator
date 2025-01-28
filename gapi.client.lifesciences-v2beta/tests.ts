@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://lifesciences.googleapis.com/$discovery/rest?version=v2beta'
+    'https://lifesciences.googleapis.com/$discovery/rest?version=v2beta',
   );
   /** now we can use gapi.client.lifesciences */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission: * `lifesciences.operations.get` */
     await gapi.client.lifesciences.projects.locations.operations.get({
@@ -179,7 +179,7 @@ gapi.load('client', async () => {
           timeout: 'Test string',
         },
         pubSubTopic: 'Test string',
-      }
+      },
     );
   }
 });

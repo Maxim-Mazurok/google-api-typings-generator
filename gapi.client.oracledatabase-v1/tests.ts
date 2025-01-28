@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://oracledatabase.googleapis.com/$discovery/rest?version=v1'
+    'https://oracledatabase.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.oracledatabase */
 
@@ -49,7 +49,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists Autonomous Database Character Sets in a given project and location. */
     await gapi.client.oracledatabase.projects.locations.autonomousDatabaseCharacterSets.list(
@@ -58,7 +58,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new Autonomous Database in a given project and location. */
     await gapi.client.oracledatabase.projects.locations.autonomousDatabases.create(
@@ -199,14 +199,14 @@ gapi.load('client', async () => {
           usedDataStorageSizeTbs: 42,
           vaultId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a single Autonomous Database. */
     await gapi.client.oracledatabase.projects.locations.autonomousDatabases.delete(
       {
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Generates a wallet for an Autonomous Database. */
     await gapi.client.oracledatabase.projects.locations.autonomousDatabases.generateWallet(
@@ -217,13 +217,13 @@ gapi.load('client', async () => {
         isRegional: true,
         password: 'Test string',
         type: 'Test string',
-      }
+      },
     );
     /** Gets the details of a single Autonomous Database. */
     await gapi.client.oracledatabase.projects.locations.autonomousDatabases.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists the Autonomous Databases in a given project and location. */
     await gapi.client.oracledatabase.projects.locations.autonomousDatabases.list(
@@ -233,7 +233,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Restores a single Autonomous Database. */
     await gapi.client.oracledatabase.projects.locations.autonomousDatabases.restore(
@@ -242,7 +242,7 @@ gapi.load('client', async () => {
       },
       {
         restoreTime: 'Test string',
-      }
+      },
     );
     /** Lists all the available Autonomous Database versions for a project and location. */
     await gapi.client.oracledatabase.projects.locations.autonomousDbVersions.list(
@@ -250,7 +250,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new Exadata Infrastructure in a given project and location. */
     await gapi.client.oracledatabase.projects.locations.cloudExadataInfrastructures.create(
@@ -311,7 +311,7 @@ gapi.load('client', async () => {
           storageServerVersion: 'Test string',
           totalStorageSizeGb: 42,
         },
-      }
+      },
     );
     /** Deletes a single Exadata Infrastructure. */
     await gapi.client.oracledatabase.projects.locations.cloudExadataInfrastructures.delete(
@@ -319,13 +319,13 @@ gapi.load('client', async () => {
         force: true,
         name: 'Test string',
         requestId: 'Test string',
-      }
+      },
     );
     /** Gets details of a single Exadata Infrastructure. */
     await gapi.client.oracledatabase.projects.locations.cloudExadataInfrastructures.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists Exadata Infrastructures in a given project and location. */
     await gapi.client.oracledatabase.projects.locations.cloudExadataInfrastructures.list(
@@ -333,7 +333,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists the database servers of an Exadata Infrastructure instance. */
     await gapi.client.oracledatabase.projects.locations.cloudExadataInfrastructures.dbServers.list(
@@ -341,7 +341,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a new VM Cluster in a given project and location. */
     await gapi.client.oracledatabase.projects.locations.cloudVmClusters.create(
@@ -403,7 +403,7 @@ gapi.load('client', async () => {
             version: 'Test string',
           },
         },
-      }
+      },
     );
     /** Deletes a single VM Cluster. */
     await gapi.client.oracledatabase.projects.locations.cloudVmClusters.delete({
@@ -428,7 +428,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists the database system shapes available for the project and location. */
     await gapi.client.oracledatabase.projects.locations.dbSystemShapes.list({
@@ -453,7 +453,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.oracledatabase.projects.locations.operations.delete({

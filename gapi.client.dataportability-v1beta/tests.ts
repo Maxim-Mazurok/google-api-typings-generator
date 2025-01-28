@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://dataportability.googleapis.com/$discovery/rest?version=v1beta'
+    'https://dataportability.googleapis.com/$discovery/rest?version=v1beta',
   );
   /** now we can use gapi.client.dataportability */
 
@@ -170,7 +170,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Revokes OAuth tokens and resets exhausted scopes for a user/project pair. This method allows you to initiate a request after a new consent is granted. This method also indicates that previous archives can be garbage collected. You should call this method when all jobs are complete and all archives are downloaded. Do not call it only when you start a new job. */
     await gapi.client.dataportability.authorization.reset({}, {});
@@ -179,7 +179,7 @@ gapi.load('client', async () => {
       {},
       {
         resources: ['Test string'],
-      }
+      },
     );
   }
 });

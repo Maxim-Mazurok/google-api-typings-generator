@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://analyticsadmin.googleapis.com/$discovery/rest?version=v1alpha'
+    'https://analyticsadmin.googleapis.com/$discovery/rest?version=v1alpha',
   );
   /** now we can use gapi.client.analyticsadmin */
 
@@ -69,7 +69,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         regionCode: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Requests a ticket for creating an account. */
     await gapi.client.analyticsadmin.accounts.provisionAccountTicket(
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         redirectUri: 'Test string',
-      }
+      },
     );
     /** Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. Reports may be requested for any property, but dimensions that aren't related to quota can only be requested on Google Analytics 360 properties. This method is only available to Administrators. These data access records include GA UI Reporting, GA UI Explorations, GA Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents). To give your feedback on this API, complete the [Google Analytics Access Reports feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform) form. */
     await gapi.client.analyticsadmin.accounts.runAccessReport(
@@ -203,7 +203,7 @@ gapi.load('client', async () => {
         ],
         returnEntityQuota: true,
         timeZone: 'Test string',
-      }
+      },
     );
     /** Searches through all changes to an account or its children given the specified set of filters. Only returns the subset of changes supported by the API. The UI may return additional changes. */
     await gapi.client.analyticsadmin.accounts.searchChangeHistoryEvents(
@@ -219,7 +219,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         property: 'Test string',
         resourceType: ['Test string'],
-      }
+      },
     );
     /** Creates information about multiple access bindings to an account or property. This method is transactional. If any AccessBinding cannot be created, none of the AccessBindings will be created. */
     await gapi.client.analyticsadmin.accounts.accessBindings.batchCreate(
@@ -237,7 +237,7 @@ gapi.load('client', async () => {
             parent: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes information about multiple users' links to an account or property. */
     await gapi.client.analyticsadmin.accounts.accessBindings.batchDelete(
@@ -250,7 +250,7 @@ gapi.load('client', async () => {
             name: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Gets information about multiple access bindings to an account or property. */
     await gapi.client.analyticsadmin.accounts.accessBindings.batchGet({
@@ -272,7 +272,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Creates an access binding on an account or property. */
     await gapi.client.analyticsadmin.accounts.accessBindings.create(
@@ -283,7 +283,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         roles: ['Test string'],
         user: 'Test string',
-      }
+      },
     );
     /** Deletes an access binding on an account or property. */
     await gapi.client.analyticsadmin.accounts.accessBindings.delete({
@@ -308,7 +308,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         roles: ['Test string'],
         user: 'Test string',
-      }
+      },
     );
     /** Returns summaries of all accounts accessible by the caller. */
     await gapi.client.analyticsadmin.accountSummaries.list({
@@ -322,7 +322,7 @@ gapi.load('client', async () => {
       },
       {
         acknowledgement: 'Test string',
-      }
+      },
     );
     /** Creates a Google Analytics property with the specified location and attributes. */
     await gapi.client.analyticsadmin.properties.create(
@@ -341,7 +341,7 @@ gapi.load('client', async () => {
         serviceLevel: 'Test string',
         timeZone: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a connected site tag for a Universal Analytics property. You can create a maximum of 20 connected site tags per property. Note: This API cannot be used on GA4 properties. */
     await gapi.client.analyticsadmin.properties.createConnectedSiteTag(
@@ -352,7 +352,7 @@ gapi.load('client', async () => {
           tagId: 'Test string',
         },
         property: 'Test string',
-      }
+      },
     );
     /** Create a roll-up property and all roll-up property source links. */
     await gapi.client.analyticsadmin.properties.createRollupProperty(
@@ -374,7 +374,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
         },
         sourceProperties: ['Test string'],
-      }
+      },
     );
     /** Marks target Property as soft-deleted (ie: "trashed") and returns it. This API does not have a method to restore soft-deleted properties. However, they can be restored using the Trash Can UI. If the properties are not restored before the expiration time, the Property and all child resources (eg: GoogleAdsLinks, Streams, AccessBindings) will be permanently purged. https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found. */
     await gapi.client.analyticsadmin.properties.delete({
@@ -386,14 +386,14 @@ gapi.load('client', async () => {
       {
         property: 'Test string',
         tagId: 'Test string',
-      }
+      },
     );
     /** Fetches the opt out status for the automated GA4 setup process for a UA property. Note: this has no effect on GA4 property. */
     await gapi.client.analyticsadmin.properties.fetchAutomatedGa4ConfigurationOptOut(
       {},
       {
         property: 'Test string',
-      }
+      },
     );
     /** Given a specified UA property, looks up the GA4 property connected to it. Note: this cannot be used with GA4 properties. */
     await gapi.client.analyticsadmin.properties.fetchConnectedGa4Property({
@@ -427,7 +427,7 @@ gapi.load('client', async () => {
       {},
       {
         property: 'Test string',
-      }
+      },
     );
     /** Updates a property. */
     await gapi.client.analyticsadmin.properties.patch(
@@ -449,7 +449,7 @@ gapi.load('client', async () => {
         serviceLevel: 'Test string',
         timeZone: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Create a subproperty and a subproperty event filter that applies to the created subproperty. */
     await gapi.client.analyticsadmin.properties.provisionSubproperty(
@@ -494,7 +494,7 @@ gapi.load('client', async () => {
           ],
           name: 'Test string',
         },
-      }
+      },
     );
     /** Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. Reports may be requested for any property, but dimensions that aren't related to quota can only be requested on Google Analytics 360 properties. This method is only available to Administrators. These data access records include GA UI Reporting, GA UI Explorations, GA Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents). To give your feedback on this API, complete the [Google Analytics Access Reports feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform) form. */
     await gapi.client.analyticsadmin.properties.runAccessReport(
@@ -612,7 +612,7 @@ gapi.load('client', async () => {
         ],
         returnEntityQuota: true,
         timeZone: 'Test string',
-      }
+      },
     );
     /** Sets the opt out status for the automated GA4 setup process for a UA property. Note: this has no effect on GA4 property. */
     await gapi.client.analyticsadmin.properties.setAutomatedGa4ConfigurationOptOut(
@@ -620,7 +620,7 @@ gapi.load('client', async () => {
       {
         optOut: true,
         property: 'Test string',
-      }
+      },
     );
     /** Updates attribution settings on a property. */
     await gapi.client.analyticsadmin.properties.updateAttributionSettings(
@@ -634,7 +634,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         otherConversionEventLookbackWindow: 'Test string',
         reportingAttributionModel: 'Test string',
-      }
+      },
     );
     /** Updates the singleton data retention settings for this property. */
     await gapi.client.analyticsadmin.properties.updateDataRetentionSettings(
@@ -647,7 +647,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         resetUserDataOnNewActivity: true,
         userDataRetention: 'Test string',
-      }
+      },
     );
     /** Updates Google Signals settings for a property. */
     await gapi.client.analyticsadmin.properties.updateGoogleSignalsSettings(
@@ -659,7 +659,7 @@ gapi.load('client', async () => {
         consent: 'Test string',
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Creates information about multiple access bindings to an account or property. This method is transactional. If any AccessBinding cannot be created, none of the AccessBindings will be created. */
     await gapi.client.analyticsadmin.properties.accessBindings.batchCreate(
@@ -677,7 +677,7 @@ gapi.load('client', async () => {
             parent: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Deletes information about multiple users' links to an account or property. */
     await gapi.client.analyticsadmin.properties.accessBindings.batchDelete(
@@ -690,7 +690,7 @@ gapi.load('client', async () => {
             name: 'Test string',
           },
         ],
-      }
+      },
     );
     /** Gets information about multiple access bindings to an account or property. */
     await gapi.client.analyticsadmin.properties.accessBindings.batchGet({
@@ -712,7 +712,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-      }
+      },
     );
     /** Creates an access binding on an account or property. */
     await gapi.client.analyticsadmin.properties.accessBindings.create(
@@ -723,7 +723,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         roles: ['Test string'],
         user: 'Test string',
-      }
+      },
     );
     /** Deletes an access binding on an account or property. */
     await gapi.client.analyticsadmin.properties.accessBindings.delete({
@@ -748,7 +748,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         roles: ['Test string'],
         user: 'Test string',
-      }
+      },
     );
     /** Creates an AdSenseLink. */
     await gapi.client.analyticsadmin.properties.adSenseLinks.create(
@@ -758,7 +758,7 @@ gapi.load('client', async () => {
       {
         adClientCode: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes an AdSenseLink. */
     await gapi.client.analyticsadmin.properties.adSenseLinks.delete({
@@ -779,7 +779,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates an Audience. */
     await gapi.client.analyticsadmin.properties.audiences.create(
@@ -905,7 +905,7 @@ gapi.load('client', async () => {
         ],
         membershipDurationDays: 42,
         name: 'Test string',
-      }
+      },
     );
     /** Lookup for a single Audience. Audiences created before 2020 may not be supported. Default audiences will not show filter definitions. */
     await gapi.client.analyticsadmin.properties.audiences.get({
@@ -1042,7 +1042,7 @@ gapi.load('client', async () => {
         ],
         membershipDurationDays: 42,
         name: 'Test string',
-      }
+      },
     );
     /** Creates a BigQueryLink. */
     await gapi.client.analyticsadmin.properties.bigQueryLinks.create(
@@ -1060,7 +1060,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         project: 'Test string',
         streamingExportEnabled: true,
-      }
+      },
     );
     /** Deletes a BigQueryLink on a property. */
     await gapi.client.analyticsadmin.properties.bigQueryLinks.delete({
@@ -1093,7 +1093,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         project: 'Test string',
         streamingExportEnabled: true,
-      }
+      },
     );
     /** Creates a CalculatedMetric. */
     await gapi.client.analyticsadmin.properties.calculatedMetrics.create(
@@ -1110,7 +1110,7 @@ gapi.load('client', async () => {
         metricUnit: 'Test string',
         name: 'Test string',
         restrictedMetricType: ['Test string'],
-      }
+      },
     );
     /** Deletes a CalculatedMetric on a property. */
     await gapi.client.analyticsadmin.properties.calculatedMetrics.delete({
@@ -1141,7 +1141,7 @@ gapi.load('client', async () => {
         metricUnit: 'Test string',
         name: 'Test string',
         restrictedMetricType: ['Test string'],
-      }
+      },
     );
     /** Creates a ChannelGroup. */
     await gapi.client.analyticsadmin.properties.channelGroups.create(
@@ -1178,7 +1178,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         primary: true,
         systemDefined: true,
-      }
+      },
     );
     /** Deletes a ChannelGroup on a property. */
     await gapi.client.analyticsadmin.properties.channelGroups.delete({
@@ -1230,7 +1230,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         primary: true,
         systemDefined: true,
-      }
+      },
     );
     /** Deprecated: Use `CreateKeyEvent` instead. Creates a conversion event with the specified attributes. */
     await gapi.client.analyticsadmin.properties.conversionEvents.create(
@@ -1248,7 +1248,7 @@ gapi.load('client', async () => {
         deletable: true,
         eventName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deprecated: Use `DeleteKeyEvent` instead. Deletes a conversion event in a property. */
     await gapi.client.analyticsadmin.properties.conversionEvents.delete({
@@ -1281,14 +1281,14 @@ gapi.load('client', async () => {
         deletable: true,
         eventName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Archives a CustomDimension on a property. */
     await gapi.client.analyticsadmin.properties.customDimensions.archive(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a CustomDimension. */
     await gapi.client.analyticsadmin.properties.customDimensions.create(
@@ -1302,7 +1302,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         parameterName: 'Test string',
         scope: 'Test string',
-      }
+      },
     );
     /** Lookup for a single CustomDimension. */
     await gapi.client.analyticsadmin.properties.customDimensions.get({
@@ -1327,14 +1327,14 @@ gapi.load('client', async () => {
         name: 'Test string',
         parameterName: 'Test string',
         scope: 'Test string',
-      }
+      },
     );
     /** Archives a CustomMetric on a property. */
     await gapi.client.analyticsadmin.properties.customMetrics.archive(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a CustomMetric. */
     await gapi.client.analyticsadmin.properties.customMetrics.create(
@@ -1349,7 +1349,7 @@ gapi.load('client', async () => {
         parameterName: 'Test string',
         restrictedMetricType: ['Test string'],
         scope: 'Test string',
-      }
+      },
     );
     /** Lookup for a single CustomMetric. */
     await gapi.client.analyticsadmin.properties.customMetrics.get({
@@ -1375,7 +1375,7 @@ gapi.load('client', async () => {
         parameterName: 'Test string',
         restrictedMetricType: ['Test string'],
         scope: 'Test string',
-      }
+      },
     );
     /** Creates a DataStream. */
     await gapi.client.analyticsadmin.properties.dataStreams.create(
@@ -1401,7 +1401,7 @@ gapi.load('client', async () => {
           firebaseAppId: 'Test string',
           measurementId: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a DataStream on a property. */
     await gapi.client.analyticsadmin.properties.dataStreams.delete({
@@ -1415,13 +1415,13 @@ gapi.load('client', async () => {
     await gapi.client.analyticsadmin.properties.dataStreams.getDataRedactionSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the enhanced measurement settings for this data stream. Note that the stream must enable enhanced measurement for these settings to take effect. */
     await gapi.client.analyticsadmin.properties.dataStreams.getEnhancedMeasurementSettings(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the Site Tag for the specified web stream. Site Tags are immutable singletons. */
     await gapi.client.analyticsadmin.properties.dataStreams.getGlobalSiteTag({
@@ -1458,7 +1458,7 @@ gapi.load('client', async () => {
           firebaseAppId: 'Test string',
           measurementId: 'Test string',
         },
-      }
+      },
     );
     /** Updates a DataRedactionSettings on a property. */
     await gapi.client.analyticsadmin.properties.dataStreams.updateDataRedactionSettings(
@@ -1471,7 +1471,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         queryParameterKeys: ['Test string'],
         queryParameterRedactionEnabled: true,
-      }
+      },
     );
     /** Updates the enhanced measurement settings for this data stream. Note that the stream must enable enhanced measurement for these settings to take effect. */
     await gapi.client.analyticsadmin.properties.dataStreams.updateEnhancedMeasurementSettings(
@@ -1491,7 +1491,7 @@ gapi.load('client', async () => {
         streamEnabled: true,
         uriQueryParameter: 'Test string',
         videoEngagementEnabled: true,
-      }
+      },
     );
     /** Creates an EventCreateRule. */
     await gapi.client.analyticsadmin.properties.dataStreams.eventCreateRules.create(
@@ -1516,19 +1516,19 @@ gapi.load('client', async () => {
           },
         ],
         sourceCopyParameters: true,
-      }
+      },
     );
     /** Deletes an EventCreateRule. */
     await gapi.client.analyticsadmin.properties.dataStreams.eventCreateRules.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lookup for a single EventCreateRule. */
     await gapi.client.analyticsadmin.properties.dataStreams.eventCreateRules.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists EventCreateRules on a web data stream. */
     await gapi.client.analyticsadmin.properties.dataStreams.eventCreateRules.list(
@@ -1536,7 +1536,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an EventCreateRule. */
     await gapi.client.analyticsadmin.properties.dataStreams.eventCreateRules.patch(
@@ -1562,7 +1562,7 @@ gapi.load('client', async () => {
           },
         ],
         sourceCopyParameters: true,
-      }
+      },
     );
     /** Creates an EventEditRule. */
     await gapi.client.analyticsadmin.properties.dataStreams.eventEditRules.create(
@@ -1587,13 +1587,13 @@ gapi.load('client', async () => {
           },
         ],
         processingOrder: 'Test string',
-      }
+      },
     );
     /** Deletes an EventEditRule. */
     await gapi.client.analyticsadmin.properties.dataStreams.eventEditRules.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lookup for a single EventEditRule. */
     await gapi.client.analyticsadmin.properties.dataStreams.eventEditRules.get({
@@ -1605,7 +1605,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an EventEditRule. */
     await gapi.client.analyticsadmin.properties.dataStreams.eventEditRules.patch(
@@ -1631,7 +1631,7 @@ gapi.load('client', async () => {
           },
         ],
         processingOrder: 'Test string',
-      }
+      },
     );
     /** Changes the processing order of event edit rules on the specified stream. */
     await gapi.client.analyticsadmin.properties.dataStreams.eventEditRules.reorder(
@@ -1640,7 +1640,7 @@ gapi.load('client', async () => {
       },
       {
         eventEditRules: ['Test string'],
-      }
+      },
     );
     /** Creates a measurement protocol secret. */
     await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create(
@@ -1651,19 +1651,19 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         secretValue: 'Test string',
-      }
+      },
     );
     /** Deletes target MeasurementProtocolSecret. */
     await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lookup for a single MeasurementProtocolSecret. */
     await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
     await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list(
@@ -1671,7 +1671,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a measurement protocol secret. */
     await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch(
@@ -1683,7 +1683,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         secretValue: 'Test string',
-      }
+      },
     );
     /** Creates a SKAdNetworkConversionValueSchema. */
     await gapi.client.analyticsadmin.properties.dataStreams.sKAdNetworkConversionValueSchema.create(
@@ -1753,19 +1753,19 @@ gapi.load('client', async () => {
           ],
           postbackWindowSettingsEnabled: true,
         },
-      }
+      },
     );
     /** Deletes target SKAdNetworkConversionValueSchema. */
     await gapi.client.analyticsadmin.properties.dataStreams.sKAdNetworkConversionValueSchema.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Looks up a single SKAdNetworkConversionValueSchema. */
     await gapi.client.analyticsadmin.properties.dataStreams.sKAdNetworkConversionValueSchema.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists SKAdNetworkConversionValueSchema on a stream. Properties can have at most one SKAdNetworkConversionValueSchema. */
     await gapi.client.analyticsadmin.properties.dataStreams.sKAdNetworkConversionValueSchema.list(
@@ -1773,7 +1773,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a SKAdNetworkConversionValueSchema. */
     await gapi.client.analyticsadmin.properties.dataStreams.sKAdNetworkConversionValueSchema.patch(
@@ -1844,21 +1844,21 @@ gapi.load('client', async () => {
           ],
           postbackWindowSettingsEnabled: true,
         },
-      }
+      },
     );
     /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
     await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either: - Declining a proposal initiated from Display & Video 360 - Withdrawing a proposal initiated from Google Analytics After being cancelled, a proposal will eventually be deleted automatically. */
     await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a DisplayVideo360AdvertiserLinkProposal. */
     await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.create(
@@ -1878,19 +1878,19 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         validationEmail: 'Test string',
-      }
+      },
     );
     /** Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only be used on cancelled proposals. */
     await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lookup for a single DisplayVideo360AdvertiserLinkProposal. */
     await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists DisplayVideo360AdvertiserLinkProposals on a property. */
     await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.list(
@@ -1898,7 +1898,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users who have proper authorization both on the Google Analytics property and on the Display & Video 360 advertiser. Users who do not have access to the Display & Video 360 advertiser should instead seek to create a DisplayVideo360LinkProposal. */
     await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.create(
@@ -1912,19 +1912,19 @@ gapi.load('client', async () => {
         campaignDataSharingEnabled: true,
         costDataSharingEnabled: true,
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a DisplayVideo360AdvertiserLink on a property. */
     await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Look up a single DisplayVideo360AdvertiserLink */
     await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists all DisplayVideo360AdvertiserLinks on a property. */
     await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.list(
@@ -1932,7 +1932,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a DisplayVideo360AdvertiserLink on a property. */
     await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.patch(
@@ -1947,7 +1947,7 @@ gapi.load('client', async () => {
         campaignDataSharingEnabled: true,
         costDataSharingEnabled: true,
         name: 'Test string',
-      }
+      },
     );
     /** Creates a ExpandedDataSet. */
     await gapi.client.analyticsadmin.properties.expandedDataSets.create(
@@ -1979,7 +1979,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         metricNames: ['Test string'],
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a ExpandedDataSet on a property. */
     await gapi.client.analyticsadmin.properties.expandedDataSets.delete({
@@ -2026,7 +2026,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         metricNames: ['Test string'],
         name: 'Test string',
-      }
+      },
     );
     /** Creates a FirebaseLink. Properties can have at most one FirebaseLink. */
     await gapi.client.analyticsadmin.properties.firebaseLinks.create(
@@ -2037,7 +2037,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         name: 'Test string',
         project: 'Test string',
-      }
+      },
     );
     /** Deletes a FirebaseLink on a property */
     await gapi.client.analyticsadmin.properties.firebaseLinks.delete({
@@ -2062,7 +2062,7 @@ gapi.load('client', async () => {
         customerId: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes a GoogleAdsLink on a property */
     await gapi.client.analyticsadmin.properties.googleAdsLinks.delete({
@@ -2088,7 +2088,7 @@ gapi.load('client', async () => {
         customerId: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a Key Event. */
     await gapi.client.analyticsadmin.properties.keyEvents.create(
@@ -2106,7 +2106,7 @@ gapi.load('client', async () => {
         deletable: true,
         eventName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a Key Event. */
     await gapi.client.analyticsadmin.properties.keyEvents.delete({
@@ -2139,7 +2139,7 @@ gapi.load('client', async () => {
         deletable: true,
         eventName: 'Test string',
         name: 'Test string',
-      }
+      },
     );
     /** Creates a roll-up property source link. Only roll-up properties can have source links, so this method will throw an error if used on other types of properties. */
     await gapi.client.analyticsadmin.properties.rollupPropertySourceLinks.create(
@@ -2149,13 +2149,13 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         sourceProperty: 'Test string',
-      }
+      },
     );
     /** Deletes a roll-up property source link. Only roll-up properties can have source links, so this method will throw an error if used on other types of properties. */
     await gapi.client.analyticsadmin.properties.rollupPropertySourceLinks.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lookup for a single roll-up property source Link. Only roll-up properties can have source links, so this method will throw an error if used on other types of properties. */
     await gapi.client.analyticsadmin.properties.rollupPropertySourceLinks.get({
@@ -2180,7 +2180,7 @@ gapi.load('client', async () => {
         costDataSharingEnabled: true,
         name: 'Test string',
         siteStatsSharingEnabled: true,
-      }
+      },
     );
     /** Deletes a SearchAds360Link on a property. */
     await gapi.client.analyticsadmin.properties.searchAds360Links.delete({
@@ -2210,7 +2210,7 @@ gapi.load('client', async () => {
         costDataSharingEnabled: true,
         name: 'Test string',
         siteStatsSharingEnabled: true,
-      }
+      },
     );
     /** Creates a subproperty Event Filter. */
     await gapi.client.analyticsadmin.properties.subpropertyEventFilters.create(
@@ -2240,7 +2240,7 @@ gapi.load('client', async () => {
           },
         ],
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a subproperty event filter. */
     await gapi.client.analyticsadmin.properties.subpropertyEventFilters.delete({
@@ -2285,7 +2285,7 @@ gapi.load('client', async () => {
           },
         ],
         name: 'Test string',
-      }
+      },
     );
   }
 });

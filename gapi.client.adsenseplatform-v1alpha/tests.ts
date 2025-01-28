@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://adsenseplatform.googleapis.com/$discovery/rest?version=v1alpha'
+    'https://adsenseplatform.googleapis.com/$discovery/rest?version=v1alpha',
   );
   /** now we can use gapi.client.adsenseplatform */
 
@@ -49,7 +49,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Update a Platform Child Site. */
     await gapi.client.adsenseplatform.accounts.platforms.childAccounts.sites.patch(
@@ -61,7 +61,7 @@ gapi.load('client', async () => {
         domain: 'Test string',
         name: 'Test string',
         platformGroup: 'Test string',
-      }
+      },
     );
     /** Lists Platform Groups for a specified Platform. */
     await gapi.client.adsenseplatform.accounts.platforms.groups.list({
@@ -74,7 +74,7 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a sub-account. */
     await gapi.client.adsenseplatform.platforms.accounts.create(
@@ -92,7 +92,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           version: 'Test string',
         },
-      }
+      },
     );
     /** Gets information about the selected sub-account. */
     await gapi.client.adsenseplatform.platforms.accounts.get({
@@ -132,7 +132,7 @@ gapi.load('client', async () => {
         },
         eventTime: 'Test string',
         eventType: 'Test string',
-      }
+      },
     );
     /** Creates a site for a specified account. */
     await gapi.client.adsenseplatform.platforms.accounts.sites.create(
@@ -143,7 +143,7 @@ gapi.load('client', async () => {
         domain: 'Test string',
         name: 'Test string',
         state: 'Test string',
-      }
+      },
     );
     /** Deletes a site from a specified account. */
     await gapi.client.adsenseplatform.platforms.accounts.sites.delete({

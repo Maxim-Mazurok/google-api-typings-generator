@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://analytics.googleapis.com/$discovery/rest?version=v3'
+    'https://analytics.googleapis.com/$discovery/rest?version=v3',
   );
   /** now we can use gapi.client.analytics */
 
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           kind: 'Test string',
         },
-      }
+      },
     );
     /** Lists account-user links for a given account. */
     await gapi.client.analytics.management.accountUserLinks.list({
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           kind: 'Test string',
         },
-      }
+      },
     );
     /** Hashes the given Client ID. */
     await gapi.client.analytics.management.clientId.hashClientId(
@@ -200,7 +200,7 @@ gapi.load('client', async () => {
         clientId: 'Test string',
         kind: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** List custom data sources to which the user has access. */
     await gapi.client.analytics.management.customDataSources.list({
@@ -237,7 +237,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         updated: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Lists custom dimensions to which the user has access. */
     await gapi.client.analytics.management.customDimensions.list({
@@ -270,7 +270,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         updated: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Updates an existing custom dimension. */
     await gapi.client.analytics.management.customDimensions.update(
@@ -296,7 +296,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         updated: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Get a custom metric to which the user has access. */
     await gapi.client.analytics.management.customMetrics.get({
@@ -329,7 +329,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         updated: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Lists custom metrics to which the user has access. */
     await gapi.client.analytics.management.customMetrics.list({
@@ -365,7 +365,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         updated: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Updates an existing custom metric. */
     await gapi.client.analytics.management.customMetrics.update(
@@ -394,7 +394,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         updated: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Delete an experiment. */
     await gapi.client.analytics.management.experiments.delete({
@@ -457,7 +457,7 @@ gapi.load('client', async () => {
         webPropertyId: 'Test string',
         winnerConfidenceLevel: 42,
         winnerFound: true,
-      }
+      },
     );
     /** Lists experiments to which the user has access. */
     await gapi.client.analytics.management.experiments.list({
@@ -515,7 +515,7 @@ gapi.load('client', async () => {
         webPropertyId: 'Test string',
         winnerConfidenceLevel: 42,
         winnerFound: true,
-      }
+      },
     );
     /** Update an existing experiment. */
     await gapi.client.analytics.management.experiments.update(
@@ -565,7 +565,7 @@ gapi.load('client', async () => {
         webPropertyId: 'Test string',
         winnerConfidenceLevel: 42,
         winnerFound: true,
-      }
+      },
     );
     /** Delete a filter. */
     await gapi.client.analytics.management.filters.delete({
@@ -641,7 +641,7 @@ gapi.load('client', async () => {
           field: 'Test string',
           fieldIndex: 42,
         },
-      }
+      },
     );
     /** Lists all filters for an account */
     await gapi.client.analytics.management.filters.list({
@@ -714,7 +714,7 @@ gapi.load('client', async () => {
           field: 'Test string',
           fieldIndex: 42,
         },
-      }
+      },
     );
     /** Updates an existing filter. */
     await gapi.client.analytics.management.filters.update(
@@ -781,7 +781,7 @@ gapi.load('client', async () => {
           field: 'Test string',
           fieldIndex: 42,
         },
-      }
+      },
     );
     /** Gets a goal to which the user has access. */
     await gapi.client.analytics.management.goals.get({
@@ -848,7 +848,7 @@ gapi.load('client', async () => {
           comparisonValue: 'Test string',
         },
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Lists goals to which the user has access. */
     await gapi.client.analytics.management.goals.list({
@@ -917,7 +917,7 @@ gapi.load('client', async () => {
           comparisonValue: 'Test string',
         },
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Updates an existing goal. */
     await gapi.client.analytics.management.goals.update(
@@ -978,7 +978,7 @@ gapi.load('client', async () => {
           comparisonValue: 'Test string',
         },
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Delete a profile filter link. */
     await gapi.client.analytics.management.profileFilterLinks.delete({
@@ -1022,7 +1022,7 @@ gapi.load('client', async () => {
         },
         rank: 42,
         selfLink: 'Test string',
-      }
+      },
     );
     /** Lists all profile filter links for a profile. */
     await gapi.client.analytics.management.profileFilterLinks.list({
@@ -1061,7 +1061,7 @@ gapi.load('client', async () => {
         },
         rank: 42,
         selfLink: 'Test string',
-      }
+      },
     );
     /** Update an existing profile filter link. */
     await gapi.client.analytics.management.profileFilterLinks.update(
@@ -1092,7 +1092,7 @@ gapi.load('client', async () => {
         },
         rank: 42,
         selfLink: 'Test string',
-      }
+      },
     );
     /** Deletes a view (profile). */
     await gapi.client.analytics.management.profiles.delete({
@@ -1147,7 +1147,7 @@ gapi.load('client', async () => {
         updated: 'Test string',
         webPropertyId: 'Test string',
         websiteUrl: 'Test string',
-      }
+      },
     );
     /** Lists views (profiles) to which the user has access. */
     await gapi.client.analytics.management.profiles.list({
@@ -1198,7 +1198,7 @@ gapi.load('client', async () => {
         updated: 'Test string',
         webPropertyId: 'Test string',
         websiteUrl: 'Test string',
-      }
+      },
     );
     /** Updates an existing view (profile). */
     await gapi.client.analytics.management.profiles.update(
@@ -1242,7 +1242,7 @@ gapi.load('client', async () => {
         updated: 'Test string',
         webPropertyId: 'Test string',
         websiteUrl: 'Test string',
-      }
+      },
     );
     /** Removes a user from the given view (profile). */
     await gapi.client.analytics.management.profileUserLinks.delete({
@@ -1296,7 +1296,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           kind: 'Test string',
         },
-      }
+      },
     );
     /** Lists profile-user links for a given view (profile). */
     await gapi.client.analytics.management.profileUserLinks.list({
@@ -1352,7 +1352,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           kind: 'Test string',
         },
-      }
+      },
     );
     /** Delete a remarketing audience. */
     await gapi.client.analytics.management.remarketingAudience.delete({
@@ -1420,7 +1420,7 @@ gapi.load('client', async () => {
         },
         updated: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Lists remarketing audiences to which the user has access. */
     await gapi.client.analytics.management.remarketingAudience.list({
@@ -1485,7 +1485,7 @@ gapi.load('client', async () => {
         },
         updated: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Updates an existing remarketing audience. */
     await gapi.client.analytics.management.remarketingAudience.update(
@@ -1542,7 +1542,7 @@ gapi.load('client', async () => {
         },
         updated: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Lists segments to which the user has access. */
     await gapi.client.analytics.management.segments.list({
@@ -1595,7 +1595,7 @@ gapi.load('client', async () => {
         title: 'Test string',
         updated: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
     /** Lists unsampled reports to which the user has access. */
     await gapi.client.analytics.management.unsampledReports.list({
@@ -1614,7 +1614,7 @@ gapi.load('client', async () => {
       },
       {
         customDataImportUids: ['Test string'],
-      }
+      },
     );
     /** List uploads to which the user has access. */
     await gapi.client.analytics.management.uploads.get({
@@ -1675,7 +1675,7 @@ gapi.load('client', async () => {
         starred: true,
         updated: 'Test string',
         websiteUrl: 'Test string',
-      }
+      },
     );
     /** Lists web properties to which the user has access. */
     await gapi.client.analytics.management.webproperties.list({
@@ -1717,7 +1717,7 @@ gapi.load('client', async () => {
         starred: true,
         updated: 'Test string',
         websiteUrl: 'Test string',
-      }
+      },
     );
     /** Updates an existing web property. */
     await gapi.client.analytics.management.webproperties.update(
@@ -1753,7 +1753,7 @@ gapi.load('client', async () => {
         starred: true,
         updated: 'Test string',
         websiteUrl: 'Test string',
-      }
+      },
     );
     /** Deletes a web property-Google Ads link. */
     await gapi.client.analytics.management.webPropertyAdWordsLinks.delete({
@@ -1796,7 +1796,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         profileIds: ['Test string'],
         selfLink: 'Test string',
-      }
+      },
     );
     /** Lists webProperty-Google Ads links for a given web property. */
     await gapi.client.analytics.management.webPropertyAdWordsLinks.list({
@@ -1835,7 +1835,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         profileIds: ['Test string'],
         selfLink: 'Test string',
-      }
+      },
     );
     /** Updates an existing webProperty-Google Ads link. */
     await gapi.client.analytics.management.webPropertyAdWordsLinks.update(
@@ -1867,7 +1867,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         profileIds: ['Test string'],
         selfLink: 'Test string',
-      }
+      },
     );
     /** Removes a user from the given web property. */
     await gapi.client.analytics.management.webpropertyUserLinks.delete({
@@ -1919,7 +1919,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           kind: 'Test string',
         },
-      }
+      },
     );
     /** Lists webProperty-user links for a given web property. */
     await gapi.client.analytics.management.webpropertyUserLinks.list({
@@ -1973,7 +1973,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           kind: 'Test string',
         },
-      }
+      },
     );
     /** Lists all columns for a report type */
     await gapi.client.analytics.metadata.columns.list({
@@ -2067,7 +2067,7 @@ gapi.load('client', async () => {
           updated: 'Test string',
           websiteUrl: 'Test string',
         },
-      }
+      },
     );
     /** Provision account. */
     await gapi.client.analytics.provisioning.createAccountTree(
@@ -2079,7 +2079,7 @@ gapi.load('client', async () => {
         timezone: 'Test string',
         webpropertyName: 'Test string',
         websiteUrl: 'Test string',
-      }
+      },
     );
     /** Insert or update a user deletion requests. */
     await gapi.client.analytics.userDeletion.userDeletionRequest.upsert(
@@ -2094,7 +2094,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         propertyId: 'Test string',
         webPropertyId: 'Test string',
-      }
+      },
     );
   }
 });

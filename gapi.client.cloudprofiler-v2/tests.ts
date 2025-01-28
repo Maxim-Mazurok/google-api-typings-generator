@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudprofiler.googleapis.com/$discovery/rest?version=v2'
+    'https://cloudprofiler.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.cloudprofiler */
 
@@ -49,7 +49,7 @@ gapi.load('client', async () => {
           target: 'Test string',
         },
         profileType: ['Test string'],
-      }
+      },
     );
     /** CreateOfflineProfile creates a new profile resource in the offline mode. The client provides the profile to create along with the profile bytes, the server records it. _Direct use of this API is discouraged, please use a [supported profiler agent](https://cloud.google.com/profiler/docs/about-profiler#profiling_agent) instead for profile collection._ */
     await gapi.client.cloudprofiler.projects.profiles.createOffline(
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
         profileBytes: 'Test string',
         profileType: 'Test string',
         startTime: 'Test string',
-      }
+      },
     );
     /** Lists profiles which have been collected so far and for which the caller has permission to view. */
     await gapi.client.cloudprofiler.projects.profiles.list({
@@ -102,7 +102,7 @@ gapi.load('client', async () => {
         profileBytes: 'Test string',
         profileType: 'Test string',
         startTime: 'Test string',
-      }
+      },
     );
   }
 });

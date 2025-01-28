@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Datastore API v1beta1 */
   function load(
-    urlOrObject: 'https://datastore.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://datastore.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'datastore', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'datastore',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace datastore {
@@ -259,7 +259,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleDatastoreAdminV1beta1ExportEntitiesRequest
+        body: GoogleDatastoreAdminV1beta1ExportEntitiesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Imports entities into Google Cloud Datastore. Existing entities with the same key are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportEntities operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Datastore. */
       import(request: {
@@ -317,7 +317,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleDatastoreAdminV1beta1ImportEntitiesRequest
+        body: GoogleDatastoreAdminV1beta1ImportEntitiesRequest,
       ): Request<GoogleLongrunningOperation>;
     }
 

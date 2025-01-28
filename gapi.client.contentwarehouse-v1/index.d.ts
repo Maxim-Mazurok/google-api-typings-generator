@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Document AI Warehouse API v1 */
   function load(
-    urlOrObject: 'https://contentwarehouse.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://contentwarehouse.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'contentwarehouse', version: 'v1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'contentwarehouse',
     version: 'v1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace contentwarehouse {
@@ -1706,7 +1706,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1CreateDocumentLinkRequest
+        body: GoogleCloudContentwarehouseV1CreateDocumentLinkRequest,
       ): Request<GoogleCloudContentwarehouseV1DocumentLink>;
       /** Remove the link between the source and target documents. */
       delete(request: {
@@ -1764,7 +1764,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1DeleteDocumentLinkRequest
+        body: GoogleCloudContentwarehouseV1DeleteDocumentLinkRequest,
       ): Request<{}>;
     }
     interface ReferenceIdResource {
@@ -1824,7 +1824,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1DeleteDocumentRequest
+        body: GoogleCloudContentwarehouseV1DeleteDocumentRequest,
       ): Request<{}>;
       /** Gets a document. Returns NOT_FOUND if the document does not exist. */
       get(request: {
@@ -1882,7 +1882,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1GetDocumentRequest
+        body: GoogleCloudContentwarehouseV1GetDocumentRequest,
       ): Request<GoogleCloudContentwarehouseV1Document>;
       /** Updates a document. Returns INVALID_ARGUMENT if the name of the document is non-empty and does not equal the existing name. */
       patch(request: {
@@ -1940,7 +1940,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1UpdateDocumentRequest
+        body: GoogleCloudContentwarehouseV1UpdateDocumentRequest,
       ): Request<GoogleCloudContentwarehouseV1UpdateDocumentResponse>;
     }
     interface DocumentsResource {
@@ -2000,7 +2000,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1CreateDocumentRequest
+        body: GoogleCloudContentwarehouseV1CreateDocumentRequest,
       ): Request<GoogleCloudContentwarehouseV1CreateDocumentResponse>;
       /** Deletes a document. Returns NOT_FOUND if the document does not exist. */
       delete(request: {
@@ -2058,7 +2058,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1DeleteDocumentRequest
+        body: GoogleCloudContentwarehouseV1DeleteDocumentRequest,
       ): Request<{}>;
       /** Gets the access control policy for a resource. Returns NOT_FOUND error if the resource does not exist. Returns an empty policy if the resource exists but does not have a policy set. */
       fetchAcl(
@@ -2088,7 +2088,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1FetchAclRequest
+        body: GoogleCloudContentwarehouseV1FetchAclRequest,
       ): Request<GoogleCloudContentwarehouseV1FetchAclResponse>;
       /** Gets a document. Returns NOT_FOUND if the document does not exist. */
       get(request: {
@@ -2146,7 +2146,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1GetDocumentRequest
+        body: GoogleCloudContentwarehouseV1GetDocumentRequest,
       ): Request<GoogleCloudContentwarehouseV1Document>;
       /** Return all source document-links from the document. */
       linkedSources(request: {
@@ -2204,7 +2204,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1ListLinkedSourcesRequest
+        body: GoogleCloudContentwarehouseV1ListLinkedSourcesRequest,
       ): Request<GoogleCloudContentwarehouseV1ListLinkedSourcesResponse>;
       /** Return all target document-links from the document. */
       linkedTargets(request: {
@@ -2262,7 +2262,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1ListLinkedTargetsRequest
+        body: GoogleCloudContentwarehouseV1ListLinkedTargetsRequest,
       ): Request<GoogleCloudContentwarehouseV1ListLinkedTargetsResponse>;
       /** Lock the document so the document cannot be updated by other users. */
       lock(request: {
@@ -2320,7 +2320,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1LockDocumentRequest
+        body: GoogleCloudContentwarehouseV1LockDocumentRequest,
       ): Request<GoogleCloudContentwarehouseV1Document>;
       /** Updates a document. Returns INVALID_ARGUMENT if the name of the document is non-empty and does not equal the existing name. */
       patch(request: {
@@ -2378,7 +2378,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1UpdateDocumentRequest
+        body: GoogleCloudContentwarehouseV1UpdateDocumentRequest,
       ): Request<GoogleCloudContentwarehouseV1UpdateDocumentResponse>;
       /** Searches for documents using provided SearchDocumentsRequest. This call only returns documents that the caller has permission to search against. */
       search(request: {
@@ -2436,7 +2436,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1SearchDocumentsRequest
+        body: GoogleCloudContentwarehouseV1SearchDocumentsRequest,
       ): Request<GoogleCloudContentwarehouseV1SearchDocumentsResponse>;
       /** Sets the access control policy for a resource. Replaces any existing policy. */
       setAcl(
@@ -2466,7 +2466,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1SetAclRequest
+        body: GoogleCloudContentwarehouseV1SetAclRequest,
       ): Request<GoogleCloudContentwarehouseV1SetAclResponse>;
       documentLinks: DocumentLinksResource;
       referenceId: ReferenceIdResource;
@@ -2528,7 +2528,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1DocumentSchema
+        body: GoogleCloudContentwarehouseV1DocumentSchema,
       ): Request<GoogleCloudContentwarehouseV1DocumentSchema>;
       /** Deletes a document schema. Returns NOT_FOUND if the document schema does not exist. Returns BAD_REQUEST if the document schema has documents depending on it. */
       delete(request?: {
@@ -2671,7 +2671,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1UpdateDocumentSchemaRequest
+        body: GoogleCloudContentwarehouseV1UpdateDocumentSchemaRequest,
       ): Request<GoogleCloudContentwarehouseV1DocumentSchema>;
     }
     interface OperationsResource {
@@ -2760,7 +2760,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1RuleSet
+        body: GoogleCloudContentwarehouseV1RuleSet,
       ): Request<GoogleCloudContentwarehouseV1RuleSet>;
       /** Deletes a ruleset. Returns NOT_FOUND if the document does not exist. */
       delete(request?: {
@@ -2903,7 +2903,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1UpdateRuleSetRequest
+        body: GoogleCloudContentwarehouseV1UpdateRuleSetRequest,
       ): Request<GoogleCloudContentwarehouseV1RuleSet>;
     }
     interface SynonymSetsResource {
@@ -2963,7 +2963,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1SynonymSet
+        body: GoogleCloudContentwarehouseV1SynonymSet,
       ): Request<GoogleCloudContentwarehouseV1SynonymSet>;
       /** Deletes a SynonymSet for a given context. Throws a NOT_FOUND exception if the SynonymSet is not found. */
       delete(request?: {
@@ -3106,7 +3106,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1SynonymSet
+        body: GoogleCloudContentwarehouseV1SynonymSet,
       ): Request<GoogleCloudContentwarehouseV1SynonymSet>;
     }
     interface LocationsResource {
@@ -3193,7 +3193,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1InitializeProjectRequest
+        body: GoogleCloudContentwarehouseV1InitializeProjectRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Run a predefined pipeline. */
       runPipeline(request: {
@@ -3251,7 +3251,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1RunPipelineRequest
+        body: GoogleCloudContentwarehouseV1RunPipelineRequest,
       ): Request<GoogleLongrunningOperation>;
       documents: DocumentsResource;
       documentSchemas: DocumentSchemasResource;
@@ -3288,7 +3288,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1FetchAclRequest
+        body: GoogleCloudContentwarehouseV1FetchAclRequest,
       ): Request<GoogleCloudContentwarehouseV1FetchAclResponse>;
       /** Sets the access control policy for a resource. Replaces any existing policy. */
       setAcl(
@@ -3318,7 +3318,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudContentwarehouseV1SetAclRequest
+        body: GoogleCloudContentwarehouseV1SetAclRequest,
       ): Request<GoogleCloudContentwarehouseV1SetAclResponse>;
       locations: LocationsResource;
     }

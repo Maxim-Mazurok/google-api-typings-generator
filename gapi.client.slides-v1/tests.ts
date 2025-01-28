@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://slides.googleapis.com/$discovery/rest?version=v1'
+    'https://slides.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.slides */
 
@@ -1953,7 +1953,7 @@ gapi.load('client', async () => {
         writeControl: {
           requiredRevisionId: 'Test string',
         },
-      }
+      },
     );
     /** Creates a blank presentation using the title given in the request. If a `presentationId` is provided, it is used as the ID of the new presentation. Otherwise, a new ID is generated. Other fields in the request, including any provided content, are ignored. Returns the created presentation. */
     await gapi.client.slides.presentations.create(
@@ -6235,7 +6235,7 @@ gapi.load('client', async () => {
           },
         ],
         title: 'Test string',
-      }
+      },
     );
     /** Gets the latest version of the specified presentation. */
     await gapi.client.slides.presentations.get({

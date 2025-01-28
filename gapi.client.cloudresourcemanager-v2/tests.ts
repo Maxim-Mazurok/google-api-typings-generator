@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://cloudresourcemanager.googleapis.com/$discovery/rest?version=v2'
+    'https://cloudresourcemanager.googleapis.com/$discovery/rest?version=v2',
   );
   /** now we can use gapi.client.cloudresourcemanager */
 
@@ -47,7 +47,7 @@ gapi.load('client', async () => {
         tags: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Requests deletion of a Folder. The Folder is moved into the DELETE_REQUESTED state immediately, and is deleted approximately 30 days later. This method may only be called on an empty Folder in the ACTIVE state, where a Folder is empty if it doesn't contain any Folders or Projects in the ACTIVE state. The caller must have `resourcemanager.folders.delete` permission on the identified folder. */
     await gapi.client.cloudresourcemanager.folders.delete({
@@ -66,7 +66,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists the Folders that are direct descendants of supplied parent resource. List provides a strongly consistent view of the Folders underneath the specified parent resource. List returns Folders sorted based upon the (ascending) lexical ordering of their display_name. The caller must have `resourcemanager.folders.list` permission on the identified parent. */
     await gapi.client.cloudresourcemanager.folders.list({
@@ -82,7 +82,7 @@ gapi.load('client', async () => {
       },
       {
         destinationParent: 'Test string',
-      }
+      },
     );
     /** Updates a Folder, changing its display_name. Changes to the folder display_name will be rejected if they violate either the display_name formatting rules or naming constraints described in the CreateFolder documentation. The Folder's display name must start and end with a letter or digit, may contain letters, digits, spaces, hyphens and underscores and can be between 3 and 30 characters. This is captured by the regular expression: `\p{L}\p{N}{1,28}[\p{L}\p{N}]`. The caller must have `resourcemanager.folders.update` permission on the identified folder. If the update fails due to the unique name constraint then a PreconditionFailure explaining this violation will be returned in the Status.details field. */
     await gapi.client.cloudresourcemanager.folders.patch(
@@ -99,7 +99,7 @@ gapi.load('client', async () => {
         tags: {
           A: 'Test string',
         },
-      }
+      },
     );
     /** Search for folders that match specific filter criteria. Search provides an eventually consistent view of the folders a user has access to which meet the specified filter criteria. This will only return folders on which the caller has the permission `resourcemanager.folders.get`. */
     await gapi.client.cloudresourcemanager.folders.search(
@@ -108,7 +108,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         query: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on a Folder, replacing any existing policy. The `resource` field should be the Folder's resource name, e.g. "folders/1234". The caller must have `resourcemanager.folders.setIamPolicy` permission on the identified folder. */
     await gapi.client.cloudresourcemanager.folders.setIamPolicy(
@@ -144,7 +144,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified Folder. The `resource` field should be the Folder's resource name, e.g. "folders/1234". There are no permissions required for making this API call. */
     await gapi.client.cloudresourcemanager.folders.testIamPermissions(
@@ -153,14 +153,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Cancels the deletion request for a Folder. This method may only be called on a Folder in the DELETE_REQUESTED state. In order to succeed, the Folder's parent must be in the ACTIVE state. In addition, reintroducing the folder into the tree must not violate folder naming, height and fanout constraints described in the CreateFolder documentation. The caller must have `resourcemanager.folders.undelete` permission on the identified folder. */
     await gapi.client.cloudresourcemanager.folders.undelete(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.cloudresourcemanager.operations.get({

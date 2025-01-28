@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Dataproc Metastore API v2beta */
   function load(
-    urlOrObject: 'https://metastore.googleapis.com/$discovery/rest?version=v2beta'
+    urlOrObject: 'https://metastore.googleapis.com/$discovery/rest?version=v2beta',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'metastore', version: 'v2beta'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'metastore',
     version: 'v2beta',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace metastore {
@@ -564,7 +564,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaBackup
+        body: GoogleCloudMetastoreV2betaBackup,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a single backup. */
       delete(request?: {
@@ -808,7 +808,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaAlterMetadataResourceLocationRequest
+        body: GoogleCloudMetastoreV2betaAlterMetadataResourceLocationRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Alter metadata table properties. */
       alterTableProperties(request: {
@@ -866,7 +866,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaAlterTablePropertiesRequest
+        body: GoogleCloudMetastoreV2betaAlterTablePropertiesRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Cancels the ongoing Managed Migration process. */
       cancelMigration(request: {
@@ -924,7 +924,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaCancelMigrationRequest
+        body: GoogleCloudMetastoreV2betaCancelMigrationRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Completes the managed migration process. The Dataproc Metastore service will switch to using its own backend database after successful migration. */
       completeMigration(request: {
@@ -982,7 +982,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaCompleteMigrationRequest
+        body: GoogleCloudMetastoreV2betaCompleteMigrationRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Creates a metastore service in a project and location. */
       create(request: {
@@ -1048,7 +1048,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaService
+        body: GoogleCloudMetastoreV2betaService,
       ): Request<GoogleLongrunningOperation>;
       /** Deletes a single service. */
       delete(request?: {
@@ -1135,7 +1135,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaExportMetadataRequest
+        body: GoogleCloudMetastoreV2betaExportMetadataRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Gets the details of a single service. */
       get(request?: {
@@ -1220,7 +1220,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaImportMetadataRequest
+        body: GoogleCloudMetastoreV2betaImportMetadataRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Lists services in a project and location. */
       list(request?: {
@@ -1313,7 +1313,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaMoveTableToDatabaseRequest
+        body: GoogleCloudMetastoreV2betaMoveTableToDatabaseRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Updates the parameters of a single service. */
       patch(request: {
@@ -1379,7 +1379,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaService
+        body: GoogleCloudMetastoreV2betaService,
       ): Request<GoogleLongrunningOperation>;
       /** Query Dataproc Metastore metadata. */
       queryMetadata(request: {
@@ -1437,7 +1437,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaQueryMetadataRequest
+        body: GoogleCloudMetastoreV2betaQueryMetadataRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Removes the attached IAM policies for a resource */
       removeIamPolicy(
@@ -1467,7 +1467,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaRemoveIamPolicyRequest
+        body: GoogleCloudMetastoreV2betaRemoveIamPolicyRequest,
       ): Request<GoogleCloudMetastoreV2betaRemoveIamPolicyResponse>;
       /** Restores a service from a backup. */
       restore(request: {
@@ -1525,7 +1525,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaRestoreServiceRequest
+        body: GoogleCloudMetastoreV2betaRestoreServiceRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Starts the Managed Migration process. */
       startMigration(request: {
@@ -1583,7 +1583,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GoogleCloudMetastoreV2betaStartMigrationRequest
+        body: GoogleCloudMetastoreV2betaStartMigrationRequest,
       ): Request<GoogleLongrunningOperation>;
       backups: BackupsResource;
       migrationExecutions: MigrationExecutionsResource;

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Build API v1 */
   function load(
-    urlOrObject: 'https://cloudbuild.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://cloudbuild.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudbuild', version: 'v1'): Promise<void>;
@@ -1194,7 +1194,7 @@ declare namespace gapi.client {
           /** For GitHub Enterprise webhooks, this key is used to associate the webhook request with the GitHubEnterpriseConfig to use for validation. */
           webhookKey?: string;
         },
-        body: HttpBody
+        body: HttpBody,
       ): Request<{}>;
     }
     interface LocationsResource {
@@ -1258,7 +1258,7 @@ declare namespace gapi.client {
           /** For GitHub Enterprise webhooks, this key is used to associate the webhook request with the GitHubEnterpriseConfig to use for validation. */
           webhookKey?: string;
         },
-        body: HttpBody
+        body: HttpBody,
       ): Request<{}>;
     }
     interface OperationsResource {
@@ -1318,7 +1318,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -1405,7 +1405,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApproveBuildRequest
+        body: ApproveBuildRequest,
       ): Request<Operation>;
       /** Cancels a build in progress. */
       cancel(request: {
@@ -1467,7 +1467,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelBuildRequest
+        body: CancelBuildRequest,
       ): Request<Build>;
       /** Starts a build with the specified configuration. This method returns a long-running `Operation`, which includes the build ID. Pass the build ID to `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`). */
       create(request: {
@@ -1529,7 +1529,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Build
+        body: Build,
       ): Request<Operation>;
       /** Returns information about a previously requested build. The `Build` that is returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`), and timing information. */
       get(request?: {
@@ -1657,7 +1657,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RetryBuildRequest
+        body: RetryBuildRequest,
       ): Request<Operation>;
     }
     interface GithubEnterpriseConfigsResource {
@@ -1725,7 +1725,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GitHubEnterpriseConfig
+        body: GitHubEnterpriseConfig,
       ): Request<Operation>;
       /** Delete an association between a GCP project and a GitHub Enterprise server. */
       delete(request?: {
@@ -1878,7 +1878,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GitHubEnterpriseConfig
+        body: GitHubEnterpriseConfig,
       ): Request<Operation>;
     }
     interface ConnectedRepositoriesResource {
@@ -1938,7 +1938,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreateBitbucketServerConnectedRepositoriesRequest
+        body: BatchCreateBitbucketServerConnectedRepositoriesRequest,
       ): Request<Operation>;
     }
     interface ReposResource {
@@ -2035,7 +2035,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BitbucketServerConfig
+        body: BitbucketServerConfig,
       ): Request<Operation>;
       /** Delete a `BitbucketServerConfig`. This API is experimental. */
       delete(request?: {
@@ -2182,7 +2182,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BitbucketServerConfig
+        body: BitbucketServerConfig,
       ): Request<Operation>;
       /** Remove a Bitbucket Server repository from a given BitbucketServerConfig's connected repositories. This API is experimental. */
       removeBitbucketServerConnectedRepository(request: {
@@ -2240,7 +2240,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveBitbucketServerConnectedRepositoryRequest
+        body: RemoveBitbucketServerConnectedRepositoryRequest,
       ): Request<{}>;
       connectedRepositories: ConnectedRepositoriesResource;
       repos: ReposResource;
@@ -2302,7 +2302,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ApproveBuildRequest
+        body: ApproveBuildRequest,
       ): Request<Operation>;
       /** Cancels a build in progress. */
       cancel(request: {
@@ -2360,7 +2360,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelBuildRequest
+        body: CancelBuildRequest,
       ): Request<Build>;
       /** Starts a build with the specified configuration. This method returns a long-running `Operation`, which includes the build ID. Pass the build ID to `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`). */
       create(request: {
@@ -2422,7 +2422,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Build
+        body: Build,
       ): Request<Operation>;
       /** Returns information about a previously requested build. The `Build` that is returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`), and timing information. */
       get(request?: {
@@ -2546,7 +2546,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RetryBuildRequest
+        body: RetryBuildRequest,
       ): Request<Operation>;
     }
     interface GithubEnterpriseConfigsResource {
@@ -2614,7 +2614,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GitHubEnterpriseConfig
+        body: GitHubEnterpriseConfig,
       ): Request<Operation>;
       /** Delete an association between a GCP project and a GitHub Enterprise server. */
       delete(request?: {
@@ -2767,7 +2767,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GitHubEnterpriseConfig
+        body: GitHubEnterpriseConfig,
       ): Request<Operation>;
     }
     interface ConnectedRepositoriesResource {
@@ -2827,7 +2827,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BatchCreateGitLabConnectedRepositoriesRequest
+        body: BatchCreateGitLabConnectedRepositoriesRequest,
       ): Request<Operation>;
     }
     interface ReposResource {
@@ -2924,7 +2924,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GitLabConfig
+        body: GitLabConfig,
       ): Request<Operation>;
       /** Delete a `GitLabConfig`. This API is experimental */
       delete(request?: {
@@ -3071,7 +3071,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GitLabConfig
+        body: GitLabConfig,
       ): Request<Operation>;
       /** Remove a GitLab repository from a given GitLabConfig's connected repositories. This API is experimental. */
       removeGitLabConnectedRepository(request: {
@@ -3129,7 +3129,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RemoveGitLabConnectedRepositoryRequest
+        body: RemoveGitLabConnectedRepositoryRequest,
       ): Request<{}>;
       connectedRepositories: ConnectedRepositoriesResource;
       repos: ReposResource;
@@ -3191,7 +3191,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
@@ -3282,7 +3282,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BuildTrigger
+        body: BuildTrigger,
       ): Request<BuildTrigger>;
       /** Deletes a `BuildTrigger` by its project ID and trigger ID. */
       delete(request?: {
@@ -3447,7 +3447,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BuildTrigger
+        body: BuildTrigger,
       ): Request<BuildTrigger>;
       /** Runs a `BuildTrigger` at a particular source revision. To run a regional or global trigger, use the POST request that includes the location endpoint in the path (ex. v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The POST request that does not include the location endpoint in the path can only be used when running global triggers. */
       run(request: {
@@ -3505,7 +3505,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RunBuildTriggerRequest
+        body: RunBuildTriggerRequest,
       ): Request<Operation>;
       /** ReceiveTriggerWebhook [Experimental] is called when the API receives a webhook request targeted at a specific trigger. */
       webhook(request: {
@@ -3575,7 +3575,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: HttpBody
+        body: HttpBody,
       ): Request<{}>;
     }
     interface WorkerPoolsResource {
@@ -3643,7 +3643,7 @@ declare namespace gapi.client {
           /** Required. Immutable. The ID to use for the `WorkerPool`, which will become the final component of the resource name. This value should be 1-63 characters, and valid characters are /a-z-/. */
           workerPoolId?: string;
         },
-        body: WorkerPool
+        body: WorkerPool,
       ): Request<Operation>;
       /** Deletes a `WorkerPool`. */
       delete(request?: {
@@ -3800,7 +3800,7 @@ declare namespace gapi.client {
           /** If set, validate the request and preview the response, but do not actually post it. */
           validateOnly?: boolean;
         },
-        body: WorkerPool
+        body: WorkerPool,
       ): Request<Operation>;
     }
     interface LocationsResource {
@@ -3900,7 +3900,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BuildTrigger
+        body: BuildTrigger,
       ): Request<BuildTrigger>;
       /** Deletes a `BuildTrigger` by its project ID and trigger ID. */
       delete(request?: {
@@ -4061,7 +4061,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: BuildTrigger
+        body: BuildTrigger,
       ): Request<BuildTrigger>;
       /** Runs a `BuildTrigger` at a particular source revision. To run a regional or global trigger, use the POST request that includes the location endpoint in the path (ex. v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The POST request that does not include the location endpoint in the path can only be used when running global triggers. */
       run(request: {
@@ -4127,7 +4127,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RepoSource
+        body: RepoSource,
       ): Request<Operation>;
       /** ReceiveTriggerWebhook [Experimental] is called when the API receives a webhook request targeted at a specific trigger. */
       webhook(request: {
@@ -4197,7 +4197,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: HttpBody
+        body: HttpBody,
       ): Request<{}>;
     }
     interface ProjectsResource {
@@ -4263,7 +4263,7 @@ declare namespace gapi.client {
           /** For GitHub Enterprise webhooks, this key is used to associate the webhook request with the GitHubEnterpriseConfig to use for validation. */
           webhookKey?: string;
         },
-        body: HttpBody
+        body: HttpBody,
       ): Request<{}>;
     }
 

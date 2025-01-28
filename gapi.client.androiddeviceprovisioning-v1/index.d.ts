@@ -16,18 +16,18 @@
 declare namespace gapi.client {
   /** Load Android Device Provisioning Partner API v1 */
   function load(
-    urlOrObject: 'https://androiddeviceprovisioning.googleapis.com/$discovery/rest?version=v1'
-  ): Promise<void>;
-  /** @deprecated Please load APIs with discovery documents. */
-  function load(
-    name: 'androiddeviceprovisioning',
-    version: 'v1'
+    urlOrObject: 'https://androiddeviceprovisioning.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(
     name: 'androiddeviceprovisioning',
     version: 'v1',
-    callback: () => any
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'androiddeviceprovisioning',
+    version: 'v1',
+    callback: () => any,
   ): void;
 
   namespace androiddeviceprovisioning {
@@ -456,7 +456,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Configuration
+        body: Configuration,
       ): Request<Configuration>;
       /** Deletes an unused configuration. The API call fails if the customer has devices with the configuration applied. */
       delete(request?: {
@@ -599,7 +599,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Configuration
+        body: Configuration,
       ): Request<Configuration>;
     }
     interface DevicesResource {
@@ -659,7 +659,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomerApplyConfigurationRequest
+        body: CustomerApplyConfigurationRequest,
       ): Request<{}>;
       /** Gets the details of a device. */
       get(request?: {
@@ -775,7 +775,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomerRemoveConfigurationRequest
+        body: CustomerRemoveConfigurationRequest,
       ): Request<{}>;
       /** Unclaims a device from a customer and removes it from zero-touch enrollment. After removing a device, a customer must contact their reseller to register the device into zero-touch enrollment again. */
       unclaim(request: {
@@ -833,7 +833,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CustomerUnclaimDeviceRequest
+        body: CustomerUnclaimDeviceRequest,
       ): Request<{}>;
     }
     interface DpcsResource {
@@ -985,7 +985,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CreateCustomerRequest
+        body: CreateCustomerRequest,
       ): Request<Company>;
       /** Lists the customers that are enrolled to the reseller identified by the `partnerId` argument. This list includes customers that the reseller created and customers that enrolled themselves using the portal. */
       list(request?: {
@@ -1076,7 +1076,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClaimDeviceRequest
+        body: ClaimDeviceRequest,
       ): Request<ClaimDeviceResponse>;
       /** Claims a batch of devices for a customer asynchronously. Adds the devices to zero-touch enrollment. To learn more, read [Long‑running batch operations](/zero-touch/guides/how-it-works#operations). */
       claimAsync(request: {
@@ -1134,7 +1134,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ClaimDevicesRequest
+        body: ClaimDevicesRequest,
       ): Request<Operation>;
       /** Finds devices by hardware identifiers, such as IMEI. */
       findByIdentifier(request: {
@@ -1192,7 +1192,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FindDevicesByDeviceIdentifierRequest
+        body: FindDevicesByDeviceIdentifierRequest,
       ): Request<FindDevicesByDeviceIdentifierResponse>;
       /** Finds devices claimed for customers. The results only contain devices registered to the reseller that's identified by the `partnerId` argument. The customer's devices purchased from other resellers don't appear in the results. */
       findByOwner(request: {
@@ -1250,7 +1250,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: FindDevicesByOwnerRequest
+        body: FindDevicesByOwnerRequest,
       ): Request<FindDevicesByOwnerResponse>;
       /** Gets a device. */
       get(request?: {
@@ -1335,7 +1335,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetDeviceSimLockStateRequest
+        body: GetDeviceSimLockStateRequest,
       ): Request<GetDeviceSimLockStateResponse>;
       /** Updates reseller metadata associated with the device. Android devices only. */
       metadata(request: {
@@ -1397,7 +1397,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateDeviceMetadataRequest
+        body: UpdateDeviceMetadataRequest,
       ): Request<DeviceMetadata>;
       /** Unclaims a device from a customer and removes it from zero-touch enrollment. */
       unclaim(request: {
@@ -1455,7 +1455,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UnclaimDeviceRequest
+        body: UnclaimDeviceRequest,
       ): Request<{}>;
       /** Unclaims a batch of devices for a customer asynchronously. Removes the devices from zero-touch enrollment. To learn more, read [Long‑running batch operations](/zero-touch/guides/how-it-works#operations). */
       unclaimAsync(request: {
@@ -1513,7 +1513,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UnclaimDevicesRequest
+        body: UnclaimDevicesRequest,
       ): Request<Operation>;
       /** Updates the reseller metadata attached to a batch of devices. This method updates devices asynchronously and returns an `Operation` that can be used to track progress. Read [Long‑running batch operations](/zero-touch/guides/how-it-works#operations). Android Devices only. */
       updateMetadataAsync(request: {
@@ -1571,7 +1571,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateDeviceMetadataInBatchRequest
+        body: UpdateDeviceMetadataInBatchRequest,
       ): Request<Operation>;
     }
     interface CustomersResource {

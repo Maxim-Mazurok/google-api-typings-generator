@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://bigquerydatapolicy.googleapis.com/$discovery/rest?version=v1'
+    'https://bigquerydatapolicy.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.bigquerydatapolicy */
 
@@ -47,14 +47,14 @@ gapi.load('client', async () => {
         dataPolicyType: 'Test string',
         name: 'Test string',
         policyTag: 'Test string',
-      }
+      },
     );
     /** Deletes the data policy specified by its resource name. */
     await gapi.client.bigquerydatapolicy.projects.locations.dataPolicies.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Gets the data policy specified by its resource name. */
     await gapi.client.bigquerydatapolicy.projects.locations.dataPolicies.get({
@@ -69,7 +69,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** List all of the data policies in the specified parent project. */
     await gapi.client.bigquerydatapolicy.projects.locations.dataPolicies.list({
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
         dataPolicyType: 'Test string',
         name: 'Test string',
         policyTag: 'Test string',
-      }
+      },
     );
     /** Renames the id (display name) of the specified data policy. */
     await gapi.client.bigquerydatapolicy.projects.locations.dataPolicies.rename(
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
       },
       {
         newDataPolicyId: 'Test string',
-      }
+      },
     );
     /** Sets the IAM policy for the specified data policy. */
     await gapi.client.bigquerydatapolicy.projects.locations.dataPolicies.setIamPolicy(
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
           version: 42,
         },
         updateMask: 'Test string',
-      }
+      },
     );
     /** Returns the caller's permission on the specified data policy resource. */
     await gapi.client.bigquerydatapolicy.projects.locations.dataPolicies.testIamPermissions(
@@ -148,7 +148,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load GDC Virtual API v1 */
   function load(
-    urlOrObject: 'https://gkeonprem.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://gkeonprem.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'gkeonprem', version: 'v1'): Promise<void>;
@@ -1473,7 +1473,7 @@ declare namespace gapi.client {
           /** Validate the request without actually doing any updates. */
           validateOnly?: boolean;
         },
-        body: BareMetalAdminCluster
+        body: BareMetalAdminCluster,
       ): Request<Operation>;
       /** Enrolls an existing bare metal admin cluster to the Anthos On-Prem API within a given project and location. Through enrollment, an existing admin cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster will be expected to be performed through the API. */
       enroll(request: {
@@ -1531,7 +1531,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnrollBareMetalAdminClusterRequest
+        body: EnrollBareMetalAdminClusterRequest,
       ): Request<Operation>;
       /** Gets details of a single bare metal admin cluster. */
       get(request?: {
@@ -1692,7 +1692,7 @@ declare namespace gapi.client {
           /** Validate the request without actually doing any updates. */
           validateOnly?: boolean;
         },
-        body: BareMetalAdminCluster
+        body: BareMetalAdminCluster,
       ): Request<Operation>;
       /** Queries the bare metal admin cluster version config. */
       queryVersionConfig(request?: {
@@ -1751,7 +1751,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1781,7 +1781,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Unenrolls an existing bare metal admin cluster from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients. */
       unenroll(request?: {
@@ -1947,7 +1947,7 @@ declare namespace gapi.client {
           /** If set, only validate the request, but do not actually create the node pool. */
           validateOnly?: boolean;
         },
-        body: BareMetalNodePool
+        body: BareMetalNodePool,
       ): Request<Operation>;
       /** Deletes a single bare metal node pool. */
       delete(request?: {
@@ -2040,7 +2040,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnrollBareMetalNodePoolRequest
+        body: EnrollBareMetalNodePoolRequest,
       ): Request<Operation>;
       /** Gets details of a single bare metal node pool. */
       get(request?: {
@@ -2201,7 +2201,7 @@ declare namespace gapi.client {
           /** Validate the request without actually doing any updates. */
           validateOnly?: boolean;
         },
-        body: BareMetalNodePool
+        body: BareMetalNodePool,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2231,7 +2231,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2261,7 +2261,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Unenrolls a bare metal node pool from Anthos On-Prem API. */
       unenroll(request?: {
@@ -2429,7 +2429,7 @@ declare namespace gapi.client {
           /** Validate the request without actually doing any updates. */
           validateOnly?: boolean;
         },
-        body: BareMetalCluster
+        body: BareMetalCluster,
       ): Request<Operation>;
       /** Deletes a single bare metal Cluster. */
       delete(request?: {
@@ -2524,7 +2524,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnrollBareMetalClusterRequest
+        body: EnrollBareMetalClusterRequest,
       ): Request<Operation>;
       /** Gets details of a single bare metal Cluster. */
       get(request?: {
@@ -2691,7 +2691,7 @@ declare namespace gapi.client {
           /** Validate the request without actually doing any updates. */
           validateOnly?: boolean;
         },
-        body: BareMetalCluster
+        body: BareMetalCluster,
       ): Request<Operation>;
       /** Queries the bare metal user cluster version config. */
       queryVersionConfig(request?: {
@@ -2754,7 +2754,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2784,7 +2784,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Unenrolls an existing bare metal user cluster and its node pools from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters and node pools will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients. */
       unenroll(request?: {
@@ -2881,7 +2881,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -3102,7 +3102,7 @@ declare namespace gapi.client {
           /** Required. User provided identifier that is used as part of the resource name; must conform to RFC-1034 and additionally restrict to lower-cased letters. This comes out roughly to: /^a-z+[a-z0-9]$/ */
           vmwareAdminClusterId?: string;
         },
-        body: VmwareAdminCluster
+        body: VmwareAdminCluster,
       ): Request<Operation>;
       /** Enrolls an existing VMware admin cluster to the Anthos On-Prem API within a given project and location. Through enrollment, an existing admin cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster will be expected to be performed through the API. */
       enroll(request: {
@@ -3160,7 +3160,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnrollVmwareAdminClusterRequest
+        body: EnrollVmwareAdminClusterRequest,
       ): Request<Operation>;
       /** Gets details of a single VMware admin cluster. */
       get(request?: {
@@ -3321,7 +3321,7 @@ declare namespace gapi.client {
           /** Validate the request without actually doing any updates. */
           validateOnly?: boolean;
         },
-        body: VmwareAdminCluster
+        body: VmwareAdminCluster,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -3351,7 +3351,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3381,7 +3381,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Unenrolls an existing VMware admin cluster from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients. */
       unenroll(request?: {
@@ -3607,7 +3607,7 @@ declare namespace gapi.client {
           /** The ID to use for the node pool, which will become the final component of the node pool's resource name. This value must be up to 40 characters and follow RFC-1123 (https://tools.ietf.org/html/rfc1123) format. The value must not be permitted to be a UUID (or UUID-like: anything matching /^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i). */
           vmwareNodePoolId?: string;
         },
-        body: VmwareNodePool
+        body: VmwareNodePool,
       ): Request<Operation>;
       /** Deletes a single VMware node pool. */
       delete(request?: {
@@ -3700,7 +3700,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnrollVmwareNodePoolRequest
+        body: EnrollVmwareNodePoolRequest,
       ): Request<Operation>;
       /** Gets details of a single VMware node pool. */
       get(request?: {
@@ -3857,7 +3857,7 @@ declare namespace gapi.client {
           /** Validate the request without actually doing any updates. */
           validateOnly?: boolean;
         },
-        body: VmwareNodePool
+        body: VmwareNodePool,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -3887,7 +3887,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3917,7 +3917,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Unenrolls a VMware node pool to Anthos On-Prem API */
       unenroll(request?: {
@@ -4023,7 +4023,7 @@ declare namespace gapi.client {
           /** User provided identifier that is used as part of the resource name; This value must be up to 40 characters and follow RFC-1123 (https://tools.ietf.org/html/rfc1123) format. */
           vmwareClusterId?: string;
         },
-        body: VmwareCluster
+        body: VmwareCluster,
       ): Request<Operation>;
       /** Deletes a single VMware Cluster. */
       delete(request?: {
@@ -4118,7 +4118,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EnrollVmwareClusterRequest
+        body: EnrollVmwareClusterRequest,
       ): Request<Operation>;
       /** Gets details of a single VMware Cluster. */
       get(request?: {
@@ -4281,7 +4281,7 @@ declare namespace gapi.client {
           /** Validate the request without actually doing any updates. */
           validateOnly?: boolean;
         },
-        body: VmwareCluster
+        body: VmwareCluster,
       ): Request<Operation>;
       /** Queries the VMware user cluster version config. */
       queryVersionConfig(request?: {
@@ -4344,7 +4344,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -4374,7 +4374,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Unenrolls an existing VMware user cluster and its node pools from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters and node pools will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or UI. */
       unenroll(request?: {

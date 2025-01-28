@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Cloud Key Management Service (KMS) API v1 */
   function load(
-    urlOrObject: 'https://cloudkms.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://cloudkms.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'cloudkms', version: 'v1'): Promise<void>;
@@ -693,7 +693,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AutokeyConfig
+        body: AutokeyConfig,
       ): Request<AutokeyConfig>;
     }
     interface EkmConfigResource {
@@ -754,7 +754,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -784,7 +784,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface EkmConnectionsResource {
@@ -848,7 +848,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EkmConnection
+        body: EkmConnection,
       ): Request<EkmConnection>;
       /** Returns metadata for a given EkmConnection. */
       get(request?: {
@@ -1001,7 +1001,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EkmConnection
+        body: EkmConnection,
       ): Request<EkmConnection>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1031,7 +1031,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1061,7 +1061,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Verifies that Cloud KMS can successfully connect to the external key manager specified by an EkmConnection. If there is an error connecting to the EKM, this method returns a FAILED_PRECONDITION status containing structured information as described at https://cloud.google.com/kms/docs/reference/ekm_errors. */
       verifyConnectivity(request?: {
@@ -1152,7 +1152,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: KeyHandle
+        body: KeyHandle,
       ): Request<Operation>;
       /** Returns the KeyHandle. */
       get(request?: {
@@ -1272,7 +1272,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AsymmetricDecryptRequest
+        body: AsymmetricDecryptRequest,
       ): Request<AsymmetricDecryptResponse>;
       /** Signs data using a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_SIGN, producing a signature that can be verified with the public key retrieved from GetPublicKey. */
       asymmetricSign(request: {
@@ -1330,7 +1330,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: AsymmetricSignRequest
+        body: AsymmetricSignRequest,
       ): Request<AsymmetricSignResponse>;
       /** Create a new CryptoKeyVersion in a CryptoKey. The server will assign the next sequential id. If unset, state will be set to ENABLED. */
       create(request: {
@@ -1388,7 +1388,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CryptoKeyVersion
+        body: CryptoKeyVersion,
       ): Request<CryptoKeyVersion>;
       /** Schedule a CryptoKeyVersion for destruction. Upon calling this method, CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time will be set to the time destroy_scheduled_duration in the future. At that time, the state will automatically change to DESTROYED, and the key material will be irrevocably destroyed. Before the destroy_time is reached, RestoreCryptoKeyVersion may be called to reverse the process. */
       destroy(request: {
@@ -1446,7 +1446,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DestroyCryptoKeyVersionRequest
+        body: DestroyCryptoKeyVersionRequest,
       ): Request<CryptoKeyVersion>;
       /** Returns metadata for a given CryptoKeyVersion. */
       get(request?: {
@@ -1558,7 +1558,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportCryptoKeyVersionRequest
+        body: ImportCryptoKeyVersionRequest,
       ): Request<CryptoKeyVersion>;
       /** Lists CryptoKeyVersions. */
       list(request?: {
@@ -1653,7 +1653,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MacSignRequest
+        body: MacSignRequest,
       ): Request<MacSignResponse>;
       /** Verifies MAC tag using a CryptoKeyVersion with CryptoKey.purpose MAC, and returns a response that indicates whether or not the verification was successful. */
       macVerify(request: {
@@ -1711,7 +1711,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MacVerifyRequest
+        body: MacVerifyRequest,
       ): Request<MacVerifyResponse>;
       /** Update a CryptoKeyVersion's metadata. state may be changed between ENABLED and DISABLED using this method. See DestroyCryptoKeyVersion and RestoreCryptoKeyVersion to move between other states. */
       patch(request: {
@@ -1773,7 +1773,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CryptoKeyVersion
+        body: CryptoKeyVersion,
       ): Request<CryptoKeyVersion>;
       /** Decrypts data that was originally encrypted using a raw cryptographic mechanism. The CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT. */
       rawDecrypt(request: {
@@ -1831,7 +1831,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RawDecryptRequest
+        body: RawDecryptRequest,
       ): Request<RawDecryptResponse>;
       /** Encrypts data using portable cryptographic primitives. Most users should choose Encrypt and Decrypt rather than their raw counterparts. The CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT. */
       rawEncrypt(request: {
@@ -1889,7 +1889,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RawEncryptRequest
+        body: RawEncryptRequest,
       ): Request<RawEncryptResponse>;
       /** Restore a CryptoKeyVersion in the DESTROY_SCHEDULED state. Upon restoration of the CryptoKeyVersion, state will be set to DISABLED, and destroy_time will be cleared. */
       restore(request: {
@@ -1947,7 +1947,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RestoreCryptoKeyVersionRequest
+        body: RestoreCryptoKeyVersionRequest,
       ): Request<CryptoKeyVersion>;
     }
     interface CryptoKeysResource {
@@ -2015,7 +2015,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CryptoKey
+        body: CryptoKey,
       ): Request<CryptoKey>;
       /** Decrypts data that was protected by Encrypt. The CryptoKey.purpose must be ENCRYPT_DECRYPT. */
       decrypt(request: {
@@ -2073,7 +2073,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DecryptRequest
+        body: DecryptRequest,
       ): Request<DecryptResponse>;
       /** Encrypts data, so that it can only be recovered by a call to Decrypt. The CryptoKey.purpose must be ENCRYPT_DECRYPT. */
       encrypt(request: {
@@ -2131,7 +2131,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EncryptRequest
+        body: EncryptRequest,
       ): Request<EncryptResponse>;
       /** Returns metadata for a given CryptoKey, as well as its primary CryptoKeyVersion. */
       get(request?: {
@@ -2286,7 +2286,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CryptoKey
+        body: CryptoKey,
       ): Request<CryptoKey>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2316,7 +2316,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2346,7 +2346,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       /** Update the version of a CryptoKey that will be used in Encrypt. Returns an error if called on a key whose purpose is not ENCRYPT_DECRYPT. */
       updatePrimaryVersion(request: {
@@ -2404,7 +2404,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: UpdateCryptoKeyPrimaryVersionRequest
+        body: UpdateCryptoKeyPrimaryVersionRequest,
       ): Request<CryptoKey>;
       cryptoKeyVersions: CryptoKeyVersionsResource;
     }
@@ -2469,7 +2469,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: ImportJob
+        body: ImportJob,
       ): Request<ImportJob>;
       /** Returns metadata for a given ImportJob. */
       get(request?: {
@@ -2590,7 +2590,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2620,7 +2620,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface KeyRingsResource {
@@ -2684,7 +2684,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: KeyRing
+        body: KeyRing,
       ): Request<KeyRing>;
       /** Returns metadata for a given KeyRing. */
       get(request?: {
@@ -2805,7 +2805,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2835,7 +2835,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       cryptoKeys: CryptoKeysResource;
       importJobs: ImportJobsResource;
@@ -2926,7 +2926,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GenerateRandomBytesRequest
+        body: GenerateRandomBytesRequest,
       ): Request<GenerateRandomBytesResponse>;
       /** Gets information about a location. */
       get(request?: {
@@ -3075,7 +3075,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: EkmConfig
+        body: EkmConfig,
       ): Request<EkmConfig>;
       ekmConfig: EkmConfigResource;
       ekmConnections: EkmConnectionsResource;

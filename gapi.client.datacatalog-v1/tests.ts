@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://datacatalog.googleapis.com/$discovery/rest?version=v1'
+    'https://datacatalog.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.datacatalog */
 
@@ -48,7 +48,7 @@ gapi.load('client', async () => {
           restrictedLocations: ['Test string'],
           starredOnly: true,
         },
-      }
+      },
     );
     /** Gets an entry by its target resource name. The resource name comes from the source Google Cloud Platform service. */
     await gapi.client.datacatalog.entries.lookup({
@@ -66,7 +66,7 @@ gapi.load('client', async () => {
     await gapi.client.datacatalog.organizations.locations.retrieveEffectiveConfig(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Sets the configuration related to the migration to Dataplex for an organization or project. */
     await gapi.client.datacatalog.organizations.locations.setConfig(
@@ -76,7 +76,7 @@ gapi.load('client', async () => {
       {
         catalogUiExperience: 'Test string',
         tagTemplateMigration: 'Test string',
-      }
+      },
     );
     /** Retrieves the effective configuration related to the migration from Data Catalog to Dataplex for a specific organization or project. If there is no specific configuration set for the resource, the setting is checked hierarchicahlly through the ancestors of the resource, starting from the resource itself. */
     await gapi.client.datacatalog.projects.locations.retrieveEffectiveConfig({
@@ -90,7 +90,7 @@ gapi.load('client', async () => {
       {
         catalogUiExperience: 'Test string',
         tagTemplateMigration: 'Test string',
-      }
+      },
     );
     /** Creates an entry group. An entry group contains logically related entries together with [Cloud Identity and Access Management](/data-catalog/docs/concepts/iam) policies. These policies specify users who can create, edit, and view entries within entry groups. Data Catalog automatically creates entry groups with names that start with the `@` symbol for the following resources: * BigQuery entries (`@bigquery`) * Pub/Sub topics (`@pubsub`) * Dataproc Metastore services (`@dataproc_metastore_{SERVICE_NAME_HASH}`) You can create your own entry groups for Cloud Storage fileset entries and custom entries together with the corresponding IAM policies. User-created entry groups can't contain the `@` symbol, it is reserved for automatically created groups. Entry groups, like entries, can be searched. A maximum of 10,000 entry groups may be created per organization across all locations. You must enable the Data Catalog API in the project identified by the `parent` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
     await gapi.client.datacatalog.projects.locations.entryGroups.create(
@@ -108,7 +108,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         transferredToDataplex: true,
-      }
+      },
     );
     /** Deletes an entry group. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
     await gapi.client.datacatalog.projects.locations.entryGroups.delete({
@@ -129,7 +129,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists entry groups. */
     await gapi.client.datacatalog.projects.locations.entryGroups.list({
@@ -153,7 +153,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         transferredToDataplex: true,
-      }
+      },
     );
     /** Sets an access control policy for a resource. Replaces any existing policy. Supported resources are: - Tag templates - Entry groups Note: This method sets policies only within Data Catalog and can't be used to manage policies in BigQuery, Pub/Sub, Dataproc Metastore, and any external Google Cloud Platform resources synced with the Data Catalog. To call this method, you must have the following Google IAM permissions: - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups. */
     await gapi.client.datacatalog.projects.locations.entryGroups.setIamPolicy(
@@ -177,7 +177,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Gets your permissions on a resource. Returns an empty set of permissions if the resource doesn't exist. Supported resources are: - Tag templates - Entry groups Note: This method gets policies only within Data Catalog and can't be used to get policies from BigQuery, Pub/Sub, Dataproc Metastore, and any external Google Cloud Platform resources ingested into Data Catalog. No Google IAM permissions are required to call this method. */
     await gapi.client.datacatalog.projects.locations.entryGroups.testIamPermissions(
@@ -186,7 +186,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates an entry. You can create entries only with 'FILESET', 'CLUSTER', 'DATA_STREAM', or custom types. Data Catalog automatically creates entries with other types during metadata ingestion from integrated systems. You must enable the Data Catalog API in the project identified by the `parent` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). An entry group can have a maximum of 100,000 entries. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.create(
@@ -442,13 +442,13 @@ gapi.load('client', async () => {
         },
         userSpecifiedSystem: 'Test string',
         userSpecifiedType: 'Test string',
-      }
+      },
     );
     /** Deletes an existing entry. You can delete only the entries created by the CreateEntry method. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets an entry. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.get({
@@ -463,7 +463,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Imports entries from a source, such as data previously dumped into a Cloud Storage bucket, into Data Catalog. Import of entries is a sync operation that reconciles the state of the third-party system with the Data Catalog. `ImportEntries` accepts source data snapshots of a third-party system. Snapshot should be delivered as a .wire or base65-encoded .txt file containing a sequence of Protocol Buffer messages of DumpItem type. `ImportEntries` returns a long-running operation resource that can be queried with Operations.GetOperation to return ImportEntriesMetadata and an ImportEntriesResponse message. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.import(
@@ -473,7 +473,7 @@ gapi.load('client', async () => {
       {
         gcsBucketPath: 'Test string',
         jobId: 'Test string',
-      }
+      },
     );
     /** Lists entries. Note: Currently, this method can list only custom entries. To get a list of both custom and automatically created entries, use SearchCatalog. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.list({
@@ -496,7 +496,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Modifies entry overview, part of the business context of an Entry. To call this method, you must have the `datacatalog.entries.updateOverview` IAM permission on the corresponding project. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.modifyEntryOverview(
@@ -507,7 +507,7 @@ gapi.load('client', async () => {
         entryOverview: {
           overview: 'Test string',
         },
-      }
+      },
     );
     /** Updates an existing entry. You must enable the Data Catalog API in the project identified by the `entry.name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.patch(
@@ -763,14 +763,14 @@ gapi.load('client', async () => {
         },
         userSpecifiedSystem: 'Test string',
         userSpecifiedType: 'Test string',
-      }
+      },
     );
     /** Marks an Entry as starred by the current user. Starring information is private to each user. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.star(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Gets your permissions on a resource. Returns an empty set of permissions if the resource doesn't exist. Supported resources are: - Tag templates - Entry groups Note: This method gets policies only within Data Catalog and can't be used to get policies from BigQuery, Pub/Sub, Dataproc Metastore, and any external Google Cloud Platform resources ingested into Data Catalog. No Google IAM permissions are required to call this method. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.testIamPermissions(
@@ -779,14 +779,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Marks an Entry as NOT starred by the current user. Starring information is private to each user. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.unstar(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Creates a tag and assigns it to: * An Entry if the method name is `projects.locations.entryGroups.entries.tags.create`. * Or EntryGroupif the method name is `projects.locations.entryGroups.tags.create`. Note: The project identified by the `parent` parameter for the [tag] (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries.tags/create#path-parameters) and the [tag template] (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.tagTemplates/create#path-parameters) used to create the tag must be in the same organization. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.tags.create(
@@ -813,13 +813,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         template: 'Test string',
         templateDisplayName: 'Test string',
-      }
+      },
     );
     /** Deletes a tag. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.tags.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Lists tags assigned to an Entry. The columns in the response are lowercased. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.tags.list(
@@ -827,7 +827,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates an existing tag. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.tags.patch(
@@ -855,7 +855,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         template: 'Test string',
         templateDisplayName: 'Test string',
-      }
+      },
     );
     /** `ReconcileTags` creates or updates a list of tags on the entry. If the ReconcileTagsRequest.force_delete_missing parameter is set, the operation deletes tags not included in the input tag list. `ReconcileTags` returns a long-running operation resource that can be queried with Operations.GetOperation to return ReconcileTagsMetadata and a ReconcileTagsResponse message. */
     await gapi.client.datacatalog.projects.locations.entryGroups.entries.tags.reconcile(
@@ -888,7 +888,7 @@ gapi.load('client', async () => {
           },
         ],
         tagTemplate: 'Test string',
-      }
+      },
     );
     /** Creates a tag and assigns it to: * An Entry if the method name is `projects.locations.entryGroups.entries.tags.create`. * Or EntryGroupif the method name is `projects.locations.entryGroups.tags.create`. Note: The project identified by the `parent` parameter for the [tag] (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries.tags/create#path-parameters) and the [tag template] (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.tagTemplates/create#path-parameters) used to create the tag must be in the same organization. */
     await gapi.client.datacatalog.projects.locations.entryGroups.tags.create(
@@ -915,7 +915,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         template: 'Test string',
         templateDisplayName: 'Test string',
-      }
+      },
     );
     /** Deletes a tag. */
     await gapi.client.datacatalog.projects.locations.entryGroups.tags.delete({
@@ -953,7 +953,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         template: 'Test string',
         templateDisplayName: 'Test string',
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.datacatalog.projects.locations.operations.cancel({
@@ -1004,7 +1004,7 @@ gapi.load('client', async () => {
         },
         isPubliclyReadable: true,
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a tag template and all tags that use it. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
     await gapi.client.datacatalog.projects.locations.tagTemplates.delete({
@@ -1024,7 +1024,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Updates a tag template. You can't update template fields with this method. These fields are separate resources with their own create, update, and delete methods. You must enable the Data Catalog API in the project identified by the `tag_template.name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
     await gapi.client.datacatalog.projects.locations.tagTemplates.patch(
@@ -1056,7 +1056,7 @@ gapi.load('client', async () => {
         },
         isPubliclyReadable: true,
         name: 'Test string',
-      }
+      },
     );
     /** Sets an access control policy for a resource. Replaces any existing policy. Supported resources are: - Tag templates - Entry groups Note: This method sets policies only within Data Catalog and can't be used to manage policies in BigQuery, Pub/Sub, Dataproc Metastore, and any external Google Cloud Platform resources synced with the Data Catalog. To call this method, you must have the following Google IAM permissions: - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups. */
     await gapi.client.datacatalog.projects.locations.tagTemplates.setIamPolicy(
@@ -1080,7 +1080,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Gets your permissions on a resource. Returns an empty set of permissions if the resource doesn't exist. Supported resources are: - Tag templates - Entry groups Note: This method gets policies only within Data Catalog and can't be used to get policies from BigQuery, Pub/Sub, Dataproc Metastore, and any external Google Cloud Platform resources ingested into Data Catalog. No Google IAM permissions are required to call this method. */
     await gapi.client.datacatalog.projects.locations.tagTemplates.testIamPermissions(
@@ -1089,7 +1089,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a field in a tag template. You must enable the Data Catalog API in the project identified by the `parent` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
     await gapi.client.datacatalog.projects.locations.tagTemplates.fields.create(
@@ -1113,14 +1113,14 @@ gapi.load('client', async () => {
           },
           primitiveType: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a field in a tag template and all uses of this field from the tags based on this template. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
     await gapi.client.datacatalog.projects.locations.tagTemplates.fields.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Updates a field in a tag template. You can't update the field type with this method. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
     await gapi.client.datacatalog.projects.locations.tagTemplates.fields.patch(
@@ -1144,7 +1144,7 @@ gapi.load('client', async () => {
           },
           primitiveType: 'Test string',
         },
-      }
+      },
     );
     /** Renames a field in a tag template. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
     await gapi.client.datacatalog.projects.locations.tagTemplates.fields.rename(
@@ -1153,7 +1153,7 @@ gapi.load('client', async () => {
       },
       {
         newTagTemplateFieldId: 'Test string',
-      }
+      },
     );
     /** Renames an enum value in a tag template. Within a single enum field, enum values must be unique. */
     await gapi.client.datacatalog.projects.locations.tagTemplates.fields.enumValues.rename(
@@ -1162,7 +1162,7 @@ gapi.load('client', async () => {
       },
       {
         newEnumValueDisplayName: 'Test string',
-      }
+      },
     );
     /** Creates a taxonomy in a specified project. The taxonomy is initially empty, that is, it doesn't contain policy tags. */
     await gapi.client.datacatalog.projects.locations.taxonomies.create(
@@ -1184,7 +1184,7 @@ gapi.load('client', async () => {
           expireTime: 'Test string',
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Deletes a taxonomy, including all policy tags in this taxonomy, their associated policies, and the policy tags references from BigQuery columns. */
     await gapi.client.datacatalog.projects.locations.taxonomies.delete({
@@ -1209,7 +1209,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Creates new taxonomies (including their policy tags) in a given project by importing from inlined or cross-regional sources. For a cross-regional source, new taxonomies are created by copying from a source in another region. For an inlined source, taxonomies and policy tags are created in bulk using nested protocol buffer structures. */
     await gapi.client.datacatalog.projects.locations.taxonomies.import(
@@ -1237,7 +1237,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Lists all taxonomies in a project in a particular location that you have a permission to view. */
     await gapi.client.datacatalog.projects.locations.taxonomies.list({
@@ -1267,7 +1267,7 @@ gapi.load('client', async () => {
           expireTime: 'Test string',
           updateTime: 'Test string',
         },
-      }
+      },
     );
     /** Replaces (updates) a taxonomy and all its policy tags. The taxonomy and its entire hierarchy of policy tags must be represented literally by `SerializedTaxonomy` and the nested `SerializedPolicyTag` messages. This operation automatically does the following: - Deletes the existing policy tags that are missing from the `SerializedPolicyTag`. - Creates policy tags that don't have resource names. They are considered new. - Updates policy tags with valid resources names accordingly. */
     await gapi.client.datacatalog.projects.locations.taxonomies.replace(
@@ -1288,7 +1288,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-      }
+      },
     );
     /** Sets the IAM policy for a policy tag or a taxonomy. */
     await gapi.client.datacatalog.projects.locations.taxonomies.setIamPolicy(
@@ -1312,7 +1312,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns your permissions on a specified policy tag or taxonomy. */
     await gapi.client.datacatalog.projects.locations.taxonomies.testIamPermissions(
@@ -1321,7 +1321,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a policy tag in a taxonomy. */
     await gapi.client.datacatalog.projects.locations.taxonomies.policyTags.create(
@@ -1334,13 +1334,13 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         parentPolicyTag: 'Test string',
-      }
+      },
     );
     /** Deletes a policy tag together with the following: * All of its descendant policy tags, if any * Policies associated with the policy tag and its descendants * References from BigQuery table schema of the policy tag and its descendants */
     await gapi.client.datacatalog.projects.locations.taxonomies.policyTags.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets a policy tag. */
     await gapi.client.datacatalog.projects.locations.taxonomies.policyTags.get({
@@ -1355,7 +1355,7 @@ gapi.load('client', async () => {
         options: {
           requestedPolicyVersion: 42,
         },
-      }
+      },
     );
     /** Lists all policy tags in a taxonomy. */
     await gapi.client.datacatalog.projects.locations.taxonomies.policyTags.list(
@@ -1363,7 +1363,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Updates a policy tag, including its display name, description, and parent policy tag. */
     await gapi.client.datacatalog.projects.locations.taxonomies.policyTags.patch(
@@ -1377,7 +1377,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         parentPolicyTag: 'Test string',
-      }
+      },
     );
     /** Sets the IAM policy for a policy tag or a taxonomy. */
     await gapi.client.datacatalog.projects.locations.taxonomies.policyTags.setIamPolicy(
@@ -1401,7 +1401,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns your permissions on a specified policy tag or taxonomy. */
     await gapi.client.datacatalog.projects.locations.taxonomies.policyTags.testIamPermissions(
@@ -1410,7 +1410,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

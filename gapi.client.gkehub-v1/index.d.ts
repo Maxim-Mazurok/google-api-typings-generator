@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load GKE Hub API v1 */
   function load(
-    urlOrObject: 'https://gkehub.googleapis.com/$discovery/rest?version=v1'
+    urlOrObject: 'https://gkehub.googleapis.com/$discovery/rest?version=v1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'gkehub', version: 'v1'): Promise<void>;
@@ -1472,7 +1472,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Feature
+        body: Feature,
       ): Request<Operation>;
       /** Removes a Feature. */
       delete(request?: {
@@ -1664,7 +1664,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Feature
+        body: Feature,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -1694,7 +1694,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -1724,7 +1724,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface FleetsResource {
@@ -1784,7 +1784,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Fleet
+        body: Fleet,
       ): Request<Operation>;
       /** Removes a Fleet. There must be no memberships remaining in the Fleet. */
       delete(request?: {
@@ -1931,7 +1931,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Fleet
+        body: Fleet,
       ): Request<Operation>;
     }
     interface BindingsResource {
@@ -1995,7 +1995,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MembershipBinding
+        body: MembershipBinding,
       ): Request<Operation>;
       /** Deletes a MembershipBinding. */
       delete(request?: {
@@ -2144,7 +2144,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: MembershipBinding
+        body: MembershipBinding,
       ): Request<Operation>;
     }
     interface RbacrolebindingsResource {
@@ -2208,7 +2208,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RBACRoleBinding
+        body: RBACRoleBinding,
       ): Request<Operation>;
       /** Deletes a Membership RBACRoleBinding. */
       delete(request?: {
@@ -2297,7 +2297,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RBACRoleBinding
+        body: RBACRoleBinding,
       ): Request<GenerateMembershipRBACRoleBindingYAMLResponse>;
       /** Returns the details of a Membership RBACRoleBinding. */
       get(request?: {
@@ -2417,7 +2417,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RBACRoleBinding
+        body: RBACRoleBinding,
       ): Request<Operation>;
     }
     interface MembershipsResource {
@@ -2485,7 +2485,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Membership
+        body: Membership,
       ): Request<Operation>;
       /** Removes a Membership. **This is currently only supported for GKE clusters on Google Cloud**. To unregister other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster. */
       delete(request?: {
@@ -2712,7 +2712,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Membership
+        body: Membership,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -2742,7 +2742,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -2772,7 +2772,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       bindings: BindingsResource;
       rbacrolebindings: RbacrolebindingsResource;
@@ -2834,7 +2834,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: CancelOperationRequest
+        body: CancelOperationRequest,
       ): Request<{}>;
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
@@ -2985,7 +2985,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Namespace
+        body: Namespace,
       ): Request<Operation>;
       /** Deletes a fleet namespace. */
       delete(request?: {
@@ -3132,7 +3132,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Namespace
+        body: Namespace,
       ): Request<Operation>;
     }
     interface RbacrolebindingsResource {
@@ -3196,7 +3196,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RBACRoleBinding
+        body: RBACRoleBinding,
       ): Request<Operation>;
       /** Deletes a Scope RBACRoleBinding. */
       delete(request?: {
@@ -3343,7 +3343,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: RBACRoleBinding
+        body: RBACRoleBinding,
       ): Request<Operation>;
     }
     interface ScopesResource {
@@ -3407,7 +3407,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Scope
+        body: Scope,
       ): Request<Operation>;
       /** Deletes a Scope. */
       delete(request?: {
@@ -3647,7 +3647,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Scope
+        body: Scope,
       ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
@@ -3677,7 +3677,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
       testIamPermissions(
@@ -3707,7 +3707,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       namespaces: NamespacesResource;
       rbacrolebindings: RbacrolebindingsResource;

@@ -9,7 +9,7 @@ gapi.load('client', async () => {
   /** now we can use gapi.client */
 
   await gapi.client.load(
-    'https://apigeeregistry.googleapis.com/$discovery/rest?version=v1'
+    'https://apigeeregistry.googleapis.com/$discovery/rest?version=v1',
   );
   /** now we can use gapi.client.apigeeregistry */
 
@@ -63,7 +63,7 @@ gapi.load('client', async () => {
         recommendedDeployment: 'Test string',
         recommendedVersion: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes a specified API and all of the resources that it owns. */
     await gapi.client.apigeeregistry.projects.locations.apis.delete({
@@ -109,7 +109,7 @@ gapi.load('client', async () => {
         recommendedDeployment: 'Test string',
         recommendedVersion: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.apigeeregistry.projects.locations.apis.setIamPolicy(
@@ -133,7 +133,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apigeeregistry.projects.locations.apis.testIamPermissions(
@@ -142,7 +142,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.artifacts.create(
@@ -164,7 +164,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         sizeBytes: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.artifacts.delete({
@@ -178,14 +178,14 @@ gapi.load('client', async () => {
     await gapi.client.apigeeregistry.projects.locations.apis.artifacts.getContents(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.apigeeregistry.projects.locations.apis.artifacts.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Returns matching artifacts. */
     await gapi.client.apigeeregistry.projects.locations.apis.artifacts.list({
@@ -214,7 +214,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         sizeBytes: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.apigeeregistry.projects.locations.apis.artifacts.setIamPolicy(
@@ -238,7 +238,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apigeeregistry.projects.locations.apis.artifacts.testIamPermissions(
@@ -247,7 +247,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a specified deployment. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.create(
@@ -274,20 +274,20 @@ gapi.load('client', async () => {
         revisionCreateTime: 'Test string',
         revisionId: 'Test string',
         revisionUpdateTime: 'Test string',
-      }
+      },
     );
     /** Removes a specified deployment, all revisions, and all child resources (e.g., artifacts). */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a revision of a deployment. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.deleteRevision(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a specified deployment. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.get({
@@ -298,7 +298,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Returns matching deployments. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.list({
@@ -315,7 +315,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Used to modify a specified deployment. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.patch(
@@ -343,7 +343,7 @@ gapi.load('client', async () => {
         revisionCreateTime: 'Test string',
         revisionId: 'Test string',
         revisionUpdateTime: 'Test string',
-      }
+      },
     );
     /** Sets the current revision to a specified prior revision. Note that this creates a new revision with a new revision ID. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.rollback(
@@ -352,7 +352,7 @@ gapi.load('client', async () => {
       },
       {
         revisionId: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.setIamPolicy(
@@ -376,7 +376,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Adds a tag to a specified revision of a deployment. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.tagRevision(
@@ -385,7 +385,7 @@ gapi.load('client', async () => {
       },
       {
         tag: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.testIamPermissions(
@@ -394,7 +394,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.artifacts.create(
@@ -416,25 +416,25 @@ gapi.load('client', async () => {
         name: 'Test string',
         sizeBytes: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.artifacts.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.artifacts.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the contents of a specified artifact. If artifacts are stored with GZip compression, the default behavior is to return the artifact uncompressed (the mime_type response field indicates the exact format returned). */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.artifacts.getContents(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns matching artifacts. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.artifacts.list(
@@ -444,7 +444,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Used to replace a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.deployments.artifacts.replaceArtifact(
@@ -465,7 +465,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         sizeBytes: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Creates a specified version. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.create(
@@ -487,7 +487,7 @@ gapi.load('client', async () => {
         primarySpec: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes a specified version and all of the resources that it owns. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.delete({
@@ -503,7 +503,7 @@ gapi.load('client', async () => {
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Returns matching versions. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.list({
@@ -534,7 +534,7 @@ gapi.load('client', async () => {
         primarySpec: 'Test string',
         state: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.setIamPolicy(
@@ -558,7 +558,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.testIamPermissions(
@@ -567,7 +567,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.artifacts.create(
@@ -589,32 +589,32 @@ gapi.load('client', async () => {
         name: 'Test string',
         sizeBytes: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.artifacts.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.artifacts.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the contents of a specified artifact. If artifacts are stored with GZip compression, the default behavior is to return the artifact uncompressed (the mime_type response field indicates the exact format returned). */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.artifacts.getContents(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.artifacts.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Returns matching artifacts. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.artifacts.list(
@@ -624,7 +624,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Used to replace a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.artifacts.replaceArtifact(
@@ -645,7 +645,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         sizeBytes: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.artifacts.setIamPolicy(
@@ -669,7 +669,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.artifacts.testIamPermissions(
@@ -678,7 +678,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a specified spec. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.create(
@@ -705,39 +705,39 @@ gapi.load('client', async () => {
         revisionUpdateTime: 'Test string',
         sizeBytes: 42,
         sourceUri: 'Test string',
-      }
+      },
     );
     /** Removes a specified spec, all revisions, and all child resources (e.g., artifacts). */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.delete(
       {
         force: true,
         name: 'Test string',
-      }
+      },
     );
     /** Deletes a revision of a spec. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.deleteRevision(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a specified spec. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the contents of a specified spec. If specs are stored with GZip compression, the default behavior is to return the spec uncompressed (the mime_type response field indicates the exact format returned). */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.getContents(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Returns matching specs. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.list(
@@ -747,7 +747,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Lists all revisions of a spec. Revisions are returned in descending order of revision creation time. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.listRevisions(
@@ -756,7 +756,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-      }
+      },
     );
     /** Used to modify a specified spec. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.patch(
@@ -784,7 +784,7 @@ gapi.load('client', async () => {
         revisionUpdateTime: 'Test string',
         sizeBytes: 42,
         sourceUri: 'Test string',
-      }
+      },
     );
     /** Sets the current revision to a specified prior revision. Note that this creates a new revision with a new revision ID. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.rollback(
@@ -793,7 +793,7 @@ gapi.load('client', async () => {
       },
       {
         revisionId: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.setIamPolicy(
@@ -817,7 +817,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Adds a tag to a specified revision of a spec. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.tagRevision(
@@ -826,7 +826,7 @@ gapi.load('client', async () => {
       },
       {
         tag: 'Test string',
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.testIamPermissions(
@@ -835,7 +835,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.artifacts.create(
@@ -857,32 +857,32 @@ gapi.load('client', async () => {
         name: 'Test string',
         sizeBytes: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.artifacts.delete(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.artifacts.get(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Returns the contents of a specified artifact. If artifacts are stored with GZip compression, the default behavior is to return the artifact uncompressed (the mime_type response field indicates the exact format returned). */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.artifacts.getContents(
       {
         name: 'Test string',
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.artifacts.getIamPolicy(
       {
         'options.requestedPolicyVersion': 42,
         resource: 'Test string',
-      }
+      },
     );
     /** Returns matching artifacts. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.artifacts.list(
@@ -892,7 +892,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-      }
+      },
     );
     /** Used to replace a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.artifacts.replaceArtifact(
@@ -913,7 +913,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         sizeBytes: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.artifacts.setIamPolicy(
@@ -937,7 +937,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apigeeregistry.projects.locations.apis.versions.specs.artifacts.testIamPermissions(
@@ -946,7 +946,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Creates a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.artifacts.create(
@@ -968,7 +968,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         sizeBytes: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Removes a specified artifact. */
     await gapi.client.apigeeregistry.projects.locations.artifacts.delete({
@@ -1014,7 +1014,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         sizeBytes: 42,
         updateTime: 'Test string',
-      }
+      },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.apigeeregistry.projects.locations.artifacts.setIamPolicy(
@@ -1038,7 +1038,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apigeeregistry.projects.locations.artifacts.testIamPermissions(
@@ -1047,7 +1047,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.apigeeregistry.projects.locations.documents.getIamPolicy({
@@ -1076,7 +1076,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apigeeregistry.projects.locations.documents.testIamPermissions(
@@ -1085,7 +1085,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Provisions instance resources for the Registry. */
     await gapi.client.apigeeregistry.projects.locations.instances.create(
@@ -1108,7 +1108,7 @@ gapi.load('client', async () => {
         state: 'Test string',
         stateMessage: 'Test string',
         updateTime: 'Test string',
-      }
+      },
     );
     /** Deletes the Registry instance. */
     await gapi.client.apigeeregistry.projects.locations.instances.delete({
@@ -1145,7 +1145,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apigeeregistry.projects.locations.instances.testIamPermissions(
@@ -1154,14 +1154,14 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
     await gapi.client.apigeeregistry.projects.locations.operations.cancel(
       {
         name: 'Test string',
       },
-      {}
+      {},
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.apigeeregistry.projects.locations.operations.delete({
@@ -1205,7 +1205,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
-      }
+      },
     );
     /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
     await gapi.client.apigeeregistry.projects.locations.runtime.testIamPermissions(
@@ -1214,7 +1214,7 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
-      }
+      },
     );
   }
 });

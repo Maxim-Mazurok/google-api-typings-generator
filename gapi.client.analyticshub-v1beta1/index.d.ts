@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Analytics Hub API v1beta1 */
   function load(
-    urlOrObject: 'https://analyticshub.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://analyticshub.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'analyticshub', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'analyticshub',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace analyticshub {
@@ -368,7 +368,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Listing
+        body: Listing,
       ): Request<Listing>;
       /** Deletes a listing. */
       delete(request?: {
@@ -452,7 +452,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists all listings in a given project and location. */
       list(request?: {
@@ -545,7 +545,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Listing
+        body: Listing,
       ): Request<Listing>;
       /** Sets the IAM policy. */
       setIamPolicy(
@@ -575,7 +575,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Subscribes to a listing. Currently, with Analytics Hub, you can create listings that reference only BigQuery datasets. Upon subscription to a listing for a BigQuery dataset, Analytics Hub creates a linked dataset in the subscriber's project. */
       subscribe(request: {
@@ -633,7 +633,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SubscribeListingRequest
+        body: SubscribeListingRequest,
       ): Request<{}>;
       /** Returns the permissions that a caller has. */
       testIamPermissions(
@@ -663,7 +663,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
     }
     interface DataExchangesResource {
@@ -727,7 +727,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DataExchange
+        body: DataExchange,
       ): Request<DataExchange>;
       /** Deletes an existing data exchange. */
       delete(request?: {
@@ -811,7 +811,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: GetIamPolicyRequest
+        body: GetIamPolicyRequest,
       ): Request<Policy>;
       /** Lists all data exchanges in a given project and location. */
       list(request?: {
@@ -904,7 +904,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: DataExchange
+        body: DataExchange,
       ): Request<DataExchange>;
       /** Sets the IAM policy. */
       setIamPolicy(
@@ -934,7 +934,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: SetIamPolicyRequest
+        body: SetIamPolicyRequest,
       ): Request<Policy>;
       /** Returns the permissions that a caller has. */
       testIamPermissions(
@@ -964,7 +964,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: TestIamPermissionsRequest
+        body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
       listings: ListingsResource;
     }

@@ -16,7 +16,7 @@
 declare namespace gapi.client {
   /** Load Serverless VPC Access API v1beta1 */
   function load(
-    urlOrObject: 'https://vpcaccess.googleapis.com/$discovery/rest?version=v1beta1'
+    urlOrObject: 'https://vpcaccess.googleapis.com/$discovery/rest?version=v1beta1',
   ): Promise<void>;
   /** @deprecated Please load APIs with discovery documents. */
   function load(name: 'vpcaccess', version: 'v1beta1'): Promise<void>;
@@ -24,7 +24,7 @@ declare namespace gapi.client {
   function load(
     name: 'vpcaccess',
     version: 'v1beta1',
-    callback: () => any
+    callback: () => any,
   ): void;
 
   namespace vpcaccess {
@@ -203,7 +203,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Connector
+        body: Connector,
       ): Request<Operation>;
       /** Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist. */
       delete(request?: {
@@ -350,7 +350,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        body: Connector
+        body: Connector,
       ): Request<Operation>;
     }
     interface OperationsResource {
