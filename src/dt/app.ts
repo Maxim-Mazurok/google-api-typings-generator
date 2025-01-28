@@ -85,7 +85,7 @@ export class App {
       ['tsconfig.json', '.npmIgnore'.toLowerCase()].map(fileName =>
         copyFile(
           path.join(
-            __dirname,
+            import.meta.dirname,
             'template',
             `template.${fileName}`, // can't use just fileName, because tsconfig.json will act like a real config for the index.ts inside of template folder
           ),

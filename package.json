@@ -21,11 +21,10 @@
     "cspell": "npx tsx bin/cspell.ts",
     "dtslint": "node node_modules/@definitelytyped/dtslint/",
     "prefix": "prettier --write .",
-    "fix": "gts fix && npm run sort",
+    "fix": "gts fix",
     "postinstall": "patch-package",
     "lint": "npx tsx bin/lint.ts ./types",
     "ncu": "npx -y npm-check-updates -u --doctor",
-    "sort": "npx -y sort-package-json",
     "start": "npx tsx src/cli.ts --out ./types",
     "poststart": "prettier --ignore-path --write types/**/*",
     "start-dt": "npx -y rimraf ~/DefinitelyTyped/types/gapi.client.* && npx tsx src/dt/cli.ts --out ~/DefinitelyTyped/types",
@@ -35,8 +34,8 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@definitelytyped/dtslint": "0.2.28",
-    "@definitelytyped/eslint-plugin": "0.1.22",
+    "@definitelytyped/dtslint": "0.2.10",
+    "@definitelytyped/eslint-plugin": "0.1.4",
     "@expo/spawn-async": "^1.7.2",
     "@octokit/rest": "^21.1.0",
     "@types/dedent": "^0.7.2",

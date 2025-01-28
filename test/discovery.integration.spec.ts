@@ -81,7 +81,10 @@ describe('discovery items', () => {
   let discoveryItems: DiscoveryItem[] = [];
 
   beforeAll(async () => {
-    const cacheFilePath = join(__dirname, 'discovery-items-cache.json');
+    const cacheFilePath = join(
+      import.meta.dirname,
+      'discovery-items-cache.json',
+    );
     if (
       existsSync(cacheFilePath) &&
       Date.now() - statSync(cacheFilePath).mtimeMs < 60 * 60 * 1000 // 1 hour

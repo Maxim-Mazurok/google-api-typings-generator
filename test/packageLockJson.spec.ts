@@ -2,13 +2,13 @@ import {readFileSync} from 'node:fs';
 import path from 'node:path';
 
 const packageLockJson = readFileSync(
-  path.resolve(path.join(__dirname, '..', 'package-lock.json')),
+  path.resolve(path.join(import.meta.dirname, '..', 'package-lock.json')),
   'utf-8',
 );
 
 const packageJson = JSON.parse(
   readFileSync(
-    path.resolve(path.join(__dirname, '..', 'package.json')),
+    path.resolve(path.join(import.meta.dirname, '..', 'package.json')),
     'utf-8',
   ),
 );

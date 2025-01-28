@@ -38,7 +38,7 @@ console.log(
 );
 
 // remove `types/` from .eslintignore file, otherwise new eslint-based dtslint won't be able to lint the files
-const eslintIgnorePath = join(__dirname, '..', '.eslintignore');
+const eslintIgnorePath = join(import.meta.dirname, '..', '.eslintignore');
 const originalEslintIgnore = readFileSync(eslintIgnorePath, 'utf8');
 const newEslintIgnore = originalEslintIgnore.replace('types/', '');
 console.log(`Updating ${eslintIgnorePath}...`);

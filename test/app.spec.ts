@@ -6,7 +6,7 @@
 
 // before(() => {
 //   createServer((request, response) => {
-//     response.end(readFileSync(join(__dirname, request.url || '')));
+//     response.end(readFileSync(join(import.meta.dirname, request.url || '')));
 //   }).listen(8080);
 // });
 

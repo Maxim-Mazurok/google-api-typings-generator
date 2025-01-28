@@ -2,12 +2,12 @@ import {readFileSync} from 'node:fs';
 import path from 'node:path';
 
 const nvmrc = readFileSync(
-  path.resolve(path.join(__dirname, '..', '.nvmrc')),
+  path.resolve(path.join(import.meta.dirname, '..', '.nvmrc')),
   'utf-8',
 );
 const packageJson = JSON.parse(
   readFileSync(
-    path.resolve(path.join(__dirname, '..', 'package.json')),
+    path.resolve(path.join(import.meta.dirname, '..', 'package.json')),
     'utf-8',
   ),
 );

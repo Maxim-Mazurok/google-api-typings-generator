@@ -11,7 +11,7 @@ beforeAll(() => {
 describe('readme', () => {
   it('works', () => {
     const template = readFileSync(
-      join(__dirname, '..', 'src', 'template', 'readme.dot'),
+      join(import.meta.dirname, '..', 'src', 'template', 'readme.dot'),
       'utf-8',
     );
     const data: TemplateData = {

@@ -15,7 +15,7 @@ export class Template {
   private readonly template: RenderFunction;
 
   constructor(name: string) {
-    const filename = path.join(__dirname, name);
+    const filename = path.join(import.meta.dirname, name);
 
     if (!fs.existsSync(filename)) {
       throw Error(`Can't find ${name} file template`);
