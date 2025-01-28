@@ -63,7 +63,6 @@
     "patch-package": "^8.0.0",
     "prettier-plugin-packagejson": "^2.5.8",
     "semver": "^7.6.3",
-    "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "validate-npm-package-name": "^6.0.0",
