@@ -4,7 +4,7 @@ module.exports = {
   rules: {
     'deprecation/deprecation': 'error',
     'require-await': 'warn',
-    '@typescript-eslint/no-floating-promises': 'warn',
+    '@typescript-eslint/no-floating-promises': 'off',
   },
   parserOptions: {
     ecmaVersion: 2020,

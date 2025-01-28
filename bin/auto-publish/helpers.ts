@@ -12,7 +12,7 @@ import {Git, Settings as GitSettings} from './git.js';
 import {Settings} from './index.js';
 import {SH} from './sh.js';
 
-export const createOctokit = ({auth, user, thisRepo}: GitSettings) =>
+export const createOctokit = ({auth, user, thisRepo}: GitSettings): Octokit =>
   new Octokit({
     auth,
     userAgent: `${user}/${thisRepo}`,
@@ -33,7 +33,7 @@ export class Helpers {
   npmPublish = async (
     cwd: string,
     retriesLeft = 5,
-    retryTimeout = 60 // seconds
+    retryTimeout = 60, // seconds
   ): Promise<void> => {
     retriesLeft--;
     const cmd = 'npm publish --access public';
@@ -58,7 +58,7 @@ export class Helpers {
       const error = exception.stderr;
       if (
         error.includes(
-          'You cannot publish over the previously published versions'
+          'You cannot publish over the previously published versions',
         )
       ) {
         console.warn(`Revision already published for ${apiName}, skipping...`);
@@ -69,7 +69,7 @@ export class Helpers {
         retriesLeft > 0
       ) {
         console.warn(
-          `NPM returned ${error} for ${apiName}, retrying in ${retryTimeout}s...`
+          `NPM returned ${error} for ${apiName}, retrying in ${retryTimeout}s...`,
         );
         sleep(retryTimeout);
         await this.npmPublish(cwd, retriesLeft);

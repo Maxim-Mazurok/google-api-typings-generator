@@ -14,12 +14,12 @@ const options = program
   .addOption(
     new Option(
       '-u, --url [url]',
-      'process only specific REST service definition by url'
-    ).env('URL') // workaround for passing dollar sign in bash
+      'process only specific REST service definition by url',
+    ).env('URL'), // workaround for passing dollar sign in bash
   )
   .option(
     '-s, --service [name]',
-    'process only specific REST service definition by name'
+    'process only specific REST service definition by name',
   )
   .requiredOption('-o, --out [path]', 'output directory', App.parseOutPath)
   .parse(process.argv)

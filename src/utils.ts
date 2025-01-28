@@ -5,6 +5,7 @@ import LineByLine from 'n-readlines';
 import fs, {appendFileSync, PathLike} from 'node:fs';
 import {EOL} from 'node:os';
 import {URL} from 'node:url';
+import {patch} from 'semver';
 import validateNpmPackageName from 'validate-npm-package-name';
 import {revisionPrefix} from './constants.js';
 import {RestDescription} from './discovery.js';
@@ -25,7 +26,7 @@ export function getResourceTypeName(resourceName: string) {
     .join('');
 
   const resourceTypeName = `${resourceName[0].toUpperCase()}${resourceName.substring(
-    1
+    1,
   )}Resource`;
 
   if (resourceTypeName === 'JwtResource') {
@@ -60,7 +61,7 @@ export const bannedTypes = [
 export async function request<T extends object | string>(
   url: URL,
   proxy: ProxySetting | undefined,
-  responseType: 'json' | 'text' = 'json'
+  responseType: 'json' | 'text' = 'json',
 ): Promise<T> {
   const protocol = url.protocol as 'http:' | 'https:';
   const agentProtocol = protocol === 'http:' ? Protocol.Http : Protocol.Https;
@@ -95,7 +96,7 @@ export const sleep = (seconds: number) => {
 
 export const hasOwnProperty = <T, K extends PropertyKey>(
   obj: T,
-  prop: K
+  prop: K,
 ): obj is T & Record<K, unknown> => {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 };
@@ -120,7 +121,7 @@ export const checkExists = <T>(value: T): NonNullable<T> => {
 };
 
 export const getAllNamespaces = (
-  restDescription: RestDescription
+  restDescription: RestDescription,
 ): string[] => {
   const namespaces: string[] = [];
 
@@ -157,14 +158,14 @@ export const getAllNamespaces = (
 export const camelCaseToSnakeCase = (string: string): string =>
   string.replace(
     /[A-Z]+(?![a-z])|[A-Z]/g,
-    (substring, offset) => (offset ? '_' : '') + substring.toLowerCase()
+    (substring, offset) => (offset ? '_' : '') + substring.toLowerCase(),
   );
 
 export const getApiName = ({id}: RestDescription): string =>
   camelCaseToSnakeCase(checkExists(id).replace(':', '-'));
 
 export const getPackageNameFromRestDescription = (
-  restDescription: RestDescription
+  restDescription: RestDescription,
 ) => {
   const apiName = getApiName(restDescription);
   return getPackageName(apiName);
@@ -201,7 +202,7 @@ export const getRevision = (indexDTSPath: PathLike) => {
 
 export const sameNamespace = (
   id: RestMethod['id'],
-  namespace: string
+  namespace: string,
 ): boolean =>
   checkExists(id)
     .replace(new RegExp(`^${TYPE_PREFIX}`), '')
@@ -215,7 +216,7 @@ export const sameNamespace = (
 export const setOutputGHActions = (key: 'FAILED_TYPE', value: string) => {
   console.log(
     // TODO: maybe remove this?
-    `Trying to write ${key}=${value} to the ${process.env.GITHUB_OUTPUT}`
+    `Trying to write ${key}=${value} to the ${process.env.GITHUB_OUTPUT}`,
   );
   if (process.env.GITHUB_OUTPUT !== undefined) {
     appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}${EOL}`);
@@ -224,7 +225,7 @@ export const setOutputGHActions = (key: 'FAILED_TYPE', value: string) => {
 
 export const hasValueRecursive = <T>(
   someObjectOrArray: object | unknown[],
-  searchValue: T
+  searchValue: T,
 ): boolean => {
   let values = [];
   if (_.isObject(someObjectOrArray)) {
@@ -246,7 +247,7 @@ export const hasValueRecursive = <T>(
 
 export const getChangedTypes = async (
   packages: {name: string; revision: number}[],
-  getLatestVersion: (packageName: string) => Promise<string>
+  getLatestVersion: (packageName: string) => Promise<string>,
 ) => {
   const changedTypes: string[] = [];
   await Promise.all(
@@ -262,12 +263,11 @@ export const getChangedTypes = async (
         }
         throw e;
       }
-      const semverPatch = await require('semver/functions/patch');
-      const latestPublishedRevision = semverPatch(latestPackageVersion);
+      const latestPublishedRevision = patch(latestPackageVersion);
       if (newRevision > latestPublishedRevision) {
         changedTypes.push(packageName);
       }
-    })
+    }),
   );
   return changedTypes;
 };

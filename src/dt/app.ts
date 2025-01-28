@@ -60,7 +60,7 @@ export class App {
 
     const destinationDirectory = path.join(
       this.config.dtTypesDirectory,
-      packageName
+      packageName,
     );
 
     ensureDirectoryExists(destinationDirectory);
@@ -74,11 +74,11 @@ export class App {
 
     await packageJsonTpl.write(
       path.join(destinationDirectory, 'package.json'),
-      templateData
+      templateData,
     );
     await indexDTsTpl.write(
       path.join(destinationDirectory, 'index.d.ts'),
-      templateData
+      templateData,
     );
 
     await Promise.all(
@@ -87,11 +87,11 @@ export class App {
           path.join(
             __dirname,
             'template',
-            `template.${fileName}` // can't use just fileName, because tsconfig.json will act like a real config for the index.ts inside of template folder
+            `template.${fileName}`, // can't use just fileName, because tsconfig.json will act like a real config for the index.ts inside of template folder
           ),
-          path.join(destinationDirectory, fileName)
-        )
-      )
+          path.join(destinationDirectory, fileName),
+        ),
+      ),
     );
   }
 
@@ -107,7 +107,7 @@ export class App {
         } catch (e) {
           console.error(e);
           throw Error(
-            `Error processing service: ${restDescriptionExtended.restDescription.name}`
+            `Error processing service: ${restDescriptionExtended.restDescription.name}`,
           );
         }
       }
@@ -116,7 +116,7 @@ export class App {
         await getAllDiscoveryItems(this.config.proxy)
       ).filter(
         discoveryItem =>
-          !excludedRestDescriptionIds.includes(checkExists(discoveryItem.id))
+          !excludedRestDescriptionIds.includes(checkExists(discoveryItem.id)),
       );
 
       if (discoveryItems.length === 0) {
@@ -127,20 +127,21 @@ export class App {
 
       discoveryItems.forEach(async discoveryItem => {
         const restDescriptionSource = new URL(
-          checkExists(discoveryItem.discoveryRestUrl)
+          checkExists(discoveryItem.discoveryRestUrl),
         );
 
         let restDescription;
         try {
           restDescription = await getRestDescriptionIfPossible(
             restDescriptionSource,
-            this.config.proxy
+            this.config.proxy,
           );
         } catch (e) {
+          console.warn(e);
           failedFetchesCount++;
           if (failedFetchesCount >= 5) {
             throw Error(
-              `Failed to fetch ${failedFetchesCount} services, potentially something is wrong, please check.`
+              `Failed to fetch ${failedFetchesCount} services, potentially something is wrong, please check.`,
             );
           }
         }

@@ -55,7 +55,7 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
 ['drive', 'sheets', 'calendar', 'admin', 'integrations'].forEach(apiName => {
   it(`${apiName} works`, async () => {
     const restDescription = JSON.parse(
-      readFileSyncAsUTF8(join(__dirname, `${apiName}.json`))
+      readFileSyncAsUTF8(join(__dirname, `${apiName}.json`)),
     ) as RestDescription;
     const packageName = getPackageNameFromRestDescription(restDescription);
 
@@ -63,8 +63,8 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
       app.processService(
         restDescription,
         new URL(`http://localhost:3000/${apiName}.json`),
-        false
-      )
+        false,
+      ),
     );
   });
 });
@@ -72,12 +72,12 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
 ['drive', 'sheets', 'calendar', 'admin'].forEach(apiName => {
   it(`${apiName} DT works`, async () => {
     const restDescription = JSON.parse(
-      readFileSyncAsUTF8(join(__dirname, `${apiName}.json`))
+      readFileSyncAsUTF8(join(__dirname, `${apiName}.json`)),
     ) as RestDescription;
     const packageName = getPackageNameFromRestDescription(restDescription);
 
     await mySnapshotTest(join('dt', packageName), () =>
-      dtApp.processService(restDescription)
+      dtApp.processService(restDescription),
     );
   });
 });
@@ -107,6 +107,6 @@ it('uses method ID instead of resource name/key', async () => {
   const folder = getPackageNameFromRestDescription(restDescription);
 
   await mySnapshotTest(folder, () =>
-    app.processService(restDescription, new URL('http://x.com'), false)
+    app.processService(restDescription, new URL('http://x.com'), false),
   );
 });

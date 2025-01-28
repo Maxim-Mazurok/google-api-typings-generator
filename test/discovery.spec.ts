@@ -41,7 +41,7 @@ describe('discovery', () => {
         restDescriptionSource: new URL(
           `https://googleads.googleapis.com/$discovery/rest?version=v${
             startingVersion + 1
-          }`
+          }`,
         ),
         restDescription: {
           description: `testing v${startingVersion + 1}`,
@@ -54,7 +54,7 @@ describe('discovery', () => {
         restDescriptionSource: new URL(
           `https://googleads.googleapis.com/$discovery/rest?version=v${
             startingVersion + 2
-          }`
+          }`,
         ),
         restDescription: {
           description: `testing v${startingVersion + 2}`,
@@ -85,7 +85,7 @@ describe('discovery', () => {
     await expect(testFunction()).rejects.toThrowErrorMatchingInlineSnapshot(
       `"We tried to fetch Google Ads Rest Descriptions for v${startingVersion} to v${
         startingVersion + 50
-      } and all returned 404. This is suspicious..."`
+      } and all returned 404. This is suspicious..."`,
     );
   });
 });

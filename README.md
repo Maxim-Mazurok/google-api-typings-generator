@@ -169,7 +169,7 @@ gapi.client.sheets.spreadsheets.batchUpdate(
   },
   {
     // Request Body goes here, as a second argument
-  }
+  },
 );
 ```
 

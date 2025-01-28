@@ -11,20 +11,20 @@ const options = program
   .option(
     '-u, --url [url]',
     'process only specific REST service definition by url',
-    string => string.replace(/＄/g, '$') // workaround to allow passing dollar sign in bash scripts arguments (escaping doesn't really work)
+    string => string.replace(/＄/g, '$'), // workaround to allow passing dollar sign in bash scripts arguments (escaping doesn't really work)
   )
   .option(
     '-s, --service [name]',
-    'process only specific REST service definition by name'
+    'process only specific REST service definition by name',
   )
   .requiredOption('-o, --out [path]', 'output directory', App.parseOutPath)
   .option(
     '-n, --new-revisions-only',
-    'overwrite existing type only if revision is newer'
+    'overwrite existing type only if revision is newer',
   )
   .option(
     '--cache-discovery-json <directory>', // needed so that we can upload JSON if we fail to process it
-    'temporary directory to cache discovery service JSON'
+    'temporary directory to cache discovery service JSON',
   )
   .parse(process.argv)
   .opts<{

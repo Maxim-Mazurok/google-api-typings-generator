@@ -46,7 +46,7 @@ describe('checkExists', () => {
 
     // Act & Assert
     expect(bindCheckExists).toThrow(
-      new Error('Expected non-null reference, but got null')
+      new Error('Expected non-null reference, but got null'),
     );
   });
 
@@ -57,7 +57,7 @@ describe('checkExists', () => {
 
     // Act & Assert
     expect(bindCheckExists).toThrow(
-      new Error('Expected value to be defined, but got undefined')
+      new Error('Expected value to be defined, but got undefined'),
     );
   });
 });
@@ -86,9 +86,9 @@ describe('getAllNamespaces', () => {
             id: 'firstNamespaceFirstMethod',
           },
         },
-      })
+      }),
     ).toThrow(
-      new Error('Malformed method ID: firstNamespaceFirstMethod (no dots)')
+      new Error('Malformed method ID: firstNamespaceFirstMethod (no dots)'),
     );
   });
 
@@ -100,7 +100,7 @@ describe('getAllNamespaces', () => {
             id: '.firstMethod',
           },
         },
-      })
+      }),
     ).toThrow(new Error("Can't get namespace from .firstMethod"));
   });
 
@@ -112,7 +112,7 @@ describe('getAllNamespaces', () => {
             description: 'no id :(',
           },
         },
-      })
+      }),
     ).toThrow(new Error('Method firstMethod has no ID'));
   });
 
@@ -153,31 +153,31 @@ describe('getAllNamespaces', () => {
 describe('getPackageName', () => {
   it('works when id exists', () => {
     expect(getPackageNameFromRestDescription({id: 'something'})).toBe(
-      'gapi.client.something'
+      'gapi.client.something',
     );
   });
 
   it('replaces ":" with "-"', () => {
     expect(getPackageNameFromRestDescription({id: 'some:v1'})).toBe(
-      'gapi.client.some-v1'
+      'gapi.client.some-v1',
     );
   });
 
   it('transforms "gamesConfiguration" to "games_configuration"', () => {
     expect(getPackageNameFromRestDescription({id: 'some:v1'})).toBe(
-      'gapi.client.some-v1'
+      'gapi.client.some-v1',
     );
   });
 
   it('throws when id does not exist', () => {
     expect(() =>
-      getPackageNameFromRestDescription({description: 'oops'})
+      getPackageNameFromRestDescription({description: 'oops'}),
     ).toThrow(new Error('Expected value to be defined, but got undefined'));
   });
 
   it('throws when id is null', () => {
     expect(() =>
-      getPackageNameFromRestDescription({id: null as unknown as string})
+      getPackageNameFromRestDescription({id: null as unknown as string}),
     ).toThrow(new Error('Expected non-null reference, but got null'));
   });
 
@@ -186,7 +186,7 @@ describe('getPackageName', () => {
       const originalConsoleError = console.error; // TODO: properly mock/spy
       console.error = () => {};
       expect(() => getPackageNameFromRestDescription({id})).toThrow(
-        new Error(`"gapi.client.${id}" is not a valid npm package name`)
+        new Error(`"gapi.client.${id}" is not a valid npm package name`),
       );
       console.error = originalConsoleError;
     });
@@ -208,13 +208,13 @@ describe('getApiName', () => {
 
   it('throws when id does not exist', () => {
     expect(() => getApiName({description: 'oops'})).toThrow(
-      new Error('Expected value to be defined, but got undefined')
+      new Error('Expected value to be defined, but got undefined'),
     );
   });
 
   it('throws when id is null', () => {
     expect(() => getApiName({id: null as unknown as string})).toThrow(
-      new Error('Expected non-null reference, but got null')
+      new Error('Expected non-null reference, but got null'),
     );
   });
 });
@@ -250,8 +250,8 @@ describe('hasValueRecursive', () => {
             thing: [{one: 1}, {two: 2}, {three: 3}],
           },
         },
-        3
-      )
+        3,
+      ),
     ).toBe(true);
     expect(
       hasValueRecursive(
@@ -260,8 +260,8 @@ describe('hasValueRecursive', () => {
             thing: [{one: 1}, {two: 2}, {three: 3}],
           },
         },
-        '3'
-      )
+        '3',
+      ),
     ).toBe(false);
   });
 });

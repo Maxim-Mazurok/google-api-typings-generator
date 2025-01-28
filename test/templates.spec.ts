@@ -12,7 +12,7 @@ describe('readme', () => {
   it('works', () => {
     const template = readFileSync(
       join(__dirname, '..', 'src', 'template', 'readme.dot'),
-      'utf-8'
+      'utf-8',
     );
     const data: TemplateData = {
       restDescription: {
