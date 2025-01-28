@@ -1811,6 +1811,11 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.interconnectAttachments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Create Interconnects with redundancy by creating them in a specified interconnect group.
+*/
+await gapi.client.compute.interconnectGroups.createMembers({ interconnectGroup: "interconnectGroup", project: "project",  });
+
+/*
 Deletes the specified InterconnectGroup in the given scope
 */
 await gapi.client.compute.interconnectGroups.delete({ interconnectGroup: "interconnectGroup", project: "project",  });
