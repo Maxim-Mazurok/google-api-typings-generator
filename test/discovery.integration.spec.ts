@@ -40,12 +40,10 @@ describe('getRestDescriptionIfPossible', () => {
         }
         response.end();
       })
-      .listen(
-        apiPort,
-        () =>
-          process.env.DEBUG &&
-          console.log(`api listening on ${apiHttpHost}:${apiPort}`),
-      );
+      .listen(apiPort, () => {
+        if (process.env.DEBUG)
+          console.log(`api listening on ${apiHttpHost}:${apiPort}`);
+      });
   });
   afterAll(() => {
     apiServer.close();
