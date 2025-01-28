@@ -1,9 +1,9 @@
 import {readdirSync, readFileSync, rmSync} from 'node:fs';
 import {join} from 'node:path';
-import {App} from '../../src/app';
-import {RestDescription} from '../../src/discovery';
-import {App as DtApp} from '../../src/dt/app';
-import {getPackageNameFromRestDescription} from '../../src/utils';
+import {App} from '../../src/app.js';
+import {RestDescription} from '../../src/discovery.js';
+import {App as DtApp} from '../../src/dt/app.js';
+import {getPackageNameFromRestDescription} from '../../src/utils.js';
 
 const readFileSyncAsUTF8 = (path: string) => readFileSync(path, 'utf-8');
 
@@ -12,7 +12,7 @@ let dtApp: DtApp;
 
 beforeAll(() => {
   app = new App({
-    typesDirectory: join(__dirname, 'results'),
+    typesDirectory: join(import.meta.dirname, 'results'),
     bannedTypes: [],
     owners: [
       'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
@@ -22,7 +22,7 @@ beforeAll(() => {
   });
 
   dtApp = new DtApp({
-    dtTypesDirectory: join(__dirname, 'results', 'dt'),
+    dtTypesDirectory: join(import.meta.dirname, 'results', 'dt'),
     owners: [
       {
         name: 'Maxim Mazurok',
@@ -41,7 +41,7 @@ beforeAll(() => {
 });
 
 const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
-  const resultFolder = `${join(__dirname, 'results', name)}`;
+  const resultFolder = `${join(import.meta.dirname, 'results', name)}`;
 
   rmSync(resultFolder, {force: true, recursive: true});
 
@@ -55,7 +55,7 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
 ['drive', 'sheets', 'calendar', 'admin', 'integrations'].forEach(apiName => {
   it(`${apiName} works`, async () => {
     const restDescription = JSON.parse(
-      readFileSyncAsUTF8(join(__dirname, `${apiName}.json`))
+      readFileSyncAsUTF8(join(import.meta.dirname, `${apiName}.json`)),
     ) as RestDescription;
     const packageName = getPackageNameFromRestDescription(restDescription);
 
@@ -63,8 +63,8 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
       app.processService(
         restDescription,
         new URL(`http://localhost:3000/${apiName}.json`),
-        false
-      )
+        false,
+      ),
     );
   });
 });
@@ -72,12 +72,12 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
 ['drive', 'sheets', 'calendar', 'admin'].forEach(apiName => {
   it(`${apiName} DT works`, async () => {
     const restDescription = JSON.parse(
-      readFileSyncAsUTF8(join(__dirname, `${apiName}.json`))
+      readFileSyncAsUTF8(join(import.meta.dirname, `${apiName}.json`)),
     ) as RestDescription;
     const packageName = getPackageNameFromRestDescription(restDescription);
 
     await mySnapshotTest(join('dt', packageName), () =>
-      dtApp.processService(restDescription)
+      dtApp.processService(restDescription),
     );
   });
 });
@@ -107,6 +107,6 @@ it('uses method ID instead of resource name/key', async () => {
   const folder = getPackageNameFromRestDescription(restDescription);
 
   await mySnapshotTest(folder, () =>
-    app.processService(restDescription, new URL('http://x.com'), false)
+    app.processService(restDescription, new URL('http://x.com'), false),
   );
 });

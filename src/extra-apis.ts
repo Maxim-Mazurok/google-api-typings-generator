@@ -2,12 +2,12 @@ import {ProxySetting} from 'get-proxy-settings';
 import {
   getRestDescriptionIfPossible,
   RestDescriptionExtended,
-} from './discovery';
+} from './discovery.js';
 
 export const startingVersion = 13; // v4-v12 return 404 since 18-Mar-2024; see https://developers.google.com/google-ads/api/docs/sunset-dates
 
 export async function* getGoogleAdsRestDescription(
-  proxy?: ProxySetting
+  proxy?: ProxySetting,
 ): AsyncGenerator<RestDescriptionExtended> {
   const baseUrl = 'https://googleads.googleapis.com/$discovery/rest';
   let version = startingVersion;
@@ -26,7 +26,7 @@ export async function* getGoogleAdsRestDescription(
 
     const restDescription = await getRestDescriptionIfPossible(
       restDescriptionSource,
-      proxy
+      proxy,
     );
     if (restDescription === undefined) {
       if (foundNon404) {

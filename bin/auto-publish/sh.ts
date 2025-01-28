@@ -1,5 +1,5 @@
 import spawnAsync, {SpawnResult} from '@expo/spawn-async';
-import {hasOwnProperty} from '../../src/utils';
+import {hasOwnProperty} from '../../src/utils.js';
 
 export class SH {
   readonly cwd: string;
@@ -19,7 +19,7 @@ export class SH {
   trySh = async (command: string, cwd?: string): Promise<SpawnResult> => {
     try {
       const result = await this.runSh(command, cwd);
-      process.env.DEBUG && console.log(result);
+      if (process.env.DEBUG) console.log(result);
       return result;
     } catch (exception) {
       console.log(exception);
@@ -38,7 +38,7 @@ export class SH {
         return new Error(
           'An error occurred:\n' +
             `Error: ${exception.stderr}\n` +
-            `Output: ${exception.stdout}\n`
+            `Output: ${exception.stdout}\n`,
         );
       }
       return exception;

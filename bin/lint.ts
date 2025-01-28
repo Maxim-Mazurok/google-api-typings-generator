@@ -2,7 +2,7 @@ import {readFileSync, readdirSync, writeFileSync} from 'node:fs';
 import {cpus} from 'node:os';
 import {basename, join} from 'node:path';
 import runAll from 'npm-run-all';
-import {setOutputGHActions} from '../src/utils';
+import {setOutputGHActions} from '../src/utils.js';
 
 const MAX_PARALLEL =
   Number(process.env.GAPI_MAX_PARALLEL) || Math.max(cpus().length - 1, 1);
@@ -22,7 +22,8 @@ const dtslintCommand = {start: 'dtslint "', end: '"'};
 const scripts = readdirSync(path, {withFileTypes: true})
   .filter(dir => dir.isDirectory())
   .map(
-    dir => `${dtslintCommand.start}${join(path, dir.name)}${dtslintCommand.end}`
+    dir =>
+      `${dtslintCommand.start}${join(path, dir.name)}${dtslintCommand.end}`,
   );
 
 const options = {
@@ -33,11 +34,11 @@ const options = {
 };
 
 console.log(
-  `Linting ${scripts.length} projects in ${MAX_PARALLEL} parallel processes...`
+  `Linting ${scripts.length} projects in ${MAX_PARALLEL} parallel processes...`,
 );
 
 // remove `types/` from .eslintignore file, otherwise new eslint-based dtslint won't be able to lint the files
-const eslintIgnorePath = join(__dirname, '..', '.eslintignore');
+const eslintIgnorePath = join(import.meta.dirname, '..', '.eslintignore');
 const originalEslintIgnore = readFileSync(eslintIgnorePath, 'utf8');
 const newEslintIgnore = originalEslintIgnore.replace('types/', '');
 console.log(`Updating ${eslintIgnorePath}...`);
@@ -52,7 +53,7 @@ runAll([scripts.shift()], options) // run first synchronously to install TypeScr
 
       if (failedTypeCommand !== undefined) {
         const failedTypeMatches = failedTypeCommand.name.match(
-          new RegExp(`${dtslintCommand.start}(.*)${dtslintCommand.end}`)
+          new RegExp(`${dtslintCommand.start}(.*)${dtslintCommand.end}`),
         );
 
         if (failedTypeMatches !== null) {

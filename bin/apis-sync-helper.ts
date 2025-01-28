@@ -1,29 +1,29 @@
 import _ from 'lodash';
-import fs, {readdirSync} from 'node:fs';
-import {excludedRestDescriptionIds} from '../src/app';
-import {getAllDiscoveryItems} from '../src/discovery';
+import {readdirSync, readFileSync, writeFileSync} from 'node:fs';
+import {excludedRestDescriptionIds} from '../src/app.js';
+import {getAllDiscoveryItems} from '../src/discovery.js';
 import {
-  NPM_ORGANIZATION,
-  TYPE_PREFIX,
   checkExists,
   getApiName,
   getFullPackageName,
   getPackageNameFromRestDescription,
   getProxy,
+  NPM_ORGANIZATION,
   request,
   rootFolder,
-} from '../src/utils';
+  TYPE_PREFIX,
+} from '../src/utils.js';
 
 const prefix = `@${NPM_ORGANIZATION}/${TYPE_PREFIX}`;
 const homePath = new URL('..', rootFolder);
 const pathToLocalAllowedPackageJsonDependencies = new URL(
   'DefinitelyTyped-tools/packages/definitions-parser/allowedPackageJsonDependencies.txt',
-  homePath
+  homePath,
 );
 const pathToDefinitelyTypedTypes = new URL('DefinitelyTyped/types', homePath);
 
 const updateLocalAllowedPackageJsonDependencies = (
-  discoveryTypes: string[]
+  discoveryTypes: string[],
 ) => {
   const getDirectories = (source: URL) =>
     readdirSync(source, {withFileTypes: true})
@@ -34,10 +34,9 @@ const updateLocalAllowedPackageJsonDependencies = (
     .map(x => getFullPackageName(x));
 
   const newAllowedPackageJsonDependencies = _.uniq(
-    fs
-      .readFileSync(pathToLocalAllowedPackageJsonDependencies, {
-        encoding: 'utf-8',
-      })
+    readFileSync(pathToLocalAllowedPackageJsonDependencies, {
+      encoding: 'utf-8',
+    })
       .split('\n')
       .filter(x => x !== '')
       .concat(...discoveryTypes.map(x => `${prefix}${x}`))
@@ -47,7 +46,7 @@ const updateLocalAllowedPackageJsonDependencies = (
             return definitelyTypedTypes.includes(x);
           }
           return true;
-        } // delete my types that are already deleted from DefinitelyTyped
+        }, // delete my types that are already deleted from DefinitelyTyped
       )
       .sort((a, b) => {
         // only sort my packages
@@ -56,12 +55,12 @@ const updateLocalAllowedPackageJsonDependencies = (
         } else {
           return 0;
         }
-      })
+      }),
   );
 
-  fs.writeFileSync(
+  writeFileSync(
     pathToLocalAllowedPackageJsonDependencies,
-    newAllowedPackageJsonDependencies.join('\n') + '\n'
+    newAllowedPackageJsonDependencies.join('\n') + '\n',
   );
 };
 
@@ -77,22 +76,22 @@ const getAllApiNames = async () => {
 const getAllowedPackageJsonDependencies = async () => {
   const allowedPackageJsonDependencies = await request<string>(
     new URL(
-      'https://raw.githubusercontent.com/microsoft/DefinitelyTyped-tools/master/packages/definitions-parser/allowedPackageJsonDependencies.txt'
+      'https://raw.githubusercontent.com/microsoft/DefinitelyTyped-tools/master/packages/definitions-parser/allowedPackageJsonDependencies.txt',
     ),
     await getProxy(),
-    'text'
+    'text',
   );
   return allowedPackageJsonDependencies
     .split('\n')
     .filter(maximMazurokPackageName =>
-      maximMazurokPackageName.startsWith(prefix)
+      maximMazurokPackageName.startsWith(prefix),
     )
     .filter(maximMazurokPackageName =>
       excludedRestDescriptionIds.find(
         excludedRestDescriptionId =>
           getPackageNameFromRestDescription({id: excludedRestDescriptionId}) ===
-          maximMazurokPackageName
-      )
+          maximMazurokPackageName,
+      ),
     )
     .sort();
 };

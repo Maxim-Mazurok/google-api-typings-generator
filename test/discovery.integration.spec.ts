@@ -9,9 +9,9 @@ import {
   getAllDiscoveryItems,
   getExtraRestDescriptions,
   getRestDescriptionIfPossible,
-} from '../src/discovery';
-import {getGoogleAdsRestDescription} from '../src/extra-apis';
-import {getPackageNameFromRestDescription, getProxy} from '../src/utils';
+} from '../src/discovery.js';
+import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
+import {getPackageNameFromRestDescription, getProxy} from '../src/utils.js';
 
 let proxy: ProxySetting | undefined;
 
@@ -40,16 +40,14 @@ describe('getRestDescriptionIfPossible', () => {
         }
         response.end();
       })
-      .listen(
-        apiPort,
-        () =>
-          process.env.DEBUG &&
-          console.log(`api listening on ${apiHttpHost}:${apiPort}`)
-      );
+      .listen(apiPort, () => {
+        if (process.env.DEBUG)
+          console.log(`api listening on ${apiHttpHost}:${apiPort}`);
+      });
   });
   afterAll(() => {
     apiServer.close();
-    process.env.DEBUG && console.log('close apiServer');
+    if (process.env.DEBUG) console.log('close apiServer');
   });
   ['403', '404'].map(httpStatusCode =>
     it(`resolves on ${httpStatusCode} and logs warning`, async () => {
@@ -58,19 +56,19 @@ describe('getRestDescriptionIfPossible', () => {
       console.warn = (...args) => (consoleWarnCalledWith = args);
       await getRestDescriptionIfPossible(
         new URL(`http://${apiHttpHost}:${apiPort}/status/${httpStatusCode}`),
-        proxy
+        proxy,
       );
       console.warn = originalConsoleWarn;
 
       expect(consoleWarnCalledWith).toStrictEqual([
         `http://${apiHttpHost}:${apiPort}/status/${httpStatusCode} returned ${httpStatusCode}, skipping...`,
       ]);
-    })
+    }),
   );
   it('rejects on non-404 and non-403', async () => {
     const promise = getRestDescriptionIfPossible(
       new URL(`http://${apiHttpHost}:${apiPort}/status/402`),
-      proxy
+      proxy,
     );
 
     await assert.rejects(promise);
@@ -81,7 +79,10 @@ describe('discovery items', () => {
   let discoveryItems: DiscoveryItem[] = [];
 
   beforeAll(async () => {
-    const cacheFilePath = join(__dirname, 'discovery-items-cache.json');
+    const cacheFilePath = join(
+      import.meta.dirname,
+      'discovery-items-cache.json',
+    );
     if (
       existsSync(cacheFilePath) &&
       Date.now() - statSync(cacheFilePath).mtimeMs < 60 * 60 * 1000 // 1 hour
@@ -348,7 +349,7 @@ it('getExtraRestDescriptions works for google ads', async () => {
   // Arrange & Act
   const googleAds = await getExtraRestDescriptions(
     [getGoogleAdsRestDescription],
-    proxy
+    proxy,
   );
 
   // Assert

@@ -1,7 +1,7 @@
 import doT, {RenderFunction} from 'dot';
 import fs from 'node:fs';
 import path from 'node:path';
-import {StreamWriter} from '../writer';
+import {StreamWriter} from '../writer.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
 export interface TemplateData {
@@ -16,7 +16,7 @@ export class Template {
   private readonly template: RenderFunction;
 
   constructor(name: string) {
-    const filename = path.join(__dirname, name);
+    const filename = path.join(import.meta.dirname, name);
 
     if (!fs.existsSync(filename)) {
       throw Error(`Can't find ${name} file template`);

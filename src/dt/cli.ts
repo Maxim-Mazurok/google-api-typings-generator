@@ -1,9 +1,9 @@
 // Use this script to generate "shadow" types for DT that reference "real" types published to @maxim_mazurok/gapi.client.*
 
 import {Option, program} from 'commander';
-import {App} from './app';
-import {getProxy} from '../utils';
-import {getRestDescription} from '../discovery';
+import {App} from './app.js';
+import {getProxy} from '../utils.js';
+import {getRestDescription} from '../discovery.js';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -14,12 +14,12 @@ const options = program
   .addOption(
     new Option(
       '-u, --url [url]',
-      'process only specific REST service definition by url'
-    ).env('URL') // workaround for passing dollar sign in bash
+      'process only specific REST service definition by url',
+    ).env('URL'), // workaround for passing dollar sign in bash
   )
   .option(
     '-s, --service [name]',
-    'process only specific REST service definition by name'
+    'process only specific REST service definition by name',
   )
   .requiredOption('-o, --out [path]', 'output directory', App.parseOutPath)
   .parse(process.argv)

@@ -8,13 +8,13 @@ import {
   fallbackDocumentationLinks,
   revisionPrefix,
   zeroWidthJoinerCharacter,
-} from './constants';
+} from './constants.js';
 import {
   getAllDiscoveryItems,
   getRestDescriptionIfPossible,
   getRestDescriptionsForService,
-} from './discovery';
-import {Template, TemplateData} from './template/index';
+} from './discovery.js';
+import {Template, TemplateData} from './template/index.js';
 import {
   checkExists,
   ensureDirectoryExists,
@@ -25,8 +25,8 @@ import {
   getRevision,
   sameNamespace,
   setOutputGHActions,
-} from './utils';
-import {StreamWriter, TextWriter} from './writer';
+} from './utils.js';
+import {StreamWriter, TextWriter} from './writer.js';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -90,7 +90,7 @@ class IndentedTextWriter {
   constructor(
     private writer: TextWriter,
     public newLine = '\n',
-    public tabString = '    '
+    public tabString = '    ',
   ) {}
 
   public indent = 0;
@@ -135,12 +135,12 @@ class TypescriptTextWriter implements TypescriptTextWriter {
 
   constructor(
     private readonly writer: IndentedTextWriter,
-    private readonly bannedTypes: string[]
+    private readonly bannedTypes: string[],
   ) {}
 
   private braces(
     text: string,
-    context: (writer: TypescriptTextWriter) => void
+    context: (writer: TypescriptTextWriter) => void,
   ) {
     this.writer.writeLine(text + ' {');
     this.writer.indent++;
@@ -151,7 +151,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
 
   private includesBannedType(type: string): boolean {
     return this.bannedTypes.some(bannedType =>
-      type.match(new RegExp(`\\b${bannedType}\\b`))
+      type.match(new RegExp(`\\b${bannedType}\\b`)),
     );
   }
 
@@ -201,10 +201,10 @@ class TypescriptTextWriter implements TypescriptTextWriter {
   property(
     name: string,
     type: string | TypescriptWriterCallback,
-    required = true
+    required = true,
   ) {
     this.writer.startIndentedLine(
-      `${formatPropertyName(name)}${required ? '' : '?'}:`
+      `${formatPropertyName(name)}${required ? '' : '?'}:`,
     );
     this.writer.write(this.writer.newLine);
     this.writer.indent++;
@@ -235,7 +235,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     // escape @class, @this, @type, @typedef and @property in JSDoc to fix no-redundant-jsdoc error
     text = text.replace(
       /@(class|this|type(?:def)?|property)/g,
-      `@${zeroWidthJoinerCharacter}$1`
+      `@${zeroWidthJoinerCharacter}$1`,
     );
 
     let lines: string[] = [];
@@ -252,19 +252,21 @@ class TypescriptTextWriter implements TypescriptTextWriter {
 
     const extraLines: {prepend?: string; append?: string} = {};
 
-    extraLines.prepend && this.writer.writeLine(extraLines.prepend);
+    if (extraLines.prepend) this.writer.writeLine(extraLines.prepend);
     if (lines.length === 1) {
       this.writer.writeLine(
-        `${jsdocComment.start} ${lines[0]} ${jsdocComment.end}`
+        `${jsdocComment.start} ${lines[0]} ${jsdocComment.end}`,
       );
     } else if (lines.length > 1) {
       this.writer.writeLine(jsdocComment.start);
       _.forEach(lines, line =>
-        line ? this.writer.writeLine(` * ${line}`) : this.writer.writeLine(' *')
+        line
+          ? this.writer.writeLine(` * ${line}`)
+          : this.writer.writeLine(' *'),
       );
       this.writer.writeLine(` ${jsdocComment.end}`);
     }
-    extraLines.append && this.writer.writeLine(extraLines.append);
+    if (extraLines.append) this.writer.writeLine(extraLines.append);
   }
 
   method(
@@ -275,10 +277,10 @@ class TypescriptTextWriter implements TypescriptTextWriter {
       required: boolean;
     }>,
     returnType: string,
-    singleLine = false
+    singleLine = false,
   ) {
     const ignoreBannedReturnType = this.bannedTypes.some(bannedType =>
-      returnType.match(new RegExp(`\\b${bannedType}\\b`))
+      returnType.match(new RegExp(`\\b${bannedType}\\b`)),
     );
     if (singleLine && ignoreBannedReturnType) {
       this.writer.writeLine(this.ignoreBannedType);
@@ -353,7 +355,7 @@ function getName(path: string | undefined): string | undefined {
 
 function getType(
   type: JsonSchema,
-  schemas: Record<string, JsonSchema>
+  schemas: Record<string, JsonSchema>,
 ): string | TypescriptWriterCallback {
   if (type.type === 'array') {
     const child = getType(checkExists(type.items), schemas);
@@ -379,14 +381,14 @@ function getType(
           writer.property(
             propertyName,
             getType(property, schemas),
-            property.required || false
+            property.required || false,
           );
         });
 
         if (type.additionalProperties) {
           writer.property(
             '[key: string]',
-            getType(type.additionalProperties, schemas)
+            getType(type.additionalProperties, schemas),
           );
         }
       });
@@ -421,7 +423,7 @@ function formatComment(comment: string) {
 
 function getMethodReturn(
   method: RestMethod,
-  schemas: Record<string, JsonSchema>
+  schemas: Record<string, JsonSchema>,
 ) {
   const name = schemas['Request'] ? 'client.Request' : 'Request';
 
@@ -495,10 +497,10 @@ export class App {
   private static createRequestParameterWriterCallback(
     parameters: Record<string, JsonSchema>,
     schemas: Record<string, JsonSchema>,
-    ref?: string
+    ref?: string,
   ) {
     return function requestParameterWriterCallback(
-      writer: TypescriptTextWriter
+      writer: TypescriptTextWriter,
     ) {
       writer.anonymousType(() => {
         _.forEach(parameters, (data, key) => {
@@ -525,7 +527,7 @@ export class App {
     resources: Record<string, RestResource>,
     parameters: Record<string, JsonSchema> = {},
     schemas: Record<string, JsonSchema>,
-    namespace: string
+    namespace: string,
   ): string[] {
     const writtenTopLevelResourceNames: string[] = [];
 
@@ -540,7 +542,7 @@ export class App {
           resource.resources,
           parameters,
           schemas,
-          namespace
+          namespace,
         );
       }
 
@@ -590,12 +592,12 @@ export class App {
                   type: App.createRequestParameterWriterCallback(
                     requestParameters,
                     schemas,
-                    requestRef
+                    requestRef,
                   ),
                   required: Boolean(requestRef),
                 },
               ],
-              getMethodReturn(method, schemas)
+              getMethodReturn(method, schemas),
             );
           }
 
@@ -608,7 +610,7 @@ export class App {
                   parameter: 'request',
                   type: App.createRequestParameterWriterCallback(
                     requestParameters,
-                    schemas
+                    schemas,
                   ),
                   required: true,
                 },
@@ -618,7 +620,7 @@ export class App {
                   required: true,
                 },
               ],
-              getMethodReturn(method, schemas)
+              getMethodReturn(method, schemas),
             );
           }
         });
@@ -643,40 +645,40 @@ export class App {
     destinationDirectory: string,
     restDescription: RestDescription,
     restDescriptionSource: URL,
-    namespaces: string[]
+    namespaces: string[],
   ) {
     console.log(
       `Generating ${restDescription.id} definitions... ${
         (restDescription.labels && restDescription.labels.join(', ')) || ''
-      }`
+      }`,
     );
 
     const stream = fs.createWriteStream(
-      path.join(destinationDirectory, 'index.d.ts')
+      path.join(destinationDirectory, 'index.d.ts'),
     );
     const writer = new TypescriptTextWriter(
       new IndentedTextWriter(new StreamWriter(stream)),
-      this.config.bannedTypes
+      this.config.bannedTypes,
     );
 
     writer.writeLine(
       `/* Type definitions for non-npm package ${checkExists(
-        restDescription.title
+        restDescription.title,
       )} ${restDescription.version} ${getMajorAndMinorVersion(
-        getPackageNameFromRestDescription(restDescription)
-      )} */`
+        getPackageNameFromRestDescription(restDescription),
+      )} */`,
     );
     writer.writeLine(`// Project: ${restDescription.documentationLink}`);
     this.config.owners.forEach((owner, index) =>
       writer.writeLine(
         index === 0
           ? `// Definitions by: ${owner}`
-          : `//                 ${owner}`
-      )
+          : `//                 ${owner}`,
+      ),
     );
 
     writer.writeLine(
-      '// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped'
+      '// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped',
     );
     writer.writeLine();
     writeGeneratedDisclaimer(writer);
@@ -689,8 +691,8 @@ export class App {
     writer.declareNamespace('gapi.client', () => {
       writer.comment(
         formatComment(
-          `Load ${restDescription.title} ${restDescription.version}`
-        )
+          `Load ${restDescription.title} ${restDescription.version}`,
+        ),
       );
 
       writer.method(
@@ -703,7 +705,7 @@ export class App {
           },
         ],
         'Promise<void>',
-        true
+        true,
       );
 
       writer.comment('@deprecated Please load APIs with discovery documents.');
@@ -723,7 +725,7 @@ export class App {
           },
         ],
         'Promise<void>',
-        true
+        true,
       );
 
       writer.comment('@deprecated Please load APIs with discovery documents.');
@@ -744,7 +746,7 @@ export class App {
           {parameter: 'callback', type: '() => any', required: true},
         ],
         'void',
-        true
+        true,
       );
 
       // expose root resources to gapi.client namespace
@@ -764,7 +766,7 @@ export class App {
                   writer.property(
                     key,
                     getType(data, schemas),
-                    data.required || false
+                    data.required || false,
                   );
                 });
               }
@@ -772,7 +774,7 @@ export class App {
               if (schema.additionalProperties) {
                 writer.property(
                   '[key: string]',
-                  getType(schema.additionalProperties, schemas)
+                  getType(schema.additionalProperties, schemas),
                 );
               }
             });
@@ -784,13 +786,13 @@ export class App {
               restDescription.resources,
               restDescription.parameters,
               schemas,
-              namespace
+              namespace,
             );
 
             writtenResources.forEach(resourceName => {
               writer.endLine();
               writer.writeLine(
-                `const ${resourceName}: ${getResourceTypeName(resourceName)};`
+                `const ${resourceName}: ${getResourceTypeName(resourceName)};`,
               );
             });
           }
@@ -804,7 +806,7 @@ export class App {
   async processService(
     restDescription: RestDescription,
     restDescriptionSource: URL,
-    newRevisionsOnly = false
+    newRevisionsOnly = false,
   ) {
     restDescription = sortObject(restDescription);
     restDescription.id = checkExists(restDescription.id);
@@ -823,16 +825,16 @@ export class App {
 
     const destinationDirectory = path.join(
       this.config.typesDirectory,
-      packageName
+      packageName,
     );
 
     if (this.config.discoveryJsonDirectory) {
       fs.writeFileSync(
         join(
           this.config.discoveryJsonDirectory,
-          `${basename(destinationDirectory)}.json`
+          `${basename(destinationDirectory)}.json`,
         ),
-        JSON.stringify(restDescription)
+        JSON.stringify(restDescription),
       );
     }
 
@@ -842,7 +844,7 @@ export class App {
     if (newRevisionsOnly && fs.existsSync(indexDTSPath)) {
       if (!restDescription.revision) {
         return console.error(
-          `There's no revision in JSON of service with ID: ${restDescription.id}`
+          `There's no revision in JSON of service with ID: ${restDescription.id}`,
         );
       }
 
@@ -850,7 +852,7 @@ export class App {
 
       if (!existingRevision) {
         console.error(
-          `Can't find previous revision in index.d.ts: ${restDescription.id}`
+          `Can't find previous revision in index.d.ts: ${restDescription.id}`,
         );
         existingRevision = Infinity; // to avoid loop that happened with compute:v1, always update when can't find previous revision
       }
@@ -858,7 +860,7 @@ export class App {
       const newRevision = Number(restDescription.revision);
       if (existingRevision > newRevision) {
         return console.warn(
-          `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${restDescription.id}`
+          `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${restDescription.id}`,
         );
       }
     }
@@ -869,7 +871,7 @@ export class App {
       destinationDirectory,
       restDescription,
       restDescriptionSource,
-      namespaces
+      namespaces,
     );
 
     const templateData: TemplateData = {
@@ -882,11 +884,11 @@ export class App {
 
     await readmeTpl.write(
       path.join(destinationDirectory, 'readme.md'),
-      templateData
+      templateData,
     );
     await packageJsonTpl.write(
       path.join(destinationDirectory, 'package.json'),
-      templateData
+      templateData,
     );
 
     await Promise.all(
@@ -898,27 +900,27 @@ export class App {
       ].map(fileName =>
         copyFile(
           path.join(
-            __dirname,
+            import.meta.dirname,
             'template',
-            `template.${fileName}` // can't use just fileName, because tsconfig.json will act like a real config for the index.ts inside of template folder
+            `template.${fileName}`, // can't use just fileName, because tsconfig.json will act like a real config for the index.ts inside of template folder
           ),
-          path.join(destinationDirectory, fileName)
-        )
-      )
+          path.join(destinationDirectory, fileName),
+        ),
+      ),
     );
 
     await this.writeTests(
       destinationDirectory,
       restDescription,
       restDescriptionSource,
-      namespaces
+      namespaces,
     );
   }
 
   private writePropertyValue(
     scope: TypescriptTextWriter,
     api: RestDescription,
-    property: JsonSchema
+    property: JsonSchema,
   ) {
     switch (property.type) {
       case 'number':
@@ -948,7 +950,7 @@ export class App {
   private writeArray(
     scope: TypescriptTextWriter,
     api: RestDescription,
-    items: JsonSchema
+    items: JsonSchema,
   ) {
     const schemaName = items.$ref;
     if (schemaName && this.seenSchemaRefs.has(schemaName)) {
@@ -968,14 +970,14 @@ export class App {
         scope.endLine();
       },
       '[',
-      ']'
+      ']',
     );
   }
 
   private writeObject(
     scope: TypescriptTextWriter,
     api: RestDescription,
-    object: JsonSchema
+    object: JsonSchema,
   ) {
     const schemaName = object.additionalProperties?.$ref;
     if (schemaName && this.seenSchemaRefs.has(schemaName)) {
@@ -1008,7 +1010,7 @@ export class App {
   private writeSchemaRef(
     scope: TypescriptTextWriter,
     api: RestDescription,
-    schemaName: string
+    schemaName: string,
   ) {
     if (this.seenSchemaRefs.has(schemaName)) {
       // Break out of recursive reference by writing undefined
@@ -1019,7 +1021,7 @@ export class App {
     const schema = checkExists(api.schemas)[schemaName];
     if (!schema) {
       throw new Error(
-        `Attempted to generate stub for unknown schema '${schemaName}'` // maybe we can just use `any` in this case? On one hand - less maintenance. On other hand - it caught an error with integrations:v1 and after reporting it to Google it was fixed.
+        `Attempted to generate stub for unknown schema '${schemaName}'`, // maybe we can just use `any` in this case? On one hand - less maintenance. On other hand - it caught an error with integrations:v1 and after reporting it to Google it was fixed.
       );
     }
 
@@ -1031,7 +1033,7 @@ export class App {
   private writeProperties(
     scope: TypescriptTextWriter,
     api: RestDescription,
-    record: Record<string, JsonSchema>
+    record: Record<string, JsonSchema>,
   ) {
     _.forEach(record, (parameter, name) => {
       scope.newLine(`${formatPropertyName(name)}: `);
@@ -1052,7 +1054,7 @@ export class App {
     ancestors: string,
     resourceName: string,
     resource: RestResource,
-    namespace: string
+    namespace: string,
   ) {
     resourceName = resourceName.includes('-')
       ? `["${resourceName}"]`
@@ -1104,7 +1106,7 @@ export class App {
         `${ancestors}${resourceName}`,
         subResourceName,
         subResource,
-        namespace
+        namespace,
       );
     });
   }
@@ -1113,20 +1115,20 @@ export class App {
     destinationDirectory: string,
     api: RestDescription,
     restDescriptionSource: URL,
-    namespaces: string[]
+    namespaces: string[],
   ) {
     const packageName = getPackageNameFromRestDescription(api);
 
     const stream = fs.createWriteStream(
-        path.join(destinationDirectory, 'tests.ts')
+        path.join(destinationDirectory, 'tests.ts'),
       ),
       writer = new TypescriptTextWriter(
         new IndentedTextWriter(new StreamWriter(stream)),
-        this.config.bannedTypes
+        this.config.bannedTypes,
       );
 
     writer.writeLine(
-      `/* This is stub file for ${packageName} definition tests */`
+      `/* This is stub file for ${packageName} definition tests */`,
     );
     writeGeneratedDisclaimer(writer);
     writer.writeLine();
@@ -1138,15 +1140,15 @@ export class App {
       writer3.endLine();
       writer3.writeLine(`await gapi.client.load('${restDescriptionSource}');`);
       writer3.comment(
-        `now we can use ${namespaces.map(x => `gapi.client.${x}`).join(', ')}`
+        `now we can use ${namespaces.map(x => `gapi.client.${x}`).join(', ')}`,
       );
       writer3.endLine();
       if (api.auth) {
         writer3.comment(
-          "don't forget to authenticate your client before sending any request to resources:"
+          "don't forget to authenticate your client before sending any request to resources:",
         );
         writer3.comment(
-          'declare client_id registered in Google Developers Console'
+          'declare client_id registered in Google Developers Console',
         );
 
         writer3.writeLine("const client_id = '<<PUT YOUR CLIENT ID HERE>>';");
@@ -1160,13 +1162,13 @@ export class App {
             });
           },
           '[',
-          ']'
+          ']',
         );
 
         writer3.endLine(';');
         writer3.writeLine('const immediate = false;');
         writer3.newLine(
-          'gapi.auth.authorize({ client_id, scope, immediate }, authResult => '
+          'gapi.auth.authorize({ client_id, scope, immediate }, authResult => ',
         );
 
         writer3.scope(scope => {
@@ -1198,7 +1200,7 @@ export class App {
               `gapi.client.${namespace}`,
               resourceName,
               resource,
-              namespace
+              namespace,
             );
           });
         });
@@ -1216,7 +1218,7 @@ export class App {
     if (service) {
       const serviceRestDescriptions = await getRestDescriptionsForService(
         service,
-        this.config.proxy
+        this.config.proxy,
       );
       for (const {
         restDescription,
@@ -1226,7 +1228,7 @@ export class App {
           await this.processService(
             restDescription,
             restDescriptionSource,
-            newRevisionsOnly
+            newRevisionsOnly,
           );
         } catch (e) {
           console.error(e);
@@ -1238,7 +1240,7 @@ export class App {
         await getAllDiscoveryItems(this.config.proxy)
       ).filter(
         discoveryItem =>
-          !excludedRestDescriptionIds.includes(checkExists(discoveryItem.id))
+          !excludedRestDescriptionIds.includes(checkExists(discoveryItem.id)),
       );
 
       if (discoveryItems.length === 0) {
@@ -1249,19 +1251,20 @@ export class App {
 
       discoveryItems.forEach(async discoveryItem => {
         const restDescriptionSource = new URL(
-          checkExists(discoveryItem.discoveryRestUrl)
+          checkExists(discoveryItem.discoveryRestUrl),
         );
         let restDescription;
         try {
           restDescription = await getRestDescriptionIfPossible(
             restDescriptionSource,
-            this.config.proxy
+            this.config.proxy,
           );
         } catch (e) {
+          console.warn(e);
           failedFetchesCount++;
           if (failedFetchesCount >= 5) {
             throw Error(
-              `Failed to fetch ${failedFetchesCount} services, potentially something is wrong, please check.`
+              `Failed to fetch ${failedFetchesCount} services, potentially something is wrong, please check.`,
             );
           }
         }
@@ -1272,13 +1275,13 @@ export class App {
           await this.processService(
             restDescription,
             restDescriptionSource,
-            newRevisionsOnly
+            newRevisionsOnly,
           );
         } catch (e) {
           console.error(e);
           setOutputGHActions(
             'FAILED_TYPE',
-            getPackageNameFromRestDescription(restDescription)
+            getPackageNameFromRestDescription(restDescription),
           );
           throw Error(`Error processing service: ${restDescription.name}`);
         }
