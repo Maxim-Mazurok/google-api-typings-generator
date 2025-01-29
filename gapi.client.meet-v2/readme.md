@@ -53,6 +53,9 @@ var client_id = '',
 
     // Read information about any of your Google Meet conferences
     'https://www.googleapis.com/auth/meetings.space.readonly',
+
+    // Edit, and see settings for all of your Google Meet calls.
+    'https://www.googleapis.com/auth/meetings.space.settings',
   ],
   immediate = true;
 // ...
