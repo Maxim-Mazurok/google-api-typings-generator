@@ -1417,6 +1417,17 @@ gapi.load('client', async () => {
           dataStore: 'Test string',
           filter: 'Test string',
           fixedBoost: 42,
+          interpolationBoostSpec: {
+            attributeType: 'Test string',
+            controlPoints: [
+              {
+                attributeValue: 'Test string',
+                boostAmount: 42,
+              },
+            ],
+            fieldName: 'Test string',
+            interpolationType: 'Test string',
+          },
         },
         conditions: [
           {
@@ -1495,6 +1506,17 @@ gapi.load('client', async () => {
           dataStore: 'Test string',
           filter: 'Test string',
           fixedBoost: 42,
+          interpolationBoostSpec: {
+            attributeType: 'Test string',
+            controlPoints: [
+              {
+                attributeValue: 'Test string',
+                boostAmount: 42,
+              },
+            ],
+            fieldName: 'Test string',
+            interpolationType: 'Test string',
+          },
         },
         conditions: [
           {
@@ -3874,6 +3896,17 @@ gapi.load('client', async () => {
           dataStore: 'Test string',
           filter: 'Test string',
           fixedBoost: 42,
+          interpolationBoostSpec: {
+            attributeType: 'Test string',
+            controlPoints: [
+              {
+                attributeValue: 'Test string',
+                boostAmount: 42,
+              },
+            ],
+            fieldName: 'Test string',
+            interpolationType: 'Test string',
+          },
         },
         conditions: [
           {
@@ -3952,6 +3985,17 @@ gapi.load('client', async () => {
           dataStore: 'Test string',
           filter: 'Test string',
           fixedBoost: 42,
+          interpolationBoostSpec: {
+            attributeType: 'Test string',
+            controlPoints: [
+              {
+                attributeValue: 'Test string',
+                boostAmount: 42,
+              },
+            ],
+            fieldName: 'Test string',
+            interpolationType: 'Test string',
+          },
         },
         conditions: [
           {
@@ -6301,6 +6345,17 @@ gapi.load('client', async () => {
           dataStore: 'Test string',
           filter: 'Test string',
           fixedBoost: 42,
+          interpolationBoostSpec: {
+            attributeType: 'Test string',
+            controlPoints: [
+              {
+                attributeValue: 'Test string',
+                boostAmount: 42,
+              },
+            ],
+            fieldName: 'Test string',
+            interpolationType: 'Test string',
+          },
         },
         conditions: [
           {
@@ -6379,6 +6434,17 @@ gapi.load('client', async () => {
           dataStore: 'Test string',
           filter: 'Test string',
           fixedBoost: 42,
+          interpolationBoostSpec: {
+            attributeType: 'Test string',
+            controlPoints: [
+              {
+                attributeValue: 'Test string',
+                boostAmount: 42,
+              },
+            ],
+            fieldName: 'Test string',
+            interpolationType: 'Test string',
+          },
         },
         conditions: [
           {

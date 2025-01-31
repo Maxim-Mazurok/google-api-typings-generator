@@ -499,6 +499,24 @@ declare namespace gapi.client {
       filter?: string;
       /** Optional. Strength of the boost, which should be in [-1, 1]. Negative boost means demotion. Default is 0.0 (No-op). */
       fixedBoost?: number;
+      /** Optional. Complex specification for custom ranking based on customer defined attribute value. */
+      interpolationBoostSpec?: GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec {
+      /** Optional. The attribute type to be used to determine the boost amount. The attribute value can be derived from the field value of the specified field_name. In the case of numerical it is straightforward i.e. attribute_value = numerical_field_value. In the case of freshness however, attribute_value = (time.now() - datetime_field_value). */
+      attributeType?: string;
+      /** Optional. The control points used to define the curve. The monotonic function (defined through the interpolation_type above) passes through the control points listed here. */
+      controlPoints?: GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpecControlPoint[];
+      /** Optional. The name of the field whose value will be used to determine the boost amount. */
+      fieldName?: string;
+      /** Optional. The interpolation type to be applied to connect the control points listed below. */
+      interpolationType?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpecControlPoint {
+      /** Optional. Can be one of: 1. The numerical field value. 2. The duration spec for freshness: The value must be formatted as an XSD `dayTimeDuration` value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `nDnM]`. */
+      attributeValue?: string;
+      /** Optional. The value between -1 to 1 by which to boost the score if the attribute_value evaluates to the value specified above. */
+      boostAmount?: number;
     }
     interface GoogleCloudDiscoveryengineV1alphaControlFilterAction {
       /** Required. Specifies which data store's documents can be filtered by this control. Full data store name e.g. projects/123/locations/global/collections/default_collection/dataStores/default_data_store */
@@ -2252,6 +2270,24 @@ declare namespace gapi.client {
       filter?: string;
       /** Optional. Strength of the boost, which should be in [-1, 1]. Negative boost means demotion. Default is 0.0 (No-op). */
       fixedBoost?: number;
+      /** Optional. Complex specification for custom ranking based on customer defined attribute value. */
+      interpolationBoostSpec?: GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec;
+    }
+    interface GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec {
+      /** Optional. The attribute type to be used to determine the boost amount. The attribute value can be derived from the field value of the specified field_name. In the case of numerical it is straightforward i.e. attribute_value = numerical_field_value. In the case of freshness however, attribute_value = (time.now() - datetime_field_value). */
+      attributeType?: string;
+      /** Optional. The control points used to define the curve. The monotonic function (defined through the interpolation_type above) passes through the control points listed here. */
+      controlPoints?: GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpecControlPoint[];
+      /** Optional. The name of the field whose value will be used to determine the boost amount. */
+      fieldName?: string;
+      /** Optional. The interpolation type to be applied to connect the control points listed below. */
+      interpolationType?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpecControlPoint {
+      /** Optional. Can be one of: 1. The numerical field value. 2. The duration spec for freshness: The value must be formatted as an XSD `dayTimeDuration` value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `nDnM]`. */
+      attributeValue?: string;
+      /** Optional. The value between -1 to 1 by which to boost the score if the attribute_value evaluates to the value specified above. */
+      boostAmount?: number;
     }
     interface GoogleCloudDiscoveryengineV1betaControlFilterAction {
       /** Required. Specifies which data store's documents can be filtered by this control. Full data store name e.g. projects/123/locations/global/collections/default_collection/dataStores/default_data_store */
@@ -3357,6 +3393,24 @@ declare namespace gapi.client {
       filter?: string;
       /** Optional. Strength of the boost, which should be in [-1, 1]. Negative boost means demotion. Default is 0.0 (No-op). */
       fixedBoost?: number;
+      /** Optional. Complex specification for custom ranking based on customer defined attribute value. */
+      interpolationBoostSpec?: GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec;
+    }
+    interface GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec {
+      /** Optional. The attribute type to be used to determine the boost amount. The attribute value can be derived from the field value of the specified field_name. In the case of numerical it is straightforward i.e. attribute_value = numerical_field_value. In the case of freshness however, attribute_value = (time.now() - datetime_field_value). */
+      attributeType?: string;
+      /** Optional. The control points used to define the curve. The monotonic function (defined through the interpolation_type above) passes through the control points listed here. */
+      controlPoints?: GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpecControlPoint[];
+      /** Optional. The name of the field whose value will be used to determine the boost amount. */
+      fieldName?: string;
+      /** Optional. The interpolation type to be applied to connect the control points listed below. */
+      interpolationType?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpecControlPoint {
+      /** Optional. Can be one of: 1. The numerical field value. 2. The duration spec for freshness: The value must be formatted as an XSD `dayTimeDuration` value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `nDnM]`. */
+      attributeValue?: string;
+      /** Optional. The value between -1 to 1 by which to boost the score if the attribute_value evaluates to the value specified above. */
+      boostAmount?: number;
     }
     interface GoogleCloudDiscoveryengineV1ControlFilterAction {
       /** Required. Specifies which data store's documents can be filtered by this control. Full data store name e.g. projects/123/locations/global/collections/default_collection/dataStores/default_data_store */
