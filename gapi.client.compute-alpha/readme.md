@@ -1811,6 +1811,11 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.interconnectAttachments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Create Interconnects with redundancy by creating them in a specified interconnect group.
+*/
+await gapi.client.compute.interconnectGroups.createMembers({ interconnectGroup: "interconnectGroup", project: "project",  });
+
+/*
 Deletes the specified InterconnectGroup in the given scope
 */
 await gapi.client.compute.interconnectGroups.delete({ interconnectGroup: "interconnectGroup", project: "project",  });
@@ -2886,12 +2891,12 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionCommitments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Updates the specified commitment with the data included in the request. Update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: auto_renew.
+Updates the specified commitment with the data included in the request. Update is performed only on selected fields included as part of update-mask. Only the following fields can be updated: auto_renew and plan.
 */
 await gapi.client.compute.regionCommitments.update({ commitment: "commitment", project: "project", region: "region",  });
 
 /*
-Transfers GPUs or local SSDs between reservations within commitments.
+Transfers GPUs or Local SSD disks between reservations that are attached to the same commitment.
 */
 await gapi.client.compute.regionCommitments.updateReservations({ commitment: "commitment", project: "project", region: "region",  });
 
