@@ -280,10 +280,48 @@ await gapi.client.bigquery.routines.update({
 });
 
 /*
+Deletes provided row access policies.
+*/
+await gapi.client.bigquery.rowAccessPolicies.batchDelete({
+  datasetId: 'datasetId',
+  projectId: 'projectId',
+  tableId: 'tableId',
+});
+
+/*
+Deletes a row access policy.
+*/
+await gapi.client.bigquery.rowAccessPolicies.delete({
+  datasetId: 'datasetId',
+  policyId: 'policyId',
+  projectId: 'projectId',
+  tableId: 'tableId',
+});
+
+/*
+Gets the specified row access policy by policy ID.
+*/
+await gapi.client.bigquery.rowAccessPolicies.get({
+  datasetId: 'datasetId',
+  policyId: 'policyId',
+  projectId: 'projectId',
+  tableId: 'tableId',
+});
+
+/*
 Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
 */
 await gapi.client.bigquery.rowAccessPolicies.getIamPolicy({
   resource: 'resource',
+});
+
+/*
+Creates a row access policy.
+*/
+await gapi.client.bigquery.rowAccessPolicies.insert({
+  datasetId: 'datasetId',
+  projectId: 'projectId',
+  tableId: 'tableId',
 });
 
 /*
@@ -300,6 +338,16 @@ Returns permissions that a caller has on the specified resource. If the resource
 */
 await gapi.client.bigquery.rowAccessPolicies.testIamPermissions({
   resource: 'resource',
+});
+
+/*
+Updates a row access policy.
+*/
+await gapi.client.bigquery.rowAccessPolicies.update({
+  datasetId: 'datasetId',
+  policyId: 'policyId',
+  projectId: 'projectId',
+  tableId: 'tableId',
 });
 
 /*
