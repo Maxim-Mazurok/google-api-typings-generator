@@ -107,6 +107,31 @@ await gapi.client.sql.backupRuns.list({
 });
 
 /*
+Creates a backup for a Cloud SQL instance. This API can be used only to create on-demand backups.
+*/
+await gapi.client.sql.Backups.CreateBackup({parent: 'parent'});
+
+/*
+Deletes the backup.
+*/
+await gapi.client.sql.Backups.DeleteBackup({name: 'name'});
+
+/*
+Retrieves a resource containing information about a backup.
+*/
+await gapi.client.sql.Backups.GetBackup({name: 'name'});
+
+/*
+Lists all backups associated with the project.
+*/
+await gapi.client.sql.Backups.ListBackups({parent: 'parent'});
+
+/*
+Updates the retention period and description of the backup. You can use this API to update final backups only.
+*/
+await gapi.client.sql.Backups.UpdateBackup({name: 'name'});
+
+/*
 Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to authenticate as themselves when connecting to the database.
 */
 await gapi.client.sql.connect.generateEphemeral({
