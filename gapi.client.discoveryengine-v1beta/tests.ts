@@ -1808,6 +1808,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -1977,6 +1978,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -2574,6 +2576,13 @@ gapi.load('client', async () => {
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.sitemaps.delete(
       {
         name: 'Test string',
+      },
+    );
+    /** Fetch Sitemaps in a DataStore. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.sitemaps.fetch(
+      {
+        'matcher.urisMatcher.uris': 'Test string',
+        parent: 'Test string',
       },
     );
     /** Creates TargetSite in a batch. */
@@ -4096,6 +4105,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -4265,6 +4275,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -6441,6 +6452,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -6610,6 +6622,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -7739,6 +7752,7 @@ gapi.load('client', async () => {
               pinUnexpandedResults: true,
             },
             rankingExpression: 'Test string',
+            rankingExpressionBackend: 'Test string',
             regionCode: 'Test string',
             relevanceThreshold: 'Test string',
             safeSearch: true,

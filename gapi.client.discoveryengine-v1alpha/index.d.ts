@@ -1064,17 +1064,17 @@ declare namespace gapi.client {
     interface GoogleCloudDiscoveryengineV1alphaCmekConfig {
       /** Output only. The default CmekConfig for the Customer. */
       isDefault?: boolean;
-      /** Kms key resource name which will be used to encrypt resources `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}`. */
+      /** KMS key resource name which will be used to encrypt resources `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}`. */
       kmsKey?: string;
-      /** Kms key version resource name which will be used to encrypt resources `/cryptoKeyVersions/{keyVersion}`. */
+      /** KMS key version resource name which will be used to encrypt resources `/cryptoKeyVersions/{keyVersion}`. */
       kmsKeyVersion?: string;
       /** Output only. The timestamp of the last key rotation. */
       lastRotationTimestampMicros?: string;
-      /** Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
+      /** Required. The name of the CmekConfig of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
       name?: string;
       /** Optional. Single-regional CMEKs that are required for some VAIS features. */
       singleRegionKeys?: GoogleCloudDiscoveryengineV1alphaSingleRegionKey[];
-      /** Output only. State of the CmekConfig. */
+      /** Output only. The states of the CmekConfig. */
       state?: string;
     }
     interface GoogleCloudDiscoveryengineV1alphaCollection {
@@ -1162,6 +1162,8 @@ declare namespace gapi.client {
       trigger?: string;
     }
     interface GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun {
+      /** The number of documents deleted. */
+      deletedRecordCount?: string;
       /** The name of the source entity. */
       entityName?: string;
       /** The total number of documents failed at sync at any stage (extraction, indexing, etc). */
@@ -1433,10 +1435,14 @@ declare namespace gapi.client {
       dataStore?: string;
       /** The name of the entity. Supported values by data source: * Salesforce: `Lead`, `Opportunity`, `Contact`, `Account`, `Case`, `Contract`, `Campaign` * Jira: `Issue` * Confluence: `Content`, `Space` */
       entityName?: string;
+      /** Optional. Configuration for `HEALTHCARE_FHIR` vertical. */
+      healthcareFhirConfig?: GoogleCloudDiscoveryengineV1alphaHealthcareFhirConfig;
       /** Attributes for indexing. Key: Field name. Value: The key property to map a field to, such as `title`, and `description`. Supported key properties: * `title`: The title for data record. This would be displayed on search results. * `description`: The description for data record. This would be displayed on search results. */
       keyPropertyMappings?: {[P in string]: string};
       /** The parameters for the entity to facilitate data ingestion. E.g. for BigQuery connectors: * Key: `document_id_column` * Value: type STRING. The value of the column ID. */
       params?: {[P in string]: any};
+      /** Optional. The start schema to use for the DataStore created from this SourceEntity. If unset, a default vertical specialized schema will be used. This field is only used by SetUpDataConnector API, and will be ignored if used in other APIs. This field will be omitted from all API responses including GetDataConnector API. To retrieve a schema of a DataStore, use SchemaService.GetSchema API instead. The provided schema will be validated against certain rules on schema. Learn more from [this doc](https://cloud.google.com/generative-ai-app-builder/docs/provide-schema). */
+      startingSchema?: GoogleCloudDiscoveryengineV1alphaSchema;
     }
     interface GoogleCloudDiscoveryengineV1alphaDataStore {
       /** Immutable. Whether data in the DataStore has ACL information. If set to `true`, the source data must have ACL. ACL will be ingested when data is ingested by DocumentService.ImportDocuments methods. When ACL is enabled for the DataStore, Document can't be accessed by calling DocumentService.GetDocument or DocumentService.ListDocuments. Currently ACL is only supported in `GENERIC` industry vertical with non-`PUBLIC_WEBSITE` content config. */
@@ -2794,7 +2800,7 @@ declare namespace gapi.client {
       validUrisCount?: number;
     }
     interface GoogleCloudDiscoveryengineV1alphaRecrawlUrisRequest {
-      /** Optional. Full resource name of the `SiteCredential`, such as `projects/*‍/locations/*‍/collections/*‍/dataStores/*‍/siteSearchEngine/siteCredentials/*`. Only set to crawl private URIs. */
+      /** Optional. Credential id to use for crawling. */
       siteCredential?: string;
       /** Required. List of URIs to crawl. At most 10K URIs are supported, otherwise an INVALID_ARGUMENT error is thrown. Each URI should match at least one TargetSite in `site_search_engine`. */
       uris?: string[];
@@ -3001,6 +3007,8 @@ declare namespace gapi.client {
       customFineTuningSpec?: GoogleCloudDiscoveryengineV1alphaCustomFineTuningSpec;
       /** Specs defining DataStores to filter on in a search call and configurations for those data stores. This is only considered for Engines with multiple data stores. For engines with a single data store, the specs directly under SearchRequest should be used. */
       dataStoreSpecs?: GoogleCloudDiscoveryengineV1alphaSearchRequestDataStoreSpec[];
+      /** Optional. Config for display feature, like match highlighting on search results. */
+      displaySpec?: GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec;
       /** Uses the provided embedding to do additional semantic document retrieval. The retrieval is based on the dot product of SearchRequest.EmbeddingSpec.EmbeddingVector.vector and the document embedding that is provided in SearchRequest.EmbeddingSpec.EmbeddingVector.field_path. If SearchRequest.EmbeddingSpec.EmbeddingVector.field_path is not provided, it will use ServingConfig.EmbeddingConfig.field_path. */
       embeddingSpec?: GoogleCloudDiscoveryengineV1alphaSearchRequestEmbeddingSpec;
       /** Facet specifications for faceted search. If empty, no facets are returned. A maximum of 100 values are allowed. Otherwise, an `INVALID_ARGUMENT` error is returned. */
@@ -3031,8 +3039,10 @@ declare namespace gapi.client {
       query?: string;
       /** The query expansion specification that specifies the conditions under which query expansion occurs. */
       queryExpansionSpec?: GoogleCloudDiscoveryengineV1alphaSearchRequestQueryExpansionSpec;
-      /** The ranking expression controls the customized ranking on retrieval documents. This overrides ServingConfig.ranking_expression. The ranking expression is a single function or multiple functions that are joined by "+". * ranking_expression = function, { " + ", function }; Supported functions: * double * relevance_score * double * dotProduct(embedding_field_path) Function variables: * `relevance_score`: pre-defined keywords, used for measure relevance between query and document. * `embedding_field_path`: the document embedding field used with query embedding vector. * `dotProduct`: embedding function between embedding_field_path and query embedding vector. Example ranking expression: If document has an embedding field doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3 * dotProduct(doc_embedding)`. */
+      /** The ranking expression controls the customized ranking on retrieval documents. This overrides ServingConfig.ranking_expression. The syntax and supported features depend on the ranking_expression_backend value. If ranking_expression_backend is not provided, it defaults to BYOE. === BYOE === If ranking expression is not provided or set to BYOE, it should be a single function or multiple functions that are joined by "+". * ranking_expression = function, { " + ", function }; Supported functions: * double * relevance_score * double * dotProduct(embedding_field_path) Function variables: * `relevance_score`: pre-defined keywords, used for measure relevance between query and document. * `embedding_field_path`: the document embedding field used with query embedding vector. * `dotProduct`: embedding function between embedding_field_path and query embedding vector. Example ranking expression: If document has an embedding field doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3 * dotProduct(doc_embedding)`. === CLEARBOX === If ranking expression is set to CLEARBOX, the following expression types (and combinations of those chained using + or * operators) are supported: * double * signal * log(signal) * exp(signal) * rr(signal, double > 0) -- reciprocal rank transformation with second argument being a denominator constant. * is_nan(signal) -- returns 0 if signal is NaN, 1 otherwise. * fill_nan(signal1, signal2 | double) -- if signal1 is NaN, returns signal2 | double, else returns signal1. Examples: * 0.2 * gecko_score + 0.8 * log(bm25_score) * 0.2 * exp(fill_nan(gecko_score, 0)) + 0.3 * is_nan(bm25_score) * 0.2 * rr(gecko_score, 16) + 0.8 * rr(bm25_score, 32) The following signals are supported: * gecko_score -- semantic similarity adjustment * bm25_score -- keyword match adjustment * jetstream_score -- semantic relevance adjustment * pctr_rank -- predicted conversion rate adjustment as a rank * freshness_rank -- freshness adjustment as a rank * base_rank -- the default rank of the result */
       rankingExpression?: string;
+      /** Optional. The backend to use for the ranking expression evaluation. */
+      rankingExpressionBackend?: string;
       /** The Unicode country/region code (CLDR) of a location, such as "US" and "419". For more information, see [Standard fields](https://cloud.google.com/apis/design/standard_fields). If set, then results will be boosted based on the region_code provided. */
       regionCode?: string;
       /** The relevance threshold of the search results. Default to Google defined threshold, leveraging a balance of precision and recall to deliver both highly accurate results and comprehensive coverage of relevant information. */
@@ -3159,6 +3169,10 @@ declare namespace gapi.client {
       dataStore?: string;
       /** Optional. Filter specification to filter documents in the data store specified by data_store field. For more information on filtering, see [Filtering](https://cloud.google.com/generative-ai-app-builder/docs/filter-search-metadata) */
       filter?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec {
+      /** The condition under which match highlighting should occur. */
+      matchHighlightingCondition?: string;
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestEmbeddingSpec {
       /** The embedding vector used for retrieval. Limit to 1. */
@@ -3819,6 +3833,206 @@ declare namespace gapi.client {
       /** Highly recommended for logged-in users. Unique identifier for logged-in user, such as a user name. Don't set for anonymous users. Always use a hashed value for this ID. Don't set the field to the same fixed ID for different users. This mixes the event history of those users together, which results in degraded model quality. The field must be a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an `INVALID_ARGUMENT` error is returned. */
       userId?: string;
     }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfig {
+      /** Will be used for all widget access settings seen in cloud console integration page. Replaces top deprecated top level properties. */
+      accessSettings?: GoogleCloudDiscoveryengineV1alphaWidgetConfigAccessSettings;
+      /** Allowlisted domains that can load this widget. */
+      allowlistedDomains?: string[];
+      /** Whether allow no-auth integration with widget. If set true, public access to search or other solutions from widget is allowed without authenication token provided by customer hosted backend server. */
+      allowPublicAccess?: boolean;
+      /** Optional. Output only. Describes the assistant settings of the widget. */
+      assistantSettings?: GoogleCloudDiscoveryengineV1alphaWidgetConfigAssistantSettings;
+      /** Output only. Collection components that lists all collections and child data stores associated with the widget config, those data sources can be used for filtering in widget service APIs, users can return results that from selected data sources. */
+      collectionComponents?: GoogleCloudDiscoveryengineV1alphaWidgetConfigCollectionComponent[];
+      /** Output only. Unique obfuscated identifier of a WidgetConfig. */
+      configId?: string;
+      /** The content search spec that configs the desired behavior of content search. */
+      contentSearchSpec?: GoogleCloudDiscoveryengineV1alphaSearchRequestContentSearchSpec;
+      /** Output only. Timestamp the WidgetConfig was created. */
+      createTime?: string;
+      /** Output only. The type of the parent data store. */
+      dataStoreType?: string;
+      /** Configurable UI configurations per data store. */
+      dataStoreUiConfigs?: GoogleCloudDiscoveryengineV1alphaWidgetConfigDataStoreUiConfig[];
+      /** The default ordering for search results if specified. Used to set SearchRequest#order_by on applicable requests. https://cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1alpha/projects.locations.dataStores.servingConfigs/search#request-body */
+      defaultSearchRequestOrderBy?: string;
+      /** Required. The human readable widget config display name. Used in Discovery UI. This field must be a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is returned. */
+      displayName?: string;
+      /** Whether or not to enable autocomplete. */
+      enableAutocomplete?: boolean;
+      /** Whether to allow conversational search (LLM, multi-turn) or not (non-LLM, single-turn). */
+      enableConversationalSearch?: boolean;
+      /** Turn on or off collecting the search result quality feedback from end users. */
+      enableQualityFeedback?: boolean;
+      /** Whether to show the result score. */
+      enableResultScore?: boolean;
+      /** Whether to enable safe search. */
+      enableSafeSearch?: boolean;
+      /** Whether to enable search-as-you-type behavior for the search widget */
+      enableSearchAsYouType?: boolean;
+      /** Turn on or off summary for each snippets result. */
+      enableSnippetResultSummary?: boolean;
+      /** Turn on or off summarization for the search response. */
+      enableSummarization?: boolean;
+      /** Whether to enable standalone web app. */
+      enableWebApp?: boolean;
+      /** Allows to toggle unstable/experimental features in the widget (or web app) */
+      experimentalFeatures?: {[P in string]: string};
+      /** The configuration and appearance of facets in the end user view. */
+      facetField?: GoogleCloudDiscoveryengineV1alphaWidgetConfigFacetField[];
+      /** The key is the UI component. Mock. Currently supported `title`, `thumbnail`, `url`, `custom1`, `custom2`, `custom3`. The value is the name of the field along with its device visibility. The 3 custom fields are optional and can be added or removed. `title`, `thumbnail`, `url` are required UI components that cannot be removed. */
+      fieldsUiComponentsMap?: {
+        [P in string]: GoogleCloudDiscoveryengineV1alphaWidgetConfigUIComponentField;
+      };
+      /** Optional. Describes the homepage settings of the widget. */
+      homepageSetting?: GoogleCloudDiscoveryengineV1alphaWidgetConfigHomepageSetting;
+      /** Output only. The industry vertical that the WidgetConfig registers. The WidgetConfig industry vertical is based on the associated Engine. */
+      industryVertical?: string;
+      /** Output only. Whether LLM is enabled in the corresponding data store. */
+      llmEnabled?: boolean;
+      /** Output only. Whether the customer accepted data use terms. */
+      minimumDataTermAccepted?: boolean;
+      /** Immutable. The full resource name of the widget config. Format: `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`. This field must be a UTF-8 encoded string with a length limit of 1024 characters. */
+      name?: string;
+      /** The type of snippet to display in UCS widget. - RESULT_DISPLAY_TYPE_UNSPECIFIED for existing users. - SNIPPET for new non-enterprise search users. - EXTRACTIVE_ANSWER for new enterprise search users. */
+      resultDisplayType?: string;
+      /** Required. Immutable. Specifies the solution type that this WidgetConfig can be used for. */
+      solutionType?: string;
+      /** Describes search widget UI branding settings, such as the widget title, logo, favicons, and colors. */
+      uiBranding?: GoogleCloudDiscoveryengineV1alphaWidgetConfigUiBrandingSettings;
+      /** Describes general widget search settings as seen in cloud console widget configuration page. Replaces top deprecated top level properties. */
+      uiSettings?: GoogleCloudDiscoveryengineV1alphaWidgetConfigUiSettings;
+      /** Output only. Timestamp the WidgetConfig was updated. */
+      updateTime?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigAccessSettings {
+      /** List of domains that are allowed to integrate the search widget. */
+      allowlistedDomains?: string[];
+      /** Whether public unauthenticated access is allowed. */
+      allowPublicAccess?: boolean;
+      /** Whether web app access is enabled. */
+      enableWebApp?: boolean;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigAssistantSettings {
+      /** Whether or not the Google search grounding toggle is shown. */
+      googleSearchGroundingEnabled?: boolean;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigCollectionComponent {
+      /** Output only. The icon link of the connector source. */
+      connectorIconLink?: string;
+      /** The name of the data source, retrieved from `Collection.data_connector.data_source`. */
+      dataSource?: string;
+      /** For the data store collection, list of the children data stores. */
+      dataStoreComponents?: GoogleCloudDiscoveryengineV1alphaWidgetConfigDataStoreComponent[];
+      /** The display name of the collection. */
+      displayName?: string;
+      /** Output only. the identifier of the collection, used for widget service. For now it refers to collection_id, in the future we will migrate the field to encrypted collection name UUID. */
+      id?: string;
+      /** The name of the collection. It should be collection resource name. Format: `projects/{project}/locations/{location}/collections/{collection_id}`. For APIs under WidgetService, such as WidgetService.LookUpWidgetConfig, the project number and location part is erased in this field. */
+      name?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigDataStoreComponent {
+      /** The content config of the data store. */
+      contentConfig?: string;
+      /** The display name of the data store. */
+      displayName?: string;
+      /** The name of the entity, retrieved from `Collection.data_connector.entities.entityName`. */
+      entityName?: string;
+      /** Output only. the identifier of the data store, used for widget service. For now it refers to data_store_id, in the future we will migrate the field to encrypted data store name UUID. */
+      id?: string;
+      /** The name of the data store. It should be data store resource name Format: `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`. For APIs under WidgetService, such as WidgetService.LookUpWidgetConfig, the project number and location part is erased in this field. */
+      name?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigDataStoreUiConfig {
+      /** Facet fields that store the mapping of fields to end user widget appearance. */
+      facetField?: GoogleCloudDiscoveryengineV1alphaWidgetConfigFacetField[];
+      /** The key is the UI component. Mock. Currently supported `title`, `thumbnail`, `url`, `custom1`, `custom2`, `custom3`. The value is the name of the field along with its device visibility. The 3 custom fields are optional and can be added or removed. `title`, `thumbnail`, `url` are required UI components that cannot be removed. */
+      fieldsUiComponentsMap?: {
+        [P in string]: GoogleCloudDiscoveryengineV1alphaWidgetConfigUIComponentField;
+      };
+      /** Output only. the identifier of the data store, used for widget service. For now it refers to data_store_id, in the future we will migrate the field to encrypted data store name UUID. */
+      id?: string;
+      /** The name of the data store. It should be data store resource name Format: `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`. For APIs under WidgetService, such as WidgetService.LookUpWidgetConfig, the project number and location part is erased in this field. */
+      name?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigFacetField {
+      /** Optional. The field name that end users will see. */
+      displayName?: string;
+      /** Required. Registered field name. The format is `field.abc`. */
+      field?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigHomepageSetting {
+      /** Optional. The shortcuts to display on the homepage. LINT.IfChange(max_shortcuts_number) LINT.ThenChange(//depot/google3/cloud/console/web/ai/unified_cloud_search/components/widget_preview/widget_homepage_shortcut_config_form.ts:max_shortcuts_number) */
+      shortcuts?: GoogleCloudDiscoveryengineV1alphaWidgetConfigHomepageSettingShortcut[];
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigHomepageSettingShortcut {
+      /** Optional. Destination URL of shortcut. */
+      destinationUri?: string;
+      /** Optional. Icon URL of shortcut. */
+      icon?: GoogleCloudDiscoveryengineV1alphaWidgetConfigImage;
+      /** Optional. Title of the shortcut. */
+      title?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigImage {
+      /** Image URL. */
+      url?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigUiBrandingSettings {
+      /** Logo image. */
+      logo?: GoogleCloudDiscoveryengineV1alphaWidgetConfigImage;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigUIComponentField {
+      /** The field visibility on different types of devices. */
+      deviceVisibility?: string[];
+      /** The template to customize how the field is displayed. An example value would be a string that looks like: "Price: {value}". */
+      displayTemplate?: string;
+      /** Required. Registered field name. The format is `field.abc`. */
+      field?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigUiSettings {
+      /** Per data store configuration. */
+      dataStoreUiConfigs?: GoogleCloudDiscoveryengineV1alphaWidgetConfigDataStoreUiConfig[];
+      /** The default ordering for search results if specified. Used to set SearchRequest#order_by on applicable requests. https://cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1alpha/projects.locations.dataStores.servingConfigs/search#request-body */
+      defaultSearchRequestOrderBy?: string;
+      /** If set to true, the widget will not collect user events. */
+      disableUserEventsCollection?: boolean;
+      /** Whether or not to enable autocomplete. */
+      enableAutocomplete?: boolean;
+      /** Turn on or off collecting the search result quality feedback from end users. */
+      enableQualityFeedback?: boolean;
+      /** Whether to enable safe search. */
+      enableSafeSearch?: boolean;
+      /** Whether to enable search-as-you-type behavior for the search widget. */
+      enableSearchAsYouType?: boolean;
+      /** If set to true, the widget will enable visual content summary on applicable search requests. Only used by healthcare search. */
+      enableVisualContentSummary?: boolean;
+      /** Describes generative answer configuration. */
+      generativeAnswerConfig?: GoogleCloudDiscoveryengineV1alphaWidgetConfigUiSettingsGenerativeAnswerConfig;
+      /** Describes widget (or web app) interaction type */
+      interactionType?: string;
+      /** Controls whether result extract is display and how (snippet or extractive answer). Default to no result if unspecified. */
+      resultDescriptionType?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaWidgetConfigUiSettingsGenerativeAnswerConfig {
+      /** Whether generated answer contains suggested related questions. */
+      disableRelatedQuestions?: boolean;
+      /** Optional. Specifies whether to filter out queries that are adversarial. */
+      ignoreAdversarialQuery?: boolean;
+      /** Optional. Specifies whether to filter out queries that are not relevant to the content. */
+      ignoreLowRelevantContent?: boolean;
+      /** Optional. Specifies whether to filter out queries that are not answer-seeking. The default value is `false`. No answer is returned if the search query is classified as a non-answer seeking query. If this field is set to `true`, we skip generating answers for non-answer seeking queries and return fallback messages instead. */
+      ignoreNonAnswerSeekingQuery?: boolean;
+      /** Language code for Summary. Use language tags defined by [BCP47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt). Note: This is an experimental feature. */
+      languageCode?: string;
+      /** Max rephrase steps. The max number is 5 steps. If not set or set to < 1, it will be set to 1 by default. */
+      maxRephraseSteps?: number;
+      /** Text at the beginning of the prompt that instructs the model that generates the answer. */
+      modelPromptPreamble?: string;
+      /** The model version used to generate the answer. */
+      modelVersion?: string;
+      /** The number of top results to generate the answer from. Up to 10. */
+      resultCount?: number;
+    }
     interface GoogleCloudDiscoveryengineV1alphaWorkspaceConfig {
       /** Obfuscated Dasher customer ID. */
       dasherCustomerId?: string;
@@ -3858,17 +4072,17 @@ declare namespace gapi.client {
     interface GoogleCloudDiscoveryengineV1betaCmekConfig {
       /** Output only. The default CmekConfig for the Customer. */
       isDefault?: boolean;
-      /** Kms key resource name which will be used to encrypt resources `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}`. */
+      /** KMS key resource name which will be used to encrypt resources `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}`. */
       kmsKey?: string;
-      /** Kms key version resource name which will be used to encrypt resources `/cryptoKeyVersions/{keyVersion}`. */
+      /** KMS key version resource name which will be used to encrypt resources `/cryptoKeyVersions/{keyVersion}`. */
       kmsKeyVersion?: string;
       /** Output only. The timestamp of the last key rotation. */
       lastRotationTimestampMicros?: string;
-      /** Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
+      /** Required. The name of the CmekConfig of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
       name?: string;
       /** Optional. Single-regional CMEKs that are required for some VAIS features. */
       singleRegionKeys?: GoogleCloudDiscoveryengineV1betaSingleRegionKey[];
-      /** Output only. State of the CmekConfig. */
+      /** Output only. The states of the CmekConfig. */
       state?: string;
     }
     interface GoogleCloudDiscoveryengineV1betaCondition {
@@ -4502,8 +4716,10 @@ declare namespace gapi.client {
       query?: string;
       /** The query expansion specification that specifies the conditions under which query expansion occurs. */
       queryExpansionSpec?: GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec;
-      /** The ranking expression controls the customized ranking on retrieval documents. This overrides ServingConfig.ranking_expression. The ranking expression is a single function or multiple functions that are joined by "+". * ranking_expression = function, { " + ", function }; Supported functions: * double * relevance_score * double * dotProduct(embedding_field_path) Function variables: * `relevance_score`: pre-defined keywords, used for measure relevance between query and document. * `embedding_field_path`: the document embedding field used with query embedding vector. * `dotProduct`: embedding function between embedding_field_path and query embedding vector. Example ranking expression: If document has an embedding field doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3 * dotProduct(doc_embedding)`. */
+      /** The ranking expression controls the customized ranking on retrieval documents. This overrides ServingConfig.ranking_expression. The syntax and supported features depend on the ranking_expression_backend value. If ranking_expression_backend is not provided, it defaults to BYOE. === BYOE === If ranking expression is not provided or set to BYOE, it should be a single function or multiple functions that are joined by "+". * ranking_expression = function, { " + ", function }; Supported functions: * double * relevance_score * double * dotProduct(embedding_field_path) Function variables: * `relevance_score`: pre-defined keywords, used for measure relevance between query and document. * `embedding_field_path`: the document embedding field used with query embedding vector. * `dotProduct`: embedding function between embedding_field_path and query embedding vector. Example ranking expression: If document has an embedding field doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3 * dotProduct(doc_embedding)`. === CLEARBOX === If ranking expression is set to CLEARBOX, the following expression types (and combinations of those chained using + or * operators) are supported: * double * signal * log(signal) * exp(signal) * rr(signal, double > 0) -- reciprocal rank transformation with second argument being a denominator constant. * is_nan(signal) -- returns 0 if signal is NaN, 1 otherwise. * fill_nan(signal1, signal2 | double) -- if signal1 is NaN, returns signal2 | double, else returns signal1. Examples: * 0.2 * gecko_score + 0.8 * log(bm25_score) * 0.2 * exp(fill_nan(gecko_score, 0)) + 0.3 * is_nan(bm25_score) * 0.2 * rr(gecko_score, 16) + 0.8 * rr(bm25_score, 32) The following signals are supported: * gecko_score -- semantic similarity adjustment * bm25_score -- keyword match adjustment * jetstream_score -- semantic relevance adjustment * pctr_rank -- predicted conversion rate adjustment as a rank * freshness_rank -- freshness adjustment as a rank * base_rank -- the default rank of the result */
       rankingExpression?: string;
+      /** Optional. The backend to use for the ranking expression evaluation. */
+      rankingExpressionBackend?: string;
       /** The Unicode country/region code (CLDR) of a location, such as "US" and "419". For more information, see [Standard fields](https://cloud.google.com/apis/design/standard_fields). If set, then results will be boosted based on the region_code provided. */
       regionCode?: string;
       /** The relevance threshold of the search results. Default to Google defined threshold, leveraging a balance of precision and recall to deliver both highly accurate results and comprehensive coverage of relevant information. */
@@ -4803,17 +5019,17 @@ declare namespace gapi.client {
     interface GoogleCloudDiscoveryengineV1CmekConfig {
       /** Output only. The default CmekConfig for the Customer. */
       isDefault?: boolean;
-      /** Kms key resource name which will be used to encrypt resources `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}`. */
+      /** KMS key resource name which will be used to encrypt resources `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}`. */
       kmsKey?: string;
-      /** Kms key version resource name which will be used to encrypt resources `/cryptoKeyVersions/{keyVersion}`. */
+      /** KMS key version resource name which will be used to encrypt resources `/cryptoKeyVersions/{keyVersion}`. */
       kmsKeyVersion?: string;
       /** Output only. The timestamp of the last key rotation. */
       lastRotationTimestampMicros?: string;
-      /** Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
+      /** Required. The name of the CmekConfig of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
       name?: string;
       /** Optional. Single-regional CMEKs that are required for some VAIS features. */
       singleRegionKeys?: GoogleCloudDiscoveryengineV1SingleRegionKey[];
-      /** Output only. State of the CmekConfig. */
+      /** Output only. The states of the CmekConfig. */
       state?: string;
     }
     interface GoogleCloudDiscoveryengineV1Condition {
@@ -5803,7 +6019,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
+        /** Required. The name of the CmekConfig of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -5834,7 +6050,7 @@ declare namespace gapi.client {
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
-          /** Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
+          /** Required. The name of the CmekConfig of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
           name: string;
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
@@ -8480,6 +8696,35 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GoogleLongrunningOperation>;
+      /** Fetch Sitemaps in a DataStore. */
+      fetch(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The Sitemap uris. */
+        'matcher.urisMatcher.uris'?: string | string[];
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. Parent resource name of the SiteSearchEngine, such as `projects/*‍/locations/*‍/collections/*‍/dataStores/*‍/siteSearchEngine`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudDiscoveryengineV1alphaFetchSitemapsResponse>;
     }
     interface OperationsResource {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
@@ -9489,6 +9734,37 @@ declare namespace gapi.client {
         body: GoogleCloudDiscoveryengineV1alphaUserEvent,
       ): Request<GoogleCloudDiscoveryengineV1alphaUserEvent>;
     }
+    interface WidgetConfigsResource {
+      /** Gets a WidgetConfig. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** Optional. Whether it's acceptable to load the widget config from cache. If set to true, recent changes on widget configs may take a few minutes to reflect on the end user's view. It's recommended to set to true for maturely developed widgets, as it improves widget performance. Set to false to see changes reflected in prod right away, if your widget is under development. */
+        acceptCache?: boolean;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Full WidgetConfig resource name. Format: `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudDiscoveryengineV1alphaWidgetConfig>;
+    }
     interface DataStoresResource {
       /** Completes the specified user input with keyword suggestions. */
       completeQuery(request?: {
@@ -9940,6 +10216,7 @@ declare namespace gapi.client {
       siteSearchEngine: SiteSearchEngineResource;
       suggestionDenyListEntries: SuggestionDenyListEntriesResource;
       userEvents: UserEventsResource;
+      widgetConfigs: WidgetConfigsResource;
     }
     interface CompletionConfigResource {
       /** Completes the user input with advanced keyword suggestions. */
@@ -11200,6 +11477,37 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDiscoveryengineV1alphaSession>;
       answers: AnswersResource;
     }
+    interface WidgetConfigsResource {
+      /** Gets a WidgetConfig. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** Optional. Whether it's acceptable to load the widget config from cache. If set to true, recent changes on widget configs may take a few minutes to reflect on the end user's view. It's recommended to set to true for maturely developed widgets, as it improves widget performance. Set to false to see changes reflected in prod right away, if your widget is under development. */
+        acceptCache?: boolean;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Full WidgetConfig resource name. Format: `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudDiscoveryengineV1alphaWidgetConfig>;
+    }
     interface EnginesResource {
       /** Creates a Engine. */
       create(request: {
@@ -11592,6 +11900,7 @@ declare namespace gapi.client {
       operations: OperationsResource;
       servingConfigs: ServingConfigsResource;
       sessions: SessionsResource;
+      widgetConfigs: WidgetConfigsResource;
     }
     interface OperationsResource {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
@@ -15016,6 +15325,37 @@ declare namespace gapi.client {
         body: GoogleCloudDiscoveryengineV1alphaUserEvent,
       ): Request<GoogleCloudDiscoveryengineV1alphaUserEvent>;
     }
+    interface WidgetConfigsResource {
+      /** Gets a WidgetConfig. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** Optional. Whether it's acceptable to load the widget config from cache. If set to true, recent changes on widget configs may take a few minutes to reflect on the end user's view. It's recommended to set to true for maturely developed widgets, as it improves widget performance. Set to false to see changes reflected in prod right away, if your widget is under development. */
+        acceptCache?: boolean;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Full WidgetConfig resource name. Format: `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudDiscoveryengineV1alphaWidgetConfig>;
+    }
     interface DataStoresResource {
       /** Completes the specified user input with keyword suggestions. */
       completeQuery(request?: {
@@ -15408,6 +15748,7 @@ declare namespace gapi.client {
       siteSearchEngine: SiteSearchEngineResource;
       suggestionDenyListEntries: SuggestionDenyListEntriesResource;
       userEvents: UserEventsResource;
+      widgetConfigs: WidgetConfigsResource;
     }
     interface OperationsResource {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
@@ -17403,7 +17744,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
+        /** Required. The name of the CmekConfig of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -17434,7 +17775,7 @@ declare namespace gapi.client {
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
-          /** Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
+          /** Required. The name of the CmekConfig of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`. */
           name: string;
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;

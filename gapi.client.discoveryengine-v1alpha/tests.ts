@@ -483,11 +483,38 @@ gapi.load('client', async () => {
             {
               dataStore: 'Test string',
               entityName: 'Test string',
+              healthcareFhirConfig: {
+                enableConfigurableSchema: true,
+                enableStaticIndexingForBatchIngestion: true,
+              },
               keyPropertyMappings: {
                 A: 'Test string',
               },
               params: {
                 A: 42,
+              },
+              startingSchema: {
+                fieldConfigs: [
+                  {
+                    advancedSiteSearchDataSources: ['Test string'],
+                    completableOption: 'Test string',
+                    dynamicFacetableOption: 'Test string',
+                    fieldPath: 'Test string',
+                    fieldType: 'Test string',
+                    indexableOption: 'Test string',
+                    keyPropertyType: 'Test string',
+                    metatagName: 'Test string',
+                    recsFilterableOption: 'Test string',
+                    retrievableOption: 'Test string',
+                    schemaOrgPaths: ['Test string'],
+                    searchableOption: 'Test string',
+                  },
+                ],
+                jsonSchema: 'Test string',
+                name: 'Test string',
+                structSchema: {
+                  A: 42,
+                },
               },
             },
           ],
@@ -676,11 +703,38 @@ gapi.load('client', async () => {
             {
               dataStore: 'Test string',
               entityName: 'Test string',
+              healthcareFhirConfig: {
+                enableConfigurableSchema: true,
+                enableStaticIndexingForBatchIngestion: true,
+              },
               keyPropertyMappings: {
                 A: 'Test string',
               },
               params: {
                 A: 42,
+              },
+              startingSchema: {
+                fieldConfigs: [
+                  {
+                    advancedSiteSearchDataSources: ['Test string'],
+                    completableOption: 'Test string',
+                    dynamicFacetableOption: 'Test string',
+                    fieldPath: 'Test string',
+                    fieldType: 'Test string',
+                    indexableOption: 'Test string',
+                    keyPropertyType: 'Test string',
+                    metatagName: 'Test string',
+                    recsFilterableOption: 'Test string',
+                    retrievableOption: 'Test string',
+                    schemaOrgPaths: ['Test string'],
+                    searchableOption: 'Test string',
+                  },
+                ],
+                jsonSchema: 'Test string',
+                name: 'Test string',
+                structSchema: {
+                  A: 42,
+                },
               },
             },
           ],
@@ -781,11 +835,38 @@ gapi.load('client', async () => {
           {
             dataStore: 'Test string',
             entityName: 'Test string',
+            healthcareFhirConfig: {
+              enableConfigurableSchema: true,
+              enableStaticIndexingForBatchIngestion: true,
+            },
             keyPropertyMappings: {
               A: 'Test string',
             },
             params: {
               A: 42,
+            },
+            startingSchema: {
+              fieldConfigs: [
+                {
+                  advancedSiteSearchDataSources: ['Test string'],
+                  completableOption: 'Test string',
+                  dynamicFacetableOption: 'Test string',
+                  fieldPath: 'Test string',
+                  fieldType: 'Test string',
+                  indexableOption: 'Test string',
+                  keyPropertyType: 'Test string',
+                  metatagName: 'Test string',
+                  recsFilterableOption: 'Test string',
+                  retrievableOption: 'Test string',
+                  schemaOrgPaths: ['Test string'],
+                  searchableOption: 'Test string',
+                },
+              ],
+              jsonSchema: 'Test string',
+              name: 'Test string',
+              structSchema: {
+                A: 42,
+              },
             },
           },
         ],
@@ -2699,6 +2780,9 @@ gapi.load('client', async () => {
             filter: 'Test string',
           },
         ],
+        displaySpec: {
+          matchHighlightingCondition: 'Test string',
+        },
         embeddingSpec: {
           embeddingVectors: [
             {
@@ -2756,6 +2840,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -2871,6 +2956,9 @@ gapi.load('client', async () => {
             filter: 'Test string',
           },
         ],
+        displaySpec: {
+          matchHighlightingCondition: 'Test string',
+        },
         embeddingSpec: {
           embeddingVectors: [
             {
@@ -2928,6 +3016,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -3553,6 +3642,13 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
     );
+    /** Fetch Sitemaps in a DataStore. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.sitemaps.fetch(
+      {
+        'matcher.urisMatcher.uris': 'Test string',
+        parent: 'Test string',
+      },
+    );
     /** Creates TargetSite in a batch. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.batchCreate(
       {
@@ -3948,6 +4044,13 @@ gapi.load('client', async () => {
           userId: 'Test string',
         },
         userPseudoId: 'Test string',
+      },
+    );
+    /** Gets a WidgetConfig. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.widgetConfigs.get(
+      {
+        acceptCache: true,
+        name: 'Test string',
       },
     );
     /** Creates a Engine. */
@@ -5062,6 +5165,9 @@ gapi.load('client', async () => {
             filter: 'Test string',
           },
         ],
+        displaySpec: {
+          matchHighlightingCondition: 'Test string',
+        },
         embeddingSpec: {
           embeddingVectors: [
             {
@@ -5119,6 +5225,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -5234,6 +5341,9 @@ gapi.load('client', async () => {
             filter: 'Test string',
           },
         ],
+        displaySpec: {
+          matchHighlightingCondition: 'Test string',
+        },
         embeddingSpec: {
           embeddingVectors: [
             {
@@ -5291,6 +5401,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -5819,6 +5930,13 @@ gapi.load('client', async () => {
     /** Gets a Answer. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.sessions.answers.get(
       {
+        name: 'Test string',
+      },
+    );
+    /** Gets a WidgetConfig. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.widgetConfigs.get(
+      {
+        acceptCache: true,
         name: 'Test string',
       },
     );
@@ -7606,6 +7724,9 @@ gapi.load('client', async () => {
             filter: 'Test string',
           },
         ],
+        displaySpec: {
+          matchHighlightingCondition: 'Test string',
+        },
         embeddingSpec: {
           embeddingVectors: [
             {
@@ -7663,6 +7784,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -7778,6 +7900,9 @@ gapi.load('client', async () => {
             filter: 'Test string',
           },
         ],
+        displaySpec: {
+          matchHighlightingCondition: 'Test string',
+        },
         embeddingSpec: {
           embeddingVectors: [
             {
@@ -7835,6 +7960,7 @@ gapi.load('client', async () => {
           pinUnexpandedResults: true,
         },
         rankingExpression: 'Test string',
+        rankingExpressionBackend: 'Test string',
         regionCode: 'Test string',
         relevanceThreshold: 'Test string',
         safeSearch: true,
@@ -8796,6 +8922,13 @@ gapi.load('client', async () => {
         userPseudoId: 'Test string',
       },
     );
+    /** Gets a WidgetConfig. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.widgetConfigs.get(
+      {
+        acceptCache: true,
+        name: 'Test string',
+      },
+    );
     /** Creates a Evaluation. Upon creation, the evaluation will be automatically triggered and begin execution. */
     await gapi.client.discoveryengine.projects.locations.evaluations.create(
       {
@@ -8913,6 +9046,9 @@ gapi.load('client', async () => {
                 filter: 'Test string',
               },
             ],
+            displaySpec: {
+              matchHighlightingCondition: 'Test string',
+            },
             embeddingSpec: {
               embeddingVectors: [
                 {
@@ -8970,6 +9106,7 @@ gapi.load('client', async () => {
               pinUnexpandedResults: true,
             },
             rankingExpression: 'Test string',
+            rankingExpressionBackend: 'Test string',
             regionCode: 'Test string',
             relevanceThreshold: 'Test string',
             safeSearch: true,
