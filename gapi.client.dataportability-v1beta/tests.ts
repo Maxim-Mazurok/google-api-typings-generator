@@ -161,6 +161,13 @@ gapi.load('client', async () => {
   });
 
   async function run() {
+    /** Cancels a Portability Archive job. */
+    await gapi.client.dataportability.archiveJobs.cancel(
+      {
+        name: 'Test string',
+      },
+      {},
+    );
     /** Retrieves the state of an Archive job for the Portability API. */
     await gapi.client.dataportability.archiveJobs.getPortabilityArchiveState({
       name: 'Test string',
@@ -178,7 +185,9 @@ gapi.load('client', async () => {
     await gapi.client.dataportability.portabilityArchive.initiate(
       {},
       {
+        endTime: 'Test string',
         resources: ['Test string'],
+        startTime: 'Test string',
       },
     );
   }

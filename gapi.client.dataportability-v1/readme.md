@@ -265,6 +265,11 @@ After that you can use Data Portability API resources: <!-- TODO: make this work
 
 ```typescript
 /*
+Cancels a Portability Archive job.
+*/
+await gapi.client.dataportability.archiveJobs.cancel({name: 'name'});
+
+/*
 Retrieves the state of an Archive job for the Portability API.
 */
 await gapi.client.dataportability.archiveJobs.getPortabilityArchiveState({
