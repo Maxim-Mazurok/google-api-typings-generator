@@ -18279,14 +18279,6 @@ gapi.load('client', async () => {
       requestId: 'Test string',
       router: 'Test string',
     });
-    /** Deletes Route Policy */
-    await gapi.client.compute.routers.deleteRoutePolicy({
-      policy: 'Test string',
-      project: 'Test string',
-      region: 'Test string',
-      requestId: 'Test string',
-      router: 'Test string',
-    });
     /** Returns the specified Router resource. */
     await gapi.client.compute.routers.get({
       project: 'Test string',
@@ -18310,13 +18302,6 @@ gapi.load('client', async () => {
       project: 'Test string',
       region: 'Test string',
       returnPartialSuccess: true,
-      router: 'Test string',
-    });
-    /** Returns specified Route Policy */
-    await gapi.client.compute.routers.getRoutePolicy({
-      policy: 'Test string',
-      project: 'Test string',
-      region: 'Test string',
       router: 'Test string',
     });
     /** Retrieves runtime information of the specified router. */
@@ -18473,33 +18458,6 @@ gapi.load('client', async () => {
       region: 'Test string',
       returnPartialSuccess: true,
     });
-    /** Retrieves a list of router bgp routes available to the specified project. */
-    await gapi.client.compute.routers.listBgpRoutes({
-      addressFamily: 'Test string',
-      destinationPrefix: 'Test string',
-      filter: 'Test string',
-      maxResults: 42,
-      orderBy: 'Test string',
-      pageToken: 'Test string',
-      peer: 'Test string',
-      policyApplied: true,
-      project: 'Test string',
-      region: 'Test string',
-      returnPartialSuccess: true,
-      router: 'Test string',
-      routeType: 'Test string',
-    });
-    /** Retrieves a list of router route policy subresources available to the specified project. */
-    await gapi.client.compute.routers.listRoutePolicies({
-      filter: 'Test string',
-      maxResults: 42,
-      orderBy: 'Test string',
-      pageToken: 'Test string',
-      project: 'Test string',
-      region: 'Test string',
-      returnPartialSuccess: true,
-      router: 'Test string',
-    });
     /** Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
     await gapi.client.compute.routers.patch(
       {
@@ -18637,40 +18595,6 @@ gapi.load('client', async () => {
         network: 'Test string',
         region: 'Test string',
         selfLink: 'Test string',
-      },
-    );
-    /** Patches Route Policy */
-    await gapi.client.compute.routers.patchRoutePolicy(
-      {
-        project: 'Test string',
-        region: 'Test string',
-        requestId: 'Test string',
-        router: 'Test string',
-      },
-      {
-        description: 'Test string',
-        fingerprint: 'Test string',
-        name: 'Test string',
-        terms: [
-          {
-            actions: [
-              {
-                description: 'Test string',
-                expression: 'Test string',
-                location: 'Test string',
-                title: 'Test string',
-              },
-            ],
-            match: {
-              description: 'Test string',
-              expression: 'Test string',
-              location: 'Test string',
-              title: 'Test string',
-            },
-            priority: 42,
-          },
-        ],
-        type: 'Test string',
       },
     );
     /** Preview fields auto-generated during router create and update operations. Calling this method does NOT create or update the router. */
@@ -18948,40 +18872,6 @@ gapi.load('client', async () => {
         network: 'Test string',
         region: 'Test string',
         selfLink: 'Test string',
-      },
-    );
-    /** Updates or creates new Route Policy */
-    await gapi.client.compute.routers.updateRoutePolicy(
-      {
-        project: 'Test string',
-        region: 'Test string',
-        requestId: 'Test string',
-        router: 'Test string',
-      },
-      {
-        description: 'Test string',
-        fingerprint: 'Test string',
-        name: 'Test string',
-        terms: [
-          {
-            actions: [
-              {
-                description: 'Test string',
-                expression: 'Test string',
-                location: 'Test string',
-                title: 'Test string',
-              },
-            ],
-            match: {
-              description: 'Test string',
-              expression: 'Test string',
-              location: 'Test string',
-              title: 'Test string',
-            },
-            priority: 42,
-          },
-        ],
-        type: 'Test string',
       },
     );
     /** Deletes the specified Route resource. */
