@@ -2329,6 +2329,25 @@ gapi.load('client', async () => {
         sourceConsistencyGroupPolicy: 'Test string',
       },
     );
+    /** Sets the labels on many disks at once. To learn more about labels, read the Labeling Resources documentation. */
+    await gapi.client.compute.disks.bulkSetLabels(
+      {
+        project: 'Test string',
+        requestId: 'Test string',
+        resource: 'Test string',
+        zone: 'Test string',
+      },
+      {
+        requests: [
+          {
+            labelFingerprint: 'Test string',
+            labels: {
+              A: 'Test string',
+            },
+          },
+        ],
+      },
+    );
     /** Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project. */
     await gapi.client.compute.disks.createSnapshot(
       {
@@ -2849,6 +2868,7 @@ gapi.load('client', async () => {
               region: 'Test string',
             },
           },
+          policy: 'Test string',
         },
         defaultResourcePolicies: {
           A: {
@@ -4642,7 +4662,6 @@ gapi.load('client', async () => {
             ipAddress: 'Test string',
             ipv6Address: 'Test string',
             port: 42,
-            zone: 'Test string',
           },
         ],
       },
@@ -4672,7 +4691,6 @@ gapi.load('client', async () => {
             ipAddress: 'Test string',
             ipv6Address: 'Test string',
             port: 42,
-            zone: 'Test string',
           },
         ],
       },
@@ -8466,6 +8484,7 @@ gapi.load('client', async () => {
       },
       {
         actionHint: 'Test string',
+        disruptionSchedule: 'Test string',
         faultReasons: [
           {
             behavior: 'Test string',
@@ -10183,6 +10202,126 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
+      },
+    );
+    /** Create Interconnect Attachments with redundancy by creating them in a specified interconnect attachment group. */
+    await gapi.client.compute.interconnectAttachmentGroups.createMembers(
+      {
+        interconnectAttachmentGroup: 'Test string',
+        project: 'Test string',
+      },
+      {
+        request: {
+          attachments: [
+            {
+              adminEnabled: true,
+              bandwidth: 'Test string',
+              candidateCloudRouterIpAddress: 'Test string',
+              candidateCloudRouterIpv6Address: 'Test string',
+              candidateCustomerRouterIpAddress: 'Test string',
+              candidateCustomerRouterIpv6Address: 'Test string',
+              candidateIpv6Subnets: ['Test string'],
+              candidateSubnets: ['Test string'],
+              cloudRouterIpv6InterfaceId: 'Test string',
+              customerRouterIpv6InterfaceId: 'Test string',
+              description: 'Test string',
+              edgeAvailabilityDomain: 'Test string',
+              encryption: 'Test string',
+              interconnect: 'Test string',
+              ipsecInternalAddresses: ['Test string'],
+              l2Forwarding: {
+                applianceMappings: {
+                  A: {
+                    applianceIpAddress: 'Test string',
+                    innerVlanToApplianceMappings: [
+                      {
+                        innerApplianceIpAddress: 'Test string',
+                        innerVlanTags: ['Test string'],
+                      },
+                    ],
+                    name: 'Test string',
+                  },
+                },
+                defaultApplianceIpAddress: 'Test string',
+                geneveHeader: {
+                  vni: 42,
+                },
+                network: 'Test string',
+                tunnelEndpointIpAddress: 'Test string',
+              },
+              mtu: 42,
+              multicastEnabled: true,
+              name: 'Test string',
+              pairingKey: 'Test string',
+              partnerAsn: 'Test string',
+              partnerMetadata: {
+                interconnectName: 'Test string',
+                partnerName: 'Test string',
+                portalUrl: 'Test string',
+              },
+              region: 'Test string',
+              router: 'Test string',
+              stackType: 'Test string',
+              subnetLength: 42,
+              type: 'Test string',
+              vlanTag8021q: 42,
+            },
+          ],
+          intentMismatchBehavior: 'Test string',
+          templateAttachment: {
+            adminEnabled: true,
+            bandwidth: 'Test string',
+            candidateCloudRouterIpAddress: 'Test string',
+            candidateCloudRouterIpv6Address: 'Test string',
+            candidateCustomerRouterIpAddress: 'Test string',
+            candidateCustomerRouterIpv6Address: 'Test string',
+            candidateIpv6Subnets: ['Test string'],
+            candidateSubnets: ['Test string'],
+            cloudRouterIpv6InterfaceId: 'Test string',
+            customerRouterIpv6InterfaceId: 'Test string',
+            description: 'Test string',
+            edgeAvailabilityDomain: 'Test string',
+            encryption: 'Test string',
+            interconnect: 'Test string',
+            ipsecInternalAddresses: ['Test string'],
+            l2Forwarding: {
+              applianceMappings: {
+                A: {
+                  applianceIpAddress: 'Test string',
+                  innerVlanToApplianceMappings: [
+                    {
+                      innerApplianceIpAddress: 'Test string',
+                      innerVlanTags: ['Test string'],
+                    },
+                  ],
+                  name: 'Test string',
+                },
+              },
+              defaultApplianceIpAddress: 'Test string',
+              geneveHeader: {
+                vni: 42,
+              },
+              network: 'Test string',
+              tunnelEndpointIpAddress: 'Test string',
+            },
+            mtu: 42,
+            multicastEnabled: true,
+            name: 'Test string',
+            pairingKey: 'Test string',
+            partnerAsn: 'Test string',
+            partnerMetadata: {
+              interconnectName: 'Test string',
+              partnerName: 'Test string',
+              portalUrl: 'Test string',
+            },
+            region: 'Test string',
+            router: 'Test string',
+            stackType: 'Test string',
+            subnetLength: 42,
+            type: 'Test string',
+            vlanTag8021q: 42,
+          },
+        },
       },
     );
     /** Deletes the specified InterconnectAttachmentGroup in the given scope */
@@ -12451,7 +12590,6 @@ gapi.load('client', async () => {
             ipAddress: 'Test string',
             ipv6Address: 'Test string',
             port: 42,
-            zone: 'Test string',
           },
         ],
       },
@@ -12483,7 +12621,6 @@ gapi.load('client', async () => {
             ipAddress: 'Test string',
             ipv6Address: 'Test string',
             port: 42,
-            zone: 'Test string',
           },
         ],
       },
@@ -12590,7 +12727,6 @@ gapi.load('client', async () => {
               ipAddress: 'Test string',
               ipv6Address: 'Test string',
               port: 42,
-              zone: 'Test string',
             },
           },
         ],
@@ -17145,6 +17281,11 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             resourceStatus: {
+              aggregateAllocation: {
+                utilizations: {
+                  A: 'Test string',
+                },
+              },
               reservationBlockCount: 42,
               reservationMaintenance: {
                 maintenanceOngoingCount: 42,
@@ -17348,6 +17489,11 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             resourceStatus: {
+              aggregateAllocation: {
+                utilizations: {
+                  A: 'Test string',
+                },
+              },
               reservationBlockCount: 42,
               reservationMaintenance: {
                 maintenanceOngoingCount: 42,
@@ -17510,6 +17656,11 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             resourceStatus: {
+              aggregateAllocation: {
+                utilizations: {
+                  A: 'Test string',
+                },
+              },
               reservationBlockCount: 42,
               reservationMaintenance: {
                 maintenanceOngoingCount: 42,
@@ -18129,6 +18280,7 @@ gapi.load('client', async () => {
               region: 'Test string',
             },
           },
+          policy: 'Test string',
         },
         defaultResourcePolicies: {
           A: {
@@ -18545,6 +18697,96 @@ gapi.load('client', async () => {
     );
     /** Returns permissions that a caller has on the specified resource. */
     await gapi.client.compute.regionHealthCheckServices.testIamPermissions(
+      {
+        project: 'Test string',
+        region: 'Test string',
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      },
+    );
+    /** Retrieves the list of all HealthSource resources (all regional) available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. */
+    await gapi.client.compute.regionHealthSources.aggregatedList({
+      filter: 'Test string',
+      includeAllScopes: true,
+      maxResults: 42,
+      orderBy: 'Test string',
+      pageToken: 'Test string',
+      project: 'Test string',
+      returnPartialSuccess: true,
+      serviceProjectNumber: 'Test string',
+    });
+    /** Deletes the specified HealthSource in the given region */
+    await gapi.client.compute.regionHealthSources.delete({
+      healthSource: 'Test string',
+      project: 'Test string',
+      region: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Returns the specified HealthSource resource in the given region. */
+    await gapi.client.compute.regionHealthSources.get({
+      healthSource: 'Test string',
+      project: 'Test string',
+      region: 'Test string',
+    });
+    /** Create a HealthSource in the specified project in the given region using the parameters that are included in the request. */
+    await gapi.client.compute.regionHealthSources.insert(
+      {
+        project: 'Test string',
+        region: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        creationTimestamp: 'Test string',
+        description: 'Test string',
+        fingerprint: 'Test string',
+        healthAggregationPolicy: 'Test string',
+        id: 'Test string',
+        kind: 'Test string',
+        name: 'Test string',
+        region: 'Test string',
+        selfLink: 'Test string',
+        selfLinkWithId: 'Test string',
+        sources: ['Test string'],
+        sourceType: 'Test string',
+      },
+    );
+    /** Lists the HealthSources for a project in the given region. */
+    await gapi.client.compute.regionHealthSources.list({
+      filter: 'Test string',
+      maxResults: 42,
+      orderBy: 'Test string',
+      pageToken: 'Test string',
+      project: 'Test string',
+      region: 'Test string',
+      returnPartialSuccess: true,
+    });
+    /** Updates the specified regional HealthSource resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
+    await gapi.client.compute.regionHealthSources.patch(
+      {
+        healthSource: 'Test string',
+        project: 'Test string',
+        region: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        creationTimestamp: 'Test string',
+        description: 'Test string',
+        fingerprint: 'Test string',
+        healthAggregationPolicy: 'Test string',
+        id: 'Test string',
+        kind: 'Test string',
+        name: 'Test string',
+        region: 'Test string',
+        selfLink: 'Test string',
+        selfLinkWithId: 'Test string',
+        sources: ['Test string'],
+        sourceType: 'Test string',
+      },
+    );
+    /** Returns permissions that a caller has on the specified resource. */
+    await gapi.client.compute.regionHealthSources.testIamPermissions(
       {
         project: 'Test string',
         region: 'Test string',
@@ -20914,6 +21156,24 @@ gapi.load('client', async () => {
         permissions: ['Test string'],
       },
     );
+    /** Retrieves information about the specified multi-MIG member. */
+    await gapi.client.compute.regionMultiMigMembers.get({
+      multiMig: 'Test string',
+      multiMigMember: 'Test string',
+      project: 'Test string',
+      region: 'Test string',
+    });
+    /** Retrieves a list of members of a specific multi-MIG. */
+    await gapi.client.compute.regionMultiMigMembers.list({
+      filter: 'Test string',
+      maxResults: 42,
+      multiMig: 'Test string',
+      orderBy: 'Test string',
+      pageToken: 'Test string',
+      project: 'Test string',
+      region: 'Test string',
+      returnPartialSuccess: true,
+    });
     /** Deletes a multi-MIG in the specified project. */
     await gapi.client.compute.regionMultiMigs.delete({
       multiMig: 'Test string',
@@ -20981,7 +21241,6 @@ gapi.load('client', async () => {
             ipAddress: 'Test string',
             ipv6Address: 'Test string',
             port: 42,
-            zone: 'Test string',
           },
         ],
       },
@@ -21013,7 +21272,6 @@ gapi.load('client', async () => {
             ipAddress: 'Test string',
             ipv6Address: 'Test string',
             port: 42,
-            zone: 'Test string',
           },
         ],
       },
@@ -25687,6 +25945,11 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         resourceStatus: {
+          aggregateAllocation: {
+            utilizations: {
+              A: 'Test string',
+            },
+          },
           reservationBlockCount: 42,
           reservationMaintenance: {
             maintenanceOngoingCount: 42,
@@ -25906,6 +26169,11 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         resourceStatus: {
+          aggregateAllocation: {
+            utilizations: {
+              A: 'Test string',
+            },
+          },
           reservationBlockCount: 42,
           reservationMaintenance: {
             maintenanceOngoingCount: 42,

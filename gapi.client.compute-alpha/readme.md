@@ -376,6 +376,11 @@ Bulk create a set of disks.
 await gapi.client.compute.disks.bulkInsert({ project: "project", zone: "zone",  });
 
 /*
+Sets the labels on many disks at once. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.disks.bulkSetLabels({ project: "project", zone: "zone",  });
+
+/*
 Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project.
 */
 await gapi.client.compute.disks.createSnapshot({ disk: "disk", project: "project", zone: "zone",  });
@@ -1714,6 +1719,11 @@ await gapi.client.compute.instantSnapshots.setLabels({ project: "project", resou
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.instantSnapshots.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
+Create Interconnect Attachments with redundancy by creating them in a specified interconnect attachment group.
+*/
+await gapi.client.compute.interconnectAttachmentGroups.createMembers({ interconnectAttachmentGroup: "interconnectAttachmentGroup", project: "project",  });
 
 /*
 Deletes the specified InterconnectAttachmentGroup in the given scope
@@ -3086,6 +3096,41 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionHealthCheckServices.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Retrieves the list of all HealthSource resources (all regional) available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+*/
+await gapi.client.compute.regionHealthSources.aggregatedList({ project: "project",  });
+
+/*
+Deletes the specified HealthSource in the given region
+*/
+await gapi.client.compute.regionHealthSources.delete({ healthSource: "healthSource", project: "project", region: "region",  });
+
+/*
+Returns the specified HealthSource resource in the given region.
+*/
+await gapi.client.compute.regionHealthSources.get({ healthSource: "healthSource", project: "project", region: "region",  });
+
+/*
+Create a HealthSource in the specified project in the given region using the parameters that are included in the request.
+*/
+await gapi.client.compute.regionHealthSources.insert({ project: "project", region: "region",  });
+
+/*
+Lists the HealthSources for a project in the given region.
+*/
+await gapi.client.compute.regionHealthSources.list({ project: "project", region: "region",  });
+
+/*
+Updates the specified regional HealthSource resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+*/
+await gapi.client.compute.regionHealthSources.patch({ healthSource: "healthSource", project: "project", region: "region",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionHealthSources.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Cancels the specified resize request. Cancelled resize request no longer waits for the resources to be provisioned. Cancel is only possible for requests that are in accepted state.
 */
 await gapi.client.compute.regionInstanceGroupManagerResizeRequests.cancel({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
@@ -3369,6 +3414,16 @@ await gapi.client.compute.regionInstantSnapshots.setLabels({ project: "project",
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.regionInstantSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Retrieves information about the specified multi-MIG member.
+*/
+await gapi.client.compute.regionMultiMigMembers.get({ multiMig: "multiMig", multiMigMember: "multiMigMember", project: "project", region: "region",  });
+
+/*
+Retrieves a list of members of a specific multi-MIG.
+*/
+await gapi.client.compute.regionMultiMigMembers.list({ multiMig: "multiMig", project: "project", region: "region",  });
 
 /*
 Deletes a multi-MIG in the specified project.
