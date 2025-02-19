@@ -88,4 +88,9 @@ Provision app distribution for an existing Firebase app, enabling it to subseque
 await gapi.client.firebaseappdistribution.apps.provisionApp({
   mobilesdkAppId: 'mobilesdkAppId',
 });
+
+/*
+Get information about the quota for `ReleaseTests`.
+*/
+await gapi.client.firebaseappdistribution.projects.getTestQuota({name: 'name'});
 ```
