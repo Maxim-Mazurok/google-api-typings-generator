@@ -1617,6 +1617,62 @@ gapi.load('client', async () => {
         ],
       },
     );
+    /** Deletes the specified cross-site network in the given scope. */
+    await gapi.client.compute.crossSiteNetworks.delete({
+      crossSiteNetwork: 'Test string',
+      project: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Returns the specified cross-site network in the given scope. */
+    await gapi.client.compute.crossSiteNetworks.get({
+      crossSiteNetwork: 'Test string',
+      project: 'Test string',
+    });
+    /** Creates a cross-site network in the specified project in the given scope using the parameters that are included in the request. */
+    await gapi.client.compute.crossSiteNetworks.insert(
+      {
+        project: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        creationTimestamp: 'Test string',
+        description: 'Test string',
+        id: 'Test string',
+        kind: 'Test string',
+        name: 'Test string',
+        selfLink: 'Test string',
+        selfLinkWithId: 'Test string',
+      },
+    );
+    /** Lists the cross-site networks for a project in the given scope. */
+    await gapi.client.compute.crossSiteNetworks.list({
+      filter: 'Test string',
+      maxResults: 42,
+      orderBy: 'Test string',
+      pageToken: 'Test string',
+      project: 'Test string',
+      returnPartialSuccess: true,
+    });
+    /** Updates the specified cross-site network with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
+    await gapi.client.compute.crossSiteNetworks.patch(
+      {
+        crossSiteNetwork: 'Test string',
+        project: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        creationTimestamp: 'Test string',
+        description: 'Test string',
+        id: 'Test string',
+        kind: 'Test string',
+        name: 'Test string',
+        selfLink: 'Test string',
+        selfLinkWithId: 'Test string',
+      },
+    );
     /** Adds existing resource policies to a disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. */
     await gapi.client.compute.disks.addResourcePolicies(
       {
@@ -27779,6 +27835,151 @@ gapi.load('client', async () => {
       },
       {
         permissions: ['Test string'],
+      },
+    );
+    /** Deletes the specified wire group in the given scope. */
+    await gapi.client.compute.wireGroups.delete({
+      crossSiteNetwork: 'Test string',
+      project: 'Test string',
+      requestId: 'Test string',
+      wireGroup: 'Test string',
+    });
+    /** Gets the specified wire group resource in the given scope. */
+    await gapi.client.compute.wireGroups.get({
+      crossSiteNetwork: 'Test string',
+      project: 'Test string',
+      wireGroup: 'Test string',
+    });
+    /** Creates a wire group in the specified project in the given scope using the parameters that are included in the request. */
+    await gapi.client.compute.wireGroups.insert(
+      {
+        crossSiteNetwork: 'Test string',
+        project: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        adminEnabled: true,
+        creationTimestamp: 'Test string',
+        description: 'Test string',
+        endpoints: {
+          A: {
+            interconnects: {
+              A: {
+                interconnect: 'Test string',
+                vlanTags: [42],
+              },
+            },
+          },
+        },
+        id: 'Test string',
+        kind: 'Test string',
+        name: 'Test string',
+        selfLink: 'Test string',
+        selfLinkWithId: 'Test string',
+        topology: {
+          endpoints: [
+            {
+              city: 'Test string',
+              label: 'Test string',
+            },
+          ],
+        },
+        wireGroupProperties: {
+          type: 'Test string',
+        },
+        wireProperties: {
+          bandwidthUnmetered: 'Test string',
+          faultResponse: 'Test string',
+        },
+        wires: [
+          {
+            adminEnabled: true,
+            endpoints: [
+              {
+                interconnect: 'Test string',
+                vlanTag: 42,
+              },
+            ],
+            label: 'Test string',
+            wireProperties: {
+              bandwidthUnmetered: 'Test string',
+              faultResponse: 'Test string',
+            },
+          },
+        ],
+      },
+    );
+    /** Lists the wire groups for a project in the given scope. */
+    await gapi.client.compute.wireGroups.list({
+      crossSiteNetwork: 'Test string',
+      filter: 'Test string',
+      maxResults: 42,
+      orderBy: 'Test string',
+      pageToken: 'Test string',
+      project: 'Test string',
+      returnPartialSuccess: true,
+    });
+    /** Updates the specified wire group resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
+    await gapi.client.compute.wireGroups.patch(
+      {
+        crossSiteNetwork: 'Test string',
+        project: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+        wireGroup: 'Test string',
+      },
+      {
+        adminEnabled: true,
+        creationTimestamp: 'Test string',
+        description: 'Test string',
+        endpoints: {
+          A: {
+            interconnects: {
+              A: {
+                interconnect: 'Test string',
+                vlanTags: [42],
+              },
+            },
+          },
+        },
+        id: 'Test string',
+        kind: 'Test string',
+        name: 'Test string',
+        selfLink: 'Test string',
+        selfLinkWithId: 'Test string',
+        topology: {
+          endpoints: [
+            {
+              city: 'Test string',
+              label: 'Test string',
+            },
+          ],
+        },
+        wireGroupProperties: {
+          type: 'Test string',
+        },
+        wireProperties: {
+          bandwidthUnmetered: 'Test string',
+          faultResponse: 'Test string',
+        },
+        wires: [
+          {
+            adminEnabled: true,
+            endpoints: [
+              {
+                interconnect: 'Test string',
+                vlanTag: 42,
+              },
+            ],
+            label: 'Test string',
+            wireProperties: {
+              bandwidthUnmetered: 'Test string',
+              faultResponse: 'Test string',
+            },
+          },
+        ],
       },
     );
     /** Deletes the specified zone-specific Operations resource. */
