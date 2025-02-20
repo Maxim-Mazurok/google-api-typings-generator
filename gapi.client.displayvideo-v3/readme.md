@@ -158,7 +158,7 @@ Lists custom bidding algorithms that are accessible to the current user and can 
 await gapi.client.displayvideo.customBiddingAlgorithms.list({});
 
 /*
-Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful. *Warning*: Starting **April 1, 2025**, requests updating custom bidding algorithms that are assigned to line items will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight).
+Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful.
 */
 await gapi.client.displayvideo.customBiddingAlgorithms.patch({
   customBiddingAlgorithmId: 'customBiddingAlgorithmId',
