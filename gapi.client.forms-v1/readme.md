@@ -1,7 +1,7 @@
 # TypeScript typings for Google Forms API v1
 
 Reads and writes Google Forms and responses.
-For detailed description please check [documentation](https://developers.google.com/forms/api).
+For detailed description please check [documentation](https://developers.google.com/workspace/forms/api).
 
 ## Installing
 
