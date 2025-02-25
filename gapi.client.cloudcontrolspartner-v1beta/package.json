@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudcontrolspartner-v1beta",
-  "version": "0.0.20250205",
+  "version": "0.0.20250219",
   "description": "TypeScript typings for Cloud Controls Partner API v1beta",
   "repository": {
     "type": "git",
