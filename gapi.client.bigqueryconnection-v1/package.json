@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.bigqueryconnection-v1",
-  "version": "0.0.20241013",
+  "version": "0.0.20250216",
   "description": "TypeScript typings for BigQuery Connection API v1",
   "repository": {
     "type": "git",
