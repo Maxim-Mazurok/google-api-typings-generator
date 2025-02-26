@@ -1,4 +1,4 @@
-# TypeScript typings for Google Ads API v15
+# TypeScript typings for Google Ads API v19
 
 Manage your Google Ads accounts, campaigns, and reports with this API.
 For detailed description please check [documentation](https://developers.google.com/google-ads/api/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for Google Ads API:
 
 ```
-npm install @types/gapi.client.googleads-v15 --save-dev
+npm install @types/gapi.client.googleads-v19 --save-dev
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Then load api client wrapper:
 
 ```typescript
 gapi.client.load(
-  'https://googleads.googleapis.com/$discovery/rest?version=v15',
+  'https://googleads.googleapis.com/$discovery/rest?version=v19',
   () => {
     // now we can use:
     // gapi.client.googleads
@@ -36,7 +36,7 @@ gapi.client.load(
 
 ```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
-gapi.client.load('googleads', 'v15', () => {
+gapi.client.load('googleads', 'v19', () => {
   // now we can use:
   // gapi.client.googleads
 });
@@ -96,6 +96,20 @@ await gapi.client.googleads.customers.generateAudienceCompositionInsights({
 });
 
 /*
+Returns a collection of audience attributes along with estimates of the overlap between their potential YouTube reach and that of a given input attribute. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.generateAudienceOverlapInsights({
+  customerId: 'customerId',
+});
+
+/*
+Returns insights for a collection of YouTube Creators and Channels. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.generateCreatorInsights({
+  customerId: 'customerId',
+});
+
+/*
 Creates a saved report that can be viewed in the Insights Finder tool. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
 */
 await gapi.client.googleads.customers.generateInsightsFinderReport({
@@ -131,9 +145,37 @@ await gapi.client.googleads.customers.generateReachForecast({
 });
 
 /*
+Returns the requested Shareable Preview.
+*/
+await gapi.client.googleads.customers.generateShareablePreviews({
+  customerId: 'customerId',
+});
+
+/*
 Returns a collection of targeting insights (e.g. targetable audiences) that are relevant to the requested audience. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
 */
 await gapi.client.googleads.customers.generateSuggestedTargetingInsights({
+  customerId: 'customerId',
+});
+
+/*
+Returns potential reach metrics for targetable audiences. This method helps answer questions like "How many Men aged 18+ interested in Camping can be reached on YouTube?" List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.generateTargetingSuggestionMetrics({
+  customerId: 'customerId',
+});
+
+/*
+Returns insights for trending content on YouTube. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.generateTrendingInsights({
+  customerId: 'customerId',
+});
+
+/*
+Returns Identity Verification information. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.getIdentityVerification({
   customerId: 'customerId',
 });
 
@@ -151,6 +193,13 @@ await gapi.client.googleads.customers.mutate({customerId: 'customerId'});
 Searches for audience attributes that can be used to generate insights. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
 */
 await gapi.client.googleads.customers.searchAudienceInsightsAttributes({
+  customerId: 'customerId',
+});
+
+/*
+Starts Identity Verification for a given verification program type. Statuses are returned. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.startIdentityVerification({
   customerId: 'customerId',
 });
 
