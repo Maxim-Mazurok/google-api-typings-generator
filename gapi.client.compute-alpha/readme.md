@@ -2501,7 +2501,7 @@ Retrieves a list of node types available to the specified project.
 await gapi.client.compute.nodeTypes.list({ project: "project", zone: "zone",  });
 
 /*
-Inserts an association for the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.addAssociation instead if possible.
+Inserts an association for the specified security policy.
 */
 await gapi.client.compute.organizationSecurityPolicies.addAssociation({ securityPolicy: "securityPolicy",  });
 
@@ -2511,42 +2511,42 @@ Inserts a rule into a security policy.
 await gapi.client.compute.organizationSecurityPolicies.addRule({ securityPolicy: "securityPolicy",  });
 
 /*
-Copies rules to the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.copyRules instead.
+Copies rules to the specified security policy.
 */
 await gapi.client.compute.organizationSecurityPolicies.copyRules({ securityPolicy: "securityPolicy",  });
 
 /*
-Deletes the specified policy. Use of this API to remove firewall policies is deprecated. Use firewallPolicies.delete instead.
+Deletes the specified policy.
 */
 await gapi.client.compute.organizationSecurityPolicies.delete({ securityPolicy: "securityPolicy",  });
 
 /*
-List all of the ordered rules present in a single specified policy. Use of this API to read firewall policies is deprecated. Use firewallPolicies.get instead.
+List all of the ordered rules present in a single specified policy.
 */
 await gapi.client.compute.organizationSecurityPolicies.get({ securityPolicy: "securityPolicy",  });
 
 /*
-Gets an association with the specified name. Use of this API to read firewall policies is deprecated. Use firewallPolicies.getAssociation instead if possible.
+Gets an association with the specified name.
 */
 await gapi.client.compute.organizationSecurityPolicies.getAssociation({ securityPolicy: "securityPolicy",  });
 
 /*
-Gets a rule at the specified priority. Use of this API to read firewall policies is deprecated. Use firewallPolicies.getRule instead.
+Gets a rule at the specified priority.
 */
 await gapi.client.compute.organizationSecurityPolicies.getRule({ securityPolicy: "securityPolicy",  });
 
 /*
-Creates a new policy in the specified project using the data included in the request. Use of this API to insert firewall policies is deprecated. Use firewallPolicies.insert instead.
+Creates a new policy in the specified project using the data included in the request.
 */
 await gapi.client.compute.organizationSecurityPolicies.insert({  });
 
 /*
-List all the policies that have been configured for the specified project. Use of this API to read firewall policies is deprecated. Use firewallPolicies.list instead.
+List all the policies that have been configured for the specified project.
 */
 await gapi.client.compute.organizationSecurityPolicies.list({  });
 
 /*
-Lists associations of a specified target, i.e., organization or folder. Use of this API to read firewall policies is deprecated. Use firewallPolicies.listAssociations instead if possible.
+Lists associations of a specified target, i.e., organization or folder.
 */
 await gapi.client.compute.organizationSecurityPolicies.listAssociations({  });
 
@@ -2556,22 +2556,22 @@ Gets the current list of preconfigured Web Application Firewall (WAF) expression
 await gapi.client.compute.organizationSecurityPolicies.listPreconfiguredExpressionSets({  });
 
 /*
-Moves the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.move instead.
+Moves the specified security policy.
 */
 await gapi.client.compute.organizationSecurityPolicies.move({ securityPolicy: "securityPolicy",  });
 
 /*
-Patches the specified policy with the data included in the request. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.patch instead.
+Patches the specified policy with the data included in the request.
 */
 await gapi.client.compute.organizationSecurityPolicies.patch({ securityPolicy: "securityPolicy",  });
 
 /*
-Patches a rule at the specified priority. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.patchRule instead.
+Patches a rule at the specified priority.
 */
 await gapi.client.compute.organizationSecurityPolicies.patchRule({ securityPolicy: "securityPolicy",  });
 
 /*
-Removes an association for the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.removeAssociation instead if possible.
+Removes an association for the specified security policy.
 */
 await gapi.client.compute.organizationSecurityPolicies.removeAssociation({ securityPolicy: "securityPolicy",  });
 
@@ -2911,41 +2911,6 @@ Transfers GPUs or Local SSD disks between reservations that are attached to the 
 await gapi.client.compute.regionCommitments.updateReservations({ commitment: "commitment", project: "project", region: "region",  });
 
 /*
-Retrieves the list of all CompositeHealthCheck resources (all regional) available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.aggregatedList({ project: "project",  });
-
-/*
-Deletes the specified CompositeHealthCheck in the given region
-*/
-await gapi.client.compute.regionCompositeHealthChecks.delete({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
-
-/*
-Returns the specified CompositeHealthCheck resource in the given region.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.get({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
-
-/*
-Create a CompositeHealthCheck in the specified project in the given region using the parameters that are included in the request.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.insert({ project: "project", region: "region",  });
-
-/*
-Lists the CompositeHealthChecks for a project in the given region.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.list({ project: "project", region: "region",  });
-
-/*
-Updates the specified regional CompositeHealthCheck resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.patch({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
 Adds existing resource policies to a regional disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation.
 */
 await gapi.client.compute.regionDisks.addResourcePolicies({ disk: "disk", project: "project", region: "region",  });
@@ -3059,36 +3024,6 @@ await gapi.client.compute.regionDiskTypes.get({ diskType: "diskType", project: "
 Retrieves a list of regional disk types available to the specified project.
 */
 await gapi.client.compute.regionDiskTypes.list({ project: "project", region: "region",  });
-
-/*
-Deletes the specified HealthAggregationPolicy in the given region.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.delete({ healthAggregationPolicy: "healthAggregationPolicy", project: "project", region: "region",  });
-
-/*
-Returns the specified HealthAggregationPolicy resource in the given region.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.get({ healthAggregationPolicy: "healthAggregationPolicy", project: "project", region: "region",  });
-
-/*
-Create a HealthAggregationPolicy in the specified project in the given region using the parameters that are included in the request.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.insert({ project: "project", region: "region",  });
-
-/*
-Lists the HealthAggregationPolicies for a project in the given region.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.list({ project: "project", region: "region",  });
-
-/*
-Updates the specified regional HealthAggregationPolicy resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.patch({ healthAggregationPolicy: "healthAggregationPolicy", project: "project", region: "region",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified HealthCheck resource.
