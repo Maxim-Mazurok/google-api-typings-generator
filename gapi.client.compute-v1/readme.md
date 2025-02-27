@@ -1216,11 +1216,6 @@ Removes resource policies from an instance.
 await gapi.client.compute.instances.removeResourcePolicies({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
-Mark the host as faulty and try to restart the instance on a new host.
-*/
-await gapi.client.compute.instances.reportHostAsFaulty({ instance: "instance", project: "project", zone: "zone",  });
-
-/*
 Performs a reset on the instance. This is a hard reset. The VM does not do a graceful shutdown. For more information, see Resetting an instance.
 */
 await gapi.client.compute.instances.reset({ instance: "instance", project: "project", zone: "zone",  });
