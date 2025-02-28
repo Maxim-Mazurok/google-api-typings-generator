@@ -1281,6 +1281,11 @@ Adds an access config to an instance's network interface.
 await gapi.client.compute.instances.addAccessConfig({ instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
 
 /*
+Adds one dynamic network interface to an active instance.
+*/
+await gapi.client.compute.instances.addNetworkInterface({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
 Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live migrations.
 */
 await gapi.client.compute.instances.addResourcePolicies({ instance: "instance", project: "project", zone: "zone",  });
@@ -1309,6 +1314,11 @@ await gapi.client.compute.instances.delete({ instance: "instance", project: "pro
 Deletes an access config from an instance's network interface.
 */
 await gapi.client.compute.instances.deleteAccessConfig({ accessConfig: "accessConfig", instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
+
+/*
+Deletes one dynamic network interface from an active instance. InstancesDeleteNetworkInterfaceRequest indicates: - instance from which to delete, using project+zone+resource_id fields; - dynamic network interface to be deleted, using network_interface_name field;
+*/
+await gapi.client.compute.instances.deleteNetworkInterface({ instance: "instance", networkInterfaceName: "networkInterfaceName", project: "project", zone: "zone",  });
 
 /*
 Detaches a disk from an instance.
@@ -1389,6 +1399,11 @@ await gapi.client.compute.instances.performMaintenance({ instance: "instance", p
 Removes resource policies from an instance.
 */
 await gapi.client.compute.instances.removeResourcePolicies({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
+Mark the host as faulty and try to restart the instance on a new host.
+*/
+await gapi.client.compute.instances.reportHostAsFaulty({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
 Performs a reset on the instance. This is a hard reset. The VM does not do a graceful shutdown. For more information, see Resetting an instance.
@@ -2256,7 +2271,7 @@ Retrieves a list of node types available to the specified project.
 await gapi.client.compute.nodeTypes.list({ project: "project", zone: "zone",  });
 
 /*
-Inserts an association for the specified security policy.
+Inserts an association for the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.addAssociation instead if possible.
 */
 await gapi.client.compute.organizationSecurityPolicies.addAssociation({ securityPolicy: "securityPolicy",  });
 
@@ -2266,42 +2281,42 @@ Inserts a rule into a security policy.
 await gapi.client.compute.organizationSecurityPolicies.addRule({ securityPolicy: "securityPolicy",  });
 
 /*
-Copies rules to the specified security policy.
+Copies rules to the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.copyRules instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.copyRules({ securityPolicy: "securityPolicy",  });
 
 /*
-Deletes the specified policy.
+Deletes the specified policy. Use of this API to remove firewall policies is deprecated. Use firewallPolicies.delete instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.delete({ securityPolicy: "securityPolicy",  });
 
 /*
-List all of the ordered rules present in a single specified policy.
+List all of the ordered rules present in a single specified policy. Use of this API to read firewall policies is deprecated. Use firewallPolicies.get instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.get({ securityPolicy: "securityPolicy",  });
 
 /*
-Gets an association with the specified name.
+Gets an association with the specified name. Use of this API to read firewall policies is deprecated. Use firewallPolicies.getAssociation instead if possible.
 */
 await gapi.client.compute.organizationSecurityPolicies.getAssociation({ securityPolicy: "securityPolicy",  });
 
 /*
-Gets a rule at the specified priority.
+Gets a rule at the specified priority. Use of this API to read firewall policies is deprecated. Use firewallPolicies.getRule instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.getRule({ securityPolicy: "securityPolicy",  });
 
 /*
-Creates a new policy in the specified project using the data included in the request.
+Creates a new policy in the specified project using the data included in the request. Use of this API to insert firewall policies is deprecated. Use firewallPolicies.insert instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.insert({  });
 
 /*
-List all the policies that have been configured for the specified project.
+List all the policies that have been configured for the specified project. Use of this API to read firewall policies is deprecated. Use firewallPolicies.list instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.list({  });
 
 /*
-Lists associations of a specified target, i.e., organization or folder.
+Lists associations of a specified target, i.e., organization or folder. Use of this API to read firewall policies is deprecated. Use firewallPolicies.listAssociations instead if possible.
 */
 await gapi.client.compute.organizationSecurityPolicies.listAssociations({  });
 
@@ -2311,22 +2326,22 @@ Gets the current list of preconfigured Web Application Firewall (WAF) expression
 await gapi.client.compute.organizationSecurityPolicies.listPreconfiguredExpressionSets({  });
 
 /*
-Moves the specified security policy.
+Moves the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.move instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.move({ securityPolicy: "securityPolicy",  });
 
 /*
-Patches the specified policy with the data included in the request.
+Patches the specified policy with the data included in the request. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.patch instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.patch({ securityPolicy: "securityPolicy",  });
 
 /*
-Patches a rule at the specified priority.
+Patches a rule at the specified priority. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.patchRule instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.patchRule({ securityPolicy: "securityPolicy",  });
 
 /*
-Removes an association for the specified security policy.
+Removes an association for the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.removeAssociation instead if possible.
 */
 await gapi.client.compute.organizationSecurityPolicies.removeAssociation({ securityPolicy: "securityPolicy",  });
 
