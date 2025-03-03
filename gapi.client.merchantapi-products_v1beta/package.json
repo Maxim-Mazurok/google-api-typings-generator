@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.merchantapi-products_v1beta",
-  "version": "0.0.20250220",
+  "version": "0.0.20250301",
   "description": "TypeScript typings for Merchant API products_v1beta",
   "repository": {
     "type": "git",
