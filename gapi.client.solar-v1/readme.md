@@ -70,7 +70,7 @@ After that you can use Solar API resources: <!-- TODO: make this work for multip
 
 ```typescript
 /*
-Locates the closest building to a query point. Returns an error with code `NOT_FOUND` if there are no buildings within approximately 50m of the query point.
+Locates the building whose centroid is closest to a query point. Returns an error with code `NOT_FOUND` if there are no buildings within approximately 50m of the query point.
 */
 await gapi.client.solar.buildingInsights.findClosest({});
 
