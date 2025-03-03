@@ -71,6 +71,7 @@ gapi.load('client', async () => {
         groundingSpec: {
           groundingSources: [
             {
+              enterpriseWebRetrievalSource: {},
               googleSearchSource: {
                 dynamicRetrievalConfig: {
                   predictor: {
