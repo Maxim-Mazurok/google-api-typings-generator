@@ -1,6 +1,6 @@
 # TypeScript typings for Firebase Cloud Messaging API v1
 
-FCM send API that provides a cross-platform messaging solution to reliably deliver messages.
+FCM send API that provides a cross-platform messaging solution to reliably deliver messages at no cost.
 For detailed description please check [documentation](https://firebase.google.com/docs/cloud-messaging).
 
 ## Installing
