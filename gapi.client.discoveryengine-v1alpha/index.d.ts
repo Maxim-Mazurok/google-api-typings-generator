@@ -1216,8 +1216,6 @@ declare namespace gapi.client {
       extractedRecordCount?: string;
       /** The number of documents indexed. */
       indexedRecordCount?: string;
-      /** Metadata to generate the progress bar. */
-      progress?: GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRunProgress;
       /** The number of requests sent to 3p API. */
       sourceApiRequestCount?: string;
       /** The state of the entity's sync run. */
@@ -1228,14 +1226,6 @@ declare namespace gapi.client {
       statsUpdateTime?: string;
       /** Sync type of this run. */
       syncType?: string;
-    }
-    interface GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRunProgress {
-      /** The current progress. */
-      currentCount?: string;
-      /** Derived. The percentile of the progress. */
-      percentile?: number;
-      /** The total. */
-      totalCount?: string;
     }
     interface GoogleCloudDiscoveryengineV1alphaControl {
       /** Output only. List of all ServingConfig IDs this control is attached to. May take up to 10 minutes to update after changes. */
@@ -1563,12 +1553,8 @@ declare namespace gapi.client {
       disabledForServing?: boolean;
     }
     interface GoogleCloudDiscoveryengineV1alphaDedicatedCrawlRateTimeSeries {
-      /** Vertex AI's error rate time series of auto-refresh dedicated crawl. */
-      autoRefreshCrawlErrorRate?: GoogleCloudDiscoveryengineV1alphaCrawlRateTimeSeries;
       /** Vertex AI's dedicated crawl rate time series of auto-refresh, which is the crawl rate of Google-CloudVertexBot when dedicate crawl is set, and the crawl rate is for best effort use cases like refreshing urls periodically. */
       autoRefreshCrawlRate?: GoogleCloudDiscoveryengineV1alphaCrawlRateTimeSeries;
-      /** Vertex AI's error rate time series of user triggered dedicated crawl. */
-      userTriggeredCrawlErrorRate?: GoogleCloudDiscoveryengineV1alphaCrawlRateTimeSeries;
       /** Vertex AI's dedicated crawl rate time series of user triggered crawl, which is the crawl rate of Google-CloudVertexBot when dedicate crawl is set, and user triggered crawl rate is for deterministic use cases like crawling urls or sitemaps specified by users. */
       userTriggeredCrawlRate?: GoogleCloudDiscoveryengineV1alphaCrawlRateTimeSeries;
     }
@@ -2040,8 +2026,6 @@ declare namespace gapi.client {
       topP?: number;
     }
     interface GoogleCloudDiscoveryengineV1alphaGenerateGroundedContentRequestGroundingSource {
-      /** If set, grounding is performed with enterprise web retrieval. */
-      enterpriseWebRetrievalSource?: any;
       /** If set, grounding is performed with Google Search. */
       googleSearchSource?: GoogleCloudDiscoveryengineV1alphaGenerateGroundedContentRequestGroundingSourceGoogleSearchSource;
       /** If set, grounding is performed with inline content. */
@@ -2049,7 +2033,6 @@ declare namespace gapi.client {
       /** If set, grounding is performed with Vertex AI Search. */
       searchSource?: GoogleCloudDiscoveryengineV1alphaGenerateGroundedContentRequestGroundingSourceSearchSource;
     }
-    interface GoogleCloudDiscoveryengineV1alphaGenerateGroundedContentRequestGroundingSourceEnterpriseWebRetrievalSource {}
     interface GoogleCloudDiscoveryengineV1alphaGenerateGroundedContentRequestGroundingSourceGoogleSearchSource {
       /** Optional. Specifies the dynamic retrieval configuration for the given source. */
       dynamicRetrievalConfig?: GoogleCloudDiscoveryengineV1alphaGenerateGroundedContentRequestDynamicRetrievalConfiguration;
@@ -3398,8 +3381,6 @@ declare namespace gapi.client {
       attributeValue?: string;
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchResponseNaturalLanguageQueryUnderstandingInfo {
-      /** The classified intents from the input query. */
-      classifiedIntents?: string[];
       /** The filters that were extracted from the input query. */
       extractedFilters?: string;
       /** Rewritten input query minus the extracted filters. */
@@ -4116,8 +4097,6 @@ declare namespace gapi.client {
       ignoreLowRelevantContent?: boolean;
       /** Optional. Specifies whether to filter out queries that are not answer-seeking. The default value is `false`. No answer is returned if the search query is classified as a non-answer seeking query. If this field is set to `true`, we skip generating answers for non-answer seeking queries and return fallback messages instead. */
       ignoreNonAnswerSeekingQuery?: boolean;
-      /** Optional. Source of image returned in the answer. */
-      imageSource?: string;
       /** Language code for Summary. Use language tags defined by [BCP47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt). Note: This is an experimental feature. */
       languageCode?: string;
       /** Max rephrase steps. The max number is 5 steps. If not set or set to < 1, it will be set to 1 by default. */
@@ -4369,12 +4348,8 @@ declare namespace gapi.client {
       disabledForServing?: boolean;
     }
     interface GoogleCloudDiscoveryengineV1betaDedicatedCrawlRateTimeSeries {
-      /** Vertex AI's error rate time series of auto-refresh dedicated crawl. */
-      autoRefreshCrawlErrorRate?: GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries;
       /** Vertex AI's dedicated crawl rate time series of auto-refresh, which is the crawl rate of Google-CloudVertexBot when dedicate crawl is set, and the crawl rate is for best effort use cases like refreshing urls periodically. */
       autoRefreshCrawlRate?: GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries;
-      /** Vertex AI's error rate time series of user triggered dedicated crawl. */
-      userTriggeredCrawlErrorRate?: GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries;
       /** Vertex AI's dedicated crawl rate time series of user triggered crawl, which is the crawl rate of Google-CloudVertexBot when dedicate crawl is set, and user triggered crawl rate is for deterministic use cases like crawling urls or sitemaps specified by users. */
       userTriggeredCrawlRate?: GoogleCloudDiscoveryengineV1betaCrawlRateTimeSeries;
     }
