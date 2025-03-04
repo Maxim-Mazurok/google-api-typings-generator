@@ -1,10 +1,10 @@
-# TypeScript typings for GKE On-Prem API v1
+# TypeScript typings for GDC Virtual API v1
 
 For detailed description please check [documentation](https://cloud.google.com/anthos/clusters/docs/on-prem/).
 
 ## Installing
 
-Install typings for GKE On-Prem API:
+Install typings for GDC Virtual API:
 
 ```
 npm install @types/gapi.client.gkeonprem-v1 --save-dev
@@ -65,7 +65,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use GKE On-Prem API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use GDC Virtual API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 

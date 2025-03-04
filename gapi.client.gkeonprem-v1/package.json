@@ -1,7 +1,7 @@
 {
   "name": "@maxim_mazurok/gapi.client.gkeonprem-v1",
-  "version": "0.0.20250224",
-  "description": "TypeScript typings for GKE On-Prem API v1",
+  "version": "0.0.20250120",
+  "description": "TypeScript typings for GDC Virtual API v1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
