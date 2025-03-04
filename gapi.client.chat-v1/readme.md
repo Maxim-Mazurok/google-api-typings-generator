@@ -125,6 +125,9 @@ var client_id = '',
 
     // View last read time for Google Chat conversations
     'https://www.googleapis.com/auth/chat.users.readstate.readonly',
+
+    // Read and update your space settings
+    'https://www.googleapis.com/auth/chat.users.spacesettings',
   ],
   immediate = true;
 // ...
