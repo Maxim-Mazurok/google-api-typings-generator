@@ -152,6 +152,13 @@ Enrolls an enterprise with the calling EMM.
 await gapi.client.androidenterprise.enterprises.enroll({token: 'token'});
 
 /*
+Generates an enterprise upgrade URL to upgrade an existing managed Google Play Accounts enterprise to a managed Google domain. **Note:** This feature is not generally available.
+*/
+await gapi.client.androidenterprise.enterprises.generateEnterpriseUpgradeUrl({
+  enterpriseId: 'enterpriseId',
+});
+
+/*
 Generates a sign-up URL.
 */
 await gapi.client.androidenterprise.enterprises.generateSignupUrl({});
