@@ -265,6 +265,11 @@ After that you can use Data Portability API resources: <!-- TODO: make this work
 
 ```typescript
 /*
+Gets the access type of the token.
+*/
+await gapi.client.dataportability.accessType.check({});
+
+/*
 Cancels a Portability Archive job.
 */
 await gapi.client.dataportability.archiveJobs.cancel({name: 'name'});
