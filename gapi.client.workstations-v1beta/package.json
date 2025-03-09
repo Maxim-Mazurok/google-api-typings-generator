@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.workstations-v1beta",
-  "version": "0.0.20250219",
+  "version": "0.0.20250224",
   "description": "TypeScript typings for Cloud Workstations API v1beta",
   "repository": {
     "type": "git",
