@@ -336,9 +336,9 @@ declare namespace gapi.client {
       apiKeySecret?: string;
       /** Optional. The API key to be used in the request directly. */
       apiKeyString?: string;
-      /** Required. The location of the API key. */
+      /** Optional. The location of the API key. */
       httpElementLocation?: string;
-      /** Required. The parameter name of the API key. E.g. If the API request is "https://example.com/act?api_key=", "api_key" would be the parameter name. */
+      /** Optional. The parameter name of the API key. E.g. If the API request is "https://example.com/act?api_key=", "api_key" would be the parameter name. */
       name?: string;
     }
     interface GoogleCloudAiplatformV1beta1AuthConfigGoogleServiceAccountConfig {
@@ -1572,7 +1572,7 @@ declare namespace gapi.client {
       endpointDisplayName?: string;
       /** Optional. The Hugging Face read access token used to access the model artifacts of gated models. */
       huggingFaceAccessToken?: string;
-      /** Required. The model to deploy. Format: 1. `publishers/{publisher}/models/{publisher_model}@{version_id}`, or `publishers/hf-{hugging-face-author}/models/{hugging-face-model-name}@001`. 2. Hugging Face model ID like `google/gemma-2-2b-it`. 3. Custom model Google Cloud Storage URI like `gs://bucket`. 4. Custom model zip file like `https://abc.com/a.zip`. */
+      /** Required. The model to deploy. Format: 1. `publishers/{publisher}/models/{publisher_model}@{version_id}`, or `publishers/hf-{hugging-face-author}/models/{hugging-face-model-name}@001`. 2. Hugging Face model ID like `google/gemma-2-2b-it`. 3. Custom model Google Cloud Storage URI like `gs://bucket`. 4. Custom model zip file like `https://example.com/a.zip`. */
       model?: string;
       /** Optional. The user-specified display name of the uploaded model. If not set, a default name will be used. */
       modelDisplayName?: string;
@@ -1649,7 +1649,7 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1DiskSpec {
       /** Size in GB of the boot disk (default is 100GB). */
       bootDiskSizeGb?: number;
-      /** Type of the boot disk (default is "pd-ssd"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) or "pd-standard" (Persistent Disk Hard Disk Drive). */
+      /** Type of the boot disk. For non-A3U machines, the default value is "pd-ssd", for A3U machines, the default value is "hyperdisk-balanced". Valid values: "pd-ssd" (Persistent Disk Solid State Drive), "pd-standard" (Persistent Disk Hard Disk Drive) or "hyperdisk-balanced". */
       bootDiskType?: string;
     }
     interface GoogleCloudAiplatformV1beta1DistillationDataStats {
@@ -3142,6 +3142,8 @@ declare namespace gapi.client {
       promptTokenCount?: number;
       /** Output only. List of modalities that were processed in the request input. */
       promptTokensDetails?: GoogleCloudAiplatformV1beta1ModalityTokenCount[];
+      /** Output only. Number of tokens present in thoughts output. */
+      thoughtsTokenCount?: number;
       /** Output only. Number of tokens present in tool-use prompt(s). */
       toolUsePromptTokenCount?: number;
       /** Output only. List of modalities that were processed for tool-use request inputs. */
@@ -36133,8 +36135,66 @@ declare namespace gapi.client {
         },
         body: GoogleCloudAiplatformV1beta1CorroborateContentRequest,
       ): Request<GoogleCloudAiplatformV1beta1CorroborateContentResponse>;
-      /** Deploys publisher models. */
+      /** Deploys a model to a new endpoint. */
       deploy(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. The resource name of the Location to deploy the model in. Format: `projects/{project}/locations/{location}` */
+        destination: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1DeployRequest;
+      }): Request<GoogleLongrunningOperation>;
+      deploy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Required. The resource name of the Location to deploy the model in. Format: `projects/{project}/locations/{location}` */
+          destination: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1DeployRequest,
+      ): Request<GoogleLongrunningOperation>;
+      /** Deploys publisher models. */
+      deployPublisherModel(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
         /** OAuth access token. */
@@ -36162,7 +36222,7 @@ declare namespace gapi.client {
         /** Request body */
         resource: GoogleCloudAiplatformV1beta1DeployPublisherModelRequest;
       }): Request<GoogleLongrunningOperation>;
-      deploy(
+      deployPublisherModel(
         request: {
           /** V1 error format. */
           '$.xgafv'?: string;
@@ -36745,6 +36805,8 @@ declare namespace gapi.client {
         fields?: string;
         /** Optional. Token used to access Hugging Face gated models. */
         huggingFaceToken?: string;
+        /** Optional. Whether to cnclude the deployment configs from the equivalent Model Garden model if the requested model is a Hugging Face model. */
+        includeEquivalentModelGardenModelDeploymentConfigs?: boolean;
         /** Optional. Boolean indicates whether the requested model is a Hugging Face model. */
         isHuggingFaceModel?: boolean;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */

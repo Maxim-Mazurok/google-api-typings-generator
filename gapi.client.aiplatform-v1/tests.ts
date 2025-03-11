@@ -12269,6 +12269,12 @@ gapi.load('client', async () => {
           partialFailureGcsSink: {
             outputUriPrefix: 'Test string',
           },
+          ragFileParsingConfig: {
+            layoutParser: {
+              maxParsingRequestsPerMin: 42,
+              processorName: 'Test string',
+            },
+          },
           ragFileTransformationConfig: {
             ragFileChunkingConfig: {
               fixedLengthChunking: {

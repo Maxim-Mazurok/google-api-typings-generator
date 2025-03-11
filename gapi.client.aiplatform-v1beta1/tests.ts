@@ -1337,8 +1337,170 @@ gapi.load('client', async () => {
         },
       },
     );
-    /** Deploys publisher models. */
+    /** Deploys a model to a new endpoint. */
     await gapi.client.aiplatform.projects.locations.deploy(
+      {
+        destination: 'Test string',
+      },
+      {
+        deployConfig: {
+          dedicatedResources: {
+            autoscalingMetricSpecs: [
+              {
+                metricName: 'Test string',
+                target: 42,
+              },
+            ],
+            machineSpec: {
+              acceleratorCount: 42,
+              acceleratorType: 'Test string',
+              machineType: 'Test string',
+              multihostGpuNodeCount: 42,
+              reservationAffinity: {
+                key: 'Test string',
+                reservationAffinityType: 'Test string',
+                values: ['Test string'],
+              },
+              tpuTopology: 'Test string',
+            },
+            maxReplicaCount: 42,
+            minReplicaCount: 42,
+            requiredReplicaCount: 42,
+            spot: true,
+          },
+          fastTryoutEnabled: true,
+        },
+        endpointConfig: {
+          dedicatedEndpointEnabled: true,
+          endpointDisplayName: 'Test string',
+        },
+        huggingFaceModelId: 'Test string',
+        modelConfig: {
+          acceptEula: true,
+          containerSpec: {
+            args: ['Test string'],
+            command: ['Test string'],
+            deploymentTimeout: 'Test string',
+            env: [
+              {
+                name: 'Test string',
+                value: 'Test string',
+              },
+            ],
+            grpcPorts: [
+              {
+                containerPort: 42,
+              },
+            ],
+            healthProbe: {
+              exec: {
+                command: ['Test string'],
+              },
+              failureThreshold: 42,
+              grpc: {
+                port: 42,
+                service: 'Test string',
+              },
+              httpGet: {
+                host: 'Test string',
+                httpHeaders: [
+                  {
+                    name: 'Test string',
+                    value: 'Test string',
+                  },
+                ],
+                path: 'Test string',
+                port: 42,
+                scheme: 'Test string',
+              },
+              initialDelaySeconds: 42,
+              periodSeconds: 42,
+              successThreshold: 42,
+              tcpSocket: {
+                host: 'Test string',
+                port: 42,
+              },
+              timeoutSeconds: 42,
+            },
+            healthRoute: 'Test string',
+            imageUri: 'Test string',
+            livenessProbe: {
+              exec: {
+                command: ['Test string'],
+              },
+              failureThreshold: 42,
+              grpc: {
+                port: 42,
+                service: 'Test string',
+              },
+              httpGet: {
+                host: 'Test string',
+                httpHeaders: [
+                  {
+                    name: 'Test string',
+                    value: 'Test string',
+                  },
+                ],
+                path: 'Test string',
+                port: 42,
+                scheme: 'Test string',
+              },
+              initialDelaySeconds: 42,
+              periodSeconds: 42,
+              successThreshold: 42,
+              tcpSocket: {
+                host: 'Test string',
+                port: 42,
+              },
+              timeoutSeconds: 42,
+            },
+            ports: [
+              {
+                containerPort: 42,
+              },
+            ],
+            predictRoute: 'Test string',
+            sharedMemorySizeMb: 'Test string',
+            startupProbe: {
+              exec: {
+                command: ['Test string'],
+              },
+              failureThreshold: 42,
+              grpc: {
+                port: 42,
+                service: 'Test string',
+              },
+              httpGet: {
+                host: 'Test string',
+                httpHeaders: [
+                  {
+                    name: 'Test string',
+                    value: 'Test string',
+                  },
+                ],
+                path: 'Test string',
+                port: 42,
+                scheme: 'Test string',
+              },
+              initialDelaySeconds: 42,
+              periodSeconds: 42,
+              successThreshold: 42,
+              tcpSocket: {
+                host: 'Test string',
+                port: 42,
+              },
+              timeoutSeconds: 42,
+            },
+          },
+          huggingFaceAccessToken: 'Test string',
+          huggingFaceCacheEnabled: true,
+          modelDisplayName: 'Test string',
+        },
+        publisherModelName: 'Test string',
+      },
+    );
+    /** Deploys publisher models. */
+    await gapi.client.aiplatform.projects.locations.deployPublisherModel(
       {
         destination: 'Test string',
       },
@@ -19413,6 +19575,7 @@ gapi.load('client', async () => {
     /** Gets a Model Garden publisher model. */
     await gapi.client.aiplatform.publishers.models.get({
       huggingFaceToken: 'Test string',
+      includeEquivalentModelGardenModelDeploymentConfigs: true,
       isHuggingFaceModel: true,
       languageCode: 'Test string',
       name: 'Test string',
