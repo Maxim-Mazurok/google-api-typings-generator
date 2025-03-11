@@ -98,4 +98,9 @@ await gapi.client.forms.forms.create({});
 Get a form.
 */
 await gapi.client.forms.forms.get({formId: 'formId'});
+
+/*
+Updates the publish settings of a form. Legacy forms aren't supported because they don't have the `publish_settings` field.
+*/
+await gapi.client.forms.forms.setPublishSettings({formId: 'formId'});
 ```
