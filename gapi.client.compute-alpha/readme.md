@@ -2046,11 +2046,6 @@ Sets the access control policy on the specified resource. Replaces any existing 
 await gapi.client.compute.machineImages.setIamPolicy({ project: "project", resource: "resource",  });
 
 /*
-Sets the labels on a machine image. To learn more about labels, read the Labeling Resources documentation.
-*/
-await gapi.client.compute.machineImages.setLabels({ project: "project", resource: "resource",  });
-
-/*
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.machineImages.testIamPermissions({ project: "project", resource: "resource",  });
@@ -4006,16 +4001,6 @@ Retrieves the list of Zone resources under the specific region available to the 
 await gapi.client.compute.regionZones.list({ project: "project", region: "region",  });
 
 /*
-Returns the specified ReliabilityRisk resource.
-*/
-await gapi.client.compute.reliabilityRisks.get({ project: "project", reliabilityRisk: "reliabilityRisk",  });
-
-/*
-Retrieves the list of reliabilityRisks available in the specified project.
-*/
-await gapi.client.compute.reliabilityRisks.list({ project: "project",  });
-
-/*
 Retrieves information about the specified reservation block.
 */
 await gapi.client.compute.reservationBlocks.get({ project: "project", reservation: "reservation", reservationBlock: "reservationBlock", zone: "zone",  });
@@ -4379,41 +4364,6 @@ await gapi.client.compute.serviceAttachments.setIamPolicy({ project: "project", 
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.serviceAttachments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Deletes the specified SnapshotGroup resource
-*/
-await gapi.client.compute.snapshotGroups.delete({ project: "project", snapshotGroup: "snapshotGroup",  });
-
-/*
-returns the specified SnapshotGroup resource.
-*/
-await gapi.client.compute.snapshotGroups.get({ project: "project", snapshotGroup: "snapshotGroup",  });
-
-/*
-Gets the access control policy for a resource. May be empty if no such policy or resource exists.
-*/
-await gapi.client.compute.snapshotGroups.getIamPolicy({ project: "project", resource: "resource",  });
-
-/*
-Creates a snapshot group in the specified project using the data included in the request.
-*/
-await gapi.client.compute.snapshotGroups.insert({ project: "project",  });
-
-/*
-retrieves the list of SnapshotGroup resources contained within the specified project.
-*/
-await gapi.client.compute.snapshotGroups.list({ project: "project",  });
-
-/*
-Sets the access control policy on the specified resource. Replaces any existing policy.
-*/
-await gapi.client.compute.snapshotGroups.setIamPolicy({ project: "project", resource: "resource",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.snapshotGroups.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Retrieves an aggregated list of all of the snapshots in your project across all regions and global scope. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
