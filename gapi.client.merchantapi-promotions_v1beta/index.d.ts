@@ -168,7 +168,7 @@ declare namespace gapi.client {
       attribute?: string;
       /** A message to describe the change that happened to the product */
       changes?: ProductChange[];
-      /** The time at which the event was generated. */
+      /** The time at which the event was generated. If you want to order the notification messages you receive you should rely on this field not on the order of receiving the notifications. */
       eventTime?: string;
       /** Optional. The product expiration time. This field will not bet set if the notification is sent for a product deletion event. */
       expirationTime?: string;
