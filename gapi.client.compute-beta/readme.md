@@ -221,6 +221,11 @@ Retrieves the list of BackendBucket resources available to the specified project
 await gapi.client.compute.backendBuckets.list({ project: "project",  });
 
 /*
+Retrieves a list of all usable backend buckets in the specified project.
+*/
+await gapi.client.compute.backendBuckets.listUsable({ project: "project",  });
+
+/*
 Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.backendBuckets.patch({ backendBucket: "backendBucket", project: "project",  });
@@ -444,6 +449,16 @@ await gapi.client.compute.disks.testIamPermissions({ project: "project", resourc
 Updates the specified disk with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license.
 */
 await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone: "zone",  });
+
+/*
+Get Zonal Disk Settings.
+*/
+await gapi.client.compute.diskSettings.get({ project: "project", zone: "zone",  });
+
+/*
+Patch Zonal Disk Settings
+*/
+await gapi.client.compute.diskSettings.patch({ project: "project", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of disk types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
@@ -2751,6 +2766,16 @@ Update the specified disk with the data included in the request. Update is perfo
 await gapi.client.compute.regionDisks.update({ disk: "disk", project: "project", region: "region",  });
 
 /*
+Get Regional Disk Settings.
+*/
+await gapi.client.compute.regionDiskSettings.get({ project: "project", region: "region",  });
+
+/*
+Patch Regional Disk Settings
+*/
+await gapi.client.compute.regionDiskSettings.patch({ project: "project", region: "region",  });
+
+/*
 Returns the specified regional disk type.
 */
 await gapi.client.compute.regionDiskTypes.get({ diskType: "diskType", project: "project", region: "region",  });
@@ -3321,6 +3346,56 @@ Sets the labels on a security policy. To learn more about labels, read the Label
 await gapi.client.compute.regionSecurityPolicies.setLabels({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot. For more information, see Deleting snapshots.
+*/
+await gapi.client.compute.regionSnapshots.delete({ project: "project", region: "region", snapshot: "snapshot",  });
+
+/*
+Returns the specified Snapshot resource.
+*/
+await gapi.client.compute.regionSnapshots.get({ project: "project", region: "region", snapshot: "snapshot",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.compute.regionSnapshots.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Creates a snapshot in the specified region using the data included in the request.
+*/
+await gapi.client.compute.regionSnapshots.insert({ project: "project", region: "region",  });
+
+/*
+Retrieves the list of Snapshot resources contained within the specified region.
+*/
+await gapi.client.compute.regionSnapshots.list({ project: "project", region: "region",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.compute.regionSnapshots.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Sets the labels on a regional snapshot. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.regionSnapshots.setLabels({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Get region snapshot settings.
+*/
+await gapi.client.compute.regionSnapshotSettings.get({ project: "project", region: "region",  });
+
+/*
+Patch region snapshot settings.
+*/
+await gapi.client.compute.regionSnapshotSettings.patch({ project: "project", region: "region",  });
+
+/*
 Deletes the specified SslCertificate resource in the region.
 */
 await gapi.client.compute.regionSslCertificates.delete({ project: "project", region: "region", sslCertificate: "sslCertificate",  });
@@ -3864,6 +3939,11 @@ await gapi.client.compute.serviceAttachments.setIamPolicy({ project: "project", 
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.serviceAttachments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Retrieves an aggregated list of all of the snapshots in your project across all regions and global scope. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+*/
+await gapi.client.compute.snapshots.aggregatedList({ project: "project",  });
 
 /*
 Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot. For more information, see Deleting snapshots.
