@@ -1,7 +1,7 @@
 # TypeScript typings for Google Keep API v1
 
 The Google Keep API is used in an enterprise environment to manage Google Keep content and resolve issues identified by cloud security software.
-For detailed description please check [documentation](https://developers.google.com/keep/api).
+For detailed description please check [documentation](https://developers.google.com/workspace/keep/api).
 
 ## Installing
 
