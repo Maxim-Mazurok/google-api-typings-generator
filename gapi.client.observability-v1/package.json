@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.observability-v1",
-  "version": "0.0.20250320",
+  "version": "0.0.20250313",
   "description": "TypeScript typings for Observability API v1",
   "repository": {
     "type": "git",
