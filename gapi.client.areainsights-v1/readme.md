@@ -1,11 +1,11 @@
-# TypeScript typings for Places Insights API v1
+# TypeScript typings for Places Aggregate API v1
 
-Places Insights API.
+Places Aggregate API.
 For detailed description please check [documentation](https://g3doc.corp.google.com/geo/platform/area_insights/README.md?cl=head).
 
 ## Installing
 
-Install typings for Places Insights API:
+Install typings for Places Aggregate API:
 
 ```
 npm install @types/gapi.client.areainsights-v1 --save-dev
@@ -66,11 +66,11 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Places Insights API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Places Aggregate API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 /*
-Compute Insights RPC This method lets you retrieve insights about areas using a variaty of filter such as: area, place type, operating status, price level and ratings. Currently "count" and "places" insights are supported. With "count" insights you can answer questions such as "How many restaurant are located in California that are operational, are inexpensive and have an average rating of at least 4 stars" (see `insight` enum for more details). With "places" insights, you can determine which places match the requested filter. Clients can then use those place resource names to fetch more details about each individual place using the Places API.
+This method lets you retrieve insights about areas using a variety of filter such as: area, place type, operating status, price level and ratings. Currently "count" and "places" insights are supported. With "count" insights you can answer questions such as "How many restaurant are located in California that are operational, are inexpensive and have an average rating of at least 4 stars" (see `insight` enum for more details). With "places" insights, you can determine which places match the requested filter. Clients can then use those place resource names to fetch more details about each individual place using the Places API.
 */
 await gapi.client.areainsights.computeInsights({});
 ```

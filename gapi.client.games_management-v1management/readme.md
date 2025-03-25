@@ -1,11 +1,11 @@
-# TypeScript typings for Google Play Game Management v1management
+# TypeScript typings for Google Play Games Services Management API v1management
 
 The Google Play Games Management API allows developers to manage resources from the Google Play Game service.
 For detailed description please check [documentation](https://developers.google.com/games/).
 
 ## Installing
 
-Install typings for Google Play Game Management:
+Install typings for Google Play Games Services Management API:
 
 ```
 npm install @types/gapi.client.games_management-v1management --save-dev
@@ -66,7 +66,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Google Play Game Management resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Google Play Games Services Management API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 /*

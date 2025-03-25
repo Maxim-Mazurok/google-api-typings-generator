@@ -1,11 +1,11 @@
-# TypeScript typings for Google Play Game Services Publishing API v1configuration
+# TypeScript typings for Google Play Games Services Publishing API v1configuration
 
 The Google Play Game Services Publishing API allows developers to configure their games in Game Services.
 For detailed description please check [documentation](https://developers.google.com/games/).
 
 ## Installing
 
-Install typings for Google Play Game Services Publishing API:
+Install typings for Google Play Games Services Publishing API:
 
 ```
 npm install @types/gapi.client.games_configuration-v1configuration --save-dev
@@ -66,7 +66,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Google Play Game Services Publishing API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Google Play Games Services Publishing API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 /*

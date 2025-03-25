@@ -1,11 +1,11 @@
-# TypeScript typings for Google Play Game Services v1
+# TypeScript typings for Google Play Games Services API v1
 
 The Google Play Games Service allows developers to enhance games with social leaderboards, achievements, game state, sign-in with Google, and more.
 For detailed description please check [documentation](https://developers.google.com/games/).
 
 ## Installing
 
-Install typings for Google Play Game Services:
+Install typings for Google Play Games Services API:
 
 ```
 npm install @types/gapi.client.games-v1 --save-dev
@@ -72,7 +72,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Google Play Game Services resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Google Play Games Services API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 /*
