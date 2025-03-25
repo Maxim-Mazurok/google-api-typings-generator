@@ -1,6 +1,6 @@
 # TypeScript typings for Observability API v1
 
-For detailed description please check [documentation](https://cloud.google.com/stackdriver/docs/).
+For detailed description please check [documentation](https://cloud.google.com/distributed-cloud/hosted/docs/latest/gdch/apis/service/observability/observability-api-overview).
 
 ## Installing
 
