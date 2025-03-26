@@ -1,7 +1,7 @@
 # TypeScript typings for Gmail Postmaster Tools API v1beta1
 
 The Postmaster Tools API is a RESTful API that provides programmatic access to email traffic metrics (like spam reports, delivery errors etc) otherwise available through the Gmail Postmaster Tools UI currently.
-For detailed description please check [documentation](https://developers.google.com/gmail/postmaster).
+For detailed description please check [documentation](https://developers.google.com/workspace/gmail/postmaster).
 
 ## Installing
 
