@@ -1,7 +1,7 @@
 # TypeScript typings for Google Slides API v1
 
 Reads and writes Google Slides presentations.
-For detailed description please check [documentation](https://developers.google.com/slides/).
+For detailed description please check [documentation](https://developers.google.com/workspace/slides/).
 
 ## Installing
 
