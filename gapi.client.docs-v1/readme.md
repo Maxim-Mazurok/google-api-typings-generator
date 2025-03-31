@@ -1,7 +1,7 @@
 # TypeScript typings for Google Docs API v1
 
 Reads and writes Google Docs documents.
-For detailed description please check [documentation](https://developers.google.com/docs/).
+For detailed description please check [documentation](https://developers.google.com/workspace/docs/).
 
 ## Installing
 
