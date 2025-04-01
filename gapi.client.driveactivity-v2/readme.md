@@ -1,7 +1,7 @@
 # TypeScript typings for Drive Activity API v2
 
 Provides a historical view of activity in Google Drive.
-For detailed description please check [documentation](https://developers.google.com/drive/activity/).
+For detailed description please check [documentation](https://developers.google.com/workspace/drive/activity/).
 
 ## Installing
 
