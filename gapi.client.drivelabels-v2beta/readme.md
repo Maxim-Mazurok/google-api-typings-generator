@@ -1,7 +1,7 @@
 # TypeScript typings for Drive Labels API v2beta
 
 An API for managing Drive Labels
-For detailed description please check [documentation](https://developers.google.com/drive/labels).
+For detailed description please check [documentation](https://developers.google.com/workspace/drive/labels).
 
 ## Installing
 
