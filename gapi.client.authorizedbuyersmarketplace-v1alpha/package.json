@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.authorizedbuyersmarketplace-v1alpha",
-  "version": "0.0.20250401",
+  "version": "0.0.20250402",
   "description": "TypeScript typings for Authorized Buyers Marketplace API v1alpha",
   "repository": {
     "type": "git",
