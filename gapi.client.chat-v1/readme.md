@@ -78,12 +78,6 @@ var client_id = '',
     // Private Service: https://www.googleapis.com/auth/chat.bot
     'https://www.googleapis.com/auth/chat.bot',
 
-    // View, create, and delete custom emoji in Google Chat
-    'https://www.googleapis.com/auth/chat.customemojis',
-
-    // View custom emoji in Google Chat
-    'https://www.googleapis.com/auth/chat.customemojis.readonly',
-
     // Delete conversations and spaces and remove access to associated files in Google Chat
     'https://www.googleapis.com/auth/chat.delete',
 
@@ -153,26 +147,6 @@ gapi.auth.authorize(
 After that you can use Google Chat API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-/*
-Creates a custom emoji. Custom emojis are only available for Google Workspace accounts, and the administrator must turn custom emojis on for the organization. For more information, see [Learn about custom emojis in Google Chat](https://support.google.com/chat/answer/12800149) and [Manage custom emoji permissions](https://support.google.com/a/answer/12850085). Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
-*/
-await gapi.client.chat.customEmojis.create({});
-
-/*
-Deletes a custom emoji. By default, users can only delete custom emoji they created. [Emoji managers](https://support.google.com/a/answer/12850085) assigned by the administrator can delete any custom emoji in the organization. See [Learn about custom emojis in Google Chat](https://support.google.com/chat/answer/12800149). Custom emojis are only available for Google Workspace accounts, and the administrator must turn custom emojis on for the organization. For more information, see [Learn about custom emojis in Google Chat](https://support.google.com/chat/answer/12800149) and [Manage custom emoji permissions](https://support.google.com/a/answer/12850085). Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
-*/
-await gapi.client.chat.customEmojis.delete({name: 'name'});
-
-/*
-Returns details about a custom emoji. Custom emojis are only available for Google Workspace accounts, and the administrator must turn custom emojis on for the organization. For more information, see [Learn about custom emojis in Google Chat](https://support.google.com/chat/answer/12800149) and [Manage custom emoji permissions](https://support.google.com/a/answer/12850085). Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
-*/
-await gapi.client.chat.customEmojis.get({name: 'name'});
-
-/*
-Lists custom emojis visible to the authenticated user. Custom emojis are only available for Google Workspace accounts, and the administrator must turn custom emojis on for the organization. For more information, see [Learn about custom emojis in Google Chat](https://support.google.com/chat/answer/12800149) and [Manage custom emoji permissions](https://support.google.com/a/answer/12850085). Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
-*/
-await gapi.client.chat.customEmojis.list({});
-
 /*
 Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`.
 */
