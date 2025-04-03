@@ -70,7 +70,7 @@ After that you can use Merchant API resources: <!-- TODO: make this work for mul
 
 ```typescript
 /*
-Creates a standalone Merchant Center account with additional configuration. Adds the user that makes the request as an admin for the new account.
+Creates a Merchant Center account with additional configuration. Adds the user that makes the request as an admin for the new account.
 */
 await gapi.client.merchantapi.accounts.createAndConfigure({});
 
