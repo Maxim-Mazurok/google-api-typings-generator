@@ -1,7 +1,7 @@
 # TypeScript typings for Google Meet API v2
 
 Create and manage meetings in Google Meet.
-For detailed description please check [documentation](https://developers.google.com/meet/api).
+For detailed description please check [documentation](https://developers.google.com/workspace/meet/api).
 
 ## Installing
 
@@ -91,17 +91,17 @@ Creates a space.
 await gapi.client.meet.spaces.create({});
 
 /*
-Ends an active conference (if there's one). For an example, see [End active conference](https://developers.google.com/meet/api/guides/meeting-spaces#end-active-conference).
+Ends an active conference (if there's one). For an example, see [End active conference](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#end-active-conference).
 */
 await gapi.client.meet.spaces.endActiveConference({name: 'name'});
 
 /*
-Gets details about a meeting space. For an example, see [Get a meeting space](https://developers.google.com/meet/api/guides/meeting-spaces#get-meeting-space).
+Gets details about a meeting space. For an example, see [Get a meeting space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#get-meeting-space).
 */
 await gapi.client.meet.spaces.get({name: 'name'});
 
 /*
-Updates details about a meeting space. For an example, see [Update a meeting space](https://developers.google.com/meet/api/guides/meeting-spaces#update-meeting-space).
+Updates details about a meeting space. For an example, see [Update a meeting space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#update-meeting-space).
 */
 await gapi.client.meet.spaces.patch({name: 'name'});
 ```
