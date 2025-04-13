@@ -1,7 +1,7 @@
 # TypeScript typings for Calendar API v3
 
 Manipulates events and other calendar data.
-For detailed description please check [documentation](https://developers.google.com/google-apps/calendar/firstapp).
+For detailed description please check [documentation](https://developers.google.com/workspace/calendar/firstapp).
 
 ## Installing
 
