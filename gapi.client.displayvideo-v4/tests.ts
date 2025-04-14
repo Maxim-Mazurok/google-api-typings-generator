@@ -3270,7 +3270,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       partnerId: 'Test string',
     });
-    /** Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful. *Warning*: Starting **April 1, 2025**, requests updating custom bidding algorithms that are assigned to line items will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+    /** Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful. Requests updating a custom bidding algorithm assigned to a line item will return an error. */
     await gapi.client.displayvideo.customBiddingAlgorithms.patch(
       {
         customBiddingAlgorithmId: 'Test string',
@@ -3306,7 +3306,7 @@ gapi.load('client', async () => {
       customBiddingAlgorithmId: 'Test string',
       partnerId: 'Test string',
     });
-    /** Creates a new rules resource. Returns the newly created rules resource if successful. *Warning*: Starting **April 1, 2025**, requests updating custom bidding algorithms that are assigned to line items will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+    /** Creates a new rules resource. Returns the newly created rules resource if successful. Requests creating a custom bidding rules resource under an algorithm assigned to a line item will return an error. */
     await gapi.client.displayvideo.customBiddingAlgorithms.rules.create(
       {
         advertiserId: 'Test string',
@@ -3344,7 +3344,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       partnerId: 'Test string',
     });
-    /** Creates a new custom bidding script. Returns the newly created script if successful. *Warning*: Starting **April 1, 2025**, requests updating custom bidding algorithms that are assigned to line items will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+    /** Creates a new custom bidding script. Returns the newly created script if successful. Requests creating a custom bidding script under an algorithm assigned to a line item will return an error. */
     await gapi.client.displayvideo.customBiddingAlgorithms.scripts.create(
       {
         advertiserId: 'Test string',

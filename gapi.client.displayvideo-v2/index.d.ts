@@ -752,7 +752,7 @@ declare namespace gapi.client {
       contentStreamType?: string;
     }
     interface ConversionCountingConfig {
-      /** The Floodlight activity configs used to track conversions. The number of conversions counted is the sum of all of the conversions counted by all of the Floodlight activity IDs specified in this field. *Warning*: Starting **April 1, 2025**, this field will no longer be writable while a custom bidding algorithm is assigned to the line item. If you set this field and assign a custom bidding algorithm in the same request, the floodlight activities must match the ones used by the custom bidding algorithm. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** The Floodlight activity configs used to track conversions. The number of conversions counted is the sum of all of the conversions counted by all of the Floodlight activity IDs specified in this field. This field can't be updated if a custom bidding algorithm is assigned to the line item. If you set this field and assign a custom bidding algorithm in the same request, the floodlight activities must match the ones used by the custom bidding algorithm. */
       floodlightActivityConfigs?: TrackingFloodlightActivityConfig[];
       /** The percentage of post-view conversions to count, in millis (1/1000 of a percent). Must be between 0 and 100000 inclusive. For example, to track 50% of the post-click conversions, set a value of 50000. */
       postViewCountPercentageMillis?: string;
@@ -1610,7 +1610,7 @@ declare namespace gapi.client {
       budget?: LineItemBudget;
       /** Output only. The unique ID of the campaign that the line item belongs to. */
       campaignId?: string;
-      /** The conversion tracking setting of the line item. *Warning*: Starting **April 1, 2025**, the floodlight_activity_configs field will no longer be writable while a custom bidding algorithm is assigned to the line item. If you set this field and assign a custom bidding algorithm in the same request, the floodlight activities must match the ones used by the custom bidding algorithm. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** The conversion tracking setting of the line item. */
       conversionCounting?: ConversionCountingConfig;
       /** The IDs of the creatives associated with the line item. */
       creativeIds?: string[];
@@ -1928,7 +1928,7 @@ declare namespace gapi.client {
       videoAspectRatio?: string;
     }
     interface MaximizeSpendBidStrategy {
-      /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. *Warning*: Starting **April 1, 2025**, assigning a custom bidding algorithm that uses floodlight activities not identified in floodlightActivityConfigs will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. Assigning a custom bidding algorithm that uses floodlight activities not identified in floodlightActivityConfigs will return an error. */
       customBiddingAlgorithmId?: string;
       /** The maximum average CPM that may be bid, in micros of the advertiser's currency. Must be greater than or equal to a billable unit of the given currency. For example, 1500000 represents 1.5 standard units of the currency. */
       maxAverageCpmBidAmountMicros?: string;
@@ -2148,7 +2148,7 @@ declare namespace gapi.client {
       performanceGoalType?: string;
     }
     interface PerformanceGoalBidStrategy {
-      /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. *Warning*: Starting **April 1, 2025**, assigning a custom bidding algorithm that uses floodlight activities not identified in floodlightActivityConfigs will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. Assigning a custom bidding algorithm that uses floodlight activities not identified in floodlightActivityConfigs will return an error. */
       customBiddingAlgorithmId?: string;
       /** The maximum average CPM that may be bid, in micros of the advertiser's currency. Must be greater than or equal to a billable unit of the given currency. Not applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`. For example, 1500000 represents 1.5 standard units of the currency. */
       maxAverageCpmBidAmountMicros?: string;
@@ -6671,7 +6671,7 @@ declare namespace gapi.client {
       }): Request<ListCombinedAudiencesResponse>;
     }
     interface ScriptsResource {
-      /** Creates a new custom bidding script. Returns the newly created script if successful. *Warning*: Starting **April 1, 2025**, requests updating custom bidding algorithms that are assigned to line items will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** Creates a new custom bidding script. Returns the newly created script if successful. Requests creating a custom bidding script under an algorithm assigned to a line item will return an error. */
       create(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -6931,7 +6931,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListCustomBiddingAlgorithmsResponse>;
-      /** Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful. *Warning*: Starting **April 1, 2025**, requests updating custom bidding algorithms that are assigned to line items will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful. Requests updating a custom bidding algorithm assigned to a line item will return an error. */
       patch(request: {
         /** V1 error format. */
         '$.xgafv'?: string;

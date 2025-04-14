@@ -955,7 +955,7 @@ declare namespace gapi.client {
       contentTheme?: string;
     }
     interface ConversionCountingConfig {
-      /** The Floodlight activity configs used to track conversions. The number of conversions counted is the sum of all of the conversions counted by all of the Floodlight activity IDs specified in this field. *Warning*: Starting **April 1, 2025**, this field will no longer be writable while a custom bidding algorithm is assigned to the line item. If you set this field and assign a custom bidding algorithm in the same request, the floodlight activities must match the ones used by the custom bidding algorithm. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** The Floodlight activity configs used to track conversions. The number of conversions counted is the sum of all of the conversions counted by all of the Floodlight activity IDs specified in this field. This field can't be updated if a custom bidding algorithm is assigned to the line item. If you set this field and assign a custom bidding algorithm in the same request, the floodlight activities must match the ones used by the custom bidding algorithm. */
       floodlightActivityConfigs?: TrackingFloodlightActivityConfig[];
       /** The percentage of post-view conversions to count, in millis (1/1000 of a percent). Must be between 0 and 100000 inclusive. For example, to track 50% of the post-click conversions, set a value of 50000. */
       postViewCountPercentageMillis?: string;
@@ -1454,7 +1454,7 @@ declare namespace gapi.client {
       firstPartyAndPartnerAudienceType?: string;
       /** Output only. The estimated audience size for Gmail network. If the size is less than 1000, the number will be hidden and 0 will be returned due to privacy reasons. Otherwise, the number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in GET request. */
       gmailAudienceSize?: string;
-      /** Output only. The duration in days that an entry remains in the audience after the qualifying event. If the audience has no expiration, set the value of this field to 10000. Otherwise, the set value must be greater than 0 and less than or equal to 540. Only applicable to first party audiences. This field is required if one of the following audience_type is used: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID` *Warning*: Starting on **April 7, 2025**, audiences will no longer be able to have infinite membership duration. This field will no longer accept the value 10000 and all audiences with membership durations greater than 540 days will be updated to a membership duration of 540 days. [Read more about this announced change](/display-video/api/deprecations#features.audience_duration). */
+      /** Output only. The duration in days that an entry remains in the audience after the qualifying event. The set value must be greater than 0 and less than or equal to 540. Only applicable to first party audiences. This field is required if one of the following audience_type is used: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID` */
       membershipDurationDays?: string;
       /** Input only. A list of mobile device IDs to define the initial audience members. Only applicable to audience_type `CUSTOMER_MATCH_DEVICE_ID` */
       mobileDeviceIdList?: MobileDeviceIdList;
@@ -1928,7 +1928,7 @@ declare namespace gapi.client {
       budget?: LineItemBudget;
       /** Output only. The unique ID of the campaign that the line item belongs to. */
       campaignId?: string;
-      /** The conversion tracking setting of the line item. *Warning*: Starting **April 1, 2025**, the floodlight_activity_configs field will no longer be writable while a custom bidding algorithm is assigned to the line item. If you set this field and assign a custom bidding algorithm in the same request, the floodlight activities must match the ones used by the custom bidding algorithm. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** The conversion tracking setting of the line item. */
       conversionCounting?: ConversionCountingConfig;
       /** The IDs of the creatives associated with the line item. */
       creativeIds?: string[];
@@ -2236,7 +2236,7 @@ declare namespace gapi.client {
       videoAspectRatio?: string;
     }
     interface MaximizeSpendBidStrategy {
-      /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. *Warning*: Starting **April 1, 2025**, assigning a custom bidding algorithm that uses floodlight activities not identified in floodlightActivityConfigs will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. Assigning a custom bidding algorithm that uses floodlight activities not identified in floodlightActivityConfigs will return an error. */
       customBiddingAlgorithmId?: string;
       /** The maximum average CPM that may be bid, in micros of the advertiser's currency. Must be greater than or equal to a billable unit of the given currency. For example, 1500000 represents 1.5 standard units of the currency. */
       maxAverageCpmBidAmountMicros?: string;
@@ -2468,7 +2468,7 @@ declare namespace gapi.client {
       performanceGoalType?: string;
     }
     interface PerformanceGoalBidStrategy {
-      /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. *Warning*: Starting **April 1, 2025**, assigning a custom bidding algorithm that uses floodlight activities not identified in floodlightActivityConfigs will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. Assigning a custom bidding algorithm that uses floodlight activities not identified in floodlightActivityConfigs will return an error. */
       customBiddingAlgorithmId?: string;
       /** The maximum average CPM that may be bid, in micros of the advertiser's currency. Must be greater than or equal to a billable unit of the given currency. Not applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`. For example, 1500000 represents 1.5 standard units of the currency. */
       maxAverageCpmBidAmountMicros?: string;
@@ -6606,7 +6606,7 @@ declare namespace gapi.client {
       }): Request<ListCombinedAudiencesResponse>;
     }
     interface RulesResource {
-      /** Creates a new rules resource. Returns the newly created rules resource if successful. *Warning*: Starting **April 1, 2025**, requests updating custom bidding algorithms that are assigned to line items will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** Creates a new rules resource. Returns the newly created rules resource if successful. Requests creating a custom bidding rules resource under an algorithm assigned to a line item will return an error. */
       create(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -6744,7 +6744,7 @@ declare namespace gapi.client {
       }): Request<ListCustomBiddingAlgorithmRulesResponse>;
     }
     interface ScriptsResource {
-      /** Creates a new custom bidding script. Returns the newly created script if successful. *Warning*: Starting **April 1, 2025**, requests updating custom bidding algorithms that are assigned to line items will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** Creates a new custom bidding script. Returns the newly created script if successful. Requests creating a custom bidding script under an algorithm assigned to a line item will return an error. */
       create(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -7004,7 +7004,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListCustomBiddingAlgorithmsResponse>;
-      /** Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful. *Warning*: Starting **April 1, 2025**, requests updating custom bidding algorithms that are assigned to line items will return an error. [Read more about this announced change](/display-video/api/deprecations#features.custom_bidding_floodlight). */
+      /** Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful. Requests updating a custom bidding algorithm assigned to a line item will return an error. */
       patch(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
