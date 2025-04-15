@@ -1626,6 +1626,11 @@ Sets the access control policy on the specified resource. Replaces any existing 
 await gapi.client.compute.machineImages.setIamPolicy({ project: "project", resource: "resource",  });
 
 /*
+Sets the labels on a machine image. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.machineImages.setLabels({ project: "project", resource: "resource",  });
+
+/*
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.machineImages.testIamPermissions({ project: "project", resource: "resource",  });
@@ -3096,6 +3101,21 @@ Retrieves the list of Zone resources under the specific region available to the 
 await gapi.client.compute.regionZones.list({ project: "project", region: "region",  });
 
 /*
+Retrieves information about the specified reservation block.
+*/
+await gapi.client.compute.reservationBlocks.get({ project: "project", reservation: "reservation", reservationBlock: "reservationBlock", zone: "zone",  });
+
+/*
+Retrieves a list of reservation blocks under a single reservation.
+*/
+await gapi.client.compute.reservationBlocks.list({ project: "project", reservation: "reservation", zone: "zone",  });
+
+/*
+Allows customers to perform maintenance on a reservation block
+*/
+await gapi.client.compute.reservationBlocks.performMaintenance({ project: "project", reservation: "reservation", reservationBlock: "reservationBlock", zone: "zone",  });
+
+/*
 Retrieves an aggregated list of reservations. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.reservations.aggregatedList({ project: "project",  });
@@ -3124,6 +3144,11 @@ await gapi.client.compute.reservations.insert({ project: "project", zone: "zone"
 A list of all the reservations that have been configured for the specified project in specified zone.
 */
 await gapi.client.compute.reservations.list({ project: "project", zone: "zone",  });
+
+/*
+Perform maintenance on an extended reservation
+*/
+await gapi.client.compute.reservations.performMaintenance({ project: "project", reservation: "reservation", zone: "zone",  });
 
 /*
 Resizes the reservation (applicable to standalone reservations only). For more information, read Modifying reservations.
