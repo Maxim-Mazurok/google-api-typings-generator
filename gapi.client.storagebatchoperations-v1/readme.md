@@ -1,6 +1,6 @@
 # TypeScript typings for Storage Batch Operations API v1
 
-For detailed description please check [documentation](https://cloud.google.com/storage/docs/metadata).
+For detailed description please check [documentation](https://cloud.google.com/storage/docs/batch-operations/overview).
 
 ## Installing
 
