@@ -47,8 +47,8 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-    // Associate you with your personal info on Google
-    'openid',
+    // See and/or control the devices that you selected
+    'https://www.googleapis.com/auth/sdm.service',
   ],
   immediate = true;
 // ...

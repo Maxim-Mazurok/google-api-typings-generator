@@ -83,13 +83,6 @@ await gapi.client.firebaseappdistribution.apps.getJwt({
 });
 
 /*
-Provision app distribution for an existing Firebase app, enabling it to subsequently be used by appdistro.
-*/
-await gapi.client.firebaseappdistribution.apps.provisionApp({
-  mobilesdkAppId: 'mobilesdkAppId',
-});
-
-/*
 Get information about the quota for `ReleaseTests`.
 */
 await gapi.client.firebaseappdistribution.projects.getTestQuota({name: 'name'});
