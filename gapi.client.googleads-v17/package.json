@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.googleads-v17",
-  "version": "0.0.20250225",
+  "version": "0.0.20250415",
   "description": "TypeScript typings for Google Ads API v17",
   "repository": {
     "type": "git",
