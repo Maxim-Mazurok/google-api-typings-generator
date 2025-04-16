@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.games-v1",
-  "version": "0.0.20250403",
+  "version": "0.0.20250410",
   "description": "TypeScript typings for Google Play Games Services API v1",
   "repository": {
     "type": "git",

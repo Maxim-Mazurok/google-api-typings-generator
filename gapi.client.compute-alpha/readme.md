@@ -1881,11 +1881,6 @@ Retrieves the list of interconnect locations available to the specified project.
 await gapi.client.compute.interconnectLocations.list({ project: "project",  });
 
 /*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.interconnectLocations.testIamPermissions({ project: "project", resource: "resource",  });
-
-/*
 Returns the details for the specified interconnect remote location. Gets a list of available interconnect remote locations by making a list() request.
 */
 await gapi.client.compute.interconnectRemoteLocations.get({ interconnectRemoteLocation: "interconnectRemoteLocation", project: "project",  });
@@ -1894,11 +1889,6 @@ await gapi.client.compute.interconnectRemoteLocations.get({ interconnectRemoteLo
 Retrieves the list of interconnect remote locations available to the specified project.
 */
 await gapi.client.compute.interconnectRemoteLocations.list({ project: "project",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.interconnectRemoteLocations.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Deletes the specified Interconnect.
@@ -2361,6 +2351,11 @@ Removes a peering from the specified network.
 await gapi.client.compute.networks.removePeering({ network: "network", project: "project",  });
 
 /*
+Requests to remove a peering from the specified network. Applicable only for PeeringConnection with update_strategy=CONSENSUS.
+*/
+await gapi.client.compute.networks.requestRemovePeering({ network: "network", project: "project",  });
+
+/*
 Switches the network mode from auto subnet mode to custom subnet mode.
 */
 await gapi.client.compute.networks.switchToCustomMode({ network: "network", project: "project",  });
@@ -2619,6 +2614,21 @@ await gapi.client.compute.packetMirrorings.patch({ packetMirroring: "packetMirro
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.packetMirrorings.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns the details of the given PreviewFeature.
+*/
+await gapi.client.compute.previewFeatures.get({ project: "project", resourceId: "resourceId",  });
+
+/*
+Returns the details of the given PreviewFeature.
+*/
+await gapi.client.compute.previewFeatures.list({ project: "project",  });
+
+/*
+Patches the given PreviewFeature. This method is used to enable or disable a PreviewFeature.
+*/
+await gapi.client.compute.previewFeatures.update({ project: "project", resourceId: "resourceId",  });
 
 /*
 Disable this project as a shared VPC host project.
