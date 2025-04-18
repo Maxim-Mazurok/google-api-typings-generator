@@ -1846,6 +1846,11 @@ Sets the access control policy on the specified resource. Replaces any existing 
 await gapi.client.compute.machineImages.setIamPolicy({ project: "project", resource: "resource",  });
 
 /*
+Sets the labels on a machine image. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.machineImages.setLabels({ project: "project", resource: "resource",  });
+
+/*
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.machineImages.testIamPermissions({ project: "project", resource: "resource",  });
@@ -3214,6 +3219,11 @@ await gapi.client.compute.regionNetworkFirewallPolicies.list({ project: "project
 Patches the specified network firewall policy.
 */
 await gapi.client.compute.regionNetworkFirewallPolicies.patch({ firewallPolicy: "firewallPolicy", project: "project", region: "region",  });
+
+/*
+Updates an association for the specified network firewall policy.
+*/
+await gapi.client.compute.regionNetworkFirewallPolicies.patchAssociation({ firewallPolicy: "firewallPolicy", project: "project", region: "region",  });
 
 /*
 Patches a rule of the specified priority.
