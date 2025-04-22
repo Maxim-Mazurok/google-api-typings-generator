@@ -73,6 +73,21 @@ After that you can use Vertex AI API resources: <!-- TODO: make this work for mu
 
 ```typescript
 /*
+Creates a BatchPredictionJob. A BatchPredictionJob once created will right away be attempted to start.
+*/
+await gapi.client.aiplatform.batchPredictionJobs.create({});
+
+/*
+Gets a BatchPredictionJob
+*/
+await gapi.client.aiplatform.batchPredictionJobs.get({name: 'name'});
+
+/*
+Lists BatchPredictionJobs in a Location.
+*/
+await gapi.client.aiplatform.batchPredictionJobs.list({});
+
+/*
 Creates a Dataset.
 */
 await gapi.client.aiplatform.datasets.create({});
