@@ -1,7 +1,7 @@
 # TypeScript typings for Google Classroom API v1
 
 Manages classes, rosters, and invitations in Google Classroom.
-For detailed description please check [documentation](https://developers.google.com/workspace/classroom/).
+For detailed description please check [documentation](https://developers.google.com/classroom/).
 
 ## Installing
 
@@ -176,7 +176,7 @@ Updates a course. This method returns the following error codes: * `PERMISSION_D
 await gapi.client.classroom.courses.update({id: 'id'});
 
 /*
-Updates grading period settings of a course. Individual grading periods can be added, removed, or modified using this method. The requesting user and course owner must be eligible to modify Grading Periods. For details, see [licensing requirements](https://developers.google.com/workspace/classroom/grading-periods/manage-grading-periods#licensing_requirements). This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to modify the grading period settings in a course or for access errors: * UserIneligibleToUpdateGradingPeriodSettings * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course does not exist.
+Updates grading period settings of a course. Individual grading periods can be added, removed, or modified using this method. The requesting user and course owner must be eligible to modify Grading Periods. For details, see [licensing requirements](https://developers.google.com/classroom/grading-periods/manage-grading-periods#licensing_requirements). This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to modify the grading period settings in a course or for access errors: * UserIneligibleToUpdateGradingPeriodSettings * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course does not exist.
 */
 await gapi.client.classroom.courses.updateGradingPeriodSettings({
   courseId: 'courseId',
