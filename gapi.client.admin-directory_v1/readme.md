@@ -1,7 +1,7 @@
 # TypeScript typings for Admin SDK API directory_v1
 
 Admin SDK lets administrators of enterprise domains to view and manage resources like user, groups etc. It also provides audit and usage reports of domain.
-For detailed description please check [documentation](https://developers.google.com/workspace/admin/).
+For detailed description please check [documentation](https://developers.google.com/admin-sdk/).
 
 ## Installing
 
