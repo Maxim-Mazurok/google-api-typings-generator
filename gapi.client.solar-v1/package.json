@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.solar-v1",
-  "version": "0.0.20250427",
+  "version": "0.0.20250423",
   "description": "TypeScript typings for Solar API v1",
   "repository": {
     "type": "git",
