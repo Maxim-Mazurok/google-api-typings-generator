@@ -434,7 +434,7 @@ await gapi.client.content.liasettings.requestinventoryverification({
 });
 
 /*
-Sets the inventory verification contract for the specified country.
+Sets the inventory verification contact for the specified country.
 */
 await gapi.client.content.liasettings.setinventoryverificationcontact({
   accountId: 'accountId',
