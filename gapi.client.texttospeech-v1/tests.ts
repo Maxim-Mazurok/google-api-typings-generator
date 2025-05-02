@@ -66,7 +66,6 @@ gapi.load('client', async () => {
               },
             ],
           },
-          markup: 'Test string',
           multiSpeakerMarkup: {
             turns: [
               {
@@ -129,7 +128,6 @@ gapi.load('client', async () => {
               },
             ],
           },
-          markup: 'Test string',
           multiSpeakerMarkup: {
             turns: [
               {
