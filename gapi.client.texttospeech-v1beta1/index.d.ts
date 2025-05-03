@@ -109,8 +109,6 @@ declare namespace gapi.client {
     interface SynthesisInput {
       /** Optional. The pronunciation customizations are applied to the input. If this is set, the input is synthesized using the given pronunciation customizations. The initial support is for en-us, with plans to expand to other locales in the future. Instant Clone voices aren't supported. In order to customize the pronunciation of a phrase, there must be an exact match of the phrase in the input types. If using SSML, the phrase must not be inside a phoneme tag. */
       customPronunciations?: CustomPronunciations;
-      /** Markup for HD voices specifically. This field may not be used with any other voices. */
-      markup?: string;
       /** The multi-speaker input to be synthesized. Only applicable for multi-speaker synthesis. */
       multiSpeakerMarkup?: MultiSpeakerMarkup;
       /** The SSML document to be synthesized. The SSML document must be valid and well-formed. Otherwise the RPC will fail and return google.rpc.Code.INVALID_ARGUMENT. For more information, see [SSML](https://cloud.google.com/text-to-speech/docs/ssml). */
