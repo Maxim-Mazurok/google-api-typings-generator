@@ -4106,6 +4106,11 @@ Retrieves a list of reservation subBlocks under a single reservation.
 await gapi.client.compute.reservationSubBlocks.list({ parentName: "parentName", project: "project", zone: "zone",  });
 
 /*
+Allows customers to perform maintenance on a reservation subBlock
+*/
+await gapi.client.compute.reservationSubBlocks.performMaintenance({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
+
+/*
 Retrieves an aggregated list of resource policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.resourcePolicies.aggregatedList({ project: "project",  });
