@@ -127,7 +127,7 @@ Lists all backups associated with the project.
 await gapi.client.sql.Backups.ListBackups({parent: 'parent'});
 
 /*
-This API updates the following: 1- retention period and description of backup in case of final backups only. 2- gcbdr_soft_delete_status of backup in case of GCBDR managed backups only.
+Updates the retention period and description of the backup. You can use this API to update final backups only.
 */
 await gapi.client.sql.Backups.UpdateBackup({name: 'name'});
 
