@@ -376,6 +376,11 @@ Bulk create a set of disks.
 await gapi.client.compute.disks.bulkInsert({ project: "project", zone: "zone",  });
 
 /*
+Sets the labels on many disks at once. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.disks.bulkSetLabels({ project: "project", zone: "zone",  });
+
+/*
 Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project.
 */
 await gapi.client.compute.disks.createSnapshot({ disk: "disk", project: "project", zone: "zone",  });
@@ -2509,6 +2514,21 @@ await gapi.client.compute.packetMirrorings.patch({ packetMirroring: "packetMirro
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.packetMirrorings.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns the details of the given PreviewFeature.
+*/
+await gapi.client.compute.previewFeatures.get({ previewFeature: "previewFeature", project: "project",  });
+
+/*
+Returns the details of the given PreviewFeature.
+*/
+await gapi.client.compute.previewFeatures.list({ project: "project",  });
+
+/*
+Patches the given PreviewFeature. This method is used to enable or disable a PreviewFeature.
+*/
+await gapi.client.compute.previewFeatures.update({ previewFeature: "previewFeature", project: "project",  });
 
 /*
 Disable this project as a shared VPC host project.
