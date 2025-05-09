@@ -2618,7 +2618,7 @@ await gapi.client.compute.packetMirrorings.testIamPermissions({ project: "projec
 /*
 Returns the details of the given PreviewFeature.
 */
-await gapi.client.compute.previewFeatures.get({ project: "project", resourceId: "resourceId",  });
+await gapi.client.compute.previewFeatures.get({ previewFeature: "previewFeature", project: "project",  });
 
 /*
 Returns the details of the given PreviewFeature.
@@ -2628,7 +2628,7 @@ await gapi.client.compute.previewFeatures.list({ project: "project",  });
 /*
 Patches the given PreviewFeature. This method is used to enable or disable a PreviewFeature.
 */
-await gapi.client.compute.previewFeatures.update({ project: "project", resourceId: "resourceId",  });
+await gapi.client.compute.previewFeatures.update({ previewFeature: "previewFeature", project: "project",  });
 
 /*
 Disable this project as a shared VPC host project.
