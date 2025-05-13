@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.admin-reports_v1",
-  "version": "0.0.20250513",
-  "description": "TypeScript typings for Admin SDK API reports_v1",
+  "name": "@maxim_mazurok/gapi.client.apihub-v1",
+  "version": "0.0.20250324",
+  "description": "TypeScript typings for API hub API v1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
