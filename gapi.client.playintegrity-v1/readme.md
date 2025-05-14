@@ -82,4 +82,11 @@ Decodes the integrity token and returns the token payload.
 await gapi.client.playintegrity.decodeIntegrityToken({
   packageName: 'packageName',
 });
+
+/*
+Decodes the PC integrity token and returns the PC token payload.
+*/
+await gapi.client.playintegrity.decodePcIntegrityToken({
+  packageName: 'packageName',
+});
 ```
