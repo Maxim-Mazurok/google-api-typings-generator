@@ -153,7 +153,7 @@ Creates a comment on a file. For more information, see [Manage comments and repl
 await gapi.client.drive.comments.create({ fileId: "fileId",  });
 
 /*
-Deletes a comment. For more information, see [Manage comments and replies](https://developers.google.com/workspace/drive/api/guides/manage-comments). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
+Deletes a comment. For more information, see [Manage comments and replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
 */
 await gapi.client.drive.comments.delete({ commentId: "commentId", fileId: "fileId",  });
 
