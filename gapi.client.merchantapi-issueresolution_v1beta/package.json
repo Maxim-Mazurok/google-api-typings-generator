@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.merchantapi-issueresolution_v1beta",
-  "version": "0.0.20250512",
+  "version": "0.0.20250514",
   "description": "TypeScript typings for Merchant API issueresolution_v1beta",
   "repository": {
     "type": "git",
