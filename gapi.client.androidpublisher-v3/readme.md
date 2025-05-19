@@ -293,6 +293,21 @@ await gapi.client.androidpublisher.monetization.convertRegionPrices({
 });
 
 /*
+Get order details for a list of orders.
+*/
+await gapi.client.androidpublisher.orders.batchget({
+  packageName: 'packageName',
+});
+
+/*
+Get order details for a single order.
+*/
+await gapi.client.androidpublisher.orders.get({
+  orderId: 'orderId',
+  packageName: 'packageName',
+});
+
+/*
 Refunds a user's subscription or in-app purchase order. Orders older than 3 years cannot be refunded.
 */
 await gapi.client.androidpublisher.orders.refund({
