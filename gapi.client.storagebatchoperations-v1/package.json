@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.storagebatchoperations-v1",
-  "version": "0.0.20250514",
+  "version": "0.0.20250507",
   "description": "TypeScript typings for Storage Batch Operations API v1",
   "repository": {
     "type": "git",
