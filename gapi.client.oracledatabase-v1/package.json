@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.oracledatabase-v1",
-  "version": "0.0.20250514",
+  "version": "0.0.20250509",
   "description": "TypeScript typings for Oracle Database@Google Cloud API v1",
   "repository": {
     "type": "git",
