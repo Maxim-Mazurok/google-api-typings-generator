@@ -146,6 +146,11 @@ Advise how, where and when to create the requested amount of instances with spec
 await gapi.client.compute.advice.calendarMode({ project: "project", region: "region",  });
 
 /*
+Advice on making real-time decisions (such as choosing zone or machine types) during deployment to maximize your chances of obtaining capacity.
+*/
+await gapi.client.compute.advice.capacity({ project: "project", region: "region", size: 1,  });
+
+/*
 Retrieves an aggregated list of autoscalers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.autoscalers.aggregatedList({ project: "project",  });
@@ -2819,6 +2824,51 @@ await gapi.client.compute.regionAutoscalers.testIamPermissions({ project: "proje
 Updates an autoscaler in the specified project using the data included in the request.
 */
 await gapi.client.compute.regionAutoscalers.update({ project: "project", region: "region",  });
+
+/*
+Deletes the specified regional BackendBucket resource.
+*/
+await gapi.client.compute.regionBackendBuckets.delete({ backendBucket: "backendBucket", project: "project", region: "region",  });
+
+/*
+Returns the specified regional BackendBucket resource.
+*/
+await gapi.client.compute.regionBackendBuckets.get({ backendBucket: "backendBucket", project: "project", region: "region",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.compute.regionBackendBuckets.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Creates a RegionBackendBucket in the specified project in the given scope using the parameters that are included in the request.
+*/
+await gapi.client.compute.regionBackendBuckets.insert({ project: "project", region: "region",  });
+
+/*
+Retrieves the list of BackendBucket resources available to the specified project in the given region.
+*/
+await gapi.client.compute.regionBackendBuckets.list({ project: "project", region: "region",  });
+
+/*
+Retrieves a list of all usable backend buckets in the specified project in the given region.
+*/
+await gapi.client.compute.regionBackendBuckets.listUsable({ project: "project", region: "region",  });
+
+/*
+Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+*/
+await gapi.client.compute.regionBackendBuckets.patch({ backendBucket: "backendBucket", project: "project", region: "region",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.compute.regionBackendBuckets.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionBackendBuckets.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified regional BackendService resource.
