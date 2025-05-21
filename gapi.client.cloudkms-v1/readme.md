@@ -78,9 +78,34 @@ Returns the AutokeyConfig for a folder.
 await gapi.client.cloudkms.folders.getAutokeyConfig({name: 'name'});
 
 /*
+Gets the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+*/
+await gapi.client.cloudkms.folders.getKajPolicyConfig({name: 'name'});
+
+/*
 Updates the AutokeyConfig for a folder. The caller must have both `cloudkms.autokeyConfigs.update` permission on the parent folder and `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A KeyHandle creation in the folder's descendant projects will use this configuration to determine where to create the resulting CryptoKey.
 */
 await gapi.client.cloudkms.folders.updateAutokeyConfig({name: 'name'});
+
+/*
+Updates the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+*/
+await gapi.client.cloudkms.folders.updateKajPolicyConfig({name: 'name'});
+
+/*
+Gets the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+*/
+await gapi.client.cloudkms.organizations.getKajPolicyConfig({name: 'name'});
+
+/*
+Updates the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+*/
+await gapi.client.cloudkms.organizations.updateKajPolicyConfig({name: 'name'});
+
+/*
+Gets the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+*/
+await gapi.client.cloudkms.projects.getKajPolicyConfig({name: 'name'});
 
 /*
 Returns the effective Cloud KMS Autokey configuration for a given project.
@@ -88,4 +113,23 @@ Returns the effective Cloud KMS Autokey configuration for a given project.
 await gapi.client.cloudkms.projects.showEffectiveAutokeyConfig({
   parent: 'parent',
 });
+
+/*
+Returns the KeyAccessJustificationsEnrollmentConfig of the resource closest to the given project in hierarchy.
+*/
+await gapi.client.cloudkms.projects.showEffectiveKeyAccessJustificationsEnrollmentConfig(
+  {project: 'project'},
+);
+
+/*
+Returns the KeyAccessJustificationsPolicyConfig of the resource closest to the given project in hierarchy.
+*/
+await gapi.client.cloudkms.projects.showEffectiveKeyAccessJustificationsPolicyConfig(
+  {project: 'project'},
+);
+
+/*
+Updates the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+*/
+await gapi.client.cloudkms.projects.updateKajPolicyConfig({name: 'name'});
 ```
