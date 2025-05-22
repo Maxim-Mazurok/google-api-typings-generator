@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.apihub-v1",
-  "version": "0.0.20250507",
+  "version": "0.0.20250514",
   "description": "TypeScript typings for API hub API v1",
   "repository": {
     "type": "git",
