@@ -49,4 +49,19 @@ After that you can use Safe Browsing API resources: <!-- TODO: make this work fo
 Search for full hashes matching the specified prefixes. This is a custom method as defined by https://google.aip.dev/136 (the custom method refers to this method having a custom name within Google's general API development nomenclature; it does not refer to using a custom HTTP method).
 */
 await gapi.client.safebrowsing.hashes.search({});
+
+/*
+Get the latest contents of a hash list. A hash list may either by a threat list or a non-threat list such as the Global Cache. This is a standard Get method as defined by https://google.aip.dev/131 and the HTTP method is also GET.
+*/
+await gapi.client.safebrowsing.hashList.get({name: 'name'});
+
+/*
+Get multiple hash lists at once. It is very common for a client to need to get multiple hash lists. Using this method is preferred over using the regular Get method multiple times. This is a standard batch Get method as defined by https://google.aip.dev/231 and the HTTP method is also GET.
+*/
+await gapi.client.safebrowsing.hashLists.batchGet({});
+
+/*
+List hash lists. In the V5 API, Google will never remove a hash list that has ever been returned by this method. This enables clients to skip using this method and simply hard-code all hash lists they need. This is a standard List method as defined by https://google.aip.dev/132 and the HTTP method is GET.
+*/
+await gapi.client.safebrowsing.hashLists.list({});
 ```
