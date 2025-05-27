@@ -75,7 +75,7 @@ Creates a Merchant Center account with additional configuration. Adds the user t
 await gapi.client.merchantapi.accounts.createAndConfigure({});
 
 /*
-Deletes the specified account regardless of its type: standalone, MCA or sub-account. Deleting an MCA leads to the deletion of all of its sub-accounts. Executing this method requires admin access. The deletion succeeds only if the account does not provide services to any other account and has no processed offers. You can use the `force` parameter to override this.
+Deletes the specified account regardless of its type: standalone, advanced account or sub-account. Deleting an advanced account leads to the deletion of all of its sub-accounts. Executing this method requires admin access. The deletion succeeds only if the account does not provide services to any other account and has no processed offers. You can use the `force` parameter to override this.
 */
 await gapi.client.merchantapi.accounts.delete({name: 'name'});
 
@@ -85,7 +85,7 @@ Retrieves an account from your Merchant Center account. After inserting, updatin
 await gapi.client.merchantapi.accounts.get({name: 'name'});
 
 /*
-Lists accounts accessible to the calling user and matching the constraints of the request such as page size or filters. This is not just listing the sub-accounts of an MCA, but all accounts the calling user has access to including other MCAs, linked accounts, standalone accounts and so on. If no filter is provided, then it returns all the accounts the user has access to. This method is eventually consistent, meaning changes such as creating, updating an account or a change of relationships between accounts may not show up in the results immediately. Instead, these changes propagate over a short period, after which the updated information can match the associated predicates. That means, that searching by account name might not return a recently changed account even though it satisfies the predicate.
+Lists accounts accessible to the calling user and matching the constraints of the request such as page size or filters. This is not just listing the sub-accounts of an advanced account, but all accounts the calling user has access to including other advanced accounts, linked accounts, standalone accounts and so on. If no filter is provided, then it returns all the accounts the user has access to. This method is eventually consistent, meaning changes such as creating, updating an account or a change of relationships between accounts may not show up in the results immediately. Instead, these changes propagate over a short period, after which the updated information can match the associated predicates. That means, that searching by account name might not return a recently changed account even though it satisfies the predicate.
 */
 await gapi.client.merchantapi.accounts.list({});
 
@@ -95,7 +95,7 @@ List all sub-accounts for a given multi client account. This is a convenience wr
 await gapi.client.merchantapi.accounts.listSubaccounts({provider: 'provider'});
 
 /*
-Updates an account regardless of its type: standalone, MCA or sub-account. Executing this method requires admin access.
+Updates an account regardless of its type: standalone, advanced account or sub-account. Executing this method requires admin access.
 */
 await gapi.client.merchantapi.accounts.patch({name: 'name'});
 
