@@ -123,6 +123,13 @@ Perform a token counting.
 await gapi.client.aiplatform.endpoints.countTokens({endpoint: 'endpoint'});
 
 /*
+Fetch an asynchronous online prediction operation.
+*/
+await gapi.client.aiplatform.endpoints.fetchPredictOperation({
+  endpoint: 'endpoint',
+});
+
+/*
 Generate content with multimodal inputs.
 */
 await gapi.client.aiplatform.endpoints.generateContent({model: 'model'});
@@ -131,6 +138,13 @@ await gapi.client.aiplatform.endpoints.generateContent({model: 'model'});
 Perform an online prediction.
 */
 await gapi.client.aiplatform.endpoints.predict({endpoint: 'endpoint'});
+
+/*
+
+*/
+await gapi.client.aiplatform.endpoints.predictLongRunning({
+  endpoint: 'endpoint',
+});
 
 /*
 Generate content with multimodal inputs with streaming support.
@@ -151,4 +165,39 @@ await gapi.client.aiplatform.projects.getCacheConfig({name: 'name'});
 Updates a cache config.
 */
 await gapi.client.aiplatform.projects.updateCacheConfig({name: 'name'});
+
+/*
+Creates a reasoning engine.
+*/
+await gapi.client.aiplatform.reasoningEngines.create({});
+
+/*
+Deletes a reasoning engine.
+*/
+await gapi.client.aiplatform.reasoningEngines.delete({name: 'name'});
+
+/*
+Gets a reasoning engine.
+*/
+await gapi.client.aiplatform.reasoningEngines.get({name: 'name'});
+
+/*
+Lists reasoning engines in a location.
+*/
+await gapi.client.aiplatform.reasoningEngines.list({});
+
+/*
+Updates a reasoning engine.
+*/
+await gapi.client.aiplatform.reasoningEngines.patch({name: 'name'});
+
+/*
+Queries using a reasoning engine.
+*/
+await gapi.client.aiplatform.reasoningEngines.query({name: 'name'});
+
+/*
+Streams queries using a reasoning engine.
+*/
+await gapi.client.aiplatform.reasoningEngines.streamQuery({name: 'name'});
 ```
