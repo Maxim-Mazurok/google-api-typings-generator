@@ -1,7 +1,7 @@
 # TypeScript typings for versionhistory.googleapis.com API v1
 
 Version History API - Prod
-For detailed description please check [documentation](https://developers.chrome.com/versionhistory).
+For detailed description please check [documentation](https://developer.chrome.com/docs/web-platform/versionhistory/guide).
 
 ## Installing
 
