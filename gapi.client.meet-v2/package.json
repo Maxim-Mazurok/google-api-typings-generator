@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.meet-v2",
-  "version": "0.0.20250527",
+  "version": "0.0.20250529",
   "description": "TypeScript typings for Google Meet API v2",
   "repository": {
     "type": "git",
