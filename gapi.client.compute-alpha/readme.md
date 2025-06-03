@@ -2506,7 +2506,7 @@ Retrieves a list of node types available to the specified project.
 await gapi.client.compute.nodeTypes.list({ project: "project", zone: "zone",  });
 
 /*
-Inserts an association for the specified security policy. This has billing implications. Projects in the hierarchy with effective hierarchical security policies will be automatically enrolled into Cloud Armor Enterprise if not already enrolled. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.addAssociation instead if possible.
+Inserts an association for the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.addAssociation instead if possible.
 */
 await gapi.client.compute.organizationSecurityPolicies.addAssociation({ securityPolicy: "securityPolicy",  });
 
@@ -2789,46 +2789,6 @@ await gapi.client.compute.publicDelegatedPrefixes.patch({ project: "project", pu
 Withdraws the specified PublicDelegatedPrefix in the given region.
 */
 await gapi.client.compute.publicDelegatedPrefixes.withdraw({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix", region: "region",  });
-
-/*
-Retrieves an aggregated list of all of the RecoverableSnapshots in your project across all regions and global scope.
-*/
-await gapi.client.compute.recoverableSnapshots.aggregatedList({ project: "project",  });
-
-/*
-Deletes the specified RecoverableSnapshot. Deleting a recoverable snapshot will delete the underlying PD snapshot and is irreversible.
-*/
-await gapi.client.compute.recoverableSnapshots.delete({ project: "project", recoverableSnapshot: "recoverableSnapshot",  });
-
-/*
-Returns the specified RecoverableSnapshot resource.
-*/
-await gapi.client.compute.recoverableSnapshots.get({ project: "project", recoverableSnapshot: "recoverableSnapshot",  });
-
-/*
-Gets the access control policy for a resource. May be empty if no such policy or resource exists.
-*/
-await gapi.client.compute.recoverableSnapshots.getIamPolicy({ project: "project", resource: "resource",  });
-
-/*
-Retrieves a list of all of the RecoverableSnapshots in your project.
-*/
-await gapi.client.compute.recoverableSnapshots.list({ project: "project",  });
-
-/*
-Recovers the specified RecoverableSnapshot.
-*/
-await gapi.client.compute.recoverableSnapshots.recover({ project: "project", recoverableSnapshot: "recoverableSnapshot",  });
-
-/*
-Sets the access control policy on the specified resource. Replaces any existing policy.
-*/
-await gapi.client.compute.recoverableSnapshots.setIamPolicy({ project: "project", resource: "resource",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.recoverableSnapshots.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Deletes the specified autoscaler.
