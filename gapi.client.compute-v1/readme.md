@@ -326,11 +326,6 @@ Bulk create a set of disks.
 await gapi.client.compute.disks.bulkInsert({ project: "project", zone: "zone",  });
 
 /*
-Sets the labels on many disks at once. To learn more about labels, read the Labeling Resources documentation.
-*/
-await gapi.client.compute.disks.bulkSetLabels({ project: "project", zone: "zone",  });
-
-/*
 Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project.
 */
 await gapi.client.compute.disks.createSnapshot({ disk: "disk", project: "project", zone: "zone",  });
@@ -3274,16 +3269,6 @@ await gapi.client.compute.reservations.testIamPermissions({ project: "project", 
 Update share settings of the reservation.
 */
 await gapi.client.compute.reservations.update({ project: "project", reservation: "reservation", zone: "zone",  });
-
-/*
-Retrieves information about the specified reservation subBlock.
-*/
-await gapi.client.compute.reservationSubBlocks.get({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
-
-/*
-Retrieves a list of reservation subBlocks under a single reservation.
-*/
-await gapi.client.compute.reservationSubBlocks.list({ parentName: "parentName", project: "project", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of resource policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
