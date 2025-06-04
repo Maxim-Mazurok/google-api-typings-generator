@@ -2401,7 +2401,7 @@ Retrieves a list of node types available to the specified project.
 await gapi.client.compute.nodeTypes.list({ project: "project", zone: "zone",  });
 
 /*
-Inserts an association for the specified security policy. This has billing implications. Projects in the hierarchy with effective hierarchical security policies will be automatically enrolled into Cloud Armor Enterprise if not already enrolled. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.addAssociation instead if possible.
+Inserts an association for the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.addAssociation instead if possible.
 */
 await gapi.client.compute.organizationSecurityPolicies.addAssociation({ securityPolicy: "securityPolicy",  });
 
@@ -3804,16 +3804,6 @@ await gapi.client.compute.reservations.testIamPermissions({ project: "project", 
 Update share settings of the reservation.
 */
 await gapi.client.compute.reservations.update({ project: "project", reservation: "reservation", zone: "zone",  });
-
-/*
-Retrieves information about the specified reservation subBlock.
-*/
-await gapi.client.compute.reservationSubBlocks.get({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
-
-/*
-Retrieves a list of reservation subBlocks under a single reservation.
-*/
-await gapi.client.compute.reservationSubBlocks.list({ parentName: "parentName", project: "project", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of resource policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
