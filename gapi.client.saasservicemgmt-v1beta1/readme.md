@@ -1,10 +1,10 @@
-# TypeScript typings for SaaS Runtime API v1beta1
+# TypeScript typings for SaaS Service Management API v1beta1
 
-For detailed description please check [documentation](https://cloud.google.com/saas-runtime/docs).
+For detailed description please check [documentation](https://cloud.google.com/).
 
 ## Installing
 
-Install typings for SaaS Runtime API:
+Install typings for SaaS Service Management API:
 
 ```
 npm install @types/gapi.client.saasservicemgmt-v1beta1 --save-dev
@@ -65,7 +65,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use SaaS Runtime API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use SaaS Service Management API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 

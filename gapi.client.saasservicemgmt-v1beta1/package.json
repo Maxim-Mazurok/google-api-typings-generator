@@ -1,7 +1,7 @@
 {
   "name": "@maxim_mazurok/gapi.client.saasservicemgmt-v1beta1",
-  "version": "0.0.20250528",
-  "description": "TypeScript typings for SaaS Runtime API v1beta1",
+  "version": "0.0.20250514",
+  "description": "TypeScript typings for SaaS Service Management API v1beta1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
