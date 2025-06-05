@@ -409,6 +409,7 @@ gapi.load('client', async () => {
               idpWide: true,
               principals: [
                 {
+                  externalEntityId: 'Test string',
                   groupId: 'Test string',
                   userId: 'Test string',
                 },
@@ -550,6 +551,7 @@ gapi.load('client', async () => {
                     idpWide: true,
                     principals: [
                       {
+                        externalEntityId: 'Test string',
                         groupId: 'Test string',
                         userId: 'Test string',
                       },
@@ -625,6 +627,7 @@ gapi.load('client', async () => {
               idpWide: true,
               principals: [
                 {
+                  externalEntityId: 'Test string',
                   groupId: 'Test string',
                   userId: 'Test string',
                 },
@@ -2271,9 +2274,6 @@ gapi.load('client', async () => {
               queryId: 'Test string',
               text: 'Test string',
             },
-            queryConfigs: {
-              A: 'Test string',
-            },
           },
         ],
         userPseudoId: 'Test string',
@@ -2453,9 +2453,6 @@ gapi.load('client', async () => {
             query: {
               queryId: 'Test string',
               text: 'Test string',
-            },
-            queryConfigs: {
-              A: 'Test string',
             },
           },
         ],
@@ -4519,9 +4516,6 @@ gapi.load('client', async () => {
               queryId: 'Test string',
               text: 'Test string',
             },
-            queryConfigs: {
-              A: 'Test string',
-            },
           },
         ],
         userPseudoId: 'Test string',
@@ -4701,9 +4695,6 @@ gapi.load('client', async () => {
             query: {
               queryId: 'Test string',
               text: 'Test string',
-            },
-            queryConfigs: {
-              A: 'Test string',
             },
           },
         ],
@@ -5001,6 +4992,7 @@ gapi.load('client', async () => {
               idpWide: true,
               principals: [
                 {
+                  externalEntityId: 'Test string',
                   groupId: 'Test string',
                   userId: 'Test string',
                 },
@@ -5142,6 +5134,7 @@ gapi.load('client', async () => {
                     idpWide: true,
                     principals: [
                       {
+                        externalEntityId: 'Test string',
                         groupId: 'Test string',
                         userId: 'Test string',
                       },
@@ -5217,6 +5210,7 @@ gapi.load('client', async () => {
               idpWide: true,
               principals: [
                 {
+                  externalEntityId: 'Test string',
                   groupId: 'Test string',
                   userId: 'Test string',
                 },
@@ -6842,9 +6836,6 @@ gapi.load('client', async () => {
               queryId: 'Test string',
               text: 'Test string',
             },
-            queryConfigs: {
-              A: 'Test string',
-            },
           },
         ],
         userPseudoId: 'Test string',
@@ -7024,9 +7015,6 @@ gapi.load('client', async () => {
             query: {
               queryId: 'Test string',
               text: 'Test string',
-            },
-            queryConfigs: {
-              A: 'Test string',
             },
           },
         ],
