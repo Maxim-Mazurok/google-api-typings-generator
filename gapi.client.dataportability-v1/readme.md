@@ -114,6 +114,9 @@ var client_id = '',
     // Move a copy of your Starred places list on Maps
     'https://www.googleapis.com/auth/dataportability.maps.starred_places',
 
+    // Move a copy of your vehicle profile on Maps
+    'https://www.googleapis.com/auth/dataportability.maps.vehicle_profile',
+
     // Move a copy of your Maps activity
     'https://www.googleapis.com/auth/dataportability.myactivity.maps',
 
