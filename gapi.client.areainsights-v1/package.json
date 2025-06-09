@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.areainsights-v1",
-  "version": "0.0.20250604",
+  "version": "0.0.20250608",
   "description": "TypeScript typings for Places Aggregate API v1",
   "repository": {
     "type": "git",
