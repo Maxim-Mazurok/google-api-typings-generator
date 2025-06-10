@@ -353,14 +353,6 @@ declare namespace gapi.client {
       /** Content in this field should be rendered and interpreted as-is. */
       plainText?: string;
     }
-    interface WorkflowOperationMetadata {
-      /** The namespace that the job was scheduled in. Must be included in the workflow metadata so the workflow status can be retrieved. */
-      namespace?: string;
-      /** The type of action the operation is classified as. */
-      operationAction?: string;
-      /** Which version of the workflow service this operation came from. */
-      workflowOperationType?: string;
-    }
     interface CaseClassificationsResource {
       /** Retrieve valid classifications to use when creating a support case. Classifications are hierarchical. Each classification is a string containing all levels of the hierarchy separated by `" > "`. For example, `"Technical Issue > Compute > Compute Engine"`. Classification IDs returned by this endpoint are valid for at least six months. When a classification is deactivated, this endpoint immediately stops returning it. After six months, `case.create` requests using the classification will fail. EXAMPLES: cURL: ```shell curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ 'https://cloudsupport.googleapis.com/v2/caseClassifications:search?query=display_name:"*Compute%20Engine*"' ``` Python: ```python import googleapiclient.discovery supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version="v2", discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version=v2", ) request = supportApiService.caseClassifications().search( query='display_name:"*Compute Engine*"' ) print(request.execute()) ``` */
       search(request?: {
