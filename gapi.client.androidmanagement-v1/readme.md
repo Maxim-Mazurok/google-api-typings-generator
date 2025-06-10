@@ -80,7 +80,7 @@ Permanently deletes an enterprise and all accounts and data associated with it. 
 await gapi.client.androidmanagement.enterprises.delete({name: 'name'});
 
 /*
-Generates an enterprise upgrade URL to upgrade an existing managed Google Play Accounts enterprise to a managed Google domain.Note: This feature is not generally available.
+Generates an enterprise upgrade URL to upgrade an existing managed Google Play Accounts enterprise to a managed Google domain. See the guide (https://developers.google.com/android/management/upgrade-an-enterprise) for more details.
 */
 await gapi.client.androidmanagement.enterprises.generateEnterpriseUpgradeUrl({
   name: 'name',
