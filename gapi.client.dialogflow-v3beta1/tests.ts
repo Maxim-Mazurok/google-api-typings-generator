@@ -1014,6 +1014,7 @@ gapi.load('client', async () => {
           parameters: {
             A: 42,
           },
+          parameterScope: 'Test string',
           payload: {
             A: 42,
           },
@@ -1184,6 +1185,7 @@ gapi.load('client', async () => {
             parameters: {
               A: 42,
             },
+            parameterScope: 'Test string',
             payload: {
               A: 42,
             },
@@ -1328,6 +1330,7 @@ gapi.load('client', async () => {
           parameters: {
             A: 42,
           },
+          parameterScope: 'Test string',
           payload: {
             A: 42,
           },
@@ -1470,6 +1473,7 @@ gapi.load('client', async () => {
           parameters: {
             A: 42,
           },
+          parameterScope: 'Test string',
           payload: {
             A: 42,
           },
@@ -7463,6 +7467,7 @@ gapi.load('client', async () => {
           parameters: {
             A: 42,
           },
+          parameterScope: 'Test string',
           payload: {
             A: 42,
           },
@@ -7633,6 +7638,7 @@ gapi.load('client', async () => {
             parameters: {
               A: 42,
             },
+            parameterScope: 'Test string',
             payload: {
               A: 42,
             },
@@ -7777,6 +7783,7 @@ gapi.load('client', async () => {
           parameters: {
             A: 42,
           },
+          parameterScope: 'Test string',
           payload: {
             A: 42,
           },
@@ -7919,6 +7926,7 @@ gapi.load('client', async () => {
           parameters: {
             A: 42,
           },
+          parameterScope: 'Test string',
           payload: {
             A: 42,
           },
