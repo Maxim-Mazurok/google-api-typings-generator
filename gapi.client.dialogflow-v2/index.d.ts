@@ -2853,17 +2853,17 @@ declare namespace gapi.client {
       dtmfEvents?: string[];
     }
     interface GoogleCloudDialogflowV2beta1ToolCall {
-      /** Optional. The name of the tool's action associated with this call. */
+      /** Required. The name of the tool's action associated with this call. */
       action?: string;
       /** Output only. Create time of the tool call. */
       createTime?: string;
       /** Optional. The action's input parameters. */
       inputParameters?: {[P in string]: any};
-      /** Optional. The tool associated with this call. Format: `projects//locations//tools/`. */
+      /** Required. The tool associated with this call. Format: `projects//locations//tools/`. */
       tool?: string;
     }
     interface GoogleCloudDialogflowV2beta1ToolCallResult {
-      /** Optional. The name of the tool's action associated with this call. */
+      /** Required. The name of the tool's action associated with this call. */
       action?: string;
       /** Only populated if the response content is utf-8 encoded. */
       content?: string;
@@ -2873,7 +2873,7 @@ declare namespace gapi.client {
       error?: GoogleCloudDialogflowV2beta1ToolCallResultError;
       /** Only populated if the response content is not utf-8 encoded. (by definition byte fields are base64 encoded). */
       rawContent?: string;
-      /** Optional. The tool associated with this call. Format: `projects//locations//tools/`. */
+      /** Required. The tool associated with this call. Format: `projects//locations//tools/`. */
       tool?: string;
     }
     interface GoogleCloudDialogflowV2beta1ToolCallResultError {
@@ -4786,17 +4786,17 @@ declare namespace gapi.client {
       };
     }
     interface GoogleCloudDialogflowV2ToolCall {
-      /** Optional. The name of the tool's action associated with this call. */
+      /** Required. The name of the tool's action associated with this call. */
       action?: string;
       /** Output only. Create time of the tool call. */
       createTime?: string;
       /** Optional. The action's input parameters. */
       inputParameters?: {[P in string]: any};
-      /** Optional. The tool associated with this call. Format: `projects//locations//tools/`. */
+      /** Required. The tool associated with this call. Format: `projects//locations//tools/`. */
       tool?: string;
     }
     interface GoogleCloudDialogflowV2ToolCallResult {
-      /** Optional. The name of the tool's action associated with this call. */
+      /** Required. The name of the tool's action associated with this call. */
       action?: string;
       /** Only populated if the response content is utf-8 encoded. */
       content?: string;
@@ -4806,7 +4806,7 @@ declare namespace gapi.client {
       error?: GoogleCloudDialogflowV2ToolCallResultError;
       /** Only populated if the response content is not utf-8 encoded. (by definition byte fields are base64 encoded). */
       rawContent?: string;
-      /** Optional. The tool associated with this call. Format: `projects//locations//tools/`. */
+      /** Required. The tool associated with this call. Format: `projects//locations//tools/`. */
       tool?: string;
     }
     interface GoogleCloudDialogflowV2ToolCallResultError {
