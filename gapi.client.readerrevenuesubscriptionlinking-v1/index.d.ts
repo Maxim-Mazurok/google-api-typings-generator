@@ -47,6 +47,12 @@ declare namespace gapi.client {
       createTime?: string;
       /** Output only. The resource name of the reader. The last part of ppid in the resource name is the publisher provided id. */
       name?: string;
+      /** Output only. The SwG publication id that the reader's subscription linking was originating from. */
+      originatingPublicationId?: string;
+      /** Output only. The publisher provided id of the reader. */
+      ppid?: string;
+      /** Output only. The SwG publication id that the reader has linked their subscription to. */
+      publicationId?: string;
     }
     interface ReaderEntitlements {
       /** All of the entitlements for a publication reader. */
