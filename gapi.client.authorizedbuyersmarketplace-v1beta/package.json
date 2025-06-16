@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.authorizedbuyersmarketplace-v1alpha",
+  "name": "@maxim_mazurok/gapi.client.authorizedbuyersmarketplace-v1beta",
   "version": "0.0.20250616",
-  "description": "TypeScript typings for Authorized Buyers Marketplace API v1alpha",
+  "description": "TypeScript typings for Authorized Buyers Marketplace API v1beta",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
