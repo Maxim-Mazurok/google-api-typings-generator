@@ -48,6 +48,12 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
+    // On their own behalf, apps in Google Chat can see, add, update, and remove members from conversations and spaces
+    'https://www.googleapis.com/auth/chat.app.memberships',
+
+    // On their own behalf, apps in Google Chat can create conversations and spaces and see or update their metadata (including history settings and access settings)
+    'https://www.googleapis.com/auth/chat.app.spaces',
+
     // Private Service: https://www.googleapis.com/auth/chat.bot
     'https://www.googleapis.com/auth/chat.bot',
 
