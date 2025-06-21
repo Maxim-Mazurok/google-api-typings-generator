@@ -1,6 +1,6 @@
 # TypeScript typings for BigQuery Reservation API v1
 
-A service to modify your BigQuery flat-rate reservations.
+A service to modify your BigQuery reservations.
 For detailed description please check [documentation](https://cloud.google.com/bigquery/).
 
 ## Installing
