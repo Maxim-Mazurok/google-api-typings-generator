@@ -1,7 +1,7 @@
 # TypeScript typings for Merchant API inventories_v1beta
 
 Programmatically manage your Merchant Center Accounts.
-For detailed description please check [documentation](https://developers.devsite.corp.google.com/merchant/api).
+For detailed description please check [documentation](https://developers.google.com/merchant/api).
 
 ## Installing
 
