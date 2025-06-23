@@ -1,7 +1,7 @@
 # TypeScript typings for Places Aggregate API v1
 
 Places Aggregate API.
-For detailed description please check [documentation](https://g3doc.corp.google.com/geo/platform/area_insights/README.md?cl=head).
+For detailed description please check [documentation](https://developers.google.com/maps/documentation/places-aggregate/overview).
 
 ## Installing
 
