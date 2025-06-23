@@ -1,7 +1,7 @@
 # TypeScript typings for Merchant API accounts_v1beta
 
 Programmatically manage your Merchant Center Accounts.
-For detailed description please check [documentation](https://developers.devsite.corp.google.com/merchant/api).
+For detailed description please check [documentation](https://developers.google.com/merchant/api).
 
 ## Installing
 
@@ -90,7 +90,7 @@ Note: For the `accounts.list` method, quota and limits usage are charged for eac
 await gapi.client.merchantapi.accounts.list({});
 
 /*
-List all sub-accounts for a given multi client account. This is a convenience wrapper for the more powerful `ListAccounts` method. This method will produce the same results as calling `ListsAccounts` with the following filter: `relationship(providerId={parent} AND service(type="ACCOUNT_AGGREGATION"))`
+List all sub-accounts for a given advanced account. This is a convenience wrapper for the more powerful `accounts.list` method. This method will produce the same results as calling `ListsAccounts` with the following filter: `relationship(providerId={parent} AND service(type="ACCOUNT_AGGREGATION"))`
 */
 await gapi.client.merchantapi.accounts.listSubaccounts({provider: 'provider'});
 
