@@ -92,7 +92,7 @@ await gapi.client.datatransfer.transfers.get({
 });
 
 /*
-Inserts a data transfer request. See the [Transfer parameters](/admin-sdk/data-transfer/v1/parameters) reference for specific application requirements.
+Inserts a data transfer request. See the [Transfer parameters](https://developers.google.com/workspace/admin/data-transfer/v1/parameters) reference for specific application requirements.
 */
 await gapi.client.datatransfer.transfers.insert({});
 
