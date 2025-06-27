@@ -198,6 +198,13 @@ await gapi.client.analyticsadmin.properties.getGoogleSignalsSettings({
 });
 
 /*
+Returns the singleton data retention settings for this property.
+*/
+await gapi.client.analyticsadmin.properties.getReportingIdentitySettings({
+  name: 'name',
+});
+
+/*
 Returns child Properties under the specified parent Account. Properties will be excluded if the caller does not have access. Soft-deleted (ie: "trashed") properties are excluded by default. Returns an empty list if no relevant properties are found.
 */
 await gapi.client.analyticsadmin.properties.list({});
