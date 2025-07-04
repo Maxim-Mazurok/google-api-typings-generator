@@ -1,6 +1,7 @@
 import {Octokit} from '@octokit/rest';
 import {readdirSync} from 'node:fs';
 import {basename} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {
   ensureDirectoryExists,
   getRevision,
@@ -35,18 +36,19 @@ export class Helpers {
   }
 
   npmPublish = async (
-    cwd: string,
+    npmArchivePath: URL,
     retriesLeft = 5,
     retryTimeout = 60, // seconds
   ): Promise<void> => {
     retriesLeft--;
-    const cmd = 'npm publish --access public';
-    const apiName = basename(cwd);
+    const npmrcPath = new URL('types.npmrc', rootFolder);
+    const cmd = `npm publish --access public --userconfig ${fileURLToPath(npmrcPath)} ${fileURLToPath(npmArchivePath)}`; // cspell:ignore userconfig
+    const apiName = basename(fileURLToPath(npmArchivePath));
     const error503 = '503 Service Unavailable';
     const error404 = '404 Not Found';
     const error429 = '429 Too Many Requests';
     try {
-      await this.sh.runSh(cmd, cwd);
+      await this.sh.runSh(cmd);
     } catch (exception) {
       if (exception instanceof Error === false) {
         console.error('Unknown exception type: ', {exception});
@@ -76,7 +78,7 @@ export class Helpers {
           `NPM returned ${error} for ${apiName}, retrying in ${retryTimeout}s...`,
         );
         sleep(retryTimeout);
-        await this.npmPublish(cwd, retriesLeft);
+        await this.npmPublish(npmArchivePath, retriesLeft);
       } else {
         throw SH.error(exception);
       }

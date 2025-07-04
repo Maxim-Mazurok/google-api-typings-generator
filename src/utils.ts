@@ -13,6 +13,7 @@ import zlib from 'zlib';
 import tar from 'tar-stream';
 import {createHash} from 'crypto';
 import {readdir, readFile} from 'node:fs/promises';
+import {SH} from '../bin/auto-publish/sh.js';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
@@ -253,11 +254,13 @@ export const hasValueRecursive = <T>(
   return false;
 };
 
-export const getChangedTypes = async (
+export const getNpmArchivesToPublish = async (
   packages: {name: string; revision: number}[],
   getLatestVersion: (packageName: string) => Promise<string>,
+  sh: SH,
 ) => {
-  const changedTypes: string[] = [];
+  // TODO: use archives-to-publish-3.ts script here
+  const npmArchivesToPublish: URL[] = [];
   const proxy = await getProxy();
   await Promise.all(
     packages.map(async ({name: packageName, revision: newRevision}) => {
@@ -267,14 +270,14 @@ export const getChangedTypes = async (
         latestPackageVersion = await getLatestVersion(fullPackageName);
       } catch (e) {
         if ((e as Pick<Error, 'name'>).name === 'PackageNotFoundError') {
-          changedTypes.push(packageName);
+          npmArchivesToPublish.push(packageName);
           return;
         }
         throw e;
       }
       const latestPublishedRevision = patch(latestPackageVersion);
       if (newRevision > latestPublishedRevision) {
-        changedTypes.push(packageName);
+        npmArchivesToPublish.push(packageName);
         return;
         // TODO: Now we know that it definitely changed, and so we don't have to bump the generator version - we need to use one from the latestPackageVersion
       } else if (newRevision === latestPublishedRevision) {
@@ -300,7 +303,7 @@ export const getChangedTypes = async (
       }
     }),
   );
-  return changedTypes;
+  return npmArchivesToPublish;
 };
 
 const importMetaUrl = import.meta.url;

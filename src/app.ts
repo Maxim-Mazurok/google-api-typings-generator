@@ -891,20 +891,16 @@ export class App {
     );
 
     await Promise.all(
-      [
-        '.npmrc',
-        '.npmIgnore'.toLowerCase(),
-        '.eslintrc.json',
-        'tsconfig.json',
-      ].map(fileName =>
-        copyFile(
-          path.join(
-            import.meta.dirname,
-            'template',
-            `template.${fileName}`, // can't use just fileName, because tsconfig.json will act like a real config for the index.ts inside of template folder
+      ['.npmIgnore'.toLowerCase(), '.eslintrc.json', 'tsconfig.json'].map(
+        fileName =>
+          copyFile(
+            path.join(
+              import.meta.dirname,
+              'template',
+              `template.${fileName}`, // can't use just fileName, because tsconfig.json will act like a real config for the index.ts inside of template folder
+            ),
+            path.join(destinationDirectory, fileName),
           ),
-          path.join(destinationDirectory, fileName),
-        ),
       ),
     );
 
