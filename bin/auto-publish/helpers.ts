@@ -8,11 +8,15 @@ import {
   rootFolder,
   sleep,
 } from '../../src/utils.js';
-import {Git, Settings as GitSettings} from './git.js';
+import {GitHub, GitHubSettings} from './git-hub.js';
 import {Settings} from './index.js';
 import {SH} from './sh.js';
 
-export const createOctokit = ({auth, user, thisRepo}: GitSettings): Octokit =>
+export const createOctokit = ({
+  auth,
+  user,
+  thisRepo,
+}: GitHubSettings): Octokit =>
   new Octokit({
     auth,
     userAgent: `${user}/${thisRepo}`,
@@ -21,12 +25,12 @@ export const createOctokit = ({auth, user, thisRepo}: GitSettings): Octokit =>
 
 export class Helpers {
   readonly sh: SH;
-  readonly git: Git;
+  readonly gitHub: GitHub;
   readonly settings: Settings;
 
-  constructor(sh: SH, git: Git, settings: Settings) {
+  constructor(sh: SH, gitHub: GitHub, settings: Settings) {
     this.sh = sh;
-    this.git = git;
+    this.gitHub = gitHub;
     this.settings = settings;
   }
 
@@ -87,13 +91,13 @@ export class Helpers {
       typesDirName: typesDirName,
     } = this.settings;
 
-    const commitSHA = await this.git.getLatestCommitHash({
+    const commitSHA = await this.gitHub.getLatestCommitHash({
       owner: user,
       repo: thisRepo,
       branch: typesBranchName,
     });
 
-    const url = await this.git.getArchiveLink(commitSHA);
+    const url = await this.gitHub.getArchiveLink(commitSHA);
     ensureDirectoryExists(typesDirName);
     const cmd = `curl ${url} | tar xvz --strip-components=1 -C ${typesDirName}`;
     await this.sh.trySh(cmd);

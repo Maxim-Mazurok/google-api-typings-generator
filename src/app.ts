@@ -481,8 +481,7 @@ export class App {
   constructor(private readonly config: Configuration) {
     ensureDirectoryExists(config.typesDirectory);
 
-    console.log(`types directory: ${config.typesDirectory}`);
-    console.log();
+    console.log(`types directory: ${config.typesDirectory}\n`);
   }
 
   static parseOutPath(dir: string) {

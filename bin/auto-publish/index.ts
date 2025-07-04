@@ -1,6 +1,6 @@
 import {join} from 'node:path';
 import {getChangedTypes} from '../../src/utils.js';
-import {Git, Settings as GitSettings} from './git.js';
+import {GitHub, GitHubSettings} from './git-hub.js';
 import {Helpers} from './helpers.js';
 import {SH} from './sh.js';
 
@@ -13,7 +13,7 @@ export interface TypesBranchAndDirSettings {
   typesDirName: string; // temporary directory name to download types branch to
 }
 
-export interface Settings extends GitSettings, TypesBranchAndDirSettings {}
+export interface Settings extends GitHubSettings, TypesBranchAndDirSettings {}
 
 const settings: Settings = {
   typesDirName: 'types',
@@ -24,8 +24,8 @@ const settings: Settings = {
 };
 
 const sh = new SH();
-const git = new Git(sh, settings);
-const helpers = new Helpers(sh, git, settings);
+const gitHub = new GitHub(settings);
+const helpers = new Helpers(sh, gitHub, settings);
 
 process.on('unhandledRejection', reason => {
   throw reason;
