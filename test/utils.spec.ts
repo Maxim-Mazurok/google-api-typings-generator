@@ -4,7 +4,7 @@ import {
   checkExists,
   getAllNamespaces,
   getApiName,
-  getChangedTypes,
+  getNpmArchivesToPublish,
   getMajorAndMinorVersion,
   getPackageNameFromRestDescription,
   getResourceTypeName,
@@ -295,7 +295,7 @@ describe('getChangedTypes', () => {
     ];
 
     // Act
-    const result = await getChangedTypes(allTypes, getLatestVersion);
+    const result = await getNpmArchivesToPublish(allTypes, getLatestVersion);
 
     // Assert
     expect(result).toHaveLength(2);
