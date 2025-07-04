@@ -2150,6 +2150,9 @@ gapi.load('client', async () => {
                 target: 42,
               },
             ],
+            flexStart: {
+              maxRuntimeDuration: 'Test string',
+            },
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
@@ -2316,6 +2319,9 @@ gapi.load('client', async () => {
               target: 42,
             },
           ],
+          flexStart: {
+            maxRuntimeDuration: 'Test string',
+          },
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
@@ -6329,6 +6335,9 @@ gapi.load('client', async () => {
                 target: 42,
               },
             ],
+            flexStart: {
+              maxRuntimeDuration: 'Test string',
+            },
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
@@ -6393,6 +6402,9 @@ gapi.load('client', async () => {
               target: 42,
             },
           ],
+          flexStart: {
+            maxRuntimeDuration: 'Test string',
+          },
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
@@ -6917,6 +6929,9 @@ gapi.load('client', async () => {
                   target: 42,
                 },
               ],
+              flexStart: {
+                maxRuntimeDuration: 'Test string',
+              },
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
@@ -7155,6 +7170,9 @@ gapi.load('client', async () => {
                 target: 42,
               },
             ],
+            flexStart: {
+              maxRuntimeDuration: 'Test string',
+            },
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
@@ -7956,6 +7974,9 @@ gapi.load('client', async () => {
                 target: 42,
               },
             ],
+            flexStart: {
+              maxRuntimeDuration: 'Test string',
+            },
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
@@ -8149,6 +8170,9 @@ gapi.load('client', async () => {
                   target: 42,
                 },
               ],
+              flexStart: {
+                maxRuntimeDuration: 'Test string',
+              },
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
@@ -8888,6 +8912,9 @@ gapi.load('client', async () => {
                     target: 42,
                   },
                 ],
+                flexStart: {
+                  maxRuntimeDuration: 'Test string',
+                },
                 machineSpec: {
                   acceleratorCount: 42,
                   acceleratorType: 'Test string',
@@ -12393,6 +12420,9 @@ gapi.load('client', async () => {
                   target: 42,
                 },
               ],
+              flexStart: {
+                maxRuntimeDuration: 'Test string',
+              },
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
@@ -12504,6 +12534,9 @@ gapi.load('client', async () => {
                 target: 42,
               },
             ],
+            flexStart: {
+              maxRuntimeDuration: 'Test string',
+            },
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
@@ -12636,6 +12669,9 @@ gapi.load('client', async () => {
               target: 42,
             },
           ],
+          flexStart: {
+            maxRuntimeDuration: 'Test string',
+          },
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
@@ -12711,6 +12747,9 @@ gapi.load('client', async () => {
                   target: 42,
                 },
               ],
+              flexStart: {
+                maxRuntimeDuration: 'Test string',
+              },
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
@@ -17334,6 +17373,7 @@ gapi.load('client', async () => {
               state: 'Test string',
               taskId: 'Test string',
               taskName: 'Test string',
+              taskUniqueName: 'Test string',
             },
           ],
         },
@@ -19832,6 +19872,9 @@ gapi.load('client', async () => {
         errorMessage: 'Test string',
         eventMetadata: {
           branch: 'Test string',
+          customMetadata: {
+            A: 42,
+          },
           groundingMetadata: {
             groundingChunks: [
               {
@@ -19944,6 +19987,7 @@ gapi.load('client', async () => {
     /** Lists Events in a given session. */
     await gapi.client.aiplatform.projects.locations.reasoningEngines.sessions.events.list(
       {
+        filter: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
@@ -20513,6 +20557,7 @@ gapi.load('client', async () => {
                   state: 'Test string',
                   taskId: 'Test string',
                   taskName: 'Test string',
+                  taskUniqueName: 'Test string',
                 },
               ],
             },
@@ -21190,6 +21235,7 @@ gapi.load('client', async () => {
                   state: 'Test string',
                   taskId: 'Test string',
                   taskName: 'Test string',
+                  taskUniqueName: 'Test string',
                 },
               ],
             },
@@ -24932,6 +24978,9 @@ gapi.load('client', async () => {
         errorMessage: 'Test string',
         eventMetadata: {
           branch: 'Test string',
+          customMetadata: {
+            A: 42,
+          },
           groundingMetadata: {
             groundingChunks: [
               {
@@ -25037,6 +25086,7 @@ gapi.load('client', async () => {
     );
     /** Lists Events in a given session. */
     await gapi.client.aiplatform.reasoningEngines.sessions.events.list({
+      filter: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',

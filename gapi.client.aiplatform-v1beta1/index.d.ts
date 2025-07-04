@@ -1453,6 +1453,8 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1DedicatedResources {
       /** Immutable. The metric specifications that overrides a resource utilization metric (CPU utilization, accelerator's duty cycle, and so on) target value (default to 60 if not set). At most one entry is allowed per metric. If machine_spec.accelerator_count is above 0, the autoscaling will be based on both CPU utilization and accelerator's duty cycle metrics and scale up when either metrics exceeds its target value while scale down if both metrics are under their target value. The default target value is 60 for both metrics. If machine_spec.accelerator_count is 0, the autoscaling will be based on CPU utilization metric only with default target value 60 if not explicitly set. For example, in the case of Online Prediction, if you want to override target CPU utilization to 80, you should set autoscaling_metric_specs.metric_name to `aiplatform.googleapis.com/prediction/online/cpu/utilization` and autoscaling_metric_specs.target to `80`. */
       autoscalingMetricSpecs?: GoogleCloudAiplatformV1beta1AutoscalingMetricSpec[];
+      /** Optional. Immutable. If set, use DWS resource to schedule the deployment workload. reference: (https://cloud.google.com/blog/products/compute/introducing-dynamic-workload-scheduler) */
+      flexStart?: GoogleCloudAiplatformV1beta1FlexStart;
       /** Required. Immutable. The specification of a single machine being used. */
       machineSpec?: GoogleCloudAiplatformV1beta1MachineSpec;
       /** Immutable. The maximum number of replicas that may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale to that many replicas is guaranteed (barring service outages). If traffic increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, will use min_replica_count as the default value. The value of this field impacts the charge against Vertex CPU and GPU quotas. Specifically, you will be charged for (max_replica_count * number of cores in the selected machine type) and (max_replica_count * number of GPUs per replica in the selected machine type). */
@@ -2103,6 +2105,8 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1EventMetadata {
       /** Optional. The branch of the event. The format is like agent_1.agent_2.agent_3, where agent_1 is the parent of agent_2, and agent_2 is the parent of agent_3. Branch is used when multiple child agents shouldn't see their siblings' conversation history. */
       branch?: string;
+      /** The custom metadata of the LlmResponse. */
+      customMetadata?: {[P in string]: any};
       /** Optional. Metadata returned to client when grounding is enabled. */
       groundingMetadata?: GoogleCloudAiplatformV1beta1GroundingMetadata;
       /** Optional. Flag indicating that LLM was interrupted when generating the content. Usually it's due to user interruption during a bidi streaming. */
@@ -2940,7 +2944,7 @@ declare namespace gapi.client {
       values?: GoogleCloudAiplatformV1beta1FeatureValue[];
     }
     interface GoogleCloudAiplatformV1beta1FeatureValueMetadata {
-      /** Feature generation timestamp. Typically, it is provided by user at feature ingestion time. If not, feature store will use the system timestamp when the data is ingested into feature store. For streaming ingestion, the time, aligned by days, must be no older than five years (1825 days) and no later than one year (366 days) in the future. */
+      /** Feature generation timestamp. Typically, it is provided by user at feature ingestion time. If not, feature store will use the system timestamp when the data is ingested into feature store. Legacy Feature Store: For streaming ingestion, the time, aligned by days, must be no older than five years (1825 days) and no later than one year (366 days) in the future. */
       generateTime?: string;
     }
     interface GoogleCloudAiplatformV1beta1FeatureView {
@@ -3234,6 +3238,10 @@ declare namespace gapi.client {
       distance?: number;
       /** The distance between the neighbor and the query sparse_embedding. */
       sparseDistance?: number;
+    }
+    interface GoogleCloudAiplatformV1beta1FlexStart {
+      /** The max duration of the deployment is max_runtime_duration. The deployment will be terminated after the duration. The max_runtime_duration can be set up to 7 days. */
+      maxRuntimeDuration?: string;
     }
     interface GoogleCloudAiplatformV1beta1FluencyInput {
       /** Required. Fluency instance. */
@@ -6125,6 +6133,8 @@ declare namespace gapi.client {
       taskId?: string;
       /** Output only. The user specified name of the task that is defined in pipeline_spec. */
       taskName?: string;
+      /** Output only. The unique name of a task. This field is used by rerun pipeline job. Console UI and Vertex AI SDK will support triggering pipeline job reruns. The name is constructed by concatenating all the parent tasks name with the task name. For example, if a task named "child_task" has a parent task named "parent_task_1" and parent task 1 has a parent task named "parent_task_2", the task unique name will be "parent_task_2.parent_task_1.child_task". */
+      taskUniqueName?: string;
     }
     interface GoogleCloudAiplatformV1beta1PipelineTaskDetailArtifactList {
       /** Output only. A list of artifact metadata. */
@@ -7212,11 +7222,11 @@ declare namespace gapi.client {
       similaritySearchConfig?: GoogleCloudAiplatformV1beta1ReasoningEngineContextSpecMemoryBankConfigSimilaritySearchConfig;
     }
     interface GoogleCloudAiplatformV1beta1ReasoningEngineContextSpecMemoryBankConfigGenerationConfig {
-      /** Required. The model used to generate memories. Format: `projects/{project}/locations/{location}/publishers/google/models/{model}` or `projects/{project}/locations/{location}/endpoints/{endpoint}`. */
+      /** Required. The model used to generate memories. Format: `projects/{project}/locations/{location}/publishers/google/models/{model}`. */
       model?: string;
     }
     interface GoogleCloudAiplatformV1beta1ReasoningEngineContextSpecMemoryBankConfigSimilaritySearchConfig {
-      /** Required. The model used to generate embeddings to lookup similar memories. Format: `projects/{project}/locations/{location}/publishers/google/models/{model}` or `projects/{project}/locations/{location}/endpoints/{endpoint}`. */
+      /** Required. The model used to generate embeddings to lookup similar memories. Format: `projects/{project}/locations/{location}/publishers/google/models/{model}`. */
       embeddingModel?: string;
     }
     interface GoogleCloudAiplatformV1beta1ReasoningEngineSpec {
@@ -10490,7 +10500,7 @@ declare namespace gapi.client {
       checkpoints?: GoogleCloudAiplatformV1beta1TunedModelCheckpoint[];
       /** Output only. A resource name of an Endpoint. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`. */
       endpoint?: string;
-      /** Output only. The resource name of the TunedModel. Format: `projects/{project}/locations/{location}/models/{model}`. */
+      /** Output only. The resource name of the TunedModel. Format: `projects/{project}/locations/{location}/models/{model}@{version_id}` When tuning from a base model, the version_id will be 1. For continuous tuning, the version id will be incremented by 1 from the last version id in the parent model. E.g., `projects/{project}/locations/{location}/models/{model}@{last_version_id + 1}` */
       model?: string;
     }
     interface GoogleCloudAiplatformV1beta1TunedModelCheckpoint {
@@ -34481,6 +34491,8 @@ declare namespace gapi.client {
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
+        /** Optional. The standard list filter. Supported fields: * `timestamp` range (i.e. `timestamp>="2025-01-31T11:30:00-04:00"` where the timestamp is in RFC 3339 format) More detail in [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** OAuth 2.0 token for the current user. */
@@ -41297,6 +41309,8 @@ declare namespace gapi.client {
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
+        /** Optional. The standard list filter. Supported fields: * `timestamp` range (i.e. `timestamp>="2025-01-31T11:30:00-04:00"` where the timestamp is in RFC 3339 format) More detail in [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** OAuth 2.0 token for the current user. */

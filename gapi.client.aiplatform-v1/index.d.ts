@@ -2531,7 +2531,7 @@ declare namespace gapi.client {
       values?: GoogleCloudAiplatformV1FeatureValue[];
     }
     interface GoogleCloudAiplatformV1FeatureValueMetadata {
-      /** Feature generation timestamp. Typically, it is provided by user at feature ingestion time. If not, feature store will use the system timestamp when the data is ingested into feature store. For streaming ingestion, the time, aligned by days, must be no older than five years (1825 days) and no later than one year (366 days) in the future. */
+      /** Feature generation timestamp. Typically, it is provided by user at feature ingestion time. If not, feature store will use the system timestamp when the data is ingested into feature store. Legacy Feature Store: For streaming ingestion, the time, aligned by days, must be no older than five years (1825 days) and no later than one year (366 days) in the future. */
       generateTime?: string;
     }
     interface GoogleCloudAiplatformV1FeatureView {
@@ -5097,6 +5097,8 @@ declare namespace gapi.client {
       taskId?: string;
       /** Output only. The user specified name of the task that is defined in pipeline_spec. */
       taskName?: string;
+      /** Output only. The unique name of a task. This field is used by rerun pipeline job. Console UI and Vertex AI SDK will support triggering pipeline job reruns. The name is constructed by concatenating all the parent tasks name with the task name. For example, if a task named "child_task" has a parent task named "parent_task_1" and parent task 1 has a parent task named "parent_task_2", the task unique name will be "parent_task_2.parent_task_1.child_task". */
+      taskUniqueName?: string;
     }
     interface GoogleCloudAiplatformV1PipelineTaskDetailArtifactList {
       /** Output only. A list of artifact metadata. */
@@ -8946,7 +8948,7 @@ declare namespace gapi.client {
       checkpoints?: GoogleCloudAiplatformV1TunedModelCheckpoint[];
       /** Output only. A resource name of an Endpoint. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`. */
       endpoint?: string;
-      /** Output only. The resource name of the TunedModel. Format: `projects/{project}/locations/{location}/models/{model}`. */
+      /** Output only. The resource name of the TunedModel. Format: `projects/{project}/locations/{location}/models/{model}@{version_id}` When tuning from a base model, the version_id will be 1. For continuous tuning, the version id will be incremented by 1 from the last version id in the parent model. E.g., `projects/{project}/locations/{location}/models/{model}@{last_version_id + 1}` */
       model?: string;
     }
     interface GoogleCloudAiplatformV1TunedModelCheckpoint {
