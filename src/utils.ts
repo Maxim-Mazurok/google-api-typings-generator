@@ -9,6 +9,10 @@ import {patch} from 'semver';
 import validateNpmPackageName from 'validate-npm-package-name';
 import {revisionPrefix} from './constants.js';
 import {RestDescription} from './discovery.js';
+import zlib from 'zlib';
+import tar from 'tar-stream';
+import {createHash} from 'crypto';
+import {readdir, readFile} from 'node:fs/promises';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
@@ -58,10 +62,10 @@ export const bannedTypes = [
   '{}', // this one is also explicitly banned by https://github.com/microsoft/DefinitelyTyped-tools/blob/HEAD/packages/eslint-plugin/src/configs/all.ts#L156-L162
 ];
 
-export async function request<T extends object | string>(
+export async function request<T extends object | string | Buffer>(
   url: URL,
   proxy: ProxySetting | undefined,
-  responseType: 'json' | 'text' = 'json',
+  responseType: 'json' | 'text' | 'buffer' = 'json',
 ): Promise<T> {
   const protocol = url.protocol as 'http:' | 'https:';
   const agentProtocol = protocol === 'http:' ? Protocol.Http : Protocol.Https;
@@ -83,7 +87,11 @@ export async function request<T extends object | string>(
           },
         }
       : {}),
+    responseType: responseType === 'buffer' ? 'buffer' : undefined,
   });
+  if (responseType === 'buffer') {
+    return (await response.buffer()) as T;
+  }
   return (await response[responseType]()) as T;
 }
 
@@ -250,6 +258,7 @@ export const getChangedTypes = async (
   getLatestVersion: (packageName: string) => Promise<string>,
 ) => {
   const changedTypes: string[] = [];
+  const proxy = await getProxy();
   await Promise.all(
     packages.map(async ({name: packageName, revision: newRevision}) => {
       const fullPackageName = getFullPackageName(packageName);
@@ -266,6 +275,28 @@ export const getChangedTypes = async (
       const latestPublishedRevision = patch(latestPackageVersion);
       if (newRevision > latestPublishedRevision) {
         changedTypes.push(packageName);
+        return;
+        // TODO: Now we know that it definitely changed, and so we don't have to bump the generator version - we need to use one from the latestPackageVersion
+      } else if (newRevision === latestPublishedRevision) {
+        const tgzUrl = new URL(
+          `https://registry.npmjs.org/${fullPackageName}/-/${packageName}-${latestPackageVersion}.tgz`,
+        );
+        const response = await request<Buffer>(tgzUrl, proxy, 'buffer');
+        const tgzHash = await getVirtualTgzHash(response, 20200213);
+        console.log(
+          `TGZ hash for ${packageName} (${latestPackageVersion}): ${tgzHash}`,
+        );
+        // TODO:
+        // Otherwise - fetch tag from npm with that version: https://registry.npmjs.org/@maxim_mazurok/gapi.client.oauth2-v2/-/gapi.client.oauth2-v2-${latestPackageVersion}.tgz
+        // Probably unpack in memory, making sure to replace generator version as "0": `"version": "0.\d+.${latestPublishedRevision}",` => `"version": "0.0.${latestPublishedRevision}",`; Because we don't store generator version in the types branch
+        // Check SHAs for diff:
+        //   - Published SHA: `curl -s
+        // https://registry.npmjs.org/@maxim_mazurok/gapi.client.oauth2-v2/-/gapi.client.oauth2-v2-0.0.20200213.tgz | tar -xOzf - | sha256sum | awk '{print $1}'`
+        // https://registry.npmjs.org/@maxim_mazurok/gapi.client.oauth2-v2/-/@maxim_mazurok/gapi.client.oauth2-v2-0.0.20200213.tgz
+        //   - Current SHA: ...
+      } else {
+        // We're not going to publish older revisions, no matter what
+        // TODO: maybe warn about it?
       }
     }),
   );
@@ -277,6 +308,7 @@ export const rootFolder = new URL('../', importMetaUrl);
 
 export const getMajorAndMinorVersion = (packageName: string) => {
   if (packageName === 'gapi.client.discovery-v1') {
+    // TODO: How can we remove this? If I push now, it will try to publish `0.1`, because files won't match (some trash got deleted), but it won't be able to because 0.1.rev is already published...
     return '0.1'; // required to force-bump the version to get rid of deprecation warnings, see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/920
   }
 
@@ -289,3 +321,129 @@ export const getMajorAndMinorVersion = (packageName: string) => {
    */
   return '0.0';
 };
+
+export async function uncompressTgzInMemory(
+  tgzBuffer: Buffer,
+  latestPublishedRevision: number,
+): Promise<{name: string; content: Buffer}[]> {
+  const fileEntries: {
+    name: string;
+    content: Buffer;
+  }[] = [];
+  const extract = tar.extract();
+
+  const gunzipped = zlib.gunzipSync(tgzBuffer);
+
+  extract.on('entry', (header, stream, next) => {
+    const chunks: Buffer[] = [];
+    stream.on('data', chunk => chunks.push(chunk));
+    stream.on('end', () => {
+      let content = Buffer.concat(chunks);
+      if (header.name === 'package/package.json') {
+        // Replace generator version as "0", because we don't store generator version in the types branch
+        content = Buffer.from(
+          content
+            .toString('utf8')
+            .replace(
+              new RegExp(`"version": "0\\.\\d+\\.${latestPublishedRevision}"`),
+              `"version": "0.0.${latestPublishedRevision}"`,
+            ),
+        );
+      } else if (header.name === 'package/package-lock.json') {
+        throw new Error(
+          'package-lock.json support is not implemented yet, please implement it',
+        );
+      }
+      fileEntries.push({name: header.name, content});
+      next();
+    });
+    stream.resume();
+  });
+
+  await new Promise<void>((resolve, reject) => {
+    extract.on('finish', resolve);
+    extract.on('error', reject);
+    extract.end(gunzipped);
+  });
+
+  return fileEntries;
+}
+
+export function generateHashFromFiles(
+  fileEntries: {name: string; content: Buffer}[],
+): string {
+  // Sort by filename to ensure deterministic hash
+  fileEntries.sort((a, b) => a.name.localeCompare(b.name));
+
+  const hash = createHash('sha256');
+  for (const file of fileEntries) {
+    hash.update(file.name); // include filename
+    hash.update(file.content); // and its content
+  }
+
+  return hash.digest('hex');
+}
+
+export async function getVirtualTgzHash(
+  tgzBuffer: Buffer,
+  latestPublishedRevision: number,
+): Promise<string> {
+  const fileEntries = await uncompressTgzInMemory(
+    tgzBuffer,
+    latestPublishedRevision,
+  );
+  return generateHashFromFiles(fileEntries);
+}
+
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
+(async () => {
+  // const packageName = 'gapi.client.oauth2-v2';
+  // const fullPackageName = getFullPackageName(packageName);
+  // const latestPackageVersion = '0.0.20200213';
+  // const tgzUrl = new URL(
+  //   `https://registry.npmjs.org/${fullPackageName}/-/${packageName}-${latestPackageVersion}.tgz`,
+  // );
+  // console.log(`Fetching URL: ${tgzUrl.toString()}`);
+  // const response = await request<Buffer>(tgzUrl, undefined, 'buffer');
+  // console.log({response});
+  // console.log(`TGZ hash: ${await getVirtualTgzHash(response, 20200213)}`);
+
+  const dirPath = 'types/gapi.client.oauth2-v2/';
+  const dirUrl = new URL(dirPath, rootFolder);
+
+  const getFilePathsRecursively = async (directoryPath: URL) => {
+    const returnArray: URL[] = [];
+    const fsEntries = await readdir(directoryPath, {
+      withFileTypes: true,
+    });
+
+    await Promise.all(
+      fsEntries.map(async fsEntry => {
+        if (fsEntry.isDirectory()) {
+          returnArray.push(
+            ...(await getFilePathsRecursively(
+              new URL(`${fsEntry.name}/`, directoryPath),
+            )),
+          );
+          return;
+        }
+        const path = new URL(fsEntry.name, directoryPath);
+        returnArray.push(path);
+      }),
+    );
+    return returnArray;
+  };
+
+  const filePaths = await getFilePathsRecursively(dirUrl);
+  const fileEntries = await Promise.all(
+    filePaths.map(async filePath => {
+      const content = await readFile(filePath);
+      return {
+        name: filePath.pathname,
+        content,
+      };
+    }),
+  );
+  const hash = generateHashFromFiles(fileEntries);
+  console.log(`Hash for ${dirPath}: ${hash}`);
+})();
