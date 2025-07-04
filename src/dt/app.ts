@@ -12,7 +12,7 @@ import {
 import {
   checkExists,
   ensureDirectoryExists,
-  getMajorAndMinorVersion,
+  getMajorMinorPatchVersion,
   getPackageNameFromRestDescription,
 } from '../utils.js';
 import {DtTemplateData, Template} from './template/index.js';
@@ -69,7 +69,7 @@ export class App {
       restDescription,
       packageName, // always new package name, not legacy!
       owners: this.config.owners,
-      majorAndMinorVersion: getMajorAndMinorVersion(packageName),
+      majorAndMinorVersion: getMajorMinorPatchVersion(packageName),
     };
 
     await packageJsonTpl.write(

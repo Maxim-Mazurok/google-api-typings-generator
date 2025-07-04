@@ -19,7 +19,7 @@ import {
   checkExists,
   ensureDirectoryExists,
   getAllNamespaces,
-  getMajorAndMinorVersion,
+  getMajorMinorPatchVersion,
   getPackageNameFromRestDescription,
   getResourceTypeName,
   getRevision,
@@ -462,6 +462,7 @@ function getMethodReturn(
 
 const readmeTpl = new Template('readme.dot');
 const packageJsonTpl = new Template('package-json.dot');
+const generatorVersionTpl = new Template('.generator-version.dot');
 
 function isEmptySchema(schema: JsonSchema) {
   return _.isEmpty(schema.properties) && !schema.additionalProperties;
@@ -473,6 +474,7 @@ export interface Configuration {
   typesDirectory: string;
   bannedTypes: string[];
   owners: string[];
+  generatorVersion: number;
 }
 
 export class App {
@@ -663,7 +665,7 @@ export class App {
     writer.writeLine(
       `/* Type definitions for non-npm package ${checkExists(
         restDescription.title,
-      )} ${restDescription.version} ${getMajorAndMinorVersion(
+      )} ${restDescription.version} ${getMajorMinorPatchVersion(
         getPackageNameFromRestDescription(restDescription),
       )} */`,
     );
@@ -805,7 +807,7 @@ export class App {
   async processService(
     restDescription: RestDescription,
     restDescriptionSource: URL,
-    newRevisionsOnly = false,
+    newOrCurrentRevisionsOnly = false,
   ) {
     restDescription = sortObject(restDescription);
     restDescription.id = checkExists(restDescription.id);
@@ -840,7 +842,7 @@ export class App {
     ensureDirectoryExists(destinationDirectory);
     const indexDTSPath = path.join(destinationDirectory, 'index.d.ts');
 
-    if (newRevisionsOnly && fs.existsSync(indexDTSPath)) {
+    if (newOrCurrentRevisionsOnly && fs.existsSync(indexDTSPath)) {
       if (!restDescription.revision) {
         return console.error(
           `There's no revision in JSON of service with ID: ${restDescription.id}`,
@@ -878,7 +880,7 @@ export class App {
       restDescriptionSource: restDescriptionSource.toString(),
       namespaces,
       packageName,
-      majorAndMinorVersion: getMajorAndMinorVersion(packageName),
+      majorAndMinorVersion: getMajorMinorPatchVersion(packageName),
     };
 
     await readmeTpl.write(
@@ -887,6 +889,10 @@ export class App {
     );
     await packageJsonTpl.write(
       path.join(destinationDirectory, 'package.json'),
+      templateData,
+    );
+    await generatorVersionTpl.write(
+      path.join(destinationDirectory, '.generator-version'),
       templateData,
     );
 
@@ -1211,7 +1217,10 @@ export class App {
     await writer.end();
   }
 
-  async discover(service: string | undefined, newRevisionsOnly = false) {
+  async discover(
+    service: string | undefined,
+    newOrCurrentRevisionsOnly = false,
+  ) {
     console.log('Discovering Google services...');
 
     if (service) {
@@ -1227,7 +1236,7 @@ export class App {
           await this.processService(
             restDescription,
             restDescriptionSource,
-            newRevisionsOnly,
+            newOrCurrentRevisionsOnly,
           );
         } catch (e) {
           console.error(e);
@@ -1274,7 +1283,7 @@ export class App {
           await this.processService(
             restDescription,
             restDescriptionSource,
-            newRevisionsOnly,
+            newOrCurrentRevisionsOnly,
           );
         } catch (e) {
           console.error(e);

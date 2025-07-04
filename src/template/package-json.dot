@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/{{=it.packageName}}",
-  "version": "{{=it.majorAndMinorVersion}}.{{=it.restDescription.revision}}",
+  "version": "{{=it.majorMinorPatchVersion}}",
   "description": "TypeScript typings for {{=it.restDescription.title}} {{=it.restDescription.version}}",
   "license": "MIT",
   "author": {

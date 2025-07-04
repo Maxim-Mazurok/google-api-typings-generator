@@ -9,6 +9,7 @@ import {patch} from 'semver';
 import validateNpmPackageName from 'validate-npm-package-name';
 import {revisionPrefix} from './constants.js';
 import {RestDescription} from './discovery.js';
+import {SH} from '../bin/auto-publish/sh.js';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
@@ -275,17 +276,33 @@ export const getChangedTypes = async (
 const importMetaUrl = import.meta.url;
 export const rootFolder = new URL('../', importMetaUrl);
 
-export const getMajorAndMinorVersion = (packageName: string) => {
-  if (packageName === 'gapi.client.discovery-v1') {
-    return '0.1'; // required to force-bump the version to get rid of deprecation warnings, see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/920
-  }
+export const getMajorMinorPatchVersion = (
+  generatorVersion: number, // this is the version of the generator itself, because we need to bump the version of the package if we change the generator logic or templates
+  revision: number,
+) => {
+  // if (packageName === 'gapi.client.discovery-v1') {
+  //   return '0.1'; // required to force-bump the version to get rid of deprecation warnings, see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/920
+  // }
 
   /**
-   * Otherwise, always `0.0` because we can't reliably parse versions;
+   * We can't reliably parse versions from API schemas,
    * and we'll have one package per version anyway, @see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652
    * and it won't be right to have `1.2` for both `v1.2beta3` and `v1.2alpha1` for example
    *
    * @see https://github.com/DefinitelyTyped/DefinitelyTyped#how-do-definitely-typed-package-versions-relate-to-versions-of-the-corresponding-library
    */
-  return '0.0';
+
+  return `0.${generatorVersion}.${revision}`;
 };
+
+export const getGeneratorVersion = async (sh: SH) => {
+  const zeroVersionSHA = 'de7488e4546c8c4dfb4c683416696598bb8c0c24'; // SHA of the first commit, considered to be version 0.0.x
+  const cmd = `git rev-list ${zeroVersionSHA}..HEAD --count`;
+  return parseInt((await sh.trySh(cmd)).stdout, 10);
+};
+
+(async () => {
+  const sh = new SH();
+  const generatorVersion = await getGeneratorVersion(sh);
+  console.log(`Generator version: ${generatorVersion}`);
+})();

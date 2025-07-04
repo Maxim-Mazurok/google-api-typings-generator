@@ -10,6 +10,7 @@ export interface TemplateData {
   namespaces: string[];
   packageName: string;
   majorAndMinorVersion: string;
+  generatorVersion: number;
 }
 
 export class Template {
