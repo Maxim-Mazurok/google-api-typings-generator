@@ -101,7 +101,7 @@ export class Helpers {
 
     const url = await this.gitHub.getArchiveLink(commitSHA);
     ensureDirectoryExists(typesDirName);
-    const cmd = `curl ${url} | tar xvz --strip-components=1 -C ${typesDirName}`;
+    const cmd = `curl ${url} | tar xvz --strip-components=1 -C ${typesDirName}`; // TODO: rewrite this to NodeJS, using fetch and tar-stream, for example
     await this.sh.trySh(cmd);
   };
 
@@ -112,14 +112,17 @@ export class Helpers {
       readdirSync(source, {withFileTypes: true})
         .filter(dirent => dirent.isDirectory())
         .map(dirent => {
-          const name = dirent.name;
-          const indexDTSPath = new URL(`${name}/index.d.ts`, source);
+          const packageShortName = dirent.name;
+          const indexDTSPath = new URL(
+            `${packageShortName}/index.d.ts`,
+            source,
+          );
           const revision = getRevision(indexDTSPath);
           if (revision === undefined) {
             throw new Error(`Could not get revision from ${indexDTSPath}`);
           }
           return {
-            name,
+            name: packageShortName,
             revision,
           };
         });

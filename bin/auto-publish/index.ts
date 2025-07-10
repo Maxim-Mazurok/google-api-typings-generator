@@ -1,4 +1,3 @@
-import {join} from 'node:path';
 import {getNpmArchivesToPublish} from '../../src/utils.js';
 import {GitHub, GitHubSettings} from './git-hub.js';
 import {Helpers} from './helpers.js';
@@ -38,7 +37,6 @@ void (async () => {
   // Do the job
   const allTypes = helpers.getAllTypes();
   console.log(JSON.stringify({allTypes}, null, 2));
-  const latestVersion = (await import('latest-version')).default;
   const npmArchivesToPublish = await getNpmArchivesToPublish(
     allTypes,
     latestVersion,

@@ -1,99 +1,224 @@
+import {readFile, writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import packageJson from 'package-json';
+import semver, {SemVer} from 'semver';
 import {z} from 'zod';
+import {SH} from '../bin/auto-publish/sh.js';
+import {getFullPackageName, rootFolder} from './utils.js';
 
-const getResultOrError = <T>(
+const getResultOrError = async <T>(
   promise: Promise<T>,
 ): Promise<
   | {result: T; isError: false; error: undefined}
   | {result: undefined; isError: true; error: unknown}
 > => {
-  return promise
-    .then(result => ({result, isError: false as const, error: undefined}))
-    .catch(error => ({result: undefined, isError: true as const, error}));
+  try {
+    const result = await promise;
+    return {result, isError: false as const, error: undefined};
+  } catch (error) {
+    return {result: undefined, isError: true as const, error};
+  }
 };
 
-const getLatestVersionOr404 = async (
-  packageName: string,
+const getLatestMetaOr404 = async (
+  fullPackageName: string, // e.g. `@maxim_mazurok/gapi.client.oauth2-v2`, not `gapi.client.oauth2-v2`
 ): Promise<
-  | {latestVersion: string; packageNotFound: undefined}
-  | {packageNotFound: true; latestVersion: undefined}
+  | {latestVersion: string; shasum: string; packageNotFound: undefined}
+  | {packageNotFound: true; latestVersion: undefined; shasum: undefined}
 > => {
   const {
-    result: latestVersion,
+    result: meta,
     isError,
     error,
-  } = await getResultOrError(getLatestVersion(packageName));
+  } = await getResultOrError(packageJson(fullPackageName));
 
   if (isError) {
     const PackageNotFoundErrorSchema = z.object({
       name: z.literal('PackageNotFoundError'),
     });
     if (PackageNotFoundErrorSchema.safeParse(error).success) {
-      return {packageNotFound: true, latestVersion: undefined};
+      return {
+        packageNotFound: true,
+        latestVersion: undefined,
+        shasum: undefined,
+      };
     }
     throw error;
   }
-  return {latestVersion, packageNotFound: undefined};
+  return {
+    latestVersion: meta.version,
+    shasum: meta.dist.shasum,
+    packageNotFound: undefined,
+  };
 };
 
 const getLatestVersionInfo = async (
-  packageName: string,
+  fullPackageName: string, // e.g. `@maxim_mazurok/gapi.client.oauth2-v2`, not `gapi.client.oauth2-v2`
   localRevision: number,
-) => {
-  const {latestVersion, packageNotFound} =
-    await getLatestVersionOr404(packageName);
+): Promise<
+  | {
+      isNewPackage: true;
+      localRevisionIsNewer: false;
+      localRevisionIsOlder: false;
+      latestVersion: undefined;
+      shasum: undefined;
+    }
+  | {
+      isNewPackage: false;
+      localRevisionIsNewer: boolean;
+      localRevisionIsOlder: boolean;
+      latestVersion: string;
+      shasum: string;
+    }
+> => {
+  const {latestVersion, packageNotFound, shasum} =
+    await getLatestMetaOr404(fullPackageName);
 
   if (packageNotFound) {
     return {
       isNewPackage: true,
-      latestVersion: null,
-      revision: null,
-      localIsNewer: false,
-      localIsOlder: false,
+      localRevisionIsNewer: false,
+      localRevisionIsOlder: false,
+      latestVersion,
+      shasum,
     } as const;
   }
 
-  const revision = getRevision(latestVersion);
+  const revision = getFromSemVer(latestVersion, 'revision');
   return {
     isNewPackage: false as const,
+    localRevisionIsNewer: revision > localRevision,
+    localRevisionIsOlder: revision < localRevision,
     latestVersion,
-    revision,
-    localIsNewer: revision > localRevision,
-    localIsOlder: revision < localRevision,
+    shasum,
   };
 };
 
-const getRevision = (version: string): number => {};
-const getLocalRevision = (): number => {};
-const createLocalTgz = (): Buffer => {};
-const fetchNpmTgz = (version: string): Buffer => {};
-const hashTgz = (tgz: Buffer): string => {};
-const getLatestVersion: (
-  packageName: string,
-) => Promise<string> = async packageName => {
-  // Simulate fetching the latest version from a registry
-  return '1.0.0';
+const INTERNAL_TO_SEMVER = {
+  revision: 'patch',
+  generatorVersion: 'minor',
+} as const;
+
+const getFromSemVer = (
+  version: string,
+  type: keyof typeof INTERNAL_TO_SEMVER,
+): number => {
+  const semVerType = INTERNAL_TO_SEMVER[type];
+  return semver[semVerType](version);
 };
 
-export const getTgzToPublish = async (packageName: string) => {
-  const localRevision = getLocalRevision();
-  const {isNewPackage, latestVersion, localIsNewer, localIsOlder} =
-    await getLatestVersionInfo(packageName, localRevision);
+export class NpmArchivesToPublish {
+  readonly sh: SH;
+  readonly settings: {typesDirName: string};
 
-  if (localIsOlder) {
-    return null;
+  constructor(sh: SH, settings: {typesDirName: string}) {
+    this.sh = sh;
+    this.settings = settings;
   }
 
-  const localTgz = createLocalTgz();
+  getPackageDirPath = (
+    shortPackageName: string, // e.g. `gapi.client.oauth2-v2`, not `@maxim_mazurok/gapi.client.oauth2-v2`
+  ): URL => {
+    const typesDirPath = new URL(`${this.settings.typesDirName}/`, rootFolder);
+    return new URL(`${shortPackageName}/`, typesDirPath);
+  };
 
-  if (isNewPackage || localIsNewer) {
-    return localTgz;
-  }
+  setPackageGeneratorVersion = async (
+    shortPackageName: string, // e.g. `gapi.client.oauth2-v2`, not `@maxim_mazurok/gapi.client.oauth2-v2`
+    newGeneratorVersion: number,
+  ): Promise<void> => {
+    // Using regex because I want to preserve exact formatting of the file, don't want to worry about it
+    const packageDirPath = this.getPackageDirPath(shortPackageName);
+    const packageJsonPath = new URL('package.json', packageDirPath);
+    const packageJsonText = await readFile(packageJsonPath, 'utf8');
+    const patchedPackageJsonText = packageJsonText.replace(
+      /("version":\s*"(\d+\.\d+\.\d+)")/,
+      (_, prefix, currentSemVer, suffix) => {
+        const currentSemVerObject = new SemVer(currentSemVer);
+        currentSemVerObject[INTERNAL_TO_SEMVER.generatorVersion] =
+          newGeneratorVersion;
+        return `${prefix}${currentSemVerObject.version}${suffix}`;
+      },
+    );
+    if (patchedPackageJsonText === packageJsonText) {
+      throw new Error(
+        `Failed to patch package.json for ${shortPackageName}, no changes made.`,
+      );
+    }
+    await writeFile(packageJsonPath, patchedPackageJsonText, 'utf8');
+  };
 
-  const npmTgz = fetchNpmTgz(latestVersion);
+  createLocalNpmArchiveWithSHA = async (
+    shortPackageName: string, // e.g. `gapi.client.oauth2-v2`, not `@maxim_mazurok/gapi.client.oauth2-v2`
+  ): Promise<{
+    archivePath: URL;
+    shasum: string;
+  }> => {
+    // `npm pack --dry-run` was just ~2% faster over 1000 runs: dry-run: 213 ms; normal pack: 217 ms
+    const packageDirPath = this.getPackageDirPath(shortPackageName);
+    const command = `npm pack --json ${fileURLToPath(packageDirPath)}`;
+    const {stdout} = await this.sh.trySh(command);
+    const npmPackSchema = z
+      .array(
+        z.object({
+          filename: z.string().nonempty(),
+          shasum: z.string().length(40),
+        }),
+      )
+      .length(1);
 
-  if (hashTgz(npmTgz) === hashTgz(localTgz)) {
-    return null;
-  }
+    const parsed = npmPackSchema.parse(JSON.parse(stdout));
+    const {filename, shasum} = parsed[0];
+    return {archivePath: new URL(filename, packageDirPath), shasum};
+  };
 
-  return localTgz;
-};
+  getNpmArchiveToPublish = async (
+    shortPackageName: string, // e.g. `gapi.client.oauth2-v2`, not `@maxim_mazurok/gapi.client.oauth2-v2`
+    localRevision: number,
+  ): Promise<URL | null> => {
+    const fullPackageName = getFullPackageName(shortPackageName);
+    const {
+      isNewPackage,
+      localRevisionIsNewer,
+      localRevisionIsOlder,
+      latestVersion,
+      shasum: publishedNpmArchiveSHA,
+    } = await getLatestVersionInfo(fullPackageName, localRevision);
+
+    if (localRevisionIsOlder) {
+      // always ignore older revisions
+      return null;
+    }
+
+    if (isNewPackage) {
+      // the package has never been published before, we need to publish it and can keep default generator (minor) version - 0
+      const {archivePath} =
+        await this.createLocalNpmArchiveWithSHA(shortPackageName);
+      return archivePath;
+    }
+
+    // the package has been published before, we need to use generator version (minor) from the latest published version
+    const generatorVersion = getFromSemVer(latestVersion, 'generatorVersion');
+    await this.setPackageGeneratorVersion(shortPackageName, generatorVersion);
+    const {archivePath: localNpmArchivePath, shasum: localNpmArchiveSHA} =
+      await this.createLocalNpmArchiveWithSHA(shortPackageName);
+
+    if (localRevisionIsNewer) {
+      // the local revision is newer than the published one, we need to publish it, and no need to bump the generator version
+      return localNpmArchivePath;
+    }
+
+    if (localNpmArchiveSHA === publishedNpmArchiveSHA) {
+      // we already published this revision with this generator version, no files changed, no need to publish again
+      return null;
+    }
+
+    // the revision is the same, but the generator changed, we need to bump the generator version to publish the update
+    await this.setPackageGeneratorVersion(
+      shortPackageName,
+      generatorVersion + 1,
+    );
+    return (await this.createLocalNpmArchiveWithSHA(shortPackageName))
+      .archivePath;
+  };
+}

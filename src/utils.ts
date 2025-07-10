@@ -10,7 +10,6 @@ import validateNpmPackageName from 'validate-npm-package-name';
 import {revisionPrefix} from './constants.js';
 import {RestDescription} from './discovery.js';
 import zlib from 'zlib';
-import tar from 'tar-stream';
 import {createHash} from 'crypto';
 import {readdir, readFile} from 'node:fs/promises';
 import {SH} from '../bin/auto-publish/sh.js';
@@ -194,6 +193,7 @@ export const getFullPackageName = (packageName: string) =>
   `@${NPM_ORGANIZATION}/${packageName}`;
 
 export const getRevision = (indexDTSPath: PathLike) => {
+  // TODO: get revision from package.json version instead, use INTERNAL_TO_SEMVER as well, for consistency
   let revision: number | undefined, lineBuffer: Buffer | false;
   const liner = new LineByLine(indexDTSPath);
   while ((lineBuffer = liner.next())) {
@@ -263,7 +263,7 @@ export const getNpmArchivesToPublish = async (
   const npmArchivesToPublish: URL[] = [];
   const proxy = await getProxy();
   await Promise.all(
-    packages.map(async ({name: packageName, revision: newRevision}) => {
+    packages.map(async ({name: packageName, revision: localRevision}) => {
       const fullPackageName = getFullPackageName(packageName);
       let latestPackageVersion: string;
       try {
@@ -276,11 +276,11 @@ export const getNpmArchivesToPublish = async (
         throw e;
       }
       const latestPublishedRevision = patch(latestPackageVersion);
-      if (newRevision > latestPublishedRevision) {
+      if (localRevision > latestPublishedRevision) {
         npmArchivesToPublish.push(packageName);
         return;
         // TODO: Now we know that it definitely changed, and so we don't have to bump the generator version - we need to use one from the latestPackageVersion
-      } else if (newRevision === latestPublishedRevision) {
+      } else if (localRevision === latestPublishedRevision) {
         const tgzUrl = new URL(
           `https://registry.npmjs.org/${fullPackageName}/-/${packageName}-${latestPackageVersion}.tgz`,
         );
@@ -324,129 +324,3 @@ export const getMajorAndMinorVersion = (packageName: string) => {
    */
   return '0.0';
 };
-
-export async function uncompressTgzInMemory(
-  tgzBuffer: Buffer,
-  latestPublishedRevision: number,
-): Promise<{name: string; content: Buffer}[]> {
-  const fileEntries: {
-    name: string;
-    content: Buffer;
-  }[] = [];
-  const extract = tar.extract();
-
-  const gunzipped = zlib.gunzipSync(tgzBuffer);
-
-  extract.on('entry', (header, stream, next) => {
-    const chunks: Buffer[] = [];
-    stream.on('data', chunk => chunks.push(chunk));
-    stream.on('end', () => {
-      let content = Buffer.concat(chunks);
-      if (header.name === 'package/package.json') {
-        // Replace generator version as "0", because we don't store generator version in the types branch
-        content = Buffer.from(
-          content
-            .toString('utf8')
-            .replace(
-              new RegExp(`"version": "0\\.\\d+\\.${latestPublishedRevision}"`),
-              `"version": "0.0.${latestPublishedRevision}"`,
-            ),
-        );
-      } else if (header.name === 'package/package-lock.json') {
-        throw new Error(
-          'package-lock.json support is not implemented yet, please implement it',
-        );
-      }
-      fileEntries.push({name: header.name, content});
-      next();
-    });
-    stream.resume();
-  });
-
-  await new Promise<void>((resolve, reject) => {
-    extract.on('finish', resolve);
-    extract.on('error', reject);
-    extract.end(gunzipped);
-  });
-
-  return fileEntries;
-}
-
-export function generateHashFromFiles(
-  fileEntries: {name: string; content: Buffer}[],
-): string {
-  // Sort by filename to ensure deterministic hash
-  fileEntries.sort((a, b) => a.name.localeCompare(b.name));
-
-  const hash = createHash('sha256');
-  for (const file of fileEntries) {
-    hash.update(file.name); // include filename
-    hash.update(file.content); // and its content
-  }
-
-  return hash.digest('hex');
-}
-
-export async function getVirtualTgzHash(
-  tgzBuffer: Buffer,
-  latestPublishedRevision: number,
-): Promise<string> {
-  const fileEntries = await uncompressTgzInMemory(
-    tgzBuffer,
-    latestPublishedRevision,
-  );
-  return generateHashFromFiles(fileEntries);
-}
-
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-(async () => {
-  // const packageName = 'gapi.client.oauth2-v2';
-  // const fullPackageName = getFullPackageName(packageName);
-  // const latestPackageVersion = '0.0.20200213';
-  // const tgzUrl = new URL(
-  //   `https://registry.npmjs.org/${fullPackageName}/-/${packageName}-${latestPackageVersion}.tgz`,
-  // );
-  // console.log(`Fetching URL: ${tgzUrl.toString()}`);
-  // const response = await request<Buffer>(tgzUrl, undefined, 'buffer');
-  // console.log({response});
-  // console.log(`TGZ hash: ${await getVirtualTgzHash(response, 20200213)}`);
-
-  const dirPath = 'types/gapi.client.oauth2-v2/';
-  const dirUrl = new URL(dirPath, rootFolder);
-
-  const getFilePathsRecursively = async (directoryPath: URL) => {
-    const returnArray: URL[] = [];
-    const fsEntries = await readdir(directoryPath, {
-      withFileTypes: true,
-    });
-
-    await Promise.all(
-      fsEntries.map(async fsEntry => {
-        if (fsEntry.isDirectory()) {
-          returnArray.push(
-            ...(await getFilePathsRecursively(
-              new URL(`${fsEntry.name}/`, directoryPath),
-            )),
-          );
-          return;
-        }
-        const path = new URL(fsEntry.name, directoryPath);
-        returnArray.push(path);
-      }),
-    );
-    return returnArray;
-  };
-
-  const filePaths = await getFilePathsRecursively(dirUrl);
-  const fileEntries = await Promise.all(
-    filePaths.map(async filePath => {
-      const content = await readFile(filePath);
-      return {
-        name: filePath.pathname,
-        content,
-      };
-    }),
-  );
-  const hash = generateHashFromFiles(fileEntries);
-  console.log(`Hash for ${dirPath}: ${hash}`);
-})();
