@@ -4,8 +4,7 @@ import {
   checkExists,
   getAllNamespaces,
   getApiName,
-  getChangedTypes,
-  getMajorAndMinorVersion,
+  getNpmArchivesToPublish,
   getPackageNameFromRestDescription,
   getResourceTypeName,
   hasValueRecursive,
@@ -295,23 +294,11 @@ describe('getChangedTypes', () => {
     ];
 
     // Act
-    const result = await getChangedTypes(allTypes, getLatestVersion);
+    const result = await getNpmArchivesToPublish(allTypes, getLatestVersion);
 
     // Assert
     expect(result).toHaveLength(2);
     expect(result).toContain('gapi.client.docs-v1');
     expect(result).toContain('gapi.client.sheets-v5');
-  });
-});
-
-describe('getMajorAndMinorVersion', () => {
-  it('should return 0.1 for gapi.client.discovery-v1', () => {
-    expect(getMajorAndMinorVersion('gapi.client.discovery-v1')).toBe('0.1');
-  });
-  it('should return 0.0 for everything else', () => {
-    expect(getMajorAndMinorVersion('gapi.client.drive-v3')).toBe('0.0');
-    expect(getMajorAndMinorVersion('gapi.client.docs-v1')).toBe('0.0');
-    expect(getMajorAndMinorVersion('gapi.client.sheets-v5')).toBe('0.0');
-    expect(getMajorAndMinorVersion('bla-bla')).toBe('0.0');
   });
 });
