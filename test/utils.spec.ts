@@ -303,15 +303,3 @@ describe('getChangedTypes', () => {
     expect(result).toContain('gapi.client.sheets-v5');
   });
 });
-
-describe('getMajorAndMinorVersion', () => {
-  it('should return 0.1 for gapi.client.discovery-v1', () => {
-    expect(getMajorAndMinorVersion('gapi.client.discovery-v1')).toBe('0.1');
-  });
-  it('should return 0.0 for everything else', () => {
-    expect(getMajorAndMinorVersion('gapi.client.drive-v3')).toBe('0.0');
-    expect(getMajorAndMinorVersion('gapi.client.docs-v1')).toBe('0.0');
-    expect(getMajorAndMinorVersion('gapi.client.sheets-v5')).toBe('0.0');
-    expect(getMajorAndMinorVersion('bla-bla')).toBe('0.0');
-  });
-});

@@ -273,20 +273,13 @@ export const getNpmArchivesToPublish = async (
 const importMetaUrl = import.meta.url;
 export const rootFolder = new URL('../', importMetaUrl);
 
-export const getMajorAndMinorVersion = (packageName: string) => {
-  throw new Error("Don't forget about TODO");
-
-  if (packageName === 'gapi.client.discovery-v1') {
-    // TODO: How can we remove this? If I push now, it will try to publish `0.1`, because files won't match (some trash got deleted), but it won't be able to because 0.1.rev is already published...
-    return '0.1'; // required to force-bump the version to get rid of deprecation warnings, see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/920
-  }
-
-  /**
-   * Otherwise, always `0.0` because we can't reliably parse versions;
-   * and we'll have one package per version anyway, @see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652
-   * and it won't be right to have `1.2` for both `v1.2beta3` and `v1.2alpha1` for example
-   *
-   * @see https://github.com/DefinitelyTyped/DefinitelyTyped#how-do-definitely-typed-package-versions-relate-to-versions-of-the-corresponding-library
-   */
-  return '0.0';
-};
+/**
+ * It's always `0.0` because we can't reliably parse versions;
+ * and we'll have one package per version anyway, @see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652
+ * and it won't be right to have `1.2` for both `v1.2beta3` and `v1.2alpha1` for example
+ *
+ * @see https://github.com/DefinitelyTyped/DefinitelyTyped#how-do-definitely-typed-package-versions-relate-to-versions-of-the-corresponding-library
+ *
+ * When publishing, minor version will be used when we need to publish the same revision with different contents - so it's a "generator version" of the package.
+ */
+export const majorAndMinorVersion = '0.0';

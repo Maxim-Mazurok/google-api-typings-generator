@@ -19,10 +19,10 @@ import {
   checkExists,
   ensureDirectoryExists,
   getAllNamespaces,
-  getMajorAndMinorVersion,
   getPackageNameFromRestDescription,
   getResourceTypeName,
   getRevision,
+  majorAndMinorVersion,
   sameNamespace,
   setOutputGHActions,
 } from './utils.js';
@@ -663,9 +663,7 @@ export class App {
     writer.writeLine(
       `/* Type definitions for non-npm package ${checkExists(
         restDescription.title,
-      )} ${restDescription.version} ${getMajorAndMinorVersion(
-        getPackageNameFromRestDescription(restDescription),
-      )} */`,
+      )} ${restDescription.version} ${majorAndMinorVersion} */`,
     );
     writer.writeLine(`// Project: ${restDescription.documentationLink}`);
     this.config.owners.forEach((owner, index) =>
@@ -878,7 +876,7 @@ export class App {
       restDescriptionSource: restDescriptionSource.toString(),
       namespaces,
       packageName,
-      majorAndMinorVersion: getMajorAndMinorVersion(packageName),
+      majorAndMinorVersion,
     };
 
     await readmeTpl.write(
