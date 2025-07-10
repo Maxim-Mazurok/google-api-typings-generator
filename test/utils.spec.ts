@@ -5,7 +5,6 @@ import {
   getAllNamespaces,
   getApiName,
   getNpmArchivesToPublish,
-  getMajorAndMinorVersion,
   getPackageNameFromRestDescription,
   getResourceTypeName,
   hasValueRecursive,
