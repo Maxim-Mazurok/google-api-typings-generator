@@ -9,12 +9,9 @@ export interface GitHubSettings {
 }
 
 export class GitHub {
-  readonly settings: GitHubSettings;
-  readonly octokit: Octokit;
+  private readonly octokit: Octokit;
 
-  constructor(settings: GitHubSettings) {
-    this.settings = settings;
-
+  constructor(private readonly settings: GitHubSettings) {
     const {user, auth, thisRepo} = this.settings;
 
     this.octokit = createOctokit({auth, user, thisRepo});

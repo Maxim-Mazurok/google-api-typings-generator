@@ -5,14 +5,10 @@ import LineByLine from 'n-readlines';
 import fs, {appendFileSync, PathLike} from 'node:fs';
 import {EOL} from 'node:os';
 import {URL} from 'node:url';
-import {patch} from 'semver';
 import validateNpmPackageName from 'validate-npm-package-name';
+import {NpmArchivesToPublishHelper} from './archives-to-publish.js';
 import {revisionPrefix} from './constants.js';
 import {RestDescription} from './discovery.js';
-import zlib from 'zlib';
-import {createHash} from 'crypto';
-import {readdir, readFile} from 'node:fs/promises';
-import {SH} from '../bin/auto-publish/sh.js';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
@@ -256,53 +252,21 @@ export const hasValueRecursive = <T>(
 
 export const getNpmArchivesToPublish = async (
   packages: {name: string; revision: number}[],
-  getLatestVersion: (packageName: string) => Promise<string>,
-  sh: SH,
+  npmArchivesToPublishHelper: NpmArchivesToPublishHelper,
 ) => {
-  // TODO: use archives-to-publish-3.ts script here
   const npmArchivesToPublish: URL[] = [];
-  const proxy = await getProxy();
-  await Promise.all(
-    packages.map(async ({name: packageName, revision: localRevision}) => {
-      const fullPackageName = getFullPackageName(packageName);
-      let latestPackageVersion: string;
-      try {
-        latestPackageVersion = await getLatestVersion(fullPackageName);
-      } catch (e) {
-        if ((e as Pick<Error, 'name'>).name === 'PackageNotFoundError') {
-          npmArchivesToPublish.push(packageName);
-          return;
-        }
-        throw e;
-      }
-      const latestPublishedRevision = patch(latestPackageVersion);
-      if (localRevision > latestPublishedRevision) {
-        npmArchivesToPublish.push(packageName);
-        return;
-        // TODO: Now we know that it definitely changed, and so we don't have to bump the generator version - we need to use one from the latestPackageVersion
-      } else if (localRevision === latestPublishedRevision) {
-        const tgzUrl = new URL(
-          `https://registry.npmjs.org/${fullPackageName}/-/${packageName}-${latestPackageVersion}.tgz`,
-        );
-        const response = await request<Buffer>(tgzUrl, proxy, 'buffer');
-        const tgzHash = await getVirtualTgzHash(response, 20200213);
-        console.log(
-          `TGZ hash for ${packageName} (${latestPackageVersion}): ${tgzHash}`,
-        );
-        // TODO:
-        // Otherwise - fetch tag from npm with that version: https://registry.npmjs.org/@maxim_mazurok/gapi.client.oauth2-v2/-/gapi.client.oauth2-v2-${latestPackageVersion}.tgz
-        // Probably unpack in memory, making sure to replace generator version as "0": `"version": "0.\d+.${latestPublishedRevision}",` => `"version": "0.0.${latestPublishedRevision}",`; Because we don't store generator version in the types branch
-        // Check SHAs for diff:
-        //   - Published SHA: `curl -s
-        // https://registry.npmjs.org/@maxim_mazurok/gapi.client.oauth2-v2/-/gapi.client.oauth2-v2-0.0.20200213.tgz | tar -xOzf - | sha256sum | awk '{print $1}'`
-        // https://registry.npmjs.org/@maxim_mazurok/gapi.client.oauth2-v2/-/@maxim_mazurok/gapi.client.oauth2-v2-0.0.20200213.tgz
-        //   - Current SHA: ...
-      } else {
-        // We're not going to publish older revisions, no matter what
-        // TODO: maybe warn about it?
-      }
-    }),
-  );
+  for (const {name: shortPackageName, revision: localRevision} of packages) {
+    const localNpmArchivePath =
+      await npmArchivesToPublishHelper.getNpmArchivePathToPublish(
+        shortPackageName,
+        localRevision,
+      );
+    if (localNpmArchivePath === null) {
+      console.warn(`Decided not to publish ${shortPackageName}`);
+      continue;
+    }
+    npmArchivesToPublish.push(localNpmArchivePath);
+  }
   return npmArchivesToPublish;
 };
 
@@ -310,6 +274,8 @@ const importMetaUrl = import.meta.url;
 export const rootFolder = new URL('../', importMetaUrl);
 
 export const getMajorAndMinorVersion = (packageName: string) => {
+  throw new Error("Don't forget about TODO");
+
   if (packageName === 'gapi.client.discovery-v1') {
     // TODO: How can we remove this? If I push now, it will try to publish `0.1`, because files won't match (some trash got deleted), but it won't be able to because 0.1.rev is already published...
     return '0.1'; // required to force-bump the version to get rid of deprecation warnings, see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/920

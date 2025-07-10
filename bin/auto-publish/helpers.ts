@@ -25,15 +25,11 @@ export const createOctokit = ({
   });
 
 export class Helpers {
-  readonly sh: SH;
-  readonly gitHub: GitHub;
-  readonly settings: Settings;
-
-  constructor(sh: SH, gitHub: GitHub, settings: Settings) {
-    this.sh = sh;
-    this.gitHub = gitHub;
-    this.settings = settings;
-  }
+  constructor(
+    private readonly sh: SH,
+    private readonly gitHub: GitHub,
+    private readonly settings: Settings,
+  ) {}
 
   npmPublish = async (
     npmArchivePath: URL,

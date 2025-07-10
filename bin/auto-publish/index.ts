@@ -1,3 +1,4 @@
+import {NpmArchivesToPublishHelper} from '../../src/archives-to-publish.js';
 import {getNpmArchivesToPublish} from '../../src/utils.js';
 import {GitHub, GitHubSettings} from './git-hub.js';
 import {Helpers} from './helpers.js';
@@ -25,6 +26,7 @@ const settings: Settings = {
 const sh = new SH();
 const gitHub = new GitHub(settings);
 const helpers = new Helpers(sh, gitHub, settings);
+const npmArchivesToPublishHelper = new NpmArchivesToPublishHelper(sh, settings);
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -39,8 +41,7 @@ void (async () => {
   console.log(JSON.stringify({allTypes}, null, 2));
   const npmArchivesToPublish = await getNpmArchivesToPublish(
     allTypes,
-    latestVersion,
-    sh,
+    npmArchivesToPublishHelper,
   );
   console.log(JSON.stringify({npmArchivesToPublish}, null, 2));
 

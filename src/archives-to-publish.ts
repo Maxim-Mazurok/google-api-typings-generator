@@ -30,7 +30,9 @@ const getLatestMetaOr404 = async (
     result: meta,
     isError,
     error,
-  } = await getResultOrError(packageJson(fullPackageName));
+  } = await getResultOrError(
+    packageJson(fullPackageName), // NOTE: is doesn't support proxy, but proxy support is primarily for generating types on corporate networks, while publishing is done on GitHub Actions, so it's irrelevant and ok
+  );
 
   if (isError) {
     const PackageNotFoundErrorSchema = z.object({
@@ -107,23 +109,23 @@ const getFromSemVer = (
   return semver[semVerType](version);
 };
 
-export class NpmArchivesToPublish {
-  readonly sh: SH;
-  readonly settings: {typesDirName: string};
+export class NpmArchivesToPublishHelper {
+  private readonly sh: SH;
+  private readonly settings: {typesDirName: string};
 
   constructor(sh: SH, settings: {typesDirName: string}) {
     this.sh = sh;
     this.settings = settings;
   }
 
-  getPackageDirPath = (
+  private getPackageDirPath = (
     shortPackageName: string, // e.g. `gapi.client.oauth2-v2`, not `@maxim_mazurok/gapi.client.oauth2-v2`
   ): URL => {
     const typesDirPath = new URL(`${this.settings.typesDirName}/`, rootFolder);
     return new URL(`${shortPackageName}/`, typesDirPath);
   };
 
-  setPackageGeneratorVersion = async (
+  private setPackageGeneratorVersion = async (
     shortPackageName: string, // e.g. `gapi.client.oauth2-v2`, not `@maxim_mazurok/gapi.client.oauth2-v2`
     newGeneratorVersion: number,
   ): Promise<void> => {
@@ -148,7 +150,7 @@ export class NpmArchivesToPublish {
     await writeFile(packageJsonPath, patchedPackageJsonText, 'utf8');
   };
 
-  createLocalNpmArchiveWithSHA = async (
+  private createLocalNpmArchiveWithSHA = async (
     shortPackageName: string, // e.g. `gapi.client.oauth2-v2`, not `@maxim_mazurok/gapi.client.oauth2-v2`
   ): Promise<{
     archivePath: URL;
@@ -172,7 +174,7 @@ export class NpmArchivesToPublish {
     return {archivePath: new URL(filename, packageDirPath), shasum};
   };
 
-  getNpmArchiveToPublish = async (
+  getNpmArchivePathToPublish = async (
     shortPackageName: string, // e.g. `gapi.client.oauth2-v2`, not `@maxim_mazurok/gapi.client.oauth2-v2`
     localRevision: number,
   ): Promise<URL | null> => {
