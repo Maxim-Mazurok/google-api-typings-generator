@@ -76,13 +76,6 @@ After that you can use Cloud Billing API resources: <!-- TODO: make this work fo
 
 ```typescript
 /*
-Use custom pricing in the estimate, using a `CostScenario` with a defined `billingAccount`.
-*/
-await gapi.client.cloudbilling.billingAccounts.estimateCostScenario({
-  billingAccount: 'billingAccount',
-});
-
-/*
 Gets a publicly listed SKU group.
 */
 await gapi.client.cloudbilling.skuGroups.get({name: 'name'});
@@ -91,9 +84,4 @@ await gapi.client.cloudbilling.skuGroups.get({name: 'name'});
 Lists all publicly listed SKU groups.
 */
 await gapi.client.cloudbilling.skuGroups.list({});
-
-/*
-Estimate list prices using a `CostScenario` without a defined `billingAccount`.
-*/
-await gapi.client.cloudbilling.estimateCostScenario({});
 ```
