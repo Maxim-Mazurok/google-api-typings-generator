@@ -5,8 +5,8 @@ import LineByLine from 'n-readlines';
 import fs, {appendFileSync, PathLike} from 'node:fs';
 import {EOL} from 'node:os';
 import {URL} from 'node:url';
-import {patch} from 'semver';
 import validateNpmPackageName from 'validate-npm-package-name';
+import {NpmArchivesToPublishHelper} from './archives-to-publish.js';
 import {revisionPrefix} from './constants.js';
 import {RestDescription} from './discovery.js';
 
@@ -58,10 +58,10 @@ export const bannedTypes = [
   '{}', // this one is also explicitly banned by https://github.com/microsoft/DefinitelyTyped-tools/blob/HEAD/packages/eslint-plugin/src/configs/all.ts#L156-L162
 ];
 
-export async function request<T extends object | string>(
+export async function request<T extends object | string | Buffer>(
   url: URL,
   proxy: ProxySetting | undefined,
-  responseType: 'json' | 'text' = 'json',
+  responseType: 'json' | 'text' | 'buffer' = 'json',
 ): Promise<T> {
   const protocol = url.protocol as 'http:' | 'https:';
   const agentProtocol = protocol === 'http:' ? Protocol.Http : Protocol.Https;
@@ -83,7 +83,11 @@ export async function request<T extends object | string>(
           },
         }
       : {}),
+    responseType: responseType === 'buffer' ? 'buffer' : undefined,
   });
+  if (responseType === 'buffer') {
+    return (await response.buffer()) as T;
+  }
   return (await response[responseType]()) as T;
 }
 
@@ -185,6 +189,7 @@ export const getFullPackageName = (packageName: string) =>
   `@${NPM_ORGANIZATION}/${packageName}`;
 
 export const getRevision = (indexDTSPath: PathLike) => {
+  // TODO: get revision from package.json version instead, use INTERNAL_TO_SEMVER as well, for consistency
   let revision: number | undefined, lineBuffer: Buffer | false;
   const liner = new LineByLine(indexDTSPath);
   while ((lineBuffer = liner.next())) {
@@ -245,47 +250,36 @@ export const hasValueRecursive = <T>(
   return false;
 };
 
-export const getChangedTypes = async (
+export const getNpmArchivesToPublish = async (
   packages: {name: string; revision: number}[],
-  getLatestVersion: (packageName: string) => Promise<string>,
+  npmArchivesToPublishHelper: NpmArchivesToPublishHelper,
 ) => {
-  const changedTypes: string[] = [];
-  await Promise.all(
-    packages.map(async ({name: packageName, revision: newRevision}) => {
-      const fullPackageName = getFullPackageName(packageName);
-      let latestPackageVersion: string;
-      try {
-        latestPackageVersion = await getLatestVersion(fullPackageName);
-      } catch (e) {
-        if ((e as Pick<Error, 'name'>).name === 'PackageNotFoundError') {
-          changedTypes.push(packageName);
-          return;
-        }
-        throw e;
-      }
-      const latestPublishedRevision = patch(latestPackageVersion);
-      if (newRevision > latestPublishedRevision) {
-        changedTypes.push(packageName);
-      }
-    }),
-  );
-  return changedTypes;
+  const npmArchivesToPublish: URL[] = [];
+  for (const {name: shortPackageName, revision: localRevision} of packages) {
+    const localNpmArchivePath =
+      await npmArchivesToPublishHelper.getNpmArchivePathToPublish(
+        shortPackageName,
+        localRevision,
+      );
+    if (localNpmArchivePath === null) {
+      console.warn(`Decided not to publish ${shortPackageName}`);
+      continue;
+    }
+    npmArchivesToPublish.push(localNpmArchivePath);
+  }
+  return npmArchivesToPublish;
 };
 
 const importMetaUrl = import.meta.url;
 export const rootFolder = new URL('../', importMetaUrl);
 
-export const getMajorAndMinorVersion = (packageName: string) => {
-  if (packageName === 'gapi.client.discovery-v1') {
-    return '0.1'; // required to force-bump the version to get rid of deprecation warnings, see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/920
-  }
-
-  /**
-   * Otherwise, always `0.0` because we can't reliably parse versions;
-   * and we'll have one package per version anyway, @see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652
-   * and it won't be right to have `1.2` for both `v1.2beta3` and `v1.2alpha1` for example
-   *
-   * @see https://github.com/DefinitelyTyped/DefinitelyTyped#how-do-definitely-typed-package-versions-relate-to-versions-of-the-corresponding-library
-   */
-  return '0.0';
-};
+/**
+ * It's always `0.0` because we can't reliably parse versions;
+ * and we'll have one package per version anyway, @see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652
+ * and it won't be right to have `1.2` for both `v1.2beta3` and `v1.2alpha1` for example
+ *
+ * @see https://github.com/DefinitelyTyped/DefinitelyTyped#how-do-definitely-typed-package-versions-relate-to-versions-of-the-corresponding-library
+ *
+ * When publishing, minor version will be used when we need to publish the same revision with different contents - so it's a "generator version" of the package.
+ */
+export const majorAndMinorVersion = '0.0';

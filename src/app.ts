@@ -19,10 +19,10 @@ import {
   checkExists,
   ensureDirectoryExists,
   getAllNamespaces,
-  getMajorAndMinorVersion,
   getPackageNameFromRestDescription,
   getResourceTypeName,
   getRevision,
+  majorAndMinorVersion,
   sameNamespace,
   setOutputGHActions,
 } from './utils.js';
@@ -481,8 +481,7 @@ export class App {
   constructor(private readonly config: Configuration) {
     ensureDirectoryExists(config.typesDirectory);
 
-    console.log(`types directory: ${config.typesDirectory}`);
-    console.log();
+    console.log(`types directory: ${config.typesDirectory}\n`);
   }
 
   static parseOutPath(dir: string) {
@@ -664,9 +663,7 @@ export class App {
     writer.writeLine(
       `/* Type definitions for non-npm package ${checkExists(
         restDescription.title,
-      )} ${restDescription.version} ${getMajorAndMinorVersion(
-        getPackageNameFromRestDescription(restDescription),
-      )} */`,
+      )} ${restDescription.version} ${majorAndMinorVersion} */`,
     );
     writer.writeLine(`// Project: ${restDescription.documentationLink}`);
     this.config.owners.forEach((owner, index) =>
@@ -879,7 +876,7 @@ export class App {
       restDescriptionSource: restDescriptionSource.toString(),
       namespaces,
       packageName,
-      majorAndMinorVersion: getMajorAndMinorVersion(packageName),
+      majorAndMinorVersion,
     };
 
     await readmeTpl.write(
@@ -892,20 +889,16 @@ export class App {
     );
 
     await Promise.all(
-      [
-        '.npmrc',
-        '.npmIgnore'.toLowerCase(),
-        '.eslintrc.json',
-        'tsconfig.json',
-      ].map(fileName =>
-        copyFile(
-          path.join(
-            import.meta.dirname,
-            'template',
-            `template.${fileName}`, // can't use just fileName, because tsconfig.json will act like a real config for the index.ts inside of template folder
+      ['.npmIgnore'.toLowerCase(), '.eslintrc.json', 'tsconfig.json'].map(
+        fileName =>
+          copyFile(
+            path.join(
+              import.meta.dirname,
+              'template',
+              `template.${fileName}`, // can't use just fileName, because tsconfig.json will act like a real config for the index.ts inside of template folder
+            ),
+            path.join(destinationDirectory, fileName),
           ),
-          path.join(destinationDirectory, fileName),
-        ),
       ),
     );
 
