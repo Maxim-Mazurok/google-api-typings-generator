@@ -923,8 +923,6 @@ declare namespace gapi.client {
     interface GoogleCloudRetailV2betaMerchantCenterFeedFilter {
       /** AFM data source ID. */
       dataSourceId?: string;
-      /** Merchant Center primary feed ID. Deprecated: use data_source_id instead. */
-      primaryFeedId?: string;
       /** Merchant Center primary feed name. The name is used for the display purposes only. */
       primaryFeedName?: string;
     }
