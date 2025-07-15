@@ -177,6 +177,7 @@ gapi.load('client', async () => {
               feeds: [
                 {
                   dataSourceId: 'Test string',
+                  primaryFeedId: 'Test string',
                   primaryFeedName: 'Test string',
                 },
               ],
