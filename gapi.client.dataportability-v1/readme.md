@@ -51,9 +51,6 @@ var client_id = '',
     // Move a copy of the Google Alerts subscriptions you created
     'https://www.googleapis.com/auth/dataportability.alerts.subscriptions',
 
-    // Move a copy of messages between you and the businesses you have conversations with across Google services
-    'https://www.googleapis.com/auth/dataportability.businessmessaging.conversations',
-
     // Move a copy of the information you entered into online forms in Chrome
     'https://www.googleapis.com/auth/dataportability.chrome.autofill',
 
