@@ -63,4 +63,9 @@ await gapi.client.mybusinessverifications.locations.getVoiceOfMerchantState({
 Starts the verification process for a location.
 */
 await gapi.client.mybusinessverifications.locations.verify({name: 'name'});
+
+/*
+Generate a token for the provided location data to verify the location.
+*/
+await gapi.client.mybusinessverifications.verificationTokens.generate({});
 ```
