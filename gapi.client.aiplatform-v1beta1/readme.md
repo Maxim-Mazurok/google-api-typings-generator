@@ -157,9 +157,19 @@ Upload a file into a RagCorpus.
 await gapi.client.aiplatform.media.upload({parent: 'parent'});
 
 /*
+Fetches the configs of publisher models.
+*/
+await gapi.client.aiplatform.projects.fetchPublisherModelConfig({name: 'name'});
+
+/*
 Gets a GenAI cache config.
 */
 await gapi.client.aiplatform.projects.getCacheConfig({name: 'name'});
+
+/*
+Sets (creates or updates) configs of publisher models. For example, sets the request/response logging config.
+*/
+await gapi.client.aiplatform.projects.setPublisherModelConfig({name: 'name'});
 
 /*
 Updates a cache config.
