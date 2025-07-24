@@ -203,6 +203,11 @@ Returns a customized report of data access records. The report provides records 
 await gapi.client.analyticsadmin.properties.runAccessReport({entity: 'entity'});
 
 /*
+Submits a request for user deletion for a property.
+*/
+await gapi.client.analyticsadmin.properties.submitUserDeletion({name: 'name'});
+
+/*
 Updates attribution settings on a property.
 */
 await gapi.client.analyticsadmin.properties.updateAttributionSettings({
