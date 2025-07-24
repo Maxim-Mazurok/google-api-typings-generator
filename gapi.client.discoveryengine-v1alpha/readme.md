@@ -73,9 +73,9 @@ After that you can use Discovery Engine API resources: <!-- TODO: make this work
 
 ```typescript
 /*
-Uploads a file for Notebook LM to use. Creates a Source.
+Downloads a file from the session.
 */
-await gapi.client.discoveryengine.media.upload({parent: 'parent'});
+await gapi.client.discoveryengine.media.download({name: 'name'});
 
 /*
 Gets a Project. Returns NOT_FOUND when the project is not yet created.
