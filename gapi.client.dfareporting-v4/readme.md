@@ -696,6 +696,35 @@ Retrieves a list of directory sites, possibly filtered. This method supports pag
 await gapi.client.dfareporting.directorySites.list({profileId: 'profileId'});
 
 /*
+Gets a dynamic feed by ID.
+*/
+await gapi.client.dfareporting.dynamicFeeds.get({
+  dynamicFeedId: 'dynamicFeedId',
+});
+
+/*
+Inserts a new dynamic feed.
+*/
+await gapi.client.dfareporting.dynamicFeeds.insert({});
+
+/*
+Gets a dynamic profile by ID.
+*/
+await gapi.client.dfareporting.dynamicProfiles.get({
+  dynamicProfileId: 'dynamicProfileId',
+});
+
+/*
+Inserts a new dynamic profile.
+*/
+await gapi.client.dfareporting.dynamicProfiles.insert({});
+
+/*
+Updates an existing dynamic profile.
+*/
+await gapi.client.dfareporting.dynamicProfiles.update({});
+
+/*
 Deletes an existing dynamic targeting key.
 */
 await gapi.client.dfareporting.dynamicTargetingKeys.delete({
