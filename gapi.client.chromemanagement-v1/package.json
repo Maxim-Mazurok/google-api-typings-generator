@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.chromemanagement-v1",
-  "version": "0.0.20250728",
+  "version": "0.0.20250729",
   "description": "TypeScript typings for Chrome Management API v1",
   "repository": {
     "type": "git",
