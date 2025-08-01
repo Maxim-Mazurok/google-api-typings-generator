@@ -551,6 +551,11 @@ Deletes the specified policy.
 await gapi.client.compute.firewallPolicies.delete({ firewallPolicy: "firewallPolicy",  });
 
 /*
+Starts a brand new progressive rollout of hierarchical firewall policy. This API will return an error when there is an ongoing progressive rollout.
+*/
+await gapi.client.compute.firewallPolicies.forceStartProgressiveRollout({ firewallPolicy: "firewallPolicy",  });
+
+/*
 Returns the specified firewall policy.
 */
 await gapi.client.compute.firewallPolicies.get({ firewallPolicy: "firewallPolicy",  });
@@ -929,6 +934,11 @@ await gapi.client.compute.globalPublicDelegatedPrefixes.list({ project: "project
 Patches the specified global PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
 */
 await gapi.client.compute.globalPublicDelegatedPrefixes.patch({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix",  });
+
+/*
+Fails over a VM targeted by the specified HaController to the selected zone.
+*/
+await gapi.client.compute.haControllers.failover({ haController: "haController", project: "project", region: "region",  });
 
 /*
 Retrieves the list of all HealthCheck resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
@@ -5349,4 +5359,29 @@ await gapi.client.compute.zones.get({ project: "project", zone: "zone",  });
 Retrieves the list of Zone resources available to the specified project.
 */
 await gapi.client.compute.zones.list({ project: "project",  });
+
+/*
+Deletes a specified zone VM extension policy.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.delete({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
+
+/*
+Retrieves details of a specific zone VM extension policy.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.get({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
+
+/*
+Creates a new zone-level VM extension policy within a project.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.insert({ project: "project", zone: "zone",  });
+
+/*
+Lists all VM extension policies within a specific zone for a project.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.list({ project: "project", zone: "zone",  });
+
+/*
+Modifies an existing zone VM extension policy.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.update({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 ```
