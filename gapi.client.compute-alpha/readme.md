@@ -936,9 +936,34 @@ Patches the specified global PublicDelegatedPrefix resource with the data includ
 await gapi.client.compute.globalPublicDelegatedPrefixes.patch({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix",  });
 
 /*
+Deletes an HaController in the specified project.
+*/
+await gapi.client.compute.haControllers.delete({ haController: "haController", project: "project", region: "region",  });
+
+/*
 Fails over a VM targeted by the specified HaController to the selected zone.
 */
 await gapi.client.compute.haControllers.failover({ haController: "haController", project: "project", region: "region",  });
+
+/*
+Returns all the details of a specific HaController.
+*/
+await gapi.client.compute.haControllers.get({ haController: "haController", project: "project", region: "region",  });
+
+/*
+Creates HaController in the specified project.
+*/
+await gapi.client.compute.haControllers.insert({ project: "project", region: "region",  });
+
+/*
+Lists all HaControllers in the specified project in the specified region.
+*/
+await gapi.client.compute.haControllers.list({ project: "project", region: "region",  });
+
+/*
+Updates HaController in the specified project.
+*/
+await gapi.client.compute.haControllers.patch({ haController: "haController", project: "project", region: "region",  });
 
 /*
 Retrieves the list of all HealthCheck resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
@@ -3176,6 +3201,11 @@ Retrieves a list of regional disk types available to the specified project.
 await gapi.client.compute.regionDiskTypes.list({ project: "project", region: "region",  });
 
 /*
+Retrieves the list of all HealthAggregationPolicy resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+*/
+await gapi.client.compute.regionHealthAggregationPolicies.aggregatedList({ project: "project",  });
+
+/*
 Deletes the specified HealthAggregationPolicy in the given region.
 */
 await gapi.client.compute.regionHealthAggregationPolicies.delete({ healthAggregationPolicy: "healthAggregationPolicy", project: "project", region: "region",  });
@@ -4209,6 +4239,11 @@ await gapi.client.compute.reservationSubBlocks.list({ parentName: "parentName", 
 Allows customers to perform maintenance on a reservation subBlock
 */
 await gapi.client.compute.reservationSubBlocks.performMaintenance({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
+
+/*
+Allows customers to report a faulty subBlock.
+*/
+await gapi.client.compute.reservationSubBlocks.reportFaulty({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of resource policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
