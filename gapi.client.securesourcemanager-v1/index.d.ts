@@ -44,10 +44,6 @@ declare namespace gapi.client {
       /** Required. The request message specifying the resources to create. There should be exactly one CreatePullRequestCommentRequest with CommentDetail being REVIEW in the list, and no more than 100 CreatePullRequestCommentRequests with CommentDetail being CODE in the list */
       requests?: CreatePullRequestCommentRequest[];
     }
-    interface BatchCreatePullRequestCommentsResponse {
-      /** The list of pull request comments created. */
-      pullRequestComments?: PullRequestComment[];
-    }
     interface Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
       condition?: Expr;
@@ -457,10 +453,6 @@ declare namespace gapi.client {
       /** Required. The names of the pull request comments to resolve. Format: `projects/{project_number}/locations/{location_id}/repositories/{repository_id}/pullRequests/{pull_request_id}/pullRequestComments/{comment_id}` Only comments from the same threads are allowed in the same request. */
       names?: string[];
     }
-    interface ResolvePullRequestCommentsResponse {
-      /** The list of pull request comments resolved. */
-      pullRequestComments?: PullRequestComment[];
-    }
     interface Review {
       /** Required. The review action type. */
       actionType?: string;
@@ -508,10 +500,6 @@ declare namespace gapi.client {
       autoFill?: boolean;
       /** Required. The names of the pull request comments to unresolve. Format: `projects/{project_number}/locations/{location_id}/repositories/{repository_id}/pullRequests/{pull_request_id}/pullRequestComments/{comment_id}` Only comments from the same threads are allowed in the same request. */
       names?: string[];
-    }
-    interface UnresolvePullRequestCommentsResponse {
-      /** The list of pull request comments unresolved. */
-      pullRequestComments?: PullRequestComment[];
     }
     interface URIs {
       /** Output only. API is the URI for API access. */
@@ -1876,7 +1864,7 @@ declare namespace gapi.client {
       issueComments: IssueCommentsResource;
     }
     interface PullRequestCommentsResource {
-      /** Batch creates pull request comments. This function is used to create multiple PullRequestComments for code review. There needs to be exactly one PullRequestComment of type Review, and at most 100 PullRequestComments of type Code per request. The Position of the code comments must be unique within the request. */
+      /** Batch creates pull request comments. */
       batchCreate(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -1934,7 +1922,7 @@ declare namespace gapi.client {
         },
         body: BatchCreatePullRequestCommentsRequest,
       ): Request<Operation>;
-      /** Creates a pull request comment. This function is used to create a single PullRequestComment of type Comment, or a single PullRequestComment of type Code that's replying to another PullRequestComment of type Code. Use BatchCreatePullRequestComments to create multiple PullRequestComments for code reviews. */
+      /** Creates a pull request comment. */
       create(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -2139,7 +2127,7 @@ declare namespace gapi.client {
         },
         body: PullRequestComment,
       ): Request<Operation>;
-      /** Resolves pull request comments. A list of PullRequestComment names must be provided. The PullRequestComment names must be in the same conversation thread. If auto_fill is set, all comments in the conversation thread will be resolved. */
+      /** Resolves pull request comments. */
       resolve(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -2197,7 +2185,7 @@ declare namespace gapi.client {
         },
         body: ResolvePullRequestCommentsRequest,
       ): Request<Operation>;
-      /** Unresolves pull request comments. A list of PullRequestComment names must be provided. The PullRequestComment names must be in the same conversation thread. If auto_fill is set, all comments in the conversation thread will be unresolved. */
+      /** Unresolves pull request comment. */
       unresolve(request: {
         /** V1 error format. */
         '$.xgafv'?: string;

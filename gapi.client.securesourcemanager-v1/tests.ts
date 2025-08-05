@@ -662,7 +662,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
       },
     );
-    /** Batch creates pull request comments. This function is used to create multiple PullRequestComments for code review. There needs to be exactly one PullRequestComment of type Review, and at most 100 PullRequestComments of type Code per request. The Position of the code comments must be unique within the request. */
+    /** Batch creates pull request comments. */
     await gapi.client.securesourcemanager.projects.locations.repositories.pullRequests.pullRequestComments.batchCreate(
       {
         parent: 'Test string',
@@ -699,7 +699,7 @@ gapi.load('client', async () => {
         ],
       },
     );
-    /** Creates a pull request comment. This function is used to create a single PullRequestComment of type Comment, or a single PullRequestComment of type Code that's replying to another PullRequestComment of type Code. Use BatchCreatePullRequestComments to create multiple PullRequestComments for code reviews. */
+    /** Creates a pull request comment. */
     await gapi.client.securesourcemanager.projects.locations.repositories.pullRequests.pullRequestComments.create(
       {
         parent: 'Test string',
@@ -780,7 +780,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
       },
     );
-    /** Resolves pull request comments. A list of PullRequestComment names must be provided. The PullRequestComment names must be in the same conversation thread. If auto_fill is set, all comments in the conversation thread will be resolved. */
+    /** Resolves pull request comments. */
     await gapi.client.securesourcemanager.projects.locations.repositories.pullRequests.pullRequestComments.resolve(
       {
         parent: 'Test string',
@@ -790,7 +790,7 @@ gapi.load('client', async () => {
         names: ['Test string'],
       },
     );
-    /** Unresolves pull request comments. A list of PullRequestComment names must be provided. The PullRequestComment names must be in the same conversation thread. If auto_fill is set, all comments in the conversation thread will be unresolved. */
+    /** Unresolves pull request comment. */
     await gapi.client.securesourcemanager.projects.locations.repositories.pullRequests.pullRequestComments.unresolve(
       {
         parent: 'Test string',
