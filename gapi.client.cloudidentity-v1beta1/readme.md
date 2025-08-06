@@ -178,31 +178,6 @@ Update Security Settings
 await gapi.client.cloudidentity.groups.updateSecuritySettings({name: 'name'});
 
 /*
-Creates an InboundOidcSsoProfile for a customer. When the target customer has enabled [Multi-party approval for sensitive actions](https://support.google.com/a/answer/13790448), the `Operation` in the response will have `"done": false`, it will not have a response, and the metadata will have `"state": "awaiting-multi-party-approval"`.
-*/
-await gapi.client.cloudidentity.inboundOidcSsoProfiles.create({});
-
-/*
-Deletes an InboundOidcSsoProfile.
-*/
-await gapi.client.cloudidentity.inboundOidcSsoProfiles.delete({name: 'name'});
-
-/*
-Gets an InboundOidcSsoProfile.
-*/
-await gapi.client.cloudidentity.inboundOidcSsoProfiles.get({name: 'name'});
-
-/*
-Lists InboundOidcSsoProfile objects for a Google enterprise customer.
-*/
-await gapi.client.cloudidentity.inboundOidcSsoProfiles.list({});
-
-/*
-Updates an InboundOidcSsoProfile. When the target customer has enabled [Multi-party approval for sensitive actions](https://support.google.com/a/answer/13790448), the `Operation` in the response will have `"done": false`, it will not have a response, and the metadata will have `"state": "awaiting-multi-party-approval"`.
-*/
-await gapi.client.cloudidentity.inboundOidcSsoProfiles.patch({name: 'name'});
-
-/*
 Creates an InboundSamlSsoProfile for a customer. When the target customer has enabled [Multi-party approval for sensitive actions](https://support.google.com/a/answer/13790448), the `Operation` in the response will have `"done": false`, it will not have a response, and the metadata will have `"state": "awaiting-multi-party-approval"`.
 */
 await gapi.client.cloudidentity.inboundSamlSsoProfiles.create({});
