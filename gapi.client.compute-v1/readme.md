@@ -2031,11 +2031,6 @@ Removes a peering from the specified network.
 await gapi.client.compute.networks.removePeering({ network: "network", project: "project",  });
 
 /*
-Requests to remove a peering from the specified network. Applicable only for PeeringConnection with update_strategy=CONSENSUS.
-*/
-await gapi.client.compute.networks.requestRemovePeering({ network: "network", project: "project",  });
-
-/*
 Switches the network mode from auto subnet mode to custom subnet mode.
 */
 await gapi.client.compute.networks.switchToCustomMode({ network: "network", project: "project",  });
