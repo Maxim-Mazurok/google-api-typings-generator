@@ -300,7 +300,7 @@ Returns the list of per-location plannable YouTube ad formats with allowed targe
 await gapi.client.googleads.listPlannableProducts({});
 
 /*
-Returns the list of plannable user lists with their plannable status. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [ReachPlanError]() [RequestError]()
+Returns the list of plannable user lists with their plannable status. User lists may not be plannable for a number of reasons, including: - They are less than 10 days old. - They have a membership lifespan that is less than 30 days - They have less than 10,000 or more than 700,000 users. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [ReachPlanError]() [RequestError]()
 */
 await gapi.client.googleads.listPlannableUserLists({});
 ```
