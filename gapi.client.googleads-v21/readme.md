@@ -1,4 +1,4 @@
-# TypeScript typings for Google Ads API v17
+# TypeScript typings for Google Ads API v21
 
 Manage your Google Ads accounts, campaigns, and reports with this API.
 For detailed description please check [documentation](https://developers.google.com/google-ads/api/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for Google Ads API:
 
 ```
-npm install @types/gapi.client.googleads-v17 --save-dev
+npm install @types/gapi.client.googleads-v21 --save-dev
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Then load api client wrapper:
 
 ```typescript
 gapi.client.load(
-  'https://googleads.googleapis.com/$discovery/rest?version=v17',
+  'https://googleads.googleapis.com/$discovery/rest?version=v21',
   () => {
     // now we can use:
     // gapi.client.googleads
@@ -36,7 +36,7 @@ gapi.client.load(
 
 ```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
-gapi.client.load('googleads', 'v17', () => {
+gapi.client.load('googleads', 'v21', () => {
   // now we can use:
   // gapi.client.googleads
 });
@@ -103,6 +103,13 @@ await gapi.client.googleads.customers.generateAudienceOverlapInsights({
 });
 
 /*
+Returns insights for a collection of YouTube Creators and Channels. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.generateCreatorInsights({
+  customerId: 'customerId',
+});
+
+/*
 Creates a saved report that can be viewed in the Insights Finder tool. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
 */
 await gapi.client.googleads.customers.generateInsightsFinderReport({
@@ -152,6 +159,20 @@ await gapi.client.googleads.customers.generateSuggestedTargetingInsights({
 });
 
 /*
+Returns potential reach metrics for targetable audiences. This method helps answer questions like "How many Men aged 18+ interested in Camping can be reached on YouTube?" List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.generateTargetingSuggestionMetrics({
+  customerId: 'customerId',
+});
+
+/*
+Returns insights for trending content on YouTube. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.generateTrendingInsights({
+  customerId: 'customerId',
+});
+
+/*
 Returns Identity Verification information. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.googleads.customers.getIdentityVerification({
@@ -167,6 +188,13 @@ await gapi.client.googleads.customers.listAccessibleCustomers({});
 Updates a customer. Operation statuses are returned. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [DatabaseError]() [FieldMaskError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() [UrlFieldError]()
 */
 await gapi.client.googleads.customers.mutate({customerId: 'customerId'});
+
+/*
+Removes automatically created assets from a campaign. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ContextError]() [FieldError]() [InternalError]() [MutateError]() [PartialFailureError]() [QuotaError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.removeCampaignAutomaticallyCreatedAsset({
+  customerId: 'customerId',
+});
 
 /*
 Searches for audience attributes that can be used to generate insights. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
@@ -264,6 +292,11 @@ Returns KeywordThemeConstant suggestions by keyword themes. List of thrown error
 await gapi.client.googleads.keywordThemeConstants.suggest({});
 
 /*
+Returns a collection of conversion rate suggestions for supported plannable products. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
+*/
+await gapi.client.googleads.generateConversionRates({});
+
+/*
 Returns the list of plannable locations (for example, countries). List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.googleads.listPlannableLocations({});
@@ -272,4 +305,14 @@ await gapi.client.googleads.listPlannableLocations({});
 Returns the list of per-location plannable YouTube ad formats with allowed targeting. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.googleads.listPlannableProducts({});
+
+/*
+Returns the list of plannable user interests. A plannable user interest is one that can be targeted in a reach forecast using ReachPlanService.GenerateReachForecast. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [ListOperationError]() [QuotaError]() [RequestError]() [StringLengthError]()
+*/
+await gapi.client.googleads.listPlannableUserInterests({});
+
+/*
+Returns the list of plannable user lists with their plannable status. User lists may not be plannable for a number of reasons, including: - They are less than 10 days old. - They have a membership lifespan that is less than 30 days - They have less than 10,000 or more than 700,000 users. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [ReachPlanError]() [RequestError]()
+*/
+await gapi.client.googleads.listPlannableUserLists({});
 ```
