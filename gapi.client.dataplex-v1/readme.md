@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud Dataplex API v1
 
-Dataplex API is used to manage the lifecycle of data lakes.
+A unified, intelligent governance solution for data and AI assets.
 For detailed description please check [documentation](https://cloud.google.com/dataplex/docs).
 
 ## Installing
