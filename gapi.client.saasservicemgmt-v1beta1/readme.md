@@ -1,6 +1,5 @@
 # TypeScript typings for SaaS Runtime API v1beta1
 
-Model, deploy, and operate your SaaS at scale.
 For detailed description please check [documentation](https://cloud.google.com/saas-runtime/docs).
 
 ## Installing
