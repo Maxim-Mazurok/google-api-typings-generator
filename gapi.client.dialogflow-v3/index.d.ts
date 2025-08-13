@@ -2706,7 +2706,7 @@ declare namespace gapi.client {
       retentionWindowDays?: number;
     }
     interface GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings {
-      /** Filename pattern for exported audio. */
+      /** Filename pattern for exported audio. {conversation} and {timestamp} are placeholders that will be replaced with the conversation ID and epoch micros of the conversation. For example, "{conversation}/recording_{timestamp}.mulaw". */
       audioExportPattern?: string;
       /** File format for exported audio file. Currently only in telephony recordings. */
       audioFormat?: string;
