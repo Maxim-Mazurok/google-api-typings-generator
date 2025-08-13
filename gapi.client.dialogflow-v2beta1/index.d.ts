@@ -1833,8 +1833,6 @@ declare namespace gapi.client {
       dialogflowAssistAnswer?: GoogleCloudDialogflowV2beta1DialogflowAssistAnswer;
       /** Output only. The FAQ answer. */
       faqAnswer?: GoogleCloudDialogflowV2beta1FaqAnswer;
-      /** Output only. The generator suggestion. */
-      generatorSuggestion?: GoogleCloudDialogflowV2beta1GeneratorSuggestion;
     }
     interface GoogleCloudDialogflowV2beta1AnalyzeContentRequest {
       /** Parameters for a human assist query. */

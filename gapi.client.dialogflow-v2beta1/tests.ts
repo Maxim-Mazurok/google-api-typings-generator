@@ -3075,41 +3075,6 @@ gapi.load('client', async () => {
             question: 'Test string',
             source: 'Test string',
           },
-          generatorSuggestion: {
-            freeFormSuggestion: {
-              response: 'Test string',
-            },
-            summarySuggestion: {
-              summarySections: [
-                {
-                  section: 'Test string',
-                  summary: 'Test string',
-                },
-              ],
-            },
-            toolCallInfo: [
-              {
-                toolCall: {
-                  action: 'Test string',
-                  createTime: 'Test string',
-                  inputParameters: {
-                    A: 42,
-                  },
-                  tool: 'Test string',
-                },
-                toolCallResult: {
-                  action: 'Test string',
-                  content: 'Test string',
-                  createTime: 'Test string',
-                  error: {
-                    message: 'Test string',
-                  },
-                  rawContent: 'Test string',
-                  tool: 'Test string',
-                },
-              },
-            ],
-          },
         },
         answerFeedback: {
           agentAssistantDetailFeedback: {
@@ -7271,41 +7236,6 @@ gapi.load('client', async () => {
             },
             question: 'Test string',
             source: 'Test string',
-          },
-          generatorSuggestion: {
-            freeFormSuggestion: {
-              response: 'Test string',
-            },
-            summarySuggestion: {
-              summarySections: [
-                {
-                  section: 'Test string',
-                  summary: 'Test string',
-                },
-              ],
-            },
-            toolCallInfo: [
-              {
-                toolCall: {
-                  action: 'Test string',
-                  createTime: 'Test string',
-                  inputParameters: {
-                    A: 42,
-                  },
-                  tool: 'Test string',
-                },
-                toolCallResult: {
-                  action: 'Test string',
-                  content: 'Test string',
-                  createTime: 'Test string',
-                  error: {
-                    message: 'Test string',
-                  },
-                  rawContent: 'Test string',
-                  tool: 'Test string',
-                },
-              },
-            ],
           },
         },
         answerFeedback: {
