@@ -2,7 +2,7 @@ import spawnAsync, {SpawnResult} from '@expo/spawn-async';
 import {hasOwnProperty} from '../../src/utils.js';
 
 export class SH {
-  readonly cwd: string;
+  private readonly cwd: string;
 
   constructor(cwd?: string) {
     this.cwd = cwd || process.cwd();
