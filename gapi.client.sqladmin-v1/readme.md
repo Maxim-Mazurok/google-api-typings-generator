@@ -258,6 +258,14 @@ await gapi.client.sql.instances.demoteMaster({
 });
 
 /*
+Execute SQL statements.
+*/
+await gapi.client.sql.instances.executeSql({
+  instance: 'instance',
+  project: 'project',
+});
+
+/*
 Exports data from a Cloud SQL instance to a Cloud Storage bucket as a SQL dump or CSV file.
 */
 await gapi.client.sql.instances.export({
