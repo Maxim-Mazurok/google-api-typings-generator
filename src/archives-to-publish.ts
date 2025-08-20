@@ -31,7 +31,7 @@ const getLatestMetaOr404 = async (
     isError,
     error,
   } = await getResultOrError(
-    packageJson(fullPackageName), // NOTE: is doesn't support proxy, but proxy support is primarily for generating types on corporate networks, while publishing is done on GitHub Actions, so it's irrelevant and ok
+    packageJson(fullPackageName), // NOTE: it doesn't support proxy, but proxy support is primarily for generating types on corporate networks, while publishing is done on GitHub Actions, so it's irrelevant and ok
   );
 
   if (isError) {
