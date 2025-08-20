@@ -133,8 +133,9 @@ export class NpmArchivesToPublishHelper {
     const packageDirPath = this.getPackageDirPath(shortPackageName);
     const packageJsonPath = new URL('package.json', packageDirPath);
     const packageJsonText = await readFile(packageJsonPath, 'utf8');
+    const versionRegex = /("version":\s*")(\d+\.\d+\.\d+)(")/;
     const patchedPackageJsonText = packageJsonText.replace(
-      /("version":\s*")(\d+\.\d+\.\d+)(")/,
+      versionRegex,
       (_, prefix, currentSemVer, suffix) => {
         const currentSemVerObject = new SemVer(currentSemVer);
         currentSemVerObject[INTERNAL_TO_SEMVER.generatorVersion] =
@@ -143,8 +144,8 @@ export class NpmArchivesToPublishHelper {
       },
     );
     if (patchedPackageJsonText === packageJsonText) {
-      throw new Error(
-        `Failed to patch package.json for ${shortPackageName}, no changes made.`,
+      console.warn(
+        `Failed to patch package.json for ${shortPackageName}, no changes made. Version was: ${packageJsonText.match(versionRegex)?.[2]}, Generator version was: ${newGeneratorVersion}`,
       );
     }
     await writeFile(packageJsonPath, patchedPackageJsonText, 'utf8');
