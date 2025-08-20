@@ -134,7 +134,7 @@ export class NpmArchivesToPublishHelper {
     const packageJsonPath = new URL('package.json', packageDirPath);
     const packageJsonText = await readFile(packageJsonPath, 'utf8');
     const patchedPackageJsonText = packageJsonText.replace(
-      /("version":\s*"(\d+\.\d+\.\d+)")/,
+      /("version":\s*")(\d+\.\d+\.\d+)(")/,
       (_, prefix, currentSemVer, suffix) => {
         const currentSemVerObject = new SemVer(currentSemVer);
         currentSemVerObject[INTERNAL_TO_SEMVER.generatorVersion] =
