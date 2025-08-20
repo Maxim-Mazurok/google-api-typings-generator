@@ -159,7 +159,7 @@ export class NpmArchivesToPublishHelper {
   }> => {
     // `npm pack --dry-run` was just ~2% faster over 1000 runs: dry-run: 213 ms; normal pack: 217 ms
     const packageDirPath = this.getPackageDirPath(shortPackageName);
-    const command = `npm pack --json ${fileURLToPath(packageDirPath)}`;
+    const command = `npm pack --json ${fileURLToPath(packageDirPath)} --pack-destination ${fileURLToPath(packageDirPath)}`;
     const {stdout} = await this.sh.trySh(command);
     const npmPackSchema = z
       .array(
