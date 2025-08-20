@@ -140,7 +140,7 @@ export class NpmArchivesToPublishHelper {
         const currentSemVerObject = new SemVer(currentSemVer);
         currentSemVerObject[INTERNAL_TO_SEMVER.generatorVersion] =
           newGeneratorVersion;
-        return `${prefix}${currentSemVerObject.version}${suffix}`;
+        return `${prefix}${currentSemVerObject.format()}${suffix}`; // important: use .format() instead of .version, because .version isn't updated when we mutate currentSemVerObject
       },
     );
     if (patchedPackageJsonText === packageJsonText) {
