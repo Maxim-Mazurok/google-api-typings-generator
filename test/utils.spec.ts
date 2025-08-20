@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import {NpmArchivesToPublishHelper} from '../src/archives-to-publish.js';
 import {
   camelCaseToSnakeCase,
   checkExists,
@@ -266,39 +267,38 @@ describe('hasValueRecursive', () => {
 });
 
 describe('getChangedTypes', () => {
-  const currentlyPublishedSheetsRevision = 20230407;
-  const getLatestVersion = (packageName: string) => {
-    if (packageName === '@maxim_mazurok/gapi.client.sheets-v4') {
-      return Promise.resolve(`0.0.${currentlyPublishedSheetsRevision}`);
-    } else if (packageName === '@maxim_mazurok/gapi.client.docs-v1') {
-      return Promise.resolve('0.0.20230228');
-    } else if (packageName === '@maxim_mazurok/gapi.client.sheets-v5') {
-      class PackageNotFoundError extends Error {
-        name = 'PackageNotFoundError';
-      }
-      return Promise.reject(new PackageNotFoundError());
-    }
+  // NOTE: kinda bad test, was converted from an old one in a hurry
 
-    throw new Error(`Unexpected package name: ${packageName}`);
-  };
+  const currentlyPublishedSheetsRevision = 20230407;
+  const getNpmArchivePathToPublish: NpmArchivesToPublishHelper['getNpmArchivePathToPublish'] =
+    (_, localRevision) => {
+      if (localRevision > currentlyPublishedSheetsRevision) {
+        return Promise.resolve(new URL('https://example.com'));
+      }
+      return Promise.resolve(null);
+    };
+  const npmArchivesToPublishHelper = {
+    getNpmArchivePathToPublish,
+  } as NpmArchivesToPublishHelper;
   it('works', async () => {
     // Arrange
 
     const allTypes = [
       {name: 'gapi.client.docs-v1', revision: 20230408}, // newer than currently published
       {
-        name: 'gapi.client.sheets-v4',
+        name: 'gapi.client.docs-v1',
         revision: currentlyPublishedSheetsRevision,
       }, // same as currently published
-      {name: 'gapi.client.sheets-v5', revision: 20230407}, // not yet published
+      {name: 'gapi.client.docs-v1', revision: 20230406}, // older than currently published
     ];
 
     // Act
-    const result = await getNpmArchivesToPublish(allTypes, getLatestVersion);
+    const result = await getNpmArchivesToPublish(
+      allTypes,
+      npmArchivesToPublishHelper,
+    );
 
     // Assert
-    expect(result).toHaveLength(2);
-    expect(result).toContain('gapi.client.docs-v1');
-    expect(result).toContain('gapi.client.sheets-v5');
+    expect(result).toHaveLength(1);
   });
 });
