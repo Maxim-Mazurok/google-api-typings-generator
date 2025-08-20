@@ -89,8 +89,8 @@ const getLatestVersionInfo = async (
   const revision = getFromSemVer(latestVersion, 'revision');
   return {
     isNewPackage: false as const,
-    localRevisionIsNewer: revision > localRevision,
-    localRevisionIsOlder: revision < localRevision,
+    localRevisionIsNewer: revision < localRevision,
+    localRevisionIsOlder: revision > localRevision,
     latestVersion,
     shasum,
   };
