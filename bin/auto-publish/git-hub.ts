@@ -1,23 +1,17 @@
-import {SH} from './sh.js';
 import {Octokit} from '@octokit/rest';
-import {createOctokit} from './helpers.js';
 import {sleep} from '../../src/utils.js';
+import {createOctokit} from './helpers.js';
 
-export interface Settings {
+export interface GitHubSettings {
   user: string; // user who commits
   auth: string; // GH token with public_repo access
   thisRepo: string; // repo form where API calls to GH will be made
 }
 
-export class Git {
-  readonly settings: Settings;
-  readonly sh: SH;
-  readonly octokit: Octokit;
+export class GitHub {
+  private readonly octokit: Octokit;
 
-  constructor(sh: SH, settings: Settings) {
-    this.sh = sh;
-    this.settings = settings;
-
+  constructor(private readonly settings: GitHubSettings) {
     const {user, auth, thisRepo} = this.settings;
 
     this.octokit = createOctokit({auth, user, thisRepo});

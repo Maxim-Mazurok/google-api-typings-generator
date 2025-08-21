@@ -1,6 +1,6 @@
-import {join} from 'node:path';
-import {getChangedTypes} from '../../src/utils.js';
-import {Git, Settings as GitSettings} from './git.js';
+import {NpmArchivesToPublishHelper} from '../../src/archives-to-publish.js';
+import {getNpmArchivesToPublish} from '../../src/utils.js';
+import {GitHub, GitHubSettings} from './git-hub.js';
 import {Helpers} from './helpers.js';
 import {SH} from './sh.js';
 
@@ -13,7 +13,7 @@ export interface TypesBranchAndDirSettings {
   typesDirName: string; // temporary directory name to download types branch to
 }
 
-export interface Settings extends GitSettings, TypesBranchAndDirSettings {}
+export interface Settings extends GitHubSettings, TypesBranchAndDirSettings {}
 
 const settings: Settings = {
   typesDirName: 'types',
@@ -24,8 +24,9 @@ const settings: Settings = {
 };
 
 const sh = new SH();
-const git = new Git(sh, settings);
-const helpers = new Helpers(sh, git, settings);
+const gitHub = new GitHub(settings);
+const helpers = new Helpers(sh, gitHub, settings);
+const npmArchivesToPublishHelper = new NpmArchivesToPublishHelper(sh, settings);
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -38,12 +39,14 @@ void (async () => {
   // Do the job
   const allTypes = helpers.getAllTypes();
   console.log(JSON.stringify({allTypes}, null, 2));
-  const latestVersion = (await import('latest-version')).default;
-  const changedTypes = await getChangedTypes(allTypes, latestVersion);
-  console.log(JSON.stringify({changedTypes}, null, 2));
+  const npmArchivesToPublish = await getNpmArchivesToPublish(
+    allTypes,
+    npmArchivesToPublishHelper,
+  );
+  console.log(JSON.stringify({npmArchivesToPublish}, null, 2));
 
-  for (const type of changedTypes) {
-    console.log(`Publishing ${type}...`);
-    await helpers.npmPublish(join(process.cwd(), settings.typesDirName, type));
+  for (const npmArchivePath of npmArchivesToPublish) {
+    console.log(`Publishing ${npmArchivePath}...`);
+    await helpers.npmPublish(npmArchivePath);
   }
 })();

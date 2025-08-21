@@ -16,13 +16,13 @@
     "definitelytyped",
     "Dependabot",
     "dtslint",
+    "esbenp",
     "EMSP",
     "ENSP",
     "gapi",
     "hpagent",
     "Mazurok",
     "npmjs",
-    "npmrc",
     "nvmrc",
     "octokit",
     "packagejson",
@@ -36,5 +36,11 @@
     "Vong",
     "ZWSP"
   ],
-  "ignorePaths": ["node_modules/**", "dist/**", "package-lock.json"]
+  "ignorePaths": [
+    "node_modules/**",
+    "dist/**",
+    "package-lock.json",
+    "**/*.drawio.svg",
+    "test/restDocs/**"
+  ]
 }

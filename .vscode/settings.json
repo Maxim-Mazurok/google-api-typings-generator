@@ -8,5 +8,6 @@
       "args": ["--init-file", "${workspaceFolder}/bash-init.sh"]
     }
   },
-  "terminal.integrated.defaultProfile.linux": "GAPI bash"
+  "terminal.integrated.defaultProfile.linux": "GAPI bash",
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

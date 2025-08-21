@@ -1,6 +1,7 @@
 import {Octokit} from '@octokit/rest';
 import {readdirSync} from 'node:fs';
 import {basename} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {
   ensureDirectoryExists,
   getRevision,
@@ -8,11 +9,15 @@ import {
   rootFolder,
   sleep,
 } from '../../src/utils.js';
-import {Git, Settings as GitSettings} from './git.js';
+import {GitHub, GitHubSettings} from './git-hub.js';
 import {Settings} from './index.js';
 import {SH} from './sh.js';
 
-export const createOctokit = ({auth, user, thisRepo}: GitSettings): Octokit =>
+export const createOctokit = ({
+  auth,
+  user,
+  thisRepo,
+}: GitHubSettings): Octokit =>
   new Octokit({
     auth,
     userAgent: `${user}/${thisRepo}`,
@@ -20,29 +25,26 @@ export const createOctokit = ({auth, user, thisRepo}: GitSettings): Octokit =>
   });
 
 export class Helpers {
-  readonly sh: SH;
-  readonly git: Git;
-  readonly settings: Settings;
-
-  constructor(sh: SH, git: Git, settings: Settings) {
-    this.sh = sh;
-    this.git = git;
-    this.settings = settings;
-  }
+  constructor(
+    private readonly sh: SH,
+    private readonly gitHub: GitHub,
+    private readonly settings: Settings,
+  ) {}
 
   npmPublish = async (
-    cwd: string,
+    npmArchivePath: URL,
     retriesLeft = 5,
     retryTimeout = 60, // seconds
   ): Promise<void> => {
     retriesLeft--;
-    const cmd = 'npm publish --access public';
-    const apiName = basename(cwd);
+    const npmrcPath = new URL('types.npmrc', rootFolder);
+    const cmd = `npm publish --access public --userconfig ${fileURLToPath(npmrcPath)} ${fileURLToPath(npmArchivePath)}`; // cspell:ignore userconfig
+    const apiName = basename(fileURLToPath(npmArchivePath));
     const error503 = '503 Service Unavailable';
     const error404 = '404 Not Found';
     const error429 = '429 Too Many Requests';
     try {
-      await this.sh.runSh(cmd, cwd);
+      await this.sh.runSh(cmd);
     } catch (exception) {
       if (exception instanceof Error === false) {
         console.error('Unknown exception type: ', {exception});
@@ -72,7 +74,7 @@ export class Helpers {
           `NPM returned ${error} for ${apiName}, retrying in ${retryTimeout}s...`,
         );
         sleep(retryTimeout);
-        await this.npmPublish(cwd, retriesLeft);
+        await this.npmPublish(npmArchivePath, retriesLeft);
       } else {
         throw SH.error(exception);
       }
@@ -87,15 +89,15 @@ export class Helpers {
       typesDirName: typesDirName,
     } = this.settings;
 
-    const commitSHA = await this.git.getLatestCommitHash({
+    const commitSHA = await this.gitHub.getLatestCommitHash({
       owner: user,
       repo: thisRepo,
       branch: typesBranchName,
     });
 
-    const url = await this.git.getArchiveLink(commitSHA);
+    const url = await this.gitHub.getArchiveLink(commitSHA);
     ensureDirectoryExists(typesDirName);
-    const cmd = `curl ${url} | tar xvz --strip-components=1 -C ${typesDirName}`;
+    const cmd = `curl ${url} | tar xvz --strip-components=1 -C ${typesDirName}`; // TODO: rewrite this to NodeJS, using fetch and tar-stream, for example
     await this.sh.trySh(cmd);
   };
 
@@ -106,14 +108,17 @@ export class Helpers {
       readdirSync(source, {withFileTypes: true})
         .filter(dirent => dirent.isDirectory())
         .map(dirent => {
-          const name = dirent.name;
-          const indexDTSPath = new URL(`${name}/index.d.ts`, source);
+          const packageShortName = dirent.name;
+          const indexDTSPath = new URL(
+            `${packageShortName}/index.d.ts`,
+            source,
+          );
           const revision = getRevision(indexDTSPath);
           if (revision === undefined) {
             throw new Error(`Could not get revision from ${indexDTSPath}`);
           }
           return {
-            name,
+            name: packageShortName,
             revision,
           };
         });

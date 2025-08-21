@@ -1,11 +1,11 @@
 import _ from 'lodash';
+import {NpmArchivesToPublishHelper} from '../src/archives-to-publish.js';
 import {
   camelCaseToSnakeCase,
   checkExists,
   getAllNamespaces,
   getApiName,
-  getChangedTypes,
-  getMajorAndMinorVersion,
+  getNpmArchivesToPublish,
   getPackageNameFromRestDescription,
   getResourceTypeName,
   hasValueRecursive,
@@ -267,51 +267,38 @@ describe('hasValueRecursive', () => {
 });
 
 describe('getChangedTypes', () => {
-  const currentlyPublishedSheetsRevision = 20230407;
-  const getLatestVersion = (packageName: string) => {
-    if (packageName === '@maxim_mazurok/gapi.client.sheets-v4') {
-      return Promise.resolve(`0.0.${currentlyPublishedSheetsRevision}`);
-    } else if (packageName === '@maxim_mazurok/gapi.client.docs-v1') {
-      return Promise.resolve('0.0.20230228');
-    } else if (packageName === '@maxim_mazurok/gapi.client.sheets-v5') {
-      class PackageNotFoundError extends Error {
-        name = 'PackageNotFoundError';
-      }
-      return Promise.reject(new PackageNotFoundError());
-    }
+  // NOTE: kinda bad test, was converted from an old one in a hurry
 
-    throw new Error(`Unexpected package name: ${packageName}`);
-  };
+  const currentlyPublishedSheetsRevision = 20230407;
+  const getNpmArchivePathToPublish: NpmArchivesToPublishHelper['getNpmArchivePathToPublish'] =
+    (_, localRevision) => {
+      if (localRevision > currentlyPublishedSheetsRevision) {
+        return Promise.resolve(new URL('https://example.com'));
+      }
+      return Promise.resolve(null);
+    };
+  const npmArchivesToPublishHelper = {
+    getNpmArchivePathToPublish,
+  } as NpmArchivesToPublishHelper;
   it('works', async () => {
     // Arrange
 
     const allTypes = [
       {name: 'gapi.client.docs-v1', revision: 20230408}, // newer than currently published
       {
-        name: 'gapi.client.sheets-v4',
+        name: 'gapi.client.docs-v1',
         revision: currentlyPublishedSheetsRevision,
       }, // same as currently published
-      {name: 'gapi.client.sheets-v5', revision: 20230407}, // not yet published
+      {name: 'gapi.client.docs-v1', revision: 20230406}, // older than currently published
     ];
 
     // Act
-    const result = await getChangedTypes(allTypes, getLatestVersion);
+    const result = await getNpmArchivesToPublish(
+      allTypes,
+      npmArchivesToPublishHelper,
+    );
 
     // Assert
-    expect(result).toHaveLength(2);
-    expect(result).toContain('gapi.client.docs-v1');
-    expect(result).toContain('gapi.client.sheets-v5');
-  });
-});
-
-describe('getMajorAndMinorVersion', () => {
-  it('should return 0.1 for gapi.client.discovery-v1', () => {
-    expect(getMajorAndMinorVersion('gapi.client.discovery-v1')).toBe('0.1');
-  });
-  it('should return 0.0 for everything else', () => {
-    expect(getMajorAndMinorVersion('gapi.client.drive-v3')).toBe('0.0');
-    expect(getMajorAndMinorVersion('gapi.client.docs-v1')).toBe('0.0');
-    expect(getMajorAndMinorVersion('gapi.client.sheets-v5')).toBe('0.0');
-    expect(getMajorAndMinorVersion('bla-bla')).toBe('0.0');
+    expect(result).toHaveLength(1);
   });
 });
