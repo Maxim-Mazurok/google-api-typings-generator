@@ -10,6 +10,8 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Required for NPM provenance
     steps:
       # setup
       - uses: actions/checkout@v5
