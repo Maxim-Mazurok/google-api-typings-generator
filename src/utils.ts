@@ -275,25 +275,25 @@ export const getNpmArchivesToPublish = async (
  * This moves the NPM revision check from publishing phase to generation phase
  */
 export const shouldSkipRevisionForNpmCheck = async (
-  shortPackageName: string, // e.g. `gapi.client.oauth2-v2`, not `@maxim_mazurok/gapi.client.oauth2-v2`  
+  shortPackageName: string, // e.g. `gapi.client.oauth2-v2`, not `@maxim_mazurok/gapi.client.oauth2-v2`
   localRevision: number,
 ): Promise<boolean> => {
   const {getLatestVersionInfo} = await import('./archives-to-publish.js');
   const fullPackageName = getFullPackageName(shortPackageName);
-  
+
   try {
     const {localRevisionIsOlder} = await getLatestVersionInfo(
       fullPackageName,
       localRevision,
     );
-    
+
     if (localRevisionIsOlder) {
       console.warn(
         `Skipping ${shortPackageName} with revision ${localRevision} because NPM has a newer revision`,
       );
       return true; // skip this revision
     }
-    
+
     return false; // don't skip
   } catch (error) {
     console.warn(
