@@ -1,7 +1,9 @@
+import {tmpdir} from 'node:os';
+import {pathToFileURL} from 'node:url';
 import {describe, expect, it, vi, type MockedFunction} from 'vitest';
+import {GitHub} from '../bin/auto-publish/git-hub.js';
 import {Helpers} from '../bin/auto-publish/helpers.js';
 import {SH} from '../bin/auto-publish/sh.js';
-import {GitHub} from '../bin/auto-publish/git-hub.js';
 
 describe('NPM Provenance', () => {
   it('should include --provenance flag in npm publish command', async () => {
@@ -24,8 +26,8 @@ describe('NPM Provenance', () => {
 
     const helpers = new Helpers(mockSh, mockGitHub, mockSettings);
 
-    // Create a test archive path
-    const testArchivePath = new URL('file:///tmp/test-package.tgz');
+    // Create a test path in a cross-platform way
+    const testArchivePath = new URL('test-package', pathToFileURL(tmpdir()));
 
     // Call npmPublish
     await helpers.npmPublish(testArchivePath);
