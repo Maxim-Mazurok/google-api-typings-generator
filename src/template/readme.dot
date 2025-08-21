@@ -71,3 +71,5 @@ After that you can use {{=it.restDescription.title}} resources: <!-- TODO: make 
 */
 await gapi.client.{{=it.restDescription.resources[resource].methods[method].id}}({ {{ for(var parameter in it.restDescription.resources[resource].methods[method].parameters) { }}{{? it.restDescription.resources[resource].methods[method].parameters[parameter].required }}{{=parameter }}: {{? it.restDescription.resources[resource].methods[method].parameters[parameter].type === 'integer'}}1{{?}}{{? it.restDescription.resources[resource].methods[method].parameters[parameter].type === 'string'}}"{{=parameter}}"{{?}}, {{?}}{{ } }} });{{ }}}{{ }}}
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/{{=it.packageName}}#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -11803,6 +11803,8 @@ Returns the current set of valid backup verification codes for the specified use
 */
 await gapi.client.directory.verificationCodes.list({ userKey: "userKey",  });
 \`\`\`
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.admin-directory_v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
 "
 `;
 
@@ -17052,6 +17054,8 @@ Watch for changes to Settings resources.
 */
 await gapi.client.calendar.settings.watch({  });
 \`\`\`
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.calendar-v3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
 "
 `;
 
@@ -22301,6 +22305,8 @@ Deprecated use drives.update instead
 */
 await gapi.client.drive.teamdrives.update({ teamDriveId: "teamDriveId",  });
 \`\`\`
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.drive-v3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
 "
 `;
 
@@ -34113,6 +34119,8 @@ Gets the metadata info for the requested client
 */
 await gapi.client.integrations.projects.getClientmetadata({ parent: "parent",  });
 \`\`\`
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.integrations-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
 "
 `;
 
@@ -47318,6 +47326,8 @@ Returns the spreadsheet at the given ID. The caller must specify the spreadsheet
 */
 await gapi.client.sheets.spreadsheets.getByDataFilter({ spreadsheetId: "spreadsheetId",  });
 \`\`\`
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.sheets-v4#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
 "
 `;
 
@@ -59472,6 +59482,8 @@ undefined
 */
 await gapi.client.thirdNamespace.firstMethod({  });
 \`\`\`
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.some-name-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
 "
 `;
 
