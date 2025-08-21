@@ -1,4 +1,3 @@
-import {tmpdir} from 'node:os';
 import {pathToFileURL} from 'node:url';
 import {describe, expect, it, vi} from 'vitest';
 import {GitHub} from '../bin/auto-publish/git-hub.js';
