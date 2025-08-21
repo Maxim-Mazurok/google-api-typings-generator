@@ -14,7 +14,6 @@ jobs:
       - uses: actions-ecosystem/action-add-labels@v1
         if: |
           github.event.pull_request.user.login == 'gapi-generator-create-pull-request[bot]'
-          && (github.event.pull_request.head.ref == 'create-pull-request/chore-npm-dedupe'
-              || github.event.pull_request.head.ref == 'create-pull-request/chore-nodejs-update')
+          && github.event.pull_request.head.ref == 'create-pull-request/nodejs-npm-maintenance'
         with:
           labels: automerge
