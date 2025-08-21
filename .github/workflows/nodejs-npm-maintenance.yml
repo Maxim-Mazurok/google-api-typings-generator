@@ -16,6 +16,12 @@ jobs:
         run: |
           LATEST_VERSION=$(curl -s https://nodejs.org/dist/index.json | jq -r '. | sort_by(.version | ltrimstr("v") | split(".") | map(tonumber)) | reverse | .[0].version' | sed 's/^v//') # cspell:words ltrimstr
 
+          # Error handling: check if LATEST_VERSION is non-empty and looks like a version
+          if [ -z "$LATEST_VERSION" ] || ! echo "$LATEST_VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "Error: Failed to detect latest Node.js version. Got: '$LATEST_VERSION'"
+            exit 1
+          fi
+
           echo "latest_version=$LATEST_VERSION" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js with latest version
@@ -36,16 +42,22 @@ jobs:
           npm pkg set engines.npm="$(npm --version)"
 
           # Update package-lock.json
-          npm install --package-lock-only
+            npm install --package-lock-only --ignore-scripts
 
           # Dedupe and update dependencies
           npm dedupe
           npm update
 
+      - uses: tibdex/github-app-token@v2 # cspell:words tibdex
+        id: generate-token
+        with:
+          app_id: ${{ secrets.CREATE_PR_APP_ID }}
+          private_key: ${{ secrets.CREATE_PR_APP_PRIVATE_KEY }}
+
       - name: Create PR
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GH_AUTH_TOKEN }}
+          token: ${{ steps.generate-token.outputs.token }}
           title: 'chore: Node.js and npm maintenance'
           body: 'Automated Node.js and npm maintenance tasks.'
           branch: 'create-pull-request/nodejs-npm-maintenance'
