@@ -38,7 +38,7 @@ export class Helpers {
   ): Promise<void> => {
     retriesLeft--;
     const npmrcPath = new URL('types.npmrc', rootFolder);
-    const cmd = `npm publish --access public --userconfig ${fileURLToPath(npmrcPath)} ${fileURLToPath(npmArchivePath)}`; // cspell:ignore userconfig
+    const cmd = `npm publish --access public --provenance --userconfig ${fileURLToPath(npmrcPath)} ${fileURLToPath(npmArchivePath)}`; // cspell:ignore userconfig
     const apiName = basename(fileURLToPath(npmArchivePath));
     const error503 = '503 Service Unavailable';
     const error404 = '404 Not Found';
