@@ -10,7 +10,7 @@ on:
   workflow_dispatch: # for manual testing
 
 jobs:
-  generate:
+  auto-generate:
     runs-on: ubuntu-latest
     steps:
       # setup

@@ -8,7 +8,7 @@ on:
   workflow_dispatch: # for manual testing
 
 jobs:
-  generate:
+  auto-publish:
     runs-on: ubuntu-latest
     permissions:
       id-token: write # Required for NPM provenance
