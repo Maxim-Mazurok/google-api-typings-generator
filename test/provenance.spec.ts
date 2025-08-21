@@ -1,22 +1,21 @@
 import {tmpdir} from 'node:os';
 import {pathToFileURL} from 'node:url';
-import {describe, expect, it, vi, type MockedFunction} from 'vitest';
+import {describe, expect, it, vi} from 'vitest';
 import {GitHub} from '../bin/auto-publish/git-hub.js';
 import {Helpers} from '../bin/auto-publish/helpers.js';
+import {Settings} from '../bin/auto-publish/index.js';
 import {SH} from '../bin/auto-publish/sh.js';
 
 describe('NPM Provenance', () => {
   it('should include --provenance flag in npm publish command', async () => {
     // Mock SH class
-    const mockSh = {
-      runSh: vi.fn().mockResolvedValue(undefined),
-    } as unknown as SH;
-
-    // Mock GitHub class
-    const mockGitHub = {} as unknown as GitHub;
+    const runShMock = vi.fn().mockResolvedValue(undefined);
+    const mockSh: Partial<SH> = {
+      runSh: runShMock,
+    };
 
     // Mock settings
-    const mockSettings = {
+    const mockSettings: Settings = {
       typesDirName: 'types',
       typesBranchName: 'types',
       user: 'test-user',
@@ -24,7 +23,11 @@ describe('NPM Provenance', () => {
       thisRepo: 'test-repo',
     };
 
-    const helpers = new Helpers(mockSh, mockGitHub, mockSettings);
+    const helpers = new Helpers(
+      mockSh as unknown as SH,
+      {} as unknown as GitHub,
+      mockSettings,
+    );
 
     // Create a test path in a cross-platform way
     const testArchivePath = new URL('test-package', pathToFileURL(tmpdir()));
@@ -33,9 +36,8 @@ describe('NPM Provenance', () => {
     await helpers.npmPublish(testArchivePath);
 
     // Verify that runSh was called with the correct command
-    expect(mockSh.runSh).toHaveBeenCalledTimes(1);
-    const calledCommand = (mockSh.runSh as MockedFunction<typeof mockSh.runSh>)
-      .mock.calls[0][0];
+    expect(runShMock).toHaveBeenCalledTimes(1);
+    const calledCommand = runShMock.mock.calls[0][0];
 
     // Check that the command includes the --provenance flag
     expect(calledCommand).toContain('--provenance');
