@@ -45,7 +45,7 @@ jobs:
       - name: Create PR
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_APP_TOKEN }}
           title: 'chore: Node.js and npm maintenance'
           body: 'Automated Node.js and npm maintenance tasks.'
           branch: 'create-pull-request/nodejs-npm-maintenance'
