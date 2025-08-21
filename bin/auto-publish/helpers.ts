@@ -43,6 +43,7 @@ export class Helpers {
     const error503 = '503 Service Unavailable';
     const error404 = '404 Not Found';
     const error429 = '429 Too Many Requests';
+    const errorIdTokenRead = 'IDENTITY_TOKEN_READ_ERROR'; // Seems like a transient error? https://github.com/Maxim-Mazurok/google-api-typings-generator/actions/runs/17128490304/job/48586056323
     try {
       await this.sh.runSh(cmd);
     } catch (exception) {
@@ -67,7 +68,8 @@ export class Helpers {
       } else if (
         (error.includes(error503) ||
           error.includes(error404) ||
-          error.includes(error429)) &&
+          error.includes(error429) ||
+          error.includes(errorIdTokenRead)) &&
         retriesLeft > 0
       ) {
         console.warn(
