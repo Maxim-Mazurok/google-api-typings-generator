@@ -29,8 +29,8 @@ describe('NPM Provenance', () => {
       mockSettings,
     );
 
-    // Create a test path in a cross-platform way
-    const testArchivePath = new URL('test-package', pathToFileURL(tmpdir()));
+    // Create a test path
+    const testArchivePath = pathToFileURL('/test-package', {windows: false});
 
     // Call npmPublish
     await helpers.npmPublish(testArchivePath);
