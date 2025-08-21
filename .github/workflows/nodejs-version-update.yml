@@ -17,8 +17,15 @@ jobs:
         id: nodejs-version
         run: |
           # Get the latest LTS version of Node.js
+          echo "Fetching latest Node.js LTS version..."
           LATEST_LTS=$(curl -s https://nodejs.org/dist/index.json | jq -r '[.[] | select(.lts != false)] | .[0].version' | sed 's/^v//')
           CURRENT_VERSION=$(cat .nvmrc)
+          
+          # Validate that we got a valid version
+          if [[ ! "$LATEST_LTS" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Error: Failed to fetch valid Node.js LTS version"
+            exit 1
+          fi
           
           echo "latest_lts=$LATEST_LTS" >> $GITHUB_OUTPUT
           echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
@@ -26,6 +33,12 @@ jobs:
           
           echo "Current Node.js version: $CURRENT_VERSION"
           echo "Latest LTS Node.js version: $LATEST_LTS"
+          
+          if [ "$LATEST_LTS" != "$CURRENT_VERSION" ]; then
+            echo "::notice::Node.js update available: $CURRENT_VERSION -> $LATEST_LTS"
+          else
+            echo "::notice::Node.js is up to date: $CURRENT_VERSION"
+          fi
 
       - name: Setup Node.js with latest LTS
         if: steps.nodejs-version.outputs.needs_update == 'true'
@@ -53,15 +66,38 @@ jobs:
       - name: Update version files
         if: steps.nodejs-version.outputs.needs_update == 'true'
         run: |
+          echo "Updating version files..."
+          
           # Update .nvmrc
           echo "${{ steps.nodejs-version.outputs.latest_lts }}" > .nvmrc
+          echo "Updated .nvmrc to: $(cat .nvmrc)"
           
           # Update package.json engines
           npm pkg set engines.node="${{ steps.nodejs-version.outputs.latest_lts }}"
           npm pkg set engines.npm="${{ steps.npm-version.outputs.npm_version }}"
+          echo "Updated package.json engines:"
+          npm pkg get engines
           
           # Update package-lock.json by running npm install
+          echo "Updating package-lock.json..."
           npm install --package-lock-only
+          
+          echo "Version files updated successfully!"
+          
+          # Verify consistency 
+          echo "Verifying version consistency..."
+          NVMRC_VERSION=$(cat .nvmrc)
+          PKG_NODE_VERSION=$(npm pkg get engines.node | tr -d '"')
+          PKG_NPM_VERSION=$(npm pkg get engines.npm | tr -d '"')
+          
+          echo "- .nvmrc: $NVMRC_VERSION"
+          echo "- package.json node: $PKG_NODE_VERSION"
+          echo "- package.json npm: $PKG_NPM_VERSION"
+          
+          if [ "$NVMRC_VERSION" != "$PKG_NODE_VERSION" ]; then
+            echo "Error: Version mismatch between .nvmrc and package.json"
+            exit 1
+          fi
 
       # create PR
       - name: Create PR
