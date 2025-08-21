@@ -79,3 +79,5 @@ Lists shelves. The order is unspecified but deterministic. Newly created shelves
 */
 await gapi.client.libraryagent.shelves.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.libraryagent-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

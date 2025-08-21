@@ -94,3 +94,5 @@ ReceiveWebhook is called when the API receives a GitHub webhook.
 */
 await gapi.client.cloudbuild.webhook({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudbuild-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

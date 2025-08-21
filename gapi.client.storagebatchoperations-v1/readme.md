@@ -70,3 +70,5 @@ After that you can use Storage Batch Operations API resources: <!-- TODO: make t
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.storagebatchoperations-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

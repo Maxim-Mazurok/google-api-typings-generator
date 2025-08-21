@@ -97,3 +97,5 @@ Lists notes. Every list call returns a page of results with `page_size` as the u
 */
 await gapi.client.keep.notes.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.keep-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -84,3 +84,5 @@ Performs online prediction on the data in the request. {% dynamic include "/ai-p
 */
 await gapi.client.ml.projects.predict({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.ml-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

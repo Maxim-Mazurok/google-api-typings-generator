@@ -114,3 +114,5 @@ Retrieves the latest version of the `TermsOfService` for a given `kind` and `reg
 */
 await gapi.client.merchantapi.termsOfService.retrieveLatest({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.merchantapi-accounts_v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

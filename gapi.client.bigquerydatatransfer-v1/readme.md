@@ -82,3 +82,5 @@ await gapi.client.bigquerydatatransfer.projects.enrollDataSources({
   name: 'name',
 });
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.bigquerydatatransfer-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

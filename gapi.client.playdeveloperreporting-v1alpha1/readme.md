@@ -85,3 +85,5 @@ Searches for Apps accessible by the user.
 */
 await gapi.client.playdeveloperreporting.apps.search({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.playdeveloperreporting-v1alpha1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

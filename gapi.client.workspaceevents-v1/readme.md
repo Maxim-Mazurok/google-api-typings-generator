@@ -155,3 +155,5 @@ Reactivates a suspended Google Workspace subscription. This method resets your s
 */
 await gapi.client.workspaceevents.subscriptions.reactivate({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.workspaceevents-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

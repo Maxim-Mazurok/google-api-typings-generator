@@ -104,3 +104,5 @@ Updates the publish settings of a form. Legacy forms aren't supported because th
 */
 await gapi.client.forms.forms.setPublishSettings({formId: 'formId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.forms-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

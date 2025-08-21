@@ -117,3 +117,5 @@ await gapi.client.reports.userUsageReport.get({
   userKey: 'userKey',
 });
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.admin-reports_v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

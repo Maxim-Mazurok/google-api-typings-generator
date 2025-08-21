@@ -79,3 +79,5 @@ Verifies the challenge response.
 */
 await gapi.client.verifiedaccess.challenge.verify({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.verifiedaccess-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

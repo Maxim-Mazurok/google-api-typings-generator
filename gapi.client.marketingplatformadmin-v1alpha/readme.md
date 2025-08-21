@@ -77,3 +77,5 @@ Lookup for a single organization.
 */
 await gapi.client.marketingplatformadmin.organizations.get({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.marketingplatformadmin-v1alpha#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

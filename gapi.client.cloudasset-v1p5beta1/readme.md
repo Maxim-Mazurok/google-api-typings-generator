@@ -74,3 +74,5 @@ Lists assets with time and resource types and returns paged results in response.
 */
 await gapi.client.cloudasset.assets.list({parent: 'parent'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudasset-v1p5beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

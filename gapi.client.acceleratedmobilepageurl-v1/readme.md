@@ -50,3 +50,5 @@ Returns AMP URL(s) and equivalent [AMP Cache URL(s)](/amp/cache/overview#amp-cac
 */
 await gapi.client.acceleratedmobilepageurl.ampUrls.batchGet({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.acceleratedmobilepageurl-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

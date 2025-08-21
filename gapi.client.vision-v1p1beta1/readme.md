@@ -92,3 +92,5 @@ Run asynchronous image detection and annotation for a list of images. Progress a
 */
 await gapi.client.vision.images.asyncBatchAnnotate({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.vision-v1p1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

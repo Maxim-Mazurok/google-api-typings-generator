@@ -104,3 +104,5 @@ Gets the latest version of the specified presentation.
 */
 await gapi.client.slides.presentations.get({presentationId: 'presentationId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.slides-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

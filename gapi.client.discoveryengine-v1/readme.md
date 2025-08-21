@@ -82,3 +82,5 @@ Provisions the project resource. During the process, related systems will get pr
 */
 await gapi.client.discoveryengine.projects.provision({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.discoveryengine-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

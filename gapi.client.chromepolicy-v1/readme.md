@@ -77,3 +77,5 @@ Creates an enterprise file from the content provided by user. Returns a public d
 */
 await gapi.client.chromepolicy.media.upload({customer: 'customer'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.chromepolicy-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

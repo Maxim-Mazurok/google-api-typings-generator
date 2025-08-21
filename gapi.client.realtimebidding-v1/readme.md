@@ -94,3 +94,5 @@ Lists all buyer account information the calling buyer user or service account is
 */
 await gapi.client.realtimebidding.buyers.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.realtimebidding-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

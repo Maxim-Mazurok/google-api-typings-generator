@@ -80,3 +80,5 @@ After that you can use Firebase Realtime Database Management API resources: <!--
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.firebasedatabase-v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

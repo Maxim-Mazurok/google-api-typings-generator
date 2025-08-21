@@ -94,3 +94,5 @@ Search tenancy units for a managed service.
 */
 await gapi.client.serviceconsumermanagement.services.search({parent: 'parent'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.serviceconsumermanagement-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

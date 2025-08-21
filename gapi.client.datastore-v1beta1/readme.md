@@ -82,3 +82,5 @@ Imports entities into Google Cloud Datastore. Existing entities with the same ke
 */
 await gapi.client.datastore.projects.import({projectId: 'projectId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.datastore-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

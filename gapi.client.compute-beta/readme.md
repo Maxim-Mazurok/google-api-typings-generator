@@ -4875,3 +4875,5 @@ Retrieves the list of Zone resources available to the specified project.
 */
 await gapi.client.compute.zones.list({ project: "project",  });
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.compute-beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

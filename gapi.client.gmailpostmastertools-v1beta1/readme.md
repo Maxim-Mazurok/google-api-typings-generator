@@ -79,3 +79,5 @@ Lists the domains that have been registered by the client. The order of domains 
 */
 await gapi.client.gmailpostmastertools.domains.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.gmailpostmastertools-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -594,3 +594,5 @@ Lists operations that match the specified filter in the request.
 */
 await gapi.client.storage.buckets.operations.list({bucket: 'bucket'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.storage-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

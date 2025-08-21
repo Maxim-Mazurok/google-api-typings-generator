@@ -313,3 +313,5 @@ Lists all resource types for Deployment Manager.
 */
 await gapi.client.deploymentmanager.types.list({project: 'project'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.deploymentmanager-v2beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

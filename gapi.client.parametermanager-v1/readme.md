@@ -71,3 +71,5 @@ After that you can use Parameter Manager API resources: <!-- TODO: make this wor
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.parametermanager-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

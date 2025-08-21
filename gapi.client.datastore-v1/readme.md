@@ -124,3 +124,5 @@ Queries for entities.
 */
 await gapi.client.datastore.projects.runQuery({projectId: 'projectId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.datastore-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -134,3 +134,5 @@ After that you can use Fitness API resources: <!-- TODO: make this work for mult
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.fitness-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

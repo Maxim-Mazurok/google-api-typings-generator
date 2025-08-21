@@ -55,3 +55,5 @@ Retrieve the list of APIs supported at this endpoint.
 */
 await gapi.client.discovery.apis.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.discovery-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -105,3 +105,5 @@ Updates details about a meeting space. For an example, see [Update a meeting spa
 */
 await gapi.client.meet.spaces.patch({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.meet-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

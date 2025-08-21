@@ -100,3 +100,5 @@ Recreates the required App Engine features for the specified App Engine applicat
 */
 await gapi.client.appengine.apps.repair({appsId: 'appsId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.appengine-v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

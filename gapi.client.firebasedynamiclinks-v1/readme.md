@@ -96,3 +96,5 @@ Get iOS reopen attribution for app universal link open deeplinking.
 */
 await gapi.client.firebasedynamiclinks.reopenAttribution({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.firebasedynamiclinks-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

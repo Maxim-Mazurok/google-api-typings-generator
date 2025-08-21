@@ -121,3 +121,5 @@ Service producers use this method to validate if the consumer provided network, 
 */
 await gapi.client.servicenetworking.services.validate({parent: 'parent'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.servicenetworking-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

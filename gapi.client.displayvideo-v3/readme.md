@@ -402,3 +402,5 @@ Updates an existing user. Returns the updated user if successful. This method ha
 */
 await gapi.client.displayvideo.users.patch({userId: 'userId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.displayvideo-v3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

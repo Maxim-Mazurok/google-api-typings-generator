@@ -101,3 +101,5 @@ Lists the transfers for a customer by source user, destination user, or status.
 */
 await gapi.client.datatransfer.transfers.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.admin-datatransfer_v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

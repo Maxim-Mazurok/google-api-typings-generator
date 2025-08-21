@@ -74,3 +74,5 @@ Returns a list of the sensitive information types that the DLP API supports. See
 */
 await gapi.client.dlp.infoTypes.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.dlp-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -79,3 +79,5 @@ Notifies that a URL has been updated or deleted.
 */
 await gapi.client.indexing.urlNotifications.publish({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.indexing-v3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

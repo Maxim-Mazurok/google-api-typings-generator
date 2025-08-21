@@ -71,3 +71,5 @@ After that you can use VM Migration API resources: <!-- TODO: make this work for
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.vmmigration-v1alpha1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -87,3 +87,5 @@ Lists operations that match the specified filter in the request. If the server d
 */
 await gapi.client.runtimeconfig.operations.list({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.runtimeconfig-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -77,3 +77,5 @@ Query past activity in Google Drive.
 */
 await gapi.client.driveactivity.activity.query({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.driveactivity-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -79,3 +79,5 @@ Returns a list of Voice supported for synthesis.
 */
 await gapi.client.texttospeech.voices.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.texttospeech-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -145,3 +145,5 @@ Gets the user capabilities.
 */
 await gapi.client.drivelabels.users.getCapabilities({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.drivelabels-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

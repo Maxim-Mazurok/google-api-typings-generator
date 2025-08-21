@@ -80,3 +80,5 @@ Sends trace spans to Cloud Trace. Spans cannot be updated. If the trace ID and s
 */
 await gapi.client.cloudtrace.projects.patchTraces({projectId: 'projectId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudtrace-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

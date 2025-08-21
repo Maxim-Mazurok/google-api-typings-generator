@@ -146,3 +146,5 @@ Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.prod_tt_sasportal.policies.test({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.prod_tt_sasportal-v1alpha1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

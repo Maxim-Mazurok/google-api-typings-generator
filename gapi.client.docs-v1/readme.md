@@ -96,3 +96,5 @@ Gets the latest version of the specified document.
 */
 await gapi.client.docs.documents.get({documentId: 'documentId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.docs-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

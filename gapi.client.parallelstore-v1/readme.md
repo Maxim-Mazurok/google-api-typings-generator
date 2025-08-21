@@ -70,3 +70,5 @@ After that you can use Parallelstore API resources: <!-- TODO: make this work fo
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.parallelstore-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

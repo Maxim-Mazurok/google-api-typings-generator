@@ -74,3 +74,5 @@ Gets the latest state of a long-running operation. Clients can use this method t
 */
 await gapi.client.serviceconsumermanagement.operations.get({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.serviceconsumermanagement-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

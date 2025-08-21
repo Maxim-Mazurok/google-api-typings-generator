@@ -224,3 +224,5 @@ Returns a user profile. This method returns the following error codes: * `PERMIS
 */
 await gapi.client.classroom.userProfiles.get({userId: 'userId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.classroom-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

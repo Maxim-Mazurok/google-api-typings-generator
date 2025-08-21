@@ -60,3 +60,5 @@ Retrieves a list of all statements from a given source that match the specified 
 */
 await gapi.client.digitalassetlinks.statements.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.digitalassetlinks-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

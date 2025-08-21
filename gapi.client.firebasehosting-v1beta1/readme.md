@@ -88,3 +88,5 @@ Sets the Hosting metadata for a specific site.
 */
 await gapi.client.firebasehosting.sites.updateConfig({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.firebasehosting-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

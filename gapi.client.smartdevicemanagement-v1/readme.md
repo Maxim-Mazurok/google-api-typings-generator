@@ -71,3 +71,5 @@ After that you can use Smart Device Management API resources: <!-- TODO: make th
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.smartdevicemanagement-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

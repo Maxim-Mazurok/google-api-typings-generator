@@ -125,3 +125,5 @@ List all services available to the specified project, and the current state of t
 */
 await gapi.client.serviceusage.services.list({parent: 'parent'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.serviceusage-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

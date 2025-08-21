@@ -900,3 +900,5 @@ await gapi.client.content.shoppingadsprogram.requestreview({
   merchantId: 'merchantId',
 });
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.content-v2.1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

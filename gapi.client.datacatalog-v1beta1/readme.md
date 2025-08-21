@@ -79,3 +79,5 @@ Get an entry by target resource name. This method allows clients to use the reso
 */
 await gapi.client.datacatalog.entries.lookup({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.datacatalog-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

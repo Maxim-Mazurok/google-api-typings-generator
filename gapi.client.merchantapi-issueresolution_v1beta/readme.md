@@ -88,3 +88,5 @@ Start an action. The action can be requested by a business in third-party applic
 */
 await gapi.client.merchantapi.issueresolution.triggeraction({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.merchantapi-issueresolution_v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -65,3 +65,5 @@ List hash lists. In the V5 API, Google will never remove a hash list that has ev
 */
 await gapi.client.safebrowsing.hashLists.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.safebrowsing-v5#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -71,3 +71,5 @@ After that you can use Cloud Scheduler API resources: <!-- TODO: make this work 
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudscheduler-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

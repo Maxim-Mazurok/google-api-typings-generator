@@ -103,3 +103,5 @@ Lists workspaces for the user.
 */
 await gapi.client.area120tables.workspaces.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.area120tables-v1alpha1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

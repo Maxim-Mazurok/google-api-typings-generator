@@ -83,3 +83,5 @@ Gets the metadata info for the requested client
 */
 await gapi.client.integrations.projects.getClientmetadata({parent: 'parent'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.integrations-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

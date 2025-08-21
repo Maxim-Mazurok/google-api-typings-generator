@@ -112,3 +112,5 @@ await gapi.client.firebaseappcheck.projects.verifyAppCheckToken({
   project: 'project',
 });
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.firebaseappcheck-v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

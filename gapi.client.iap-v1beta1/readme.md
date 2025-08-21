@@ -84,3 +84,5 @@ Returns permissions that a caller has on the Identity-Aware Proxy protected reso
 */
 await gapi.client.iap.testIamPermissions({resource: 'resource'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.iap-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

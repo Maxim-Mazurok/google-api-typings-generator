@@ -71,3 +71,5 @@ After that you can use Cloud Controls Partner API resources: <!-- TODO: make thi
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudcontrolspartner-v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

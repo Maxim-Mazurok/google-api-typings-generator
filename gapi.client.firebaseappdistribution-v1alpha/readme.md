@@ -87,3 +87,5 @@ Get information about the quota for `ReleaseTests`.
 */
 await gapi.client.firebaseappdistribution.projects.getTestQuota({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.firebaseappdistribution-v1alpha#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

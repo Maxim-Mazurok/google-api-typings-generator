@@ -177,3 +177,5 @@ Resets scores for the leaderboards with the given IDs for all players. This meth
 */
 await gapi.client.gamesManagement.scores.resetMultipleForAllPlayers({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.games_management-v1management#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

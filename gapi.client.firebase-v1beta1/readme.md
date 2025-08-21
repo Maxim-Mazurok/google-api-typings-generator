@@ -133,3 +133,5 @@ Lists all available Apps for the specified FirebaseProject. This is a convenienc
 */
 await gapi.client.firebase.projects.searchApps({parent: 'parent'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.firebase-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

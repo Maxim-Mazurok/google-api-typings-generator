@@ -77,3 +77,5 @@ Completes the specified prefix with keyword suggestions. Intended for use by a j
 */
 await gapi.client.jobs.projects.complete({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.jobs-v3p1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

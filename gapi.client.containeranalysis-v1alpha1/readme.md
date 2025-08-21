@@ -71,3 +71,5 @@ After that you can use Container Analysis API resources: <!-- TODO: make this wo
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.containeranalysis-v1alpha1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

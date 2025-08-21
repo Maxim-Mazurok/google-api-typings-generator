@@ -108,3 +108,5 @@ Returns the list of IP addresses that checkers run from.
 */
 await gapi.client.monitoring.uptimeCheckIps.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.monitoring-v3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

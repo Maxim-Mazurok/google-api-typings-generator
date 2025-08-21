@@ -107,3 +107,5 @@ Moderates a document for harmful and sensitive categories.
 */
 await gapi.client.language.documents.moderateText({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.language-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

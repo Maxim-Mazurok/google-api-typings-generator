@@ -201,3 +201,5 @@ Streams queries using a reasoning engine.
 */
 await gapi.client.aiplatform.reasoningEngines.streamQuery({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.aiplatform-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

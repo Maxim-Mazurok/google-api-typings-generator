@@ -65,3 +65,5 @@ Looks up information relevant to a voter based on the voter's registered address
 */
 await gapi.client.civicinfo.elections.voterInfoQuery({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.civicinfo-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

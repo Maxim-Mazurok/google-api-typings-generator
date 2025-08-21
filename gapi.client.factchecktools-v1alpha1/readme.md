@@ -103,3 +103,5 @@ Update for all `ClaimReview` markup on a page Note that this is a full update. T
 */
 await gapi.client.factchecktools.pages.update({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.factchecktools-v1alpha1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

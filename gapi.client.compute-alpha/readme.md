@@ -5420,3 +5420,5 @@ Modifies an existing zone VM extension policy.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.update({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.compute-alpha#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

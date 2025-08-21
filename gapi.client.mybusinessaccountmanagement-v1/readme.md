@@ -72,3 +72,5 @@ await gapi.client.mybusinessaccountmanagement.locations.transfer({
   name: 'name',
 });
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.mybusinessaccountmanagement-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

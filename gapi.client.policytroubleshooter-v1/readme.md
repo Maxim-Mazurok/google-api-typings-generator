@@ -73,3 +73,5 @@ Checks whether a principal has a specific permission for a specific resource, an
 */
 await gapi.client.policytroubleshooter.iam.troubleshoot({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.policytroubleshooter-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

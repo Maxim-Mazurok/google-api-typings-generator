@@ -84,3 +84,5 @@ Returns air quality history for a specific location for a given time range.
 */
 await gapi.client.airquality.history.lookup({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.airquality-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

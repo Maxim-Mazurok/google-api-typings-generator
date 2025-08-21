@@ -84,3 +84,5 @@ Updates labels assigned to CSS/MC accounts by a CSS domain.
 */
 await gapi.client.css.accounts.updateLabels({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.css-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

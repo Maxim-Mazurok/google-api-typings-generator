@@ -55,3 +55,5 @@ Lists sites that are failing in the Ad Experience Report on at least one platfor
 */
 await gapi.client.adexperiencereport.violatingSites.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.adexperiencereport-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

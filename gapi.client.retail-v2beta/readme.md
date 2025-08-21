@@ -79,3 +79,5 @@ Update the alert config of the requested project.
 */
 await gapi.client.retail.projects.updateAlertConfig({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.retail-v2beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -84,3 +84,5 @@ Gets the current system policy in the specified location.
 */
 await gapi.client.binaryauthorization.systempolicy.getPolicy({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.binaryauthorization-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

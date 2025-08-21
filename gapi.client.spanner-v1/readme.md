@@ -80,3 +80,5 @@ Return available scans given a Database-specific resource name.
 */
 await gapi.client.spanner.scans.list({parent: 'parent'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.spanner-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

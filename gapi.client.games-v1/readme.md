@@ -296,3 +296,5 @@ Returns engagement and spend statistics in this application for the currently au
 */
 await gapi.client.games.stats.get({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.games-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -71,3 +71,5 @@ After that you can use Backup for GKE API resources: <!-- TODO: make this work f
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.gkebackup-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

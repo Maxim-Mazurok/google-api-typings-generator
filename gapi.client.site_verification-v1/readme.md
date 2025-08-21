@@ -109,3 +109,5 @@ Modify the list of owners for your website or domain.
 */
 await gapi.client.siteVerification.webResource.update({id: 'id'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.site_verification-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

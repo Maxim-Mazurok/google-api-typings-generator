@@ -71,3 +71,5 @@ After that you can use Batch API resources: <!-- TODO: make this work for multip
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.batch-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

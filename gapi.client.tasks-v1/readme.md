@@ -142,3 +142,5 @@ Updates the specified task.
 */
 await gapi.client.tasks.tasks.update({task: 'task', tasklist: 'tasklist'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.tasks-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

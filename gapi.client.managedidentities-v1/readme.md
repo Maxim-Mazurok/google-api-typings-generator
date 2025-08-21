@@ -71,3 +71,5 @@ After that you can use Managed Service for Microsoft Active Directory API resour
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.managedidentities-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

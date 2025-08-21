@@ -78,3 +78,5 @@ Sets the access control policy for a resource. Replaces any existing policy.
 */
 await gapi.client.contentwarehouse.projects.setAcl({resource: 'resource'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.contentwarehouse-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

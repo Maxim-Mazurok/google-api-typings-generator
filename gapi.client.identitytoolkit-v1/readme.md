@@ -193,3 +193,5 @@ Retrieves the set of public keys of the session cookie JSON Web Token (JWT) sign
 */
 await gapi.client.identitytoolkit.getSessionCookiePublicKeys({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.identitytoolkit-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

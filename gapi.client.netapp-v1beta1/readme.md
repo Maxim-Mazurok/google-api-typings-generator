@@ -71,3 +71,5 @@ After that you can use NetApp API resources: <!-- TODO: make this work for multi
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.netapp-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -124,3 +124,5 @@ Create a file attachment on a case or Cloud resource. The attachment must have t
 */
 await gapi.client.cloudsupport.media.upload({parent: 'parent'});
 ````
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudsupport-v2beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

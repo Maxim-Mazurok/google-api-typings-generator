@@ -82,3 +82,5 @@ This method provides telemetry reporting for services that are integrated with [
 */
 await gapi.client.servicecontrol.services.report({serviceName: 'serviceName'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.servicecontrol-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

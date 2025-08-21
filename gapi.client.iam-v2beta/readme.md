@@ -94,3 +94,5 @@ Updates the specified policy. You can update only the rules and the display name
 */
 await gapi.client.iam.policies.update({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.iam-v2beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

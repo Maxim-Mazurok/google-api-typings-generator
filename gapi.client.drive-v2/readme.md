@@ -467,3 +467,5 @@ Deprecated: Use `drives.update` instead.
 */
 await gapi.client.drive.teamdrives.update({ teamDriveId: "teamDriveId",  });
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.drive-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

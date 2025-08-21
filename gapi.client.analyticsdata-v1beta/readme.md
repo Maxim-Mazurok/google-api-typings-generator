@@ -117,3 +117,5 @@ Returns a customized report of your Google Analytics event data. Reports contain
 */
 await gapi.client.analyticsdata.properties.runReport({property: 'property'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.analyticsdata-v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

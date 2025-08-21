@@ -80,3 +80,5 @@ Test `Source` for syntactic and semantic correctness. Issues present, if any, wi
 */
 await gapi.client.firebaserules.projects.test({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.firebaserules-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -163,3 +163,5 @@ Enables `third party` support in Google Cloud Search. **Note:** This API require
 */
 await gapi.client.cloudsearch.initializeCustomer({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudsearch-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

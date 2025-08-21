@@ -143,3 +143,5 @@ Lists all the PhotoSequences that belong to the user, in descending CreatePhotoS
 */
 await gapi.client.streetviewpublish.photoSequences.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.streetviewpublish-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

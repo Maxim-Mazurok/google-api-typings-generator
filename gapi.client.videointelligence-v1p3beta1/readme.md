@@ -74,3 +74,5 @@ Performs asynchronous video annotation. Progress and results can be retrieved th
 */
 await gapi.client.videointelligence.videos.annotate({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.videointelligence-v1p3beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

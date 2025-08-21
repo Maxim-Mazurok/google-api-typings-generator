@@ -70,3 +70,5 @@ After that you can use App Hub API resources: <!-- TODO: make this work for mult
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.apphub-v1alpha#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -71,3 +71,5 @@ After that you can use Cloud Filestore API resources: <!-- TODO: make this work 
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.file-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

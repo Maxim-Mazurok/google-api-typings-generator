@@ -94,3 +94,5 @@ Runs an existing query to generate a report.
 */
 await gapi.client.doubleclickbidmanager.queries.run({queryId: 'queryId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.doubleclickbidmanager-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

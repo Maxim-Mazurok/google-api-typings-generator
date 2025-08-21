@@ -508,3 +508,5 @@ Allows removal of channel watermark.
 */
 await gapi.client.youtube.watermarks.unset({channelId: 'channelId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.youtube-v3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

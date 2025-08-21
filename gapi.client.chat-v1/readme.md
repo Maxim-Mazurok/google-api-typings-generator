@@ -228,3 +228,5 @@ Creates a space and adds specified users to it. The calling user is automaticall
 */
 await gapi.client.chat.spaces.setup({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.chat-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

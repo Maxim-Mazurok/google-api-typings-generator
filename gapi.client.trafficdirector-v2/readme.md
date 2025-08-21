@@ -73,3 +73,5 @@ After that you can use Traffic Director API resources: <!-- TODO: make this work
 */
 await gapi.client.trafficdirector.discovery.client_status({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.trafficdirector-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

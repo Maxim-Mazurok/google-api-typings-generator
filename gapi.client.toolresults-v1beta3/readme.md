@@ -81,3 +81,5 @@ await gapi.client.toolresults.projects.initializeSettings({
   projectId: 'projectId',
 });
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.toolresults-v1beta3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

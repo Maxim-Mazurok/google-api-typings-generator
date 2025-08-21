@@ -71,3 +71,5 @@ After that you can use Cloud Document AI API resources: <!-- TODO: make this wor
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.documentai-v1beta3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

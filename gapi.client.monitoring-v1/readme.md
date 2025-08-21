@@ -83,3 +83,5 @@ Gets the latest state of a long-running operation. Clients can use this method t
 */
 await gapi.client.monitoring.operations.get({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.monitoring-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

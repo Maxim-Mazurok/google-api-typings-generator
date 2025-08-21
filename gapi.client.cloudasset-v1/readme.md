@@ -191,3 +191,5 @@ Searches all Google Cloud resources within the specified scope, such as a projec
 */
 await gapi.client.cloudasset.searchAllResources({scope: 'scope'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudasset-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

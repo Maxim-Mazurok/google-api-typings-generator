@@ -172,3 +172,5 @@ Verifies ownership of a phone number and creates/updates the user account accord
 */
 await gapi.client.identitytoolkit.relyingparty.verifyPhoneNumber({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.identitytoolkit-v3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

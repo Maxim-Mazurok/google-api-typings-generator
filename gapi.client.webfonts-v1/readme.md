@@ -50,3 +50,5 @@ Retrieves the list of fonts currently served by the Google Fonts Developer API.
 */
 await gapi.client.webfonts.webfonts.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.webfonts-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

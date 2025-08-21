@@ -89,3 +89,5 @@ Reports operation results to Google Service Control, such as logs and metrics. I
 */
 await gapi.client.servicecontrol.services.report({serviceName: 'serviceName'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.servicecontrol-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

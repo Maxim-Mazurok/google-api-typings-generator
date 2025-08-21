@@ -83,3 +83,5 @@ This method is used to check whether a URI is on a given threatList. Multiple th
 */
 await gapi.client.webrisk.uris.search({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.webrisk-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

@@ -87,3 +87,5 @@ Creates/updates the specified agent. Note: You should always train an agent prio
 */
 await gapi.client.dialogflow.projects.setAgent({parent: 'parent'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.dialogflow-v2beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

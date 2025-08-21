@@ -123,3 +123,5 @@ Set up or update a push notification watch on the given user mailbox.
 */
 await gapi.client.gmail.users.watch({userId: 'userId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.gmail-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

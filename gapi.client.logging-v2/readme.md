@@ -251,3 +251,5 @@ Updates the settings for the given resource. This method applies to all feature 
 */
 await gapi.client.logging.updateSettings({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.logging-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

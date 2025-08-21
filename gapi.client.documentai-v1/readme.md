@@ -74,3 +74,5 @@ Deletes a long-running operation. This method indicates that the client is no lo
 */
 await gapi.client.documentai.operations.delete({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.documentai-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

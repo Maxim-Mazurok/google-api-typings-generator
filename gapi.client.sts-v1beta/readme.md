@@ -50,3 +50,5 @@ Exchanges a credential for a Google OAuth 2.0 access token. The token asserts an
 */
 await gapi.client.sts.token({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.sts-v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

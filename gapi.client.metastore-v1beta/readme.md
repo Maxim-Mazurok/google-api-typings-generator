@@ -71,3 +71,5 @@ After that you can use Dataproc Metastore API resources: <!-- TODO: make this wo
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.metastore-v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

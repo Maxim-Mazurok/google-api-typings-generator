@@ -114,3 +114,5 @@ Updates the customer-level settings.
 */
 await gapi.client.alertcenter.updateSettings({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.alertcenter-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

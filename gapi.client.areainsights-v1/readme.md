@@ -74,3 +74,5 @@ This method lets you retrieve insights about areas using a variety of filter suc
 */
 await gapi.client.areainsights.computeInsights({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.areainsights-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

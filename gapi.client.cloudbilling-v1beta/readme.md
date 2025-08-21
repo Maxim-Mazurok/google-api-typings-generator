@@ -85,3 +85,5 @@ Lists all publicly listed SKU groups.
 */
 await gapi.client.cloudbilling.skuGroups.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudbilling-v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

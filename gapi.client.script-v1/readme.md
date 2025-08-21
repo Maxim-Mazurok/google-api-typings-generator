@@ -160,3 +160,5 @@ await gapi.client.script.projects.updateContent({scriptId: 'scriptId'});
 */
 await gapi.client.script.scripts.run({scriptId: 'scriptId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.script-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

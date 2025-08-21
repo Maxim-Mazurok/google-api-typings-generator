@@ -56,3 +56,5 @@ Analyzes the uploaded app bundle and returns a google.longrunning.Operation cont
 */
 await gapi.client.checks.media.upload({ parent: "parent",  });
 ````
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.checks-v1alpha#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

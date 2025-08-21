@@ -74,3 +74,5 @@ Returns up to 5 days of daily pollen information in more than 65 countries, up t
 */
 await gapi.client.pollen.forecast.lookup({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.pollen-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

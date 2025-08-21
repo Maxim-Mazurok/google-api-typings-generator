@@ -86,3 +86,5 @@ Returns all fields that match the search [query](/search-ads/reporting/concepts/
 */
 await gapi.client.searchads360.searchAds360Fields.search({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.searchads360-v0#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

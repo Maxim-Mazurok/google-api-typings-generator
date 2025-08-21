@@ -356,3 +356,5 @@ Updates access for the user to the developer account.
 */
 await gapi.client.androidpublisher.users.patch({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.androidpublisher-v3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

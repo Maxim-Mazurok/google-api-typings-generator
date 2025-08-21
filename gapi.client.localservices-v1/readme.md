@@ -78,3 +78,5 @@ Get detailed lead reports containing leads that have been received by all linked
 */
 await gapi.client.localservices.detailedLeadReports.search({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.localservices-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

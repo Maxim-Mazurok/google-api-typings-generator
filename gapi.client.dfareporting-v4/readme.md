@@ -1514,3 +1514,5 @@ Lists available video formats.
 */
 await gapi.client.dfareporting.videoFormats.list({profileId: 'profileId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.dfareporting-v4#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

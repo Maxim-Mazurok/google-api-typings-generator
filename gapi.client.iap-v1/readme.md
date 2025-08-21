@@ -99,3 +99,5 @@ Validates that a given CEL expression conforms to IAP restrictions.
 */
 await gapi.client.iap.validateAttributeExpression({name: 'name'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.iap-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

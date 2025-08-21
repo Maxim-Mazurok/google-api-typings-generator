@@ -147,3 +147,5 @@ Adds one or more messages to the topic. Returns NOT_FOUND if the topic does not 
 */
 await gapi.client.pubsub.topics.publishBatch({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.pubsub-v1beta1a#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

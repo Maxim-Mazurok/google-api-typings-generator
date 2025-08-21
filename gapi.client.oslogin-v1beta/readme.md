@@ -88,3 +88,5 @@ Adds an SSH public key and returns the profile information. Default POSIX accoun
 */
 await gapi.client.oslogin.users.importSshPublicKey({parent: 'parent'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.oslogin-v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

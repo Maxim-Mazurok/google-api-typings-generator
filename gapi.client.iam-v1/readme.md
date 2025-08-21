@@ -99,3 +99,5 @@ Lists roles that can be granted on a Google Cloud resource. A role is grantable 
 */
 await gapi.client.iam.roles.queryGrantableRoles({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.iam-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

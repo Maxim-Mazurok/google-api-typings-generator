@@ -256,3 +256,5 @@ List Policies
 */
 await gapi.client.cloudidentity.policies.list({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudidentity-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

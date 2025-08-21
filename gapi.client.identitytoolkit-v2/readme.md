@@ -102,3 +102,5 @@ Gets parameters needed for reCAPTCHA analysis.
 */
 await gapi.client.identitytoolkit.getRecaptchaConfig({});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.identitytoolkit-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

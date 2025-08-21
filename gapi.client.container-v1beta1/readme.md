@@ -71,3 +71,5 @@ After that you can use Kubernetes Engine API resources: <!-- TODO: make this wor
 ```typescript
 
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.container-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

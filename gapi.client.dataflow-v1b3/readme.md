@@ -82,3 +82,5 @@ Send a worker_message to the service.
 */
 await gapi.client.dataflow.projects.workerMessages({projectId: 'projectId'});
 ```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.dataflow-v1b3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
