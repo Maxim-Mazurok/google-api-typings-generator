@@ -54,7 +54,7 @@ const getLatestMetaOr404 = async (
   };
 };
 
-const getLatestVersionInfo = async (
+export const getLatestVersionInfo = async (
   fullPackageName: string, // e.g. `@maxim_mazurok/gapi.client.oauth2-v2`, not `gapi.client.oauth2-v2`
   localRevision: number,
 ): Promise<
