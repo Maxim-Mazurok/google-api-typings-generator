@@ -173,22 +173,22 @@ Updates a comment with patch semantics. For more information, see [Manage commen
 await gapi.client.drive.comments.update({ commentId: "commentId", fileId: "fileId",  });
 
 /*
-Creates a shared drive.
+Creates a shared drive. For more information, see [Manage shared drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
 */
 await gapi.client.drive.drives.create({ requestId: "requestId",  });
 
 /*
-Permanently deletes a shared drive for which the user is an `organizer`. The shared drive cannot contain any untrashed items.
+Permanently deletes a shared drive for which the user is an `organizer`. The shared drive cannot contain any untrashed items. For more information, see [Manage shared drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
 */
 await gapi.client.drive.drives.delete({ driveId: "driveId",  });
 
 /*
-Gets a shared drive's metadata by ID.
+Gets a shared drive's metadata by ID. For more information, see [Manage shared drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
 */
 await gapi.client.drive.drives.get({ driveId: "driveId",  });
 
 /*
-Hides a shared drive from the default view.
+Hides a shared drive from the default view. For more information, see [Manage shared drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
 */
 await gapi.client.drive.drives.hide({ driveId: "driveId",  });
 
@@ -198,12 +198,12 @@ await gapi.client.drive.drives.hide({ driveId: "driveId",  });
 await gapi.client.drive.drives.list({  });
 
 /*
-Restores a shared drive to the default view.
+Restores a shared drive to the default view. For more information, see [Manage shared drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
 */
 await gapi.client.drive.drives.unhide({ driveId: "driveId",  });
 
 /*
-Updates the metadata for a shared drive.
+Updates the metadata for a shared drive. For more information, see [Manage shared drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
 */
 await gapi.client.drive.drives.update({ driveId: "driveId",  });
 
@@ -328,22 +328,22 @@ Updates a reply with patch semantics.
 await gapi.client.drive.replies.update({ commentId: "commentId", fileId: "fileId", replyId: "replyId",  });
 
 /*
-Permanently deletes a file version. You can only delete revisions for files with binary content in Google Drive, like images or videos. Revisions for other files, like Google Docs or Sheets, and the last remaining file version can't be deleted.
+Permanently deletes a file version. You can only delete revisions for files with binary content in Google Drive, like images or videos. Revisions for other files, like Google Docs or Sheets, and the last remaining file version can't be deleted. For more information, see [Manage file revisions](https://developers.google.com/drive/api/guides/manage-revisions).
 */
 await gapi.client.drive.revisions.delete({ fileId: "fileId", revisionId: "revisionId",  });
 
 /*
-Gets a revision's metadata or content by ID.
+Gets a revision's metadata or content by ID. For more information, see [Manage file revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
 */
 await gapi.client.drive.revisions.get({ fileId: "fileId", revisionId: "revisionId",  });
 
 /*
-Lists a file's revisions.
+Lists a file's revisions. For more information, see [Manage file revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
 */
 await gapi.client.drive.revisions.list({ fileId: "fileId",  });
 
 /*
-Updates a revision with patch semantics.
+Updates a revision with patch semantics. For more information, see [Manage file revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
 */
 await gapi.client.drive.revisions.update({ fileId: "fileId", revisionId: "revisionId",  });
 
