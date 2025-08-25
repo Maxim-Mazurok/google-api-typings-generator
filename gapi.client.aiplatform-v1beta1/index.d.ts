@@ -197,6 +197,26 @@ declare namespace gapi.client {
       /** Required. The measurement to be added to a Trial. */
       measurement?: GoogleCloudAiplatformV1beta1Measurement;
     }
+    interface GoogleCloudAiplatformV1beta1AggregationOutput {
+      /** One AggregationResult per metric. */
+      aggregationResults?: GoogleCloudAiplatformV1beta1AggregationResult[];
+      /** The dataset used for evaluation & aggregation. */
+      dataset?: GoogleCloudAiplatformV1beta1EvaluationDataset;
+    }
+    interface GoogleCloudAiplatformV1beta1AggregationResult {
+      /** Aggregation metric. */
+      aggregationMetric?: string;
+      /** Results for bleu metric. */
+      bleuMetricValue?: GoogleCloudAiplatformV1beta1BleuMetricValue;
+      /** Results for exact match metric. */
+      exactMatchMetricValue?: GoogleCloudAiplatformV1beta1ExactMatchMetricValue;
+      /** Result for pairwise metric. */
+      pairwiseMetricResult?: GoogleCloudAiplatformV1beta1PairwiseMetricResult;
+      /** Result for pointwise metric. */
+      pointwiseMetricResult?: GoogleCloudAiplatformV1beta1PointwiseMetricResult;
+      /** Results for rouge metric. */
+      rougeMetricValue?: GoogleCloudAiplatformV1beta1RougeMetricValue;
+    }
     interface GoogleCloudAiplatformV1beta1Annotation {
       /** Output only. The source of the Annotation. */
       annotationSource?: GoogleCloudAiplatformV1beta1UserActionReference;
@@ -663,6 +683,26 @@ declare namespace gapi.client {
       /** Required. BigQuery URI to a project or table, up to 2000 characters long. When only the project is specified, the Dataset and Table is created. When the full table reference is specified, the Dataset must exist and table must not exist. Accepted forms: * BigQuery path. For example: `bq://projectId` or `bq://projectId.bqDatasetId` or `bq://projectId.bqDatasetId.bqTableId`. */
       outputUri?: string;
     }
+    interface GoogleCloudAiplatformV1beta1BigQueryRequestSet {
+      /** Optional. Map of candidate name to candidate response column name. The column will be in evaluation_item.CandidateResponse format. */
+      candidateResponseColumns?: {[P in string]: string};
+      /** Optional. The name of the column that contains the requests to evaluate. This will be in evaluation_item.EvalPrompt format. */
+      promptColumn?: string;
+      /** Optional. The name of the column that contains the rubrics. This will be in evaluation_rubric.RubricGroup format (cl/762595858). */
+      rubricsColumn?: string;
+      /** Optional. The sampling config for the bigquery resource. */
+      samplingConfig?: GoogleCloudAiplatformV1beta1BigQueryRequestSetSamplingConfig;
+      /** Required. The URI of a BigQuery table. e.g. bq://projectId.bqDatasetId.bqTableId */
+      uri?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1BigQueryRequestSetSamplingConfig {
+      /** Optional. The total number of logged data to import. If available data is less than the sampling count, all data will be imported. Default is 100. */
+      samplingCount?: number;
+      /** Optional. How long to wait before sampling data from the BigQuery table. If not specified, defaults to 0. */
+      samplingDuration?: string;
+      /** Optional. The sampling method to use. */
+      samplingMethod?: string;
+    }
     interface GoogleCloudAiplatformV1beta1BigQuerySource {
       /** Required. BigQuery URI to a table, up to 2000 characters long. Accepted forms: * BigQuery path. For example: `bq://projectId.bqDatasetId.bqTableId`. */
       inputUri?: string;
@@ -756,6 +796,7 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1CancelBatchPredictionJobRequest {}
     interface GoogleCloudAiplatformV1beta1CancelCustomJobRequest {}
     interface GoogleCloudAiplatformV1beta1CancelDataLabelingJobRequest {}
+    interface GoogleCloudAiplatformV1beta1CancelEvaluationRunRequest {}
     interface GoogleCloudAiplatformV1beta1CancelHyperparameterTuningJobRequest {}
     interface GoogleCloudAiplatformV1beta1CancelNasJobRequest {}
     interface GoogleCloudAiplatformV1beta1CancelPipelineJobRequest {}
@@ -782,6 +823,28 @@ declare namespace gapi.client {
       safetyRatings?: GoogleCloudAiplatformV1beta1SafetyRating[];
       /** Output only. Metadata related to url context retrieval tool. */
       urlContextMetadata?: GoogleCloudAiplatformV1beta1UrlContextMetadata;
+    }
+    interface GoogleCloudAiplatformV1beta1CandidateResponse {
+      /** Required. The name of the candidate that produced the response. */
+      candidate?: string;
+      /** Text response. */
+      text?: string;
+      /** Fields and values that can be used to populate the response template. */
+      value?: any;
+    }
+    interface GoogleCloudAiplatformV1beta1CandidateResult {
+      /** Optional. Additional results for the metric. */
+      additionalResults?: any;
+      /** Required. The candidate that is being evaluated. The value is the same as the candidate name in the EvaluationRequest. */
+      candidate?: string;
+      /** Optional. The explanation for the metric. */
+      explanation?: string;
+      /** Required. The metric that was evaluated. */
+      metric?: string;
+      /** Optional. The rubric verdicts for the metric. */
+      rubricVerdicts?: GoogleCloudAiplatformV1beta1RubricVerdict[];
+      /** Optional. The score for the metric. */
+      score?: number;
     }
     interface GoogleCloudAiplatformV1beta1Checkpoint {
       /** The ID of the checkpoint. */
@@ -1973,11 +2036,19 @@ declare namespace gapi.client {
       /** Required. Config for evaluation output. */
       outputConfig?: GoogleCloudAiplatformV1beta1OutputConfig;
     }
+    interface GoogleCloudAiplatformV1beta1EvaluateDatasetResponse {
+      /** Output only. Aggregation statistics derived from results of EvaluationService.EvaluateDataset. */
+      aggregationOutput?: GoogleCloudAiplatformV1beta1AggregationOutput;
+      /** Output only. Output info for EvaluationService.EvaluateDataset. */
+      outputInfo?: GoogleCloudAiplatformV1beta1OutputInfo;
+    }
     interface GoogleCloudAiplatformV1beta1EvaluateDatasetRun {
       /** Output only. The checkpoint id used in the evaluation run. Only populated when evaluating checkpoints. */
       checkpointId?: string;
       /** Output only. The error of the evaluation run if any. */
       error?: GoogleRpcStatus;
+      /** Output only. Results for EvaluationService.EvaluateDataset. */
+      evaluateDatasetResponse?: GoogleCloudAiplatformV1beta1EvaluateDatasetResponse;
       /** Output only. The operation ID of the evaluation run. Format: `projects/{project}/locations/{location}/operations/{operation_id}`. */
       operationName?: string;
     }
@@ -1998,6 +2069,10 @@ declare namespace gapi.client {
       fulfillmentInput?: GoogleCloudAiplatformV1beta1FulfillmentInput;
       /** Input for groundedness metric. */
       groundednessInput?: GoogleCloudAiplatformV1beta1GroundednessInput;
+      /** The instance to be evaluated. */
+      instance?: GoogleCloudAiplatformV1beta1EvaluationInstance;
+      /** The metrics used for evaluation. Currently, we only support evaluating a single metric. If multiple metrics are provided, only the first one will be evaluated. */
+      metrics?: GoogleCloudAiplatformV1beta1Metric[];
       /** Input for Metricx metric. */
       metricxInput?: GoogleCloudAiplatformV1beta1MetricxInput;
       /** Input for pairwise metric. */
@@ -2064,6 +2139,8 @@ declare namespace gapi.client {
       fulfillmentResult?: GoogleCloudAiplatformV1beta1FulfillmentResult;
       /** Result for groundedness metric. */
       groundednessResult?: GoogleCloudAiplatformV1beta1GroundednessResult;
+      /** Metric results for each instance. The order of the metric results is guaranteed to be the same as the order of the instances in the request. */
+      metricResults?: GoogleCloudAiplatformV1beta1MetricResult[];
       /** Result for Metricx metric. */
       metricxResult?: GoogleCloudAiplatformV1beta1MetricxResult;
       /** Result for pairwise metric. */
@@ -2128,6 +2205,250 @@ declare namespace gapi.client {
       bigquerySource?: GoogleCloudAiplatformV1beta1BigQuerySource;
       /** Cloud storage source holds the dataset. Currently only one Cloud Storage file path is supported. */
       gcsSource?: GoogleCloudAiplatformV1beta1GcsSource;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationInstance {
+      /** Optional. Other data used to populate placeholders based on their key. */
+      otherData?: GoogleCloudAiplatformV1beta1EvaluationInstanceMapInstance;
+      /** Optional. Data used to populate placeholder `prompt` in a metric prompt template. */
+      prompt?: GoogleCloudAiplatformV1beta1EvaluationInstanceInstanceData;
+      /** Optional. Data used to populate placeholder `reference` in a metric prompt template. */
+      reference?: GoogleCloudAiplatformV1beta1EvaluationInstanceInstanceData;
+      /** Required. Data used to populate placeholder `response` in a metric prompt template. */
+      response?: GoogleCloudAiplatformV1beta1EvaluationInstanceInstanceData;
+      /** Optional. Named groups of rubrics associated with the prompt. This is used for rubric-based evaluations where rubrics can be referenced by a key. The key could represent versions, associated metrics, etc. */
+      rubricGroups?: {[P in string]: GoogleCloudAiplatformV1beta1RubricGroup};
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationInstanceInstanceData {
+      /** List of Gemini content data. */
+      contents?: GoogleCloudAiplatformV1beta1EvaluationInstanceInstanceDataContents;
+      /** Text data. */
+      text?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationInstanceInstanceDataContents {
+      /** Optional. Repeated contents. */
+      contents?: GoogleCloudAiplatformV1beta1Content[];
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationInstanceMapInstance {
+      /** Optional. Map of instance data. */
+      mapInstance?: {
+        [P in string]: GoogleCloudAiplatformV1beta1EvaluationInstanceInstanceData;
+      };
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationItem {
+      /** Output only. Timestamp when this item was created. */
+      createTime?: string;
+      /** Required. The display name of the EvaluationItem. */
+      displayName?: string;
+      /** Output only. Error for the evaluation item. */
+      error?: GoogleRpcStatus;
+      /** Required. The type of the EvaluationItem. */
+      evaluationItemType?: string;
+      /** The request to evaluate. */
+      evaluationRequest?: GoogleCloudAiplatformV1beta1EvaluationRequest;
+      /** Output only. The response from evaluation. */
+      evaluationResponse?: GoogleCloudAiplatformV1beta1EvaluationResult;
+      /** The GCS object where the request or response is stored. */
+      gcsUri?: string;
+      /** Optional. Labels for the EvaluationItem. */
+      labels?: {[P in string]: string};
+      /** Optional. Metadata for the EvaluationItem. */
+      metadata?: any;
+      /** Identifier. The resource name of the EvaluationItem. Format: `projects/{project}/locations/{location}/evaluationItems/{evaluation_item}` */
+      name?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationPrompt {
+      /** Prompt template data. */
+      promptTemplateData?: GoogleCloudAiplatformV1beta1EvaluationPromptPromptTemplateData;
+      /** Text prompt. */
+      text?: string;
+      /** Fields and values that can be used to populate the prompt template. */
+      value?: any;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationPromptPromptTemplateData {
+      /** The values for fields in the prompt template. */
+      values?: {[P in string]: GoogleCloudAiplatformV1beta1Content};
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRequest {
+      /** Optional. Responses from model under test and other baseline models for comparison. */
+      candidateResponses?: GoogleCloudAiplatformV1beta1CandidateResponse[];
+      /** Optional. The Ideal response or ground truth. */
+      goldenResponse?: GoogleCloudAiplatformV1beta1CandidateResponse;
+      /** Required. The request/prompt to evaluate. */
+      prompt?: GoogleCloudAiplatformV1beta1EvaluationPrompt;
+      /** Optional. Named groups of rubrics associated with this prompt. The key is a user-defined name for the rubric group. */
+      rubrics?: {[P in string]: GoogleCloudAiplatformV1beta1RubricGroup};
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationResult {
+      /** Optional. The results for the metric. */
+      candidateResults?: GoogleCloudAiplatformV1beta1CandidateResult[];
+      /** Required. The request item that was evaluated. Format: projects/{project}/locations/{location}/evaluationItems/{evaluation_item} */
+      evaluationRequest?: string;
+      /** Required. The evaluation run that was used to generate the result. Format: projects/{project}/locations/{location}/evaluationRuns/{evaluation_run} */
+      evaluationRun?: string;
+      /** Optional. Metadata about the evaluation result. */
+      metadata?: any;
+      /** Required. The metric that was evaluated. */
+      metric?: string;
+      /** Required. The request that was evaluated. */
+      request?: GoogleCloudAiplatformV1beta1EvaluationRequest;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationResults {
+      /** The evaluation set where item level results are stored. */
+      evaluationSet?: string;
+      /** Optional. The summary metrics for the evaluation run. */
+      summaryMetrics?: GoogleCloudAiplatformV1beta1SummaryMetrics;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRun {
+      /** Output only. Time when the evaluation run was completed. */
+      completionTime?: string;
+      /** Output only. Time when the evaluation run was created. */
+      createTime?: string;
+      /** Required. The data source for the evaluation run. */
+      dataSource?: GoogleCloudAiplatformV1beta1EvaluationRunDataSource;
+      /** Required. The display name of the Evaluation Run. */
+      displayName?: string;
+      /** Output only. Only populated when the evaluation run's state is FAILED or CANCELLED. */
+      error?: GoogleRpcStatus;
+      /** Required. The configuration used for the evaluation. */
+      evaluationConfig?: GoogleCloudAiplatformV1beta1EvaluationRunEvaluationConfig;
+      /** Output only. The results of the evaluation run. Only populated when the evaluation run's state is SUCCEEDED. */
+      evaluationResults?: GoogleCloudAiplatformV1beta1EvaluationResults;
+      /** Output only. The specific evaluation set of the evaluation run. For runs with an evaluation set input, this will be that same set. For runs with BigQuery input, it's the sampled BigQuery dataset. */
+      evaluationSetSnapshot?: string;
+      /** Optional. The candidate to inference config map for the evaluation run. The candidate can be up to 128 characters long and can consist of any UTF-8 characters. */
+      inferenceConfigs?: {
+        [P in string]: GoogleCloudAiplatformV1beta1EvaluationRunInferenceConfig;
+      };
+      /** Optional. Labels for the evaluation run. */
+      labels?: {[P in string]: string};
+      /** Optional. Metadata about the evaluation run, can be used by the caller to store additional tracking information about the evaluation run. */
+      metadata?: any;
+      /** Identifier. The resource name of the EvaluationRun. This is a unique identifier. Format: `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}` */
+      name?: string;
+      /** Output only. The state of the evaluation run. */
+      state?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunDataSource {
+      /** Evaluation data in bigquery. */
+      bigqueryRequestSet?: GoogleCloudAiplatformV1beta1BigQueryRequestSet;
+      /** The EvaluationSet resource name. Format: `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}` */
+      evaluationSet?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunEvaluationConfig {
+      /** Optional. The autorater config for the evaluation run. */
+      autoraterConfig?: GoogleCloudAiplatformV1beta1EvaluationRunEvaluationConfigAutoraterConfig;
+      /** Required. The metrics to be calculated in the evaluation run. */
+      metrics?: GoogleCloudAiplatformV1beta1EvaluationRunMetric[];
+      /** Optional. The output config for the evaluation run. */
+      outputConfig?: GoogleCloudAiplatformV1beta1EvaluationRunEvaluationConfigOutputConfig;
+      /** The prompt template used for inference. The values for variables in the prompt template are defined in EvaluationItem.EvaluationPrompt.PromptTemplateData.values. */
+      promptTemplate?: GoogleCloudAiplatformV1beta1EvaluationRunEvaluationConfigPromptTemplate;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunEvaluationConfigAutoraterConfig {
+      /** Optional. The fully qualified name of the publisher model or tuned autorater endpoint to use. Publisher model format: `projects/{project}/locations/{location}/publishers/*‍/models/*` Tuned model endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+      autoraterModel?: string;
+      /** Optional. Configuration options for model generation and outputs. */
+      generationConfig?: GoogleCloudAiplatformV1beta1GenerationConfig;
+      /** Optional. Number of samples for each instance in the dataset. If not specified, the default is 4. Minimum value is 1, maximum value is 32. */
+      sampleCount?: number;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunEvaluationConfigOutputConfig {
+      /** BigQuery destination for evaluation output. */
+      bigqueryDestination?: GoogleCloudAiplatformV1beta1BigQueryDestination;
+      /** Cloud Storage destination for evaluation output. */
+      gcsDestination?: GoogleCloudAiplatformV1beta1GcsDestination;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunEvaluationConfigPromptTemplate {
+      /** Prompt template stored in Cloud Storage. Format: "gs://my-bucket/file-name.txt". */
+      gcsUri?: string;
+      /** Inline prompt template. Template variables should be in the format "{var_name}". Example: "Translate the following from {source_lang} to {target_lang}: {text}" */
+      promptTemplate?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunInferenceConfig {
+      /** Optional. Generation config. */
+      generationConfig?: GoogleCloudAiplatformV1beta1GenerationConfig;
+      /** Required. The fully qualified name of the publisher model or endpoint to use. Publisher model format: `projects/{project}/locations/{location}/publishers/*‍/models/*` Endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+      model?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunMetric {
+      /** Spec for a computation based metric. */
+      computationBasedMetricSpec?: GoogleCloudAiplatformV1beta1EvaluationRunMetricComputationBasedMetricSpec;
+      /** Spec for an LLM based metric. */
+      llmBasedMetricSpec?: GoogleCloudAiplatformV1beta1EvaluationRunMetricLLMBasedMetricSpec;
+      /** Required. The name of the metric. */
+      metric?: string;
+      /** Spec for a pre-defined metric. */
+      predefinedMetricSpec?: GoogleCloudAiplatformV1beta1EvaluationRunMetricPredefinedMetricSpec;
+      /** Spec for rubric based metric. */
+      rubricBasedMetricSpec?: GoogleCloudAiplatformV1beta1EvaluationRunMetricRubricBasedMetricSpec;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunMetricComputationBasedMetricSpec {
+      /** Optional. A map of parameters for the metric, e.g. {"rouge_type": "rougeL"}. */
+      parameters?: {[P in string]: any};
+      /** Required. The type of the computation based metric. */
+      type?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunMetricLLMBasedMetricSpec {
+      /** Optional. Optional additional configuration for the metric. */
+      additionalConfig?: {[P in string]: any};
+      /** Optional. Optional configuration for the judge LLM (Autorater). */
+      judgeAutoraterConfig?: GoogleCloudAiplatformV1beta1EvaluationRunEvaluationConfigAutoraterConfig;
+      /** Required. Template for the prompt sent to the judge model. */
+      metricPromptTemplate?: string;
+      /** Dynamically generate rubrics using a predefined spec. */
+      predefinedRubricGenerationSpec?: GoogleCloudAiplatformV1beta1EvaluationRunMetricPredefinedMetricSpec;
+      /** Dynamically generate rubrics using this specification. */
+      rubricGenerationSpec?: GoogleCloudAiplatformV1beta1EvaluationRunMetricRubricGenerationSpec;
+      /** Use a pre-defined group of rubrics associated with the input. Refers to a key in the rubric_groups map of EvaluationInstance. */
+      rubricGroupKey?: string;
+      /** Optional. System instructions for the judge model. */
+      systemInstruction?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunMetricPredefinedMetricSpec {
+      /** Required. The name of a pre-defined metric, such as "instruction_following_v1" or "text_quality_v1". */
+      metricSpecName?: string;
+      /** Optional. The parameters needed to run the pre-defined metric. */
+      parameters?: {[P in string]: any};
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunMetricRubricBasedMetricSpec {
+      /** Use rubrics provided directly in the spec. */
+      inlineRubrics?: GoogleCloudAiplatformV1beta1EvaluationRunMetricRubricBasedMetricSpecRepeatedRubrics;
+      /** Optional. Optional configuration for the judge LLM (Autorater). The definition of AutoraterConfig needs to be provided. */
+      judgeAutoraterConfig?: GoogleCloudAiplatformV1beta1EvaluationRunEvaluationConfigAutoraterConfig;
+      /** Optional. Template for the prompt used by the judge model to evaluate against rubrics. */
+      metricPromptTemplate?: string;
+      /** Dynamically generate rubrics for evaluation using this specification. */
+      rubricGenerationSpec?: GoogleCloudAiplatformV1beta1EvaluationRunMetricRubricGenerationSpec;
+      /** Use a pre-defined group of rubrics associated with the input content. This refers to a key in the `rubric_groups` map of `RubricEnhancedContents`. */
+      rubricGroupKey?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunMetricRubricBasedMetricSpecRepeatedRubrics {
+      /** The list of rubrics. */
+      rubrics?: GoogleCloudAiplatformV1beta1Rubric[];
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationRunMetricRubricGenerationSpec {
+      /** Optional. Configuration for the model used in rubric generation. Configs including sampling count and base model can be specified here. Flipping is not supported for rubric generation. */
+      modelConfig?: GoogleCloudAiplatformV1beta1EvaluationRunEvaluationConfigAutoraterConfig;
+      /** Optional. Template for the prompt used to generate rubrics. The details should be updated based on the most-recent recipe requirements. */
+      promptTemplate?: string;
+      /** Optional. The type of rubric content to be generated. */
+      rubricContentType?: string;
+      /** Optional. An optional, pre-defined list of allowed types for generated rubrics. If this field is provided, it implies `include_rubric_type` should be true, and the generated rubric types should be chosen from this ontology. */
+      rubricTypeOntology?: string[];
+    }
+    interface GoogleCloudAiplatformV1beta1EvaluationSet {
+      /** Output only. Timestamp when this item was created. */
+      createTime?: string;
+      /** Required. The display name of the EvaluationSet. */
+      displayName?: string;
+      /** Required. The EvaluationItems that are part of this dataset. */
+      evaluationItems?: string[];
+      /** Optional. Metadata for the EvaluationSet. */
+      metadata?: any;
+      /** Identifier. The resource name of the EvaluationSet. Format: `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}` */
+      name?: string;
+      /** Output only. Timestamp when this item was last updated. */
+      updateTime?: string;
     }
     interface GoogleCloudAiplatformV1beta1Event {
       /** Required. The relative resource name of the Artifact in the Event. */
@@ -3542,6 +3863,18 @@ declare namespace gapi.client {
       /** Output only. Traffic type. This shows whether a request consumes Pay-As-You-Go or Provisioned Throughput quota. */
       trafficType?: string;
     }
+    interface GoogleCloudAiplatformV1beta1GenerateInstanceRubricsRequest {
+      /** Required. The prompt to generate rubrics from. For single-turn queries, this is a single instance. For multi-turn queries, this is a repeated field that contains conversation history + latest request. */
+      contents?: GoogleCloudAiplatformV1beta1Content[];
+      /** Optional. Specification for using the rubric generation configs of a pre-defined metric, e.g. "generic_quality_v1" and "instruction_following_v1". Some of the configs may be only used in rubric generation and not supporting evaluation, e.g. "fully_customized_generic_quality_v1". If this field is set, the `rubric_generation_spec` field will be ignored. */
+      predefinedRubricGenerationSpec?: GoogleCloudAiplatformV1beta1PredefinedMetricSpec;
+      /** Optional. Specification for how the rubrics should be generated. */
+      rubricGenerationSpec?: GoogleCloudAiplatformV1beta1RubricGenerationSpec;
+    }
+    interface GoogleCloudAiplatformV1beta1GenerateInstanceRubricsResponse {
+      /** Output only. A list of generated rubrics. */
+      generatedRubrics?: GoogleCloudAiplatformV1beta1Rubric[];
+    }
     interface GoogleCloudAiplatformV1beta1GenerateMemoriesRequest {
       /** Defines a direct source of content as the source content from which to generate memories. */
       directContentsSource?: GoogleCloudAiplatformV1beta1GenerateMemoriesRequestDirectContentsSource;
@@ -4301,6 +4634,24 @@ declare namespace gapi.client {
       /** A token, which can be sent as ListEntityTypesRequest.page_token to retrieve the next page. If this field is omitted, there are no subsequent pages. */
       nextPageToken?: string;
     }
+    interface GoogleCloudAiplatformV1beta1ListEvaluationItemsResponse {
+      /** List of EvaluationItems in the requested page. */
+      evaluationItems?: GoogleCloudAiplatformV1beta1EvaluationItem[];
+      /** A token to retrieve the next page of results. */
+      nextPageToken?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1ListEvaluationRunsResponse {
+      /** List of EvaluationRuns in the requested page. */
+      evaluationRuns?: GoogleCloudAiplatformV1beta1EvaluationRun[];
+      /** A token to retrieve the next page of results. */
+      nextPageToken?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1ListEvaluationSetsResponse {
+      /** List of EvaluationSets in the requested page. */
+      evaluationSets?: GoogleCloudAiplatformV1beta1EvaluationSet[];
+      /** A token to retrieve the next page of results. */
+      nextPageToken?: string;
+    }
     interface GoogleCloudAiplatformV1beta1ListEventsResponse {
       /** A token, which can be sent as ListEventsRequest.page_token to retrieve the next page. Absence of this field indicates there are no subsequent pages. */
       nextPageToken?: string;
@@ -4632,6 +4983,8 @@ declare namespace gapi.client {
       acceleratorCount?: number;
       /** Immutable. The type of accelerator(s) that may be attached to the machine as per accelerator_count. */
       acceleratorType?: string;
+      /** Optional. Immutable. The Nvidia GPU partition size. When specified, the requested accelerators will be partitioned into smaller GPU partitions. For example, if the request is for 8 units of NVIDIA A100 GPUs, and gpu_partition_size="1g.10gb", the service will create 8 * 7 = 56 partitioned MIG instances. The partition size must be a value supported by the requested accelerator. Refer to [Nvidia GPU Partitioning](https://cloud.google.com/kubernetes-engine/docs/how-to/gpus-multi#multi-instance_gpu_partitions) for the available partition sizes. If set, the accelerator_count should be set to 1. */
+      gpuPartitionSize?: string;
       /** Immutable. The type of the machine. See the [list of machine types supported for prediction](https://cloud.google.com/vertex-ai/docs/predictions/configure-compute#machine-types) See the [list of machine types supported for custom training](https://cloud.google.com/vertex-ai/docs/training/configure-compute#machine-types). For DeployedModel this field is optional, and the default value is `n1-standard-2`. For BatchPredictionJob or as part of WorkerPoolSpec this field is required. */
       machineType?: string;
       /** Optional. Immutable. The number of nodes per replica for multihost GPU deployments. */
@@ -4778,8 +5131,18 @@ declare namespace gapi.client {
       pairwiseMetricSpec?: GoogleCloudAiplatformV1beta1PairwiseMetricSpec;
       /** Spec for pointwise metric. */
       pointwiseMetricSpec?: GoogleCloudAiplatformV1beta1PointwiseMetricSpec;
+      /** The spec for a pre-defined metric. */
+      predefinedMetricSpec?: GoogleCloudAiplatformV1beta1PredefinedMetricSpec;
       /** Spec for rouge metric. */
       rougeSpec?: GoogleCloudAiplatformV1beta1RougeSpec;
+    }
+    interface GoogleCloudAiplatformV1beta1MetricResult {
+      /** The explanation for the metric result. */
+      explanation?: string;
+      /** For rubric-based metrics, the verdicts for each rubric. */
+      rubricVerdicts?: GoogleCloudAiplatformV1beta1RubricVerdict[];
+      /** The score for the metric. Please refer to each metric's documentation for the meaning of the score. */
+      score?: number;
     }
     interface GoogleCloudAiplatformV1beta1MetricxInput {
       /** Required. Metricx instance. */
@@ -6072,6 +6435,10 @@ declare namespace gapi.client {
       /** Optional. Optional, but recommended. Additional guidance specific to this field to provide targeted instructions for the LLM to generate the content of a single output field. While the LLM can sometimes infer content from the field name, providing explicit guidance is preferred. */
       guidance?: string;
     }
+    interface GoogleCloudAiplatformV1beta1OutputInfo {
+      /** Output only. The full path of the Cloud Storage directory created, into which the evaluation results and aggregation results are written. */
+      gcsOutputDirectory?: string;
+    }
     interface GoogleCloudAiplatformV1beta1PairwiseMetricInput {
       /** Required. Pairwise metric instance. */
       instance?: GoogleCloudAiplatformV1beta1PairwiseMetricInstance;
@@ -6473,6 +6840,12 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1PrebuiltVoiceConfig {
       /** The name of the preset voice to use. */
       voiceName?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1PredefinedMetricSpec {
+      /** Required. The name of a pre-defined metric, such as "instruction_following_v1" or "text_quality_v1". */
+      metricSpecName?: string;
+      /** Optional. The parameters needed to run the pre-defined metric. */
+      metricSpecParameters?: {[P in string]: any};
     }
     interface GoogleCloudAiplatformV1beta1PredefinedSplit {
       /** Required. The key is a name of one of the Dataset's data columns. The value of the key (either the label's value or value in the column) must be one of {`training`, `validation`, `test`}, and it defines to which set the given piece of data is assigned. If for a piece of data the key is not present or has an invalid value, that piece is ignored by the pipeline. */
@@ -7530,7 +7903,7 @@ declare namespace gapi.client {
       createTtl?: string;
       /** Optional. The TTL duration for memories newly generated via GenerateMemories (GenerateMemoriesResponse.GeneratedMemory.Action.CREATED). */
       generateCreatedTtl?: string;
-      /** Optional. The TTL duration for memories updated via GenerateMemories (GenerateMemoriesResponse.GeneratedMemory.Action.CREATED). In the case of an UPDATE action, the `expire_time` of the existing memory will be updated to the new value (now + TTL). */
+      /** Optional. The TTL duration for memories updated via GenerateMemories (GenerateMemoriesResponse.GeneratedMemory.Action.UPDATED). In the case of an UPDATE action, the `expire_time` of the existing memory will be updated to the new value (now + TTL). */
       generateUpdatedTtl?: string;
     }
     interface GoogleCloudAiplatformV1beta1ReasoningEngineSpec {
@@ -7546,6 +7919,8 @@ declare namespace gapi.client {
       serviceAccount?: string;
     }
     interface GoogleCloudAiplatformV1beta1ReasoningEngineSpecDeploymentSpec {
+      /** The agent server mode. */
+      agentServerMode?: string;
       /** Optional. Concurrency for each container and agent server. Recommended value: 2 * cpu + 1. Defaults to 9. */
       containerConcurrency?: number;
       /** Optional. Environment variables to be set with the Reasoning Engine deployment. The environment variables can be updated through the UpdateReasoningEngine API. */
@@ -7834,6 +8209,16 @@ declare namespace gapi.client {
       /** Optional. Whether to use stemmer to compute rouge score. */
       useStemmer?: boolean;
     }
+    interface GoogleCloudAiplatformV1beta1Rubric {
+      /** Required. The actual testable criteria for the rubric. */
+      content?: GoogleCloudAiplatformV1beta1RubricContent;
+      /** Optional. The relative importance of this rubric. */
+      importance?: string;
+      /** Unique identifier for the rubric. This ID is used to refer to this rubric, e.g., in RubricVerdict. */
+      rubricId?: string;
+      /** Optional. A type designator for the rubric, which can inform how it's evaluated or interpreted by systems or users. It's recommended to use consistent, well-defined, upper snake_case strings. Examples: "SUMMARIZATION_QUALITY", "SAFETY_HARMFUL_CONTENT", "INSTRUCTION_ADHERENCE". */
+      type?: string;
+    }
     interface GoogleCloudAiplatformV1beta1RubricBasedInstructionFollowingInput {
       /** Required. Instance for RubricBasedInstructionFollowing metric. */
       instance?: GoogleCloudAiplatformV1beta1RubricBasedInstructionFollowingInstance;
@@ -7851,10 +8236,44 @@ declare namespace gapi.client {
       score?: number;
     }
     interface GoogleCloudAiplatformV1beta1RubricBasedInstructionFollowingSpec {}
+    interface GoogleCloudAiplatformV1beta1RubricContent {
+      /** Evaluation criteria based on a specific property. */
+      property?: GoogleCloudAiplatformV1beta1RubricContentProperty;
+    }
+    interface GoogleCloudAiplatformV1beta1RubricContentProperty {
+      /** Description of the property being evaluated. Example: "The model's response is grammatically correct." */
+      description?: string;
+    }
     interface GoogleCloudAiplatformV1beta1RubricCritiqueResult {
       /** Output only. Rubric to be evaluated. */
       rubric?: string;
       /** Output only. Verdict for the rubric - true if the rubric is met, false otherwise. */
+      verdict?: boolean;
+    }
+    interface GoogleCloudAiplatformV1beta1RubricGenerationSpec {
+      /** Configuration for the model used in rubric generation. Configs including sampling count and base model can be specified here. Flipping is not supported for rubric generation. */
+      modelConfig?: GoogleCloudAiplatformV1beta1AutoraterConfig;
+      /** Template for the prompt used to generate rubrics. The details should be updated based on the most-recent recipe requirements. */
+      promptTemplate?: string;
+      /** The type of rubric content to be generated. */
+      rubricContentType?: string;
+      /** Optional. An optional, pre-defined list of allowed types for generated rubrics. If this field is provided, it implies `include_rubric_type` should be true, and the generated rubric types should be chosen from this ontology. */
+      rubricTypeOntology?: string[];
+    }
+    interface GoogleCloudAiplatformV1beta1RubricGroup {
+      /** Human-readable name for the group. This should be unique within a given context if used for display or selection. Example: "Instruction Following V1", "Content Quality - Summarization Task". */
+      displayName?: string;
+      /** Unique identifier for the group. */
+      groupId?: string;
+      /** Rubrics that are part of this group. */
+      rubrics?: GoogleCloudAiplatformV1beta1Rubric[];
+    }
+    interface GoogleCloudAiplatformV1beta1RubricVerdict {
+      /** Required. The full rubric definition that was evaluated. Storing this ensures the verdict is self-contained and understandable, especially if the original rubric definition changes or was dynamically generated. */
+      evaluatedRubric?: GoogleCloudAiplatformV1beta1Rubric;
+      /** Optional. Human-readable reasoning or explanation for the verdict. This can include specific examples or details from the evaluated content that justify the given verdict. */
+      reasoning?: string;
+      /** Required. Outcome of the evaluation against the rubric, represented as a boolean. `true` indicates a "Pass", `false` indicates a "Fail". */
       verdict?: boolean;
     }
     interface GoogleCloudAiplatformV1beta1RuntimeArtifact {
@@ -10259,6 +10678,14 @@ declare namespace gapi.client {
       useReference?: boolean;
       /** Optional. Which version to use for evaluation. */
       version?: number;
+    }
+    interface GoogleCloudAiplatformV1beta1SummaryMetrics {
+      /** Optional. The number of items that failed to be evaluated. */
+      failedItems?: number;
+      /** Optional. Map of metric name to metric value. */
+      metrics?: {[P in string]: any};
+      /** Optional. The total number of items that were evaluated. */
+      totalItems?: number;
     }
     interface GoogleCloudAiplatformV1beta1SupervisedHyperParameters {
       /** Optional. Adapter size for tuning. */
@@ -17758,6 +18185,153 @@ declare namespace gapi.client {
       }): Request<GoogleLongrunningOperation>;
     }
     interface EvaluationItemsResource {
+      /** Creates an Evaluation Item. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The resource name of the Location to create the Evaluation Item in. Format: `projects/{project}/locations/{location}` */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1EvaluationItem;
+      }): Request<GoogleCloudAiplatformV1beta1EvaluationItem>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The resource name of the Location to create the Evaluation Item in. Format: `projects/{project}/locations/{location}` */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1EvaluationItem,
+      ): Request<GoogleCloudAiplatformV1beta1EvaluationItem>;
+      /** Deletes an Evaluation Item. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the EvaluationItem resource to be deleted. Format: `projects/{project}/locations/{location}/evaluationItems/{evaluation_item}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleLongrunningOperation>;
+      /** Gets an Evaluation Item. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the EvaluationItem resource. Format: `projects/{project}/locations/{location}/evaluationItems/{evaluation_item}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudAiplatformV1beta1EvaluationItem>;
+      /** Lists Evaluation Items. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. Filter expression that matches a subset of the EvaluationItems to show. For field names both snake_case and camelCase are supported. For more information about filter syntax, see [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. A comma-separated list of fields to order by, sorted in ascending order by default. Use `desc` after a field name for descending. */
+        orderBy?: string;
+        /** Optional. The maximum number of Evaluation Items to return. */
+        pageSize?: number;
+        /** Optional. A page token, received from a previous `ListEvaluationItems` call. Provide this to retrieve the subsequent page. */
+        pageToken?: string;
+        /** Required. The resource name of the Location from which to list the Evaluation Items. Format: `projects/{project}/locations/{location}` */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudAiplatformV1beta1ListEvaluationItemsResponse>;
       operations: OperationsResource;
     }
     interface OperationsResource {
@@ -17879,6 +18453,211 @@ declare namespace gapi.client {
       }): Request<GoogleLongrunningOperation>;
     }
     interface EvaluationRunsResource {
+      /** Cancels an Evaluation Run. Attempts to cancel a running Evaluation Run asynchronously. Status of run can be checked via GetEvaluationRun. */
+      cancel(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the EvaluationRun resource to be cancelled. Format: `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1CancelEvaluationRunRequest;
+      }): Request<{}>;
+      cancel(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the EvaluationRun resource to be cancelled. Format: `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}` */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1CancelEvaluationRunRequest,
+      ): Request<{}>;
+      /** Creates an Evaluation Run. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The resource name of the Location to create the Evaluation Run in. Format: `projects/{project}/locations/{location}` */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1EvaluationRun;
+      }): Request<GoogleCloudAiplatformV1beta1EvaluationRun>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The resource name of the Location to create the Evaluation Run in. Format: `projects/{project}/locations/{location}` */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1EvaluationRun,
+      ): Request<GoogleCloudAiplatformV1beta1EvaluationRun>;
+      /** Deletes an Evaluation Run. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the EvaluationRun resource to be deleted. Format: `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleLongrunningOperation>;
+      /** Gets an Evaluation Run. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the EvaluationRun resource. Format: `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudAiplatformV1beta1EvaluationRun>;
+      /** Lists Evaluation Runs. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. Filter expression that matches a subset of the EvaluationRuns to show. For field names both snake_case and camelCase are supported. For more information about filter syntax, see [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. A comma-separated list of fields to order by, sorted in ascending order by default. Use `desc` after a field name for descending. */
+        orderBy?: string;
+        /** Optional. The maximum number of Evaluation Runs to return. */
+        pageSize?: number;
+        /** Optional. A page token, received from a previous `ListEvaluationRuns` call. Provide this to retrieve the subsequent page. */
+        pageToken?: string;
+        /** Required. The resource name of the Location from which to list the Evaluation Runs. Format: `projects/{project}/locations/{location}` */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudAiplatformV1beta1ListEvaluationRunsResponse>;
       operations: OperationsResource;
     }
     interface OperationsResource {
@@ -18000,6 +18779,215 @@ declare namespace gapi.client {
       }): Request<GoogleLongrunningOperation>;
     }
     interface EvaluationSetsResource {
+      /** Creates an Evaluation Set. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The resource name of the Location to create the Evaluation Set in. Format: `projects/{project}/locations/{location}` */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1EvaluationSet;
+      }): Request<GoogleCloudAiplatformV1beta1EvaluationSet>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The resource name of the Location to create the Evaluation Set in. Format: `projects/{project}/locations/{location}` */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1EvaluationSet,
+      ): Request<GoogleCloudAiplatformV1beta1EvaluationSet>;
+      /** Deletes an Evaluation Set. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the EvaluationSet resource to be deleted. Format: `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleLongrunningOperation>;
+      /** Gets an Evaluation Set. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the EvaluationSet resource. Format: `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudAiplatformV1beta1EvaluationSet>;
+      /** Lists Evaluation Sets. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. Filter expression that matches a subset of the EvaluationSets to show. For field names both snake_case and camelCase are supported. For more information about filter syntax, see [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. A comma-separated list of fields to order by, sorted in ascending order by default. Use `desc` after a field name for descending. */
+        orderBy?: string;
+        /** Optional. The maximum number of Evaluation Sets to return. */
+        pageSize?: number;
+        /** Optional. A page token, received from a previous `ListEvaluationSets` call. Provide this to retrieve the subsequent page. */
+        pageToken?: string;
+        /** Required. The resource name of the Location from which to list the Evaluation Sets. Format: `projects/{project}/locations/{location}` */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudAiplatformV1beta1ListEvaluationSetsResponse>;
+      /** Updates an Evaluation Set. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Identifier. The resource name of the EvaluationSet. Format: `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. The update mask applies to the resource. For the `FieldMask` definition, see google.protobuf.FieldMask. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1EvaluationSet;
+      }): Request<GoogleCloudAiplatformV1beta1EvaluationSet>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Identifier. The resource name of the EvaluationSet. Format: `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}` */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. The update mask applies to the resource. For the `FieldMask` definition, see google.protobuf.FieldMask. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1EvaluationSet,
+      ): Request<GoogleCloudAiplatformV1beta1EvaluationSet>;
       operations: OperationsResource;
     }
     interface OperationsResource {
@@ -40724,6 +41712,64 @@ declare namespace gapi.client {
         },
         body: GoogleCloudAiplatformV1beta1EvaluateInstancesRequest,
       ): Request<GoogleCloudAiplatformV1beta1EvaluateInstancesResponse>;
+      /** Generates rubrics for a given prompt. A rubric represents a single testable criterion for evaluation. One input prompt could have multiple rubrics This RPC allows users to get suggested rubrics based on provided prompt, which can then be reviewed and used for subsequent evaluations. */
+      generateInstanceRubrics(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The resource name of the Location to generate rubrics from. Format: `projects/{project}/locations/{location}` */
+        location: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1GenerateInstanceRubricsRequest;
+      }): Request<GoogleCloudAiplatformV1beta1GenerateInstanceRubricsResponse>;
+      generateInstanceRubrics(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The resource name of the Location to generate rubrics from. Format: `projects/{project}/locations/{location}` */
+          location: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1GenerateInstanceRubricsRequest,
+      ): Request<GoogleCloudAiplatformV1beta1GenerateInstanceRubricsResponse>;
       /** Generates synthetic data based on the provided configuration. */
       generateSyntheticData(request: {
         /** V1 error format. */
@@ -40846,7 +41892,7 @@ declare namespace gapi.client {
         alt?: string;
         /** JSONP */
         callback?: string;
-        /** Optional. A list of extra location types that should be used as conditions for controlling the visibility of the locations. */
+        /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
         extraLocationTypes?: string | string[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;

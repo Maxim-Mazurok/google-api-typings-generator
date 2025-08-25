@@ -53,6 +53,7 @@ gapi.load('client', async () => {
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
+            gpuPartitionSize: 'Test string',
             machineType: 'Test string',
             multihostGpuNodeCount: 42,
             reservationAffinity: {
@@ -2213,6 +2214,7 @@ gapi.load('client', async () => {
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
+              gpuPartitionSize: 'Test string',
               machineType: 'Test string',
               multihostGpuNodeCount: 42,
               reservationAffinity: {
@@ -2388,6 +2390,7 @@ gapi.load('client', async () => {
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
+            gpuPartitionSize: 'Test string',
             machineType: 'Test string',
             multihostGpuNodeCount: 42,
             reservationAffinity: {
@@ -2449,6 +2452,12 @@ gapi.load('client', async () => {
               },
               metricPromptTemplate: 'Test string',
               systemInstruction: 'Test string',
+            },
+            predefinedMetricSpec: {
+              metricSpecName: 'Test string',
+              metricSpecParameters: {
+                A: 42,
+              },
             },
             rougeSpec: {
               rougeType: 'Test string',
@@ -2541,6 +2550,282 @@ gapi.load('client', async () => {
             version: 42,
           },
         },
+        instance: {
+          otherData: {
+            mapInstance: {
+              A: {
+                contents: {
+                  contents: [
+                    {
+                      parts: [
+                        {
+                          codeExecutionResult: {
+                            outcome: 'Test string',
+                            output: 'Test string',
+                          },
+                          executableCode: {
+                            code: 'Test string',
+                            language: 'Test string',
+                          },
+                          fileData: {
+                            displayName: 'Test string',
+                            fileUri: 'Test string',
+                            mimeType: 'Test string',
+                          },
+                          functionCall: {
+                            args: {
+                              A: 42,
+                            },
+                            id: 'Test string',
+                            name: 'Test string',
+                          },
+                          functionResponse: {
+                            id: 'Test string',
+                            name: 'Test string',
+                            response: {
+                              A: 42,
+                            },
+                          },
+                          inlineData: {
+                            data: 'Test string',
+                            displayName: 'Test string',
+                            mimeType: 'Test string',
+                          },
+                          text: 'Test string',
+                          thought: true,
+                          thoughtSignature: 'Test string',
+                          videoMetadata: {
+                            endOffset: 'Test string',
+                            fps: 42,
+                            startOffset: 'Test string',
+                          },
+                        },
+                      ],
+                      role: 'Test string',
+                    },
+                  ],
+                },
+                text: 'Test string',
+              },
+            },
+          },
+          prompt: {
+            contents: {
+              contents: [
+                {
+                  parts: [
+                    {
+                      codeExecutionResult: {
+                        outcome: 'Test string',
+                        output: 'Test string',
+                      },
+                      executableCode: {
+                        code: 'Test string',
+                        language: 'Test string',
+                      },
+                      fileData: {
+                        displayName: 'Test string',
+                        fileUri: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      functionCall: {
+                        args: {
+                          A: 42,
+                        },
+                        id: 'Test string',
+                        name: 'Test string',
+                      },
+                      functionResponse: {
+                        id: 'Test string',
+                        name: 'Test string',
+                        response: {
+                          A: 42,
+                        },
+                      },
+                      inlineData: {
+                        data: 'Test string',
+                        displayName: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      text: 'Test string',
+                      thought: true,
+                      thoughtSignature: 'Test string',
+                      videoMetadata: {
+                        endOffset: 'Test string',
+                        fps: 42,
+                        startOffset: 'Test string',
+                      },
+                    },
+                  ],
+                  role: 'Test string',
+                },
+              ],
+            },
+            text: 'Test string',
+          },
+          reference: {
+            contents: {
+              contents: [
+                {
+                  parts: [
+                    {
+                      codeExecutionResult: {
+                        outcome: 'Test string',
+                        output: 'Test string',
+                      },
+                      executableCode: {
+                        code: 'Test string',
+                        language: 'Test string',
+                      },
+                      fileData: {
+                        displayName: 'Test string',
+                        fileUri: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      functionCall: {
+                        args: {
+                          A: 42,
+                        },
+                        id: 'Test string',
+                        name: 'Test string',
+                      },
+                      functionResponse: {
+                        id: 'Test string',
+                        name: 'Test string',
+                        response: {
+                          A: 42,
+                        },
+                      },
+                      inlineData: {
+                        data: 'Test string',
+                        displayName: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      text: 'Test string',
+                      thought: true,
+                      thoughtSignature: 'Test string',
+                      videoMetadata: {
+                        endOffset: 'Test string',
+                        fps: 42,
+                        startOffset: 'Test string',
+                      },
+                    },
+                  ],
+                  role: 'Test string',
+                },
+              ],
+            },
+            text: 'Test string',
+          },
+          response: {
+            contents: {
+              contents: [
+                {
+                  parts: [
+                    {
+                      codeExecutionResult: {
+                        outcome: 'Test string',
+                        output: 'Test string',
+                      },
+                      executableCode: {
+                        code: 'Test string',
+                        language: 'Test string',
+                      },
+                      fileData: {
+                        displayName: 'Test string',
+                        fileUri: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      functionCall: {
+                        args: {
+                          A: 42,
+                        },
+                        id: 'Test string',
+                        name: 'Test string',
+                      },
+                      functionResponse: {
+                        id: 'Test string',
+                        name: 'Test string',
+                        response: {
+                          A: 42,
+                        },
+                      },
+                      inlineData: {
+                        data: 'Test string',
+                        displayName: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      text: 'Test string',
+                      thought: true,
+                      thoughtSignature: 'Test string',
+                      videoMetadata: {
+                        endOffset: 'Test string',
+                        fps: 42,
+                        startOffset: 'Test string',
+                      },
+                    },
+                  ],
+                  role: 'Test string',
+                },
+              ],
+            },
+            text: 'Test string',
+          },
+          rubricGroups: {
+            A: {
+              displayName: 'Test string',
+              groupId: 'Test string',
+              rubrics: [
+                {
+                  content: {
+                    property: {
+                      description: 'Test string',
+                    },
+                  },
+                  importance: 'Test string',
+                  rubricId: 'Test string',
+                  type: 'Test string',
+                },
+              ],
+            },
+          },
+        },
+        metrics: [
+          {
+            aggregationMetrics: ['Test string'],
+            bleuSpec: {
+              useEffectiveOrder: true,
+            },
+            exactMatchSpec: {},
+            pairwiseMetricSpec: {
+              baselineResponseFieldName: 'Test string',
+              candidateResponseFieldName: 'Test string',
+              customOutputFormatConfig: {
+                returnRawOutput: true,
+              },
+              metricPromptTemplate: 'Test string',
+              systemInstruction: 'Test string',
+            },
+            pointwiseMetricSpec: {
+              customOutputFormatConfig: {
+                returnRawOutput: true,
+              },
+              metricPromptTemplate: 'Test string',
+              systemInstruction: 'Test string',
+            },
+            predefinedMetricSpec: {
+              metricSpecName: 'Test string',
+              metricSpecParameters: {
+                A: 42,
+              },
+            },
+            rougeSpec: {
+              rougeType: 'Test string',
+              splitSummaries: true,
+              useStemmer: true,
+            },
+          },
+        ],
         metricxInput: {
           instance: {
             prediction: 'Test string',
@@ -2998,6 +3283,79 @@ gapi.load('client', async () => {
         },
       },
     );
+    /** Generates rubrics for a given prompt. A rubric represents a single testable criterion for evaluation. One input prompt could have multiple rubrics This RPC allows users to get suggested rubrics based on provided prompt, which can then be reviewed and used for subsequent evaluations. */
+    await gapi.client.aiplatform.projects.locations.generateInstanceRubrics(
+      {
+        location: 'Test string',
+      },
+      {
+        contents: [
+          {
+            parts: [
+              {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
+                fileData: {
+                  displayName: 'Test string',
+                  fileUri: 'Test string',
+                  mimeType: 'Test string',
+                },
+                functionCall: {
+                  args: {
+                    A: 42,
+                  },
+                  id: 'Test string',
+                  name: 'Test string',
+                },
+                functionResponse: {
+                  id: 'Test string',
+                  name: 'Test string',
+                  response: {
+                    A: 42,
+                  },
+                },
+                inlineData: {
+                  data: 'Test string',
+                  displayName: 'Test string',
+                  mimeType: 'Test string',
+                },
+                text: 'Test string',
+                thought: true,
+                thoughtSignature: 'Test string',
+                videoMetadata: {
+                  endOffset: 'Test string',
+                  fps: 42,
+                  startOffset: 'Test string',
+                },
+              },
+            ],
+            role: 'Test string',
+          },
+        ],
+        predefinedRubricGenerationSpec: {
+          metricSpecName: 'Test string',
+          metricSpecParameters: {
+            A: 42,
+          },
+        },
+        rubricGenerationSpec: {
+          modelConfig: {
+            autoraterModel: 'Test string',
+            flipEnabled: true,
+            samplingCount: 42,
+          },
+          promptTemplate: 'Test string',
+          rubricContentType: 'Test string',
+          rubricTypeOntology: ['Test string'],
+        },
+      },
+    );
     /** Generates synthetic data based on the provided configuration. */
     await gapi.client.aiplatform.projects.locations.generateSyntheticData(
       {
@@ -3234,6 +3592,7 @@ gapi.load('client', async () => {
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
+            gpuPartitionSize: 'Test string',
             machineType: 'Test string',
             multihostGpuNodeCount: 42,
             reservationAffinity: {
@@ -4379,6 +4738,7 @@ gapi.load('client', async () => {
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
+                gpuPartitionSize: 'Test string',
                 machineType: 'Test string',
                 multihostGpuNodeCount: 42,
                 reservationAffinity: {
@@ -5795,6 +6155,7 @@ gapi.load('client', async () => {
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
+              gpuPartitionSize: 'Test string',
               machineType: 'Test string',
               multihostGpuNodeCount: 42,
               reservationAffinity: {
@@ -5865,6 +6226,7 @@ gapi.load('client', async () => {
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
+            gpuPartitionSize: 'Test string',
             machineType: 'Test string',
             multihostGpuNodeCount: 42,
             reservationAffinity: {
@@ -6400,6 +6762,7 @@ gapi.load('client', async () => {
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
+                gpuPartitionSize: 'Test string',
                 machineType: 'Test string',
                 multihostGpuNodeCount: 42,
                 reservationAffinity: {
@@ -6648,6 +7011,7 @@ gapi.load('client', async () => {
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
+              gpuPartitionSize: 'Test string',
               machineType: 'Test string',
               multihostGpuNodeCount: 42,
               reservationAffinity: {
@@ -7465,6 +7829,7 @@ gapi.load('client', async () => {
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
+              gpuPartitionSize: 'Test string',
               machineType: 'Test string',
               multihostGpuNodeCount: 42,
               reservationAffinity: {
@@ -7665,6 +8030,7 @@ gapi.load('client', async () => {
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
+                gpuPartitionSize: 'Test string',
                 machineType: 'Test string',
                 multihostGpuNodeCount: 42,
                 reservationAffinity: {
@@ -8422,6 +8788,7 @@ gapi.load('client', async () => {
                 machineSpec: {
                   acceleratorCount: 42,
                   acceleratorType: 'Test string',
+                  gpuPartitionSize: 'Test string',
                   machineType: 'Test string',
                   multihostGpuNodeCount: 42,
                   reservationAffinity: {
@@ -8681,6 +9048,253 @@ gapi.load('client', async () => {
       name: 'Test string',
       timeout: 'Test string',
     });
+    /** Creates an Evaluation Item. */
+    await gapi.client.aiplatform.projects.locations.evaluationItems.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        evaluationItemType: 'Test string',
+        evaluationRequest: {
+          candidateResponses: [
+            {
+              candidate: 'Test string',
+              text: 'Test string',
+              value: 42,
+            },
+          ],
+          goldenResponse: {
+            candidate: 'Test string',
+            text: 'Test string',
+            value: 42,
+          },
+          prompt: {
+            promptTemplateData: {
+              values: {
+                A: {
+                  parts: [
+                    {
+                      codeExecutionResult: {
+                        outcome: 'Test string',
+                        output: 'Test string',
+                      },
+                      executableCode: {
+                        code: 'Test string',
+                        language: 'Test string',
+                      },
+                      fileData: {
+                        displayName: 'Test string',
+                        fileUri: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      functionCall: {
+                        args: {
+                          A: 42,
+                        },
+                        id: 'Test string',
+                        name: 'Test string',
+                      },
+                      functionResponse: {
+                        id: 'Test string',
+                        name: 'Test string',
+                        response: {
+                          A: 42,
+                        },
+                      },
+                      inlineData: {
+                        data: 'Test string',
+                        displayName: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      text: 'Test string',
+                      thought: true,
+                      thoughtSignature: 'Test string',
+                      videoMetadata: {
+                        endOffset: 'Test string',
+                        fps: 42,
+                        startOffset: 'Test string',
+                      },
+                    },
+                  ],
+                  role: 'Test string',
+                },
+              },
+            },
+            text: 'Test string',
+            value: 42,
+          },
+          rubrics: {
+            A: {
+              displayName: 'Test string',
+              groupId: 'Test string',
+              rubrics: [
+                {
+                  content: {
+                    property: {
+                      description: 'Test string',
+                    },
+                  },
+                  importance: 'Test string',
+                  rubricId: 'Test string',
+                  type: 'Test string',
+                },
+              ],
+            },
+          },
+        },
+        evaluationResponse: {
+          candidateResults: [
+            {
+              additionalResults: 42,
+              candidate: 'Test string',
+              explanation: 'Test string',
+              metric: 'Test string',
+              rubricVerdicts: [
+                {
+                  evaluatedRubric: {
+                    content: {
+                      property: {
+                        description: 'Test string',
+                      },
+                    },
+                    importance: 'Test string',
+                    rubricId: 'Test string',
+                    type: 'Test string',
+                  },
+                  reasoning: 'Test string',
+                  verdict: true,
+                },
+              ],
+              score: 42,
+            },
+          ],
+          evaluationRequest: 'Test string',
+          evaluationRun: 'Test string',
+          metadata: 42,
+          metric: 'Test string',
+          request: {
+            candidateResponses: [
+              {
+                candidate: 'Test string',
+                text: 'Test string',
+                value: 42,
+              },
+            ],
+            goldenResponse: {
+              candidate: 'Test string',
+              text: 'Test string',
+              value: 42,
+            },
+            prompt: {
+              promptTemplateData: {
+                values: {
+                  A: {
+                    parts: [
+                      {
+                        codeExecutionResult: {
+                          outcome: 'Test string',
+                          output: 'Test string',
+                        },
+                        executableCode: {
+                          code: 'Test string',
+                          language: 'Test string',
+                        },
+                        fileData: {
+                          displayName: 'Test string',
+                          fileUri: 'Test string',
+                          mimeType: 'Test string',
+                        },
+                        functionCall: {
+                          args: {
+                            A: 42,
+                          },
+                          id: 'Test string',
+                          name: 'Test string',
+                        },
+                        functionResponse: {
+                          id: 'Test string',
+                          name: 'Test string',
+                          response: {
+                            A: 42,
+                          },
+                        },
+                        inlineData: {
+                          data: 'Test string',
+                          displayName: 'Test string',
+                          mimeType: 'Test string',
+                        },
+                        text: 'Test string',
+                        thought: true,
+                        thoughtSignature: 'Test string',
+                        videoMetadata: {
+                          endOffset: 'Test string',
+                          fps: 42,
+                          startOffset: 'Test string',
+                        },
+                      },
+                    ],
+                    role: 'Test string',
+                  },
+                },
+              },
+              text: 'Test string',
+              value: 42,
+            },
+            rubrics: {
+              A: {
+                displayName: 'Test string',
+                groupId: 'Test string',
+                rubrics: [
+                  {
+                    content: {
+                      property: {
+                        description: 'Test string',
+                      },
+                    },
+                    importance: 'Test string',
+                    rubricId: 'Test string',
+                    type: 'Test string',
+                  },
+                ],
+              },
+            },
+          },
+        },
+        gcsUri: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: 42,
+        name: 'Test string',
+      },
+    );
+    /** Deletes an Evaluation Item. */
+    await gapi.client.aiplatform.projects.locations.evaluationItems.delete({
+      name: 'Test string',
+    });
+    /** Gets an Evaluation Item. */
+    await gapi.client.aiplatform.projects.locations.evaluationItems.get({
+      name: 'Test string',
+    });
+    /** Lists Evaluation Items. */
+    await gapi.client.aiplatform.projects.locations.evaluationItems.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.aiplatform.projects.locations.evaluationItems.operations.delete(
       {
@@ -8709,6 +9323,594 @@ gapi.load('client', async () => {
         timeout: 'Test string',
       },
     );
+    /** Cancels an Evaluation Run. Attempts to cancel a running Evaluation Run asynchronously. Status of run can be checked via GetEvaluationRun. */
+    await gapi.client.aiplatform.projects.locations.evaluationRuns.cancel(
+      {
+        name: 'Test string',
+      },
+      {},
+    );
+    /** Creates an Evaluation Run. */
+    await gapi.client.aiplatform.projects.locations.evaluationRuns.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        completionTime: 'Test string',
+        createTime: 'Test string',
+        dataSource: {
+          bigqueryRequestSet: {
+            candidateResponseColumns: {
+              A: 'Test string',
+            },
+            promptColumn: 'Test string',
+            rubricsColumn: 'Test string',
+            samplingConfig: {
+              samplingCount: 42,
+              samplingDuration: 'Test string',
+              samplingMethod: 'Test string',
+            },
+            uri: 'Test string',
+          },
+          evaluationSet: 'Test string',
+        },
+        displayName: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        evaluationConfig: {
+          autoraterConfig: {
+            autoraterModel: 'Test string',
+            generationConfig: {
+              audioTimestamp: true,
+              candidateCount: 42,
+              enableAffectiveDialog: true,
+              frequencyPenalty: 42,
+              logprobs: 42,
+              maxOutputTokens: 42,
+              mediaResolution: 'Test string',
+              modelConfig: {
+                featureSelectionPreference: 'Test string',
+              },
+              presencePenalty: 42,
+              responseJsonSchema: 42,
+              responseLogprobs: true,
+              responseMimeType: 'Test string',
+              responseModalities: ['Test string'],
+              responseSchema: {
+                additionalProperties: 42,
+                anyOf: undefined,
+                default: 42,
+                defs: undefined,
+                description: 'Test string',
+                enum: ['Test string'],
+                example: 42,
+                format: 'Test string',
+                items: undefined,
+                maximum: 42,
+                maxItems: 'Test string',
+                maxLength: 'Test string',
+                maxProperties: 'Test string',
+                minimum: 42,
+                minItems: 'Test string',
+                minLength: 'Test string',
+                minProperties: 'Test string',
+                nullable: true,
+                pattern: 'Test string',
+                properties: undefined,
+                propertyOrdering: ['Test string'],
+                ref: 'Test string',
+                required: ['Test string'],
+                title: 'Test string',
+                type: 'Test string',
+              },
+              routingConfig: {
+                autoMode: {
+                  modelRoutingPreference: 'Test string',
+                },
+                manualMode: {
+                  modelName: 'Test string',
+                },
+              },
+              seed: 42,
+              speechConfig: {
+                languageCode: 'Test string',
+                voiceConfig: {
+                  prebuiltVoiceConfig: {
+                    voiceName: 'Test string',
+                  },
+                },
+              },
+              stopSequences: ['Test string'],
+              temperature: 42,
+              thinkingConfig: {
+                includeThoughts: true,
+                thinkingBudget: 42,
+              },
+              topK: 42,
+              topP: 42,
+            },
+            sampleCount: 42,
+          },
+          metrics: [
+            {
+              computationBasedMetricSpec: {
+                parameters: {
+                  A: 42,
+                },
+                type: 'Test string',
+              },
+              llmBasedMetricSpec: {
+                additionalConfig: {
+                  A: 42,
+                },
+                judgeAutoraterConfig: {
+                  autoraterModel: 'Test string',
+                  generationConfig: {
+                    audioTimestamp: true,
+                    candidateCount: 42,
+                    enableAffectiveDialog: true,
+                    frequencyPenalty: 42,
+                    logprobs: 42,
+                    maxOutputTokens: 42,
+                    mediaResolution: 'Test string',
+                    modelConfig: {
+                      featureSelectionPreference: 'Test string',
+                    },
+                    presencePenalty: 42,
+                    responseJsonSchema: 42,
+                    responseLogprobs: true,
+                    responseMimeType: 'Test string',
+                    responseModalities: ['Test string'],
+                    responseSchema: {
+                      additionalProperties: 42,
+                      anyOf: undefined,
+                      default: 42,
+                      defs: undefined,
+                      description: 'Test string',
+                      enum: ['Test string'],
+                      example: 42,
+                      format: 'Test string',
+                      items: undefined,
+                      maximum: 42,
+                      maxItems: 'Test string',
+                      maxLength: 'Test string',
+                      maxProperties: 'Test string',
+                      minimum: 42,
+                      minItems: 'Test string',
+                      minLength: 'Test string',
+                      minProperties: 'Test string',
+                      nullable: true,
+                      pattern: 'Test string',
+                      properties: undefined,
+                      propertyOrdering: ['Test string'],
+                      ref: 'Test string',
+                      required: ['Test string'],
+                      title: 'Test string',
+                      type: 'Test string',
+                    },
+                    routingConfig: {
+                      autoMode: {
+                        modelRoutingPreference: 'Test string',
+                      },
+                      manualMode: {
+                        modelName: 'Test string',
+                      },
+                    },
+                    seed: 42,
+                    speechConfig: {
+                      languageCode: 'Test string',
+                      voiceConfig: {
+                        prebuiltVoiceConfig: {
+                          voiceName: 'Test string',
+                        },
+                      },
+                    },
+                    stopSequences: ['Test string'],
+                    temperature: 42,
+                    thinkingConfig: {
+                      includeThoughts: true,
+                      thinkingBudget: 42,
+                    },
+                    topK: 42,
+                    topP: 42,
+                  },
+                  sampleCount: 42,
+                },
+                metricPromptTemplate: 'Test string',
+                predefinedRubricGenerationSpec: {
+                  metricSpecName: 'Test string',
+                  parameters: {
+                    A: 42,
+                  },
+                },
+                rubricGenerationSpec: {
+                  modelConfig: {
+                    autoraterModel: 'Test string',
+                    generationConfig: {
+                      audioTimestamp: true,
+                      candidateCount: 42,
+                      enableAffectiveDialog: true,
+                      frequencyPenalty: 42,
+                      logprobs: 42,
+                      maxOutputTokens: 42,
+                      mediaResolution: 'Test string',
+                      modelConfig: {
+                        featureSelectionPreference: 'Test string',
+                      },
+                      presencePenalty: 42,
+                      responseJsonSchema: 42,
+                      responseLogprobs: true,
+                      responseMimeType: 'Test string',
+                      responseModalities: ['Test string'],
+                      responseSchema: {
+                        additionalProperties: 42,
+                        anyOf: undefined,
+                        default: 42,
+                        defs: undefined,
+                        description: 'Test string',
+                        enum: ['Test string'],
+                        example: 42,
+                        format: 'Test string',
+                        items: undefined,
+                        maximum: 42,
+                        maxItems: 'Test string',
+                        maxLength: 'Test string',
+                        maxProperties: 'Test string',
+                        minimum: 42,
+                        minItems: 'Test string',
+                        minLength: 'Test string',
+                        minProperties: 'Test string',
+                        nullable: true,
+                        pattern: 'Test string',
+                        properties: undefined,
+                        propertyOrdering: ['Test string'],
+                        ref: 'Test string',
+                        required: ['Test string'],
+                        title: 'Test string',
+                        type: 'Test string',
+                      },
+                      routingConfig: {
+                        autoMode: {
+                          modelRoutingPreference: 'Test string',
+                        },
+                        manualMode: {
+                          modelName: 'Test string',
+                        },
+                      },
+                      seed: 42,
+                      speechConfig: {
+                        languageCode: 'Test string',
+                        voiceConfig: {
+                          prebuiltVoiceConfig: {
+                            voiceName: 'Test string',
+                          },
+                        },
+                      },
+                      stopSequences: ['Test string'],
+                      temperature: 42,
+                      thinkingConfig: {
+                        includeThoughts: true,
+                        thinkingBudget: 42,
+                      },
+                      topK: 42,
+                      topP: 42,
+                    },
+                    sampleCount: 42,
+                  },
+                  promptTemplate: 'Test string',
+                  rubricContentType: 'Test string',
+                  rubricTypeOntology: ['Test string'],
+                },
+                rubricGroupKey: 'Test string',
+                systemInstruction: 'Test string',
+              },
+              metric: 'Test string',
+              predefinedMetricSpec: {
+                metricSpecName: 'Test string',
+                parameters: {
+                  A: 42,
+                },
+              },
+              rubricBasedMetricSpec: {
+                inlineRubrics: {
+                  rubrics: [
+                    {
+                      content: {
+                        property: {
+                          description: 'Test string',
+                        },
+                      },
+                      importance: 'Test string',
+                      rubricId: 'Test string',
+                      type: 'Test string',
+                    },
+                  ],
+                },
+                judgeAutoraterConfig: {
+                  autoraterModel: 'Test string',
+                  generationConfig: {
+                    audioTimestamp: true,
+                    candidateCount: 42,
+                    enableAffectiveDialog: true,
+                    frequencyPenalty: 42,
+                    logprobs: 42,
+                    maxOutputTokens: 42,
+                    mediaResolution: 'Test string',
+                    modelConfig: {
+                      featureSelectionPreference: 'Test string',
+                    },
+                    presencePenalty: 42,
+                    responseJsonSchema: 42,
+                    responseLogprobs: true,
+                    responseMimeType: 'Test string',
+                    responseModalities: ['Test string'],
+                    responseSchema: {
+                      additionalProperties: 42,
+                      anyOf: undefined,
+                      default: 42,
+                      defs: undefined,
+                      description: 'Test string',
+                      enum: ['Test string'],
+                      example: 42,
+                      format: 'Test string',
+                      items: undefined,
+                      maximum: 42,
+                      maxItems: 'Test string',
+                      maxLength: 'Test string',
+                      maxProperties: 'Test string',
+                      minimum: 42,
+                      minItems: 'Test string',
+                      minLength: 'Test string',
+                      minProperties: 'Test string',
+                      nullable: true,
+                      pattern: 'Test string',
+                      properties: undefined,
+                      propertyOrdering: ['Test string'],
+                      ref: 'Test string',
+                      required: ['Test string'],
+                      title: 'Test string',
+                      type: 'Test string',
+                    },
+                    routingConfig: {
+                      autoMode: {
+                        modelRoutingPreference: 'Test string',
+                      },
+                      manualMode: {
+                        modelName: 'Test string',
+                      },
+                    },
+                    seed: 42,
+                    speechConfig: {
+                      languageCode: 'Test string',
+                      voiceConfig: {
+                        prebuiltVoiceConfig: {
+                          voiceName: 'Test string',
+                        },
+                      },
+                    },
+                    stopSequences: ['Test string'],
+                    temperature: 42,
+                    thinkingConfig: {
+                      includeThoughts: true,
+                      thinkingBudget: 42,
+                    },
+                    topK: 42,
+                    topP: 42,
+                  },
+                  sampleCount: 42,
+                },
+                metricPromptTemplate: 'Test string',
+                rubricGenerationSpec: {
+                  modelConfig: {
+                    autoraterModel: 'Test string',
+                    generationConfig: {
+                      audioTimestamp: true,
+                      candidateCount: 42,
+                      enableAffectiveDialog: true,
+                      frequencyPenalty: 42,
+                      logprobs: 42,
+                      maxOutputTokens: 42,
+                      mediaResolution: 'Test string',
+                      modelConfig: {
+                        featureSelectionPreference: 'Test string',
+                      },
+                      presencePenalty: 42,
+                      responseJsonSchema: 42,
+                      responseLogprobs: true,
+                      responseMimeType: 'Test string',
+                      responseModalities: ['Test string'],
+                      responseSchema: {
+                        additionalProperties: 42,
+                        anyOf: undefined,
+                        default: 42,
+                        defs: undefined,
+                        description: 'Test string',
+                        enum: ['Test string'],
+                        example: 42,
+                        format: 'Test string',
+                        items: undefined,
+                        maximum: 42,
+                        maxItems: 'Test string',
+                        maxLength: 'Test string',
+                        maxProperties: 'Test string',
+                        minimum: 42,
+                        minItems: 'Test string',
+                        minLength: 'Test string',
+                        minProperties: 'Test string',
+                        nullable: true,
+                        pattern: 'Test string',
+                        properties: undefined,
+                        propertyOrdering: ['Test string'],
+                        ref: 'Test string',
+                        required: ['Test string'],
+                        title: 'Test string',
+                        type: 'Test string',
+                      },
+                      routingConfig: {
+                        autoMode: {
+                          modelRoutingPreference: 'Test string',
+                        },
+                        manualMode: {
+                          modelName: 'Test string',
+                        },
+                      },
+                      seed: 42,
+                      speechConfig: {
+                        languageCode: 'Test string',
+                        voiceConfig: {
+                          prebuiltVoiceConfig: {
+                            voiceName: 'Test string',
+                          },
+                        },
+                      },
+                      stopSequences: ['Test string'],
+                      temperature: 42,
+                      thinkingConfig: {
+                        includeThoughts: true,
+                        thinkingBudget: 42,
+                      },
+                      topK: 42,
+                      topP: 42,
+                    },
+                    sampleCount: 42,
+                  },
+                  promptTemplate: 'Test string',
+                  rubricContentType: 'Test string',
+                  rubricTypeOntology: ['Test string'],
+                },
+                rubricGroupKey: 'Test string',
+              },
+            },
+          ],
+          outputConfig: {
+            bigqueryDestination: {
+              outputUri: 'Test string',
+            },
+            gcsDestination: {
+              outputUriPrefix: 'Test string',
+            },
+          },
+          promptTemplate: {
+            gcsUri: 'Test string',
+            promptTemplate: 'Test string',
+          },
+        },
+        evaluationResults: {
+          evaluationSet: 'Test string',
+          summaryMetrics: {
+            failedItems: 42,
+            metrics: {
+              A: 42,
+            },
+            totalItems: 42,
+          },
+        },
+        evaluationSetSnapshot: 'Test string',
+        inferenceConfigs: {
+          A: {
+            generationConfig: {
+              audioTimestamp: true,
+              candidateCount: 42,
+              enableAffectiveDialog: true,
+              frequencyPenalty: 42,
+              logprobs: 42,
+              maxOutputTokens: 42,
+              mediaResolution: 'Test string',
+              modelConfig: {
+                featureSelectionPreference: 'Test string',
+              },
+              presencePenalty: 42,
+              responseJsonSchema: 42,
+              responseLogprobs: true,
+              responseMimeType: 'Test string',
+              responseModalities: ['Test string'],
+              responseSchema: {
+                additionalProperties: 42,
+                anyOf: undefined,
+                default: 42,
+                defs: undefined,
+                description: 'Test string',
+                enum: ['Test string'],
+                example: 42,
+                format: 'Test string',
+                items: undefined,
+                maximum: 42,
+                maxItems: 'Test string',
+                maxLength: 'Test string',
+                maxProperties: 'Test string',
+                minimum: 42,
+                minItems: 'Test string',
+                minLength: 'Test string',
+                minProperties: 'Test string',
+                nullable: true,
+                pattern: 'Test string',
+                properties: undefined,
+                propertyOrdering: ['Test string'],
+                ref: 'Test string',
+                required: ['Test string'],
+                title: 'Test string',
+                type: 'Test string',
+              },
+              routingConfig: {
+                autoMode: {
+                  modelRoutingPreference: 'Test string',
+                },
+                manualMode: {
+                  modelName: 'Test string',
+                },
+              },
+              seed: 42,
+              speechConfig: {
+                languageCode: 'Test string',
+                voiceConfig: {
+                  prebuiltVoiceConfig: {
+                    voiceName: 'Test string',
+                  },
+                },
+              },
+              stopSequences: ['Test string'],
+              temperature: 42,
+              thinkingConfig: {
+                includeThoughts: true,
+                thinkingBudget: 42,
+              },
+              topK: 42,
+              topP: 42,
+            },
+            model: 'Test string',
+          },
+        },
+        labels: {
+          A: 'Test string',
+        },
+        metadata: 42,
+        name: 'Test string',
+        state: 'Test string',
+      },
+    );
+    /** Deletes an Evaluation Run. */
+    await gapi.client.aiplatform.projects.locations.evaluationRuns.delete({
+      name: 'Test string',
+    });
+    /** Gets an Evaluation Run. */
+    await gapi.client.aiplatform.projects.locations.evaluationRuns.get({
+      name: 'Test string',
+    });
+    /** Lists Evaluation Runs. */
+    await gapi.client.aiplatform.projects.locations.evaluationRuns.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
     await gapi.client.aiplatform.projects.locations.evaluationRuns.operations.delete(
       {
@@ -8735,6 +9937,51 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         timeout: 'Test string',
+      },
+    );
+    /** Creates an Evaluation Set. */
+    await gapi.client.aiplatform.projects.locations.evaluationSets.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        evaluationItems: ['Test string'],
+        metadata: 42,
+        name: 'Test string',
+        updateTime: 'Test string',
+      },
+    );
+    /** Deletes an Evaluation Set. */
+    await gapi.client.aiplatform.projects.locations.evaluationSets.delete({
+      name: 'Test string',
+    });
+    /** Gets an Evaluation Set. */
+    await gapi.client.aiplatform.projects.locations.evaluationSets.get({
+      name: 'Test string',
+    });
+    /** Lists Evaluation Sets. */
+    await gapi.client.aiplatform.projects.locations.evaluationSets.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates an Evaluation Set. */
+    await gapi.client.aiplatform.projects.locations.evaluationSets.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        evaluationItems: ['Test string'],
+        metadata: 42,
+        name: 'Test string',
+        updateTime: 'Test string',
       },
     );
     /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
@@ -11807,6 +13054,7 @@ gapi.load('client', async () => {
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
+                gpuPartitionSize: 'Test string',
                 machineType: 'Test string',
                 multihostGpuNodeCount: 42,
                 reservationAffinity: {
@@ -11971,6 +13219,7 @@ gapi.load('client', async () => {
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
+                gpuPartitionSize: 'Test string',
                 machineType: 'Test string',
                 multihostGpuNodeCount: 42,
                 reservationAffinity: {
@@ -12090,6 +13339,7 @@ gapi.load('client', async () => {
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
+              gpuPartitionSize: 'Test string',
               machineType: 'Test string',
               multihostGpuNodeCount: 42,
               reservationAffinity: {
@@ -12233,6 +13483,7 @@ gapi.load('client', async () => {
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
+            gpuPartitionSize: 'Test string',
             machineType: 'Test string',
             multihostGpuNodeCount: 42,
             reservationAffinity: {
@@ -12316,6 +13567,7 @@ gapi.load('client', async () => {
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
+                gpuPartitionSize: 'Test string',
                 machineType: 'Test string',
                 multihostGpuNodeCount: 42,
                 reservationAffinity: {
@@ -13797,6 +15049,7 @@ gapi.load('client', async () => {
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
+                gpuPartitionSize: 'Test string',
                 machineType: 'Test string',
                 multihostGpuNodeCount: 42,
                 reservationAffinity: {
@@ -14071,6 +15324,7 @@ gapi.load('client', async () => {
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
+                gpuPartitionSize: 'Test string',
                 machineType: 'Test string',
                 multihostGpuNodeCount: 42,
                 reservationAffinity: {
@@ -14398,6 +15652,7 @@ gapi.load('client', async () => {
                   machineSpec: {
                     acceleratorCount: 42,
                     acceleratorType: 'Test string',
+                    gpuPartitionSize: 'Test string',
                     machineType: 'Test string',
                     multihostGpuNodeCount: 42,
                     reservationAffinity: {
@@ -15712,6 +16967,7 @@ gapi.load('client', async () => {
                     machineSpec: {
                       acceleratorCount: 42,
                       acceleratorType: 'Test string',
+                      gpuPartitionSize: 'Test string',
                       machineType: 'Test string',
                       multihostGpuNodeCount: 42,
                       reservationAffinity: {
@@ -15800,6 +17056,7 @@ gapi.load('client', async () => {
                     machineSpec: {
                       acceleratorCount: 42,
                       acceleratorType: 'Test string',
+                      gpuPartitionSize: 'Test string',
                       machineType: 'Test string',
                       multihostGpuNodeCount: 42,
                       reservationAffinity: {
@@ -15886,6 +17143,7 @@ gapi.load('client', async () => {
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
+            gpuPartitionSize: 'Test string',
             machineType: 'Test string',
             multihostGpuNodeCount: 42,
             reservationAffinity: {
@@ -16060,6 +17318,7 @@ gapi.load('client', async () => {
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
+            gpuPartitionSize: 'Test string',
             machineType: 'Test string',
             multihostGpuNodeCount: 42,
             reservationAffinity: {
@@ -16256,6 +17515,7 @@ gapi.load('client', async () => {
         machineSpec: {
           acceleratorCount: 42,
           acceleratorType: 'Test string',
+          gpuPartitionSize: 'Test string',
           machineType: 'Test string',
           multihostGpuNodeCount: 42,
           reservationAffinity: {
@@ -16365,6 +17625,7 @@ gapi.load('client', async () => {
         machineSpec: {
           acceleratorCount: 42,
           acceleratorType: 'Test string',
+          gpuPartitionSize: 'Test string',
           machineType: 'Test string',
           multihostGpuNodeCount: 42,
           reservationAffinity: {
@@ -16551,6 +17812,7 @@ gapi.load('client', async () => {
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
+              gpuPartitionSize: 'Test string',
               machineType: 'Test string',
               multihostGpuNodeCount: 42,
               reservationAffinity: {
@@ -16668,6 +17930,7 @@ gapi.load('client', async () => {
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
+              gpuPartitionSize: 'Test string',
               machineType: 'Test string',
               multihostGpuNodeCount: 42,
               reservationAffinity: {
@@ -19098,6 +20361,7 @@ gapi.load('client', async () => {
             },
           ],
           deploymentSpec: {
+            agentServerMode: 'Test string',
             containerConcurrency: 42,
             env: [
               {
@@ -19276,6 +20540,7 @@ gapi.load('client', async () => {
             },
           ],
           deploymentSpec: {
+            agentServerMode: 'Test string',
             containerConcurrency: 42,
             env: [
               {
@@ -20152,6 +21417,7 @@ gapi.load('client', async () => {
                       machineSpec: {
                         acceleratorCount: 42,
                         acceleratorType: 'Test string',
+                        gpuPartitionSize: 'Test string',
                         machineType: 'Test string',
                         multihostGpuNodeCount: 42,
                         reservationAffinity: {
@@ -20259,6 +21525,7 @@ gapi.load('client', async () => {
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
+                gpuPartitionSize: 'Test string',
                 machineType: 'Test string',
                 multihostGpuNodeCount: 42,
                 reservationAffinity: {
@@ -20834,6 +22101,7 @@ gapi.load('client', async () => {
                       machineSpec: {
                         acceleratorCount: 42,
                         acceleratorType: 'Test string',
+                        gpuPartitionSize: 'Test string',
                         machineType: 'Test string',
                         multihostGpuNodeCount: 42,
                         reservationAffinity: {
@@ -20941,6 +22209,7 @@ gapi.load('client', async () => {
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
+                gpuPartitionSize: 'Test string',
                 machineType: 'Test string',
                 multihostGpuNodeCount: 42,
                 reservationAffinity: {
@@ -22800,6 +24069,53 @@ gapi.load('client', async () => {
               ],
               message: 'Test string',
             },
+            evaluateDatasetResponse: {
+              aggregationOutput: {
+                aggregationResults: [
+                  {
+                    aggregationMetric: 'Test string',
+                    bleuMetricValue: {
+                      score: 42,
+                    },
+                    exactMatchMetricValue: {
+                      score: 42,
+                    },
+                    pairwiseMetricResult: {
+                      customOutput: {
+                        rawOutputs: {
+                          rawOutput: ['Test string'],
+                        },
+                      },
+                      explanation: 'Test string',
+                      pairwiseChoice: 'Test string',
+                    },
+                    pointwiseMetricResult: {
+                      customOutput: {
+                        rawOutputs: {
+                          rawOutput: ['Test string'],
+                        },
+                      },
+                      explanation: 'Test string',
+                      score: 42,
+                    },
+                    rougeMetricValue: {
+                      score: 42,
+                    },
+                  },
+                ],
+                dataset: {
+                  bigquerySource: {
+                    inputUri: 'Test string',
+                  },
+                  gcsSource: {
+                    uris: ['Test string'],
+                  },
+                },
+              },
+              outputInfo: {
+                gcsOutputDirectory: 'Test string',
+              },
+            },
             operationName: 'Test string',
           },
         ],
@@ -22846,6 +24162,12 @@ gapi.load('client', async () => {
                   },
                   metricPromptTemplate: 'Test string',
                   systemInstruction: 'Test string',
+                },
+                predefinedMetricSpec: {
+                  metricSpecName: 'Test string',
+                  metricSpecParameters: {
+                    A: 42,
+                  },
                 },
                 rougeSpec: {
                   rougeType: 'Test string',
@@ -22908,6 +24230,12 @@ gapi.load('client', async () => {
                   },
                   metricPromptTemplate: 'Test string',
                   systemInstruction: 'Test string',
+                },
+                predefinedMetricSpec: {
+                  metricSpecName: 'Test string',
+                  metricSpecParameters: {
+                    A: 42,
+                  },
                 },
                 rougeSpec: {
                   rougeType: 'Test string',
@@ -23479,6 +24807,53 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
+              evaluateDatasetResponse: {
+                aggregationOutput: {
+                  aggregationResults: [
+                    {
+                      aggregationMetric: 'Test string',
+                      bleuMetricValue: {
+                        score: 42,
+                      },
+                      exactMatchMetricValue: {
+                        score: 42,
+                      },
+                      pairwiseMetricResult: {
+                        customOutput: {
+                          rawOutputs: {
+                            rawOutput: ['Test string'],
+                          },
+                        },
+                        explanation: 'Test string',
+                        pairwiseChoice: 'Test string',
+                      },
+                      pointwiseMetricResult: {
+                        customOutput: {
+                          rawOutputs: {
+                            rawOutput: ['Test string'],
+                          },
+                        },
+                        explanation: 'Test string',
+                        score: 42,
+                      },
+                      rougeMetricValue: {
+                        score: 42,
+                      },
+                    },
+                  ],
+                  dataset: {
+                    bigquerySource: {
+                      inputUri: 'Test string',
+                    },
+                    gcsSource: {
+                      uris: ['Test string'],
+                    },
+                  },
+                },
+                outputInfo: {
+                  gcsOutputDirectory: 'Test string',
+                },
+              },
               operationName: 'Test string',
             },
           ],
@@ -23525,6 +24900,12 @@ gapi.load('client', async () => {
                     },
                     metricPromptTemplate: 'Test string',
                     systemInstruction: 'Test string',
+                  },
+                  predefinedMetricSpec: {
+                    metricSpecName: 'Test string',
+                    metricSpecParameters: {
+                      A: 42,
+                    },
                   },
                   rougeSpec: {
                     rougeType: 'Test string',
@@ -23587,6 +24968,12 @@ gapi.load('client', async () => {
                     },
                     metricPromptTemplate: 'Test string',
                     systemInstruction: 'Test string',
+                  },
+                  predefinedMetricSpec: {
+                    metricSpecName: 'Test string',
+                    metricSpecParameters: {
+                      A: 42,
+                    },
                   },
                   rougeSpec: {
                     rougeType: 'Test string',
@@ -25359,6 +26746,7 @@ gapi.load('client', async () => {
             },
           ],
           deploymentSpec: {
+            agentServerMode: 'Test string',
             containerConcurrency: 42,
             env: [
               {
@@ -25537,6 +26925,7 @@ gapi.load('client', async () => {
             },
           ],
           deploymentSpec: {
+            agentServerMode: 'Test string',
             containerConcurrency: 42,
             env: [
               {

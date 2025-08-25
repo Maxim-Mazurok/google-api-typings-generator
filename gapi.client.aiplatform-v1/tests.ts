@@ -2144,6 +2144,12 @@ gapi.load('client', async () => {
               metricPromptTemplate: 'Test string',
               systemInstruction: 'Test string',
             },
+            predefinedMetricSpec: {
+              metricSpecName: 'Test string',
+              metricSpecParameters: {
+                A: 42,
+              },
+            },
             rougeSpec: {
               rougeType: 'Test string',
               splitSummaries: true,
@@ -2235,6 +2241,274 @@ gapi.load('client', async () => {
             version: 42,
           },
         },
+        instance: {
+          otherData: {
+            mapInstance: {
+              A: {
+                contents: {
+                  contents: [
+                    {
+                      parts: [
+                        {
+                          codeExecutionResult: {
+                            outcome: 'Test string',
+                            output: 'Test string',
+                          },
+                          executableCode: {
+                            code: 'Test string',
+                            language: 'Test string',
+                          },
+                          fileData: {
+                            displayName: 'Test string',
+                            fileUri: 'Test string',
+                            mimeType: 'Test string',
+                          },
+                          functionCall: {
+                            args: {
+                              A: 42,
+                            },
+                            name: 'Test string',
+                          },
+                          functionResponse: {
+                            name: 'Test string',
+                            response: {
+                              A: 42,
+                            },
+                          },
+                          inlineData: {
+                            data: 'Test string',
+                            displayName: 'Test string',
+                            mimeType: 'Test string',
+                          },
+                          text: 'Test string',
+                          thought: true,
+                          thoughtSignature: 'Test string',
+                          videoMetadata: {
+                            endOffset: 'Test string',
+                            fps: 42,
+                            startOffset: 'Test string',
+                          },
+                        },
+                      ],
+                      role: 'Test string',
+                    },
+                  ],
+                },
+                text: 'Test string',
+              },
+            },
+          },
+          prompt: {
+            contents: {
+              contents: [
+                {
+                  parts: [
+                    {
+                      codeExecutionResult: {
+                        outcome: 'Test string',
+                        output: 'Test string',
+                      },
+                      executableCode: {
+                        code: 'Test string',
+                        language: 'Test string',
+                      },
+                      fileData: {
+                        displayName: 'Test string',
+                        fileUri: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      functionCall: {
+                        args: {
+                          A: 42,
+                        },
+                        name: 'Test string',
+                      },
+                      functionResponse: {
+                        name: 'Test string',
+                        response: {
+                          A: 42,
+                        },
+                      },
+                      inlineData: {
+                        data: 'Test string',
+                        displayName: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      text: 'Test string',
+                      thought: true,
+                      thoughtSignature: 'Test string',
+                      videoMetadata: {
+                        endOffset: 'Test string',
+                        fps: 42,
+                        startOffset: 'Test string',
+                      },
+                    },
+                  ],
+                  role: 'Test string',
+                },
+              ],
+            },
+            text: 'Test string',
+          },
+          reference: {
+            contents: {
+              contents: [
+                {
+                  parts: [
+                    {
+                      codeExecutionResult: {
+                        outcome: 'Test string',
+                        output: 'Test string',
+                      },
+                      executableCode: {
+                        code: 'Test string',
+                        language: 'Test string',
+                      },
+                      fileData: {
+                        displayName: 'Test string',
+                        fileUri: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      functionCall: {
+                        args: {
+                          A: 42,
+                        },
+                        name: 'Test string',
+                      },
+                      functionResponse: {
+                        name: 'Test string',
+                        response: {
+                          A: 42,
+                        },
+                      },
+                      inlineData: {
+                        data: 'Test string',
+                        displayName: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      text: 'Test string',
+                      thought: true,
+                      thoughtSignature: 'Test string',
+                      videoMetadata: {
+                        endOffset: 'Test string',
+                        fps: 42,
+                        startOffset: 'Test string',
+                      },
+                    },
+                  ],
+                  role: 'Test string',
+                },
+              ],
+            },
+            text: 'Test string',
+          },
+          response: {
+            contents: {
+              contents: [
+                {
+                  parts: [
+                    {
+                      codeExecutionResult: {
+                        outcome: 'Test string',
+                        output: 'Test string',
+                      },
+                      executableCode: {
+                        code: 'Test string',
+                        language: 'Test string',
+                      },
+                      fileData: {
+                        displayName: 'Test string',
+                        fileUri: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      functionCall: {
+                        args: {
+                          A: 42,
+                        },
+                        name: 'Test string',
+                      },
+                      functionResponse: {
+                        name: 'Test string',
+                        response: {
+                          A: 42,
+                        },
+                      },
+                      inlineData: {
+                        data: 'Test string',
+                        displayName: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      text: 'Test string',
+                      thought: true,
+                      thoughtSignature: 'Test string',
+                      videoMetadata: {
+                        endOffset: 'Test string',
+                        fps: 42,
+                        startOffset: 'Test string',
+                      },
+                    },
+                  ],
+                  role: 'Test string',
+                },
+              ],
+            },
+            text: 'Test string',
+          },
+          rubricGroups: {
+            A: {
+              displayName: 'Test string',
+              groupId: 'Test string',
+              rubrics: [
+                {
+                  content: {
+                    property: {
+                      description: 'Test string',
+                    },
+                  },
+                  importance: 'Test string',
+                  rubricId: 'Test string',
+                  type: 'Test string',
+                },
+              ],
+            },
+          },
+        },
+        metrics: [
+          {
+            aggregationMetrics: ['Test string'],
+            bleuSpec: {
+              useEffectiveOrder: true,
+            },
+            exactMatchSpec: {},
+            pairwiseMetricSpec: {
+              baselineResponseFieldName: 'Test string',
+              candidateResponseFieldName: 'Test string',
+              customOutputFormatConfig: {
+                returnRawOutput: true,
+              },
+              metricPromptTemplate: 'Test string',
+              systemInstruction: 'Test string',
+            },
+            pointwiseMetricSpec: {
+              customOutputFormatConfig: {
+                returnRawOutput: true,
+              },
+              metricPromptTemplate: 'Test string',
+              systemInstruction: 'Test string',
+            },
+            predefinedMetricSpec: {
+              metricSpecName: 'Test string',
+              metricSpecParameters: {
+                A: 42,
+              },
+            },
+            rougeSpec: {
+              rougeType: 'Test string',
+              splitSummaries: true,
+              useStemmer: true,
+            },
+          },
+        ],
         metricxInput: {
           instance: {
             prediction: 'Test string',
@@ -2685,6 +2959,77 @@ gapi.load('client', async () => {
           metricSpec: {
             toolName: 'Test string',
           },
+        },
+      },
+    );
+    /** Generates rubrics for a given prompt. A rubric represents a single testable criterion for evaluation. One input prompt could have multiple rubrics This RPC allows users to get suggested rubrics based on provided prompt, which can then be reviewed and used for subsequent evaluations. */
+    await gapi.client.aiplatform.projects.locations.generateInstanceRubrics(
+      {
+        location: 'Test string',
+      },
+      {
+        contents: [
+          {
+            parts: [
+              {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
+                fileData: {
+                  displayName: 'Test string',
+                  fileUri: 'Test string',
+                  mimeType: 'Test string',
+                },
+                functionCall: {
+                  args: {
+                    A: 42,
+                  },
+                  name: 'Test string',
+                },
+                functionResponse: {
+                  name: 'Test string',
+                  response: {
+                    A: 42,
+                  },
+                },
+                inlineData: {
+                  data: 'Test string',
+                  displayName: 'Test string',
+                  mimeType: 'Test string',
+                },
+                text: 'Test string',
+                thought: true,
+                thoughtSignature: 'Test string',
+                videoMetadata: {
+                  endOffset: 'Test string',
+                  fps: 42,
+                  startOffset: 'Test string',
+                },
+              },
+            ],
+            role: 'Test string',
+          },
+        ],
+        predefinedRubricGenerationSpec: {
+          metricSpecName: 'Test string',
+          metricSpecParameters: {
+            A: 42,
+          },
+        },
+        rubricGenerationSpec: {
+          modelConfig: {
+            autoraterModel: 'Test string',
+            flipEnabled: true,
+            samplingCount: 42,
+          },
+          promptTemplate: 'Test string',
+          rubricContentType: 'Test string',
+          rubricTypeOntology: ['Test string'],
         },
       },
     );

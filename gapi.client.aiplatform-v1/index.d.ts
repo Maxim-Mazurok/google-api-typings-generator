@@ -1789,6 +1789,10 @@ declare namespace gapi.client {
       fulfillmentInput?: GoogleCloudAiplatformV1FulfillmentInput;
       /** Input for groundedness metric. */
       groundednessInput?: GoogleCloudAiplatformV1GroundednessInput;
+      /** The instance to be evaluated. */
+      instance?: GoogleCloudAiplatformV1EvaluationInstance;
+      /** The metrics used for evaluation. Currently, we only support evaluating a single metric. If multiple metrics are provided, only the first one will be evaluated. */
+      metrics?: GoogleCloudAiplatformV1Metric[];
       /** Input for Metricx metric. */
       metricxInput?: GoogleCloudAiplatformV1MetricxInput;
       /** Input for pairwise metric. */
@@ -1855,6 +1859,8 @@ declare namespace gapi.client {
       fulfillmentResult?: GoogleCloudAiplatformV1FulfillmentResult;
       /** Result for groundedness metric. */
       groundednessResult?: GoogleCloudAiplatformV1GroundednessResult;
+      /** Metric results for each instance. The order of the metric results is guaranteed to be the same as the order of the instances in the request. */
+      metricResults?: GoogleCloudAiplatformV1MetricResult[];
       /** Result for Metricx metric. */
       metricxResult?: GoogleCloudAiplatformV1MetricxResult;
       /** Result for pairwise metric. */
@@ -1911,6 +1917,34 @@ declare namespace gapi.client {
       bigquerySource?: GoogleCloudAiplatformV1BigQuerySource;
       /** Cloud storage source holds the dataset. Currently only one Cloud Storage file path is supported. */
       gcsSource?: GoogleCloudAiplatformV1GcsSource;
+    }
+    interface GoogleCloudAiplatformV1EvaluationInstance {
+      /** Optional. Other data used to populate placeholders based on their key. */
+      otherData?: GoogleCloudAiplatformV1EvaluationInstanceMapInstance;
+      /** Optional. Data used to populate placeholder `prompt` in a metric prompt template. */
+      prompt?: GoogleCloudAiplatformV1EvaluationInstanceInstanceData;
+      /** Optional. Data used to populate placeholder `reference` in a metric prompt template. */
+      reference?: GoogleCloudAiplatformV1EvaluationInstanceInstanceData;
+      /** Required. Data used to populate placeholder `response` in a metric prompt template. */
+      response?: GoogleCloudAiplatformV1EvaluationInstanceInstanceData;
+      /** Optional. Named groups of rubrics associated with the prompt. This is used for rubric-based evaluations where rubrics can be referenced by a key. The key could represent versions, associated metrics, etc. */
+      rubricGroups?: {[P in string]: GoogleCloudAiplatformV1RubricGroup};
+    }
+    interface GoogleCloudAiplatformV1EvaluationInstanceInstanceData {
+      /** List of Gemini content data. */
+      contents?: GoogleCloudAiplatformV1EvaluationInstanceInstanceDataContents;
+      /** Text data. */
+      text?: string;
+    }
+    interface GoogleCloudAiplatformV1EvaluationInstanceInstanceDataContents {
+      /** Optional. Repeated contents. */
+      contents?: GoogleCloudAiplatformV1Content[];
+    }
+    interface GoogleCloudAiplatformV1EvaluationInstanceMapInstance {
+      /** Optional. Map of instance data. */
+      mapInstance?: {
+        [P in string]: GoogleCloudAiplatformV1EvaluationInstanceInstanceData;
+      };
     }
     interface GoogleCloudAiplatformV1Event {
       /** Required. The relative resource name of the Artifact in the Event. */
@@ -2970,6 +3004,18 @@ declare namespace gapi.client {
       /** Output only. Traffic type. This shows whether a request consumes Pay-As-You-Go or Provisioned Throughput quota. */
       trafficType?: string;
     }
+    interface GoogleCloudAiplatformV1GenerateInstanceRubricsRequest {
+      /** Required. The prompt to generate rubrics from. For single-turn queries, this is a single instance. For multi-turn queries, this is a repeated field that contains conversation history + latest request. */
+      contents?: GoogleCloudAiplatformV1Content[];
+      /** Optional. Specification for using the rubric generation configs of a pre-defined metric, e.g. "generic_quality_v1" and "instruction_following_v1". Some of the configs may be only used in rubric generation and not supporting evaluation, e.g. "fully_customized_generic_quality_v1". If this field is set, the `rubric_generation_spec` field will be ignored. */
+      predefinedRubricGenerationSpec?: GoogleCloudAiplatformV1PredefinedMetricSpec;
+      /** Optional. Specification for how the rubrics should be generated. */
+      rubricGenerationSpec?: GoogleCloudAiplatformV1RubricGenerationSpec;
+    }
+    interface GoogleCloudAiplatformV1GenerateInstanceRubricsResponse {
+      /** Output only. A list of generated rubrics. */
+      generatedRubrics?: GoogleCloudAiplatformV1Rubric[];
+    }
     interface GoogleCloudAiplatformV1GenerateVideoResponse {
       /** The cloud storage uris of the generated videos. */
       generatedSamples?: string[];
@@ -3954,8 +4000,18 @@ declare namespace gapi.client {
       pairwiseMetricSpec?: GoogleCloudAiplatformV1PairwiseMetricSpec;
       /** Spec for pointwise metric. */
       pointwiseMetricSpec?: GoogleCloudAiplatformV1PointwiseMetricSpec;
+      /** The spec for a pre-defined metric. */
+      predefinedMetricSpec?: GoogleCloudAiplatformV1PredefinedMetricSpec;
       /** Spec for rouge metric. */
       rougeSpec?: GoogleCloudAiplatformV1RougeSpec;
+    }
+    interface GoogleCloudAiplatformV1MetricResult {
+      /** The explanation for the metric result. */
+      explanation?: string;
+      /** For rubric-based metrics, the verdicts for each rubric. */
+      rubricVerdicts?: GoogleCloudAiplatformV1RubricVerdict[];
+      /** The score for the metric. Please refer to each metric's documentation for the meaning of the score. */
+      score?: number;
     }
     interface GoogleCloudAiplatformV1MetricxInput {
       /** Required. Metricx instance. */
@@ -5290,6 +5346,12 @@ declare namespace gapi.client {
       /** The name of the preset voice to use. */
       voiceName?: string;
     }
+    interface GoogleCloudAiplatformV1PredefinedMetricSpec {
+      /** Required. The name of a pre-defined metric, such as "instruction_following_v1" or "text_quality_v1". */
+      metricSpecName?: string;
+      /** Optional. The parameters needed to run the pre-defined metric. */
+      metricSpecParameters?: {[P in string]: any};
+    }
     interface GoogleCloudAiplatformV1PredefinedSplit {
       /** Required. The key is a name of one of the Dataset's data columns. The value of the key (either the label's value or value in the column) must be one of {`training`, `validation`, `test`}, and it defines to which set the given piece of data is assigned. If for a piece of data the key is not present or has an invalid value, that piece is ignored by the pipeline. */
       key?: string;
@@ -6296,6 +6358,16 @@ declare namespace gapi.client {
       /** Optional. Whether to use stemmer to compute rouge score. */
       useStemmer?: boolean;
     }
+    interface GoogleCloudAiplatformV1Rubric {
+      /** Required. The actual testable criteria for the rubric. */
+      content?: GoogleCloudAiplatformV1RubricContent;
+      /** Optional. The relative importance of this rubric. */
+      importance?: string;
+      /** Unique identifier for the rubric. This ID is used to refer to this rubric, e.g., in RubricVerdict. */
+      rubricId?: string;
+      /** Optional. A type designator for the rubric, which can inform how it's evaluated or interpreted by systems or users. It's recommended to use consistent, well-defined, upper snake_case strings. Examples: "SUMMARIZATION_QUALITY", "SAFETY_HARMFUL_CONTENT", "INSTRUCTION_ADHERENCE". */
+      type?: string;
+    }
     interface GoogleCloudAiplatformV1RubricBasedInstructionFollowingInput {
       /** Required. Instance for RubricBasedInstructionFollowing metric. */
       instance?: GoogleCloudAiplatformV1RubricBasedInstructionFollowingInstance;
@@ -6313,10 +6385,44 @@ declare namespace gapi.client {
       score?: number;
     }
     interface GoogleCloudAiplatformV1RubricBasedInstructionFollowingSpec {}
+    interface GoogleCloudAiplatformV1RubricContent {
+      /** Evaluation criteria based on a specific property. */
+      property?: GoogleCloudAiplatformV1RubricContentProperty;
+    }
+    interface GoogleCloudAiplatformV1RubricContentProperty {
+      /** Description of the property being evaluated. Example: "The model's response is grammatically correct." */
+      description?: string;
+    }
     interface GoogleCloudAiplatformV1RubricCritiqueResult {
       /** Output only. Rubric to be evaluated. */
       rubric?: string;
       /** Output only. Verdict for the rubric - true if the rubric is met, false otherwise. */
+      verdict?: boolean;
+    }
+    interface GoogleCloudAiplatformV1RubricGenerationSpec {
+      /** Configuration for the model used in rubric generation. Configs including sampling count and base model can be specified here. Flipping is not supported for rubric generation. */
+      modelConfig?: GoogleCloudAiplatformV1AutoraterConfig;
+      /** Template for the prompt used to generate rubrics. The details should be updated based on the most-recent recipe requirements. */
+      promptTemplate?: string;
+      /** The type of rubric content to be generated. */
+      rubricContentType?: string;
+      /** Optional. An optional, pre-defined list of allowed types for generated rubrics. If this field is provided, it implies `include_rubric_type` should be true, and the generated rubric types should be chosen from this ontology. */
+      rubricTypeOntology?: string[];
+    }
+    interface GoogleCloudAiplatformV1RubricGroup {
+      /** Human-readable name for the group. This should be unique within a given context if used for display or selection. Example: "Instruction Following V1", "Content Quality - Summarization Task". */
+      displayName?: string;
+      /** Unique identifier for the group. */
+      groupId?: string;
+      /** Rubrics that are part of this group. */
+      rubrics?: GoogleCloudAiplatformV1Rubric[];
+    }
+    interface GoogleCloudAiplatformV1RubricVerdict {
+      /** Required. The full rubric definition that was evaluated. Storing this ensures the verdict is self-contained and understandable, especially if the original rubric definition changes or was dynamically generated. */
+      evaluatedRubric?: GoogleCloudAiplatformV1Rubric;
+      /** Optional. Human-readable reasoning or explanation for the verdict. This can include specific examples or details from the evaluated content that justify the given verdict. */
+      reasoning?: string;
+      /** Required. Outcome of the evaluation against the rubric, represented as a boolean. `true` indicates a "Pass", `false` indicates a "Fail". */
       verdict?: boolean;
     }
     interface GoogleCloudAiplatformV1SafetyInput {
@@ -33343,6 +33449,64 @@ declare namespace gapi.client {
         },
         body: GoogleCloudAiplatformV1EvaluateInstancesRequest,
       ): Request<GoogleCloudAiplatformV1EvaluateInstancesResponse>;
+      /** Generates rubrics for a given prompt. A rubric represents a single testable criterion for evaluation. One input prompt could have multiple rubrics This RPC allows users to get suggested rubrics based on provided prompt, which can then be reviewed and used for subsequent evaluations. */
+      generateInstanceRubrics(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The resource name of the Location to generate rubrics from. Format: `projects/{project}/locations/{location}` */
+        location: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1GenerateInstanceRubricsRequest;
+      }): Request<GoogleCloudAiplatformV1GenerateInstanceRubricsResponse>;
+      generateInstanceRubrics(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The resource name of the Location to generate rubrics from. Format: `projects/{project}/locations/{location}` */
+          location: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1GenerateInstanceRubricsRequest,
+      ): Request<GoogleCloudAiplatformV1GenerateInstanceRubricsResponse>;
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
@@ -33407,7 +33571,7 @@ declare namespace gapi.client {
         alt?: string;
         /** JSONP */
         callback?: string;
-        /** Optional. A list of extra location types that should be used as conditions for controlling the visibility of the locations. */
+        /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
         extraLocationTypes?: string | string[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
