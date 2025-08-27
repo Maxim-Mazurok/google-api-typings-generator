@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.policyanalyzer-v1beta1",
+  "name": "@maxim_mazurok/gapi.client.blogger-v2",
   "version": "0.0.20250824",
-  "description": "TypeScript typings for Policy Analyzer API v1beta1",
+  "description": "TypeScript typings for Blogger API v2",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
