@@ -283,7 +283,7 @@ export class AstTypescriptWriter {
  * Demonstrates generating the same output as the current system
  * but using AST generation instead of string concatenation
  */
-export function demonstratGapiClientGeneration(): string {
+export function demonstrateGapiClientGeneration(): string {
   const writer = new AstTypescriptWriter();
 
   // Generate structures similar to the current system's output

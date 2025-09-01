@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { AstTypescriptWriter, demonstratGapiClientGeneration } from '../src/ast-poc.js';
+import { AstTypescriptWriter, demonstrateGapiClientGeneration } from '../src/ast-poc.js';
 
 describe('AST-based TypeScript Generation POC', () => {
   describe('AstTypescriptWriter', () => {
@@ -115,7 +115,7 @@ describe('AST-based TypeScript Generation POC', () => {
 
   describe('Google API generation demonstration', () => {
     it('generates gapi.client.admin structures', () => {
-      const result = demonstratGapiClientGeneration();
+      const result = demonstrateGapiClientGeneration();
       
       // Check namespace structure
       expect(result).toContain('declare namespace gapi');
@@ -135,7 +135,7 @@ describe('AST-based TypeScript Generation POC', () => {
     });
 
     it('produces valid TypeScript syntax', () => {
-      const result = demonstratGapiClientGeneration();
+      const result = demonstrateGapiClientGeneration();
       
       // Basic syntax validation
       expect(result).not.toContain('undefined');
