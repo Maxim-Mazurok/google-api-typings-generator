@@ -194,32 +194,32 @@ await gapi.client.dns.managedZones.update({
 });
 
 /*
-Creates a new Policy.
+Creates a new policy.
 */
 await gapi.client.dns.policies.create({project: 'project'});
 
 /*
-Deletes a previously created Policy. Fails if the policy is still being referenced by a network.
+Deletes a previously created policy. Fails if the policy is still being referenced by a network.
 */
 await gapi.client.dns.policies.delete({policy: 'policy', project: 'project'});
 
 /*
-Fetches the representation of an existing Policy.
+Fetches the representation of an existing policy.
 */
 await gapi.client.dns.policies.get({policy: 'policy', project: 'project'});
 
 /*
-Enumerates all Policies associated with a project.
+Enumerates all policies associated with a project.
 */
 await gapi.client.dns.policies.list({project: 'project'});
 
 /*
-Applies a partial update to an existing Policy.
+Applies a partial update to an existing policy.
 */
 await gapi.client.dns.policies.patch({policy: 'policy', project: 'project'});
 
 /*
-Updates an existing Policy.
+Updates an existing policy.
 */
 await gapi.client.dns.policies.update({policy: 'policy', project: 'project'});
 
