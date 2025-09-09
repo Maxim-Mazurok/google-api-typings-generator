@@ -136,6 +136,11 @@ Sets the labels on an Address. To learn more about labels, read the Labeling Res
 await gapi.client.compute.addresses.setLabels({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.addresses.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Retrieves an aggregated list of autoscalers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.autoscalers.aggregatedList({ project: "project",  });
@@ -641,6 +646,11 @@ Sets the labels on a GlobalAddress. To learn more about labels, read the Labelin
 await gapi.client.compute.globalAddresses.setLabels({ project: "project", resource: "resource",  });
 
 /*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.globalAddresses.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
 Deletes the specified GlobalForwardingRule resource.
 */
 await gapi.client.compute.globalForwardingRules.delete({ forwardingRule: "forwardingRule", project: "project",  });
@@ -1121,9 +1131,19 @@ Sets the named ports for the specified instance group.
 await gapi.client.compute.instanceGroups.setNamedPorts({ instanceGroup: "instanceGroup", project: "project", zone: "zone",  });
 
 /*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.instanceGroups.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
 Adds an access config to an instance's network interface.
 */
 await gapi.client.compute.instances.addAccessConfig({ instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
+
+/*
+Adds one dynamic network interface to an active instance.
+*/
+await gapi.client.compute.instances.addNetworkInterface({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
 Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live migrations.
@@ -1154,6 +1174,11 @@ await gapi.client.compute.instances.delete({ instance: "instance", project: "pro
 Deletes an access config from an instance's network interface.
 */
 await gapi.client.compute.instances.deleteAccessConfig({ accessConfig: "accessConfig", instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
+
+/*
+Deletes one dynamic network interface from an active instance. InstancesDeleteNetworkInterfaceRequest indicates: - instance from which to delete, using project+zone+resource_id fields; - dynamic network interface to be deleted, using network_interface_name field;
+*/
+await gapi.client.compute.instances.deleteNetworkInterface({ instance: "instance", networkInterfaceName: "networkInterfaceName", project: "project", zone: "zone",  });
 
 /*
 Detaches a disk from an instance.
@@ -2756,6 +2781,11 @@ Sets the named ports for the specified regional instance group.
 await gapi.client.compute.regionInstanceGroups.setNamedPorts({ instanceGroup: "instanceGroup", project: "project", region: "region",  });
 
 /*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionInstanceGroups.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Creates multiple instances in a given region. Count specifies the number of instances to create.
 */
 await gapi.client.compute.regionInstances.bulkInsert({ project: "project", region: "region",  });
@@ -3931,6 +3961,11 @@ Sets the Google Cloud Armor security policy for the specified target instance. F
 await gapi.client.compute.targetInstances.setSecurityPolicy({ project: "project", targetInstance: "targetInstance", zone: "zone",  });
 
 /*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.targetInstances.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
 Adds health check URLs to a target pool.
 */
 await gapi.client.compute.targetPools.addHealthCheck({ project: "project", region: "region", targetPool: "targetPool",  });
@@ -3989,6 +4024,11 @@ await gapi.client.compute.targetPools.setBackup({ project: "project", region: "r
 Sets the Google Cloud Armor security policy for the specified target pool. For more information, see Google Cloud Armor Overview
 */
 await gapi.client.compute.targetPools.setSecurityPolicy({ project: "project", region: "region", targetPool: "targetPool",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.targetPools.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified TargetSslProxy resource.
