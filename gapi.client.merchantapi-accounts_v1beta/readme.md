@@ -85,6 +85,11 @@ Retrieves an account from your Merchant Center account. After inserting, updatin
 await gapi.client.merchantapi.accounts.get({name: 'name'});
 
 /*
+Retrieves the merchant account that the calling GCP is registered with.
+*/
+await gapi.client.merchantapi.accounts.getAccountForGcpRegistration({});
+
+/*
 Note: For the `accounts.list` method, quota and limits usage are charged for each user, and not for the Merchant Center ID or the advanced account ID. To list several sub-accounts, you should use the `accounts.listSubaccounts` method, which is more suitable for advanced accounts use case.
 */
 await gapi.client.merchantapi.accounts.list({});

@@ -196,6 +196,11 @@ Adds a key for validating requests with signed URLs for this backend bucket.
 await gapi.client.compute.backendBuckets.addSignedUrlKey({ backendBucket: "backendBucket", project: "project",  });
 
 /*
+Retrieves the list of all BackendBucket resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+*/
+await gapi.client.compute.backendBuckets.aggregatedList({ project: "project",  });
+
+/*
 Deletes the specified BackendBucket resource.
 */
 await gapi.client.compute.backendBuckets.delete({ backendBucket: "backendBucket", project: "project",  });
@@ -464,6 +469,11 @@ await gapi.client.compute.disks.testIamPermissions({ project: "project", resourc
 Updates the specified disk with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license.
 */
 await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone: "zone",  });
+
+/*
+Rotates the customer-managed encryption key to the latest version for the specified persistent disk.
+*/
+await gapi.client.compute.disks.updateKmskey({ disk: "disk", project: "project", zone: "zone",  });
 
 /*
 Wait for replication to catch up on the secondary disk.
@@ -796,6 +806,16 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.globalAddresses.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
+Retrieves the specified Operations resource.
+*/
+await gapi.client.compute.globalFolderOperations.get({ folder: "folder", operation: "operation",  });
+
+/*
+Retrieves a list of Operation resources contained within the specified folder.
+*/
+await gapi.client.compute.globalFolderOperations.list({ folder: "folder",  });
+
+/*
 Deletes the specified GlobalForwardingRule resource.
 */
 await gapi.client.compute.globalForwardingRules.delete({ forwardingRule: "forwardingRule", project: "project",  });
@@ -934,6 +954,36 @@ await gapi.client.compute.globalPublicDelegatedPrefixes.list({ project: "project
 Patches the specified global PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
 */
 await gapi.client.compute.globalPublicDelegatedPrefixes.patch({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix",  });
+
+/*
+Retrieves the list of all VM Extension Policy resources available to the specified project. To prevent failure, it's recommended that you set the `returnPartialSuccess` parameter to `true`.
+*/
+await gapi.client.compute.globalVmExtensionPolicies.aggregatedList({ project: "project",  });
+
+/*
+Purge scoped resources (zonal policies) from a global VM extension policy, and then delete the global VM extension policy. Purge of the scoped resources is a pre-condition of the global VM extension policy deletion. The deletion of the global VM extension policy happens after the purge rollout is done, so it's not a part of the LRO. It's an automatic process that triggers in the backend.
+*/
+await gapi.client.compute.globalVmExtensionPolicies.delete({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
+
+/*
+Gets details of a global VM extension policy.
+*/
+await gapi.client.compute.globalVmExtensionPolicies.get({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
+
+/*
+Creates a new project level GlobalVmExtensionPolicy.
+*/
+await gapi.client.compute.globalVmExtensionPolicies.insert({ project: "project",  });
+
+/*
+Lists global VM extension policies.
+*/
+await gapi.client.compute.globalVmExtensionPolicies.list({ project: "project",  });
+
+/*
+Updates a global VM extension policy.
+*/
+await gapi.client.compute.globalVmExtensionPolicies.update({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
 
 /*
 Deletes an HaController in the specified project.
@@ -1199,6 +1249,11 @@ await gapi.client.compute.instanceGroupManagers.deletePerInstanceConfigs({ insta
 Returns all of the details about the specified managed instance group.
 */
 await gapi.client.compute.instanceGroupManagers.get({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
+
+/*
+Returns information about available accelerator topologies for a given MIG.
+*/
+await gapi.client.compute.instanceGroupManagers.getAvailableAcceleratorTopologies({ project: "project", resourceId: "resourceId", zone: "zone",  });
 
 /*
 Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method. A managed instance group can have up to 1000 VM instances per group. Please contact Cloud Support if you need an increase in this limit.
@@ -3176,6 +3231,11 @@ Update the specified disk with the data included in the request. Update is perfo
 await gapi.client.compute.regionDisks.update({ disk: "disk", project: "project", region: "region",  });
 
 /*
+Rotates the customer-managed encryption key to the latest version for the specified persistent disk.
+*/
+await gapi.client.compute.regionDisks.updateKmsKey({ disk: "disk", project: "project", region: "region",  });
+
+/*
 Wait for replication to catch up on the secondary disk.
 */
 await gapi.client.compute.regionDisks.waitForReplicationCatchUp({ disk: "disk", project: "project", region: "region",  });
@@ -3781,6 +3841,71 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionNetworkFirewallPolicies.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Inserts an association for the specified network policy.
+*/
+await gapi.client.compute.regionNetworkPolicies.addAssociation({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
+
+/*
+Inserts a rule into a network policy.
+*/
+await gapi.client.compute.regionNetworkPolicies.addTrafficClassificationRule({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
+
+/*
+Retrieves an aggregated list of network policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+*/
+await gapi.client.compute.regionNetworkPolicies.aggregatedList({ project: "project",  });
+
+/*
+Deletes the specified policy.
+*/
+await gapi.client.compute.regionNetworkPolicies.delete({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
+
+/*
+Returns the specified network policy.
+*/
+await gapi.client.compute.regionNetworkPolicies.get({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
+
+/*
+Gets an association with the specified name.
+*/
+await gapi.client.compute.regionNetworkPolicies.getAssociation({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
+
+/*
+Gets a rule of the specified priority.
+*/
+await gapi.client.compute.regionNetworkPolicies.getTrafficClassificationRule({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
+
+/*
+Creates a new policy in the specified project using the data included in the request.
+*/
+await gapi.client.compute.regionNetworkPolicies.insert({ project: "project", region: "region",  });
+
+/*
+Lists all the policies that have been configured for the specified project in the given region.
+*/
+await gapi.client.compute.regionNetworkPolicies.list({ project: "project", region: "region",  });
+
+/*
+Patches the specified policy with the data included in the request.
+*/
+await gapi.client.compute.regionNetworkPolicies.patch({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
+
+/*
+Patches a rule of the specified priority.
+*/
+await gapi.client.compute.regionNetworkPolicies.patchTrafficClassificationRule({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
+
+/*
+Removes an association for the specified network policy.
+*/
+await gapi.client.compute.regionNetworkPolicies.removeAssociation({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
+
+/*
+Deletes a rule of the specified priority.
+*/
+await gapi.client.compute.regionNetworkPolicies.removeTrafficClassificationRule({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
+
+/*
 Retrieves the list of all NotificationEndpoint resources, regional and global, available to the specified project.
 */
 await gapi.client.compute.regionNotificationEndpoints.aggregatedList({ project: "project",  });
@@ -3929,6 +4054,11 @@ await gapi.client.compute.regionSnapshots.setLabels({ project: "project", region
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.regionSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Rotates the customer-managed encryption key to the latest version for the specified snapshot.
+*/
+await gapi.client.compute.regionSnapshots.updateKmsKey({ project: "project", region: "region", snapshot: "snapshot",  });
 
 /*
 Get region snapshot settings.
@@ -4619,6 +4749,11 @@ await gapi.client.compute.snapshots.setLabels({ project: "project", resource: "r
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.snapshots.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
+Rotates the customer-managed encryption key to the latest version for the specified snapshot.
+*/
+await gapi.client.compute.snapshots.updateKmsKey({ project: "project", snapshot: "snapshot",  });
 
 /*
 Get snapshot settings.
