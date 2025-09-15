@@ -70,14 +70,14 @@ After that you can use Access Approval API resources: <!-- TODO: make this work 
 
 ```typescript
 /*
-Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project, folder, or organization, but only if all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the hierarchy, then Access Approval will still be enabled at this level as the settings are inherited.
+Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the resource. Access Approval may remain active based on parent resource settings. To confirm the effective settings, call GetAccessApprovalSettings and verify effective setting is disabled.
 */
 await gapi.client.accessapproval.folders.deleteAccessApprovalSettings({
   name: 'name',
 });
 
 /*
-Gets the settings associated with a project, folder, or organization.
+Gets the Access Approval settings associated with a project, folder, or organization.
 */
 await gapi.client.accessapproval.folders.getAccessApprovalSettings({
   name: 'name',
@@ -96,14 +96,14 @@ await gapi.client.accessapproval.folders.updateAccessApprovalSettings({
 });
 
 /*
-Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project, folder, or organization, but only if all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the hierarchy, then Access Approval will still be enabled at this level as the settings are inherited.
+Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the resource. Access Approval may remain active based on parent resource settings. To confirm the effective settings, call GetAccessApprovalSettings and verify effective setting is disabled.
 */
 await gapi.client.accessapproval.organizations.deleteAccessApprovalSettings({
   name: 'name',
 });
 
 /*
-Gets the settings associated with a project, folder, or organization.
+Gets the Access Approval settings associated with a project, folder, or organization.
 */
 await gapi.client.accessapproval.organizations.getAccessApprovalSettings({
   name: 'name',
@@ -124,14 +124,14 @@ await gapi.client.accessapproval.organizations.updateAccessApprovalSettings({
 });
 
 /*
-Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project, folder, or organization, but only if all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the hierarchy, then Access Approval will still be enabled at this level as the settings are inherited.
+Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the resource. Access Approval may remain active based on parent resource settings. To confirm the effective settings, call GetAccessApprovalSettings and verify effective setting is disabled.
 */
 await gapi.client.accessapproval.projects.deleteAccessApprovalSettings({
   name: 'name',
 });
 
 /*
-Gets the settings associated with a project, folder, or organization.
+Gets the Access Approval settings associated with a project, folder, or organization.
 */
 await gapi.client.accessapproval.projects.getAccessApprovalSettings({
   name: 'name',
