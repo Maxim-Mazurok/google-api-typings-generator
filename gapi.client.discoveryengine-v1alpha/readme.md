@@ -83,6 +83,11 @@ Gets a Project. Returns NOT_FOUND when the project is not yet created.
 await gapi.client.discoveryengine.projects.get({name: 'name'});
 
 /*
+Updates the editable settings of a Discovery Engine Project.
+*/
+await gapi.client.discoveryengine.projects.patch({name: 'name'});
+
+/*
 Provisions the project resource. During the process, related systems will get prepared and initialized. Caller must read the [Terms for data use](https://cloud.google.com/retail/data-use-terms), and optionally specify in request to provide consent to that service terms.
 */
 await gapi.client.discoveryengine.projects.provision({name: 'name'});
