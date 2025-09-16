@@ -103,17 +103,17 @@ Gets information about the user, the user's Drive, and system capabilities. For 
 await gapi.client.drive.about.get({  });
 
 /*
-Retrieves an access proposal by ID. For more information, see [Manage pending access proposals](https://developers.google.com/workspace/drive/api/guides/pending-access).
+Retrieves an AccessProposal by ID.
 */
 await gapi.client.drive.accessproposals.get({ fileId: "fileId", proposalId: "proposalId",  });
 
 /*
-List the access proposals on a file. For more information, see [Manage pending access proposals](https://developers.google.com/workspace/drive/api/guides/pending-access). Note: Only approvers are able to list access proposals on a file. If the user isn't an approver, a 403 error is returned.
+List the AccessProposals on a file. Note: Only approvers are able to list AccessProposals on a file. If the user is not an approver, returns a 403.
 */
 await gapi.client.drive.accessproposals.list({ fileId: "fileId",  });
 
 /*
-Approves or denies an access proposal. For more information, see [Manage pending access proposals](https://developers.google.com/workspace/drive/api/guides/pending-access).
+Used to approve or deny an Access Proposal.
 */
 await gapi.client.drive.accessproposals.resolve({ fileId: "fileId", proposalId: "proposalId",  });
 
