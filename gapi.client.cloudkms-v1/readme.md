@@ -73,7 +73,7 @@ After that you can use Cloud Key Management Service (KMS) API resources: <!-- TO
 
 ```typescript
 /*
-Returns the AutokeyConfig for a folder or project.
+Returns the AutokeyConfig for a folder.
 */
 await gapi.client.cloudkms.folders.getAutokeyConfig({name: 'name'});
 
@@ -103,11 +103,6 @@ Updates the KeyAccessJustificationsPolicyConfig for a given organization/folder/
 await gapi.client.cloudkms.organizations.updateKajPolicyConfig({name: 'name'});
 
 /*
-Returns the AutokeyConfig for a folder or project.
-*/
-await gapi.client.cloudkms.projects.getAutokeyConfig({name: 'name'});
-
-/*
 Gets the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
 */
 await gapi.client.cloudkms.projects.getKajPolicyConfig({name: 'name'});
@@ -132,11 +127,6 @@ Returns the KeyAccessJustificationsPolicyConfig of the resource closest to the g
 await gapi.client.cloudkms.projects.showEffectiveKeyAccessJustificationsPolicyConfig(
   {project: 'project'},
 );
-
-/*
-Updates the AutokeyConfig for a folder. The caller must have both `cloudkms.autokeyConfigs.update` permission on the parent folder and `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A KeyHandle creation in the folder's descendant projects will use this configuration to determine where to create the resulting CryptoKey.
-*/
-await gapi.client.cloudkms.projects.updateAutokeyConfig({name: 'name'});
 
 /*
 Updates the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
