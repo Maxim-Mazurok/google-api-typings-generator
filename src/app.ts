@@ -418,7 +418,7 @@ function getType(
 function formatComment(comment: string) {
   if (!comment) return '';
 
-  // Remove period immediately after @deprecated to fix linter `Invalid JSDoc tag name "deprecated."  jsdoc/check-tag-names` error caused by `/** @deprecated. Use storage_allocations instead. Set of disk types allocated to assets. */` from `migrationcenter-v1alpha1`, see https://github.com/Maxim-Mazurok/google-api-typings-generator/actions/runs/17874483659
+  // Remove period immediately after @deprecated to fix linter `Invalid JSDoc tag name "deprecated."  jsdoc/check-tag-names` error caused by `/** @deprecated. Use storage_allocations instead. Set of disk types allocated to assets. */` from `migrationcenter-v1alpha1`, see https://github.com/Maxim-Mazurok/google-api-typings-generator/actions/runs/17874483659 // cspell:ignore migrationcenter
   return comment.replaceAll('@deprecated. ', '@deprecated ');
 }
 
