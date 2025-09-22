@@ -1,6 +1,6 @@
 # TypeScript typings for Content API for Shopping v2.1
 
-Manage your product listings and accounts for Google Shopping
+This API is deprecated. Please use Merchant API instead: https://developers.google.com/merchant/api.
 For detailed description please check [documentation](https://developers.google.com/shopping-content/v2/).
 
 ## Installing
