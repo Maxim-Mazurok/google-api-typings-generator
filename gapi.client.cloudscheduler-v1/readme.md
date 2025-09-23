@@ -69,25 +69,7 @@ gapi.auth.authorize(
 After that you can use Cloud Scheduler API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-/*
-Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`.
-*/
-await gapi.client.cloudscheduler.operations.cancel({name: 'name'});
 
-/*
-Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-*/
-await gapi.client.cloudscheduler.operations.delete({name: 'name'});
-
-/*
-Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
-*/
-await gapi.client.cloudscheduler.operations.get({name: 'name'});
-
-/*
-Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
-*/
-await gapi.client.cloudscheduler.operations.list({name: 'name'});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudscheduler-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
