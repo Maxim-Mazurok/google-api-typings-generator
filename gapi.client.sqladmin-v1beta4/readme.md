@@ -1,7 +1,7 @@
 # TypeScript typings for Cloud SQL Admin API v1beta4
 
 API for Cloud SQL database instance management
-For detailed description please check [documentation](https://cloud.google.com/sql/docs).
+For detailed description please check [documentation](https://developers.google.com/cloud-sql/).
 
 ## Installing
 
@@ -334,14 +334,6 @@ Point in time restore for an instance managed by Google Cloud Backup and Disaste
 await gapi.client.sql.instances.pointInTimeRestore({parent: 'parent'});
 
 /*
-Execute MVU Pre-checks
-*/
-await gapi.client.sql.instances.preCheckMajorVersionUpgrade({
-  instance: 'instance',
-  project: 'project',
-});
-
-/*
 Promotes the read replica instance to be an independent Cloud SQL primary instance. Using this operation might cause your instance to restart.
 */
 await gapi.client.sql.instances.promoteReplica({
@@ -446,7 +438,7 @@ await gapi.client.sql.instances.update({
 });
 
 /*
-Cancels an instance operation that has been performed on an instance. Ordinarily, this method name should be `CancelSqlOperation`.
+Cancels an instance operation that has been performed on an instance.
 */
 await gapi.client.sql.operations.cancel({
   operation: 'operation',
