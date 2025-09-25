@@ -2981,41 +2981,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionHealthCheckServices.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Retrieves the list of all HealthSource resources (all regional) available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.regionHealthSources.aggregatedList({ project: "project",  });
-
-/*
-Deletes the specified HealthSource in the given region
-*/
-await gapi.client.compute.regionHealthSources.delete({ healthSource: "healthSource", project: "project", region: "region",  });
-
-/*
-Returns the specified HealthSource resource in the given region.
-*/
-await gapi.client.compute.regionHealthSources.get({ healthSource: "healthSource", project: "project", region: "region",  });
-
-/*
-Create a HealthSource in the specified project in the given region using the parameters that are included in the request.
-*/
-await gapi.client.compute.regionHealthSources.insert({ project: "project", region: "region",  });
-
-/*
-Lists the HealthSources for a project in the given region.
-*/
-await gapi.client.compute.regionHealthSources.list({ project: "project", region: "region",  });
-
-/*
-Updates the specified regional HealthSource resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-*/
-await gapi.client.compute.regionHealthSources.patch({ healthSource: "healthSource", project: "project", region: "region",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionHealthSources.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
 Cancels the specified resize request. Cancelled resize request no longer waits for the resources to be provisioned. Cancel is only possible for requests that are in accepted state.
 */
 await gapi.client.compute.regionInstanceGroupManagerResizeRequests.cancel({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
@@ -3409,71 +3374,6 @@ await gapi.client.compute.regionNetworkFirewallPolicies.setIamPolicy({ project: 
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.regionNetworkFirewallPolicies.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Inserts an association for the specified network policy.
-*/
-await gapi.client.compute.regionNetworkPolicies.addAssociation({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
-
-/*
-Inserts a rule into a network policy.
-*/
-await gapi.client.compute.regionNetworkPolicies.addTrafficClassificationRule({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
-
-/*
-Retrieves an aggregated list of network policies. To prevent failure, it's recommended that you set the `returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.regionNetworkPolicies.aggregatedList({ project: "project",  });
-
-/*
-Deletes the specified policy.
-*/
-await gapi.client.compute.regionNetworkPolicies.delete({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
-
-/*
-Returns the specified network policy.
-*/
-await gapi.client.compute.regionNetworkPolicies.get({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
-
-/*
-Gets an association with the specified name.
-*/
-await gapi.client.compute.regionNetworkPolicies.getAssociation({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
-
-/*
-Gets a rule of the specified priority.
-*/
-await gapi.client.compute.regionNetworkPolicies.getTrafficClassificationRule({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
-
-/*
-Creates a new policy in the specified project using the data included in the request.
-*/
-await gapi.client.compute.regionNetworkPolicies.insert({ project: "project", region: "region",  });
-
-/*
-Lists all the policies that have been configured for the specified project in the given region.
-*/
-await gapi.client.compute.regionNetworkPolicies.list({ project: "project", region: "region",  });
-
-/*
-Patches the specified policy with the data included in the request.
-*/
-await gapi.client.compute.regionNetworkPolicies.patch({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
-
-/*
-Patches a rule of the specified priority.
-*/
-await gapi.client.compute.regionNetworkPolicies.patchTrafficClassificationRule({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
-
-/*
-Removes an association for the specified network policy.
-*/
-await gapi.client.compute.regionNetworkPolicies.removeAssociation({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
-
-/*
-Deletes a rule of the specified priority.
-*/
-await gapi.client.compute.regionNetworkPolicies.removeTrafficClassificationRule({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
 
 /*
 Deletes the specified NotificationEndpoint in the given region
@@ -3919,11 +3819,6 @@ await gapi.client.compute.reservationSubBlocks.list({ parentName: "parentName", 
 Allows customers to perform maintenance on a reservation subBlock
 */
 await gapi.client.compute.reservationSubBlocks.performMaintenance({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
-
-/*
-Allows customers to report a faulty subBlock.
-*/
-await gapi.client.compute.reservationSubBlocks.reportFaulty({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of resource policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
