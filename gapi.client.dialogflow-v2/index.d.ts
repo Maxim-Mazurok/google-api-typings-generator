@@ -3355,12 +3355,6 @@ declare namespace gapi.client {
       /** Required. The model to be evaluated can return multiple results with confidence score on each query. These results will be sorted by the descending order of the scores and we only keep the first max_result_count results as the final results to evaluate. */
       maxResultCount?: number;
     }
-    interface GoogleCloudDialogflowV2EvaluationStatus {
-      /** Output only. If the value is `false`, it means the evaluation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-      done?: boolean;
-      /** Output only. The error result of the evaluation in case of failure in evaluation pipeline. */
-      pipelineStatus?: GoogleRpcStatus;
-    }
     interface GoogleCloudDialogflowV2EventInput {
       /** Required. The language of this query. See [Language Support](https://cloud.google.com/dialogflow/docs/reference/language) for a list of the currently supported language codes. Note that queries in the same session do not necessarily need to specify the same language. This field is ignored when used in the context of a WebhookResponse.followup_event_input field, because the language was already defined in the originating detect intent request. */
       languageCode?: string;
@@ -3550,72 +3544,6 @@ declare namespace gapi.client {
       triggerEvent?: string;
       /** Output only. Update time of this generator. */
       updateTime?: string;
-    }
-    interface GoogleCloudDialogflowV2GeneratorEvaluation {
-      /** Output only. Completion time of this generator evaluation. */
-      completeTime?: string;
-      /** Output only. Creation time of this generator evaluation. */
-      createTime?: string;
-      /** Optional. The display name of the generator evaluation. At most 64 bytes long. */
-      displayName?: string;
-      /** Output only. The result status of the evaluation pipeline. Provides the status information including if the evaluation is still in progress, completed or failed with certain error and user actionable message. */
-      evaluationStatus?: GoogleCloudDialogflowV2EvaluationStatus;
-      /** Required. The configuration of the evaluation task. */
-      generatorEvaluationConfig?: GoogleCloudDialogflowV2GeneratorEvaluationConfig;
-      /** Required. The initial generator that was used when creating this evaluation. This is a copy of the generator read from storage when creating the evaluation. */
-      initialGenerator?: GoogleCloudDialogflowV2Generator;
-      /** Output only. Identifier. The resource name of the evaluation. Format: `projects//locations//generators// evaluations/` */
-      name?: string;
-      /** Output only. Only available when the summarization generator is provided. */
-      summarizationMetrics?: GoogleCloudDialogflowV2SummarizationEvaluationMetrics;
-    }
-    interface GoogleCloudDialogflowV2GeneratorEvaluationConfig {
-      /** Required. The config/source of input data. */
-      inputDataConfig?: GoogleCloudDialogflowV2GeneratorEvaluationConfigInputDataConfig;
-      /** Required. The output Cloud Storage bucket path to store eval files, e.g. per_summary_accuracy_score report. This path is provided by customer and files stored in it are visible to customer, no internal data should be stored in this path. */
-      outputGcsBucketPath?: string;
-      /** Evaluation configs for summarization generator. */
-      summarizationConfig?: GoogleCloudDialogflowV2GeneratorEvaluationConfigSummarizationConfig;
-    }
-    interface GoogleCloudDialogflowV2GeneratorEvaluationConfigAgentAssistInputDataConfig {
-      /** Required. The end of the time range for conversations to be evaluated. Only conversations ended at or before this timestamp will be sampled. */
-      endTime?: string;
-      /** Required. The start of the time range for conversations to be evaluated. Only conversations created at or after this timestamp will be sampled. */
-      startTime?: string;
-    }
-    interface GoogleCloudDialogflowV2GeneratorEvaluationConfigDatasetInputDataConfig {
-      /** Required. The identifier of the dataset to be evaluated. Format: `projects//locations//datasets/`. */
-      dataset?: string;
-    }
-    interface GoogleCloudDialogflowV2GeneratorEvaluationConfigInputDataConfig {
-      /** The distinctive configs for Agent Assist conversations as the conversation source. */
-      agentAssistInputDataConfig?: GoogleCloudDialogflowV2GeneratorEvaluationConfigAgentAssistInputDataConfig;
-      /** The distinctive configs for dataset as the conversation source. */
-      datasetInputDataConfig?: GoogleCloudDialogflowV2GeneratorEvaluationConfigDatasetInputDataConfig;
-      /** Optional. The end timestamp to fetch conversation data. */
-      endTime?: string;
-      /** Required. The source type of input data. */
-      inputDataSourceType?: string;
-      /** Optional. Whether the summary generation is allowed when the pre-existing qualified summaries are insufficient to cover the sample size. */
-      isSummaryGenerationAllowed?: boolean;
-      /** Optional. Desired number of conversation-summary pairs to be evaluated. */
-      sampleSize?: number;
-      /** Optional. The start timestamp to fetch conversation data. */
-      startTime?: string;
-      /** Optional. Option to control whether summaries are generated during evaluation. */
-      summaryGenerationOption?: string;
-    }
-    interface GoogleCloudDialogflowV2GeneratorEvaluationConfigSummarizationConfig {
-      /** Optional. Version for summarization accuracy. This will determine the prompt and model used at backend. */
-      accuracyEvaluationVersion?: string;
-      /** Optional. Version for summarization completeness. This will determine the prompt and model used at backend. */
-      completenessEvaluationVersion?: string;
-      /** Optional. Enable accuracy evaluation. */
-      enableAccuracyEvaluation?: boolean;
-      /** Optional. Enable completeness evaluation. */
-      enableCompletenessEvaluation?: boolean;
-      /** Output only. Version for summarization evaluation. */
-      evaluatorVersion?: string;
     }
     interface GoogleCloudDialogflowV2GeneratorSuggestion {
       /** Optional. Free form suggestion. */
@@ -4317,12 +4245,6 @@ declare namespace gapi.client {
       /** Token to retrieve the next page of results, or empty if there are no more results in the list. */
       nextPageToken?: string;
     }
-    interface GoogleCloudDialogflowV2ListGeneratorEvaluationsResponse {
-      /** The list of evaluations to return. */
-      generatorEvaluations?: GoogleCloudDialogflowV2GeneratorEvaluation[];
-      /** Token to retrieve the next page of results, or empty if there are no more results in the list. */
-      nextPageToken?: string;
-    }
     interface GoogleCloudDialogflowV2ListGeneratorsResponse {
       /** List of generators retrieved. */
       generators?: GoogleCloudDialogflowV2Generator[];
@@ -4872,116 +4794,6 @@ declare namespace gapi.client {
       summarizationSections?: GoogleCloudDialogflowV2SummarizationSection[];
       /** Optional. Version of the feature. If not set, default to latest version. Current candidates are ["1.0"]. */
       version?: string;
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetrics {
-      /** Output only. List of conversation details. */
-      conversationDetails?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetail[];
-      /** Output only. A list of aggregated(average) scores per metric section. */
-      overallMetrics?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsOverallScoresByMetric[];
-      /** Output only. Overall token per section. This is an aggregated(sum) result of input token of summary acorss all conversations that are selected for summarization evaluation. */
-      overallSectionTokens?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken[];
-      /** Output only. User bucket uri for merged evaluation score and aggregation score csv. */
-      summarizationEvaluationMergedResultsUri?: string;
-      /** Output only. A list of evaluation results per conversation(&summary), metric and section. */
-      summarizationEvaluationResults?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsSummarizationEvaluationResult[];
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition {
-      /** Output only. The accuracy reasoning of the breakdown point. */
-      accuracyReasoning?: string;
-      /** Output only. Whether the breakdown point is accurate or not. */
-      isAccurate?: boolean;
-      /** Output only. The breakdown point of the summary. */
-      point?: string;
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceDecomposition {
-      /** Output only. The adherence reasoning of the breakdown point. */
-      adherenceReasoning?: string;
-      /** Output only. Whether the breakdown point is adherent or not. */
-      isAdherent?: boolean;
-      /** Output only. The breakdown point of the given instructions. */
-      point?: string;
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceRubric {
-      /** Output only. A boolean that indicates whether the rubric question is addressed or not. */
-      isAddressed?: boolean;
-      /** Output only. The question generated from instruction that used to evaluate summary. */
-      question?: string;
-      /** Output only. The reasoning of the rubric question is addressed or not. */
-      reasoning?: string;
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsCompletenessRubric {
-      /** Output only. A boolean that indicates whether the rubric question is addressed or not. */
-      isAddressed?: boolean;
-      /** Output only. The question generated from instruction that used to evaluate summary. */
-      question?: string;
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetail {
-      /** Output only. Conversation transcript that used for summarization evaluation as a reference. */
-      messageEntries?: GoogleCloudDialogflowV2MessageEntry[];
-      /** Output only. List of metric details. */
-      metricDetails?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetail[];
-      /** Output only. Conversation level token count per section. This is an aggregated(sum) result of input token of summary acorss all metrics for a single conversation. */
-      sectionTokens?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken[];
-      /** Output only. Summary sections that used for summarization evaluation as a reference. */
-      summarySections?: GoogleCloudDialogflowV2SummarySuggestionSummarySection[];
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetail {
-      /** Output only. Metrics name. e.g. accuracy, adherence, completeness. */
-      metric?: string;
-      /** Output only. Aggregated(average) score on this metric across all sections. */
-      score?: number;
-      /** Output only. List of section details. */
-      sectionDetails?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetailSectionDetail[];
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetailSectionDetail {
-      /** Output only. List of evaluation result. The list only contains one kind of the evaluation result. */
-      evaluationResults?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsEvaluationResult[];
-      /** Output only. Aggregated(average) score on this section across all evaluation results. Either decompositions or rubrics. */
-      score?: number;
-      /** Output only. The name of the summary instruction. */
-      section?: string;
-      /** Output only. Summary for this section */
-      sectionSummary?: string;
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsDecomposition {
-      /** only available for accuracy metric. */
-      accuracyDecomposition?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition;
-      /** only available for adherence metric. */
-      adherenceDecomposition?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceDecomposition;
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsEvaluationResult {
-      /** Only available for accuracy metric. */
-      accuracyDecomposition?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition;
-      /** Only available for adherence metric. */
-      adherenceRubric?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceRubric;
-      /** Only available for completeness metric. */
-      completenessRubric?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsCompletenessRubric;
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsOverallScoresByMetric {
-      /** Output only. Metric name. e.g. accuracy, adherence, completeness. */
-      metric?: string;
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken {
-      /** Output only. The name of the summary instruction. */
-      section?: string;
-      /** Output only. Token count. */
-      tokenCount?: string;
-    }
-    interface GoogleCloudDialogflowV2SummarizationEvaluationMetricsSummarizationEvaluationResult {
-      /** Output only. List of decompostion details */
-      decompositions?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsDecomposition[];
-      /** Output only. List of evaluation results. */
-      evaluationResults?: GoogleCloudDialogflowV2SummarizationEvaluationMetricsEvaluationResult[];
-      /** Output only. metric name, e.g. accuracy, completeness, adherence, etc. */
-      metric?: string;
-      /** Output only. score calculated from decompositions */
-      score?: number;
-      /** Output only. section/task name, e.g. action, situation, etc */
-      section?: string;
-      /** Output only. Summary of this section */
-      sectionSummary?: string;
-      /** Output only. conversation session id */
-      sessionId?: string;
     }
     interface GoogleCloudDialogflowV2SummarizationSection {
       /** Optional. Definition of the section, for example, "what the customer needs help with or has question about." */
@@ -15595,151 +15407,6 @@ declare namespace gapi.client {
         body: GoogleCloudDialogflowV2InitializeEncryptionSpecRequest,
       ): Request<GoogleLongrunningOperation>;
     }
-    interface EvaluationsResource {
-      /** Creates evaluation of a generator. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: string;
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The generator resource name. Format: `projects//locations//generators/` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudDialogflowV2GeneratorEvaluation;
-      }): Request<GoogleLongrunningOperation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: string;
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: string;
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The generator resource name. Format: `projects//locations//generators/` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudDialogflowV2GeneratorEvaluation,
-      ): Request<GoogleLongrunningOperation>;
-      /** Deletes an evaluation of generator. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: string;
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The generator evaluation resource name. Format: `projects//locations//generators// evaluations/` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Gets an evaluation of generator. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: string;
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The generator evaluation resource name. Format: `projects//locations//generators//evaluations/` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudDialogflowV2GeneratorEvaluation>;
-      /** Lists evaluations of generator. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: string;
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. Maximum number of evaluations to return in a single page. By default 100 and at most 1000. */
-        pageSize?: number;
-        /** Optional. The next_page_token value returned from a previous list request. */
-        pageToken?: string;
-        /** Required. The generator resource name. Format: `projects//locations//generators/` Wildcard value `-` is supported on generator_id to list evaluations across all generators under same project. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudDialogflowV2ListGeneratorEvaluationsResponse>;
-    }
     interface GeneratorsResource {
       /** Creates a generator. */
       create(request: {
@@ -15950,7 +15617,6 @@ declare namespace gapi.client {
         },
         body: GoogleCloudDialogflowV2Generator,
       ): Request<GoogleCloudDialogflowV2Generator>;
-      evaluations: EvaluationsResource;
     }
     interface DocumentsResource {
       /** Creates a new document. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: KnowledgeOperationMetadata - `response`: Document */
@@ -17140,7 +16806,7 @@ declare namespace gapi.client {
         alt?: string;
         /** JSONP */
         callback?: string;
-        /** Optional. Unless explicitly documented otherwise, don't use this unsupported field which is primarily intended for internal usage. */
+        /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
         extraLocationTypes?: string | string[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
