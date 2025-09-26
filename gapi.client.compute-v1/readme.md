@@ -261,6 +261,11 @@ Returns the specified BackendService resource.
 await gapi.client.compute.backendServices.get({ backendService: "backendService", project: "project",  });
 
 /*
+Returns effective security policies applied to this backend service.
+*/
+await gapi.client.compute.backendServices.getEffectiveSecurityPolicies({ backendService: "backendService", project: "project",  });
+
+/*
 Gets the most recent health check results for this BackendService. Example request body: { "group": "/zones/us-east1-b/instanceGroups/lb-backend-example" }
 */
 await gapi.client.compute.backendServices.getHealth({ backendService: "backendService", project: "project",  });
@@ -2201,6 +2206,86 @@ Retrieves a list of node types available to the specified project.
 await gapi.client.compute.nodeTypes.list({ project: "project", zone: "zone",  });
 
 /*
+Inserts an association for the specified security policy. This has billing implications. Projects in the hierarchy with effective hierarchical security policies will be automatically enrolled into Cloud Armor Enterprise if not already enrolled. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.addAssociation instead if possible.
+*/
+await gapi.client.compute.organizationSecurityPolicies.addAssociation({ securityPolicy: "securityPolicy",  });
+
+/*
+Inserts a rule into a security policy.
+*/
+await gapi.client.compute.organizationSecurityPolicies.addRule({ securityPolicy: "securityPolicy",  });
+
+/*
+Copies rules to the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.copyRules instead.
+*/
+await gapi.client.compute.organizationSecurityPolicies.copyRules({ securityPolicy: "securityPolicy",  });
+
+/*
+Deletes the specified policy. Use of this API to remove firewall policies is deprecated. Use firewallPolicies.delete instead.
+*/
+await gapi.client.compute.organizationSecurityPolicies.delete({ securityPolicy: "securityPolicy",  });
+
+/*
+List all of the ordered rules present in a single specified policy. Use of this API to read firewall policies is deprecated. Use firewallPolicies.get instead.
+*/
+await gapi.client.compute.organizationSecurityPolicies.get({ securityPolicy: "securityPolicy",  });
+
+/*
+Gets an association with the specified name. Use of this API to read firewall policies is deprecated. Use firewallPolicies.getAssociation instead if possible.
+*/
+await gapi.client.compute.organizationSecurityPolicies.getAssociation({ securityPolicy: "securityPolicy",  });
+
+/*
+Gets a rule at the specified priority. Use of this API to read firewall policies is deprecated. Use firewallPolicies.getRule instead.
+*/
+await gapi.client.compute.organizationSecurityPolicies.getRule({ securityPolicy: "securityPolicy",  });
+
+/*
+Creates a new policy in the specified project using the data included in the request. Use of this API to insert firewall policies is deprecated. Use firewallPolicies.insert instead.
+*/
+await gapi.client.compute.organizationSecurityPolicies.insert({  });
+
+/*
+List all the policies that have been configured for the specified project. Use of this API to read firewall policies is deprecated. Use firewallPolicies.list instead.
+*/
+await gapi.client.compute.organizationSecurityPolicies.list({  });
+
+/*
+Lists associations of a specified target, i.e., organization or folder. Use of this API to read firewall policies is deprecated. Use firewallPolicies.listAssociations instead if possible.
+*/
+await gapi.client.compute.organizationSecurityPolicies.listAssociations({  });
+
+/*
+Gets the current list of preconfigured Web Application Firewall (WAF) expressions.
+*/
+await gapi.client.compute.organizationSecurityPolicies.listPreconfiguredExpressionSets({  });
+
+/*
+Moves the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.move instead.
+*/
+await gapi.client.compute.organizationSecurityPolicies.move({ securityPolicy: "securityPolicy",  });
+
+/*
+Patches the specified policy with the data included in the request. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.patch instead.
+*/
+await gapi.client.compute.organizationSecurityPolicies.patch({ securityPolicy: "securityPolicy",  });
+
+/*
+Patches a rule at the specified priority. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.patchRule instead.
+*/
+await gapi.client.compute.organizationSecurityPolicies.patchRule({ securityPolicy: "securityPolicy",  });
+
+/*
+Removes an association for the specified security policy. Use of this API to modify firewall policies is deprecated. Use firewallPolicies.removeAssociation instead if possible.
+*/
+await gapi.client.compute.organizationSecurityPolicies.removeAssociation({ securityPolicy: "securityPolicy",  });
+
+/*
+Deletes a rule at the specified priority.
+*/
+await gapi.client.compute.organizationSecurityPolicies.removeRule({ securityPolicy: "securityPolicy",  });
+
+/*
 Retrieves an aggregated list of packetMirrorings. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.packetMirrorings.aggregatedList({ project: "project",  });
@@ -2234,6 +2319,21 @@ await gapi.client.compute.packetMirrorings.patch({ packetMirroring: "packetMirro
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.packetMirrorings.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns the details of the given PreviewFeature.
+*/
+await gapi.client.compute.previewFeatures.get({ previewFeature: "previewFeature", project: "project",  });
+
+/*
+Returns the details of the given PreviewFeature.
+*/
+await gapi.client.compute.previewFeatures.list({ project: "project",  });
+
+/*
+Patches the given PreviewFeature. This method is used to enable or disable a PreviewFeature.
+*/
+await gapi.client.compute.previewFeatures.update({ previewFeature: "previewFeature", project: "project",  });
 
 /*
 Disable this project as a shared VPC host project.
@@ -3324,6 +3424,11 @@ await gapi.client.compute.reservationSubBlocks.list({ parentName: "parentName", 
 Allows customers to perform maintenance on a reservation subBlock
 */
 await gapi.client.compute.reservationSubBlocks.performMaintenance({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
+
+/*
+Allows customers to report a faulty subBlock.
+*/
+await gapi.client.compute.reservationSubBlocks.reportFaulty({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of resource policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
