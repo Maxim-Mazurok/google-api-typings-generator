@@ -80,6 +80,13 @@ exports[`admin works 1`] = `
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-object-type": [
+      "error",
+      {
+        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
+        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+      }
+    ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
@@ -13600,6 +13607,13 @@ exports[`calendar works 1`] = `
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-object-type": [
+      "error",
+      {
+        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
+        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+      }
+    ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
@@ -18330,6 +18344,13 @@ exports[`drive works 1`] = `
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-object-type": [
+      "error",
+      {
+        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
+        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+      }
+    ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
@@ -23809,6 +23830,13 @@ exports[`integrations works 1`] = `
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-object-type": [
+      "error",
+      {
+        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
+        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+      }
+    ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
@@ -42654,6 +42682,13 @@ exports[`sheets works 1`] = `
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-object-type": [
+      "error",
+      {
+        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
+        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+      }
+    ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
@@ -59354,6 +59389,13 @@ exports[`uses method ID instead of resource name/key 1`] = `
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-object-type": [
+      "error",
+      {
+        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
+        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+      }
+    ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
