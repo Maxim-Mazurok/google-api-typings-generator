@@ -20,7 +20,7 @@
     "check": "gts check",
     "clean": "gts clean",
     "cspell": "npx tsx bin/cspell.ts",
-    "dtslint": "node node_modules/@definitelytyped/dtslint/",
+    "dtslint": "node node_modules/@definitelytyped/dtslint/ --skipNpmChecks",
     "prefix": "prettier --write .",
     "fix": "gts fix",
     "postinstall": "patch-package",
@@ -35,7 +35,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@definitelytyped/dtslint": "0.2.10",
+    "@definitelytyped/dtslint": "0.2.33",
     "@definitelytyped/eslint-plugin": "0.1.4",
     "@expo/spawn-async": "^1.7.2",
     "@octokit/rest": "^22.0.0",

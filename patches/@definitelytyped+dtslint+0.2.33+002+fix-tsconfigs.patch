@@ -1,0 +1,15 @@
+Fixes `TypeError: tsconfigs is not iterable`; I think they started to expect `tsconfigs: ["tsconfig.json"]` to be defined somewhere, likely on `package.json`, and it doesn't make sense for us to add.
+
+diff --git a/node_modules/@definitelytyped/dtslint/dist/index.js b/node_modules/@definitelytyped/dtslint/dist/index.js
+index 349913c..adabe5e 100755
+--- a/node_modules/@definitelytyped/dtslint/dist/index.js
++++ b/node_modules/@definitelytyped/dtslint/dist/index.js
+@@ -205,7 +205,7 @@ function next(v) {
+     assert(index < typescript_versions_1.TypeScriptVersion.supported.length);
+     return typescript_versions_1.TypeScriptVersion.supported[index + 1];
+ }
+-async function testTypesVersion(dirPath, tsconfigs, lowVersion, hiVersion, expectOnly, tsLocal, isLatest) {
++async function testTypesVersion(dirPath, tsconfigs = ["tsconfig.json"], lowVersion, hiVersion, expectOnly, tsLocal, isLatest) {
+     const errors = [];
+     const checkExpectedFilesResult = checkExpectedFiles(dirPath, isLatest);
+     errors.push(...checkExpectedFilesResult.errors);
