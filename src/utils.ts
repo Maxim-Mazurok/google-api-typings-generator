@@ -46,18 +46,6 @@ export function ensureDirectoryExists(directory: string) {
   }
 }
 
-export const bannedTypes = [
-  // defaults from https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/src/rules/ban-types.ts#L56-L112
-  'String',
-  'Boolean',
-  'Number',
-  'Symbol',
-  'BigInt',
-  'Function',
-  'Object',
-  '{}', // this one is also explicitly banned by https://github.com/microsoft/DefinitelyTyped-tools/blob/HEAD/packages/eslint-plugin/src/configs/all.ts#L156-L162
-];
-
 export async function request<T extends object | string | Buffer>(
   url: URL,
   proxy: ProxySetting | undefined,

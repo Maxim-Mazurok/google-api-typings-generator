@@ -13,7 +13,6 @@ let dtApp: DtApp;
 beforeAll(() => {
   app = new App({
     typesDirectory: join(import.meta.dirname, 'results'),
-    bannedTypes: [],
     owners: [
       'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
       'Nick Amoscato <https://github.com/namoscato>',
