@@ -2530,8 +2530,7 @@ declare namespace gapi.client {
       /** Provides Kubernetes [node](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#nodes) information. */
       nodes?: Node[];
       /** Kubernetes objects related to the finding. */
-      objects?: // eslint-disable-next-line @typescript-eslint/ban-types
-      Object[];
+      objects?: Object[];
       /** Kubernetes [Pods](https://cloud.google.com/kubernetes-engine/docs/concepts/pod) associated with the finding. This field contains Pod records for each container that is owned by a Pod. */
       pods?: Pod[];
       /** Provides Kubernetes role information for findings that involve [Roles or ClusterRoles](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control). */

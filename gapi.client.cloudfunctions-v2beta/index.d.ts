@@ -231,8 +231,7 @@ declare namespace gapi.client {
     }
     interface ListFunctionsResponse {
       /** The functions that match the request. */
-      functions?: // eslint-disable-next-line @typescript-eslint/ban-types
-      Function[];
+      functions?: Function[];
       /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
       nextPageToken?: string;
       /** Locations that could not be reached. The response does not include any functions from these locations. */
@@ -616,8 +615,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Request body */
-        resource: // eslint-disable-next-line @typescript-eslint/ban-types
-        Function;
+        resource: Function;
       }): Request<Operation>;
       create(
         request: {
@@ -648,7 +646,6 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        // eslint-disable-next-line @typescript-eslint/ban-types
         body: Function,
       ): Request<Operation>;
       /** Deletes a function with the given name from the specified project. If the given function is used by some trigger, the trigger will be updated to remove this function. */
@@ -853,37 +850,34 @@ declare namespace gapi.client {
         body: GenerateUploadUrlRequest,
       ): Request<GenerateUploadUrlResponse>;
       /** Returns a function with the given name from the requested project. */
-      get(
-        request?: {
-          /** V1 error format. */
-          '$.xgafv'?: string;
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: string;
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The name of the function which details should be obtained. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Optional. The optional version of the 1st gen function whose details should be obtained. The version of a 1st gen function is an integer that starts from 1 and gets incremented on redeployments. GCF may keep historical configs for old versions of 1st gen function. This field can be specified to fetch the historical configs. This field is valid only for GCF 1st gen function. */
-          revision?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        // eslint-disable-next-line @typescript-eslint/ban-types
-      ): Request<Function>;
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the function which details should be obtained. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. The optional version of the 1st gen function whose details should be obtained. The version of a 1st gen function is an integer that starts from 1 and gets incremented on redeployments. GCF may keep historical configs for old versions of 1st gen function. This field can be specified to fetch the historical configs. This field is valid only for GCF 1st gen function. */
+        revision?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Function>;
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
@@ -977,8 +971,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Request body */
-        resource: // eslint-disable-next-line @typescript-eslint/ban-types
-        Function;
+        resource: Function;
       }): Request<Operation>;
       patch(
         request: {
@@ -1009,7 +1002,6 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
         },
-        // eslint-disable-next-line @typescript-eslint/ban-types
         body: Function,
       ): Request<Operation>;
       /** Changes the traffic target of a function from the original 1st Gen function to the 2nd Gen copy. This is the second step of the multi step process to upgrade 1st Gen functions to 2nd Gen. After this operation, all new traffic will be served by 2nd Gen copy. */

@@ -416,8 +416,7 @@ declare namespace gapi.client {
     }
     interface ComposeRequest {
       /** Properties of the resulting object. */
-      destination?: // eslint-disable-next-line @typescript-eslint/ban-types
-      Object;
+      destination?: Object;
       /** The kind of item this is. */
       kind?: string;
       /** The list of source objects that will be concatenated into a single object. */
@@ -754,8 +753,7 @@ declare namespace gapi.client {
     }
     interface Objects {
       /** The list of items. */
-      items?: // eslint-disable-next-line @typescript-eslint/ban-types
-      Object[];
+      items?: Object[];
       /** The kind of item this is. For lists of objects, this is always storage#objects. */
       kind?: string;
       /** The continuation token, used to page through large result sets. Provide this value in a subsequent request to return the next page of results. */
@@ -824,8 +822,7 @@ declare namespace gapi.client {
       /** The total size of the object being copied in bytes. This property is always present in the response. */
       objectSize?: string;
       /** A resource containing the metadata for the copied-to object. This property is present in the response only when copying completes. */
-      resource?: // eslint-disable-next-line @typescript-eslint/ban-types
-      Object;
+      resource?: Object;
       /** A token to use in subsequent requests to continue copying data. This token is present in the response only when there is more data to copy. */
       rewriteToken?: string;
       /** The total bytes written so far, which can be used to provide a waiting user with a progress indicator. This property is always present in the response. */
@@ -2965,43 +2962,40 @@ declare namespace gapi.client {
         body: BulkRestoreObjectsRequest,
       ): Request<GoogleLongrunningOperation>;
       /** Concatenates a list of existing objects into a new object in the same bucket. */
-      compose(
-        request: {
-          /** Data format for the response. */
-          alt?: string;
-          /** Name of the bucket containing the source objects. The destination object is stored in this bucket. */
-          destinationBucket: string;
-          /** Name of the new object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
-          destinationObject: string;
-          /** Apply a predefined set of access controls to the destination object. */
-          destinationPredefinedAcl?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
-          ifGenerationMatch?: string;
-          /** Makes the operation conditional on whether the object's current metageneration matches the given value. */
-          ifMetagenerationMatch?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. */
-          kmsKeyName?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-          uploadType?: string;
-          /** Deprecated. Please use quotaUser instead. */
-          userIp?: string;
-          /** The project to be billed for this request. Required for Requester Pays buckets. */
-          userProject?: string;
-          /** Request body */
-          resource: ComposeRequest;
-        },
-        // eslint-disable-next-line @typescript-eslint/ban-types
-      ): Request<Object>;
+      compose(request: {
+        /** Data format for the response. */
+        alt?: string;
+        /** Name of the bucket containing the source objects. The destination object is stored in this bucket. */
+        destinationBucket: string;
+        /** Name of the new object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
+        destinationObject: string;
+        /** Apply a predefined set of access controls to the destination object. */
+        destinationPredefinedAcl?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
+        ifGenerationMatch?: string;
+        /** Makes the operation conditional on whether the object's current metageneration matches the given value. */
+        ifMetagenerationMatch?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. */
+        kmsKeyName?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+        uploadType?: string;
+        /** Deprecated. Please use quotaUser instead. */
+        userIp?: string;
+        /** The project to be billed for this request. Required for Requester Pays buckets. */
+        userProject?: string;
+        /** Request body */
+        resource: ComposeRequest;
+      }): Request<Object>;
       compose(
         request: {
           /** Data format for the response. */
@@ -3036,67 +3030,62 @@ declare namespace gapi.client {
           userProject?: string;
         },
         body: ComposeRequest,
-        // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Copies a source object to a destination object. Optionally overrides metadata. */
-      copy(
-        request: {
-          /** Data format for the response. */
-          alt?: string;
-          /** Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
-          destinationBucket: string;
-          /** Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. */
-          destinationKmsKeyName?: string;
-          /** Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. */
-          destinationObject: string;
-          /** Apply a predefined set of access controls to the destination object. */
-          destinationPredefinedAcl?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** Makes the operation conditional on whether the destination object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
-          ifGenerationMatch?: string;
-          /** Makes the operation conditional on whether the destination object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
-          ifGenerationNotMatch?: string;
-          /** Makes the operation conditional on whether the destination object's current metageneration matches the given value. */
-          ifMetagenerationMatch?: string;
-          /** Makes the operation conditional on whether the destination object's current metageneration does not match the given value. */
-          ifMetagenerationNotMatch?: string;
-          /** Makes the operation conditional on whether the source object's current generation matches the given value. */
-          ifSourceGenerationMatch?: string;
-          /** Makes the operation conditional on whether the source object's current generation does not match the given value. */
-          ifSourceGenerationNotMatch?: string;
-          /** Makes the operation conditional on whether the source object's current metageneration matches the given value. */
-          ifSourceMetagenerationMatch?: string;
-          /** Makes the operation conditional on whether the source object's current metageneration does not match the given value. */
-          ifSourceMetagenerationNotMatch?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full. */
-          projection?: string;
-          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-          quotaUser?: string;
-          /** Name of the bucket in which to find the source object. */
-          sourceBucket: string;
-          /** If present, selects a specific revision of the source object (as opposed to the latest version, the default). */
-          sourceGeneration?: string;
-          /** Name of the source object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
-          sourceObject: string;
-          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-          uploadType?: string;
-          /** Deprecated. Please use quotaUser instead. */
-          userIp?: string;
-          /** The project to be billed for this request. Required for Requester Pays buckets. */
-          userProject?: string;
-          /** Request body */
-          resource: // eslint-disable-next-line @typescript-eslint/ban-types
-          Object;
-        },
-        // eslint-disable-next-line @typescript-eslint/ban-types
-      ): Request<Object>;
+      copy(request: {
+        /** Data format for the response. */
+        alt?: string;
+        /** Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
+        destinationBucket: string;
+        /** Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. */
+        destinationKmsKeyName?: string;
+        /** Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. */
+        destinationObject: string;
+        /** Apply a predefined set of access controls to the destination object. */
+        destinationPredefinedAcl?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Makes the operation conditional on whether the destination object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
+        ifGenerationMatch?: string;
+        /** Makes the operation conditional on whether the destination object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
+        ifGenerationNotMatch?: string;
+        /** Makes the operation conditional on whether the destination object's current metageneration matches the given value. */
+        ifMetagenerationMatch?: string;
+        /** Makes the operation conditional on whether the destination object's current metageneration does not match the given value. */
+        ifMetagenerationNotMatch?: string;
+        /** Makes the operation conditional on whether the source object's current generation matches the given value. */
+        ifSourceGenerationMatch?: string;
+        /** Makes the operation conditional on whether the source object's current generation does not match the given value. */
+        ifSourceGenerationNotMatch?: string;
+        /** Makes the operation conditional on whether the source object's current metageneration matches the given value. */
+        ifSourceMetagenerationMatch?: string;
+        /** Makes the operation conditional on whether the source object's current metageneration does not match the given value. */
+        ifSourceMetagenerationNotMatch?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full. */
+        projection?: string;
+        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the bucket in which to find the source object. */
+        sourceBucket: string;
+        /** If present, selects a specific revision of the source object (as opposed to the latest version, the default). */
+        sourceGeneration?: string;
+        /** Name of the source object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
+        sourceObject: string;
+        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+        uploadType?: string;
+        /** Deprecated. Please use quotaUser instead. */
+        userIp?: string;
+        /** The project to be billed for this request. Required for Requester Pays buckets. */
+        userProject?: string;
+        /** Request body */
+        resource: Object;
+      }): Request<Object>;
       copy(
         request: {
           /** Data format for the response. */
@@ -3150,9 +3139,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        // eslint-disable-next-line @typescript-eslint/ban-types
         body: Object,
-        // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Deletes an object and its metadata. Deletions are permanent if versioning is not enabled for the bucket, or if the generation parameter is used. */
       delete(request?: {
@@ -3190,49 +3177,46 @@ declare namespace gapi.client {
         userProject?: string;
       }): Request<void>;
       /** Retrieves an object or its metadata. */
-      get(
-        request?: {
-          /** Data format for the response. */
-          alt?: string;
-          /** Name of the bucket in which the object resides. */
-          bucket: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** If present, selects a specific revision of this object (as opposed to the latest version, the default). */
-          generation?: string;
-          /** Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
-          ifGenerationMatch?: string;
-          /** Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
-          ifGenerationNotMatch?: string;
-          /** Makes the operation conditional on whether the object's current metageneration matches the given value. */
-          ifMetagenerationMatch?: string;
-          /** Makes the operation conditional on whether the object's current metageneration does not match the given value. */
-          ifMetagenerationNotMatch?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Name of the object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
-          object: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Set of properties to return. Defaults to noAcl. */
-          projection?: string;
-          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-          quotaUser?: string;
-          /** Restore token used to differentiate soft-deleted objects with the same name and generation. Only applicable for hierarchical namespace buckets and if softDeleted is set to true. This parameter is optional, and is only required in the rare case when there are multiple soft-deleted objects with the same name and generation. */
-          restoreToken?: string;
-          /** If true, only soft-deleted object versions will be listed. The default is false. For more information, see [Soft Delete](https://cloud.google.com/storage/docs/soft-delete). */
-          softDeleted?: boolean;
-          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-          uploadType?: string;
-          /** Deprecated. Please use quotaUser instead. */
-          userIp?: string;
-          /** The project to be billed for this request. Required for Requester Pays buckets. */
-          userProject?: string;
-        },
-        // eslint-disable-next-line @typescript-eslint/ban-types
-      ): Request<Object>;
+      get(request?: {
+        /** Data format for the response. */
+        alt?: string;
+        /** Name of the bucket in which the object resides. */
+        bucket: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** If present, selects a specific revision of this object (as opposed to the latest version, the default). */
+        generation?: string;
+        /** Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
+        ifGenerationMatch?: string;
+        /** Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
+        ifGenerationNotMatch?: string;
+        /** Makes the operation conditional on whether the object's current metageneration matches the given value. */
+        ifMetagenerationMatch?: string;
+        /** Makes the operation conditional on whether the object's current metageneration does not match the given value. */
+        ifMetagenerationNotMatch?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Name of the object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
+        object: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Set of properties to return. Defaults to noAcl. */
+        projection?: string;
+        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+        quotaUser?: string;
+        /** Restore token used to differentiate soft-deleted objects with the same name and generation. Only applicable for hierarchical namespace buckets and if softDeleted is set to true. This parameter is optional, and is only required in the rare case when there are multiple soft-deleted objects with the same name and generation. */
+        restoreToken?: string;
+        /** If true, only soft-deleted object versions will be listed. The default is false. For more information, see [Soft Delete](https://cloud.google.com/storage/docs/soft-delete). */
+        softDeleted?: boolean;
+        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+        uploadType?: string;
+        /** Deprecated. Please use quotaUser instead. */
+        userIp?: string;
+        /** The project to be billed for this request. Required for Requester Pays buckets. */
+        userProject?: string;
+      }): Request<Object>;
       /** Returns an IAM policy for the specified object. */
       getIamPolicy(request?: {
         /** Data format for the response. */
@@ -3261,52 +3245,48 @@ declare namespace gapi.client {
         userProject?: string;
       }): Request<Policy>;
       /** Stores a new object and metadata. */
-      insert(
-        request: {
-          /** Data format for the response. */
-          alt?: string;
-          /** Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any. */
-          bucket: string;
-          /** If set, sets the contentEncoding property of the final object to this value. Setting this parameter is equivalent to setting the contentEncoding metadata property. This can be useful when uploading an object with uploadType=media to indicate the encoding of the content being uploaded. */
-          contentEncoding?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
-          ifGenerationMatch?: string;
-          /** Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
-          ifGenerationNotMatch?: string;
-          /** Makes the operation conditional on whether the object's current metageneration matches the given value. */
-          ifMetagenerationMatch?: string;
-          /** Makes the operation conditional on whether the object's current metageneration does not match the given value. */
-          ifMetagenerationNotMatch?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. */
-          kmsKeyName?: string;
-          /** Name of the object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
-          name?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Apply a predefined set of access controls to this object. */
-          predefinedAcl?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full. */
-          projection?: string;
-          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-          uploadType?: string;
-          /** Deprecated. Please use quotaUser instead. */
-          userIp?: string;
-          /** The project to be billed for this request. Required for Requester Pays buckets. */
-          userProject?: string;
-          /** Request body */
-          resource: // eslint-disable-next-line @typescript-eslint/ban-types
-          Object;
-        },
-        // eslint-disable-next-line @typescript-eslint/ban-types
-      ): Request<Object>;
+      insert(request: {
+        /** Data format for the response. */
+        alt?: string;
+        /** Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any. */
+        bucket: string;
+        /** If set, sets the contentEncoding property of the final object to this value. Setting this parameter is equivalent to setting the contentEncoding metadata property. This can be useful when uploading an object with uploadType=media to indicate the encoding of the content being uploaded. */
+        contentEncoding?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
+        ifGenerationMatch?: string;
+        /** Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
+        ifGenerationNotMatch?: string;
+        /** Makes the operation conditional on whether the object's current metageneration matches the given value. */
+        ifMetagenerationMatch?: string;
+        /** Makes the operation conditional on whether the object's current metageneration does not match the given value. */
+        ifMetagenerationNotMatch?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. */
+        kmsKeyName?: string;
+        /** Name of the object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
+        name?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Apply a predefined set of access controls to this object. */
+        predefinedAcl?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full. */
+        projection?: string;
+        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+        uploadType?: string;
+        /** Deprecated. Please use quotaUser instead. */
+        userIp?: string;
+        /** The project to be billed for this request. Required for Requester Pays buckets. */
+        userProject?: string;
+        /** Request body */
+        resource: Object;
+      }): Request<Object>;
       insert(
         request: {
           /** Data format for the response. */
@@ -3348,9 +3328,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        // eslint-disable-next-line @typescript-eslint/ban-types
         body: Object,
-        // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Retrieves a list of objects matching the criteria. */
       list(request?: {
@@ -3402,100 +3380,93 @@ declare namespace gapi.client {
         versions?: boolean;
       }): Request<Objects>;
       /** Moves the source object to the destination object in the same bucket. */
-      move(
-        request?: {
-          /** Data format for the response. */
-          alt?: string;
-          /** Name of the bucket in which the object resides. */
-          bucket: string;
-          /** Name of the destination object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
-          destinationObject: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** Makes the operation conditional on whether the destination object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. `ifGenerationMatch` and `ifGenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
-          ifGenerationMatch?: string;
-          /** Makes the operation conditional on whether the destination object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.`ifGenerationMatch` and `ifGenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
-          ifGenerationNotMatch?: string;
-          /** Makes the operation conditional on whether the destination object's current metageneration matches the given value. `ifMetagenerationMatch` and `ifMetagenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
-          ifMetagenerationMatch?: string;
-          /** Makes the operation conditional on whether the destination object's current metageneration does not match the given value. `ifMetagenerationMatch` and `ifMetagenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
-          ifMetagenerationNotMatch?: string;
-          /** Makes the operation conditional on whether the source object's current generation matches the given value. `ifSourceGenerationMatch` and `ifSourceGenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
-          ifSourceGenerationMatch?: string;
-          /** Makes the operation conditional on whether the source object's current generation does not match the given value. `ifSourceGenerationMatch` and `ifSourceGenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
-          ifSourceGenerationNotMatch?: string;
-          /** Makes the operation conditional on whether the source object's current metageneration matches the given value. `ifSourceMetagenerationMatch` and `ifSourceMetagenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
-          ifSourceMetagenerationMatch?: string;
-          /** Makes the operation conditional on whether the source object's current metageneration does not match the given value. `ifSourceMetagenerationMatch` and `ifSourceMetagenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
-          ifSourceMetagenerationNotMatch?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Set of properties to return. Defaults to noAcl. */
-          projection?: string;
-          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-          quotaUser?: string;
-          /** Name of the source object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
-          sourceObject: string;
-          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-          uploadType?: string;
-          /** Deprecated. Please use quotaUser instead. */
-          userIp?: string;
-          /** The project to be billed for this request. Required for Requester Pays buckets. */
-          userProject?: string;
-        },
-        // eslint-disable-next-line @typescript-eslint/ban-types
-      ): Request<Object>;
+      move(request?: {
+        /** Data format for the response. */
+        alt?: string;
+        /** Name of the bucket in which the object resides. */
+        bucket: string;
+        /** Name of the destination object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
+        destinationObject: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Makes the operation conditional on whether the destination object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. `ifGenerationMatch` and `ifGenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
+        ifGenerationMatch?: string;
+        /** Makes the operation conditional on whether the destination object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.`ifGenerationMatch` and `ifGenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
+        ifGenerationNotMatch?: string;
+        /** Makes the operation conditional on whether the destination object's current metageneration matches the given value. `ifMetagenerationMatch` and `ifMetagenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
+        ifMetagenerationMatch?: string;
+        /** Makes the operation conditional on whether the destination object's current metageneration does not match the given value. `ifMetagenerationMatch` and `ifMetagenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
+        ifMetagenerationNotMatch?: string;
+        /** Makes the operation conditional on whether the source object's current generation matches the given value. `ifSourceGenerationMatch` and `ifSourceGenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
+        ifSourceGenerationMatch?: string;
+        /** Makes the operation conditional on whether the source object's current generation does not match the given value. `ifSourceGenerationMatch` and `ifSourceGenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
+        ifSourceGenerationNotMatch?: string;
+        /** Makes the operation conditional on whether the source object's current metageneration matches the given value. `ifSourceMetagenerationMatch` and `ifSourceMetagenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
+        ifSourceMetagenerationMatch?: string;
+        /** Makes the operation conditional on whether the source object's current metageneration does not match the given value. `ifSourceMetagenerationMatch` and `ifSourceMetagenerationNotMatch` conditions are mutually exclusive: it's an error for both of them to be set in the request. */
+        ifSourceMetagenerationNotMatch?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Set of properties to return. Defaults to noAcl. */
+        projection?: string;
+        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the source object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
+        sourceObject: string;
+        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+        uploadType?: string;
+        /** Deprecated. Please use quotaUser instead. */
+        userIp?: string;
+        /** The project to be billed for this request. Required for Requester Pays buckets. */
+        userProject?: string;
+      }): Request<Object>;
       /** Patches an object's metadata. */
-      patch(
-        request: {
-          /** Data format for the response. */
-          alt?: string;
-          /** Name of the bucket in which the object resides. */
-          bucket: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** If present, selects a specific revision of this object (as opposed to the latest version, the default). */
-          generation?: string;
-          /** Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
-          ifGenerationMatch?: string;
-          /** Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
-          ifGenerationNotMatch?: string;
-          /** Makes the operation conditional on whether the object's current metageneration matches the given value. */
-          ifMetagenerationMatch?: string;
-          /** Makes the operation conditional on whether the object's current metageneration does not match the given value. */
-          ifMetagenerationNotMatch?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Name of the object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
-          object: string;
-          /** Must be true to remove the retention configuration, reduce its unlocked retention period, or change its mode from unlocked to locked. */
-          overrideUnlockedRetention?: boolean;
-          /** Apply a predefined set of access controls to this object. */
-          predefinedAcl?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Set of properties to return. Defaults to full. */
-          projection?: string;
-          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-          uploadType?: string;
-          /** Deprecated. Please use quotaUser instead. */
-          userIp?: string;
-          /** The project to be billed for this request, for Requester Pays buckets. */
-          userProject?: string;
-          /** Request body */
-          resource: // eslint-disable-next-line @typescript-eslint/ban-types
-          Object;
-        },
-        // eslint-disable-next-line @typescript-eslint/ban-types
-      ): Request<Object>;
+      patch(request: {
+        /** Data format for the response. */
+        alt?: string;
+        /** Name of the bucket in which the object resides. */
+        bucket: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** If present, selects a specific revision of this object (as opposed to the latest version, the default). */
+        generation?: string;
+        /** Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
+        ifGenerationMatch?: string;
+        /** Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
+        ifGenerationNotMatch?: string;
+        /** Makes the operation conditional on whether the object's current metageneration matches the given value. */
+        ifMetagenerationMatch?: string;
+        /** Makes the operation conditional on whether the object's current metageneration does not match the given value. */
+        ifMetagenerationNotMatch?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Name of the object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
+        object: string;
+        /** Must be true to remove the retention configuration, reduce its unlocked retention period, or change its mode from unlocked to locked. */
+        overrideUnlockedRetention?: boolean;
+        /** Apply a predefined set of access controls to this object. */
+        predefinedAcl?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Set of properties to return. Defaults to full. */
+        projection?: string;
+        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+        uploadType?: string;
+        /** Deprecated. Please use quotaUser instead. */
+        userIp?: string;
+        /** The project to be billed for this request, for Requester Pays buckets. */
+        userProject?: string;
+        /** Request body */
+        resource: Object;
+      }): Request<Object>;
       patch(
         request: {
           /** Data format for the response. */
@@ -3537,54 +3508,49 @@ declare namespace gapi.client {
           /** The project to be billed for this request, for Requester Pays buckets. */
           userProject?: string;
         },
-        // eslint-disable-next-line @typescript-eslint/ban-types
         body: Object,
-        // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Restores a soft-deleted object. */
-      restore(
-        request?: {
-          /** Data format for the response. */
-          alt?: string;
-          /** Name of the bucket in which the object resides. */
-          bucket: string;
-          /** If true, copies the source object's ACL; otherwise, uses the bucket's default object ACL. The default is false. */
-          copySourceAcl?: boolean;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** Selects a specific revision of this object. */
-          generation: string;
-          /** Makes the operation conditional on whether the object's one live generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
-          ifGenerationMatch?: string;
-          /** Makes the operation conditional on whether none of the object's live generations match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
-          ifGenerationNotMatch?: string;
-          /** Makes the operation conditional on whether the object's one live metageneration matches the given value. */
-          ifMetagenerationMatch?: string;
-          /** Makes the operation conditional on whether none of the object's live metagenerations match the given value. */
-          ifMetagenerationNotMatch?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Name of the object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
-          object: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Set of properties to return. Defaults to full. */
-          projection?: string;
-          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-          quotaUser?: string;
-          /** Restore token used to differentiate sof-deleted objects with the same name and generation. Only applicable for hierarchical namespace buckets. This parameter is optional, and is only required in the rare case when there are multiple soft-deleted objects with the same name and generation. */
-          restoreToken?: string;
-          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-          uploadType?: string;
-          /** Deprecated. Please use quotaUser instead. */
-          userIp?: string;
-          /** The project to be billed for this request. Required for Requester Pays buckets. */
-          userProject?: string;
-        },
-        // eslint-disable-next-line @typescript-eslint/ban-types
-      ): Request<Object>;
+      restore(request?: {
+        /** Data format for the response. */
+        alt?: string;
+        /** Name of the bucket in which the object resides. */
+        bucket: string;
+        /** If true, copies the source object's ACL; otherwise, uses the bucket's default object ACL. The default is false. */
+        copySourceAcl?: boolean;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Selects a specific revision of this object. */
+        generation: string;
+        /** Makes the operation conditional on whether the object's one live generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
+        ifGenerationMatch?: string;
+        /** Makes the operation conditional on whether none of the object's live generations match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
+        ifGenerationNotMatch?: string;
+        /** Makes the operation conditional on whether the object's one live metageneration matches the given value. */
+        ifMetagenerationMatch?: string;
+        /** Makes the operation conditional on whether none of the object's live metagenerations match the given value. */
+        ifMetagenerationNotMatch?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Name of the object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
+        object: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Set of properties to return. Defaults to full. */
+        projection?: string;
+        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+        quotaUser?: string;
+        /** Restore token used to differentiate sof-deleted objects with the same name and generation. Only applicable for hierarchical namespace buckets. This parameter is optional, and is only required in the rare case when there are multiple soft-deleted objects with the same name and generation. */
+        restoreToken?: string;
+        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+        uploadType?: string;
+        /** Deprecated. Please use quotaUser instead. */
+        userIp?: string;
+        /** The project to be billed for this request. Required for Requester Pays buckets. */
+        userProject?: string;
+      }): Request<Object>;
       /** Rewrites a source object to a destination object. Optionally overrides metadata. */
       rewrite(request: {
         /** Data format for the response. */
@@ -3642,8 +3608,7 @@ declare namespace gapi.client {
         /** The project to be billed for this request. Required for Requester Pays buckets. */
         userProject?: string;
         /** Request body */
-        resource: // eslint-disable-next-line @typescript-eslint/ban-types
-        Object;
+        resource: Object;
       }): Request<RewriteResponse>;
       rewrite(
         request: {
@@ -3702,7 +3667,6 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        // eslint-disable-next-line @typescript-eslint/ban-types
         body: Object,
       ): Request<RewriteResponse>;
       /** Updates an IAM policy for the specified object. */
@@ -3793,52 +3757,48 @@ declare namespace gapi.client {
         userProject?: string;
       }): Request<TestIamPermissionsResponse>;
       /** Updates an object's metadata. */
-      update(
-        request: {
-          /** Data format for the response. */
-          alt?: string;
-          /** Name of the bucket in which the object resides. */
-          bucket: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** If present, selects a specific revision of this object (as opposed to the latest version, the default). */
-          generation?: string;
-          /** Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
-          ifGenerationMatch?: string;
-          /** Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
-          ifGenerationNotMatch?: string;
-          /** Makes the operation conditional on whether the object's current metageneration matches the given value. */
-          ifMetagenerationMatch?: string;
-          /** Makes the operation conditional on whether the object's current metageneration does not match the given value. */
-          ifMetagenerationNotMatch?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Name of the object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
-          object: string;
-          /** Must be true to remove the retention configuration, reduce its unlocked retention period, or change its mode from unlocked to locked. */
-          overrideUnlockedRetention?: boolean;
-          /** Apply a predefined set of access controls to this object. */
-          predefinedAcl?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Set of properties to return. Defaults to full. */
-          projection?: string;
-          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-          uploadType?: string;
-          /** Deprecated. Please use quotaUser instead. */
-          userIp?: string;
-          /** The project to be billed for this request. Required for Requester Pays buckets. */
-          userProject?: string;
-          /** Request body */
-          resource: // eslint-disable-next-line @typescript-eslint/ban-types
-          Object;
-        },
-        // eslint-disable-next-line @typescript-eslint/ban-types
-      ): Request<Object>;
+      update(request: {
+        /** Data format for the response. */
+        alt?: string;
+        /** Name of the bucket in which the object resides. */
+        bucket: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** If present, selects a specific revision of this object (as opposed to the latest version, the default). */
+        generation?: string;
+        /** Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
+        ifGenerationMatch?: string;
+        /** Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object. */
+        ifGenerationNotMatch?: string;
+        /** Makes the operation conditional on whether the object's current metageneration matches the given value. */
+        ifMetagenerationMatch?: string;
+        /** Makes the operation conditional on whether the object's current metageneration does not match the given value. */
+        ifMetagenerationNotMatch?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Name of the object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
+        object: string;
+        /** Must be true to remove the retention configuration, reduce its unlocked retention period, or change its mode from unlocked to locked. */
+        overrideUnlockedRetention?: boolean;
+        /** Apply a predefined set of access controls to this object. */
+        predefinedAcl?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Set of properties to return. Defaults to full. */
+        projection?: string;
+        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+        uploadType?: string;
+        /** Deprecated. Please use quotaUser instead. */
+        userIp?: string;
+        /** The project to be billed for this request. Required for Requester Pays buckets. */
+        userProject?: string;
+        /** Request body */
+        resource: Object;
+      }): Request<Object>;
       update(
         request: {
           /** Data format for the response. */
@@ -3880,9 +3840,7 @@ declare namespace gapi.client {
           /** The project to be billed for this request. Required for Requester Pays buckets. */
           userProject?: string;
         },
-        // eslint-disable-next-line @typescript-eslint/ban-types
         body: Object,
-        // eslint-disable-next-line @typescript-eslint/ban-types
       ): Request<Object>;
       /** Watch for changes on all objects in a bucket. */
       watchAll(request: {
