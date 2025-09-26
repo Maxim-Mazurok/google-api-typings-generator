@@ -20,7 +20,7 @@
     "check": "gts check",
     "clean": "gts clean",
     "cspell": "npx tsx bin/cspell.ts",
-    "dtslint": "node node_modules/@definitelytyped/dtslint/",
+    "dtslint": "node node_modules/@definitelytyped/dtslint/ --skipNpmChecks",
     "prefix": "prettier --write .",
     "fix": "gts fix",
     "postinstall": "patch-package",
