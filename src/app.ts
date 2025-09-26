@@ -130,13 +130,7 @@ function formatPropertyName(name: string) {
 }
 
 class TypescriptTextWriter implements TypescriptTextWriter {
-  private readonly ignoreBannedType =
-    '// eslint-disable-next-line @typescript-eslint/ban-types';
-
-  constructor(
-    private readonly writer: IndentedTextWriter,
-    private readonly bannedTypes: string[],
-  ) {}
+  constructor(private readonly writer: IndentedTextWriter) {}
 
   private braces(
     text: string,
@@ -147,12 +141,6 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     context(this);
     this.writer.indent--;
     this.writer.writeLine('}');
-  }
-
-  private includesBannedType(type: string): boolean {
-    return this.bannedTypes.some(bannedType =>
-      type.match(new RegExp(`\\b${bannedType}\\b`)),
-    );
   }
 
   referenceTypes(type: string) {
@@ -213,11 +201,6 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     if (typeof type === 'function') {
       type(this);
     } else if (typeof type === 'string') {
-      if (type.match(/\b(Function|Object|Symbol)\b/)) {
-        this.write(this.ignoreBannedType);
-        this.writer.write(this.writer.newLine);
-        this.writer.startIndentedLine();
-      }
       this.write(type);
     } else {
       throw new TypeError(`Unexpected type: ${type}`);
@@ -279,22 +262,9 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     returnType: string,
     singleLine = false,
   ) {
-    const ignoreBannedReturnType = this.bannedTypes.some(bannedType =>
-      returnType.match(new RegExp(`\\b${bannedType}\\b`)),
-    );
-    if (singleLine && ignoreBannedReturnType) {
-      this.writer.writeLine(this.ignoreBannedType);
-    }
-
     this.writer.startIndentedLine(`${name}(`);
 
     _.forEach(parameters, (parameter, index) => {
-      if (
-        typeof parameter.type === 'string' &&
-        this.includesBannedType(parameter.type)
-      ) {
-        this.writer.writeNewLine(this.ignoreBannedType);
-      }
       this.write(`${parameter.parameter}${parameter.required ? '' : '?'}: `);
       this.write(parameter.type);
 
@@ -308,11 +278,6 @@ class TypescriptTextWriter implements TypescriptTextWriter {
         }
       }
     });
-
-    if (!singleLine && ignoreBannedReturnType) {
-      this.writeNewLine();
-      this.writeNewLine(this.ignoreBannedType);
-    }
 
     this.writer.write(`): ${returnType};`);
 
@@ -472,7 +437,6 @@ export interface Configuration {
   discoveryJsonDirectory?: string; // temporary directory to cache discovery service JSON
   proxy?: ProxySetting;
   typesDirectory: string;
-  bannedTypes: string[];
   owners: string[];
 }
 
@@ -658,7 +622,6 @@ export class App {
     );
     const writer = new TypescriptTextWriter(
       new IndentedTextWriter(new StreamWriter(stream)),
-      this.config.bannedTypes,
     );
 
     writer.writeLine(
@@ -1118,7 +1081,6 @@ export class App {
       ),
       writer = new TypescriptTextWriter(
         new IndentedTextWriter(new StreamWriter(stream)),
-        this.config.bannedTypes,
       );
 
     writer.writeLine(
