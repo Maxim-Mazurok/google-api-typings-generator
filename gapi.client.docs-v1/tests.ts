@@ -182,6 +182,21 @@ gapi.load('client', async () => {
                 tabId: 'Test string',
               },
             },
+            insertPerson: {
+              endOfSegmentLocation: {
+                segmentId: 'Test string',
+                tabId: 'Test string',
+              },
+              location: {
+                index: 42,
+                segmentId: 'Test string',
+                tabId: 'Test string',
+              },
+              personProperties: {
+                email: 'Test string',
+                name: 'Test string',
+              },
+            },
             insertSectionBreak: {
               endOfSegmentLocation: {
                 segmentId: 'Test string',

@@ -578,6 +578,14 @@ declare namespace gapi.client {
       /** Inserts the page break at a specific index in the document. The page break must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). Page breaks cannot be inserted inside a table, equation, footnote, header or footer. Since page breaks can only be inserted inside the body, the segment ID field must be empty. */
       location?: Location;
     }
+    interface InsertPersonRequest {
+      /** Inserts the person at the end of a header, footer, footnote or the document body. */
+      endOfSegmentLocation?: EndOfSegmentLocation;
+      /** Inserts the person at a specific index in the document. The person mention must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). People cannot be inserted inside an equation. */
+      location?: Location;
+      /** The properties of the person mention to insert. */
+      personProperties?: PersonProperties;
+    }
     interface InsertSectionBreakRequest {
       /** Inserts a newline and a section break at the end of the document body. Section breaks cannot be inserted inside a footnote, header or footer. Because section breaks can only be inserted inside the body, the segment ID field must be empty. */
       endOfSegmentLocation?: EndOfSegmentLocation;
@@ -1043,6 +1051,8 @@ declare namespace gapi.client {
       insertInlineImage?: InsertInlineImageRequest;
       /** Inserts a page break at the specified location. */
       insertPageBreak?: InsertPageBreakRequest;
+      /** Inserts a person mention. */
+      insertPerson?: InsertPersonRequest;
       /** Inserts a section break at the specified location. */
       insertSectionBreak?: InsertSectionBreakRequest;
       /** Inserts a table at the specified location. */
