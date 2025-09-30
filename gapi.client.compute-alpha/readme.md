@@ -473,7 +473,7 @@ await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone:
 /*
 Rotates the customer-managed encryption key to the latest version for the specified persistent disk.
 */
-await gapi.client.compute.disks.updateKmskey({ disk: "disk", project: "project", zone: "zone",  });
+await gapi.client.compute.disks.updateKmsKey({ disk: "disk", project: "project", zone: "zone",  });
 
 /*
 Wait for replication to catch up on the secondary disk.
@@ -3856,7 +3856,7 @@ Inserts a rule into a network policy.
 await gapi.client.compute.regionNetworkPolicies.addTrafficClassificationRule({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
 
 /*
-Retrieves an aggregated list of network policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+Retrieves an aggregated list of network policies. To prevent failure, it's recommended that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.regionNetworkPolicies.aggregatedList({ project: "project",  });
 

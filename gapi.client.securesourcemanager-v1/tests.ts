@@ -168,6 +168,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Creates a new repository in a given project and location. The Repository.Instance field is required in the request body for requests using the securesourcemanager.googleapis.com endpoint. */
     await gapi.client.securesourcemanager.projects.locations.repositories.create(
