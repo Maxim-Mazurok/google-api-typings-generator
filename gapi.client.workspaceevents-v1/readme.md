@@ -51,6 +51,9 @@ var client_id = '',
     // On their own behalf, apps in Google Chat can see, add, update, and remove members from conversations and spaces
     'https://www.googleapis.com/auth/chat.app.memberships',
 
+    // On their own behalf, apps in Google Chat can see all messages and their associated reactions and message content
+    'https://www.googleapis.com/auth/chat.app.messages.readonly',
+
     // On their own behalf, apps in Google Chat can create conversations and spaces and see or update their metadata (including history settings and access settings)
     'https://www.googleapis.com/auth/chat.app.spaces',
 
