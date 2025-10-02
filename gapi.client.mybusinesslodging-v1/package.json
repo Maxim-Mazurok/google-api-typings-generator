@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.mybusinesslodging-v1",
-  "version": "0.0.20250930",
+  "version": "0.0.20251001",
   "description": "TypeScript typings for My Business Lodging API v1",
   "repository": {
     "type": "git",
