@@ -78,7 +78,7 @@ Returns the AutokeyConfig for a folder or project.
 await gapi.client.cloudkms.folders.getAutokeyConfig({name: 'name'});
 
 /*
-Gets the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+Gets the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project.
 */
 await gapi.client.cloudkms.folders.getKajPolicyConfig({name: 'name'});
 
@@ -88,17 +88,17 @@ Updates the AutokeyConfig for a folder. The caller must have both `cloudkms.auto
 await gapi.client.cloudkms.folders.updateAutokeyConfig({name: 'name'});
 
 /*
-Updates the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+Updates the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project.
 */
 await gapi.client.cloudkms.folders.updateKajPolicyConfig({name: 'name'});
 
 /*
-Gets the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+Gets the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project.
 */
 await gapi.client.cloudkms.organizations.getKajPolicyConfig({name: 'name'});
 
 /*
-Updates the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+Updates the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project.
 */
 await gapi.client.cloudkms.organizations.updateKajPolicyConfig({name: 'name'});
 
@@ -108,7 +108,7 @@ Returns the AutokeyConfig for a folder or project.
 await gapi.client.cloudkms.projects.getAutokeyConfig({name: 'name'});
 
 /*
-Gets the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+Gets the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project.
 */
 await gapi.client.cloudkms.projects.getKajPolicyConfig({name: 'name'});
 
@@ -139,7 +139,7 @@ Updates the AutokeyConfig for a folder. The caller must have both `cloudkms.auto
 await gapi.client.cloudkms.projects.updateAutokeyConfig({name: 'name'});
 
 /*
-Updates the KeyAccessJustificationsPolicyConfig for a given organization/folder/projects.
+Updates the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project.
 */
 await gapi.client.cloudkms.projects.updateKajPolicyConfig({name: 'name'});
 ```
