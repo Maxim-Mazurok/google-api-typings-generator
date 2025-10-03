@@ -820,7 +820,7 @@ gapi.load('client', async () => {
         permissions: ['Test string'],
       },
     );
-    /** Updates the schema of a Cloud Spanner database by creating/altering/dropping tables, columns, indexes, etc. The returned long-running operation will have a name of the format `/operations/` and can be used to track execution of the schema change(s). The metadata field type is UpdateDatabaseDdlMetadata. The operation has no response. */
+    /** Updates the schema of a Cloud Spanner database by creating/altering/dropping tables, columns, indexes, etc. The returned long-running operation will have a name of the format `/operations/` and can be used to track execution of the schema changes. The metadata field type is UpdateDatabaseDdlMetadata. The operation has no response. */
     await gapi.client.spanner.projects.instances.databases.updateDdl(
       {
         database: 'Test string',
