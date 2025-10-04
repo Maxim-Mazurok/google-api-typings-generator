@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudchannel-v1",
-  "version": "0.0.20250930",
+  "version": "0.0.20251004",
   "description": "TypeScript typings for Cloud Channel API v1",
   "repository": {
     "type": "git",
