@@ -2217,6 +2217,7 @@ gapi.load('client', async () => {
             flexStart: {
               maxRuntimeDuration: 'Test string',
             },
+            initialReplicaCount: 42,
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
@@ -2233,6 +2234,10 @@ gapi.load('client', async () => {
             maxReplicaCount: 42,
             minReplicaCount: 42,
             requiredReplicaCount: 42,
+            scaleToZeroSpec: {
+              idleScaledownPeriod: 'Test string',
+              minScaleupPeriod: 'Test string',
+            },
             spot: true,
           },
           fastTryoutEnabled: true,
@@ -2245,6 +2250,9 @@ gapi.load('client', async () => {
           dedicatedEndpointEnabled: true,
           endpointDisplayName: 'Test string',
           endpointUserId: 'Test string',
+          labels: {
+            A: 'Test string',
+          },
           privateServiceConnectConfig: {
             enablePrivateServiceConnect: true,
             enableSecurePrivateServiceConnect: true,
@@ -2409,6 +2417,7 @@ gapi.load('client', async () => {
           flexStart: {
             maxRuntimeDuration: 'Test string',
           },
+          initialReplicaCount: 42,
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
@@ -2425,6 +2434,10 @@ gapi.load('client', async () => {
           maxReplicaCount: 42,
           minReplicaCount: 42,
           requiredReplicaCount: 42,
+          scaleToZeroSpec: {
+            idleScaledownPeriod: 'Test string',
+            minScaleupPeriod: 'Test string',
+          },
           spot: true,
         },
         endpointDisplayName: 'Test string',
@@ -4098,6 +4111,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.agents.operations.wait({
@@ -4122,6 +4136,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.apps.operations.wait({
@@ -5398,6 +5413,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.customJobs.operations.wait({
@@ -5508,6 +5524,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -6473,6 +6490,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -6527,6 +6545,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -6561,6 +6580,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -6655,6 +6675,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.datasets.operations.wait({
@@ -6701,6 +6722,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -6731,6 +6753,7 @@ gapi.load('client', async () => {
             flexStart: {
               maxRuntimeDuration: 'Test string',
             },
+            initialReplicaCount: 42,
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
@@ -6747,6 +6770,10 @@ gapi.load('client', async () => {
             maxReplicaCount: 42,
             minReplicaCount: 42,
             requiredReplicaCount: 42,
+            scaleToZeroSpec: {
+              idleScaledownPeriod: 'Test string',
+              minScaleupPeriod: 'Test string',
+            },
             spot: true,
           },
           disableContainerLogging: true,
@@ -6802,6 +6829,7 @@ gapi.load('client', async () => {
           flexStart: {
             maxRuntimeDuration: 'Test string',
           },
+          initialReplicaCount: 42,
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
@@ -6818,6 +6846,10 @@ gapi.load('client', async () => {
           maxReplicaCount: 42,
           minReplicaCount: 42,
           requiredReplicaCount: 42,
+          scaleToZeroSpec: {
+            idleScaledownPeriod: 'Test string',
+            minScaleupPeriod: 'Test string',
+          },
           spot: true,
         },
         disableContainerLogging: true,
@@ -6863,6 +6895,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -6895,6 +6928,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -7340,6 +7374,7 @@ gapi.load('client', async () => {
               flexStart: {
                 maxRuntimeDuration: 'Test string',
               },
+              initialReplicaCount: 42,
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
@@ -7356,6 +7391,10 @@ gapi.load('client', async () => {
               maxReplicaCount: 42,
               minReplicaCount: 42,
               requiredReplicaCount: 42,
+              scaleToZeroSpec: {
+                idleScaledownPeriod: 'Test string',
+                minScaleupPeriod: 'Test string',
+              },
               spot: true,
             },
             disableContainerLogging: true,
@@ -7590,6 +7629,7 @@ gapi.load('client', async () => {
             flexStart: {
               maxRuntimeDuration: 'Test string',
             },
+            initialReplicaCount: 42,
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
@@ -7606,6 +7646,10 @@ gapi.load('client', async () => {
             maxReplicaCount: 42,
             minReplicaCount: 42,
             requiredReplicaCount: 42,
+            scaleToZeroSpec: {
+              idleScaledownPeriod: 'Test string',
+              minScaleupPeriod: 'Test string',
+            },
             spot: true,
           },
           disableContainerLogging: true,
@@ -8411,6 +8455,7 @@ gapi.load('client', async () => {
             flexStart: {
               maxRuntimeDuration: 'Test string',
             },
+            initialReplicaCount: 42,
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
@@ -8427,6 +8472,10 @@ gapi.load('client', async () => {
             maxReplicaCount: 42,
             minReplicaCount: 42,
             requiredReplicaCount: 42,
+            scaleToZeroSpec: {
+              idleScaledownPeriod: 'Test string',
+              minScaleupPeriod: 'Test string',
+            },
             spot: true,
           },
           disableContainerLogging: true,
@@ -8613,6 +8662,7 @@ gapi.load('client', async () => {
               flexStart: {
                 maxRuntimeDuration: 'Test string',
               },
+              initialReplicaCount: 42,
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
@@ -8629,6 +8679,10 @@ gapi.load('client', async () => {
               maxReplicaCount: 42,
               minReplicaCount: 42,
               requiredReplicaCount: 42,
+              scaleToZeroSpec: {
+                idleScaledownPeriod: 'Test string',
+                minScaleupPeriod: 'Test string',
+              },
               spot: true,
             },
             disableContainerLogging: true,
@@ -9374,6 +9428,7 @@ gapi.load('client', async () => {
                 flexStart: {
                   maxRuntimeDuration: 'Test string',
                 },
+                initialReplicaCount: 42,
                 machineSpec: {
                   acceleratorCount: 42,
                   acceleratorType: 'Test string',
@@ -9390,6 +9445,10 @@ gapi.load('client', async () => {
                 maxReplicaCount: 42,
                 minReplicaCount: 42,
                 requiredReplicaCount: 42,
+                scaleToZeroSpec: {
+                  idleScaledownPeriod: 'Test string',
+                  minScaleupPeriod: 'Test string',
+                },
                 spot: true,
               },
               disableContainerLogging: true,
@@ -9687,6 +9746,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.endpoints.operations.wait({
@@ -9959,6 +10019,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -10658,6 +10719,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -10731,6 +10793,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -10759,6 +10822,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -11063,6 +11127,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -11097,6 +11162,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -11529,6 +11595,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.extensions.operations.wait({
@@ -11811,6 +11878,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -12099,6 +12167,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -12127,6 +12196,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -12695,6 +12765,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -12723,6 +12794,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -13521,6 +13593,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -13555,6 +13628,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -13589,6 +13663,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -13916,6 +13991,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -13952,6 +14028,7 @@ gapi.load('client', async () => {
               flexStart: {
                 maxRuntimeDuration: 'Test string',
               },
+              initialReplicaCount: 42,
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
@@ -13968,6 +14045,10 @@ gapi.load('client', async () => {
               maxReplicaCount: 42,
               minReplicaCount: 42,
               requiredReplicaCount: 42,
+              scaleToZeroSpec: {
+                idleScaledownPeriod: 'Test string',
+                minScaleupPeriod: 'Test string',
+              },
               spot: true,
             },
             deployedIndexAuthConfig: {
@@ -14072,6 +14153,7 @@ gapi.load('client', async () => {
             flexStart: {
               maxRuntimeDuration: 'Test string',
             },
+            initialReplicaCount: 42,
             machineSpec: {
               acceleratorCount: 42,
               acceleratorType: 'Test string',
@@ -14088,6 +14170,10 @@ gapi.load('client', async () => {
             maxReplicaCount: 42,
             minReplicaCount: 42,
             requiredReplicaCount: 42,
+            scaleToZeroSpec: {
+              idleScaledownPeriod: 'Test string',
+              minScaleupPeriod: 'Test string',
+            },
             spot: true,
           },
           deployedIndexAuthConfig: {
@@ -14216,6 +14302,7 @@ gapi.load('client', async () => {
           flexStart: {
             maxRuntimeDuration: 'Test string',
           },
+          initialReplicaCount: 42,
           machineSpec: {
             acceleratorCount: 42,
             acceleratorType: 'Test string',
@@ -14232,6 +14319,10 @@ gapi.load('client', async () => {
           maxReplicaCount: 42,
           minReplicaCount: 42,
           requiredReplicaCount: 42,
+          scaleToZeroSpec: {
+            idleScaledownPeriod: 'Test string',
+            minScaleupPeriod: 'Test string',
+          },
           spot: true,
         },
         deployedIndexAuthConfig: {
@@ -14300,6 +14391,7 @@ gapi.load('client', async () => {
               flexStart: {
                 maxRuntimeDuration: 'Test string',
               },
+              initialReplicaCount: 42,
               machineSpec: {
                 acceleratorCount: 42,
                 acceleratorType: 'Test string',
@@ -14316,6 +14408,10 @@ gapi.load('client', async () => {
               maxReplicaCount: 42,
               minReplicaCount: 42,
               requiredReplicaCount: 42,
+              scaleToZeroSpec: {
+                idleScaledownPeriod: 'Test string',
+                minScaleupPeriod: 'Test string',
+              },
               spot: true,
             },
             deployedIndexAuthConfig: {
@@ -14435,6 +14531,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -14636,6 +14733,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.indexes.operations.wait({
@@ -14796,6 +14894,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -14947,6 +15046,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -15088,6 +15188,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -15152,6 +15253,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -15231,6 +15333,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -15606,6 +15709,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -16534,6 +16638,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -17464,6 +17569,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -17561,6 +17667,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.models.operations.wait({
@@ -18027,6 +18134,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -18225,6 +18333,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -18480,6 +18589,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -18507,6 +18617,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.operations.wait({
@@ -18767,6 +18878,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -19120,6 +19232,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -20766,6 +20879,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.ragCorpora.operations.wait({
@@ -20958,6 +21072,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -20992,6 +21107,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -21643,6 +21759,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -21677,6 +21794,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -21701,6 +21819,7 @@ gapi.load('client', async () => {
             codeLanguage: 'Test string',
             machineConfig: 'Test string',
           },
+          computerUseEnvironment: {},
         },
         state: 'Test string',
         ttl: 'Test string',
@@ -21772,6 +21891,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -22027,6 +22147,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -23425,6 +23546,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.schedules.operations.wait({
@@ -23445,6 +23567,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Creates a SpecialistPool. */
     await gapi.client.aiplatform.projects.locations.specialistPools.create(
@@ -23516,6 +23639,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -23672,6 +23796,7 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
+      returnPartialSuccess: true,
     });
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
     await gapi.client.aiplatform.projects.locations.studies.operations.wait({
@@ -23844,6 +23969,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -24090,6 +24216,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -24244,6 +24371,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -24374,6 +24502,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -24408,6 +24537,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -24827,6 +24957,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
+        returnPartialSuccess: true,
       },
     );
     /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
@@ -24942,6 +25073,10 @@ gapi.load('client', async () => {
           },
         ],
         experiment: 'Test string',
+        fullFineTuningSpec: {
+          trainingDatasetUri: 'Test string',
+          validationDatasetUri: 'Test string',
+        },
         labels: {
           A: 'Test string',
         },
@@ -26153,6 +26288,10 @@ gapi.load('client', async () => {
             },
           ],
           experiment: 'Test string',
+          fullFineTuningSpec: {
+            trainingDatasetUri: 'Test string',
+            validationDatasetUri: 'Test string',
+          },
           labels: {
             A: 'Test string',
           },
