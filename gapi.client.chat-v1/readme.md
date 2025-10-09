@@ -1,7 +1,7 @@
 # TypeScript typings for Google Chat API v1
 
 The Google Chat API lets you build Chat apps to integrate your services with Google Chat and manage Chat resources such as spaces, members, and messages.
-For detailed description please check [documentation](https://developers.google.com/hangouts/chat).
+For detailed description please check [documentation](https://developers.google.com/workspace/chat).
 
 ## Installing
 
