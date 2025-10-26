@@ -42,7 +42,7 @@ jobs:
           npm pkg set engines.npm="$(npm --version)"
 
           # Update package-lock.json
-            npm install --package-lock-only --ignore-scripts
+          npm install --package-lock-only --ignore-scripts
 
           # Dedupe and update dependencies
           npm dedupe
