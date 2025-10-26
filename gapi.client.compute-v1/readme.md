@@ -88,7 +88,7 @@ After that you can use Compute Engine API resources: <!-- TODO: make this work f
 /*
 Retrieves an aggregated list of accelerator types.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.acceleratorTypes.aggregatedList({ project: "project",  });
@@ -107,7 +107,7 @@ await gapi.client.compute.acceleratorTypes.list({ project: "project", zone: "zon
 /*
 Retrieves an aggregated list of addresses.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.addresses.aggregatedList({ project: "project",  });
@@ -153,7 +153,7 @@ await gapi.client.compute.addresses.testIamPermissions({ project: "project", reg
 /*
 Retrieves an aggregated list of autoscalers.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.autoscalers.aggregatedList({ project: "project",  });
@@ -274,7 +274,7 @@ await gapi.client.compute.backendServices.addSignedUrlKey({ backendService: "bac
 Retrieves the list of all BackendService resources, regional and global,
 available to the specified project.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.backendServices.aggregatedList({ project: "project",  });
@@ -414,7 +414,7 @@ await gapi.client.compute.disks.addResourcePolicies({ disk: "disk", project: "pr
 /*
 Retrieves an aggregated list of persistent disks.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.disks.aggregatedList({ project: "project",  });
@@ -529,7 +529,7 @@ await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone:
 /*
 Retrieves an aggregated list of disk types.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.diskTypes.aggregatedList({ project: "project",  });
@@ -705,11 +705,6 @@ patch format and processing rules.
 await gapi.client.compute.firewalls.patch({ firewall: "firewall", project: "project",  });
 
 /*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.firewalls.testIamPermissions({ project: "project", resource: "resource",  });
-
-/*
 Updates the specified firewall rule with the data included in the
 request.
 Note that all fields will be updated if using PUT, even fields that are not
@@ -720,7 +715,7 @@ await gapi.client.compute.firewalls.update({ firewall: "firewall", project: "pro
 /*
 Retrieves an aggregated list of forwarding rules.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.forwardingRules.aggregatedList({ project: "project",  });
@@ -772,7 +767,7 @@ await gapi.client.compute.forwardingRules.setTarget({ forwardingRule: "forwardin
 /*
 Retrieves an aggregated list of future reservations.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, recommendation is that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.futureReservations.aggregatedList({ project: "project",  });
@@ -2654,7 +2649,7 @@ Retrieves an aggregated list of network firewall policies, listing network
 firewall policies from all applicable scopes (global and regional) and
 grouping the results per scope.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.networkFirewallPolicies.aggregatedList({ project: "project",  });
@@ -3214,13 +3209,10 @@ Lists all shared VPC host projects visible to the user in an organization.
 await gapi.client.compute.projects.listXpnHosts({ project: "project",  });
 
 /*
-Moves a persistent disk from one zone to another.
-*Note*: The moveDisk API will be deprecated on September 29, 2026.
-
 Starting September 29, 2025, you can't use the moveDisk API on new
 projects. To move a disk to a different region or zone, follow the steps in
 [Change the location of a
-disk](https://cloud.google.com/compute/docs/disks/migrate-to-hyperdisk#migrate-to-hd).
+disk](https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/migrate-to-hyperdisk#migrate-to-hd).
 
 Projects that already use the moveDisk API can continue usage until
 September 29, 2026.
@@ -3472,7 +3464,7 @@ await gapi.client.compute.regionBackendServices.update({ backendService: "backen
 /*
 Retrieves an aggregated list of commitments by region.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.regionCommitments.aggregatedList({ project: "project",  });
@@ -4597,7 +4589,7 @@ await gapi.client.compute.reservationBlocks.testIamPermissions({ parentResource:
 /*
 Retrieves an aggregated list of reservations.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.reservations.aggregatedList({ project: "project",  });
