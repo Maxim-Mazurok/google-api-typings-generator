@@ -11,5 +11,6 @@ export const fallbackDocumentationLinks: {
 };
 
 export const zeroWidthJoinerCharacter = String.fromCharCode(8205);
+export const fullWidthCommercialAt = String.fromCharCode(65312); // "＠"
 
 export const revisionPrefix = '// Revision: ';
