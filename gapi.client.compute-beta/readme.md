@@ -88,7 +88,7 @@ After that you can use Compute Engine API resources: <!-- TODO: make this work f
 /*
 Retrieves an aggregated list of accelerator types.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.acceleratorTypes.aggregatedList({ project: "project",  });
@@ -107,7 +107,7 @@ await gapi.client.compute.acceleratorTypes.list({ project: "project", zone: "zon
 /*
 Retrieves an aggregated list of addresses.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.addresses.aggregatedList({ project: "project",  });
@@ -161,7 +161,7 @@ await gapi.client.compute.advice.calendarMode({ project: "project", region: "reg
 /*
 Retrieves an aggregated list of autoscalers.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.autoscalers.aggregatedList({ project: "project",  });
@@ -301,7 +301,7 @@ await gapi.client.compute.backendServices.addSignedUrlKey({ backendService: "bac
 Retrieves the list of all BackendService resources, regional and global,
 available to the specified project.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.backendServices.aggregatedList({ project: "project",  });
@@ -441,7 +441,7 @@ await gapi.client.compute.disks.addResourcePolicies({ disk: "disk", project: "pr
 /*
 Retrieves an aggregated list of persistent disks.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.disks.aggregatedList({ project: "project",  });
@@ -566,7 +566,7 @@ await gapi.client.compute.diskSettings.patch({ project: "project", zone: "zone",
 /*
 Retrieves an aggregated list of disk types.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.diskTypes.aggregatedList({ project: "project",  });
@@ -777,7 +777,7 @@ await gapi.client.compute.firewalls.update({ firewall: "firewall", project: "pro
 /*
 Retrieves an aggregated list of forwarding rules.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.forwardingRules.aggregatedList({ project: "project",  });
@@ -834,7 +834,7 @@ await gapi.client.compute.forwardingRules.testIamPermissions({ project: "project
 /*
 Retrieves an aggregated list of future reservations.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, recommendation is that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.futureReservations.aggregatedList({ project: "project",  });
@@ -1084,20 +1084,6 @@ semantics and usesJSON merge
 patch format and processing rules.
 */
 await gapi.client.compute.globalPublicDelegatedPrefixes.patch({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix",  });
-
-/*
-Retrieves the list of all VM Extension Policy resources
-available to the specified project.
-
-To prevent failure, it's recommended that you set the
-`returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.aggregatedList({ project: "project",  });
-
-/*
-Gets details of a global VM extension policy.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.get({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
 
 /*
 Retrieves the list of all HealthCheck resources, regional and global,
@@ -1418,11 +1404,6 @@ await gapi.client.compute.instanceGroupManagers.deletePerInstanceConfigs({ insta
 Returns all of the details about the specified managed instance group.
 */
 await gapi.client.compute.instanceGroupManagers.get({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
-
-/*
-Returns information about available accelerator topologies for a given MIG.
-*/
-await gapi.client.compute.instanceGroupManagers.getAvailableAcceleratorTopologies({ project: "project", resourceId: "resourceId", zone: "zone",  });
 
 /*
 Creates a managed instance group using the information that you specify
@@ -2844,7 +2825,7 @@ Retrieves an aggregated list of network firewall policies, listing network
 firewall policies from all applicable scopes (global and regional) and
 grouping the results per scope.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.networkFirewallPolicies.aggregatedList({ project: "project",  });
@@ -3409,13 +3390,10 @@ Lists all shared VPC host projects visible to the user in an organization.
 await gapi.client.compute.projects.listXpnHosts({ project: "project",  });
 
 /*
-Moves a persistent disk from one zone to another.
-*Note*: The moveDisk API will be deprecated on September 29, 2026.
-
 Starting September 29, 2025, you can't use the moveDisk API on new
 projects. To move a disk to a different region or zone, follow the steps in
 [Change the location of a
-disk](https://cloud.google.com/compute/docs/disks/migrate-to-hyperdisk#migrate-to-hd).
+disk](https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/migrate-to-hyperdisk#migrate-to-hd).
 
 Projects that already use the moveDisk API can continue usage until
 September 29, 2026.
@@ -3733,7 +3711,7 @@ await gapi.client.compute.regionBackendServices.update({ backendService: "backen
 /*
 Retrieves an aggregated list of commitments by region.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.regionCommitments.aggregatedList({ project: "project",  });
@@ -3777,7 +3755,7 @@ await gapi.client.compute.regionCommitments.updateReservations({ commitment: "co
 Retrieves the list of all CompositeHealthCheck resources (all
 regional) available to the specified project.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.regionCompositeHealthChecks.aggregatedList({ project: "project",  });
@@ -3943,7 +3921,7 @@ await gapi.client.compute.regionDiskTypes.list({ project: "project", region: "re
 Retrieves the list of all HealthAggregationPolicy resources,
 regional and global, available to the specified project.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.regionHealthAggregationPolicies.aggregatedList({ project: "project",  });
@@ -5301,7 +5279,7 @@ await gapi.client.compute.reservationBlocks.testIamPermissions({ parentResource:
 /*
 Retrieves an aggregated list of reservations.
 
-To prevent failure, it is recommended that you set the
+To prevent failure, Google recommends that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.reservations.aggregatedList({ project: "project",  });
@@ -6664,31 +6642,6 @@ await gapi.client.compute.zones.get({ project: "project", zone: "zone",  });
 Retrieves the list of Zone resources available to the specified project.
 */
 await gapi.client.compute.zones.list({ project: "project",  });
-
-/*
-Deletes a specified zone VM extension policy.
-*/
-await gapi.client.compute.zoneVmExtensionPolicies.delete({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
-
-/*
-Retrieves details of a specific zone VM extension policy.
-*/
-await gapi.client.compute.zoneVmExtensionPolicies.get({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
-
-/*
-Creates a new zone-level VM extension policy within a project.
-*/
-await gapi.client.compute.zoneVmExtensionPolicies.insert({ project: "project", zone: "zone",  });
-
-/*
-Lists all VM extension policies within a specific zone for a project.
-*/
-await gapi.client.compute.zoneVmExtensionPolicies.list({ project: "project", zone: "zone",  });
-
-/*
-Modifies an existing zone VM extension policy.
-*/
-await gapi.client.compute.zoneVmExtensionPolicies.update({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.compute-beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
