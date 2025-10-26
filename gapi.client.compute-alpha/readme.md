@@ -88,7 +88,7 @@ After that you can use Compute Engine API resources: <!-- TODO: make this work f
 /*
 Retrieves an aggregated list of accelerator types.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.acceleratorTypes.aggregatedList({ project: "project",  });
@@ -107,7 +107,7 @@ await gapi.client.compute.acceleratorTypes.list({ project: "project", zone: "zon
 /*
 Retrieves an aggregated list of addresses.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.addresses.aggregatedList({ project: "project",  });
@@ -168,7 +168,7 @@ await gapi.client.compute.advice.capacity({ project: "project", region: "region"
 /*
 Retrieves an aggregated list of autoscalers.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.autoscalers.aggregatedList({ project: "project",  });
@@ -308,7 +308,7 @@ await gapi.client.compute.backendServices.addSignedUrlKey({ backendService: "bac
 Retrieves the list of all BackendService resources, regional and global,
 available to the specified project.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.backendServices.aggregatedList({ project: "project",  });
@@ -448,7 +448,7 @@ await gapi.client.compute.disks.addResourcePolicies({ disk: "disk", project: "pr
 /*
 Retrieves an aggregated list of persistent disks.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.disks.aggregatedList({ project: "project",  });
@@ -589,7 +589,7 @@ await gapi.client.compute.diskSettings.patch({ project: "project", zone: "zone",
 /*
 Retrieves an aggregated list of disk types.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.diskTypes.aggregatedList({ project: "project",  });
@@ -806,7 +806,7 @@ await gapi.client.compute.firewalls.update({ firewall: "firewall", project: "pro
 /*
 Retrieves an aggregated list of forwarding rules.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.forwardingRules.aggregatedList({ project: "project",  });
@@ -863,7 +863,7 @@ await gapi.client.compute.forwardingRules.testIamPermissions({ project: "project
 /*
 Retrieves an aggregated list of future reservations.
 
-To prevent failure, recommendation is that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.futureReservations.aggregatedList({ project: "project",  });
@@ -1168,6 +1168,12 @@ await gapi.client.compute.globalVmExtensionPolicies.list({ project: "project",  
 Updates a global VM extension policy.
 */
 await gapi.client.compute.globalVmExtensionPolicies.update({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
+
+/*
+Retrieves an aggregated list of all of the HaControllers in the specified
+project across all regions.
+*/
+await gapi.client.compute.haControllers.aggregatedList({ project: "project",  });
 
 /*
 Deletes an HaController in the specified project.
@@ -3031,7 +3037,7 @@ Retrieves an aggregated list of network firewall policies, listing network
 firewall policies from all applicable scopes (global and regional) and
 grouping the results per scope.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.networkFirewallPolicies.aggregatedList({ project: "project",  });
@@ -3618,10 +3624,13 @@ Lists all shared VPC host projects visible to the user in an organization.
 await gapi.client.compute.projects.listXpnHosts({ project: "project",  });
 
 /*
+Moves a persistent disk from one zone to another.
+*Note*: The moveDisk API will be deprecated on September 29, 2026.
+
 Starting September 29, 2025, you can't use the moveDisk API on new
 projects. To move a disk to a different region or zone, follow the steps in
 [Change the location of a
-disk](https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/migrate-to-hyperdisk#migrate-to-hd).
+disk](https://cloud.google.com/compute/docs/disks/migrate-to-hyperdisk#migrate-to-hd).
 
 Projects that already use the moveDisk API can continue usage until
 September 29, 2026.
@@ -3990,7 +3999,7 @@ await gapi.client.compute.regionBackendServices.update({ backendService: "backen
 /*
 Retrieves an aggregated list of commitments by region.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.regionCommitments.aggregatedList({ project: "project",  });
@@ -4044,7 +4053,7 @@ await gapi.client.compute.regionCommitments.updateReservations({ commitment: "co
 Retrieves the list of all CompositeHealthCheck resources (all
 regional) available to the specified project.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.regionCompositeHealthChecks.aggregatedList({ project: "project",  });
@@ -4226,7 +4235,7 @@ await gapi.client.compute.regionDiskTypes.list({ project: "project", region: "re
 Retrieves the list of all HealthAggregationPolicy resources,
 regional and global, available to the specified project.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.regionHealthAggregationPolicies.aggregatedList({ project: "project",  });
@@ -4310,7 +4319,7 @@ await gapi.client.compute.regionHealthChecks.update({ healthCheck: "healthCheck"
 Retrieves the list of all HealthCheckService resources,
 regional and global, available to the specified project.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.regionHealthCheckServices.aggregatedList({ project: "project",  });
@@ -5647,7 +5656,7 @@ await gapi.client.compute.reservationBlocks.performMaintenance({ project: "proje
 /*
 Retrieves an aggregated list of reservations.
 
-To prevent failure, Google recommends that you set the
+To prevent failure, it is recommended that you set the
 `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.reservations.aggregatedList({ project: "project",  });
@@ -5778,6 +5787,46 @@ await gapi.client.compute.resourcePolicies.setIamPolicy({ project: "project", re
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.resourcePolicies.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Deletes a RolloutPlan.
+*/
+await gapi.client.compute.rolloutPlans.delete({ project: "project", rolloutPlan: "rolloutPlan",  });
+
+/*
+Gets details of a single project-scoped RolloutPlan.
+*/
+await gapi.client.compute.rolloutPlans.get({ project: "project", rolloutPlan: "rolloutPlan",  });
+
+/*
+Creates a new RolloutPlan in a given project and location.
+*/
+await gapi.client.compute.rolloutPlans.insert({ project: "project",  });
+
+/*
+Lists RolloutPlans in a given project and location.
+*/
+await gapi.client.compute.rolloutPlans.list({ project: "project",  });
+
+/*
+Cancels a Rollout.
+*/
+await gapi.client.compute.rollouts.cancel({ project: "project", rollout: "rollout",  });
+
+/*
+Deletes a Rollout.
+*/
+await gapi.client.compute.rollouts.delete({ project: "project", rollout: "rollout",  });
+
+/*
+Gets details of a single project-scoped Rollout.
+*/
+await gapi.client.compute.rollouts.get({ project: "project", rollout: "rollout",  });
+
+/*
+Lists Rollouts in a given project and location.
+*/
+await gapi.client.compute.rollouts.list({ project: "project",  });
 
 /*
 Retrieves an aggregated list of routers.
