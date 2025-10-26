@@ -6,6 +6,7 @@ import {copyFile} from 'node:fs/promises';
 import path, {basename, join} from 'node:path';
 import {
   fallbackDocumentationLinks,
+  fullWidthCommercialAt,
   revisionPrefix,
   zeroWidthJoinerCharacter,
 } from './constants.js';
@@ -215,11 +216,15 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     }
 
     text = text.replace(/\*\//g, `*${zeroWidthJoinerCharacter}/`); // hack for `bla/*/bla` cases in comments
-    // escape @class, @this, @type, @typedef and @property in JSDoc to fix no-redundant-jsdoc error
+
+    // hack to "escape" @class, @this, @type, @typedef and @property in JSDoc to fix no-redundant-jsdoc error
     text = text.replace(
       /@(class|this|type(?:def)?|property)/g,
       `@${zeroWidthJoinerCharacter}$1`,
     );
+
+    // hack to "escape" @pattern and @InputOnly in JSDoc to fix `Invalid JSDoc tag name "..."` errors from jsdoc/check-tag-names rule in gapi.client.compute-*; zeroWidthJoinerCharacter hack from above didn't work here...
+    text = text.replace(/@(pattern|InputOnly)/g, `${fullWidthCommercialAt}$1`);
 
     let lines: string[] = [];
 
