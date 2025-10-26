@@ -71,8 +71,8 @@
     "zod": "^4.1.12"
   },
   "engines": {
-    "node": "24.9.0",
-    "npm": "11.6.0"
+    "node": "25.0.0",
+    "npm": "11.6.2"
   },
   "dependencyComments": {
     "@definitelytyped/dtslint": "relies on @definitelytyped/eslint-plugin, update them together",
