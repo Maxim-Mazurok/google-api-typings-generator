@@ -278,27 +278,27 @@ Gets the latest state of a long-running operation. Clients can use this method t
 await gapi.client.drive.operations.get({ name: "name",  });
 
 /*
-Creates a permission for a file or shared drive. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
+Creates a permission for a file or shared drive. For more information, see [Share files, folders, and drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing). **Warning:** Concurrent permissions operations on the same file aren't supported; only the last update is applied.
 */
 await gapi.client.drive.permissions.create({ fileId: "fileId",  });
 
 /*
-Deletes a permission. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
+Deletes a permission. For more information, see [Share files, folders, and drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing). **Warning:** Concurrent permissions operations on the same file aren't supported; only the last update is applied.
 */
 await gapi.client.drive.permissions.delete({ fileId: "fileId", permissionId: "permissionId",  });
 
 /*
-Gets a permission by ID.
+Gets a permission by ID. For more information, see [Share files, folders, and drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
 */
 await gapi.client.drive.permissions.get({ fileId: "fileId", permissionId: "permissionId",  });
 
 /*
-Lists a file's or shared drive's permissions.
+Lists a file's or shared drive's permissions. For more information, see [Share files, folders, and drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
 */
 await gapi.client.drive.permissions.list({ fileId: "fileId",  });
 
 /*
-Updates a permission with patch semantics. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
+Updates a permission with patch semantics. For more information, see [Share files, folders, and drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing). **Warning:** Concurrent permissions operations on the same file aren't supported; only the last update is applied.
 */
 await gapi.client.drive.permissions.update({ fileId: "fileId", permissionId: "permissionId",  });
 

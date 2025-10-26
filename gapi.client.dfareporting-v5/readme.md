@@ -708,6 +708,25 @@ Inserts a new dynamic feed.
 await gapi.client.dfareporting.dynamicFeeds.insert({});
 
 /*
+Retransforms a dynamic feed.
+*/
+await gapi.client.dfareporting.dynamicFeeds.retransform({
+  dynamicFeedId: 'dynamicFeedId',
+});
+
+/*
+Updates a new dynamic feed.
+*/
+await gapi.client.dfareporting.dynamicFeeds.update({});
+
+/*
+Generates code for a dynamic profile.
+*/
+await gapi.client.dfareporting.dynamicProfiles.generateCode({
+  dynamicProfileId: 'dynamicProfileId',
+});
+
+/*
 Gets a dynamic profile by ID.
 */
 await gapi.client.dfareporting.dynamicProfiles.get({
@@ -718,6 +737,13 @@ await gapi.client.dfareporting.dynamicProfiles.get({
 Inserts a new dynamic profile.
 */
 await gapi.client.dfareporting.dynamicProfiles.insert({});
+
+/*
+Publish for a dynamic profile.
+*/
+await gapi.client.dfareporting.dynamicProfiles.publish({
+  dynamicProfileId: 'dynamicProfileId',
+});
 
 /*
 Updates an existing dynamic profile.
@@ -1270,6 +1296,30 @@ await gapi.client.dfareporting.sizes.insert({profileId: 'profileId'});
 Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally unique and may include values not currently in use by your account. Due to this, the list of sizes returned by this method may differ from the list seen in the Trafficking UI.
 */
 await gapi.client.dfareporting.sizes.list({profileId: 'profileId'});
+
+/*
+Inserts a new studio creative asset.
+*/
+await gapi.client.dfareporting.studioCreativeAssets.insert({});
+
+/*
+Gets a studio creative by ID.
+*/
+await gapi.client.dfareporting.studioCreatives.get({
+  studioCreativeId: 'studioCreativeId',
+});
+
+/*
+Inserts a new studio creative.
+*/
+await gapi.client.dfareporting.studioCreatives.insert({});
+
+/*
+Publish for a studio creative.
+*/
+await gapi.client.dfareporting.studioCreatives.publish({
+  studioCreativeId: 'studioCreativeId',
+});
 
 /*
 Gets one subaccount by ID.

@@ -53,6 +53,12 @@ var client_id = '',
 
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
+
+    // View your Agentspace chat history, including uploaded files and generated reports and visualizations, and interact with the Agentspace assistant on your behalf.
+    'https://www.googleapis.com/auth/discoveryengine.assist.readwrite',
+
+    // View, edit, create, and delete all your data associated with any Discovery Engine API product, such as Agentspace, Vertex AI Search, or NotebookLM Enterprise, including both end user data and administration or configuration data.
+    'https://www.googleapis.com/auth/discoveryengine.readwrite',
   ],
   immediate = true;
 // ...

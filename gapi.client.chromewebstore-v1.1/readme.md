@@ -1,7 +1,7 @@
 # TypeScript typings for Chrome Web Store API v1.1
 
 The Chrome Web Store API provides access to data about apps and extensions, as well as developer tools for managing them.
-For detailed description please check [documentation](https://developer.chrome.com/webstore/api_index).
+For detailed description please check [documentation](https://developer.chrome.com/docs/webstore/api).
 
 ## Installing
 

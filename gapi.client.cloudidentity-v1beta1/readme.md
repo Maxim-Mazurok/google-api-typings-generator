@@ -253,12 +253,12 @@ Updates an InboundSsoAssignment. The body of this request is the `inbound_sso_as
 await gapi.client.cloudidentity.inboundSsoAssignments.patch({name: 'name'});
 
 /*
-Get a Policy
+Get a policy.
 */
 await gapi.client.cloudidentity.policies.get({name: 'name'});
 
 /*
-List Policies
+List policies.
 */
 await gapi.client.cloudidentity.policies.list({});
 ```
