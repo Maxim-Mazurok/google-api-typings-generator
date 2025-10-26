@@ -16,7 +16,7 @@ jobs:
       # setup
       - uses: actions/checkout@v5
       - name: Use Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -55,14 +55,14 @@ jobs:
         run: cp ${{ runner.temp }}/${{ steps.lint.outputs.FAILED_TYPE }}.json types/${{ steps.lint.outputs.FAILED_TYPE }}
 
       - name: Upload type that failed to generate
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: failure() && steps.generate.outputs.FAILED_TYPE != ''
         with:
           name: ${{ steps.generate.outputs.FAILED_TYPE }}
           path: types/${{ steps.generate.outputs.FAILED_TYPE }}
 
       - name: Upload type that failed to lint
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: failure() && steps.lint.outputs.FAILED_TYPE != ''
         with:
           name: ${{ steps.lint.outputs.FAILED_TYPE }}
