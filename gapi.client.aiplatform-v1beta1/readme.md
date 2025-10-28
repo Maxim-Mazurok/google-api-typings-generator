@@ -157,6 +157,31 @@ Upload a file into a RagCorpus.
 await gapi.client.aiplatform.media.upload({parent: 'parent'});
 
 /*
+Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`.
+*/
+await gapi.client.aiplatform.operations.cancel({name: 'name'});
+
+/*
+Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+*/
+await gapi.client.aiplatform.operations.delete({name: 'name'});
+
+/*
+Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
+*/
+await gapi.client.aiplatform.operations.get({name: 'name'});
+
+/*
+Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
+*/
+await gapi.client.aiplatform.operations.list({});
+
+/*
+Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
+*/
+await gapi.client.aiplatform.operations.wait({name: 'name'});
+
+/*
 Fetches the configs of publisher models.
 */
 await gapi.client.aiplatform.projects.fetchPublisherModelConfig({name: 'name'});
