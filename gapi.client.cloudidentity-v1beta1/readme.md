@@ -253,16 +253,6 @@ Updates an InboundSsoAssignment. The body of this request is the `inbound_sso_as
 await gapi.client.cloudidentity.inboundSsoAssignments.patch({name: 'name'});
 
 /*
-Create a policy.
-*/
-await gapi.client.cloudidentity.policies.create({});
-
-/*
-Delete a policy.
-*/
-await gapi.client.cloudidentity.policies.delete({name: 'name'});
-
-/*
 Get a policy.
 */
 await gapi.client.cloudidentity.policies.get({name: 'name'});
@@ -271,11 +261,6 @@ await gapi.client.cloudidentity.policies.get({name: 'name'});
 List policies.
 */
 await gapi.client.cloudidentity.policies.list({});
-
-/*
-Update a policy.
-*/
-await gapi.client.cloudidentity.policies.patch({name: 'name'});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudidentity-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
