@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.merchantapi-lfp_v1",
-  "version": "0.0.20251026",
+  "version": "0.0.20251028",
   "description": "TypeScript typings for Merchant API lfp_v1",
   "repository": {
     "type": "git",
