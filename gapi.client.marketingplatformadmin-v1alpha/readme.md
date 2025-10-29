@@ -73,9 +73,28 @@ After that you can use Google Marketing Platform Admin API resources: <!-- TODO:
 
 ```typescript
 /*
+Returns a list of clients managed by the sales partner organization. User needs to be an OrgAdmin/BillingAdmin on the sales partner organization in order to view the end clients.
+*/
+await gapi.client.marketingplatformadmin.organizations.findSalesPartnerManagedClients(
+  {organization: 'organization'},
+);
+
+/*
 Lookup for a single organization.
 */
 await gapi.client.marketingplatformadmin.organizations.get({name: 'name'});
+
+/*
+Returns a list of organizations that the user has access to.
+*/
+await gapi.client.marketingplatformadmin.organizations.list({});
+
+/*
+Get the usage and billing data for properties within the organization for the specified month. Per direct client org, user needs to be OrgAdmin/BillingAdmin on the organization in order to view the billing and usage data. Per sales partner client org, user needs to be OrgAdmin/BillingAdmin on the sales partner org in order to view the billing and usage data, or OrgAdmin/BillingAdmin on the sales partner client org in order to view the usage data only.
+*/
+await gapi.client.marketingplatformadmin.organizations.reportPropertyUsage({
+  organization: 'organization',
+});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.marketingplatformadmin-v1alpha#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
