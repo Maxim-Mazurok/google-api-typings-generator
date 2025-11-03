@@ -208,6 +208,8 @@ declare namespace gapi.client {
       aggregationMetric?: string;
       /** Results for bleu metric. */
       bleuMetricValue?: GoogleCloudAiplatformV1beta1BleuMetricValue;
+      /** Result for code execution metric. */
+      customCodeExecutionResult?: GoogleCloudAiplatformV1beta1CustomCodeExecutionResult;
       /** Results for exact match metric. */
       exactMatchMetricValue?: GoogleCloudAiplatformV1beta1ExactMatchMetricValue;
       /** Result for pairwise metric. */
@@ -734,9 +736,9 @@ declare namespace gapi.client {
       useEffectiveOrder?: boolean;
     }
     interface GoogleCloudAiplatformV1beta1Blob {
-      /** Required. Raw bytes. */
+      /** Required. The raw bytes of the data. */
       data?: string;
-      /** Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. */
+      /** Optional. The display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in `PromptMessage` for prompt management. It is used in the Gemini calls only when server-side tools (`code_execution`, `google_search`, and `url_context`) are enabled. */
       displayName?: string;
       /** Required. The IANA standard MIME type of the source data. */
       mimeType?: string;
@@ -805,25 +807,25 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1CancelTrainingPipelineRequest {}
     interface GoogleCloudAiplatformV1beta1CancelTuningJobRequest {}
     interface GoogleCloudAiplatformV1beta1Candidate {
-      /** Output only. Average log probability score of the candidate. */
+      /** Output only. The average log probability of the tokens in this candidate. This is a length-normalized score that can be used to compare the quality of candidates of different lengths. A higher average log probability suggests a more confident and coherent response. */
       avgLogprobs?: number;
-      /** Output only. Source attribution of the generated content. */
+      /** Output only. A collection of citations that apply to the generated content. */
       citationMetadata?: GoogleCloudAiplatformV1beta1CitationMetadata;
-      /** Output only. Content parts of the candidate. */
+      /** Output only. The content of the candidate. */
       content?: GoogleCloudAiplatformV1beta1Content;
-      /** Output only. Describes the reason the mode stopped generating tokens in more detail. This is only filled when `finish_reason` is set. */
+      /** Output only. Describes the reason the model stopped generating tokens in more detail. This field is returned only when `finish_reason` is set. */
       finishMessage?: string;
-      /** Output only. The reason why the model stopped generating tokens. If empty, the model has not stopped generating the tokens. */
+      /** Output only. The reason why the model stopped generating tokens. If empty, the model has not stopped generating. */
       finishReason?: string;
-      /** Output only. Metadata specifies sources used to ground generated content. */
+      /** Output only. Metadata returned when grounding is enabled. It contains the sources used to ground the generated content. */
       groundingMetadata?: GoogleCloudAiplatformV1beta1GroundingMetadata;
-      /** Output only. Index of the candidate. */
+      /** Output only. The 0-based index of this candidate in the list of generated responses. This is useful for distinguishing between multiple candidates when `candidate_count` > 1. */
       index?: number;
-      /** Output only. Log-likelihood scores for the response tokens and top tokens */
+      /** Output only. The detailed log probability information for the tokens in this candidate. This is useful for debugging, understanding model uncertainty, and identifying potential "hallucinations". */
       logprobsResult?: GoogleCloudAiplatformV1beta1LogprobsResult;
-      /** Output only. List of ratings for the safety of a response candidate. There is at most one rating per category. */
+      /** Output only. A list of ratings for the safety of a response candidate. There is at most one rating per category. */
       safetyRatings?: GoogleCloudAiplatformV1beta1SafetyRating[];
-      /** Output only. Metadata related to url context retrieval tool. */
+      /** Output only. Metadata returned when the model uses the `url_context` tool to get information from a user-provided URL. */
       urlContextMetadata?: GoogleCloudAiplatformV1beta1UrlContextMetadata;
     }
     interface GoogleCloudAiplatformV1beta1CandidateResponse {
@@ -884,21 +886,21 @@ declare namespace gapi.client {
       mimeType?: string;
     }
     interface GoogleCloudAiplatformV1beta1Citation {
-      /** Output only. End index into the content. */
+      /** Output only. The end index of the citation in the content. */
       endIndex?: number;
-      /** Output only. License of the attribution. */
+      /** Output only. The license of the source of the citation. */
       license?: string;
-      /** Output only. Publication date of the attribution. */
+      /** Output only. The publication date of the source of the citation. */
       publicationDate?: GoogleTypeDate;
-      /** Output only. Start index into the content. */
+      /** Output only. The start index of the citation in the content. */
       startIndex?: number;
-      /** Output only. Title of the attribution. */
+      /** Output only. The title of the source of the citation. */
       title?: string;
-      /** Output only. Url reference of the attribution. */
+      /** Output only. The URI of the source of the citation. */
       uri?: string;
     }
     interface GoogleCloudAiplatformV1beta1CitationMetadata {
-      /** Output only. List of citations. */
+      /** Output only. A list of citations for the content. */
       citations?: GoogleCloudAiplatformV1beta1Citation[];
     }
     interface GoogleCloudAiplatformV1beta1Claim {
@@ -1020,9 +1022,9 @@ declare namespace gapi.client {
       imageUri?: string;
     }
     interface GoogleCloudAiplatformV1beta1Content {
-      /** Required. Ordered `Parts` that constitute a single message. Parts may have different IANA MIME types. */
+      /** Required. A list of Part objects that make up a single message. Parts of a message can have different MIME types. A Content message must have at least one Part. */
       parts?: GoogleCloudAiplatformV1beta1Part[];
-      /** Optional. The producer of the content. Must be either 'user' or 'model'. Useful to set for multi-turn conversations, otherwise can be left blank or unset. */
+      /** Optional. The producer of the content. Must be either 'user' or 'model'. If not set, the service will default to 'user'. */
       role?: string;
     }
     interface GoogleCloudAiplatformV1beta1ContentMap {
@@ -1290,6 +1292,14 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1CsvSource {
       /** Required. Google Cloud Storage location. */
       gcsSource?: GoogleCloudAiplatformV1beta1GcsSource;
+    }
+    interface GoogleCloudAiplatformV1beta1CustomCodeExecutionResult {
+      /** Output only. Custom code execution score. */
+      score?: number;
+    }
+    interface GoogleCloudAiplatformV1beta1CustomCodeExecutionSpec {
+      /** Required. Python function. Expected user to define the following function, e.g.: def evaluate(instance: dict[str, Any]) -> float: Please include this function signature in the code snippet. Instance is the evaluation instance, any fields populated in the instance are available to the function as instance[field_name]. Example: Example input: ``` instance= EvaluationInstance( response=EvaluationInstance.InstanceData(text="The answer is 4."), reference=EvaluationInstance.InstanceData(text="4") ) ``` Example converted input: ``` { 'response': {'text': 'The answer is 4.'}, 'reference': {'text': '4'} } ``` Example python function: ``` def evaluate(instance: dict[str, Any]) -> float: if instance'response' == instance'reference': return 1.0 return 0.0 ``` */
+      evaluationFunction?: string;
     }
     interface GoogleCloudAiplatformV1beta1CustomJob {
       /** Output only. Time when the CustomJob was created. */
@@ -3680,9 +3690,9 @@ declare namespace gapi.client {
       operationName?: string;
     }
     interface GoogleCloudAiplatformV1beta1FileData {
-      /** Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. */
+      /** Optional. The display name of the file. Used to provide a label or filename to distinguish files. This field is only returned in `PromptMessage` for prompt management. It is used in the Gemini calls only when server side tools (`code_execution`, `google_search`, and `url_context`) are enabled. */
       displayName?: string;
-      /** Required. URI. */
+      /** Required. The URI of the file in Google Cloud Storage. */
       fileUri?: string;
       /** Required. The IANA standard MIME type of the source data. */
       mimeType?: string;
@@ -4115,51 +4125,51 @@ declare namespace gapi.client {
       mimeType?: string;
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfig {
-      /** Optional. If enabled, audio timestamp will be included in the request to the model. */
+      /** Optional. If enabled, audio timestamps will be included in the request to the model. This can be useful for synchronizing audio with other modalities in the response. */
       audioTimestamp?: boolean;
-      /** Optional. Number of candidates to generate. */
+      /** Optional. The number of candidate responses to generate. A higher `candidate_count` can provide more options to choose from, but it also consumes more resources. This can be useful for generating a variety of responses and selecting the best one. */
       candidateCount?: number;
-      /** Optional. If enabled, the model will detect emotions and adapt its responses accordingly. */
+      /** Optional. If enabled, the model will detect emotions and adapt its responses accordingly. For example, if the model detects that the user is frustrated, it may provide a more empathetic response. */
       enableAffectiveDialog?: boolean;
-      /** Optional. Frequency penalties. */
+      /** Optional. Penalizes tokens based on their frequency in the generated text. A positive value helps to reduce the repetition of words and phrases. Valid values can range from [-2.0, 2.0]. */
       frequencyPenalty?: number;
       /** Optional. Config for image generation features. */
       imageConfig?: GoogleCloudAiplatformV1beta1ImageConfig;
-      /** Optional. Logit probabilities. */
+      /** Optional. The number of top log probabilities to return for each token. This can be used to see which other tokens were considered likely candidates for a given position. A higher value will return more options, but it will also increase the size of the response. */
       logprobs?: number;
-      /** Optional. The maximum number of output tokens to generate per message. */
+      /** Optional. The maximum number of tokens to generate in the response. A token is approximately four characters. The default value varies by model. This parameter can be used to control the length of the generated text and prevent overly long responses. */
       maxOutputTokens?: number;
-      /** Optional. If specified, the media resolution specified will be used. */
+      /** Optional. The token resolution at which input media content is sampled. This is used to control the trade-off between the quality of the response and the number of tokens used to represent the media. A higher resolution allows the model to perceive more detail, which can lead to a more nuanced response, but it will also use more tokens. This does not affect the image dimensions sent to the model. */
       mediaResolution?: string;
       /** Optional. Config for model selection. */
       modelConfig?: GoogleCloudAiplatformV1beta1GenerationConfigModelConfig;
-      /** Optional. Positive penalties. */
+      /** Optional. Penalizes tokens that have already appeared in the generated text. A positive value encourages the model to generate more diverse and less repetitive text. Valid values can range from [-2.0, 2.0]. */
       presencePenalty?: number;
-      /** Optional. Output schema of the generated response. This is an alternative to `response_schema` that accepts [JSON Schema](https://json-schema.org/). If set, `response_schema` must be omitted, but `response_mime_type` is required. While the full JSON Schema may be sent, not all features are supported. Specifically, only the following properties are supported: - `$id` - `$defs` - `$ref` - `$anchor` - `type` - `format` - `title` - `description` - `enum` (for strings and numbers) - `items` - `prefixItems` - `minItems` - `maxItems` - `minimum` - `maximum` - `anyOf` - `oneOf` (interpreted the same as `anyOf`) - `properties` - `additionalProperties` - `required` The non-standard `propertyOrdering` property may also be set. Cyclic references are unrolled to a limited degree and, as such, may only be used within non-required properties. (Nullable properties are not sufficient.) If `$ref` is set on a sub-schema, no other properties, except for than those starting as a `$`, may be set. */
+      /** Optional. When this field is set, response_schema must be omitted and response_mime_type must be set to `application/json`. */
       responseJsonSchema?: any;
-      /** Optional. If true, export the logprobs results in response. */
+      /** Optional. If set to true, the log probabilities of the output tokens are returned. Log probabilities are the logarithm of the probability of a token appearing in the output. A higher log probability means the token is more likely to be generated. This can be useful for analyzing the model's confidence in its own output and for debugging. */
       responseLogprobs?: boolean;
-      /** Optional. Output response mimetype of the generated candidate text. Supported mimetype: - `text/plain`: (default) Text output. - `application/json`: JSON response in the candidates. The model needs to be prompted to output the appropriate response type, otherwise the behavior is undefined. This is a preview feature. */
+      /** Optional. The IANA standard MIME type of the response. The model will generate output that conforms to this MIME type. Supported values include 'text/plain' (default) and 'application/json'. The model needs to be prompted to output the appropriate response type, otherwise the behavior is undefined. This is a preview feature. */
       responseMimeType?: string;
-      /** Optional. The modalities of the response. */
+      /** Optional. The modalities of the response. The model will generate a response that includes all the specified modalities. For example, if this is set to `[TEXT, IMAGE]`, the response will include both text and an image. */
       responseModalities?: string[];
-      /** Optional. The `Schema` object allows the definition of input and output data types. These types can be objects, but also primitives and arrays. Represents a select subset of an [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema). If set, a compatible response_mime_type must also be set. Compatible mimetypes: `application/json`: Schema for JSON response. */
+      /** Optional. Lets you to specify a schema for the model's response, ensuring that the output conforms to a particular structure. This is useful for generating structured data such as JSON. The schema is a subset of the [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema) object. When this field is set, you must also set the `response_mime_type` to `application/json`. */
       responseSchema?: GoogleCloudAiplatformV1beta1Schema;
       /** Optional. Routing configuration. */
       routingConfig?: GoogleCloudAiplatformV1beta1GenerationConfigRoutingConfig;
-      /** Optional. Seed. */
+      /** Optional. A seed for the random number generator. By setting a seed, you can make the model's output mostly deterministic. For a given prompt and parameters (like temperature, top_p, etc.), the model will produce the same response every time. However, it's not a guaranteed absolute deterministic behavior. This is different from parameters like `temperature`, which control the *level* of randomness. `seed` ensures that the "random" choices the model makes are the same on every run, making it essential for testing and ensuring reproducible results. */
       seed?: number;
       /** Optional. The speech generation config. */
       speechConfig?: GoogleCloudAiplatformV1beta1SpeechConfig;
-      /** Optional. Stop sequences. */
+      /** Optional. A list of character sequences that will stop the model from generating further tokens. If a stop sequence is generated, the output will end at that point. This is useful for controlling the length and structure of the output. For example, you can use ["\n", "###"] to stop generation at a new line or a specific marker. */
       stopSequences?: string[];
-      /** Optional. Controls the randomness of predictions. */
+      /** Optional. Controls the randomness of the output. A higher temperature results in more creative and diverse responses, while a lower temperature makes the output more predictable and focused. The valid range is (0.0, 2.0]. */
       temperature?: number;
-      /** Optional. Config for thinking features. An error will be returned if this field is set for models that don't support thinking. */
+      /** Optional. Configuration for thinking features. An error will be returned if this field is set for models that don't support thinking. */
       thinkingConfig?: GoogleCloudAiplatformV1beta1GenerationConfigThinkingConfig;
-      /** Optional. If specified, top-k sampling will be used. */
+      /** Optional. Specifies the top-k sampling threshold. The model considers only the top k most probable tokens for the next token. This can be useful for generating more coherent and less random text. For example, a `top_k` of 40 means the model will choose the next word from the 40 most likely words. */
       topK?: number;
-      /** Optional. If specified, nucleus sampling will be used. */
+      /** Optional. Specifies the nucleus sampling threshold. The model considers only the smallest set of tokens whose cumulative probability is at least `top_p`. This helps generate more diverse and less repetitive responses. For example, a `top_p` of 0.9 means the model considers tokens until the cumulative probability of the tokens to select from reaches 0.9. It's recommended to adjust either temperature or `top_p`, but not both. */
       topP?: number;
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfigModelConfig {
@@ -4167,9 +4177,9 @@ declare namespace gapi.client {
       featureSelectionPreference?: string;
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfigRoutingConfig {
-      /** Automated routing. */
+      /** In this mode, the model is selected automatically based on the content of the request. */
       autoMode?: GoogleCloudAiplatformV1beta1GenerationConfigRoutingConfigAutoRoutingMode;
-      /** Manual routing. */
+      /** In this mode, the model is specified manually. */
       manualMode?: GoogleCloudAiplatformV1beta1GenerationConfigRoutingConfigManualRoutingMode;
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfigRoutingConfigAutoRoutingMode {
@@ -4177,13 +4187,13 @@ declare namespace gapi.client {
       modelRoutingPreference?: string;
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfigRoutingConfigManualRoutingMode {
-      /** The model name to use. Only the public LLM models are accepted. See [Supported models](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference#supported-models). */
+      /** The name of the model to use. Only public LLM models are accepted. */
       modelName?: string;
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfigThinkingConfig {
-      /** Optional. Indicates whether to include thoughts in the response. If true, thoughts are returned only when available. */
+      /** Optional. If true, the model will include its thoughts in the response. "Thoughts" are the intermediate steps the model takes to arrive at the final response. They can provide insights into the model's reasoning process and help with debugging. If this is true, thoughts are returned only when available. */
       includeThoughts?: boolean;
-      /** Optional. Indicates the thinking budget in tokens. */
+      /** Optional. The token budget for the model's thinking process. The model will make a best effort to stay within this budget. This can be used to control the trade-off between response quality and latency. */
       thinkingBudget?: number;
     }
     interface GoogleCloudAiplatformV1beta1GenericOperationMetadata {
@@ -4241,87 +4251,87 @@ declare namespace gapi.client {
       version?: number;
     }
     interface GoogleCloudAiplatformV1beta1GroundingChunk {
-      /** Grounding chunk from Google Maps. */
+      /** A grounding chunk from Google Maps. See the `Maps` message for details. */
       maps?: GoogleCloudAiplatformV1beta1GroundingChunkMaps;
-      /** Grounding chunk from context retrieved by the retrieval tools. */
+      /** A grounding chunk from a data source retrieved by a retrieval tool, such as Vertex AI Search. See the `RetrievedContext` message for details */
       retrievedContext?: GoogleCloudAiplatformV1beta1GroundingChunkRetrievedContext;
-      /** Grounding chunk from the web. */
+      /** A grounding chunk from a web page, typically from Google Search. See the `Web` message for details. */
       web?: GoogleCloudAiplatformV1beta1GroundingChunkWeb;
     }
     interface GoogleCloudAiplatformV1beta1GroundingChunkMaps {
-      /** Sources used to generate the place answer. This includes review snippets and photos that were used to generate the answer, as well as uris to flag content. */
+      /** The sources that were used to generate the place answer. This includes review snippets and photos that were used to generate the answer, as well as URIs to flag content. */
       placeAnswerSources?: GoogleCloudAiplatformV1beta1GroundingChunkMapsPlaceAnswerSources;
-      /** This Place's resource name, in `places/{place_id}` format. Can be used to look up the Place. */
+      /** This Place's resource name, in `places/{place_id}` format. This can be used to look up the place in the Google Maps API. */
       placeId?: string;
-      /** Text of the place answer. */
+      /** The text of the place answer. */
       text?: string;
-      /** Title of the place. */
+      /** The title of the place. */
       title?: string;
-      /** URI reference of the place. */
+      /** The URI of the place. */
       uri?: string;
     }
     interface GoogleCloudAiplatformV1beta1GroundingChunkMapsPlaceAnswerSources {
-      /** Snippets of reviews that are used to generate the answer. */
+      /** Snippets of reviews that were used to generate the answer. */
       reviewSnippets?: GoogleCloudAiplatformV1beta1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet[];
     }
     interface GoogleCloudAiplatformV1beta1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet {
       /** A link to show the review on Google Maps. */
       googleMapsUri?: string;
-      /** Id of the review referencing the place. */
+      /** The ID of the review that is being referenced. */
       reviewId?: string;
-      /** Title of the review. */
+      /** The title of the review. */
       title?: string;
     }
     interface GoogleCloudAiplatformV1beta1GroundingChunkRetrievedContext {
-      /** Output only. The full document name for the referenced Vertex AI Search document. */
+      /** Output only. The full resource name of the referenced Vertex AI Search document. This is used to identify the specific document that was retrieved. The format is `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`. */
       documentName?: string;
-      /** Additional context for the RAG retrieval result. This is only populated when using the RAG retrieval tool. */
+      /** Additional context for a Retrieval-Augmented Generation (RAG) retrieval result. This is populated only when the RAG retrieval tool is used. */
       ragChunk?: GoogleCloudAiplatformV1beta1RagChunk;
-      /** Text of the attribution. */
+      /** The content of the retrieved data source. */
       text?: string;
-      /** Title of the attribution. */
+      /** The title of the retrieved data source. */
       title?: string;
-      /** URI reference of the attribution. */
+      /** The URI of the retrieved data source. */
       uri?: string;
     }
     interface GoogleCloudAiplatformV1beta1GroundingChunkWeb {
-      /** Domain of the (original) URI. */
+      /** The domain of the web page that contains the evidence. This can be used to filter out low-quality sources. */
       domain?: string;
-      /** Title of the chunk. */
+      /** The title of the web page that contains the evidence. */
       title?: string;
-      /** URI reference of the chunk. */
+      /** The URI of the web page that contains the evidence. */
       uri?: string;
     }
     interface GoogleCloudAiplatformV1beta1GroundingMetadata {
-      /** Optional. Output only. Resource name of the Google Maps widget context token to be used with the PlacesContextElement widget to render contextual data. This is populated only for Google Maps grounding. */
+      /** Optional. Output only. A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps. */
       googleMapsWidgetContextToken?: string;
-      /** List of supporting references retrieved from specified grounding source. */
+      /** A list of supporting references retrieved from the grounding source. This field is populated when the grounding source is Google Search, Vertex AI Search, or Google Maps. */
       groundingChunks?: GoogleCloudAiplatformV1beta1GroundingChunk[];
-      /** Optional. List of grounding support. */
+      /** Optional. A list of grounding supports that connect the generated content to the grounding chunks. This field is populated when the grounding source is Google Search or Vertex AI Search. */
       groundingSupports?: GoogleCloudAiplatformV1beta1GroundingSupport[];
-      /** Optional. Output only. Retrieval metadata. */
+      /** Optional. Output only. Metadata related to the retrieval grounding source. */
       retrievalMetadata?: GoogleCloudAiplatformV1beta1RetrievalMetadata;
-      /** Optional. Queries executed by the retrieval tools. */
+      /** Optional. The queries that were executed by the retrieval tools. This field is populated only when the grounding source is a retrieval tool, such as Vertex AI Search. */
       retrievalQueries?: string[];
-      /** Optional. Google search entry for the following-up web searches. */
+      /** Optional. A web search entry point that can be used to display search results. This field is populated only when the grounding source is Google Search. */
       searchEntryPoint?: GoogleCloudAiplatformV1beta1SearchEntryPoint;
-      /** Optional. Output only. List of source flagging uris. This is currently populated only for Google Maps grounding. */
+      /** Optional. Output only. A list of URIs that can be used to flag a place or review for inappropriate content. This field is populated only when the grounding source is Google Maps. */
       sourceFlaggingUris?: GoogleCloudAiplatformV1beta1GroundingMetadataSourceFlaggingUri[];
-      /** Optional. Web search queries for the following-up web search. */
+      /** Optional. The web search queries that were used to generate the content. This field is populated only when the grounding source is Google Search. */
       webSearchQueries?: string[];
     }
     interface GoogleCloudAiplatformV1beta1GroundingMetadataSourceFlaggingUri {
-      /** A link where users can flag a problem with the source (place or review). */
+      /** The URI that can be used to flag the content. */
       flagContentUri?: string;
-      /** Id of the place or review. */
+      /** The ID of the place or review. */
       sourceId?: string;
     }
     interface GoogleCloudAiplatformV1beta1GroundingSupport {
-      /** Confidence score of the support references. Ranges from 0 to 1. 1 is the most confident. For Gemini 2.0 and before, this list must have the same size as the grounding_chunk_indices. For Gemini 2.5 and after, this list will be empty and should be ignored. */
+      /** The confidence scores for the support references. This list is parallel to the `grounding_chunk_indices` list. A score is a value between 0.0 and 1.0, with a higher score indicating a higher confidence that the reference supports the claim. For Gemini 2.0 and before, this list has the same size as `grounding_chunk_indices`. For Gemini 2.5 and later, this list is empty and should be ignored. */
       confidenceScores?: number[];
-      /** A list of indices (into 'grounding_chunk') specifying the citations associated with the claim. For instance [1,3,4] means that grounding_chunk[1], grounding_chunk[3], grounding_chunk[4] are the retrieved content attributed to the claim. */
+      /** A list of indices into the `grounding_chunks` field of the `GroundingMetadata` message. These indices specify which grounding chunks support the claim made in the content segment. For example, if this field has the values `[1, 3]`, it means that `grounding_chunks[1]` and `grounding_chunks[3]` are the sources for the claim in the content segment. */
       groundingChunkIndices?: number[];
-      /** Segment of the content this support belongs to. */
+      /** The content segment that this support message applies to. */
       segment?: GoogleCloudAiplatformV1beta1Segment;
     }
     interface GoogleCloudAiplatformV1beta1HyperparameterTuningJob {
@@ -5173,21 +5183,21 @@ declare namespace gapi.client {
       systemInstruction?: string;
     }
     interface GoogleCloudAiplatformV1beta1LogprobsResult {
-      /** Length = total number of decoding steps. The chosen candidates may or may not be in top_candidates. */
+      /** A list of the chosen candidate tokens at each decoding step. The length of this list is equal to the total number of decoding steps. Note that the chosen candidate might not be in `top_candidates`. */
       chosenCandidates?: GoogleCloudAiplatformV1beta1LogprobsResultCandidate[];
-      /** Length = total number of decoding steps. */
+      /** A list of the top candidate tokens at each decoding step. The length of this list is equal to the total number of decoding steps. */
       topCandidates?: GoogleCloudAiplatformV1beta1LogprobsResultTopCandidates[];
     }
     interface GoogleCloudAiplatformV1beta1LogprobsResultCandidate {
-      /** The candidate's log probability. */
+      /** The log probability of this token. A higher value indicates that the model was more confident in this token. The log probability can be used to assess the relative likelihood of different tokens and to identify when the model is uncertain. */
       logProbability?: number;
-      /** The candidate's token string value. */
+      /** The token's string representation. */
       token?: string;
-      /** The candidate's token id value. */
+      /** The token's numerical ID. While the `token` field provides the string representation of the token, the `token_id` is the numerical representation that the model uses internally. This can be useful for developers who want to build custom logic based on the model's vocabulary. */
       tokenId?: number;
     }
     interface GoogleCloudAiplatformV1beta1LogprobsResultTopCandidates {
-      /** Sorted by log probability in descending order. */
+      /** The list of candidate tokens, sorted by log probability in descending order. */
       candidates?: GoogleCloudAiplatformV1beta1LogprobsResultCandidate[];
     }
     interface GoogleCloudAiplatformV1beta1LookupStudyRequest {
@@ -5255,6 +5265,8 @@ declare namespace gapi.client {
       name?: string;
       /** Optional. Input only. Timestamp of when the revision is considered expired. If not set, the memory revision will be kept until manually deleted. */
       revisionExpireTime?: string;
+      /** Optional. Input only. The labels to apply to the Memory Revision created as a result of this request. */
+      revisionLabels?: {[P in string]: string};
       /** Optional. Input only. The TTL for the revision. The expiration time is computed: now + TTL. */
       revisionTtl?: string;
       /** Required. Immutable. The scope of the Memory. Memories are isolated within their scope. The scope is defined when creating or generating memories. Scope values cannot contain the wildcard character '*'. */
@@ -5381,6 +5393,8 @@ declare namespace gapi.client {
       aggregationMetrics?: string[];
       /** Spec for bleu metric. */
       bleuSpec?: GoogleCloudAiplatformV1beta1BleuSpec;
+      /** Spec for Custom Code Execution metric. */
+      customCodeExecutionSpec?: GoogleCloudAiplatformV1beta1CustomCodeExecutionSpec;
       /** Spec for exact match metric. */
       exactMatchSpec?: any;
       /** Spec for an LLM based metric. */
@@ -5527,9 +5541,9 @@ declare namespace gapi.client {
       model?: string;
     }
     interface GoogleCloudAiplatformV1beta1ModalityTokenCount {
-      /** The modality associated with this token count. */
+      /** The modality that this token count applies to. */
       modality?: string;
-      /** Number of tokens. */
+      /** The number of tokens counted for this modality. */
       tokenCount?: number;
     }
     interface GoogleCloudAiplatformV1beta1Model {
@@ -5601,9 +5615,9 @@ declare namespace gapi.client {
       versionUpdateTime?: string;
     }
     interface GoogleCloudAiplatformV1beta1ModelArmorConfig {
-      /** Optional. The name of the Model Armor template to use for prompt sanitization. */
+      /** Optional. The resource name of the Model Armor template to use for prompt screening. A Model Armor template is a set of customized filters and thresholds that define how Model Armor screens content. If specified, Model Armor will use this template to check the user's prompt for safety and security risks before it is sent to the model. The name must be in the format `projects/{project}/locations/{location}/templates/{template}`. */
       promptTemplateName?: string;
-      /** Optional. The name of the Model Armor template to use for response sanitization. */
+      /** Optional. The resource name of the Model Armor template to use for response screening. A Model Armor template is a set of customized filters and thresholds that define how Model Armor screens content. If specified, Model Armor will use this template to check the model's response for safety and security risks before it is returned to the user. The name must be in the format `projects/{project}/locations/{location}/templates/{template}`. */
       responseTemplateName?: string;
     }
     interface GoogleCloudAiplatformV1beta1ModelBaseModelSource {
@@ -6802,21 +6816,21 @@ declare namespace gapi.client {
       version?: number;
     }
     interface GoogleCloudAiplatformV1beta1Part {
-      /** Optional. Result of executing the [ExecutableCode]. */
+      /** Optional. The result of executing the ExecutableCode. */
       codeExecutionResult?: GoogleCloudAiplatformV1beta1CodeExecutionResult;
-      /** Optional. Code generated by the model that is meant to be executed. */
+      /** Optional. Code generated by the model that is intended to be executed. */
       executableCode?: GoogleCloudAiplatformV1beta1ExecutableCode;
-      /** Optional. URI based data. */
+      /** Optional. The URI-based data of the part. This can be used to include files from Google Cloud Storage. */
       fileData?: GoogleCloudAiplatformV1beta1FileData;
-      /** Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values. */
+      /** Optional. A predicted function call returned from the model. This contains the name of the function to call and the arguments to pass to the function. */
       functionCall?: GoogleCloudAiplatformV1beta1FunctionCall;
-      /** Optional. The result output of a [FunctionCall] that contains a string representing the [FunctionDeclaration.name] and a structured JSON object containing any output from the function call. It is used as context to the model. */
+      /** Optional. The result of a function call. This is used to provide the model with the result of a function call that it predicted. */
       functionResponse?: GoogleCloudAiplatformV1beta1FunctionResponse;
-      /** Optional. Inlined bytes data. */
+      /** Optional. The inline data content of the part. This can be used to include images, audio, or video in a request. */
       inlineData?: GoogleCloudAiplatformV1beta1Blob;
-      /** Optional. Text part (can be code). */
+      /** Optional. The text content of the part. */
       text?: string;
-      /** Optional. Indicates if the part is thought from the model. */
+      /** Optional. Indicates whether the `part` represents the model's thought process or reasoning. */
       thought?: boolean;
       /** Optional. An opaque signature for the thought so it can be reused in subsequent requests. */
       thoughtSignature?: string;
@@ -7104,7 +7118,7 @@ declare namespace gapi.client {
       postStartupScriptUrl?: string;
     }
     interface GoogleCloudAiplatformV1beta1PrebuiltVoiceConfig {
-      /** The name of the preset voice to use. */
+      /** The name of the prebuilt voice to use. */
       voiceName?: string;
     }
     interface GoogleCloudAiplatformV1beta1PredefinedMetricSpec {
@@ -7751,6 +7765,10 @@ declare namespace gapi.client {
       ragFilesCount?: number;
       /** Optional. Immutable. The Vector DB config of the RagCorpus. */
       ragVectorDbConfig?: GoogleCloudAiplatformV1beta1RagVectorDbConfig;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** Output only. Timestamp when this RagCorpus was last updated. */
       updateTime?: string;
       /** Optional. Immutable. The config for the Vector DBs. */
@@ -8181,6 +8199,8 @@ declare namespace gapi.client {
       generateUpdatedTtl?: string;
     }
     interface GoogleCloudAiplatformV1beta1ReasoningEngineSpec {
+      /** Optional. The A2A Agent Card for the agent (if available). It follows the specification at https://a2a-protocol.org/latest/specification/#5-agent-discovery-the-agent-card. */
+      agentCard?: {[P in string]: any};
       /** Optional. The OSS agent framework used to develop the agent. Currently supported values: "google-adk", "langchain", "langgraph", "ag2", "llama-index", "custom". */
       agentFramework?: string;
       /** Optional. Declarations for object class methods in OpenAPI specification format. */
@@ -8217,7 +8237,7 @@ declare namespace gapi.client {
       dependencyFilesGcsUri?: string;
       /** Optional. The Cloud Storage URI of the pickled python object. */
       pickleObjectGcsUri?: string;
-      /** Optional. The Python version. Currently support 3.8, 3.9, 3.10, 3.11. If not specified, default value is 3.10. */
+      /** Optional. The Python version. Supported values are 3.9, 3.10, 3.11, 3.12, 3.13. If not specified, the default value is 3.10. */
       pythonVersion?: string;
       /** Optional. The Cloud Storage URI of the `requirements.txt` file */
       requirementsGcsUri?: string;
@@ -8404,7 +8424,7 @@ declare namespace gapi.client {
       latLng?: GoogleTypeLatLng;
     }
     interface GoogleCloudAiplatformV1beta1RetrievalMetadata {
-      /** Optional. Score indicating how likely information from Google Search could help answer the prompt. The score is in the range `[0, 1]`, where 0 is the least likely and 1 is the most likely. This score is only populated when Google Search grounding and dynamic retrieval is enabled. It will be compared to the threshold to determine whether to trigger Google Search. */
+      /** Optional. A score indicating how likely it is that a Google Search query could help answer the prompt. The score is in the range of `[0, 1]`. A score of 1 means the model is confident that a search will be helpful, and 0 means it is not. This score is populated only when Google Search grounding and dynamic retrieval are enabled. The score is used to determine whether to trigger a search. */
       googleSearchDynamicRetrievalScore?: number;
     }
     interface GoogleCloudAiplatformV1beta1RetrieveContextsRequest {
@@ -8623,19 +8643,19 @@ declare namespace gapi.client {
       prediction?: string;
     }
     interface GoogleCloudAiplatformV1beta1SafetyRating {
-      /** Output only. Indicates whether the content was filtered out because of this rating. */
+      /** Output only. Indicates whether the content was blocked because of this rating. */
       blocked?: boolean;
-      /** Output only. Harm category. */
+      /** Output only. The harm category of this rating. */
       category?: string;
       /** Output only. The overwritten threshold for the safety category of Gemini 2.0 image out. If minors are detected in the output image, the threshold of each safety category will be overwritten if user sets a lower threshold. */
       overwrittenThreshold?: string;
-      /** Output only. Harm probability levels in the content. */
+      /** Output only. The probability of harm for this category. */
       probability?: string;
-      /** Output only. Harm probability score. */
+      /** Output only. The probability score of harm for this category. */
       probabilityScore?: number;
-      /** Output only. Harm severity levels in the content. */
+      /** Output only. The severity of harm for this category. */
       severity?: string;
-      /** Output only. Harm severity score. */
+      /** Output only. The severity score of harm for this category. */
       severityScore?: number;
     }
     interface GoogleCloudAiplatformV1beta1SafetyResult {
@@ -8647,11 +8667,11 @@ declare namespace gapi.client {
       score?: number;
     }
     interface GoogleCloudAiplatformV1beta1SafetySetting {
-      /** Required. Harm category. */
+      /** Required. The harm category to be blocked. */
       category?: string;
-      /** Optional. Specify if the threshold is used for probability or severity score. If not specified, the threshold is used for probability score. */
+      /** Optional. The method for blocking content. If not specified, the default behavior is to use the probability score. */
       method?: string;
-      /** Required. The harm block threshold. */
+      /** Required. The threshold for blocking content. If the harm probability exceeds this threshold, the content will be blocked. */
       threshold?: string;
     }
     interface GoogleCloudAiplatformV1beta1SafetySpec {
@@ -10301,9 +10321,9 @@ declare namespace gapi.client {
       nextPageToken?: string;
     }
     interface GoogleCloudAiplatformV1beta1SearchEntryPoint {
-      /** Optional. Web content snippet that can be embedded in a web page or an app webview. */
+      /** Optional. An HTML snippet that can be embedded in a web page or an application's webview. This snippet displays a search result, including the title, URL, and a brief description of the search result. */
       renderedContent?: string;
-      /** Optional. Base64 encoded JSON representing array of tuple. */
+      /** Optional. A base64-encoded JSON object that contains a list of search queries and their corresponding search URLs. This information can be used to build a custom search UI. */
       sdkBlob?: string;
     }
     interface GoogleCloudAiplatformV1beta1SearchExamplesRequest {
@@ -10446,13 +10466,13 @@ declare namespace gapi.client {
       version?: string;
     }
     interface GoogleCloudAiplatformV1beta1Segment {
-      /** Output only. End index in the given Part, measured in bytes. Offset from the start of the Part, exclusive, starting at zero. */
+      /** Output only. The end index of the segment in the `Part`, measured in bytes. This marks the end of the segment and is exclusive, meaning the segment includes content up to, but not including, the byte at this index. */
       endIndex?: number;
-      /** Output only. The index of a Part object within its parent Content object. */
+      /** Output only. The index of the `Part` object that this segment belongs to. This is useful for associating the segment with a specific part of the content. */
       partIndex?: number;
-      /** Output only. Start index in the given Part, measured in bytes. Offset from the start of the Part, inclusive, starting at zero. */
+      /** Output only. The start index of the segment in the `Part`, measured in bytes. This marks the beginning of the segment and is inclusive, meaning the byte at this index is the first byte of the segment. */
       startIndex?: number;
-      /** Output only. The text corresponding to the segment from the response. */
+      /** Output only. The text of the segment. */
       text?: string;
     }
     interface GoogleCloudAiplatformV1beta1ServiceAccountSpec {
@@ -10594,11 +10614,11 @@ declare namespace gapi.client {
       ngramSize?: number;
     }
     interface GoogleCloudAiplatformV1beta1SpeechConfig {
-      /** Optional. Language code (ISO 639. e.g. en-US) for the speech synthesization. */
+      /** Optional. The language code (ISO 639-1) for the speech synthesis. */
       languageCode?: string;
       /** The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`. */
       multiSpeakerVoiceConfig?: GoogleCloudAiplatformV1beta1MultiSpeakerVoiceConfig;
-      /** The configuration for the speaker to use. */
+      /** The configuration for the voice to use. */
       voiceConfig?: GoogleCloudAiplatformV1beta1VoiceConfig;
     }
     interface GoogleCloudAiplatformV1beta1StartNotebookRuntimeOperationMetadata {
@@ -11923,13 +11943,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1UrlContext {}
     interface GoogleCloudAiplatformV1beta1UrlContextMetadata {
-      /** Output only. List of url context. */
+      /** Output only. A list of URL metadata, with one entry for each URL retrieved by the tool. */
       urlMetadata?: GoogleCloudAiplatformV1beta1UrlMetadata[];
     }
     interface GoogleCloudAiplatformV1beta1UrlMetadata {
-      /** Retrieved url by the tool. */
+      /** The URL retrieved by the tool. */
       retrievedUrl?: string;
-      /** Status of the url retrieval. */
+      /** The status of the URL retrieval. */
       urlRetrievalStatus?: string;
     }
     interface GoogleCloudAiplatformV1beta1UsageMetadata {
@@ -12033,13 +12053,13 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1VideoMetadata {
       /** Optional. The end offset of the video. */
       endOffset?: string;
-      /** Optional. The frame rate of the video sent to the model. If not specified, the default value will be 1.0. The fps range is (0.0, 24.0]. */
+      /** Optional. The frame rate of the video sent to the model. If not specified, the default value is 1.0. The valid range is (0.0, 24.0]. */
       fps?: number;
       /** Optional. The start offset of the video. */
       startOffset?: string;
     }
     interface GoogleCloudAiplatformV1beta1VoiceConfig {
-      /** The configuration for the prebuilt voice to use. */
+      /** The configuration for a prebuilt voice. */
       prebuiltVoiceConfig?: GoogleCloudAiplatformV1beta1PrebuiltVoiceConfig;
     }
     interface GoogleCloudAiplatformV1beta1WorkerPoolSpec {
@@ -43763,6 +43783,8 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
+        /** Optional. A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported fields: * `timestamp` Example: `timestamp desc`. */
+        orderBy?: string;
         /** Optional. The maximum number of events to return. The service may return fewer than this value. If unspecified, at most 100 events will be returned. These events are ordered by timestamp in ascending order. */
         pageSize?: number;
         /** Optional. The next_page_token value returned from a previous list SessionService.ListEvents call. */
@@ -49551,7 +49573,7 @@ declare namespace gapi.client {
         alt?: string;
         /** JSONP */
         callback?: string;
-        /** Optional. Unless explicitly documented otherwise, don't use this unsupported field which is primarily intended for internal usage. */
+        /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
         extraLocationTypes?: string | string[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
@@ -52325,6 +52347,209 @@ declare namespace gapi.client {
       }): Request<GoogleLongrunningOperation>;
     }
     interface SandboxEnvironmentsResource {
+      /** Creates a SandboxEnvironment in a given reasoning engine. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The resource name of the reasoning engine to create the SandboxEnvironment in. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1SandboxEnvironment;
+      }): Request<GoogleLongrunningOperation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The resource name of the reasoning engine to create the SandboxEnvironment in. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1SandboxEnvironment,
+      ): Request<GoogleLongrunningOperation>;
+      /** Deletes the specific SandboxEnvironment. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The resource name of the SandboxEnvironment to delete. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleLongrunningOperation>;
+      /** Executes using a sandbox environment. */
+      execute(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The resource name of the sandbox environment to execute. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1ExecuteSandboxEnvironmentRequest;
+      }): Request<GoogleCloudAiplatformV1beta1ExecuteSandboxEnvironmentResponse>;
+      execute(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The resource name of the sandbox environment to execute. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}` */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1ExecuteSandboxEnvironmentRequest,
+      ): Request<GoogleCloudAiplatformV1beta1ExecuteSandboxEnvironmentResponse>;
+      /** Gets details of the specific SandboxEnvironment. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The resource name of the sandbox environment. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudAiplatformV1beta1SandboxEnvironment>;
+      /** Lists SandboxEnvironments in a given reasoning engine. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. The standard list filter. More detail in [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum number of SandboxEnvironments to return. The service may return fewer than this value. If unspecified, at most 100 SandboxEnvironments will be returned. */
+        pageSize?: number;
+        /** Optional. The standard list page token, received from a previous `ListSandboxEnvironments` call. Provide this to retrieve the subsequent page. */
+        pageToken?: string;
+        /** Required. The resource name of the reasoning engine to list sandbox environments from. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}` */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudAiplatformV1beta1ListSandboxEnvironmentsResponse>;
       operations: OperationsResource;
     }
     interface EventsResource {
@@ -52346,6 +52571,8 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
+        /** Optional. A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported fields: * `timestamp` Example: `timestamp desc`. */
+        orderBy?: string;
         /** Optional. The maximum number of events to return. The service may return fewer than this value. If unspecified, at most 100 events will be returned. These events are ordered by timestamp in ascending order. */
         pageSize?: number;
         /** Optional. The next_page_token value returned from a previous list SessionService.ListEvents call. */

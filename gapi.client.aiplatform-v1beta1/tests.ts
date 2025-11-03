@@ -3888,6 +3888,9 @@ gapi.load('client', async () => {
             bleuSpec: {
               useEffectiveOrder: true,
             },
+            customCodeExecutionSpec: {
+              evaluationFunction: 'Test string',
+            },
             exactMatchSpec: {},
             llmBasedMetricSpec: {
               additionalConfig: {
@@ -5159,6 +5162,9 @@ gapi.load('client', async () => {
             aggregationMetrics: ['Test string'],
             bleuSpec: {
               useEffectiveOrder: true,
+            },
+            customCodeExecutionSpec: {
+              evaluationFunction: 'Test string',
             },
             exactMatchSpec: {},
             llmBasedMetricSpec: {
@@ -13398,6 +13404,9 @@ gapi.load('client', async () => {
                 aggregationMetrics: ['Test string'],
                 bleuSpec: {
                   useEffectiveOrder: true,
+                },
+                customCodeExecutionSpec: {
+                  evaluationFunction: 'Test string',
                 },
                 exactMatchSpec: {},
                 llmBasedMetricSpec: {
@@ -24603,6 +24612,8 @@ gapi.load('client', async () => {
             httpEndpoint: 'Test string',
           },
         },
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         updateTime: 'Test string',
         vectorDbConfig: {
           apiAuth: {
@@ -24774,6 +24785,8 @@ gapi.load('client', async () => {
             httpEndpoint: 'Test string',
           },
         },
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         updateTime: 'Test string',
         vectorDbConfig: {
           apiAuth: {
@@ -25226,6 +25239,9 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         spec: {
+          agentCard: {
+            A: 42,
+          },
           agentFramework: 'Test string',
           classMethods: [
             {
@@ -25441,6 +25457,9 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         spec: {
+          agentCard: {
+            A: 42,
+          },
           agentFramework: 'Test string',
           classMethods: [
             {
@@ -25618,6 +25637,9 @@ gapi.load('client', async () => {
         fact: 'Test string',
         name: 'Test string',
         revisionExpireTime: 'Test string',
+        revisionLabels: {
+          A: 'Test string',
+        },
         revisionTtl: 'Test string',
         scope: {
           A: 'Test string',
@@ -25772,6 +25794,9 @@ gapi.load('client', async () => {
         fact: 'Test string',
         name: 'Test string',
         revisionExpireTime: 'Test string',
+        revisionLabels: {
+          A: 'Test string',
+        },
         revisionTtl: 'Test string',
         scope: {
           A: 'Test string',
@@ -26231,6 +26256,7 @@ gapi.load('client', async () => {
     await gapi.client.aiplatform.projects.locations.reasoningEngines.sessions.events.list(
       {
         filter: 'Test string',
+        orderBy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
@@ -29144,6 +29170,9 @@ gapi.load('client', async () => {
                     bleuMetricValue: {
                       score: 42,
                     },
+                    customCodeExecutionResult: {
+                      score: 42,
+                    },
                     exactMatchMetricValue: {
                       score: 42,
                     },
@@ -29333,6 +29362,9 @@ gapi.load('client', async () => {
                 aggregationMetrics: ['Test string'],
                 bleuSpec: {
                   useEffectiveOrder: true,
+                },
+                customCodeExecutionSpec: {
+                  evaluationFunction: 'Test string',
                 },
                 exactMatchSpec: {},
                 llmBasedMetricSpec: {
@@ -30213,6 +30245,9 @@ gapi.load('client', async () => {
                       bleuMetricValue: {
                         score: 42,
                       },
+                      customCodeExecutionResult: {
+                        score: 42,
+                      },
                       exactMatchMetricValue: {
                         score: 42,
                       },
@@ -30402,6 +30437,9 @@ gapi.load('client', async () => {
                   aggregationMetrics: ['Test string'],
                   bleuSpec: {
                     useEffectiveOrder: true,
+                  },
+                  customCodeExecutionSpec: {
+                    evaluationFunction: 'Test string',
                   },
                   exactMatchSpec: {},
                   llmBasedMetricSpec: {
@@ -32748,6 +32786,9 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         spec: {
+          agentCard: {
+            A: 42,
+          },
           agentFramework: 'Test string',
           classMethods: [
             {
@@ -32963,6 +33004,9 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         spec: {
+          agentCard: {
+            A: 42,
+          },
           agentFramework: 'Test string',
           classMethods: [
             {
@@ -33122,6 +33166,9 @@ gapi.load('client', async () => {
         fact: 'Test string',
         name: 'Test string',
         revisionExpireTime: 'Test string',
+        revisionLabels: {
+          A: 'Test string',
+        },
         revisionTtl: 'Test string',
         scope: {
           A: 'Test string',
@@ -33270,6 +33317,9 @@ gapi.load('client', async () => {
         fact: 'Test string',
         name: 'Test string',
         revisionExpireTime: 'Test string',
+        revisionLabels: {
+          A: 'Test string',
+        },
         revisionTtl: 'Test string',
         scope: {
           A: 'Test string',
@@ -33373,6 +33423,67 @@ gapi.load('client', async () => {
     await gapi.client.aiplatform.reasoningEngines.operations.wait({
       name: 'Test string',
       timeout: 'Test string',
+    });
+    /** Creates a SandboxEnvironment in a given reasoning engine. */
+    await gapi.client.aiplatform.reasoningEngines.sandboxEnvironments.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        connectionInfo: {
+          loadBalancerHostname: 'Test string',
+          loadBalancerIp: 'Test string',
+          sandboxInternalIp: 'Test string',
+        },
+        createTime: 'Test string',
+        displayName: 'Test string',
+        expireTime: 'Test string',
+        name: 'Test string',
+        spec: {
+          codeExecutionEnvironment: {
+            codeLanguage: 'Test string',
+            machineConfig: 'Test string',
+          },
+          computerUseEnvironment: {},
+        },
+        state: 'Test string',
+        ttl: 'Test string',
+        updateTime: 'Test string',
+      },
+    );
+    /** Deletes the specific SandboxEnvironment. */
+    await gapi.client.aiplatform.reasoningEngines.sandboxEnvironments.delete({
+      name: 'Test string',
+    });
+    /** Executes using a sandbox environment. */
+    await gapi.client.aiplatform.reasoningEngines.sandboxEnvironments.execute(
+      {
+        name: 'Test string',
+      },
+      {
+        inputs: [
+          {
+            data: 'Test string',
+            metadata: {
+              attributes: {
+                A: 'Test string',
+              },
+            },
+            mimeType: 'Test string',
+          },
+        ],
+      },
+    );
+    /** Gets details of the specific SandboxEnvironment. */
+    await gapi.client.aiplatform.reasoningEngines.sandboxEnvironments.get({
+      name: 'Test string',
+    });
+    /** Lists SandboxEnvironments in a given reasoning engine. */
+    await gapi.client.aiplatform.reasoningEngines.sandboxEnvironments.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
     });
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.aiplatform.reasoningEngines.sandboxEnvironments.operations.cancel(
@@ -33631,6 +33742,7 @@ gapi.load('client', async () => {
     /** Lists Events in a given session. */
     await gapi.client.aiplatform.reasoningEngines.sessions.events.list({
       filter: 'Test string',
+      orderBy: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',

@@ -3283,6 +3283,9 @@ gapi.load('client', async () => {
             bleuSpec: {
               useEffectiveOrder: true,
             },
+            customCodeExecutionSpec: {
+              evaluationFunction: 'Test string',
+            },
             exactMatchSpec: {},
             llmBasedMetricSpec: {
               additionalConfig: {
@@ -4521,6 +4524,9 @@ gapi.load('client', async () => {
             aggregationMetrics: ['Test string'],
             bleuSpec: {
               useEffectiveOrder: true,
+            },
+            customCodeExecutionSpec: {
+              evaluationFunction: 'Test string',
             },
             exactMatchSpec: {},
             llmBasedMetricSpec: {
@@ -11006,6 +11012,9 @@ gapi.load('client', async () => {
                 aggregationMetrics: ['Test string'],
                 bleuSpec: {
                   useEffectiveOrder: true,
+                },
+                customCodeExecutionSpec: {
+                  evaluationFunction: 'Test string',
                 },
                 exactMatchSpec: {},
                 llmBasedMetricSpec: {
@@ -19173,6 +19182,8 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         updateTime: 'Test string',
         vectorDbConfig: {
           apiAuth: {
@@ -19240,6 +19251,8 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         updateTime: 'Test string',
         vectorDbConfig: {
           apiAuth: {
@@ -21841,6 +21854,17 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
+        preferenceOptimizationSpec: {
+          exportLastCheckpointOnly: true,
+          hyperParameters: {
+            adapterSize: 'Test string',
+            beta: 42,
+            epochCount: 'Test string',
+            learningRateMultiplier: 42,
+          },
+          trainingDatasetUri: 'Test string',
+          validationDatasetUri: 'Test string',
+        },
         preTunedModel: {
           baseModel: 'Test string',
           checkpointId: 'Test string',
@@ -21873,6 +21897,206 @@ gapi.load('client', async () => {
         },
         tunedModelDisplayName: 'Test string',
         tuningDataStats: {
+          preferenceOptimizationDataStats: {
+            droppedExampleIndices: ['Test string'],
+            droppedExampleReasons: ['Test string'],
+            scoresDistribution: {
+              buckets: [
+                {
+                  count: 'Test string',
+                  left: 42,
+                  right: 42,
+                },
+              ],
+              max: 42,
+              mean: 42,
+              median: 42,
+              min: 42,
+              p5: 42,
+              p95: 42,
+              sum: 42,
+            },
+            scoreVariancePerExampleDistribution: {
+              buckets: [
+                {
+                  count: 'Test string',
+                  left: 42,
+                  right: 42,
+                },
+              ],
+              max: 42,
+              mean: 42,
+              median: 42,
+              min: 42,
+              p5: 42,
+              p95: 42,
+              sum: 42,
+            },
+            totalBillableTokenCount: 'Test string',
+            tuningDatasetExampleCount: 'Test string',
+            tuningStepCount: 'Test string',
+            userDatasetExamples: [
+              {
+                completions: [
+                  {
+                    completion: {
+                      parts: [
+                        {
+                          codeExecutionResult: {
+                            outcome: 'Test string',
+                            output: 'Test string',
+                          },
+                          executableCode: {
+                            code: 'Test string',
+                            language: 'Test string',
+                          },
+                          fileData: {
+                            displayName: 'Test string',
+                            fileUri: 'Test string',
+                            mimeType: 'Test string',
+                          },
+                          functionCall: {
+                            args: {
+                              A: 42,
+                            },
+                            name: 'Test string',
+                          },
+                          functionResponse: {
+                            name: 'Test string',
+                            parts: [
+                              {
+                                fileData: {
+                                  displayName: 'Test string',
+                                  fileUri: 'Test string',
+                                  mimeType: 'Test string',
+                                },
+                                inlineData: {
+                                  data: 'Test string',
+                                  displayName: 'Test string',
+                                  mimeType: 'Test string',
+                                },
+                              },
+                            ],
+                            response: {
+                              A: 42,
+                            },
+                          },
+                          inlineData: {
+                            data: 'Test string',
+                            displayName: 'Test string',
+                            mimeType: 'Test string',
+                          },
+                          text: 'Test string',
+                          thought: true,
+                          thoughtSignature: 'Test string',
+                          videoMetadata: {
+                            endOffset: 'Test string',
+                            fps: 42,
+                            startOffset: 'Test string',
+                          },
+                        },
+                      ],
+                      role: 'Test string',
+                    },
+                    score: 42,
+                  },
+                ],
+                contents: [
+                  {
+                    parts: [
+                      {
+                        codeExecutionResult: {
+                          outcome: 'Test string',
+                          output: 'Test string',
+                        },
+                        executableCode: {
+                          code: 'Test string',
+                          language: 'Test string',
+                        },
+                        fileData: {
+                          displayName: 'Test string',
+                          fileUri: 'Test string',
+                          mimeType: 'Test string',
+                        },
+                        functionCall: {
+                          args: {
+                            A: 42,
+                          },
+                          name: 'Test string',
+                        },
+                        functionResponse: {
+                          name: 'Test string',
+                          parts: [
+                            {
+                              fileData: {
+                                displayName: 'Test string',
+                                fileUri: 'Test string',
+                                mimeType: 'Test string',
+                              },
+                              inlineData: {
+                                data: 'Test string',
+                                displayName: 'Test string',
+                                mimeType: 'Test string',
+                              },
+                            },
+                          ],
+                          response: {
+                            A: 42,
+                          },
+                        },
+                        inlineData: {
+                          data: 'Test string',
+                          displayName: 'Test string',
+                          mimeType: 'Test string',
+                        },
+                        text: 'Test string',
+                        thought: true,
+                        thoughtSignature: 'Test string',
+                        videoMetadata: {
+                          endOffset: 'Test string',
+                          fps: 42,
+                          startOffset: 'Test string',
+                        },
+                      },
+                    ],
+                    role: 'Test string',
+                  },
+                ],
+              },
+            ],
+            userInputTokenDistribution: {
+              buckets: [
+                {
+                  count: 'Test string',
+                  left: 42,
+                  right: 42,
+                },
+              ],
+              max: 42,
+              mean: 42,
+              median: 42,
+              min: 42,
+              p5: 42,
+              p95: 42,
+              sum: 42,
+            },
+            userOutputTokenDistribution: {
+              buckets: [
+                {
+                  count: 'Test string',
+                  left: 42,
+                  right: 42,
+                },
+              ],
+              max: 42,
+              mean: 42,
+              median: 42,
+              min: 42,
+              p5: 42,
+              p95: 42,
+              sum: 42,
+            },
+          },
           supervisedTuningDataStats: {
             droppedExampleReasons: ['Test string'],
             totalBillableCharacterCount: 'Test string',
@@ -22047,6 +22271,17 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           name: 'Test string',
+          preferenceOptimizationSpec: {
+            exportLastCheckpointOnly: true,
+            hyperParameters: {
+              adapterSize: 'Test string',
+              beta: 42,
+              epochCount: 'Test string',
+              learningRateMultiplier: 42,
+            },
+            trainingDatasetUri: 'Test string',
+            validationDatasetUri: 'Test string',
+          },
           preTunedModel: {
             baseModel: 'Test string',
             checkpointId: 'Test string',
@@ -22079,6 +22314,206 @@ gapi.load('client', async () => {
           },
           tunedModelDisplayName: 'Test string',
           tuningDataStats: {
+            preferenceOptimizationDataStats: {
+              droppedExampleIndices: ['Test string'],
+              droppedExampleReasons: ['Test string'],
+              scoresDistribution: {
+                buckets: [
+                  {
+                    count: 'Test string',
+                    left: 42,
+                    right: 42,
+                  },
+                ],
+                max: 42,
+                mean: 42,
+                median: 42,
+                min: 42,
+                p5: 42,
+                p95: 42,
+                sum: 42,
+              },
+              scoreVariancePerExampleDistribution: {
+                buckets: [
+                  {
+                    count: 'Test string',
+                    left: 42,
+                    right: 42,
+                  },
+                ],
+                max: 42,
+                mean: 42,
+                median: 42,
+                min: 42,
+                p5: 42,
+                p95: 42,
+                sum: 42,
+              },
+              totalBillableTokenCount: 'Test string',
+              tuningDatasetExampleCount: 'Test string',
+              tuningStepCount: 'Test string',
+              userDatasetExamples: [
+                {
+                  completions: [
+                    {
+                      completion: {
+                        parts: [
+                          {
+                            codeExecutionResult: {
+                              outcome: 'Test string',
+                              output: 'Test string',
+                            },
+                            executableCode: {
+                              code: 'Test string',
+                              language: 'Test string',
+                            },
+                            fileData: {
+                              displayName: 'Test string',
+                              fileUri: 'Test string',
+                              mimeType: 'Test string',
+                            },
+                            functionCall: {
+                              args: {
+                                A: 42,
+                              },
+                              name: 'Test string',
+                            },
+                            functionResponse: {
+                              name: 'Test string',
+                              parts: [
+                                {
+                                  fileData: {
+                                    displayName: 'Test string',
+                                    fileUri: 'Test string',
+                                    mimeType: 'Test string',
+                                  },
+                                  inlineData: {
+                                    data: 'Test string',
+                                    displayName: 'Test string',
+                                    mimeType: 'Test string',
+                                  },
+                                },
+                              ],
+                              response: {
+                                A: 42,
+                              },
+                            },
+                            inlineData: {
+                              data: 'Test string',
+                              displayName: 'Test string',
+                              mimeType: 'Test string',
+                            },
+                            text: 'Test string',
+                            thought: true,
+                            thoughtSignature: 'Test string',
+                            videoMetadata: {
+                              endOffset: 'Test string',
+                              fps: 42,
+                              startOffset: 'Test string',
+                            },
+                          },
+                        ],
+                        role: 'Test string',
+                      },
+                      score: 42,
+                    },
+                  ],
+                  contents: [
+                    {
+                      parts: [
+                        {
+                          codeExecutionResult: {
+                            outcome: 'Test string',
+                            output: 'Test string',
+                          },
+                          executableCode: {
+                            code: 'Test string',
+                            language: 'Test string',
+                          },
+                          fileData: {
+                            displayName: 'Test string',
+                            fileUri: 'Test string',
+                            mimeType: 'Test string',
+                          },
+                          functionCall: {
+                            args: {
+                              A: 42,
+                            },
+                            name: 'Test string',
+                          },
+                          functionResponse: {
+                            name: 'Test string',
+                            parts: [
+                              {
+                                fileData: {
+                                  displayName: 'Test string',
+                                  fileUri: 'Test string',
+                                  mimeType: 'Test string',
+                                },
+                                inlineData: {
+                                  data: 'Test string',
+                                  displayName: 'Test string',
+                                  mimeType: 'Test string',
+                                },
+                              },
+                            ],
+                            response: {
+                              A: 42,
+                            },
+                          },
+                          inlineData: {
+                            data: 'Test string',
+                            displayName: 'Test string',
+                            mimeType: 'Test string',
+                          },
+                          text: 'Test string',
+                          thought: true,
+                          thoughtSignature: 'Test string',
+                          videoMetadata: {
+                            endOffset: 'Test string',
+                            fps: 42,
+                            startOffset: 'Test string',
+                          },
+                        },
+                      ],
+                      role: 'Test string',
+                    },
+                  ],
+                },
+              ],
+              userInputTokenDistribution: {
+                buckets: [
+                  {
+                    count: 'Test string',
+                    left: 42,
+                    right: 42,
+                  },
+                ],
+                max: 42,
+                mean: 42,
+                median: 42,
+                min: 42,
+                p5: 42,
+                p95: 42,
+                sum: 42,
+              },
+              userOutputTokenDistribution: {
+                buckets: [
+                  {
+                    count: 'Test string',
+                    left: 42,
+                    right: 42,
+                  },
+                ],
+                max: 42,
+                mean: 42,
+                median: 42,
+                min: 42,
+                p5: 42,
+                p95: 42,
+                sum: 42,
+              },
+            },
             supervisedTuningDataStats: {
               droppedExampleReasons: ['Test string'],
               totalBillableCharacterCount: 'Test string',
