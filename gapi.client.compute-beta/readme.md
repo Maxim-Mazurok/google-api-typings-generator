@@ -1095,34 +1095,9 @@ To prevent failure, it's recommended that you set the
 await gapi.client.compute.globalVmExtensionPolicies.aggregatedList({ project: "project",  });
 
 /*
-Purge scoped resources (zonal policies) from a global VM extension
-policy, and then delete the global VM extension policy. Purge of the scoped
-resources is a pre-condition of the global VM extension policy deletion.
-The deletion of the global VM extension policy happens after the purge
-rollout is done, so it's not a part of the LRO. It's an automatic process
-that triggers in the backend.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.delete({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
-
-/*
 Gets details of a global VM extension policy.
 */
 await gapi.client.compute.globalVmExtensionPolicies.get({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
-
-/*
-Creates a new project level GlobalVmExtensionPolicy.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.insert({ project: "project",  });
-
-/*
-Lists global VM extension policies.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.list({ project: "project",  });
-
-/*
-Updates a global VM extension policy.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.update({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
 
 /*
 Retrieves the list of all HealthCheck resources, regional and global,
@@ -3202,66 +3177,53 @@ This has billing implications.  Projects in the hierarchy with effective
 hierarchical security policies will be automatically enrolled into Cloud
 Armor Enterprise if not already enrolled.
 
-Use this API to modify Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to modify firewall policies. This usage is
-now disabled for most organizations. Use firewallPolicies.addAssociation
-instead.
+Use of this API to modify firewall policies is deprecated. Use
+firewallPolicies.addAssociation instead if possible.
 */
 await gapi.client.compute.organizationSecurityPolicies.addAssociation({ securityPolicy: "securityPolicy",  });
 
 /*
 Inserts a rule into a security policy.
-
-Use this API to modify Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to modify firewall policies. This usage is
-now disabled for most organizations. Use firewallPolicies.addRule instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.addRule({ securityPolicy: "securityPolicy",  });
 
 /*
 Copies rules to the specified security policy.
 
-Use this API to modify Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to modify firewall policies. This usage is
-now disabled for most organizations. Use firewallPolicies.cloneRules
-instead.
+Use of this API to modify firewall policies is deprecated. Use
+firewallPolicies.copyRules instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.copyRules({ securityPolicy: "securityPolicy",  });
 
 /*
 Deletes the specified policy.
 
-Use this API to remove Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to remove firewall policies. This usage is
-now disabled for most organizations. Use firewallPolicies.delete instead.
+Use of this API to remove firewall policies is deprecated. Use
+firewallPolicies.delete instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.delete({ securityPolicy: "securityPolicy",  });
 
 /*
 List all of the ordered rules present in a single specified policy.
 
-Use this API to read Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to read firewall policies. This usage is now
-disabled for most organizations. Use firewallPolicies.get instead.
+Use of this API to read firewall policies is deprecated. Use
+firewallPolicies.get instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.get({ securityPolicy: "securityPolicy",  });
 
 /*
 Gets an association with the specified name.
 
-Use this API to read Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to read firewall policies. This usage is
-now disabled for most organizations. Use firewallPolicies.getAssociation
-instead.
+Use of this API to read firewall policies is deprecated. Use
+firewallPolicies.getAssociation instead if possible.
 */
 await gapi.client.compute.organizationSecurityPolicies.getAssociation({ securityPolicy: "securityPolicy",  });
 
 /*
 Gets a rule at the specified priority.
 
-Use this API to read Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to read firewall policies. This usage is now
-disabled for most organizations. Use firewallPolicies.getRule instead.
+Use of this API to read firewall policies is deprecated. Use
+firewallPolicies.getRule instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.getRule({ securityPolicy: "securityPolicy",  });
 
@@ -3269,9 +3231,8 @@ await gapi.client.compute.organizationSecurityPolicies.getRule({ securityPolicy:
 Creates a new policy in the specified organization using the data included
 in the request.
 
-Use this API to add Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to add firewall policies. This usage is now
-disabled for most organizations. Use firewallPolicies.insert instead.
+Use of this API to insert firewall policies is deprecated. Use
+firewallPolicies.insert instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.insert({  });
 
@@ -3279,19 +3240,16 @@ await gapi.client.compute.organizationSecurityPolicies.insert({  });
 List all the policies that have been configured for the specified
 organization.
 
-Use this API to read Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to read firewall policies. This usage is now
-disabled for most organizations. Use firewallPolicies.list instead.
+Use of this API to read firewall policies is deprecated. Use
+firewallPolicies.list instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.list({  });
 
 /*
 Lists associations of a specified target, i.e., organization or folder.
 
-Use this API to read Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to read firewall policies. This usage is
-now disabled for most organizations. Use firewallPolicies.listAssociations
-instead.
+Use of this API to read firewall policies is deprecated. Use
+firewallPolicies.listAssociations instead if possible.
 */
 await gapi.client.compute.organizationSecurityPolicies.listAssociations({  });
 
@@ -3304,48 +3262,37 @@ await gapi.client.compute.organizationSecurityPolicies.listPreconfiguredExpressi
 /*
 Moves the specified security policy.
 
-Use this API to modify Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to modify firewall policies. This usage is
-now disabled for most organizations. Use firewallPolicies.move instead.
+Use of this API to modify firewall policies is deprecated. Use
+firewallPolicies.move instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.move({ securityPolicy: "securityPolicy",  });
 
 /*
 Patches the specified policy with the data included in the request.
 
-Use this API to modify Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to modify firewall policies. This usage is
-now disabled for most organizations. Use firewallPolicies.patch instead.
+Use of this API to modify firewall policies is deprecated. Use
+firewallPolicies.patch instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.patch({ securityPolicy: "securityPolicy",  });
 
 /*
 Patches a rule at the specified priority.
 
-Use this API to modify Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to modify firewall policies. This usage is
-now disabled for most organizations. Use firewallPolicies.patchRule
-instead.
+Use of this API to modify firewall policies is deprecated. Use
+firewallPolicies.patchRule instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.patchRule({ securityPolicy: "securityPolicy",  });
 
 /*
 Removes an association for the specified security policy.
 
-Use this API to modify Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to modify firewall policies. This usage is
-now disabled for most organizations. Use firewallPolicies.removeAssociation
-instead.
+Use of this API to modify firewall policies is deprecated. Use
+firewallPolicies.removeAssociation instead if possible.
 */
 await gapi.client.compute.organizationSecurityPolicies.removeAssociation({ securityPolicy: "securityPolicy",  });
 
 /*
 Deletes a rule at the specified priority.
-
-Use this API to modify Cloud Armor policies. Previously, alpha and beta
-versions of this API were used to modify firewall policies. This usage is
-now disabled for most organizations. Use firewallPolicies.removeRule
-instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.removeRule({ securityPolicy: "securityPolicy",  });
 
@@ -5502,46 +5449,6 @@ await gapi.client.compute.resourcePolicies.setIamPolicy({ project: "project", re
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.resourcePolicies.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Deletes a RolloutPlan.
-*/
-await gapi.client.compute.rolloutPlans.delete({ project: "project", rolloutPlan: "rolloutPlan",  });
-
-/*
-Gets details of a single project-scoped RolloutPlan.
-*/
-await gapi.client.compute.rolloutPlans.get({ project: "project", rolloutPlan: "rolloutPlan",  });
-
-/*
-Creates a new RolloutPlan in a given project and location.
-*/
-await gapi.client.compute.rolloutPlans.insert({ project: "project",  });
-
-/*
-Lists RolloutPlans in a given project and location.
-*/
-await gapi.client.compute.rolloutPlans.list({ project: "project",  });
-
-/*
-Cancels a Rollout.
-*/
-await gapi.client.compute.rollouts.cancel({ project: "project", rollout: "rollout",  });
-
-/*
-Deletes a Rollout.
-*/
-await gapi.client.compute.rollouts.delete({ project: "project", rollout: "rollout",  });
-
-/*
-Gets details of a single project-scoped Rollout.
-*/
-await gapi.client.compute.rollouts.get({ project: "project", rollout: "rollout",  });
-
-/*
-Lists Rollouts in a given project and location.
-*/
-await gapi.client.compute.rollouts.list({ project: "project",  });
 
 /*
 Retrieves an aggregated list of routers.
