@@ -124,6 +124,11 @@ After that you can use Google Workspace Events API resources: <!-- TODO: make th
 
 ```typescript
 /*
+SendStreamingMessage is a streaming call that will return a stream of task update events until the Task is in an interrupted or terminal state.
+*/
+await gapi.client.workspaceevents.message.stream({});
+
+/*
 Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 */
 await gapi.client.workspaceevents.operations.get({name: 'name'});
@@ -157,6 +162,26 @@ await gapi.client.workspaceevents.subscriptions.patch({name: 'name'});
 Reactivates a suspended Google Workspace subscription. This method resets your subscription's `State` field to `ACTIVE`. Before you use this method, you must fix the error that suspended the subscription. This method will ignore or reject any subscription that isn't currently in a suspended state. To learn how to use this method, see [Reactivate a Google Workspace subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription). For a subscription on a [Chat target resource](https://developers.google.com/workspace/events/guides/events-chat), you can reactivate a subscription as: - A Chat app by specifying an authorization scope that begins with `chat.app` andgetting one-time administrator approval ([Developer Preview](https://developers.google.com/workspace/preview)). To learn more, see [Authorize as a Chat app with administrator approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app). - A user by specifying an authorization scope that doesn't include `app` in its name. To learn more, see [Authorize as a Chat user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
 */
 await gapi.client.workspaceevents.subscriptions.reactivate({name: 'name'});
+
+/*
+Cancel a task from the agent. If supported one should expect no more task updates for the task.
+*/
+await gapi.client.workspaceevents.tasks.cancel({name: 'name'});
+
+/*
+Get the current state of a task from the agent.
+*/
+await gapi.client.workspaceevents.tasks.get({name: 'name'});
+
+/*
+TaskSubscription is a streaming call that will return a stream of task update events. This attaches the stream to an existing in process task. If the task is complete the stream will return the completed task (like GetTask) and close the stream.
+*/
+await gapi.client.workspaceevents.tasks.subscribe({name: 'name'});
+
+/*
+GetAgentCard returns the agent card for the agent.
+*/
+await gapi.client.workspaceevents.getCard({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.workspaceevents-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
