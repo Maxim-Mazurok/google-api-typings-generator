@@ -210,14 +210,6 @@ await gapi.client.sql.instances.acquireSsrsLease({
 });
 
 /*
-Adds a new Entra ID certificate for the specified instance. If an Entra ID certificate was previously added but never used in a certificate rotation, this operation replaces that version.
-*/
-await gapi.client.sql.instances.addEntraIdCertificate({
-  instance: 'instance',
-  project: 'project',
-});
-
-/*
 Add a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was previously added but never used in a certificate rotation, this operation replaces that version. There cannot be more than one CA version waiting to be rotated in. For instances that have enabled Certificate Authority Service (CAS) based server CA, use AddServerCertificate to add a new server certificate.
 */
 await gapi.client.sql.instances.addServerCa({
@@ -313,14 +305,6 @@ Lists instances under a given project.
 await gapi.client.sql.instances.list({project: 'project'});
 
 /*
-Lists all versions of EntraID certificates for the specified instance. There can be up to three sets of certificates listed: the certificate that is currently in use, a future that has been added but not yet used to sign a certificate, and a certificate that has been rotated out.
-*/
-await gapi.client.sql.instances.ListEntraIdCertificates({
-  instance: 'instance',
-  project: 'project',
-});
-
-/*
 Lists all of the trusted Certificate Authorities (CAs) for the specified instance. There can be up to three CAs listed: the CA that was used to sign the certificate that is currently in use, a CA that has been added but not yet used to sign a certificate, and a CA used to sign a certificate that has previously rotated out.
 */
 await gapi.client.sql.instances.listServerCas({
@@ -401,14 +385,6 @@ await gapi.client.sql.instances.restart({
 Restores a backup of a Cloud SQL instance. Using this operation might cause your instance to restart.
 */
 await gapi.client.sql.instances.restoreBackup({
-  instance: 'instance',
-  project: 'project',
-});
-
-/*
-Rotates the Entra Id certificate version to one previously added with the addEntraIdCertificate method.
-*/
-await gapi.client.sql.instances.RotateEntraIdCertificate({
   instance: 'instance',
   project: 'project',
 });
