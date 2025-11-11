@@ -48,7 +48,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-    // View and manage G Suite licenses for your domain
+    // View and manage Google Workspace licenses for your domain
     'https://www.googleapis.com/auth/apps.licensing',
   ],
   immediate = true;
