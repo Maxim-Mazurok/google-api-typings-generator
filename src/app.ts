@@ -43,9 +43,8 @@ const typesMap: {[key: string]: string} = {
 
 export const excludedRestDescriptionIds: NonNullable<RestDescription['id']>[] =
   [
-    'apigee:v1',
-    'clouddebugger:v2', // cspell:words clouddebugger
     'poly:v1', // Google Poly was shut down on June 30, 2021; The Discovery API returns 5xx error
+    'composer:v1beta1', // Error: Attempted to generate stub for unknown schema 'AnalyzeTaskRequest'
   ];
 
 const generatedDisclaimer = [
