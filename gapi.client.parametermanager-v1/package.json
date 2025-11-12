@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.parametermanager-v1",
-  "version": "0.0.20251110",
+  "version": "0.0.20251029",
   "description": "TypeScript typings for Parameter Manager API v1",
   "repository": {
     "type": "git",
