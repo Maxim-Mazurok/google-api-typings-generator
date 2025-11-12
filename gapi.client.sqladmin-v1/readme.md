@@ -305,6 +305,14 @@ Lists instances under a given project.
 await gapi.client.sql.instances.list({project: 'project'});
 
 /*
+Lists all versions of EntraID certificates for the specified instance. There can be up to three sets of certificates listed: the certificate that is currently in use, a future that has been added but not yet used to sign a certificate, and a certificate that has been rotated out.
+*/
+await gapi.client.sql.instances.ListEntraIdCertificates({
+  instance: 'instance',
+  project: 'project',
+});
+
+/*
 Lists all of the trusted Certificate Authorities (CAs) for the specified instance. There can be up to three CAs listed: the CA that was used to sign the certificate that is currently in use, a CA that has been added but not yet used to sign a certificate, and a CA used to sign a certificate that has previously rotated out.
 */
 await gapi.client.sql.instances.listServerCas({
@@ -385,6 +393,14 @@ await gapi.client.sql.instances.restart({
 Restores a backup of a Cloud SQL instance. Using this operation might cause your instance to restart.
 */
 await gapi.client.sql.instances.restoreBackup({
+  instance: 'instance',
+  project: 'project',
+});
+
+/*
+Rotates the server certificate version to one previously added with the addEntraIdCertificate method.
+*/
+await gapi.client.sql.instances.RotateEntraIdCertificate({
   instance: 'instance',
   project: 'project',
 });
