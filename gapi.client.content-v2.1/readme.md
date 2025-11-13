@@ -746,68 +746,6 @@ Retrieves merchant performance metrics matching the search query and optionally 
 await gapi.client.content.reports.search({merchantId: 'merchantId'});
 
 /*
-Batches multiple return address related calls in a single request.
-*/
-await gapi.client.content.returnaddress.custombatch({});
-
-/*
-Deletes a return address for the given Merchant Center account.
-*/
-await gapi.client.content.returnaddress.delete({
-  merchantId: 'merchantId',
-  returnAddressId: 'returnAddressId',
-});
-
-/*
-Gets a return address of the Merchant Center account.
-*/
-await gapi.client.content.returnaddress.get({
-  merchantId: 'merchantId',
-  returnAddressId: 'returnAddressId',
-});
-
-/*
-Inserts a return address for the Merchant Center account.
-*/
-await gapi.client.content.returnaddress.insert({merchantId: 'merchantId'});
-
-/*
-Lists the return addresses of the Merchant Center account.
-*/
-await gapi.client.content.returnaddress.list({merchantId: 'merchantId'});
-
-/*
-Batches multiple return policy related calls in a single request.
-*/
-await gapi.client.content.returnpolicy.custombatch({});
-
-/*
-Deletes a return policy for the given Merchant Center account.
-*/
-await gapi.client.content.returnpolicy.delete({
-  merchantId: 'merchantId',
-  returnPolicyId: 'returnPolicyId',
-});
-
-/*
-Gets a return policy of the Merchant Center account.
-*/
-await gapi.client.content.returnpolicy.get({
-  merchantId: 'merchantId',
-  returnPolicyId: 'returnPolicyId',
-});
-
-/*
-Inserts a return policy for the Merchant Center account.
-*/
-await gapi.client.content.returnpolicy.insert({merchantId: 'merchantId'});
-
-/*
-Lists the return policies of the Merchant Center account.
-*/
-await gapi.client.content.returnpolicy.list({merchantId: 'merchantId'});
-
-/*
 Creates a new return policy.
 */
 await gapi.client.content.returnpolicyonline.create({merchantId: 'merchantId'});
