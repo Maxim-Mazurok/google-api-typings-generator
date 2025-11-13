@@ -50,10 +50,10 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-    // View audit reports for your G Suite domain
+    // View audit reports for your Google Workspace domain
     'https://www.googleapis.com/auth/admin.reports.audit.readonly',
 
-    // View usage reports for your G Suite domain
+    // View usage reports for your Google Workspace domain
     'https://www.googleapis.com/auth/admin.reports.usage.readonly',
   ],
   immediate = true;
