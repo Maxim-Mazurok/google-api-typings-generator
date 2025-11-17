@@ -2979,13 +2979,6 @@ Adds a peering to the specified network.
 await gapi.client.compute.networks.addPeering({ network: "network", project: "project",  });
 
 /*
-Cancel requests to remove a peering from the specified network. Applicable
-only for PeeringConnection with update_strategy=CONSENSUS.  Cancels a
-request to remove a peering from the specified network.
-*/
-await gapi.client.compute.networks.cancelRequestRemovePeering({ network: "network", project: "project",  });
-
-/*
 Deletes the specified network.
 */
 await gapi.client.compute.networks.delete({ network: "network", project: "project",  });
