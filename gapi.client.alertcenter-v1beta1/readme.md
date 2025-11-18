@@ -48,7 +48,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-    // See and delete your domain's G Suite alerts, and send alert feedback
+    // See and delete your domain's Google Workspace alerts, and send alert feedback
     'https://www.googleapis.com/auth/apps.alerts',
   ],
   immediate = true;
