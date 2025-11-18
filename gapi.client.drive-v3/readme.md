@@ -338,7 +338,7 @@ Gets a revision's metadata or content by ID. For more information, see [Manage f
 await gapi.client.drive.revisions.get({ fileId: "fileId", revisionId: "revisionId",  });
 
 /*
-Lists a file's revisions. For more information, see [Manage file revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions). **Important:** The list of revisions returned by this method might be incomplete for files with a large revision history, including frequently edited Google Docs, Sheets, and Slides. Older revisions might be omitted from the response, meaning the first revision returned may not be the oldest existing revision. The revision history visible in the Workspace editor user interface might be more complete than the list returned by the API.
+Lists a file's revisions. For more information, see [Manage file revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
 */
 await gapi.client.drive.revisions.list({ fileId: "fileId",  });
 
