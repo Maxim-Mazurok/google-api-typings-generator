@@ -57,7 +57,7 @@ var client_id = '',
     // See and download your contacts
     'https://www.googleapis.com/auth/contacts.readonly',
 
-    // See and download your organization's GSuite directory
+    // See and download your organization's Google Workspace directory
     'https://www.googleapis.com/auth/directory.readonly',
 
     // View your street addresses
