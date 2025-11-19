@@ -177,6 +177,11 @@ await gapi.client.workspaceevents.tasks.get({name: 'name'});
 TaskSubscription is a streaming call that will return a stream of task update events. This attaches the stream to an existing in process task. If the task is complete the stream will return the completed task (like GetTask) and close the stream.
 */
 await gapi.client.workspaceevents.tasks.subscribe({name: 'name'});
+
+/*
+GetAgentCard returns the agent card for the agent.
+*/
+await gapi.client.workspaceevents.getCard({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.workspaceevents-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
