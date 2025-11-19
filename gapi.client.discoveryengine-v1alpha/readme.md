@@ -79,6 +79,16 @@ After that you can use Discovery Engine API resources: <!-- TODO: make this work
 
 ```typescript
 /*
+Downloads a file from the session.
+*/
+await gapi.client.discoveryengine.media.download({name: 'name'});
+
+/*
+Uploads a file for the assistant to use as a source of information within the session.
+*/
+await gapi.client.discoveryengine.media.upload({name: 'name'});
+
+/*
 Gets a Project. Returns NOT_FOUND when the project is not yet created.
 */
 await gapi.client.discoveryengine.projects.get({name: 'name'});
