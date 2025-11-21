@@ -9,7 +9,7 @@ jobs:
   update-and-maintain:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Get latest Node.js version
         id: get-latest-nodejs-version
