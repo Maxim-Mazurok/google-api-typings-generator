@@ -210,6 +210,9 @@ var client_id = '',
     // Move a copy of your YouTube comments
     'https://www.googleapis.com/auth/dataportability.youtube.comments',
 
+    // Move a copy of all your YouTube messages
+    'https://www.googleapis.com/auth/dataportability.youtube.conversations',
+
     // Move a copy of your YouTube messages in live chat
     'https://www.googleapis.com/auth/dataportability.youtube.live_chat',
 
