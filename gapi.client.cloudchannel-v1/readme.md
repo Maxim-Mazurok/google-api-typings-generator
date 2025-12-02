@@ -51,7 +51,7 @@ var client_id = '',
     // Manage users on your domain
     'https://www.googleapis.com/auth/apps.order',
 
-    // View usage reports for your G Suite domain
+    // View usage reports for your Google Workspace domain
     'https://www.googleapis.com/auth/apps.reports.usage.readonly',
   ],
   immediate = true;
