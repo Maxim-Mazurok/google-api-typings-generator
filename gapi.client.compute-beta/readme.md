@@ -2979,6 +2979,13 @@ Adds a peering to the specified network.
 await gapi.client.compute.networks.addPeering({ network: "network", project: "project",  });
 
 /*
+Cancel requests to remove a peering from the specified network. Applicable
+only for PeeringConnection with update_strategy=CONSENSUS.  Cancels a
+request to remove a peering from the specified network.
+*/
+await gapi.client.compute.networks.cancelRequestRemovePeering({ network: "network", project: "project",  });
+
+/*
 Deletes the specified network.
 */
 await gapi.client.compute.networks.delete({ network: "network", project: "project",  });
@@ -4204,6 +4211,18 @@ draining duration has elapsed before the VM instance is removed or deleted.
 You can specify a maximum of 1000 instances with this method per request.
 */
 await gapi.client.compute.regionInstanceGroupManagers.abandonInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
+
+/*
+Flags the specified instances to be adopted to the managed instance
+group. Adopting an instance does not change the instance status, but it
+adds the instance to any target pools that are applied by the managed
+instance group. This method increases the targetSize of the managed
+instance group by the number of instances that you adopt. This operation
+is marked as DONE when the action is scheduled even if the instances have
+not been adopted to the group yet. You must separately verify the status
+of the adopting action with the listManagedInstances method.
+*/
+await gapi.client.compute.regionInstanceGroupManagers.adoptInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
 Apply updates to selected instances the managed instance group.
