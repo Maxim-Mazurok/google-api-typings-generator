@@ -151,6 +151,14 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.addresses.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Advise how, where and when to create the requested amount of instances
+with specified accelerators, within the specified time and location limits.
+The method recommends creating future reservations for the requested
+resources.
+*/
+await gapi.client.compute.advice.calendarMode({ project: "project", region: "region",  });
+
+/*
 Retrieves an aggregated list of autoscalers.
 
 To prevent failure, it is recommended that you set the
