@@ -4482,18 +4482,6 @@ You can specify a maximum of 1000 instances with this method per request.
 await gapi.client.compute.regionInstanceGroupManagers.abandonInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
-Flags the specified instances to be adopted to the managed instance
-group. Adopting an instance does not change the instance status, but it
-adds the instance to any target pools that are applied by the managed
-instance group. This method increases the targetSize of the managed
-instance group by the number of instances that you adopt. This operation
-is marked as DONE when the action is scheduled even if the instances have
-not been adopted to the group yet. You must separately verify the status
-of the adopting action with the listManagedInstances method.
-*/
-await gapi.client.compute.regionInstanceGroupManagers.adoptInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
-
-/*
 Apply updates to selected instances the managed instance group.
 */
 await gapi.client.compute.regionInstanceGroupManagers.applyUpdatesToInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
@@ -5795,16 +5783,6 @@ await gapi.client.compute.reservations.testIamPermissions({ project: "project", 
 Update share settings of the reservation.
 */
 await gapi.client.compute.reservations.update({ project: "project", reservation: "reservation", zone: "zone",  });
-
-/*
-Retrieves information about the specified reservation slot.
-*/
-await gapi.client.compute.reservationSlots.get({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
-
-/*
-Retrieves a list of reservation slots under a single reservation.
-*/
-await gapi.client.compute.reservationSlots.list({ parentName: "parentName", project: "project", zone: "zone",  });
 
 /*
 Retrieves information about the specified reservation subBlock.
