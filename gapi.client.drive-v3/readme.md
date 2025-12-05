@@ -118,16 +118,6 @@ Approves or denies an access proposal. For more information, see [Manage pending
 await gapi.client.drive.accessproposals.resolve({ fileId: "fileId", proposalId: "proposalId",  });
 
 /*
-Gets an Approval by ID.
-*/
-await gapi.client.drive.approvals.get({ approvalId: "approvalId", fileId: "fileId",  });
-
-/*
-Lists the Approvals on a file.
-*/
-await gapi.client.drive.approvals.list({ fileId: "fileId",  });
-
-/*
 Gets a specific app. For more information, see [Return user info](https://developers.google.com/workspace/drive/api/guides/user-info).
 */
 await gapi.client.drive.apps.get({ appId: "appId",  });
