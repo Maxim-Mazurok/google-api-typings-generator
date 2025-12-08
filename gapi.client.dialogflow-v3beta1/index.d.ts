@@ -2184,12 +2184,8 @@ declare namespace gapi.client {
       bannedPhrases?: GoogleCloudDialogflowCxV3beta1SafetySettingsPhrase[];
       /** Optional. Default phrase match strategy for banned phrases. */
       defaultBannedPhraseMatchStrategy?: string;
-      /** Optional. Immutable. Default RAI settings to be annotated on the agent, so that users will be able to restore their RAI configurations to the default settings. Read-only field for the API proto only. */
-      defaultRaiSettings?: GoogleCloudDialogflowCxV3beta1SafetySettingsRaiSettings;
       /** Optional. Settings for prompt security checks. */
       promptSecuritySettings?: GoogleCloudDialogflowCxV3beta1SafetySettingsPromptSecuritySettings;
-      /** Optional. Settings for Responsible AI checks. */
-      raiSettings?: GoogleCloudDialogflowCxV3beta1SafetySettingsRaiSettings;
     }
     interface GoogleCloudDialogflowCxV3beta1SafetySettingsPhrase {
       /** Required. Language code of the phrase. */
@@ -2200,16 +2196,6 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowCxV3beta1SafetySettingsPromptSecuritySettings {
       /** Optional. Enable prompt security checks. */
       enablePromptSecurity?: boolean;
-    }
-    interface GoogleCloudDialogflowCxV3beta1SafetySettingsRaiSettings {
-      /** Optional. RAI blocking configurations. */
-      categoryFilters?: GoogleCloudDialogflowCxV3beta1SafetySettingsRaiSettingsCategoryFilter[];
-    }
-    interface GoogleCloudDialogflowCxV3beta1SafetySettingsRaiSettingsCategoryFilter {
-      /** RAI category to configure. */
-      category?: string;
-      /** Blocking sensitivity level to configure for the RAI category. */
-      filterLevel?: string;
     }
     interface GoogleCloudDialogflowCxV3beta1SearchConfig {
       /** Optional. Boosting configuration for the datastores. Maps from datastore name to their boost configuration. Do not specify more than one BoostSpecs for each datastore name. If multiple BoostSpecs are provided for the same datastore name, the behavior is undefined. */
@@ -5769,7 +5755,7 @@ declare namespace gapi.client {
       nextPageToken?: string;
       /** A list of operations that matches the specified filter in the request. */
       operations?: GoogleLongrunningOperation[];
-      /** Unordered list. Unreachable resources. Populated when the request sets `ListOperationsRequest.return_partial_success` and reads across collections. For example, when attempting to list all resources across all supported locations. */
+      /** Unordered list. Unreachable resources. Populated when the request sets `ListOperationsRequest.return_partial_success` and reads across collections e.g. when attempting to list all resources across all supported locations. */
       unreachable?: string[];
     }
     interface GoogleLongrunningOperation {
@@ -12612,7 +12598,7 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
+        /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the [ListOperationsResponse.unreachable] field. This can only be `true` when reading across collections e.g. when `parent` is set to `"projects/example/locations/-"`. This field is not by default supported and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
         returnPartialSuccess?: boolean;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
@@ -12977,7 +12963,7 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
+        /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the [ListOperationsResponse.unreachable] field. This can only be `true` when reading across collections e.g. when `parent` is set to `"projects/example/locations/-"`. This field is not by default supported and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
         returnPartialSuccess?: boolean;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
