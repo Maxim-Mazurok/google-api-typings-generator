@@ -313,27 +313,27 @@ Updates a permission with patch semantics. For more information, see [Share file
 await gapi.client.drive.permissions.update({ fileId: "fileId", permissionId: "permissionId",  });
 
 /*
-Creates a reply to a comment.
+Creates a reply to a comment. For more information, see [Manage comments and replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
 */
 await gapi.client.drive.replies.create({ commentId: "commentId", fileId: "fileId",  });
 
 /*
-Deletes a reply.
+Deletes a reply. For more information, see [Manage comments and replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
 */
 await gapi.client.drive.replies.delete({ commentId: "commentId", fileId: "fileId", replyId: "replyId",  });
 
 /*
-Gets a reply by ID.
+Gets a reply by ID. For more information, see [Manage comments and replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
 */
 await gapi.client.drive.replies.get({ commentId: "commentId", fileId: "fileId", replyId: "replyId",  });
 
 /*
-Lists a comment's replies.
+Lists a comment's replies. For more information, see [Manage comments and replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
 */
 await gapi.client.drive.replies.list({ commentId: "commentId", fileId: "fileId",  });
 
 /*
-Updates a reply with patch semantics.
+Updates a reply with patch semantics. For more information, see [Manage comments and replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
 */
 await gapi.client.drive.replies.update({ commentId: "commentId", fileId: "fileId", replyId: "replyId",  });
 
