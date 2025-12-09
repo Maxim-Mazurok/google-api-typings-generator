@@ -309,24 +309,8 @@ gapi.load('client', async () => {
             },
           ],
           defaultBannedPhraseMatchStrategy: 'Test string',
-          defaultRaiSettings: {
-            categoryFilters: [
-              {
-                category: 'Test string',
-                filterLevel: 'Test string',
-              },
-            ],
-          },
           promptSecuritySettings: {
             enablePromptSecurity: true,
-          },
-          raiSettings: {
-            categoryFilters: [
-              {
-                category: 'Test string',
-                filterLevel: 'Test string',
-              },
-            ],
           },
         },
         knowledgeConnectorSettings: {
