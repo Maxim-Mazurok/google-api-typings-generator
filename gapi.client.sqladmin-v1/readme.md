@@ -210,14 +210,6 @@ await gapi.client.sql.instances.acquireSsrsLease({
 });
 
 /*
-Adds a new Entra ID certificate for the specified instance. If an Entra ID certificate was previously added but never used in a certificate rotation, this operation replaces that version.
-*/
-await gapi.client.sql.instances.addEntraIdCertificate({
-  instance: 'instance',
-  project: 'project',
-});
-
-/*
 Adds a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was previously added but never used in a certificate rotation, this operation replaces that version. There cannot be more than one CA version waiting to be rotated in. For instances that have enabled Certificate Authority Service (CAS) based server CA, use AddServerCertificate to add a new server certificate.
 */
 await gapi.client.sql.instances.addServerCa({
