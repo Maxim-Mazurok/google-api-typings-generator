@@ -2092,6 +2092,88 @@ gapi.load('client', async () => {
         userPseudoId: 'Test string',
       },
     );
+    /** Creates a ServingConfig. Note: The Google Cloud console works only with the default serving config. Additional ServingConfigs can be created and managed only via the API. A maximum of 100 ServingConfigs are allowed in an Engine, otherwise a RESOURCE_EXHAUSTED error is returned. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.create(
+      {
+        parent: 'Test string',
+        servingConfigId: 'Test string',
+      },
+      {
+        answerGenerationSpec: {
+          userDefinedClassifierSpec: {
+            enableUserDefinedClassifier: true,
+            modelId: 'Test string',
+            preamble: 'Test string',
+            seed: 42,
+            taskMarker: 'Test string',
+            temperature: 42,
+            topK: 'Test string',
+            topP: 42,
+          },
+        },
+        boostControlIds: ['Test string'],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        dissociateControlIds: ['Test string'],
+        diversityLevel: 'Test string',
+        filterControlIds: ['Test string'],
+        genericConfig: {
+          contentSearchSpec: {
+            chunkSpec: {
+              numNextChunks: 42,
+              numPreviousChunks: 42,
+            },
+            extractiveContentSpec: {
+              maxExtractiveAnswerCount: 42,
+              maxExtractiveSegmentCount: 42,
+              numNextSegments: 42,
+              numPreviousSegments: 42,
+              returnExtractiveSegmentScore: true,
+            },
+            searchResultMode: 'Test string',
+            snippetSpec: {
+              maxSnippetCount: 42,
+              referenceOnly: true,
+              returnSnippet: true,
+            },
+            summarySpec: {
+              ignoreAdversarialQuery: true,
+              ignoreJailBreakingQuery: true,
+              ignoreLowRelevantContent: true,
+              ignoreNonSummarySeekingQuery: true,
+              includeCitations: true,
+              languageCode: 'Test string',
+              modelPromptSpec: {
+                preamble: 'Test string',
+              },
+              modelSpec: {
+                version: 'Test string',
+              },
+              summaryResultCount: 42,
+              useSemanticChunks: true,
+            },
+          },
+        },
+        ignoreControlIds: ['Test string'],
+        mediaConfig: {
+          contentFreshnessCutoffDays: 42,
+          contentWatchedPercentageThreshold: 42,
+          contentWatchedSecondsThreshold: 42,
+          demoteContentWatchedPastDays: 42,
+          demotionEventType: 'Test string',
+        },
+        modelId: 'Test string',
+        name: 'Test string',
+        onewaySynonymsControlIds: ['Test string'],
+        promoteControlIds: ['Test string'],
+        rankingExpression: 'Test string',
+        redirectControlIds: ['Test string'],
+        replacementControlIds: ['Test string'],
+        solutionType: 'Test string',
+        synonymsControlIds: ['Test string'],
+        updateTime: 'Test string',
+      },
+    );
     /** Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.delete(
       {
@@ -5036,6 +5118,88 @@ gapi.load('client', async () => {
         userPseudoId: 'Test string',
       },
     );
+    /** Creates a ServingConfig. Note: The Google Cloud console works only with the default serving config. Additional ServingConfigs can be created and managed only via the API. A maximum of 100 ServingConfigs are allowed in an Engine, otherwise a RESOURCE_EXHAUSTED error is returned. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.create(
+      {
+        parent: 'Test string',
+        servingConfigId: 'Test string',
+      },
+      {
+        answerGenerationSpec: {
+          userDefinedClassifierSpec: {
+            enableUserDefinedClassifier: true,
+            modelId: 'Test string',
+            preamble: 'Test string',
+            seed: 42,
+            taskMarker: 'Test string',
+            temperature: 42,
+            topK: 'Test string',
+            topP: 42,
+          },
+        },
+        boostControlIds: ['Test string'],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        dissociateControlIds: ['Test string'],
+        diversityLevel: 'Test string',
+        filterControlIds: ['Test string'],
+        genericConfig: {
+          contentSearchSpec: {
+            chunkSpec: {
+              numNextChunks: 42,
+              numPreviousChunks: 42,
+            },
+            extractiveContentSpec: {
+              maxExtractiveAnswerCount: 42,
+              maxExtractiveSegmentCount: 42,
+              numNextSegments: 42,
+              numPreviousSegments: 42,
+              returnExtractiveSegmentScore: true,
+            },
+            searchResultMode: 'Test string',
+            snippetSpec: {
+              maxSnippetCount: 42,
+              referenceOnly: true,
+              returnSnippet: true,
+            },
+            summarySpec: {
+              ignoreAdversarialQuery: true,
+              ignoreJailBreakingQuery: true,
+              ignoreLowRelevantContent: true,
+              ignoreNonSummarySeekingQuery: true,
+              includeCitations: true,
+              languageCode: 'Test string',
+              modelPromptSpec: {
+                preamble: 'Test string',
+              },
+              modelSpec: {
+                version: 'Test string',
+              },
+              summaryResultCount: 42,
+              useSemanticChunks: true,
+            },
+          },
+        },
+        ignoreControlIds: ['Test string'],
+        mediaConfig: {
+          contentFreshnessCutoffDays: 42,
+          contentWatchedPercentageThreshold: 42,
+          contentWatchedSecondsThreshold: 42,
+          demoteContentWatchedPastDays: 42,
+          demotionEventType: 'Test string',
+        },
+        modelId: 'Test string',
+        name: 'Test string',
+        onewaySynonymsControlIds: ['Test string'],
+        promoteControlIds: ['Test string'],
+        rankingExpression: 'Test string',
+        redirectControlIds: ['Test string'],
+        replacementControlIds: ['Test string'],
+        solutionType: 'Test string',
+        synonymsControlIds: ['Test string'],
+        updateTime: 'Test string',
+      },
+    );
     /** Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
     await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.delete(
       {
@@ -7865,6 +8029,88 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         userPseudoId: 'Test string',
+      },
+    );
+    /** Creates a ServingConfig. Note: The Google Cloud console works only with the default serving config. Additional ServingConfigs can be created and managed only via the API. A maximum of 100 ServingConfigs are allowed in an Engine, otherwise a RESOURCE_EXHAUSTED error is returned. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.servingConfigs.create(
+      {
+        parent: 'Test string',
+        servingConfigId: 'Test string',
+      },
+      {
+        answerGenerationSpec: {
+          userDefinedClassifierSpec: {
+            enableUserDefinedClassifier: true,
+            modelId: 'Test string',
+            preamble: 'Test string',
+            seed: 42,
+            taskMarker: 'Test string',
+            temperature: 42,
+            topK: 'Test string',
+            topP: 42,
+          },
+        },
+        boostControlIds: ['Test string'],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        dissociateControlIds: ['Test string'],
+        diversityLevel: 'Test string',
+        filterControlIds: ['Test string'],
+        genericConfig: {
+          contentSearchSpec: {
+            chunkSpec: {
+              numNextChunks: 42,
+              numPreviousChunks: 42,
+            },
+            extractiveContentSpec: {
+              maxExtractiveAnswerCount: 42,
+              maxExtractiveSegmentCount: 42,
+              numNextSegments: 42,
+              numPreviousSegments: 42,
+              returnExtractiveSegmentScore: true,
+            },
+            searchResultMode: 'Test string',
+            snippetSpec: {
+              maxSnippetCount: 42,
+              referenceOnly: true,
+              returnSnippet: true,
+            },
+            summarySpec: {
+              ignoreAdversarialQuery: true,
+              ignoreJailBreakingQuery: true,
+              ignoreLowRelevantContent: true,
+              ignoreNonSummarySeekingQuery: true,
+              includeCitations: true,
+              languageCode: 'Test string',
+              modelPromptSpec: {
+                preamble: 'Test string',
+              },
+              modelSpec: {
+                version: 'Test string',
+              },
+              summaryResultCount: 42,
+              useSemanticChunks: true,
+            },
+          },
+        },
+        ignoreControlIds: ['Test string'],
+        mediaConfig: {
+          contentFreshnessCutoffDays: 42,
+          contentWatchedPercentageThreshold: 42,
+          contentWatchedSecondsThreshold: 42,
+          demoteContentWatchedPastDays: 42,
+          demotionEventType: 'Test string',
+        },
+        modelId: 'Test string',
+        name: 'Test string',
+        onewaySynonymsControlIds: ['Test string'],
+        promoteControlIds: ['Test string'],
+        rankingExpression: 'Test string',
+        redirectControlIds: ['Test string'],
+        replacementControlIds: ['Test string'],
+        solutionType: 'Test string',
+        synonymsControlIds: ['Test string'],
+        updateTime: 'Test string',
       },
     );
     /** Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
