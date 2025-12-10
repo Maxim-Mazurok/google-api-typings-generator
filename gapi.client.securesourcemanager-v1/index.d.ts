@@ -208,7 +208,7 @@ declare namespace gapi.client {
       hostConfig?: HostConfig;
       /** Optional. Immutable. Customer-managed encryption key name, in the format projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*. */
       kmsKey?: string;
-      /** Optional. Labels as key value pairs. */
+      /** Optional. Labels as key value pairs. Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. For more information, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/best-practices-labels#label_encoding). */
       labels?: {[P in string]: string};
       /** Optional. A unique identifier for an instance. The name should be of the format: `projects/{project_number}/locations/{location_id}/instances/{instance_id}` `project_number`: Maps to a unique int64 id assigned to each project. `location_id`: Refers to the region where the instance will be deployed. Since Secure Source Manager is a regional service, it must be one of the valid GCP regions. `instance_id`: User provided name for the instance, must be unique for a project_number and location_id combination. */
       name?: string;
