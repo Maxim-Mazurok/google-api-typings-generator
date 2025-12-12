@@ -225,6 +225,21 @@ await gapi.client.aiplatform.reasoningEngines.query({name: 'name'});
 Streams queries using a reasoning engine.
 */
 await gapi.client.aiplatform.reasoningEngines.streamQuery({name: 'name'});
+
+/*
+Evaluates a dataset based on a set of given metrics.
+*/
+await gapi.client.aiplatform.evaluateDataset({});
+
+/*
+Evaluates instances based on a given metric.
+*/
+await gapi.client.aiplatform.evaluateInstances({});
+
+/*
+Generates rubrics for a given prompt. A rubric represents a single testable criterion for evaluation. One input prompt could have multiple rubrics This RPC allows users to get suggested rubrics based on provided prompt, which can then be reviewed and used for subsequent evaluations.
+*/
+await gapi.client.aiplatform.generateInstanceRubrics({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.aiplatform-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

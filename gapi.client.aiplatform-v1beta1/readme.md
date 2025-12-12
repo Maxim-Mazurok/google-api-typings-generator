@@ -152,21 +152,6 @@ Generate content with multimodal inputs with streaming support.
 await gapi.client.aiplatform.endpoints.streamGenerateContent({model: 'model'});
 
 /*
-Fully typed proto, unary version of GetInteraction that returns Interaction proto.
-*/
-await gapi.client.aiplatform.interactions.getPoll({name: 'name'});
-
-/*
-Fully typed proto, streaming version of GetInteraction that returns Interaction proto.
-*/
-await gapi.client.aiplatform.interactions.getStream({name: 'name'});
-
-/*
-Internal version of ListInteractions that returns a list of Interactions.
-*/
-await gapi.client.aiplatform.interactionsInternal.list({});
-
-/*
 Upload a file into a RagCorpus.
 */
 await gapi.client.aiplatform.media.upload({parent: 'parent'});
@@ -255,6 +240,21 @@ await gapi.client.aiplatform.reasoningEngines.query({name: 'name'});
 Streams queries using a reasoning engine.
 */
 await gapi.client.aiplatform.reasoningEngines.streamQuery({name: 'name'});
+
+/*
+Evaluates a dataset based on a set of given metrics.
+*/
+await gapi.client.aiplatform.evaluateDataset({});
+
+/*
+Evaluates instances based on a given metric.
+*/
+await gapi.client.aiplatform.evaluateInstances({});
+
+/*
+Generates rubrics for a given prompt. A rubric represents a single testable criterion for evaluation. One input prompt could have multiple rubrics This RPC allows users to get suggested rubrics based on provided prompt, which can then be reviewed and used for subsequent evaluations.
+*/
+await gapi.client.aiplatform.generateInstanceRubrics({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.aiplatform-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
