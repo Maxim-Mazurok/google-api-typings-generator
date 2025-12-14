@@ -1,5 +1,6 @@
 # TypeScript typings for App Hub API v1alpha
 
+App Hub lets you build, operate, and manage applications on Google Cloud.
 For detailed description please check [documentation](https://cloud.google.com/app-hub/docs/).
 
 ## Installing
