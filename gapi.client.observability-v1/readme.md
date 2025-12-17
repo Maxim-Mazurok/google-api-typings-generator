@@ -1,6 +1,5 @@
 # TypeScript typings for Observability API v1
 
-Provides functionality for configuring the observability scope, which controls the log, metric, and trace data that you can view.
 For detailed description please check [documentation](https://cloud.google.com/stackdriver/docs/).
 
 ## Installing
