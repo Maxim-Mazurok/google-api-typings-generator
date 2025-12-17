@@ -1054,9 +1054,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Requested page size. If unspecified, a default size of 30 will be used. The maximum value is 100; values above 100 will be coerced to 100. */
         pageSize?: number;
-        /** Optional. A token identifying a page of results the server should return. */
         pageToken?: string;
         parent: string;
         /** Returns response with indentations and line breaks. */
@@ -1268,7 +1266,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Requested page size. If unspecified, a default size of 30 will be used. The maximum value is 100; values above 100 will be coerced to 100. */
+        /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
         pageSize?: number;
         /** Optional. A token identifying a page of results the server should return. */
         pageToken?: string;
@@ -1475,7 +1473,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Requested page size. If unspecified, a default size of 30 will be used. The maximum value is 100; values above 100 will be coerced to 100. */
+        /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
         pageSize?: number;
         /** Optional. A token identifying a page of results the server should return. */
         pageToken?: string;
@@ -1744,7 +1742,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Requested page size. If unspecified, a default size of 30 will be used. The maximum value is 100; values above 100 will be coerced to 100. */
+        /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
         pageSize?: number;
         /** Optional. A token identifying a page of results the server should return. */
         pageToken?: string;
@@ -2068,7 +2066,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Requested page size. If unspecified, a default size of 30 will be used. The maximum value is 100; values above 100 will be coerced to 100. */
+        /** Optional. Requested page size. If unspecified, at most 100 pull request comments will be returned. The maximum value is 100; values above 100 will be coerced to 100. */
         pageSize?: number;
         /** Optional. A token identifying a page of results the server should return. */
         pageToken?: string;
@@ -2422,7 +2420,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Requested page size. If unspecified, a default size of 30 will be used. The maximum value is 100; values above 100 will be coerced to 100. */
+        /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
         pageSize?: number;
         /** Optional. A token identifying a page of results the server should return. */
         pageToken?: string;
@@ -2455,7 +2453,7 @@ declare namespace gapi.client {
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Requested page size. If unspecified, a default size of 30 will be used. The maximum value is 100; values above 100 will be coerced to 100. */
+        /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
         pageSize?: number;
         /** Optional. A token identifying a page of results the server should return. */
         pageToken?: string;
@@ -2880,7 +2878,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Requested page size. If unspecified, a default size of 30 will be used. The maximum value is 100; values above 100 will be coerced to 100. */
+        /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
         pageSize?: number;
         /** A token identifying a page of results the server should return. */
         pageToken?: string;
