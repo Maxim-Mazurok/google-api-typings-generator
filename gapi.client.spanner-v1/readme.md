@@ -54,7 +54,7 @@ var client_id = '',
     // Administer your Spanner databases
     'https://www.googleapis.com/auth/spanner.admin',
 
-    // View and manage the contents of your Spanner databases
+    // See, edit, configure, and delete your Google Cloud Spanner data and see the email address for your Google Account
     'https://www.googleapis.com/auth/spanner.data',
   ],
   immediate = true;
