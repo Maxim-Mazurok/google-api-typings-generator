@@ -24,6 +24,14 @@ declare namespace gapi.client {
   function load(name: 'docs', version: 'v1', callback: () => any): void;
 
   namespace docs {
+    interface AddDocumentTabRequest {
+      /** The properties of the tab to add. All properties are optional. */
+      tabProperties?: TabProperties;
+    }
+    interface AddDocumentTabResponse {
+      /** The properties of the newly added tab. */
+      tabProperties?: TabProperties;
+    }
     interface AutoText {
       /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
       suggestedDeletionIds?: string[];
@@ -253,6 +261,10 @@ declare namespace gapi.client {
     interface DeleteTableRowRequest {
       /** The reference table cell location from which the row will be deleted. The row this cell spans will be deleted. If this is a merged cell that spans multiple rows, all rows that the cell spans will be deleted. If no rows remain in the table after this deletion, the whole table is deleted. */
       tableCellLocation?: TableCellLocation;
+    }
+    interface DeleteTabRequest {
+      /** The ID of the tab to delete. */
+      tabId?: string;
     }
     interface Dimension {
       /** The magnitude. */
@@ -1081,6 +1093,8 @@ declare namespace gapi.client {
       text?: string;
     }
     interface Request {
+      /** Adds a document tab. */
+      addDocumentTab?: AddDocumentTabRequest;
       /** Creates a footer. */
       createFooter?: CreateFooterRequest;
       /** Creates a footnote. */
@@ -1103,6 +1117,8 @@ declare namespace gapi.client {
       deleteParagraphBullets?: DeleteParagraphBulletsRequest;
       /** Deletes a positioned object from the document. */
       deletePositionedObject?: DeletePositionedObjectRequest;
+      /** Deletes a document tab. */
+      deleteTab?: DeleteTabRequest;
       /** Deletes a column from a table. */
       deleteTableColumn?: DeleteTableColumnRequest;
       /** Deletes a row from a table. */
@@ -1139,6 +1155,8 @@ declare namespace gapi.client {
       unmergeTableCells?: UnmergeTableCellsRequest;
       /** Updates the style of the document. */
       updateDocumentStyle?: UpdateDocumentStyleRequest;
+      /** Updates the properties of a document tab. */
+      updateDocumentTabProperties?: UpdateDocumentTabPropertiesRequest;
       /** Updates the paragraph style at the specified range. */
       updateParagraphStyle?: UpdateParagraphStyleRequest;
       /** Updates the section style of the specified range. */
@@ -1153,6 +1171,8 @@ declare namespace gapi.client {
       updateTextStyle?: UpdateTextStyleRequest;
     }
     interface Response {
+      /** The result of adding a document tab. */
+      addDocumentTab?: AddDocumentTabResponse;
       /** The result of creating a footer. */
       createFooter?: CreateFooterResponse;
       /** The result of creating a footnote. */
@@ -1541,7 +1561,7 @@ declare namespace gapi.client {
       nestingLevel?: number;
       /** Optional. The ID of the parent tab. Empty when the current tab is a root-level tab, which means it doesn't have any parents. */
       parentTabId?: string;
-      /** Output only. The ID of the tab. This field can't be changed. */
+      /** The immutable ID of the tab. */
       tabId?: string;
       /** The user-visible name of the tab. */
       title?: string;
@@ -1627,6 +1647,12 @@ declare namespace gapi.client {
       fields?: string;
       /** The tab that contains the style to update. When omitted, the request applies to the first tab. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the request applies to the singular tab. In a document containing multiple tabs: - If provided, the request applies to the specified tab. - If not provided, the request applies to the first tab in the document. */
       tabId?: string;
+    }
+    interface UpdateDocumentTabPropertiesRequest {
+      /** The fields that should be updated. At least one field must be specified. The root `tab_properties` is implied and should not be specified. A single `"*"` can be used as short-hand for listing every field. */
+      fields?: string;
+      /** The tab properties to update. */
+      tabProperties?: TabProperties;
     }
     interface UpdateParagraphStyleRequest {
       /** The fields that should be updated. At least one field must be specified. The root `paragraph_style` is implied and should not be specified. A single `"*"` can be used as short-hand for listing every field. For example, to update the paragraph style's alignment property, set `fields` to `"alignment"`. To reset a property to its default value, include its field name in the field mask but leave the field itself unset. */

@@ -47,6 +47,16 @@ gapi.load('client', async () => {
       {
         requests: [
           {
+            addDocumentTab: {
+              tabProperties: {
+                iconEmoji: 'Test string',
+                index: 42,
+                nestingLevel: 42,
+                parentTabId: 'Test string',
+                tabId: 'Test string',
+                title: 'Test string',
+              },
+            },
             createFooter: {
               sectionBreakLocation: {
                 index: 42,
@@ -125,6 +135,9 @@ gapi.load('client', async () => {
             },
             deletePositionedObject: {
               objectId: 'Test string',
+              tabId: 'Test string',
+            },
+            deleteTab: {
               tabId: 'Test string',
             },
             deleteTableColumn: {
@@ -404,6 +417,17 @@ gapi.load('client', async () => {
               },
               fields: 'Test string',
               tabId: 'Test string',
+            },
+            updateDocumentTabProperties: {
+              fields: 'Test string',
+              tabProperties: {
+                iconEmoji: 'Test string',
+                index: 42,
+                nestingLevel: 42,
+                parentTabId: 'Test string',
+                tabId: 'Test string',
+                title: 'Test string',
+              },
             },
             updateParagraphStyle: {
               fields: 'Test string',
