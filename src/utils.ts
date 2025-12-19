@@ -2,9 +2,9 @@ import {getProxySettings, Protocol, ProxySetting} from 'get-proxy-settings';
 import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
 import _ from 'lodash';
 import LineByLine from 'n-readlines';
-import fs, {appendFileSync, PathLike} from 'node:fs';
+import fs, {appendFileSync} from 'node:fs';
 import {EOL} from 'node:os';
-import {URL} from 'node:url';
+import {fileURLToPath, URL} from 'node:url';
 import validateNpmPackageName from 'validate-npm-package-name';
 import {NpmArchivesToPublishHelper} from './archives-to-publish.js';
 import {revisionPrefix} from './constants.js';
@@ -176,10 +176,10 @@ export const getPackageName = (apiName: string) => {
 export const getFullPackageName = (packageName: string) =>
   `@${NPM_ORGANIZATION}/${packageName}`;
 
-export const getRevision = (indexDTSPath: PathLike) => {
+export const getRevision = (indexDTSPath: URL) => {
   // TODO: get revision from package.json version instead, use INTERNAL_TO_SEMVER as well, for consistency
-  let revision: number | undefined, lineBuffer: Buffer | false;
-  const liner = new LineByLine(indexDTSPath);
+  let revision: number | undefined, lineBuffer: Buffer | null;
+  const liner = new LineByLine(fileURLToPath(indexDTSPath));
   while ((lineBuffer = liner.next())) {
     const line = lineBuffer.toString();
     if (line.startsWith(revisionPrefix)) {
