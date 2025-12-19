@@ -4,6 +4,7 @@ import _ from 'lodash';
 import fs from 'node:fs';
 import {copyFile} from 'node:fs/promises';
 import path, {basename, join} from 'node:path';
+import {fileURLToPath, pathToFileURL} from 'node:url';
 import {
   fallbackDocumentationLinks,
   fullWidthCommercialAt,
@@ -804,7 +805,10 @@ export class App {
     }
 
     ensureDirectoryExists(destinationDirectory);
-    const indexDTSPath = path.join(destinationDirectory, 'index.d.ts');
+    const indexDTSPath = new URL(
+      'index.d.ts',
+      pathToFileURL(destinationDirectory + path.sep),
+    );
 
     if (newRevisionsOnly && fs.existsSync(indexDTSPath)) {
       if (!restDescription.revision) {
