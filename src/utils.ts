@@ -4,7 +4,7 @@ import _ from 'lodash';
 import LineByLine from 'n-readlines';
 import fs, {appendFileSync, PathLike} from 'node:fs';
 import {EOL} from 'node:os';
-import {URL} from 'node:url';
+import {URL, fileURLToPath} from 'node:url';
 import validateNpmPackageName from 'validate-npm-package-name';
 import {NpmArchivesToPublishHelper} from './archives-to-publish.js';
 import {revisionPrefix} from './constants.js';
@@ -179,7 +179,12 @@ export const getFullPackageName = (packageName: string) =>
 export const getRevision = (indexDTSPath: PathLike) => {
   // TODO: get revision from package.json version instead, use INTERNAL_TO_SEMVER as well, for consistency
   let revision: number | undefined, lineBuffer: Buffer | null;
-  const liner = new LineByLine(indexDTSPath.toString());
+  // Convert PathLike to string, handling URL objects properly
+  const pathString =
+    indexDTSPath instanceof URL
+      ? fileURLToPath(indexDTSPath)
+      : indexDTSPath.toString();
+  const liner = new LineByLine(pathString);
   while ((lineBuffer = liner.next())) {
     const line = lineBuffer.toString();
     if (line.startsWith(revisionPrefix)) {
