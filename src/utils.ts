@@ -179,11 +179,15 @@ export const getFullPackageName = (packageName: string) =>
 export const getRevision = (indexDTSPath: PathLike) => {
   // TODO: get revision from package.json version instead, use INTERNAL_TO_SEMVER as well, for consistency
   let revision: number | undefined, lineBuffer: Buffer | null;
-  // Convert PathLike to string, handling URL objects properly
-  const pathString =
-    indexDTSPath instanceof URL
-      ? fileURLToPath(indexDTSPath)
-      : indexDTSPath.toString();
+  // Convert PathLike to string, handling all possible types
+  let pathString: string;
+  if (indexDTSPath instanceof URL) {
+    pathString = fileURLToPath(indexDTSPath);
+  } else if (Buffer.isBuffer(indexDTSPath)) {
+    pathString = indexDTSPath.toString('utf-8');
+  } else {
+    pathString = indexDTSPath;
+  }
   const liner = new LineByLine(pathString);
   while ((lineBuffer = liner.next())) {
     const line = lineBuffer.toString();
