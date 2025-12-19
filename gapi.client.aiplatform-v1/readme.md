@@ -202,6 +202,11 @@ Deletes a reasoning engine.
 await gapi.client.aiplatform.reasoningEngines.delete({name: 'name'});
 
 /*
+Executes code statelessly.
+*/
+await gapi.client.aiplatform.reasoningEngines.executeCode({name: 'name'});
+
+/*
 Gets a reasoning engine.
 */
 await gapi.client.aiplatform.reasoningEngines.get({name: 'name'});
