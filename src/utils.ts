@@ -178,8 +178,8 @@ export const getFullPackageName = (packageName: string) =>
 
 export const getRevision = (indexDTSPath: PathLike) => {
   // TODO: get revision from package.json version instead, use INTERNAL_TO_SEMVER as well, for consistency
-  let revision: number | undefined, lineBuffer: Buffer | false;
-  const liner = new LineByLine(indexDTSPath);
+  let revision: number | undefined, lineBuffer: Buffer | null;
+  const liner = new LineByLine(indexDTSPath.toString());
   while ((lineBuffer = liner.next())) {
     const line = lineBuffer.toString();
     if (line.startsWith(revisionPrefix)) {
