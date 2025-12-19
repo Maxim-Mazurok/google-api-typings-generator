@@ -4,7 +4,7 @@ import _ from 'lodash';
 import fs from 'node:fs';
 import {copyFile} from 'node:fs/promises';
 import path, {basename, join} from 'node:path';
-import {fileURLToPath, pathToFileURL} from 'node:url';
+import {pathToFileURL} from 'node:url';
 import {
   fallbackDocumentationLinks,
   fullWidthCommercialAt,
