@@ -184,7 +184,7 @@ export const getRevision = (indexDTSPath: PathLike) => {
   if (indexDTSPath instanceof URL) {
     pathString = fileURLToPath(indexDTSPath);
   } else if (Buffer.isBuffer(indexDTSPath)) {
-    pathString = indexDTSPath.toString('utf-8');
+    pathString = indexDTSPath.toString();
   } else {
     pathString = indexDTSPath;
   }
