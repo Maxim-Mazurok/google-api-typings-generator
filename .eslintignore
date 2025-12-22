@@ -1,5 +1,0 @@
-**/node_modules
-dist/
-types/
-/test/restDocs/*.json
-/test/restDocs/results/

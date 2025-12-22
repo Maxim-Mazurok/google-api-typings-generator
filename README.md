@@ -42,7 +42,6 @@ Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/goo
    ```
 
 3. Generate type definitions for:
-
    - all discovered Google APIs:
 
      ```sh
