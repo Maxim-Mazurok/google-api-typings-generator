@@ -37,12 +37,12 @@ console.log(
   `Linting ${scripts.length} projects in ${MAX_PARALLEL} parallel processes...`,
 );
 
-// remove `types/` from .eslintignore file, otherwise new eslint-based dtslint won't be able to lint the files
-const eslintIgnorePath = join(import.meta.dirname, '..', '.eslintignore');
-const originalEslintIgnore = readFileSync(eslintIgnorePath, 'utf8');
-const newEslintIgnore = originalEslintIgnore.replace('types/', '');
-console.log(`Updating ${eslintIgnorePath}...`);
-writeFileSync(eslintIgnorePath, newEslintIgnore);
+// remove `types/` from eslint config file, otherwise new eslint-based dtslint won't be able to lint the files
+const eslintConfigPath = join(import.meta.dirname, '..', 'eslint.config.cjs');
+const originalEslintConfig = readFileSync(eslintConfigPath, 'utf8');
+const newEslintConfig = originalEslintConfig.replace(`'types/',`, '');
+console.log(`Updating ${eslintConfigPath}...`);
+writeFileSync(eslintConfigPath, newEslintConfig);
 
 runAll([scripts.shift()], options) // run first synchronously to install TypeScript
   .then(() => runAll(scripts, options))
@@ -70,6 +70,6 @@ runAll([scripts.shift()], options) // run first synchronously to install TypeScr
     throw error;
   })
   .finally(() => {
-    console.log(`Restoring ${eslintIgnorePath}...`);
-    writeFileSync(eslintIgnorePath, originalEslintIgnore);
+    console.log(`Restoring ${eslintConfigPath}...`);
+    writeFileSync(eslintConfigPath, originalEslintConfig);
   });
