@@ -9194,8 +9194,7 @@ gapi.load('client', async () => {
                                               mixedAudio: {
                                                 segments: [
                                                   {
-                                                    allowPlaybackInterruption:
-                                                      true,
+                                                    allowPlaybackInterruption: true,
                                                     audio: 'Test string',
                                                     uri: 'Test string',
                                                   },
@@ -10398,8 +10397,7 @@ gapi.load('client', async () => {
                                             mixedAudio: {
                                               segments: [
                                                 {
-                                                  allowPlaybackInterruption:
-                                                    true,
+                                                  allowPlaybackInterruption: true,
                                                   audio: 'Test string',
                                                   uri: 'Test string',
                                                 },
@@ -11643,8 +11641,7 @@ gapi.load('client', async () => {
                                               mixedAudio: {
                                                 segments: [
                                                   {
-                                                    allowPlaybackInterruption:
-                                                      true,
+                                                    allowPlaybackInterruption: true,
                                                     audio: 'Test string',
                                                     uri: 'Test string',
                                                   },
@@ -12847,8 +12844,7 @@ gapi.load('client', async () => {
                                             mixedAudio: {
                                               segments: [
                                                 {
-                                                  allowPlaybackInterruption:
-                                                    true,
+                                                  allowPlaybackInterruption: true,
                                                   audio: 'Test string',
                                                   uri: 'Test string',
                                                 },

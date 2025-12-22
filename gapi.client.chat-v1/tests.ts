@@ -833,8 +833,7 @@ gapi.load('client', async () => {
                                                 hostAppDataSource: {
                                                   chatDataSource: {
                                                     spaceDataSource: {
-                                                      defaultToCurrentSpace:
-                                                        true,
+                                                      defaultToCurrentSpace: true,
                                                     },
                                                   },
                                                   workflowDataSource: {
@@ -6444,8 +6443,7 @@ gapi.load('client', async () => {
                                                 hostAppDataSource: {
                                                   chatDataSource: {
                                                     spaceDataSource: {
-                                                      defaultToCurrentSpace:
-                                                        true,
+                                                      defaultToCurrentSpace: true,
                                                     },
                                                   },
                                                   workflowDataSource: {
@@ -12037,8 +12035,7 @@ gapi.load('client', async () => {
                                                 hostAppDataSource: {
                                                   chatDataSource: {
                                                     spaceDataSource: {
-                                                      defaultToCurrentSpace:
-                                                        true,
+                                                      defaultToCurrentSpace: true,
                                                     },
                                                   },
                                                   workflowDataSource: {
