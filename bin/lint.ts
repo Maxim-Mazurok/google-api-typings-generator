@@ -40,7 +40,7 @@ console.log(
 // remove `types/` from eslint config file, otherwise new eslint-based dtslint won't be able to lint the files
 const eslintConfigPath = join(import.meta.dirname, '..', 'eslint.config.cjs');
 const originalEslintConfig = readFileSync(eslintConfigPath, 'utf8');
-const newEslintConfig = originalEslintConfig.replace(`'types/',`, '');
+const newEslintConfig = originalEslintConfig.replace("'types/',", '');
 console.log(`Updating ${eslintConfigPath}...`);
 writeFileSync(eslintConfigPath, newEslintConfig);
 
