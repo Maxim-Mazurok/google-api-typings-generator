@@ -135,6 +135,21 @@ var client_id = '',
     // Move a copy of the maps you created in My Maps
     'https://www.googleapis.com/auth/dataportability.mymaps.maps',
 
+    // Copy Nest camera event data
+    'https://www.googleapis.com/auth/dataportability.nest.camera_event',
+
+    // Copy Nest camera feature data
+    'https://www.googleapis.com/auth/dataportability.nest.camera_feature',
+
+    // Copy Nest camera footage
+    'https://www.googleapis.com/auth/dataportability.nest.camera_video',
+
+    // Copy your Nest Store and Nest Renew billing and payment information
+    'https://www.googleapis.com/auth/dataportability.nest.store',
+
+    // Copy your Nest user information
+    'https://www.googleapis.com/auth/dataportability.nest.user',
+
     // Move a copy of your food purchase and reservation activity
     'https://www.googleapis.com/auth/dataportability.order_reserve.purchases_reservations',
 
