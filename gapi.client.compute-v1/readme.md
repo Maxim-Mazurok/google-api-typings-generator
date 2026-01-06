@@ -197,6 +197,11 @@ patch format and processing rules.
 await gapi.client.compute.autoscalers.patch({ project: "project", zone: "zone",  });
 
 /*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.autoscalers.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
 Updates an autoscaler in the specified project using the data
 included in the request.
 */
@@ -1066,6 +1071,11 @@ patch format and processing rules.
 await gapi.client.compute.healthChecks.patch({ healthCheck: "healthCheck", project: "project",  });
 
 /*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.healthChecks.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
 Updates a HealthCheck resource in the specified project using the data
 included in the request.
 */
@@ -1102,6 +1112,11 @@ patch format and processing rules.
 await gapi.client.compute.httpHealthChecks.patch({ httpHealthCheck: "httpHealthCheck", project: "project",  });
 
 /*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.httpHealthChecks.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
 Updates a HttpHealthCheck resource in the specified project using the data
 included in the request.
 */
@@ -1136,6 +1151,11 @@ semantics and uses theJSON merge
 patch format and processing rules.
 */
 await gapi.client.compute.httpsHealthChecks.patch({ httpsHealthCheck: "httpsHealthCheck", project: "project",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.httpsHealthChecks.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Updates a HttpsHealthCheck resource in the specified project using the data
@@ -3424,6 +3444,11 @@ patch format and processing rules.
 await gapi.client.compute.regionAutoscalers.patch({ project: "project", region: "region",  });
 
 /*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionAutoscalers.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Updates an autoscaler in the specified project using
 the data included in the request.
 */
@@ -3679,6 +3704,11 @@ semantics and uses theJSON merge
 patch format and processing rules.
 */
 await gapi.client.compute.regionHealthChecks.patch({ healthCheck: "healthCheck", project: "project", region: "region",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionHealthChecks.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Updates a HealthCheck resource in the specified project using the data
@@ -4260,6 +4290,11 @@ await gapi.client.compute.regionNotificationEndpoints.insert({ project: "project
 Lists the NotificationEndpoints for a project in the given region.
 */
 await gapi.client.compute.regionNotificationEndpoints.list({ project: "project", region: "region",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionNotificationEndpoints.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified region-specific Operations resource.
@@ -4899,6 +4934,11 @@ await gapi.client.compute.routes.insert({ project: "project",  });
 Retrieves the list of Route resources available to the specified project.
 */
 await gapi.client.compute.routes.list({ project: "project",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.routes.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Inserts a rule into a security policy.
@@ -5630,6 +5670,11 @@ connection between the load balancer and the backends.
 await gapi.client.compute.targetSslProxies.setSslPolicy({ project: "project", targetSslProxy: "targetSslProxy",  });
 
 /*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.targetSslProxies.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
 Retrieves the list of all TargetTcpProxy resources, regional and global,
 available to the specified project.
 
@@ -5669,6 +5714,11 @@ await gapi.client.compute.targetTcpProxies.setBackendService({ project: "project
 Changes the ProxyHeaderType for TargetTcpProxy.
 */
 await gapi.client.compute.targetTcpProxies.setProxyHeader({ project: "project", targetTcpProxy: "targetTcpProxy",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.targetTcpProxies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Retrieves an aggregated list of target VPN gateways.
@@ -5753,6 +5803,11 @@ semantics and uses theJSON merge
 patch format and processing rules.
 */
 await gapi.client.compute.urlMaps.patch({ project: "project", urlMap: "urlMap",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.urlMaps.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Updates the specified UrlMap resource with the data included in the
