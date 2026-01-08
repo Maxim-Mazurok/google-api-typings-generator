@@ -4652,16 +4652,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionInstantSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Retrieves information about the specified multi-MIG member.
-*/
-await gapi.client.compute.regionMultiMigMembers.get({ multiMig: "multiMig", multiMigMember: "multiMigMember", project: "project", region: "region",  });
-
-/*
-Retrieves a list of members of a specific multi-MIG.
-*/
-await gapi.client.compute.regionMultiMigMembers.list({ multiMig: "multiMig", project: "project", region: "region",  });
-
-/*
 Deletes a multi-MIG in the specified project.
 */
 await gapi.client.compute.regionMultiMigs.delete({ multiMig: "multiMig", project: "project", region: "region",  });
