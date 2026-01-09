@@ -4097,6 +4097,12 @@ Returns the specified CompositeHealthCheck resource in the given region.
 await gapi.client.compute.regionCompositeHealthChecks.get({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
 
 /*
+Gets the most recent health check results for this
+regional CompositeHealthCheck.
+*/
+await gapi.client.compute.regionCompositeHealthChecks.getHealth({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
+
+/*
 Create a CompositeHealthCheck in the specified project in the given region
 using the parameters that are included in the request.
 */
