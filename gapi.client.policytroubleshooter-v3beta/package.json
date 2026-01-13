@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.binaryauthorization-v1",
-  "version": "0.0.20251212",
-  "description": "TypeScript typings for Binary Authorization API v1",
+  "name": "@maxim_mazurok/gapi.client.policytroubleshooter-v3beta",
+  "version": "0.0.20260111",
+  "description": "TypeScript typings for Policy Troubleshooter API v3beta",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
