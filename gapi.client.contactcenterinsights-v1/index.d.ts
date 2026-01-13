@@ -1070,10 +1070,36 @@ declare namespace gapi.client {
     interface GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPoint {
       /** The measure related to conversations. */
       conversationMeasure?: GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasure;
+      /** The measure related to dialogflow interactions. */
+      dialogflowInteractionMeasure?: GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointDialogflowInteractionMeasure;
       /** The interval that this data point represents. * If this is the total data point, the interval is [starting create time, ending create time) from the request. * If this a data point from the time series, the interval is [time, time + time granularity from the request). */
       interval?: GoogleTypeInterval;
     }
     interface GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasure {
+      /** The number of conversations that were assigned to an AA human supervisor. */
+      aaSupervisorAssignedConversationsCount?: number;
+      /** The number of conversations that were dropped, i.e. escalated but not assigned to an AA human supervisor. */
+      aaSupervisorDroppedConversationsCount?: number;
+      /** The number of conversations that were escalated to an AA human supervisor for intervention. */
+      aaSupervisorEscalatedConversationsCount?: number;
+      /** The number of conversations scanned by the AA human supervisor. */
+      aaSupervisorMonitoredConversationsCount?: number;
+      /** The number of conversations transferred to a human agent. */
+      aaSupervisorTransferredToHumanAgentConvCount?: number;
+      /** Count of agent messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionAgentMessageTriggerCount?: number;
+      /** Count of Ai Coach Suggestion that has been used by agents. */
+      aiCoachSuggestionAgentUsageCount?: number;
+      /** Proportion of Ai Coach Suggestion that has been used by agents. */
+      aiCoachSuggestionAgentUsageRatio?: number;
+      /** Count of customer messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionCustomerMessageTriggerCount?: number;
+      /** Proportion of customer messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionCustomerMessageTriggerRatio?: number;
+      /** Count of end_of_utterance trigger event messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionMessageTriggerCount?: number;
+      /** Proportion of end_of_utterance trigger event messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionMessageTriggerRatio?: number;
       /** The average agent's sentiment score. */
       averageAgentSentimentScore?: number;
       /** The average client's sentiment score. */
@@ -1088,18 +1114,104 @@ declare namespace gapi.client {
       averageQaQuestionNormalizedScore?: number;
       /** The average silence percentage. */
       averageSilencePercentage?: number;
+      /** Average edit distance of the summarization suggestions. Edit distance (also called as levenshtein distance) is calculated by summing up number of insertions, deletions and substitutions required to transform the summization feedback to the original summary suggestion. */
+      averageSummarizationSuggestionEditDistance?: number;
+      /** Normalized Average edit distance of the summarization suggestions. Edit distance (also called as levenshtein distance) is calculated by summing up number of insertions, deletions and substitutions required to transform the summization feedback to the original summary suggestion. Normalized edit distance is the average of (edit distance / summary length). */
+      averageSummarizationSuggestionNormalizedEditDistance?: number;
       /** The average turn count. */
       averageTurnCount?: number;
+      /** The exponential moving average of the sentiment score of client turns in the conversation. */
+      avgConversationClientTurnSentimentEma?: number;
+      /** The number of conversations that were contained. */
+      containedConversationCount?: number;
+      /** The percentage of conversations that were contained. */
+      containedConversationRatio?: number;
+      /** Count of conversations that has Ai Coach Suggestions. */
+      conversationAiCoachSuggestionCount?: number;
+      /** Proportion of conversations that has Ai Coach Suggestions. */
+      conversationAiCoachSuggestionRatio?: number;
+      /** The average latency of conversational agents' audio in audio out latency per interaction. This is computed as the average of the all the interactions' audio in audio out latencies in a conversation and averaged across conversations. */
+      conversationalAgentsAverageAudioInAudioOutLatency?: number;
+      /** The average latency of conversational agents' latency per interaction. This is computed as the average of the all the iteractions' end to end latencies in a conversation and averaged across conversations. The e2e latency is the time between the end of the user utterance and the start of the agent utterance on the interaction level. */
+      conversationalAgentsAverageEndToEndLatency?: number;
+      /** The average latency of conversational agents' LLM call latency per interaction. This is computed as the average of the all the interactions LLM call latencies in a conversation and averaged across conversations. */
+      conversationalAgentsAverageLlmCallLatency?: number;
+      /** The macro average latency of conversational agents' TTS latency per interaction. This is computed as the average of the all the interactions' TTS latencies in a conversation and averaged across conversations. */
+      conversationalAgentsAverageTtsLatency?: number;
       /** The conversation count. */
       conversationCount?: number;
+      /** Proportion of conversations that had a suggested summary. */
+      conversationSuggestedSummaryRatio?: number;
+      /** The agent message count. */
+      conversationTotalAgentMessageCount?: number;
+      /** The customer message count. */
+      conversationTotalCustomerMessageCount?: number;
+      /** Average latency of dialogflow webhook calls. */
+      dialogflowAverageWebhookLatency?: number;
+      /** count of conversations that was handed off from virtual agent to human agent. */
+      dialogflowConversationsEscalationCount?: number;
+      /** Proportion of conversations that was handed off from virtual agent to human agent. */
+      dialogflowConversationsEscalationRatio?: number;
+      /** Proportion of dialogflow interactions that has empty input. */
+      dialogflowInteractionsNoInputRatio?: number;
+      /** Proportion of dialogflow interactions that has no intent match for the input. */
+      dialogflowInteractionsNoMatchRatio?: number;
+      /** Proportion of dialogflow webhook calls that failed. */
+      dialogflowWebhookFailureRatio?: number;
+      /** Proportion of dialogflow webhook calls that timed out. */
+      dialogflowWebhookTimeoutRatio?: number;
+      /** Proportion of knowledge assist (Proactive Generative Knowledge Assist) queries that had negative feedback. */
+      knowledgeAssistNegativeFeedbackRatio?: number;
+      /** Proportion of knowledge assist (Proactive Generative Knowledge Assist) queries that had positive feedback. */
+      knowledgeAssistPositiveFeedbackRatio?: number;
+      /** Count of knowledge assist results (Proactive Generative Knowledge Assist) shown to the user. */
+      knowledgeAssistResultCount?: number;
+      /** Proportion of knowledge assist (Proactive Generative Knowledge Assist) queries that had a URL clicked. */
+      knowledgeAssistUriClickRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries made by the agent compared to the total number of knowledge search queries made. */
+      knowledgeSearchAgentQuerySourceRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries that had negative feedback. */
+      knowledgeSearchNegativeFeedbackRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries that had positive feedback. */
+      knowledgeSearchPositiveFeedbackRatio?: number;
+      /** Count of knowledge search results (Generative Knowledge Assist) shown to the user. */
+      knowledgeSearchResultCount?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries suggested compared to the total number of knowledge search queries made. */
+      knowledgeSearchSuggestedQuerySourceRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries that had a URL clicked. */
+      knowledgeSearchUriClickRatio?: number;
       /** Average QA normalized score for all the tags. */
       qaTagScores?: GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore[];
+      /** Proportion of summarization suggestions that were manually edited. */
+      summarizationSuggestionEditRatio?: number;
+      /** Count of summarization suggestions results. */
+      summarizationSuggestionResultCount?: number;
     }
     interface GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore {
       /** Average tag normalized score per tag. */
       averageTagNormalizedScore?: number;
       /** Tag name. */
       tag?: string;
+    }
+    interface GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointDialogflowInteractionMeasure {
+      /** The percentile result for audio in audio out latency in milliseconds per dialogflow interaction level. */
+      percentileAudioInAudioOutLatency?: GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for end to end chat latency in milliseconds per dialogflow interaction level. */
+      percentileEndToEndLatency?: GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for LLM latency in milliseconds per dialogflow interaction level. */
+      percentileLlmCallLatency?: GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for tool use latency in milliseconds per dialogflow interaction level. */
+      percentileToolUseLatency?: GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for TTS latency in milliseconds per dialogflow interaction level. */
+      percentileTtsLatency?: GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult;
+    }
+    interface GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult {
+      /** The 50th percentile value. */
+      p50?: number;
+      /** The 90th percentile value. */
+      p90?: number;
+      /** The 99th percentile value. */
+      p99?: number;
     }
     interface GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceTimeSeries {
       /** The data points that make up the time series . */
@@ -3581,10 +3693,36 @@ declare namespace gapi.client {
     interface GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPoint {
       /** The measure related to conversations. */
       conversationMeasure?: GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointConversationMeasure;
+      /** The measure related to dialogflow interactions. */
+      dialogflowInteractionMeasure?: GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointDialogflowInteractionMeasure;
       /** The interval that this data point represents. * If this is the total data point, the interval is [starting create time, ending create time) from the request. * If this a data point from the time series, the interval is [time, time + time granularity from the request). */
       interval?: GoogleTypeInterval;
     }
     interface GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointConversationMeasure {
+      /** The number of conversations that were assigned to an AA human supervisor. */
+      aaSupervisorAssignedConversationsCount?: number;
+      /** The number of conversations that were dropped, i.e. escalated but not assigned to an AA human supervisor. */
+      aaSupervisorDroppedConversationsCount?: number;
+      /** The number of conversations that were escalated to an AA human supervisor for intervention. */
+      aaSupervisorEscalatedConversationsCount?: number;
+      /** The number of conversations scanned by the AA human supervisor. */
+      aaSupervisorMonitoredConversationsCount?: number;
+      /** The number of conversations transferred to a human agent. */
+      aaSupervisorTransferredToHumanAgentConvCount?: number;
+      /** Count of agent messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionAgentMessageTriggerCount?: number;
+      /** Count of Ai Coach Suggestion that has been used by agents. */
+      aiCoachSuggestionAgentUsageCount?: number;
+      /** Proportion of Ai Coach Suggestion that has been used by agents. */
+      aiCoachSuggestionAgentUsageRatio?: number;
+      /** Count of customer messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionCustomerMessageTriggerCount?: number;
+      /** Proportion of customer messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionCustomerMessageTriggerRatio?: number;
+      /** Count of end_of_utterance trigger event messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionMessageTriggerCount?: number;
+      /** Proportion of end_of_utterance trigger event messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionMessageTriggerRatio?: number;
       /** The average agent's sentiment score. */
       averageAgentSentimentScore?: number;
       /** The average client's sentiment score. */
@@ -3599,18 +3737,104 @@ declare namespace gapi.client {
       averageQaQuestionNormalizedScore?: number;
       /** The average silence percentage. */
       averageSilencePercentage?: number;
+      /** Average edit distance of the summarization suggestions. Edit distance (also called as levenshtein distance) is calculated by summing up number of insertions, deletions and substitutions required to transform the summization feedback to the original summary suggestion. */
+      averageSummarizationSuggestionEditDistance?: number;
+      /** Normalized Average edit distance of the summarization suggestions. Edit distance (also called as levenshtein distance) is calculated by summing up number of insertions, deletions and substitutions required to transform the summization feedback to the original summary suggestion. Normalized edit distance is the average of (edit distance / summary length). */
+      averageSummarizationSuggestionNormalizedEditDistance?: number;
       /** The average turn count. */
       averageTurnCount?: number;
+      /** The exponential moving average of the sentiment score of client turns in the conversation. */
+      avgConversationClientTurnSentimentEma?: number;
+      /** The number of conversations that were contained. */
+      containedConversationCount?: number;
+      /** The percentage of conversations that were contained. */
+      containedConversationRatio?: number;
+      /** Count of conversations that has Ai Coach Suggestions. */
+      conversationAiCoachSuggestionCount?: number;
+      /** Proportion of conversations that has Ai Coach Suggestions. */
+      conversationAiCoachSuggestionRatio?: number;
+      /** The average latency of conversational agents' audio in audio out latency per interaction. This is computed as the average of the all the interactions' audio in audio out latencies in a conversation and averaged across conversations. */
+      conversationalAgentsAverageAudioInAudioOutLatency?: number;
+      /** The average latency of conversational agents' latency per interaction. This is computed as the average of the all the iteractions' end to end latencies in a conversation and averaged across conversations. The e2e latency is the time between the end of the user utterance and the start of the agent utterance on the interaction level. */
+      conversationalAgentsAverageEndToEndLatency?: number;
+      /** The average latency of conversational agents' LLM call latency per interaction. This is computed as the average of the all the interactions LLM call latencies in a conversation and averaged across conversations. */
+      conversationalAgentsAverageLlmCallLatency?: number;
+      /** The macro average latency of conversational agents' TTS latency per interaction. This is computed as the average of the all the interactions' TTS latencies in a conversation and averaged across conversations. */
+      conversationalAgentsAverageTtsLatency?: number;
       /** The conversation count. */
       conversationCount?: number;
+      /** Proportion of conversations that had a suggested summary. */
+      conversationSuggestedSummaryRatio?: number;
+      /** The agent message count. */
+      conversationTotalAgentMessageCount?: number;
+      /** The customer message count. */
+      conversationTotalCustomerMessageCount?: number;
+      /** Average latency of dialogflow webhook calls. */
+      dialogflowAverageWebhookLatency?: number;
+      /** count of conversations that was handed off from virtual agent to human agent. */
+      dialogflowConversationsEscalationCount?: number;
+      /** Proportion of conversations that was handed off from virtual agent to human agent. */
+      dialogflowConversationsEscalationRatio?: number;
+      /** Proportion of dialogflow interactions that has empty input. */
+      dialogflowInteractionsNoInputRatio?: number;
+      /** Proportion of dialogflow interactions that has no intent match for the input. */
+      dialogflowInteractionsNoMatchRatio?: number;
+      /** Proportion of dialogflow webhook calls that failed. */
+      dialogflowWebhookFailureRatio?: number;
+      /** Proportion of dialogflow webhook calls that timed out. */
+      dialogflowWebhookTimeoutRatio?: number;
+      /** Proportion of knowledge assist (Proactive Generative Knowledge Assist) queries that had negative feedback. */
+      knowledgeAssistNegativeFeedbackRatio?: number;
+      /** Proportion of knowledge assist (Proactive Generative Knowledge Assist) queries that had positive feedback. */
+      knowledgeAssistPositiveFeedbackRatio?: number;
+      /** Count of knowledge assist results (Proactive Generative Knowledge Assist) shown to the user. */
+      knowledgeAssistResultCount?: number;
+      /** Proportion of knowledge assist (Proactive Generative Knowledge Assist) queries that had a URL clicked. */
+      knowledgeAssistUriClickRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries made by the agent compared to the total number of knowledge search queries made. */
+      knowledgeSearchAgentQuerySourceRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries that had negative feedback. */
+      knowledgeSearchNegativeFeedbackRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries that had positive feedback. */
+      knowledgeSearchPositiveFeedbackRatio?: number;
+      /** Count of knowledge search results (Generative Knowledge Assist) shown to the user. */
+      knowledgeSearchResultCount?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries suggested compared to the total number of knowledge search queries made. */
+      knowledgeSearchSuggestedQuerySourceRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries that had a URL clicked. */
+      knowledgeSearchUriClickRatio?: number;
       /** Average QA normalized score for all the tags. */
       qaTagScores?: GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointConversationMeasureQaTagScore[];
+      /** Proportion of summarization suggestions that were manually edited. */
+      summarizationSuggestionEditRatio?: number;
+      /** Count of summarization suggestions results. */
+      summarizationSuggestionResultCount?: number;
     }
     interface GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointConversationMeasureQaTagScore {
       /** Average tag normalized score per tag. */
       averageTagNormalizedScore?: number;
       /** Tag name. */
       tag?: string;
+    }
+    interface GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointDialogflowInteractionMeasure {
+      /** The percentile result for audio in audio out latency in milliseconds per dialogflow interaction level. */
+      percentileAudioInAudioOutLatency?: GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for end to end chat latency in milliseconds per dialogflow interaction level. */
+      percentileEndToEndLatency?: GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for LLM latency in milliseconds per dialogflow interaction level. */
+      percentileLlmCallLatency?: GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for tool use latency in milliseconds per dialogflow interaction level. */
+      percentileToolUseLatency?: GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for TTS latency in milliseconds per dialogflow interaction level. */
+      percentileTtsLatency?: GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult;
+    }
+    interface GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult {
+      /** The 50th percentile value. */
+      p50?: number;
+      /** The 90th percentile value. */
+      p90?: number;
+      /** The 99th percentile value. */
+      p99?: number;
     }
     interface GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceTimeSeries {
       /** The data points that make up the time series . */
@@ -4085,10 +4309,36 @@ declare namespace gapi.client {
     interface GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPoint {
       /** The measure related to conversations. */
       conversationMeasure?: GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasure;
+      /** The measure related to dialogflow interactions. */
+      dialogflowInteractionMeasure?: GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointDialogflowInteractionMeasure;
       /** The interval that this data point represents. * If this is the total data point, the interval is [starting create time, ending create time) from the request. * If this a data point from the time series, the interval is [time, time + time granularity from the request). */
       interval?: GoogleTypeInterval;
     }
     interface GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasure {
+      /** The number of conversations that were assigned to an AA human supervisor. */
+      aaSupervisorAssignedConversationsCount?: number;
+      /** The number of conversations that were dropped, i.e. escalated but not assigned to an AA human supervisor. */
+      aaSupervisorDroppedConversationsCount?: number;
+      /** The number of conversations that were escalated to an AA human supervisor for intervention. */
+      aaSupervisorEscalatedConversationsCount?: number;
+      /** The number of conversations scanned by the AA human supervisor. */
+      aaSupervisorMonitoredConversationsCount?: number;
+      /** The number of conversations transferred to a human agent. */
+      aaSupervisorTransferredToHumanAgentConvCount?: number;
+      /** Count of agent messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionAgentMessageTriggerCount?: number;
+      /** Count of Ai Coach Suggestion that has been used by agents. */
+      aiCoachSuggestionAgentUsageCount?: number;
+      /** Proportion of Ai Coach Suggestion that has been used by agents. */
+      aiCoachSuggestionAgentUsageRatio?: number;
+      /** Count of customer messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionCustomerMessageTriggerCount?: number;
+      /** Proportion of customer messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionCustomerMessageTriggerRatio?: number;
+      /** Count of end_of_utterance trigger event messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionMessageTriggerCount?: number;
+      /** Proportion of end_of_utterance trigger event messages that triggered an Ai Coach Suggestion. */
+      aiCoachSuggestionMessageTriggerRatio?: number;
       /** The average agent's sentiment score. */
       averageAgentSentimentScore?: number;
       /** The average client's sentiment score. */
@@ -4103,18 +4353,104 @@ declare namespace gapi.client {
       averageQaQuestionNormalizedScore?: number;
       /** The average silence percentage. */
       averageSilencePercentage?: number;
+      /** Average edit distance of the summarization suggestions. Edit distance (also called as levenshtein distance) is calculated by summing up number of insertions, deletions and substitutions required to transform the summization feedback to the original summary suggestion. */
+      averageSummarizationSuggestionEditDistance?: number;
+      /** Normalized Average edit distance of the summarization suggestions. Edit distance (also called as levenshtein distance) is calculated by summing up number of insertions, deletions and substitutions required to transform the summization feedback to the original summary suggestion. Normalized edit distance is the average of (edit distance / summary length). */
+      averageSummarizationSuggestionNormalizedEditDistance?: number;
       /** The average turn count. */
       averageTurnCount?: number;
+      /** The exponential moving average of the sentiment score of client turns in the conversation. */
+      avgConversationClientTurnSentimentEma?: number;
+      /** The number of conversations that were contained. */
+      containedConversationCount?: number;
+      /** The percentage of conversations that were contained. */
+      containedConversationRatio?: number;
+      /** Count of conversations that has Ai Coach Suggestions. */
+      conversationAiCoachSuggestionCount?: number;
+      /** Proportion of conversations that has Ai Coach Suggestions. */
+      conversationAiCoachSuggestionRatio?: number;
+      /** The average latency of conversational agents' audio in audio out latency per interaction. This is computed as the average of the all the interactions' audio in audio out latencies in a conversation and averaged across conversations. */
+      conversationalAgentsAverageAudioInAudioOutLatency?: number;
+      /** The average latency of conversational agents' latency per interaction. This is computed as the average of the all the iteractions' end to end latencies in a conversation and averaged across conversations. The e2e latency is the time between the end of the user utterance and the start of the agent utterance on the interaction level. */
+      conversationalAgentsAverageEndToEndLatency?: number;
+      /** The average latency of conversational agents' LLM call latency per interaction. This is computed as the average of the all the interactions LLM call latencies in a conversation and averaged across conversations. */
+      conversationalAgentsAverageLlmCallLatency?: number;
+      /** The macro average latency of conversational agents' TTS latency per interaction. This is computed as the average of the all the interactions' TTS latencies in a conversation and averaged across conversations. */
+      conversationalAgentsAverageTtsLatency?: number;
       /** The conversation count. */
       conversationCount?: number;
+      /** Proportion of conversations that had a suggested summary. */
+      conversationSuggestedSummaryRatio?: number;
+      /** The agent message count. */
+      conversationTotalAgentMessageCount?: number;
+      /** The customer message count. */
+      conversationTotalCustomerMessageCount?: number;
+      /** Average latency of dialogflow webhook calls. */
+      dialogflowAverageWebhookLatency?: number;
+      /** count of conversations that was handed off from virtual agent to human agent. */
+      dialogflowConversationsEscalationCount?: number;
+      /** Proportion of conversations that was handed off from virtual agent to human agent. */
+      dialogflowConversationsEscalationRatio?: number;
+      /** Proportion of dialogflow interactions that has empty input. */
+      dialogflowInteractionsNoInputRatio?: number;
+      /** Proportion of dialogflow interactions that has no intent match for the input. */
+      dialogflowInteractionsNoMatchRatio?: number;
+      /** Proportion of dialogflow webhook calls that failed. */
+      dialogflowWebhookFailureRatio?: number;
+      /** Proportion of dialogflow webhook calls that timed out. */
+      dialogflowWebhookTimeoutRatio?: number;
+      /** Proportion of knowledge assist (Proactive Generative Knowledge Assist) queries that had negative feedback. */
+      knowledgeAssistNegativeFeedbackRatio?: number;
+      /** Proportion of knowledge assist (Proactive Generative Knowledge Assist) queries that had positive feedback. */
+      knowledgeAssistPositiveFeedbackRatio?: number;
+      /** Count of knowledge assist results (Proactive Generative Knowledge Assist) shown to the user. */
+      knowledgeAssistResultCount?: number;
+      /** Proportion of knowledge assist (Proactive Generative Knowledge Assist) queries that had a URL clicked. */
+      knowledgeAssistUriClickRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries made by the agent compared to the total number of knowledge search queries made. */
+      knowledgeSearchAgentQuerySourceRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries that had negative feedback. */
+      knowledgeSearchNegativeFeedbackRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries that had positive feedback. */
+      knowledgeSearchPositiveFeedbackRatio?: number;
+      /** Count of knowledge search results (Generative Knowledge Assist) shown to the user. */
+      knowledgeSearchResultCount?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries suggested compared to the total number of knowledge search queries made. */
+      knowledgeSearchSuggestedQuerySourceRatio?: number;
+      /** Proportion of knowledge search (Generative Knowledge Assist) queries that had a URL clicked. */
+      knowledgeSearchUriClickRatio?: number;
       /** Average QA normalized score for all the tags. */
       qaTagScores?: GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore[];
+      /** Proportion of summarization suggestions that were manually edited. */
+      summarizationSuggestionEditRatio?: number;
+      /** Count of summarization suggestions results. */
+      summarizationSuggestionResultCount?: number;
     }
     interface GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore {
       /** Average tag normalized score per tag. */
       averageTagNormalizedScore?: number;
       /** Tag name. */
       tag?: string;
+    }
+    interface GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointDialogflowInteractionMeasure {
+      /** The percentile result for audio in audio out latency in milliseconds per dialogflow interaction level. */
+      percentileAudioInAudioOutLatency?: GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for end to end chat latency in milliseconds per dialogflow interaction level. */
+      percentileEndToEndLatency?: GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for LLM latency in milliseconds per dialogflow interaction level. */
+      percentileLlmCallLatency?: GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for tool use latency in milliseconds per dialogflow interaction level. */
+      percentileToolUseLatency?: GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult;
+      /** The percentile result for TTS latency in milliseconds per dialogflow interaction level. */
+      percentileTtsLatency?: GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult;
+    }
+    interface GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult {
+      /** The 50th percentile value. */
+      p50?: number;
+      /** The 90th percentile value. */
+      p90?: number;
+      /** The 99th percentile value. */
+      p99?: number;
     }
     interface GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceTimeSeries {
       /** The data points that make up the time series . */
