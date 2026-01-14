@@ -80,7 +80,6 @@ gapi.load('client', async () => {
     );
     /** Deletes a single instance. */
     await gapi.client.securesourcemanager.projects.locations.instances.delete({
-      force: true,
       name: 'Test string',
       requestId: 'Test string',
     });
