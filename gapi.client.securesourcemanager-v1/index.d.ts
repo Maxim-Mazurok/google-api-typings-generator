@@ -606,6 +606,8 @@ declare namespace gapi.client {
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
+        /** Optional. If set to true, will force the deletion of the instance. */
+        force?: boolean;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Required. Name of the resource. */
