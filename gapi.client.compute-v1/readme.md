@@ -4730,6 +4730,21 @@ Update share settings of the reservation.
 await gapi.client.compute.reservations.update({ project: "project", reservation: "reservation", zone: "zone",  });
 
 /*
+Retrieves information about the specified reservation slot.
+*/
+await gapi.client.compute.reservationSlots.get({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
+
+/*
+Retrieves a list of reservation slots under a single reservation.
+*/
+await gapi.client.compute.reservationSlots.list({ parentName: "parentName", project: "project", zone: "zone",  });
+
+/*
+Update a reservation slot in the specified sub-block.
+*/
+await gapi.client.compute.reservationSlots.update({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
+
+/*
 Retrieves information about the specified reservation subBlock.
 */
 await gapi.client.compute.reservationSubBlocks.get({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
