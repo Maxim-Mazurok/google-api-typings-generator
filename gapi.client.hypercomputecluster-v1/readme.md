@@ -1,6 +1,6 @@
 # TypeScript typings for Cluster Director API v1
 
-For detailed description please check [documentation](https://cloud.google.com/ai-hypercomputer/docs/cluster-director).
+For detailed description please check [documentation](https://docs.cloud.google.com/cluster-director/docs).
 
 ## Installing
 
