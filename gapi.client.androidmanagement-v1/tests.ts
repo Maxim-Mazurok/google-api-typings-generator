@@ -1128,6 +1128,7 @@ gapi.load('client', async () => {
         },
         stayOnPluggedModes: ['Test string'],
         systemUpdate: {
+          allowedDaysWithoutUpdate: 42,
           endMinutes: 42,
           freezePeriods: [
             {
