@@ -73,17 +73,17 @@ After that you can use Dialogflow API resources: <!-- TODO: make this work for m
 
 ```typescript
 /*
-
+Deletes the specified agent.
 */
 await gapi.client.dialogflow.projects.deleteAgent({parent: 'parent'});
 
 /*
-
+Retrieves the specified agent.
 */
 await gapi.client.dialogflow.projects.getAgent({parent: 'parent'});
 
 /*
-
+Creates/updates the specified agent. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
 */
 await gapi.client.dialogflow.projects.setAgent({parent: 'parent'});
 ```
