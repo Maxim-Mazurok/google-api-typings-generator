@@ -5,6 +5,9 @@ on:
     - cron: '30 3 * * 0' # Weekly on Sunday at 3:30 AM UTC (1:30 PM Sydney AEST / 2:30 PM Sydney AEDT) # cspell:words AEST AEDT
   workflow_dispatch: # for manual testing
 
+permissions:
+  contents: read
+
 jobs:
   update-and-maintain:
     runs-on: ubuntu-latest
