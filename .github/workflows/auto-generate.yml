@@ -9,6 +9,9 @@ on:
     types: [auto-generate-types]
   workflow_dispatch: # for manual testing
 
+permissions:
+  contents: read
+
 jobs:
   auto-generate:
     runs-on: ubuntu-latest

@@ -3,6 +3,10 @@ on:
   push:
   release:
     types: [published]
+
+permissions:
+  contents: read
+
 jobs:
   auto-rebase:
     name: rebase dependabot PRs

@@ -5,6 +5,10 @@ on:
     types: [opened, reopened]
     branches: [master]
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   add_label:
     runs-on: ubuntu-latest
