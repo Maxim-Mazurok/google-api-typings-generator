@@ -68,7 +68,7 @@
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "validate-npm-package-name": "^7.0.2",
-    "vitest": "^4.0.17",
+    "vitest": "^4.0.18",
     "zod": "^4.2.1"
   },
   "engines": {
