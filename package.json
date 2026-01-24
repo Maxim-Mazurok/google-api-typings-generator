@@ -69,7 +69,7 @@
     "typescript": "^5.9.3",
     "validate-npm-package-name": "^7.0.2",
     "vitest": "^4.0.18",
-    "zod": "^4.2.1"
+    "zod": "^4.3.6"
   },
   "engines": {
     "node": "25.3.0",
