@@ -1155,6 +1155,11 @@ Gets details of a global VM extension policy.
 await gapi.client.compute.globalVmExtensionPolicies.get({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
 
 /*
+Retrieves details of a specific VM extension.
+*/
+await gapi.client.compute.globalVmExtensionPolicies.getVmExtension({ extensionName: "extensionName", project: "project",  });
+
+/*
 Creates a new project level GlobalVmExtensionPolicy.
 */
 await gapi.client.compute.globalVmExtensionPolicies.insert({ project: "project",  });
@@ -1163,6 +1168,12 @@ await gapi.client.compute.globalVmExtensionPolicies.insert({ project: "project",
 Lists global VM extension policies.
 */
 await gapi.client.compute.globalVmExtensionPolicies.list({ project: "project",  });
+
+/*
+Lists all VM extensions within a specific zone for a project.
+This is a read-only API.
+*/
+await gapi.client.compute.globalVmExtensionPolicies.listVmExtensions({ project: "project",  });
 
 /*
 Updates a global VM extension policy.
@@ -2013,6 +2024,12 @@ Returns the Shielded VM Identity of an instance
 await gapi.client.compute.instances.getShieldedVmIdentity({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
+Retrieves details of a specific VM extension state.
+This is a read-only API.
+*/
+await gapi.client.compute.instances.getVmExtensionState({ extensionName: "extensionName", instance: "instance", project: "project", zone: "zone",  });
+
+/*
 Creates an instance resource in the specified project using the data
 included in the request.
 */
@@ -2032,6 +2049,12 @@ For more information, readViewing
 referrers to VM instances.
 */
 await gapi.client.compute.instances.listReferrers({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
+Lists all VM extensions states for a specific instance.
+This is a read-only API.
+*/
+await gapi.client.compute.instances.listVmExtensionStates({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
 Patches partner metadata of the specified instance.
@@ -3538,6 +3561,16 @@ now disabled for most organizations. Use firewallPolicies.removeRule
 instead.
 */
 await gapi.client.compute.organizationSecurityPolicies.removeRule({ securityPolicy: "securityPolicy",  });
+
+/*
+Returns the specified SnapshotRecycleBinPolicy.
+*/
+await gapi.client.compute.organizationSnapshotRecycleBinPolicy.get({ organization: "organization",  });
+
+/*
+Patches the SnapshotRecycleBinPolicy.
+*/
+await gapi.client.compute.organizationSnapshotRecycleBinPolicy.patch({ organization: "organization",  });
 
 /*
 Retrieves an aggregated list of packetMirrorings.
@@ -6250,6 +6283,16 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.snapshotGroups.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
+Returns the specified SnapshotRecycleBinPolicy.
+*/
+await gapi.client.compute.snapshotRecycleBinPolicy.get({ project: "project",  });
+
+/*
+Patches the SnapshotRecycleBinPolicy.
+*/
+await gapi.client.compute.snapshotRecycleBinPolicy.patch({ project: "project",  });
+
+/*
 Retrieves an aggregated list of all of the snapshots in your project
 across all regions and global scope.
 
@@ -6274,6 +6317,13 @@ await gapi.client.compute.snapshots.delete({ project: "project", snapshot: "snap
 Returns the specified Snapshot resource.
 */
 await gapi.client.compute.snapshots.get({ project: "project", snapshot: "snapshot",  });
+
+/*
+Returns the effective recycle bin rule for a snapshot by merging org and
+project level rules. If no rules are defined at org and project level, the
+standard default rule is returned.
+*/
+await gapi.client.compute.snapshots.getEffectiveRecycleBinRule({ project: "project", snapshot: "snapshot",  });
 
 /*
 Gets the access control policy for a resource. May be empty if no such
@@ -7287,6 +7337,11 @@ Retrieves details of a specific zone VM extension policy.
 await gapi.client.compute.zoneVmExtensionPolicies.get({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 
 /*
+Retrieves details of a specific VM extension.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.getVmExtension({ extensionName: "extensionName", project: "project", zone: "zone",  });
+
+/*
 Creates a new zone-level VM extension policy within a project.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.insert({ project: "project", zone: "zone",  });
@@ -7295,6 +7350,12 @@ await gapi.client.compute.zoneVmExtensionPolicies.insert({ project: "project", z
 Lists all VM extension policies within a specific zone for a project.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.list({ project: "project", zone: "zone",  });
+
+/*
+Lists all VM extensions within a specific zone for a project.
+This is a read-only API.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.listVmExtensions({ project: "project", zone: "zone",  });
 
 /*
 Modifies an existing zone VM extension policy.
