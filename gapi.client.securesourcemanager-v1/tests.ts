@@ -35,7 +35,7 @@ gapi.load('client', async () => {
     await gapi.client.securesourcemanager.projects.locations.get({
       name: 'Test string',
     });
-    /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
+    /** Lists information about the supported locations for this service. */
     await gapi.client.securesourcemanager.projects.locations.list({
       extraLocationTypes: 'Test string',
       filter: 'Test string',
