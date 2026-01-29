@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.alloydb-v1beta",
-  "version": "0.0.20260108",
+  "version": "0.0.20260122",
   "description": "TypeScript typings for AlloyDB API v1beta",
   "repository": {
     "type": "git",
