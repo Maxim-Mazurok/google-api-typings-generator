@@ -1,7 +1,7 @@
 # TypeScript typings for Threat Intelligence API v1beta
 
 threatintelligence.googleapis.com API.
-For detailed description please check [documentation](https://cloud.google.com/threatintelligence/docs/reference/rest).
+For detailed description please check [documentation](https://www.google.com).
 
 ## Installing
 
