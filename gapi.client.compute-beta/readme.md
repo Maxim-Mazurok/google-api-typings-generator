@@ -2248,44 +2248,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.instanceTemplates.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-deletes a Zonal InstantSnapshotGroup resource
-*/
-await gapi.client.compute.instantSnapshotGroups.delete({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", zone: "zone",  });
-
-/*
-returns the specified InstantSnapshotGroup resource in the specified zone.
-*/
-await gapi.client.compute.instantSnapshotGroups.get({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", zone: "zone",  });
-
-/*
-Gets the access control policy for a resource. May be empty if no such
-policy or resource exists.
-*/
-await gapi.client.compute.instantSnapshotGroups.getIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
-
-/*
-inserts a Zonal InstantSnapshotGroup resource
-*/
-await gapi.client.compute.instantSnapshotGroups.insert({ project: "project", zone: "zone",  });
-
-/*
-retrieves the list of InstantSnapshotGroup resources contained within
-the specified zone.
-*/
-await gapi.client.compute.instantSnapshotGroups.list({ project: "project", zone: "zone",  });
-
-/*
-Sets the access control policy on the specified resource.
-Replaces any existing policy.
-*/
-await gapi.client.compute.instantSnapshotGroups.setIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.instantSnapshotGroups.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
-
-/*
 Retrieves an aggregated list of instantSnapshots.
 
 To prevent failure, Google recommends that you set the
@@ -4636,45 +4598,6 @@ Retrieves a list of instance templates that are contained within the
 specified project and region.
 */
 await gapi.client.compute.regionInstanceTemplates.list({ project: "project", region: "region",  });
-
-/*
-deletes a Regional InstantSnapshotGroup resource
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.delete({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", region: "region",  });
-
-/*
-returns the specified InstantSnapshotGroup resource in the specified
-region.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.get({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", region: "region",  });
-
-/*
-Gets the access control policy for a resource. May be empty if no such
-policy or resource exists.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
-
-/*
-creates a Regional InstantSnapshotGroup resource
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.insert({ project: "project", region: "region",  });
-
-/*
-retrieves the list of InstantSnapshotGroup resources contained within
-the specified region.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.list({ project: "project", region: "region",  });
-
-/*
-Sets the access control policy on the specified resource.
-Replaces any existing policy.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified InstantSnapshot resource. Keep in mind that deleting
