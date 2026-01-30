@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.pubsublite-v1",
-  "version": "0.0.20260116",
+  "version": "0.0.20260124",
   "description": "TypeScript typings for Pub/Sub Lite API v1",
   "repository": {
     "type": "git",
