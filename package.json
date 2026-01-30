@@ -44,7 +44,7 @@
     "@types/dot": "^1.1.7",
     "@types/gapi.client.discovery-v1": "^0.0.4",
     "@types/lodash": "^4.17.20",
-    "@types/node": "^25.0.10",
+    "@types/node": "^25.1.0",
     "@types/semver": "^7.7.1",
     "@types/validate-npm-package-name": "^4.0.2",
     "commander": "^14.0.1",
