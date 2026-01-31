@@ -3747,11 +3747,6 @@ patch format and processing rules.
 await gapi.client.compute.regionHealthCheckServices.patch({ healthCheckService: "healthCheckService", project: "project", region: "region",  });
 
 /*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionHealthCheckServices.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
 Flags the specified instances to be immediately removed from the managed
 instance group. Abandoning an instance does not delete the
 instance, but it does remove the instance from any target pools that are
