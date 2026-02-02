@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.discoveryengine-v1beta",
-  "version": "0.0.20260130",
+  "version": "0.0.20260129",
   "description": "TypeScript typings for Discovery Engine API v1beta",
   "repository": {
     "type": "git",
