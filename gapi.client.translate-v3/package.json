@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.translate-v3",
-  "version": "0.0.20260128",
+  "version": "0.0.20260112",
   "description": "TypeScript typings for Cloud Translation API v3",
   "repository": {
     "type": "git",
