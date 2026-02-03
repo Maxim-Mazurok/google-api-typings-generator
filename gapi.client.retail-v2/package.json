@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.retail-v2",
-  "version": "0.0.20260122",
+  "version": "0.0.20260129",
   "description": "TypeScript typings for Vertex AI Search for commerce API v2",
   "repository": {
     "type": "git",
