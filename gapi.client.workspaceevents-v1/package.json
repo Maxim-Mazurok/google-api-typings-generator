@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.workspaceevents-v1",
-  "version": "0.0.20260201",
+  "version": "0.0.20260203",
   "description": "TypeScript typings for Google Workspace Events API v1",
   "repository": {
     "type": "git",
