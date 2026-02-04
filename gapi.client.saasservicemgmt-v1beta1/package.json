@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.saasservicemgmt-v1beta1",
-  "version": "0.0.20251210",
+  "version": "0.0.20260128",
   "description": "TypeScript typings for SaaS Runtime API v1beta1",
   "repository": {
     "type": "git",
