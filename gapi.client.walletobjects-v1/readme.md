@@ -132,7 +132,7 @@ Returns a list of all event ticket objects for a given issuer ID.
 await gapi.client.walletobjects.eventticketobject.list({});
 
 /*
-Modifies linked offer objects for the event ticket object with the given ID.
+Deprecated: Use Auto Linked Passes instead. Modifies linked offer objects for the event ticket object with the given ID.
 */
 await gapi.client.walletobjects.eventticketobject.modifylinkedofferobjects({
   resourceId: 'resourceId',
@@ -437,7 +437,7 @@ Returns a list of all loyalty objects for a given issuer ID.
 await gapi.client.walletobjects.loyaltyobject.list({});
 
 /*
-Modifies linked offer objects for the loyalty object with the given ID.
+Deprecated: Use Auto Linked Passes instead. Modifies linked offer objects for the loyalty object with the given ID.
 */
 await gapi.client.walletobjects.loyaltyobject.modifylinkedofferobjects({
   resourceId: 'resourceId',
