@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.appsmarket-v2",
-  "version": "0.0.20260126",
+  "version": "0.0.20260202",
   "description": "TypeScript typings for Google Workspace Marketplace API v2",
   "repository": {
     "type": "git",
