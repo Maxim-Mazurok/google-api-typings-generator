@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.css-v1",
-  "version": "0.0.20260203",
+  "version": "0.0.20260204",
   "description": "TypeScript typings for CSS API v1",
   "repository": {
     "type": "git",
