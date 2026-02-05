@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.marketingplatformadmin-v1alpha",
-  "version": "0.0.20260204",
+  "version": "0.0.20260205",
   "description": "TypeScript typings for Google Marketing Platform Admin API v1alpha",
   "repository": {
     "type": "git",
