@@ -69,7 +69,12 @@ gapi.auth.authorize(
 After that you can use Threat Intelligence API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
+/*
+Triggers the generation of a Customer Profile for a project.
+*/
+await gapi.client.threatintelligence.projects.generateOrgProfile({
+  name: 'name',
+});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.threatintelligence-v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
