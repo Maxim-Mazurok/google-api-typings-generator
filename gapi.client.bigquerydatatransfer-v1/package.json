@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.bigquerydatatransfer-v1",
-  "version": "0.0.20260201",
+  "version": "0.0.20260122",
   "description": "TypeScript typings for BigQuery Data Transfer API v1",
   "repository": {
     "type": "git",
