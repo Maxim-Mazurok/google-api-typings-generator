@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.trafficdirector-v3",
-  "version": "0.0.20260109",
+  "version": "0.0.20260202",
   "description": "TypeScript typings for Traffic Director API v3",
   "repository": {
     "type": "git",
