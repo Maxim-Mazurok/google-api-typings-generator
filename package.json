@@ -72,7 +72,7 @@
     "zod": "^4.3.6"
   },
   "engines": {
-    "node": "25.5.0",
+    "node": "25.6.0",
     "npm": "11.8.0"
   },
   "dependencyComments": {
