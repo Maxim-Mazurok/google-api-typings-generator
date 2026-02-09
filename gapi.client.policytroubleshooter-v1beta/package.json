@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.policytroubleshooter-v1beta",
-  "version": "0.0.20260201",
+  "version": "0.0.20260208",
   "description": "TypeScript typings for Policy Troubleshooter API v1beta",
   "repository": {
     "type": "git",
