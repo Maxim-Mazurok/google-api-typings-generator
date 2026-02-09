@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.netapp-v1",
-  "version": "0.0.20260125",
+  "version": "0.0.20260206",
   "description": "TypeScript typings for NetApp API v1",
   "repository": {
     "type": "git",
