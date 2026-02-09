@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.merchantapi-inventories_v1",
-  "version": "0.0.20260204",
+  "version": "0.0.20260206",
   "description": "TypeScript typings for Merchant API inventories_v1",
   "repository": {
     "type": "git",
