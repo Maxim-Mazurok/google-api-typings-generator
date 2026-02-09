@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.walletobjects-v1",
-  "version": "0.0.20260206",
+  "version": "0.0.20260209",
   "description": "TypeScript typings for Google Wallet API v1",
   "repository": {
     "type": "git",
