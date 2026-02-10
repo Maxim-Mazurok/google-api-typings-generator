@@ -302,6 +302,14 @@ Permanently deletes a folder. Only applicable to buckets with hierarchical names
 await gapi.client.storage.folders.delete({bucket: 'bucket', folder: 'folder'});
 
 /*
+Deletes a folder recursively. Only applicable to buckets with hierarchical namespace enabled.
+*/
+await gapi.client.storage.folders.deleteRecursive({
+  bucket: 'bucket',
+  folder: 'folder',
+});
+
+/*
 Returns metadata for the specified folder. Only applicable to buckets with hierarchical namespace enabled.
 */
 await gapi.client.storage.folders.get({bucket: 'bucket', folder: 'folder'});
