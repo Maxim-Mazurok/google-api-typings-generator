@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.compute-v1",
-  "version": "0.0.20260122",
+  "version": "0.0.20260206",
   "description": "TypeScript typings for Compute Engine API v1",
   "repository": {
     "type": "git",
