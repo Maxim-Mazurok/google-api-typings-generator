@@ -65,6 +65,12 @@ gapi.load('client', async () => {
         name: 'Test string',
         privateConfig: {
           caPool: 'Test string',
+          customHostConfig: {
+            api: 'Test string',
+            gitHttp: 'Test string',
+            gitSsh: 'Test string',
+            html: 'Test string',
+          },
           httpServiceAttachment: 'Test string',
           isPrivate: true,
           pscAllowedProjects: ['Test string'],

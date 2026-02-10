@@ -128,6 +128,16 @@ declare namespace gapi.client {
       /** Required. The pull request comment to create. */
       pullRequestComment?: PullRequestComment;
     }
+    interface CustomHostConfig {
+      /** Required. The custom API hostname for the instance, e.g., "api.source.internal.mycompany.com" */
+      api?: string;
+      /** Required. The custom git http hostname for the instance, e.g., "git.source.internal.mycompany.com" */
+      gitHttp?: string;
+      /** Required. The custom git ssh hostname for the instance, e.g., "ssh.source.internal.mycompany.com" */
+      gitSsh?: string;
+      /** Required. The custom UI hostname for the instance, e.g., "git.source.internal.mycompany.com" */
+      html?: string;
+    }
     interface Empty {}
     interface Expr {
       /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
@@ -386,6 +396,8 @@ declare namespace gapi.client {
     interface PrivateConfig {
       /** Optional. Immutable. CA pool resource, resource must in the format of `projects/{project}/locations/{location}/caPools/{ca_pool}`. */
       caPool?: string;
+      /** Optional. Custom host config for the instance. */
+      customHostConfig?: CustomHostConfig;
       /** Output only. Service Attachment for HTTP, resource is in the format of `projects/{project}/regions/{region}/serviceAttachments/{service_attachment}`. */
       httpServiceAttachment?: string;
       /** Required. Immutable. Indicate if it's private instance. */
