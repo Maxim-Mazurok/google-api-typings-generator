@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.chromewebstore-v1.1",
-  "version": "0.0.20260208",
+  "version": "0.0.20260209",
   "description": "TypeScript typings for Chrome Web Store API v1.1",
   "repository": {
     "type": "git",
