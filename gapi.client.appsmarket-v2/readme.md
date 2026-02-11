@@ -70,7 +70,7 @@ After that you can use Google Workspace Marketplace API resources: <!-- TODO: ma
 
 ```typescript
 /*
-Gets the status of a license for a customer to determine if they have access for a given app.
+Gets the customer's licensing status to determine if they have access to a given app. For more information, see [Getting app installation and licensing details](https://developers.google.com/workspace/marketplace/example-calls-marketplace-api).
 */
 await gapi.client.appsmarket.customerLicense.get({
   applicationId: 'applicationId',
@@ -78,7 +78,7 @@ await gapi.client.appsmarket.customerLicense.get({
 });
 
 /*
-Gets the user's licensing status for their permission to use a given app.
+Gets the user's licensing status to determine if they have permission to use a given app. For more information, see [Getting app installation and licensing details](https://developers.google.com/workspace/marketplace/example-calls-marketplace-api).
 */
 await gapi.client.appsmarket.userLicense.get({
   applicationId: 'applicationId',
