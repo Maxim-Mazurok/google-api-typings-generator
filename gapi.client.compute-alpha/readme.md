@@ -465,6 +465,11 @@ Resources documentation.
 await gapi.client.compute.disks.bulkSetLabels({ project: "project", zone: "zone",  });
 
 /*
+Converts a persistent disk to support Gen4+ VMs.
+*/
+await gapi.client.compute.disks.convert({ disk: "disk", project: "project", zone: "zone",  });
+
+/*
 Creates a snapshot of a specified persistent disk. For regular snapshot
 creation, consider using snapshots.insert
 instead, as that method supports more features, such as creating snapshots
@@ -1026,6 +1031,20 @@ await gapi.client.compute.globalNetworkEndpointGroups.get({ networkEndpointGroup
 /*
 Creates a network endpoint group in the specified project using the
 parameters that are included in the request.
+
+Note: Use the following APIs to manage network endpoint groups:
+
+   -
+   To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+   NEGs): zonal
+   API
+   -
+   To manage NEGs with regional scope (such as regional internet NEGs,
+   serverless NEGs, Private Service Connect NEGs): regional
+   API
+   -
+   To manage NEGs with global scope (such as global internet NEGs):global
+   API
 */
 await gapi.client.compute.globalNetworkEndpointGroups.insert({ project: "project",  });
 
@@ -1490,6 +1509,11 @@ Applies changes to selected instances on the managed instance group.
 This method can be used to apply new overrides and/or new versions.
 */
 await gapi.client.compute.instanceGroupManagers.applyUpdatesToInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
+
+/*
+Updates the accelerator topologies configuration.
+*/
+await gapi.client.compute.instanceGroupManagers.configureAcceleratorTopologies({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
 Creates instances with per-instance configurations in this managed instance
@@ -3021,6 +3045,20 @@ await gapi.client.compute.networkEndpointGroups.get({ networkEndpointGroup: "net
 /*
 Creates a network endpoint group in the specified project using the
 parameters that are included in the request.
+
+Note: Use the following APIs to manage network endpoint groups:
+
+   -
+   To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+   NEGs): zonal
+   API
+   -
+   To manage NEGs with regional scope (such as regional internet NEGs,
+   serverless NEGs, Private Service Connect NEGs): regional
+   API
+   -
+   To manage NEGs with global scope (such as global internet NEGs):global
+   API
 */
 await gapi.client.compute.networkEndpointGroups.insert({ project: "project", zone: "zone",  });
 
@@ -4446,6 +4484,12 @@ Returns the specified HealthSource resource in the given region.
 await gapi.client.compute.regionHealthSources.get({ healthSource: "healthSource", project: "project", region: "region",  });
 
 /*
+Gets the most recent health check results for this
+regional HealthSource.
+*/
+await gapi.client.compute.regionHealthSources.getHealth({ healthSource: "healthSource", project: "project", region: "region",  });
+
+/*
 Create a HealthSource in the specified project in the given region
 using the parameters that are included in the request.
 */
@@ -5052,6 +5096,20 @@ await gapi.client.compute.regionNetworkEndpointGroups.get({ networkEndpointGroup
 /*
 Creates a network endpoint group in the specified project using the
 parameters that are included in the request.
+
+Note: Use the following APIs to manage network endpoint groups:
+
+   -
+   To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+   NEGs): zonal
+   API
+   -
+   To manage NEGs with regional scope (such as regional internet NEGs,
+   serverless NEGs, Private Service Connect NEGs): regional
+   API
+   -
+   To manage NEGs with global scope (such as global internet NEGs):global
+   API
 */
 await gapi.client.compute.regionNetworkEndpointGroups.insert({ project: "project", region: "region",  });
 
@@ -5841,14 +5899,29 @@ Retrieves information about the specified reservation slot.
 await gapi.client.compute.reservationSlots.get({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
 
 /*
+Allows customers to get SBOM versions of a reservation slot.
+*/
+await gapi.client.compute.reservationSlots.getVersion({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
+
+/*
 Retrieves a list of reservation slots under a single reservation.
 */
 await gapi.client.compute.reservationSlots.list({ parentName: "parentName", project: "project", zone: "zone",  });
 
 /*
+Update a reservation slot in the specified sub-block.
+*/
+await gapi.client.compute.reservationSlots.update({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
+
+/*
 Retrieves information about the specified reservation subBlock.
 */
 await gapi.client.compute.reservationSubBlocks.get({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
+
+/*
+Allows customers to get SBOM versions of a reservation subBlock.
+*/
+await gapi.client.compute.reservationSubBlocks.getVersion({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
 
 /*
 Retrieves a list of reservation subBlocks under a single reservation.
@@ -5955,6 +6028,16 @@ await gapi.client.compute.rollouts.get({ project: "project", rollout: "rollout",
 Lists Rollouts in a given project and location.
 */
 await gapi.client.compute.rollouts.list({ project: "project",  });
+
+/*
+Pauses a Rollout.
+*/
+await gapi.client.compute.rollouts.pause({ project: "project", rollout: "rollout",  });
+
+/*
+Resumes a Rollout.
+*/
+await gapi.client.compute.rollouts.resume({ project: "project", rollout: "rollout",  });
 
 /*
 Retrieves an aggregated list of routers.
