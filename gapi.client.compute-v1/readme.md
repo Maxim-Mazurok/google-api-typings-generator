@@ -927,6 +927,20 @@ await gapi.client.compute.globalNetworkEndpointGroups.get({ networkEndpointGroup
 /*
 Creates a network endpoint group in the specified project using the
 parameters that are included in the request.
+
+Note: Use the following APIs to manage network endpoint groups:
+
+   -
+   To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+   NEGs): zonal
+   API
+   -
+   To manage NEGs with regional scope (such as regional internet NEGs,
+   serverless NEGs, Private Service Connect NEGs): regional
+   API
+   -
+   To manage NEGs with global scope (such as global internet NEGs):global
+   API
 */
 await gapi.client.compute.globalNetworkEndpointGroups.insert({ project: "project",  });
 
@@ -2643,6 +2657,20 @@ await gapi.client.compute.networkEndpointGroups.get({ networkEndpointGroup: "net
 /*
 Creates a network endpoint group in the specified project using the
 parameters that are included in the request.
+
+Note: Use the following APIs to manage network endpoint groups:
+
+   -
+   To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+   NEGs): zonal
+   API
+   -
+   To manage NEGs with regional scope (such as regional internet NEGs,
+   serverless NEGs, Private Service Connect NEGs): regional
+   API
+   -
+   To manage NEGs with global scope (such as global internet NEGs):global
+   API
 */
 await gapi.client.compute.networkEndpointGroups.insert({ project: "project", zone: "zone",  });
 
@@ -4173,6 +4201,20 @@ await gapi.client.compute.regionNetworkEndpointGroups.get({ networkEndpointGroup
 /*
 Creates a network endpoint group in the specified project using the
 parameters that are included in the request.
+
+Note: Use the following APIs to manage network endpoint groups:
+
+   -
+   To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+   NEGs): zonal
+   API
+   -
+   To manage NEGs with regional scope (such as regional internet NEGs,
+   serverless NEGs, Private Service Connect NEGs): regional
+   API
+   -
+   To manage NEGs with global scope (such as global internet NEGs):global
+   API
 */
 await gapi.client.compute.regionNetworkEndpointGroups.insert({ project: "project", region: "region",  });
 
