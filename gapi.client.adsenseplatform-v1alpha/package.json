@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.adsenseplatform-v1alpha",
-  "version": "0.0.20260209",
+  "version": "0.0.20260210",
   "description": "TypeScript typings for AdSense Platform API v1alpha",
   "repository": {
     "type": "git",
