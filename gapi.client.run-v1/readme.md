@@ -50,12 +50,6 @@ var client_id = '',
   scope = [
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
-
-    // See, edit, configure, and delete your Google Cloud Run data and see the email address for your Google Account
-    'https://www.googleapis.com/auth/run',
-
-    // See your Google Cloud Run data and the email address of your Google Account
-    'https://www.googleapis.com/auth/run.readonly',
   ],
   immediate = true;
 // ...
