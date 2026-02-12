@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudcommerceprocurement-v1",
-  "version": "0.0.20260209",
+  "version": "0.0.20260201",
   "description": "TypeScript typings for Cloud Commerce Partner Procurement API v1",
   "repository": {
     "type": "git",
