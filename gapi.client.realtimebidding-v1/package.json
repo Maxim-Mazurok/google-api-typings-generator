@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.realtimebidding-v1",
-  "version": "0.0.20260212",
+  "version": "0.0.20260211",
   "description": "TypeScript typings for Real-time Bidding API v1",
   "repository": {
     "type": "git",
