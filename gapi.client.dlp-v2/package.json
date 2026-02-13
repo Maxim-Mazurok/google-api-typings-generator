@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.dlp-v2",
-  "version": "0.0.20260129",
+  "version": "0.0.20260205",
   "description": "TypeScript typings for Sensitive Data Protection (DLP) v2",
   "repository": {
     "type": "git",
