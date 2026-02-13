@@ -406,6 +406,14 @@ await gapi.client.sql.instances.restoreBackup({
 });
 
 /*
+Restores a backup of a Cloud SQL instance for Model Context Protocol (MCP) server.
+*/
+await gapi.client.sql.instances.restoreBackupMcp({
+  targetInstance: 'targetInstance',
+  targetProject: 'targetProject',
+});
+
+/*
 Rotates the server certificate version to one previously added with the addEntraIdCertificate method.
 */
 await gapi.client.sql.instances.RotateEntraIdCertificate({
