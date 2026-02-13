@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.securityposture-v1",
-  "version": "0.0.20260212",
+  "version": "0.0.20260205",
   "description": "TypeScript typings for Security Posture API v1",
   "repository": {
     "type": "git",
