@@ -708,19 +708,19 @@ Inserts a new dynamic feed.
 await gapi.client.dfareporting.dynamicFeeds.insert({});
 
 /*
-Retransforms a dynamic feed.
+Retransforms a dynamic feed. Only draft feeds can be retransformed (i.e. the feed has not been published).
 */
 await gapi.client.dfareporting.dynamicFeeds.retransform({
   dynamicFeedId: 'dynamicFeedId',
 });
 
 /*
-Updates a new dynamic feed.
+Updates a new dynamic feed. For draft feeds, only Element can be updated. For published feeds, only FeedSchedule can be updated. Other fields will be ignored.
 */
 await gapi.client.dfareporting.dynamicFeeds.update({});
 
 /*
-Generates code for a dynamic profile.
+Generates code for a dynamic profile, which will need unescaping.
 */
 await gapi.client.dfareporting.dynamicProfiles.generateCode({
   dynamicProfileId: 'dynamicProfileId',
