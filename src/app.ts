@@ -27,6 +27,7 @@ import {
   majorAndMinorVersion,
   sameNamespace,
   setOutputGHActions,
+  shouldSkipRevisionForNpmCheck,
 } from './utils.js';
 import {StreamWriter, TextWriter} from './writer.js';
 
@@ -830,6 +831,20 @@ export class App {
       if (existingRevision > newRevision) {
         return console.warn(
           `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${restDescription.id}`,
+        );
+      }
+    }
+
+    // Check NPM for newer revisions when --new-revisions-only is enabled
+    if (newRevisionsOnly && restDescription.revision) {
+      const newRevision = Number(restDescription.revision);
+      const shouldSkip = await shouldSkipRevisionForNpmCheck(
+        packageName,
+        newRevision,
+      );
+      if (shouldSkip) {
+        return console.warn(
+          `Skipping ${restDescription.id} because NPM has a newer revision than ${newRevision}`,
         );
       }
     }

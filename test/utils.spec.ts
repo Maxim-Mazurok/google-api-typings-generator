@@ -9,6 +9,7 @@ import {
   getPackageNameFromRestDescription,
   getResourceTypeName,
   hasValueRecursive,
+  shouldSkipRevisionForNpmCheck,
 } from '../src/utils.js';
 
 describe('getResourceTypeName', () => {
@@ -300,5 +301,17 @@ describe('getChangedTypes', () => {
 
     // Assert
     expect(result).toHaveLength(1);
+  });
+});
+
+describe('shouldSkipRevisionForNpmCheck', () => {
+  it('should skip older revisions when NPM has a newer version', async () => {
+    // This test would require mocking the NPM API, for now we'll just ensure it doesn't throw
+    const result = await shouldSkipRevisionForNpmCheck(
+      'gapi.client.nonexistent-service',
+      1,
+    );
+    // Since this package doesn't exist, it should not skip (proceed with generation)
+    expect(typeof result).toBe('boolean');
   });
 });

@@ -258,6 +258,40 @@ export const getNpmArchivesToPublish = async (
   return npmArchivesToPublish;
 };
 
+/**
+ * Check if a revision should be skipped during generation based on NPM comparison
+ * This moves the NPM revision check from publishing phase to generation phase
+ */
+export const shouldSkipRevisionForNpmCheck = async (
+  shortPackageName: string, // e.g. `gapi.client.oauth2-v2`, not `@maxim_mazurok/gapi.client.oauth2-v2`
+  localRevision: number,
+): Promise<boolean> => {
+  const {getLatestVersionInfo} = await import('./archives-to-publish.js');
+  const fullPackageName = getFullPackageName(shortPackageName);
+
+  try {
+    const {localRevisionIsOlder} = await getLatestVersionInfo(
+      fullPackageName,
+      localRevision,
+    );
+
+    if (localRevisionIsOlder) {
+      console.warn(
+        `Skipping ${shortPackageName} with revision ${localRevision} because NPM has a newer revision`,
+      );
+      return true; // skip this revision
+    }
+
+    return false; // don't skip
+  } catch (error) {
+    console.warn(
+      `Could not check NPM revision for ${shortPackageName}, proceeding with generation:`,
+      error,
+    );
+    return false; // don't skip if we can't check NPM
+  }
+};
+
 const importMetaUrl = import.meta.url;
 export const rootFolder = new URL('../', importMetaUrl);
 
