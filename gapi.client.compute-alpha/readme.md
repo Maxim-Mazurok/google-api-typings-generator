@@ -566,7 +566,7 @@ await gapi.client.compute.disks.testIamPermissions({ project: "project", resourc
 /*
 Updates the specified disk with the data included in the request.
 The update is performed only on selected fields included as part
-of update-mask.
+of update-mask. Only the following fields can be modified: user_license.
 */
 await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone: "zone",  });
 
@@ -4300,7 +4300,8 @@ await gapi.client.compute.regionDisks.testIamPermissions({ project: "project", r
 
 /*
 Update the specified disk with the data included in the request. Update is
-performed only on selected fields included as part of update-mask.
+performed only on selected fields included as part of update-mask. Only the
+following fields can be modified: user_license.
 */
 await gapi.client.compute.regionDisks.update({ disk: "disk", project: "project", region: "region",  });
 
