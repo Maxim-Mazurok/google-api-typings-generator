@@ -65,7 +65,7 @@ declare namespace gapi.client {
       dimensionGroups?: DimensionGroup[];
     }
     interface AddFilterViewRequest {
-      /** The filter to add. The filterViewId field is optional; if one is not set, an id will be randomly generated. (It is an error to specify the ID of a filter that already exists.) */
+      /** The filter to add. The filterViewId field is optional. If one is not set, an ID will be randomly generated. (It is an error to specify the ID of a filter that already exists.) */
       filter?: FilterView;
     }
     interface AddFilterViewResponse {
@@ -291,7 +291,7 @@ declare namespace gapi.client {
       dataFilters?: DataFilter[];
     }
     interface BatchClearValuesByDataFilterResponse {
-      /** The ranges that were cleared, in [A1 notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell). If the requests are for an unbounded range or a ranger larger than the bounds of the sheet, this is the actual ranges that were cleared, bounded to the sheet's limits. */
+      /** The ranges that were cleared, in [A1 notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell). If the requests are for an unbounded range or a range larger than the bounds of the sheet, this is the actual ranges that were cleared, bounded to the sheet's limits. */
       clearedRanges?: string[];
       /** The spreadsheet the updates were applied to. */
       spreadsheetId?: string;
@@ -301,7 +301,7 @@ declare namespace gapi.client {
       ranges?: string[];
     }
     interface BatchClearValuesResponse {
-      /** The ranges that were cleared, in A1 notation. If the requests are for an unbounded range or a ranger larger than the bounds of the sheet, this is the actual ranges that were cleared, bounded to the sheet's limits. */
+      /** The ranges that were cleared, in A1 notation. If the requests are for an unbounded range or a range larger than the bounds of the sheet, this is the actual ranges that were cleared, bounded to the sheet's limits. */
       clearedRanges?: string[];
       /** The spreadsheet the updates were applied to. */
       spreadsheetId?: string;
@@ -688,7 +688,7 @@ declare namespace gapi.client {
     }
     interface ClearValuesRequest {}
     interface ClearValuesResponse {
-      /** The range (in A1 notation) that was cleared. (If the request was for an unbounded range or a ranger larger than the bounds of the sheet, this will be the actual range that was cleared, bounded to the sheet's limits.) */
+      /** The range (in A1 notation) that was cleared. (If the request was for an unbounded range or a range larger than the bounds of the sheet, this will be the actual range that was cleared, bounded to the sheet's limits.) */
       clearedRange?: string;
       /** The spreadsheet the updates were applied to. */
       spreadsheetId?: string;
@@ -1014,11 +1014,11 @@ declare namespace gapi.client {
       metadataKey?: string;
       /** Data associated with the metadata's key. */
       metadataValue?: string;
-      /** The metadata visibility. Developer metadata must always have a visibility specified. */
+      /** The metadata visibility. Developer metadata must always have visibility specified. */
       visibility?: string;
     }
     interface DeveloperMetadataLocation {
-      /** Represents the row or column when metadata is associated with a dimension. The specified DimensionRange must represent a single row or column; it cannot be unbounded or span multiple rows or columns. */
+      /** Represents the row or column when metadata is associated with a dimension. The specified DimensionRange must represent a single row or column. It cannot be unbounded or span multiple rows or columns. */
       dimensionRange?: DimensionRange;
       /** The type of location this object represents. This field is read-only. */
       locationType?: string;
@@ -1030,7 +1030,7 @@ declare namespace gapi.client {
     interface DeveloperMetadataLookup {
       /** Determines how this lookup matches the location. If this field is specified as EXACT, only developer metadata associated on the exact location specified is matched. If this field is specified to INTERSECTING, developer metadata associated on intersecting locations is also matched. If left unspecified, this field assumes a default value of INTERSECTING. If this field is specified, a metadataLocation must also be specified. */
       locationMatchingStrategy?: string;
-      /** Limits the selected developer metadata to those entries which are associated with locations of the specified type. For example, when this field is specified as ROW this lookup only considers developer metadata associated on rows. If the field is left unspecified, all location types are considered. This field cannot be specified as SPREADSHEET when the locationMatchingStrategy is specified as INTERSECTING or when the metadataLocation is specified as a non-spreadsheet location: spreadsheet metadata cannot intersect any other developer metadata location. This field also must be left unspecified when the locationMatchingStrategy is specified as EXACT. */
+      /** Limits the selected developer metadata to those entries which are associated with locations of the specified type. For example, when this field is specified as ROW this lookup only considers developer metadata associated on rows. If the field is left unspecified, all location types are considered. This field cannot be specified as SPREADSHEET when the locationMatchingStrategy is specified as INTERSECTING or when the metadataLocation is specified as a non-spreadsheet location. Spreadsheet metadata cannot intersect any other developer metadata location. This field also must be left unspecified when the locationMatchingStrategy is specified as EXACT. */
       locationType?: string;
       /** Limits the selected developer metadata to that which has a matching DeveloperMetadata.metadata_id. */
       metadataId?: number;
@@ -1146,7 +1146,7 @@ declare namespace gapi.client {
       stringValue?: string;
     }
     interface FilterCriteria {
-      /** A condition that must be true for values to be shown. (This does not override hidden_values -- if a value is listed there, it will still be hidden.) */
+      /** A condition that must be `true` for values to be shown. (This does not override hidden_values -- if a value is listed there, it will still be hidden.) */
       condition?: BooleanCondition;
       /** Values that should be hidden. */
       hiddenValues?: string[];
@@ -1170,17 +1170,17 @@ declare namespace gapi.client {
     interface FilterView {
       /** The criteria for showing/hiding values per column. The map's key is the column index, and the value is the criteria for that column. This field is deprecated in favor of filter_specs. */
       criteria?: {[P in string]: FilterCriteria};
-      /** The filter criteria for showing/hiding values per column. Both criteria and filter_specs are populated in responses. If both fields are specified in an update request, this field takes precedence. */
+      /** The filter criteria for showing or hiding values per column. Both criteria and filter_specs are populated in responses. If both fields are specified in an update request, this field takes precedence. */
       filterSpecs?: FilterSpec[];
       /** The ID of the filter view. */
       filterViewId?: number;
-      /** The named range this filter view is backed by, if any. When writing, only one of range or named_range_id or table_id may be set. */
+      /** The named range this filter view is backed by, if any. When writing, only one of range, named_range_id, or table_id may be set. */
       namedRangeId?: string;
-      /** The range this filter view covers. When writing, only one of range or named_range_id or table_id may be set. */
+      /** The range this filter view covers. When writing, only one of range, named_range_id, or table_id may be set. */
       range?: GridRange;
       /** The sort order per column. Later specifications are used when values are equal in the earlier specifications. */
       sortSpecs?: SortSpec[];
-      /** The table this filter view is backed by, if any. When writing, only one of range or named_range_id or table_id may be set. */
+      /** The table this filter view is backed by, if any. When writing, only one of range, named_range_id, or table_id may be set. */
       tableId?: string;
       /** The name of the filter view. */
       title?: string;
@@ -2446,7 +2446,7 @@ declare namespace gapi.client {
       totalDataLabel?: DataLabel;
     }
     interface DeveloperMetadataResource {
-      /** Returns the developer metadata with the specified ID. The caller must specify the spreadsheet ID and the developer metadata's unique metadataId. */
+      /** Returns the developer metadata with the specified ID. The caller must specify the spreadsheet ID and the developer metadata's unique metadataId. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). */
       get(request?: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -2475,7 +2475,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): client.Request<DeveloperMetadata>;
-      /** Returns all developer metadata matching the specified DataFilter. If the provided DataFilter represents a DeveloperMetadataLookup object, this will return all DeveloperMetadata entries selected by it. If the DataFilter represents a location in a spreadsheet, this will return all developer metadata associated with locations intersecting that region. */
+      /** Returns all developer metadata matching the specified DataFilter. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). If the provided DataFilter represents a DeveloperMetadataLookup object, this will return all DeveloperMetadata entries selected by it. If the DataFilter represents a location in a spreadsheet, this will return all developer metadata associated with locations intersecting that region. */
       search(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -2739,7 +2739,7 @@ declare namespace gapi.client {
         },
         body: BatchClearValuesRequest,
       ): client.Request<BatchClearValuesResponse>;
-      /** Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more DataFilters. Ranges matching any of the specified data filters will be cleared. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc..) are kept. */
+      /** Clears one or more ranges of values from a spreadsheet. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). The caller must specify the spreadsheet ID and one or more DataFilters. Ranges matching any of the specified data filters will be cleared. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc.) are kept. */
       batchClearByDataFilter(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -2832,7 +2832,7 @@ declare namespace gapi.client {
         /** How values should be represented in the output. The default render option is ValueRenderOption.FORMATTED_VALUE. */
         valueRenderOption?: string;
       }): client.Request<BatchGetValuesResponse>;
-      /** Returns one or more ranges of values that match the specified data filters. The caller must specify the spreadsheet ID and one or more DataFilters. Ranges that match any of the data filters in the request will be returned. */
+      /** Returns one or more ranges of values that match the specified data filters. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). The caller must specify the spreadsheet ID and one or more DataFilters. Ranges that match any of the data filters in the request will be returned. */
       batchGetByDataFilter(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -2948,7 +2948,7 @@ declare namespace gapi.client {
         },
         body: BatchUpdateValuesRequest,
       ): client.Request<BatchUpdateValuesResponse>;
-      /** Sets values in one or more ranges of a spreadsheet. The caller must specify the spreadsheet ID, a valueInputOption, and one or more DataFilterValueRanges. */
+      /** Sets values in one or more ranges of a spreadsheet. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). The caller must specify the spreadsheet ID, a valueInputOption, and one or more DataFilterValueRanges. */
       batchUpdateByDataFilter(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -3328,7 +3328,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): client.Request<Spreadsheet>;
-      /** Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. This method differs from GetSpreadsheet in that it allows selecting which subsets of spreadsheet data to return by specifying a dataFilters parameter. Multiple DataFilters can be specified. Specifying one or more data filters returns the portions of the spreadsheet that intersect ranges matched by any of the filters. By default, data within grids is not returned. You can include grid data one of 2 ways: * Specify a [field mask](https://developers.google.com/workspace/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP * Set the includeGridData parameter to true. If a field mask is set, the `includeGridData` parameter is ignored For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. */
+      /** Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). This method differs from GetSpreadsheet in that it allows selecting which subsets of spreadsheet data to return by specifying a dataFilters parameter. Multiple DataFilters can be specified. Specifying one or more data filters returns the portions of the spreadsheet that intersect ranges matched by any of the filters. By default, data within grids is not returned. You can include grid data in one of two ways: * Specify a [field mask](https://developers.google.com/workspace/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP. * Set the includeGridData parameter to `true`. If a field mask is set, the `includeGridData` parameter is ignored. For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. */
       getByDataFilter(request: {
         /** V1 error format. */
         '$.xgafv'?: string;
