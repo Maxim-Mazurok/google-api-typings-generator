@@ -535,7 +535,7 @@ await gapi.client.compute.disks.testIamPermissions({ project: "project", resourc
 /*
 Updates the specified disk with the data included in the request.
 The update is performed only on selected fields included as part
-of update-mask.
+of update-mask. Only the following fields can be modified: user_license.
 */
 await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone: "zone",  });
 
@@ -3688,7 +3688,8 @@ await gapi.client.compute.regionDisks.testIamPermissions({ project: "project", r
 
 /*
 Update the specified disk with the data included in the request. Update is
-performed only on selected fields included as part of update-mask.
+performed only on selected fields included as part of update-mask. Only the
+following fields can be modified: user_license.
 */
 await gapi.client.compute.regionDisks.update({ disk: "disk", project: "project", region: "region",  });
 
@@ -3701,49 +3702,6 @@ await gapi.client.compute.regionDiskTypes.get({ diskType: "diskType", project: "
 Retrieves a list of regional disk types available to the specified project.
 */
 await gapi.client.compute.regionDiskTypes.list({ project: "project", region: "region",  });
-
-/*
-Retrieves the list of all HealthAggregationPolicy resources,
-regional and global, available to the specified project.
-
-To prevent failure, it is recommended that you set the
-`returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.aggregatedList({ project: "project",  });
-
-/*
-Deletes the specified HealthAggregationPolicy in the given region.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.delete({ healthAggregationPolicy: "healthAggregationPolicy", project: "project", region: "region",  });
-
-/*
-Returns the specified HealthAggregationPolicy resource in the given region.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.get({ healthAggregationPolicy: "healthAggregationPolicy", project: "project", region: "region",  });
-
-/*
-Create a HealthAggregationPolicy in the specified project in the given
-region using the parameters that are included in the request.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.insert({ project: "project", region: "region",  });
-
-/*
-Lists the HealthAggregationPolicies for a project in the given region.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.list({ project: "project", region: "region",  });
-
-/*
-Updates the specified regional HealthAggregationPolicy
-resource with the data included in the request. This method supportsPATCH
-semantics and uses theJSON merge
-patch format and processing rules.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.patch({ healthAggregationPolicy: "healthAggregationPolicy", project: "project", region: "region",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionHealthAggregationPolicies.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified HealthCheck resource.
