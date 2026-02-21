@@ -549,7 +549,7 @@ await gapi.client.compute.disks.testIamPermissions({ project: "project", resourc
 /*
 Updates the specified disk with the data included in the request.
 The update is performed only on selected fields included as part
-of update-mask.
+of update-mask. Only the following fields can be modified: user_license.
 */
 await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone: "zone",  });
 
@@ -1411,11 +1411,6 @@ Applies changes to selected instances on the managed instance group.
 This method can be used to apply new overrides and/or new versions.
 */
 await gapi.client.compute.instanceGroupManagers.applyUpdatesToInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
-
-/*
-Updates the accelerator topologies configuration.
-*/
-await gapi.client.compute.instanceGroupManagers.configureAcceleratorTopologies({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
 Creates instances with per-instance configurations in this managed instance
@@ -4045,7 +4040,8 @@ await gapi.client.compute.regionDisks.testIamPermissions({ project: "project", r
 
 /*
 Update the specified disk with the data included in the request. Update is
-performed only on selected fields included as part of update-mask.
+performed only on selected fields included as part of update-mask. Only the
+following fields can be modified: user_license.
 */
 await gapi.client.compute.regionDisks.update({ disk: "disk", project: "project", region: "region",  });
 
@@ -5724,11 +5720,6 @@ Deletes the specified Router resource.
 await gapi.client.compute.routers.delete({ project: "project", region: "region", router: "router",  });
 
 /*
-Deletes Named Set
-*/
-await gapi.client.compute.routers.deleteNamedSet({ project: "project", region: "region", router: "router",  });
-
-/*
 Deletes Route Policy
 */
 await gapi.client.compute.routers.deleteRoutePolicy({ project: "project", region: "region", router: "router",  });
@@ -5737,11 +5728,6 @@ await gapi.client.compute.routers.deleteRoutePolicy({ project: "project", region
 Returns the specified Router resource.
 */
 await gapi.client.compute.routers.get({ project: "project", region: "region", router: "router",  });
-
-/*
-Returns specified Named Set
-*/
-await gapi.client.compute.routers.getNamedSet({ project: "project", region: "region", router: "router",  });
 
 /*
 Retrieves runtime NAT IP information.
@@ -5780,12 +5766,6 @@ Retrieves a list of router bgp routes available to the specified project.
 await gapi.client.compute.routers.listBgpRoutes({ project: "project", region: "region", router: "router",  });
 
 /*
-Retrieves a list of router named set subresources available to the
-specified project.
-*/
-await gapi.client.compute.routers.listNamedSets({ project: "project", region: "region", router: "router",  });
-
-/*
 Retrieves a list of router route policy subresources available to the
 specified project.
 */
@@ -5798,11 +5778,6 @@ semantics and usesJSON merge
 patch format and processing rules.
 */
 await gapi.client.compute.routers.patch({ project: "project", region: "region", router: "router",  });
-
-/*
-Patches Named Set
-*/
-await gapi.client.compute.routers.patchNamedSet({ project: "project", region: "region", router: "router",  });
 
 /*
 Patches Route Policy
@@ -5827,11 +5802,6 @@ target resource be created or replaced with the state defined by the
 representation enclosed in the request message payload.
 */
 await gapi.client.compute.routers.update({ project: "project", region: "region", router: "router",  });
-
-/*
-Updates or creates new Named Set
-*/
-await gapi.client.compute.routers.updateNamedSet({ project: "project", region: "region", router: "router",  });
 
 /*
 Updates or creates new Route Policy
@@ -5996,45 +5966,6 @@ await gapi.client.compute.serviceAttachments.setIamPolicy({ project: "project", 
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.serviceAttachments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Deletes the specified SnapshotGroup resource
-*/
-await gapi.client.compute.snapshotGroups.delete({ project: "project", snapshotGroup: "snapshotGroup",  });
-
-/*
-returns the specified SnapshotGroup resource.
-*/
-await gapi.client.compute.snapshotGroups.get({ project: "project", snapshotGroup: "snapshotGroup",  });
-
-/*
-Gets the access control policy for a resource. May be empty if no such
-policy or resource exists.
-*/
-await gapi.client.compute.snapshotGroups.getIamPolicy({ project: "project", resource: "resource",  });
-
-/*
-Creates a snapshot group in the specified project using the data included
-in the request.
-*/
-await gapi.client.compute.snapshotGroups.insert({ project: "project",  });
-
-/*
-retrieves the list of SnapshotGroup resources contained within
-the specified project.
-*/
-await gapi.client.compute.snapshotGroups.list({ project: "project",  });
-
-/*
-Sets the access control policy on the specified resource.
-Replaces any existing policy.
-*/
-await gapi.client.compute.snapshotGroups.setIamPolicy({ project: "project", resource: "resource",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.snapshotGroups.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Retrieves an aggregated list of all of the snapshots in your project
