@@ -136,11 +136,6 @@ Lists operations that match the specified filter in the request. If the server d
 await gapi.client.accesscontextmanager.operations.list({name: 'name'});
 
 /*
-Lists all supported permissions in VPCSC Granular Controls.
-*/
-await gapi.client.accesscontextmanager.permissions.list({});
-
-/*
 Returns a VPC-SC supported service based on the service name.
 */
 await gapi.client.accesscontextmanager.services.get({name: 'name'});
