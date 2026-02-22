@@ -50,9 +50,6 @@ var client_id = '',
   scope = [
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
-
-    // See, edit, configure, and delete your Google Cloud Composer data and see the email address for your Google Account
-    'https://www.googleapis.com/auth/cloudcomposer',
   ],
   immediate = true;
 // ...
