@@ -81,6 +81,8 @@ declare namespace gapi.client {
       minimumReviewsCount?: number;
       /** Identifier. A unique identifier for a BranchRule. The name should be of the format: `projects/{project}/locations/{location}/repositories/{repository}/branchRules/{branch_rule}` */
       name?: string;
+      /** Optional. Determines if code owners must approve before merging to the branch. */
+      requireCodeOwnerApproval?: boolean;
       /** Optional. Determines if require comments resolved before merging to the branch. */
       requireCommentsResolved?: boolean;
       /** Optional. List of required status checks before merging to the branch. */
