@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.gkeonprem-v1",
-  "version": "0.0.20251210",
+  "version": "0.0.20260121",
   "description": "TypeScript typings for GKE On-Prem API v1",
   "repository": {
     "type": "git",
