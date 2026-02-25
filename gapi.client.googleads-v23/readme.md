@@ -311,6 +311,11 @@ Returns KeywordThemeConstant suggestions by keyword themes. List of thrown error
 await gapi.client.googleads.keywordThemeConstants.suggest({});
 
 /*
+Uploads a video to Google-managed or advertiser owned (brand) YouTube channel.
+*/
+await gapi.client.googleads.media.upload({customerId: 'customerId'});
+
+/*
 Returns a collection of conversion rate suggestions for supported plannable products. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.googleads.generateConversionRates({});
