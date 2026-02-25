@@ -338,7 +338,6 @@ gapi.load('client', async () => {
         minimumApprovalsCount: 42,
         minimumReviewsCount: 42,
         name: 'Test string',
-        requireCodeOwnerApproval: true,
         requireCommentsResolved: true,
         requiredStatusChecks: [
           {
@@ -391,7 +390,6 @@ gapi.load('client', async () => {
         minimumApprovalsCount: 42,
         minimumReviewsCount: 42,
         name: 'Test string',
-        requireCodeOwnerApproval: true,
         requireCommentsResolved: true,
         requiredStatusChecks: [
           {
