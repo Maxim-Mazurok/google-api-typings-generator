@@ -80,7 +80,7 @@ await gapi.client.marketingplatformadmin.organizations.findSalesPartnerManagedCl
 );
 
 /*
-Lookup for a single organization.
+Looks up a single organization.
 */
 await gapi.client.marketingplatformadmin.organizations.get({name: 'name'});
 
@@ -90,7 +90,7 @@ Returns a list of organizations that the user has access to.
 await gapi.client.marketingplatformadmin.organizations.list({});
 
 /*
-Get the usage and billing data for properties within the organization for the specified month. Per direct client org, user needs to be OrgAdmin/BillingAdmin on the organization in order to view the billing and usage data. Per sales partner client org, user needs to be OrgAdmin/BillingAdmin on the sales partner org in order to view the billing and usage data, or OrgAdmin/BillingAdmin on the sales partner client org in order to view the usage data only.
+Gets the usage and billing data for properties within the organization for the specified month. Per direct client org, user needs to be OrgAdmin/BillingAdmin on the organization in order to view the billing and usage data. Per sales partner client org, user needs to be OrgAdmin/BillingAdmin on the sales partner org in order to view the billing and usage data, or OrgAdmin/BillingAdmin on the sales partner client org in order to view the usage data only.
 */
 await gapi.client.marketingplatformadmin.organizations.reportPropertyUsage({
   organization: 'organization',
