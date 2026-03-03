@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.billingbudgets-v1",
-  "version": "0.0.20260222",
+  "version": "0.0.20260301",
   "description": "TypeScript typings for Cloud Billing Budget API v1",
   "repository": {
     "type": "git",
