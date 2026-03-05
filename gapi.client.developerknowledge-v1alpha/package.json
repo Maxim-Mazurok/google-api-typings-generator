@@ -1,0 +1,20 @@
+{
+  "name": "@maxim_mazurok/gapi.client.developerknowledge-v1alpha",
+  "version": "0.0.20260223",
+  "description": "TypeScript typings for Developer Knowledge API v1alpha",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Maxim Mazurok",
+    "email": "maxim@mazurok.com",
+    "url": "https://maxim.mazurok.com"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*",
+    "@types/gapi.client.discovery-v1": "*"
+  }
+}
