@@ -3591,49 +3591,6 @@ update-mask. Only the following fields can be updated: auto_renew and plan.
 await gapi.client.compute.regionCommitments.update({ commitment: "commitment", project: "project", region: "region",  });
 
 /*
-Retrieves the list of all CompositeHealthCheck resources (all
-regional) available to the specified project.
-
-To prevent failure, it is recommended that you set the
-`returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.aggregatedList({ project: "project",  });
-
-/*
-Deletes the specified CompositeHealthCheck in the given region
-*/
-await gapi.client.compute.regionCompositeHealthChecks.delete({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
-
-/*
-Returns the specified CompositeHealthCheck resource in the given region.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.get({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
-
-/*
-Create a CompositeHealthCheck in the specified project in the given region
-using the parameters that are included in the request.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.insert({ project: "project", region: "region",  });
-
-/*
-Lists the CompositeHealthChecks for a project in the given region.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.list({ project: "project", region: "region",  });
-
-/*
-Updates the specified regional CompositeHealthCheck resource
-with the data included in the request.  This method supportsPATCH
-semantics and uses theJSON merge
-patch format and processing rules.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.patch({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
 Adds existing resource policies to a regional disk. You can only add one
 policy which will be applied to this disk for scheduling snapshot
 creation.
@@ -3830,15 +3787,6 @@ included in the request.
 await gapi.client.compute.regionHealthChecks.update({ healthCheck: "healthCheck", project: "project", region: "region",  });
 
 /*
-Retrieves the list of all HealthCheckService resources,
-regional and global, available to the specified project.
-
-To prevent failure, it is recommended that you set the
-`returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.regionHealthCheckServices.aggregatedList({ project: "project",  });
-
-/*
 Deletes the specified regional HealthCheckService.
 */
 await gapi.client.compute.regionHealthCheckServices.delete({ healthCheckService: "healthCheckService", project: "project", region: "region",  });
@@ -3872,49 +3820,6 @@ await gapi.client.compute.regionHealthCheckServices.patch({ healthCheckService: 
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.regionHealthCheckServices.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Retrieves the list of all HealthSource resources (all
-regional) available to the specified project.
-
-To prevent failure, Google recommends that you set the
-`returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.regionHealthSources.aggregatedList({ project: "project",  });
-
-/*
-Deletes the specified HealthSource in the given region
-*/
-await gapi.client.compute.regionHealthSources.delete({ healthSource: "healthSource", project: "project", region: "region",  });
-
-/*
-Returns the specified HealthSource resource in the given region.
-*/
-await gapi.client.compute.regionHealthSources.get({ healthSource: "healthSource", project: "project", region: "region",  });
-
-/*
-Create a HealthSource in the specified project in the given region
-using the parameters that are included in the request.
-*/
-await gapi.client.compute.regionHealthSources.insert({ project: "project", region: "region",  });
-
-/*
-Lists the HealthSources for a project in the given region.
-*/
-await gapi.client.compute.regionHealthSources.list({ project: "project", region: "region",  });
-
-/*
-Updates the specified regional HealthSource resource
-with the data included in the request.  This method supportsPATCH
-semantics and uses theJSON merge
-patch format and processing rules.
-*/
-await gapi.client.compute.regionHealthSources.patch({ healthSource: "healthSource", project: "project", region: "region",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionHealthSources.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Flags the specified instances to be immediately removed from the managed
@@ -4455,12 +4360,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionNetworkFirewallPolicies.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Retrieves the list of all NotificationEndpoint resources,
-regional and global, available to the specified project.
-*/
-await gapi.client.compute.regionNotificationEndpoints.aggregatedList({ project: "project",  });
-
-/*
 Deletes the specified NotificationEndpoint in the given region
 */
 await gapi.client.compute.regionNotificationEndpoints.delete({ notificationEndpoint: "notificationEndpoint", project: "project", region: "region",  });
@@ -4925,11 +4824,6 @@ Retrieves information about the specified reservation slot.
 await gapi.client.compute.reservationSlots.get({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
 
 /*
-Allows customers to get SBOM versions of a reservation slot.
-*/
-await gapi.client.compute.reservationSlots.getVersion({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
-
-/*
 Retrieves a list of reservation slots under a single reservation.
 */
 await gapi.client.compute.reservationSlots.list({ parentName: "parentName", project: "project", zone: "zone",  });
@@ -4949,11 +4843,6 @@ Gets the access control policy for a resource. May be empty if no such
 policy or resource exists.
 */
 await gapi.client.compute.reservationSubBlocks.getIamPolicy({ parentResource: "parentResource", project: "project", resource: "resource", zone: "zone",  });
-
-/*
-Allows customers to get SBOM versions of a reservation subBlock.
-*/
-await gapi.client.compute.reservationSubBlocks.getVersion({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
 
 /*
 Retrieves a list of reservation subBlocks under a single reservation.
