@@ -4154,15 +4154,6 @@ included in the request.
 await gapi.client.compute.regionHealthChecks.update({ healthCheck: "healthCheck", project: "project", region: "region",  });
 
 /*
-Retrieves the list of all HealthCheckService resources,
-regional and global, available to the specified project.
-
-To prevent failure, it is recommended that you set the
-`returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.regionHealthCheckServices.aggregatedList({ project: "project",  });
-
-/*
 Deletes the specified regional HealthCheckService.
 */
 await gapi.client.compute.regionHealthCheckServices.delete({ healthCheckService: "healthCheckService", project: "project", region: "region",  });
@@ -5016,12 +5007,6 @@ Deletes a rule of the specified priority.
 await gapi.client.compute.regionNetworkPolicies.removeTrafficClassificationRule({ networkPolicy: "networkPolicy", project: "project", region: "region",  });
 
 /*
-Retrieves the list of all NotificationEndpoint resources,
-regional and global, available to the specified project.
-*/
-await gapi.client.compute.regionNotificationEndpoints.aggregatedList({ project: "project",  });
-
-/*
 Deletes the specified NotificationEndpoint in the given region
 */
 await gapi.client.compute.regionNotificationEndpoints.delete({ notificationEndpoint: "notificationEndpoint", project: "project", region: "region",  });
@@ -5588,11 +5573,6 @@ Retrieves information about the specified reservation slot.
 await gapi.client.compute.reservationSlots.get({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
 
 /*
-Allows customers to get SBOM versions of a reservation slot.
-*/
-await gapi.client.compute.reservationSlots.getVersion({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
-
-/*
 Retrieves a list of reservation slots under a single reservation.
 */
 await gapi.client.compute.reservationSlots.list({ parentName: "parentName", project: "project", zone: "zone",  });
@@ -5612,11 +5592,6 @@ Gets the access control policy for a resource. May be empty if no such
 policy or resource exists.
 */
 await gapi.client.compute.reservationSubBlocks.getIamPolicy({ parentResource: "parentResource", project: "project", resource: "resource", zone: "zone",  });
-
-/*
-Allows customers to get SBOM versions of a reservation subBlock.
-*/
-await gapi.client.compute.reservationSubBlocks.getVersion({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
 
 /*
 Retrieves a list of reservation subBlocks under a single reservation.
