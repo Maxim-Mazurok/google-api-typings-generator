@@ -294,9 +294,6 @@ gapi.load('client', async () => {
         args: {
           A: 42,
         },
-        context: {
-          A: 42,
-        },
         tool: 'Test string',
         toolsetTool: {
           toolId: 'Test string',

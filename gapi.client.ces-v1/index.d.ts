@@ -712,8 +712,6 @@ declare namespace gapi.client {
     interface ExecuteToolRequest {
       /** Optional. The input parameters and values for the tool in JSON object format. */
       args?: {[P in string]: any};
-      /** Optional. The [ToolCallContext](https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/tool/python#environment for details) to be passed to the Python tool. */
-      context?: {[P in string]: any};
       /** Optional. The name of the tool to execute. Format: projects/{project}/locations/{location}/apps/{app}/tools/{tool} */
       tool?: string;
       /** Optional. The toolset tool to execute. Only one tool should match the predicate from the toolset. Otherwise, an error will be returned. */
