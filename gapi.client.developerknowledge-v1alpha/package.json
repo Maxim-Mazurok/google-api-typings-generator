@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.iam-v2",
-  "version": "0.0.20260227",
-  "description": "TypeScript typings for Identity and Access Management (IAM) API v2",
+  "name": "@maxim_mazurok/gapi.client.developerknowledge-v1alpha",
+  "version": "0.0.20260223",
+  "description": "TypeScript typings for Developer Knowledge API v1alpha",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
