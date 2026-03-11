@@ -1,6 +1,6 @@
 # TypeScript typings for Gemini Enterprise for Customer Experience API v1
 
-For detailed description please check [documentation](https://cloud.google.com/customer-engagement-ai/conversational-agents/ps/reference).
+For detailed description please check [documentation](https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps).
 
 ## Installing
 
