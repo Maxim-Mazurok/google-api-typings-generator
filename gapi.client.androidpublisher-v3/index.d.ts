@@ -1131,7 +1131,7 @@ declare namespace gapi.client {
       oneTimeProducts?: OneTimeProduct[];
     }
     interface ListReleaseSummariesResponse {
-      /** List of releases on this track. This excludes any releases that are obsolete. */
+      /** List of releases for this track. There will be a maximum of 20 releases returned. */
       releases?: ReleaseSummary[];
     }
     interface ListSubscriptionOffersResponse {
@@ -1762,13 +1762,13 @@ declare namespace gapi.client {
       version?: string;
     }
     interface ReleaseSummary {
-      /** List of active artifacts on this release. This does not include controlled artifacts. */
+      /** List of active artifacts on this release. */
       activeArtifacts?: ArtifactSummary[];
-      /** The lifecycle state of the release. */
+      /** The lifecycle state of a release. */
       releaseLifecycleState?: string;
-      /** The name of the release. */
+      /** Name of the release. */
       releaseName?: string;
-      /** The alias of the track that this release belongs to. */
+      /** Identifier of the track. More on [track name](https://developers.google.com/android-publisher/tracks). */
       track?: string;
     }
     interface RemoteInAppUpdate {
@@ -4422,7 +4422,7 @@ declare namespace gapi.client {
         alt?: string;
         /** JSONP */
         callback?: string;
-        /** Optional. The behavior of committing a new edit while changes are already in review. */
+        /** Optional. Specify how the API should behave if there are changes currently in review. If this value is not set, it will default to "CANCEL_IN_REVIEW_AND_SUBMIT", which will cancel the changes in review and then send all the changes for publishing. */
         changesInReviewBehavior?: string;
         /** When a rejection happens, the parameter will make sure that the changes in this edit won't be reviewed until they are explicitly sent for review from within the Google Play Console UI. These changes will be added to any other changes that are not yet sent for review. */
         changesNotSentForReview?: boolean;
