@@ -1774,11 +1774,6 @@ policy or resource exists.
 await gapi.client.compute.instances.getIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
-Gets partner metadata of the specified instance and namespaces.
-*/
-await gapi.client.compute.instances.getPartnerMetadata({ instance: "instance", project: "project", zone: "zone",  });
-
-/*
 Returns the screenshot from the specified instance.
 */
 await gapi.client.compute.instances.getScreenshot({ instance: "instance", project: "project", zone: "zone",  });
@@ -1813,11 +1808,6 @@ For more information, readViewing
 referrers to VM instances.
 */
 await gapi.client.compute.instances.listReferrers({ instance: "instance", project: "project", zone: "zone",  });
-
-/*
-Patches partner metadata of the specified instance.
-*/
-await gapi.client.compute.instances.patchPartnerMetadata({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
 Perform a manual maintenance on the instance.
@@ -3925,38 +3915,6 @@ await gapi.client.compute.regionHealthSources.patch({ healthSource: "healthSourc
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.regionHealthSources.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Cancels the specified resize request.
-Cancelled resize request no longer waits for the resources to be
-provisioned. Cancel is only possible for requests that are in accepted
-state.
-*/
-await gapi.client.compute.regionInstanceGroupManagerResizeRequests.cancel({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
-
-/*
-Deletes the specified, inactive resize request. Requests that are still
-active cannot be deleted. Deleting request does not delete instances that
-were provisioned previously.
-*/
-await gapi.client.compute.regionInstanceGroupManagerResizeRequests.delete({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
-
-/*
-Returns all of the details about the specified resize request.
-*/
-await gapi.client.compute.regionInstanceGroupManagerResizeRequests.get({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
-
-/*
-Creates a new Resize Request that starts provisioning VMs immediately
-or queues VM creation.
-*/
-await gapi.client.compute.regionInstanceGroupManagerResizeRequests.insert({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
-
-/*
-Retrieves a list of Resize Requests that are contained in the
-managed instance group.
-*/
-await gapi.client.compute.regionInstanceGroupManagerResizeRequests.list({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
 Flags the specified instances to be immediately removed from the managed
@@ -6234,31 +6192,6 @@ await gapi.client.compute.zones.get({ project: "project", zone: "zone",  });
 Retrieves the list of Zone resources available to the specified project.
 */
 await gapi.client.compute.zones.list({ project: "project",  });
-
-/*
-Deletes a specified zone VM extension policy.
-*/
-await gapi.client.compute.zoneVmExtensionPolicies.delete({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
-
-/*
-Retrieves details of a specific zone VM extension policy.
-*/
-await gapi.client.compute.zoneVmExtensionPolicies.get({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
-
-/*
-Creates a new zone-level VM extension policy within a project.
-*/
-await gapi.client.compute.zoneVmExtensionPolicies.insert({ project: "project", zone: "zone",  });
-
-/*
-Lists all VM extension policies within a specific zone for a project.
-*/
-await gapi.client.compute.zoneVmExtensionPolicies.list({ project: "project", zone: "zone",  });
-
-/*
-Modifies an existing zone VM extension policy.
-*/
-await gapi.client.compute.zoneVmExtensionPolicies.update({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.compute-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
