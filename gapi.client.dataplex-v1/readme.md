@@ -50,6 +50,15 @@ var client_id = '',
   scope = [
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
+
+    // View your data across Google Cloud services and see the email address of your Google Account
+    'https://www.googleapis.com/auth/cloud-platform.read-only',
+
+    // See, edit, configure, and delete your Google Cloud Dataplex data and see the email address for your Google Account
+    'https://www.googleapis.com/auth/dataplex.read-write',
+
+    // See your Google Cloud Dataplex data and the email address of your Google Account
+    'https://www.googleapis.com/auth/dataplex.readonly',
   ],
   immediate = true;
 // ...
