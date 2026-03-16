@@ -75,6 +75,11 @@ Creates a Merchant Center account with additional configuration. Adds the user t
 await gapi.client.merchantapi.accounts.createAndConfigure({});
 
 /*
+Creates a Merchant Center test account. Test accounts are intended for development and testing purposes, such as validating API integrations or new feature behavior. Key characteristics and limitations of test accounts: - Immutable Type: A test account cannot be converted into a regular (live) Merchant Center account. Likewise, a regular account cannot be converted into a test account. - Non-Serving Products: Any products, offers, or data created within a test account will not be published or made visible to end-users on any Google surfaces. They are strictly for testing environments. - Separate Environment: Test accounts operate in a sandbox-like manner, isolated from live serving and real user traffic.
+*/
+await gapi.client.merchantapi.accounts.createTestAccount({parent: 'parent'});
+
+/*
 Deletes the specified account regardless of its type: standalone, advanced account or sub-account. Deleting an advanced account leads to the deletion of all of its sub-accounts. This also deletes the account's [developer registration entity](/merchant/api/reference/rest/accounts_v1/accounts.developerRegistration) and any associated GCP project to the account. Executing this method requires admin access. The deletion succeeds only if the account does not provide services to any other account and has no processed offers. You can use the `force` parameter to override this.
 */
 await gapi.client.merchantapi.accounts.delete({name: 'name'});
