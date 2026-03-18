@@ -28,4 +28,6 @@ jobs:
         run: npm run auto-publish
         env:
           GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
-          NPM_PUBLISH_AUTOMATION_TOKEN: ${{ secrets.NPM_PUBLISH_AUTOMATION_TOKEN }}
+          NPM_USERNAME: ${{ secrets.NPM_USERNAME }}
+          NPM_PASSWORD: ${{ secrets.NPM_PASSWORD }}
+          NPM_TOTP_SECRET: ${{ secrets.NPM_TOTP_SECRET }}
