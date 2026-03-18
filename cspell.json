@@ -29,6 +29,7 @@
     "poststart",
     "posttest",
     "precheck",
+    "TOTP",
     "PUNCSP",
     "readlines",
     "repos",
