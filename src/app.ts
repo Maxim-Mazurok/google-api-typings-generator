@@ -372,6 +372,10 @@ function getType(
       writer.write(' }');
     };
   } else if (type.type) {
+    if (type.enum) {
+      const enumUnion = type.enum.map(value => `"${value}"`).join(' | ');
+      return type.repeated ? `${enumUnion} | (${enumUnion})[]` : enumUnion;
+    }
     const tsType = typesMap[type.type] || type.type;
     return type.repeated ? `${tsType} | ${tsType}[]` : tsType;
   } else if (type.$ref) {
