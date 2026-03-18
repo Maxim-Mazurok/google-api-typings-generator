@@ -373,6 +373,10 @@ function getType(
     };
   } else if (type.type) {
     if (type.enum) {
+      // String literal union types instead of enums because the output is .d.ts
+      // (ambient declarations) — TypeScript enums in .d.ts have no runtime backing,
+      // and const enums break --isolatedModules (Vite, esbuild, swc, Next.js, etc.).
+      // See: https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/776
       const enumUnion = type.enum.map(value => `"${value}"`).join(' | ');
       return type.repeated ? `${enumUnion} | (${enumUnion})[]` : enumUnion;
     }
