@@ -146,7 +146,7 @@ See [Syncing gapi client namespace in DT with available APIs](#syncing-gapi-clie
 
 Every hour, type definitions are generated, linted, tested, and published to NPM.
 
-All packages are published with [provenance attestations](https://docs.npmjs.com/generating-provenance-statements) from GitHub Actions. For packages with [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) configured, publishing uses OIDC authentication (no stored tokens). For new packages, a fresh npm session token is generated from stored credentials at the start of each workflow run.
+All packages are published with [provenance attestations](https://docs.npmjs.com/generating-provenance-statements) from GitHub Actions using [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC authentication, no stored tokens). New packages are automatically configured with trusted publishing via the npm trust REST API before their first publish.
 
 ### Resource VS Body
 
