@@ -79,3 +79,176 @@ export async function npmApiLogin(
 
   return data.token;
 }
+
+// === Trusted Publishing Configuration ===
+
+interface TrustConfig {
+  id: string;
+  type: string;
+  claims: {
+    repository: string;
+    workflow_ref: {file: string};
+    environment: string | null;
+  };
+}
+
+async function getTrustConfigs(
+  packageName: string,
+  token: string,
+  otp: string,
+): Promise<TrustConfig[]> {
+  const encodedName = encodeURIComponent(packageName);
+  const url = `${NPM_REGISTRY_URL}/-/package/${encodedName}/trust`;
+
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'npm-otp': otp,
+    },
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(
+      `Failed to get trust configs for ${packageName} (${response.status}): ${text}`,
+    );
+  }
+
+  return (await response.json()) as TrustConfig[];
+}
+
+async function deleteTrustConfig(
+  packageName: string,
+  trustId: string,
+  token: string,
+  otp: string,
+): Promise<void> {
+  const encodedName = encodeURIComponent(packageName);
+  const url = `${NPM_REGISTRY_URL}/-/package/${encodedName}/trust/${trustId}`;
+
+  const response = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'npm-otp': otp,
+    },
+  });
+
+  if (response.status !== 204) {
+    const text = await response.text();
+    throw new Error(
+      `Failed to delete trust config ${trustId} for ${packageName} (${response.status}): ${text}`,
+    );
+  }
+}
+
+async function createTrustConfig(
+  packageName: string,
+  repository: string,
+  workflowFile: string,
+  token: string,
+  totpSecret: string,
+): Promise<void> {
+  const encodedName = encodeURIComponent(packageName);
+  const url = `${NPM_REGISTRY_URL}/-/package/${encodedName}/trust`;
+  const body = JSON.stringify([
+    {
+      type: 'github',
+      claims: {
+        repository,
+        workflow_ref: {file: workflowFile},
+      },
+    },
+  ]);
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+      'npm-otp': generateTotp(totpSecret),
+    },
+    body,
+  });
+
+  if (response.status === 201) {
+    return;
+  }
+
+  if (response.status === 409) {
+    // Already exists — delete and recreate
+    const configs = await getTrustConfigs(
+      packageName,
+      token,
+      generateTotp(totpSecret),
+    );
+    if (configs.length > 0) {
+      await deleteTrustConfig(
+        packageName,
+        configs[0].id,
+        token,
+        generateTotp(totpSecret),
+      );
+      const retryResponse = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+          'npm-otp': generateTotp(totpSecret),
+        },
+        body,
+      });
+      if (retryResponse.status !== 201) {
+        const text = await retryResponse.text();
+        throw new Error(
+          `Failed to recreate trust config for ${packageName} (${retryResponse.status}): ${text}`,
+        );
+      }
+      return;
+    }
+  }
+
+  const text = await response.text();
+  throw new Error(
+    `Failed to create trust config for ${packageName} (${response.status}): ${text}`,
+  );
+}
+
+/**
+ * Ensures that a package has trusted publishing configured for the given
+ * GitHub repository and workflow file.
+ *
+ * Uses a pre-obtained npm classic token (from npmApiLogin) for API calls.
+ */
+export async function ensureTrustedPublishing(
+  packageName: string,
+  repository: string,
+  workflowFile: string,
+  token: string,
+  totpSecret: string,
+): Promise<void> {
+  const checkOtp = generateTotp(totpSecret);
+  const configs = await getTrustConfigs(packageName, token, checkOtp);
+
+  const alreadyConfigured = configs.some(
+    config =>
+      config.type === 'github' &&
+      config.claims.repository === repository &&
+      config.claims.workflow_ref.file === workflowFile,
+  );
+
+  if (alreadyConfigured) {
+    console.log(`Trusted publishing already configured for ${packageName}`);
+    return;
+  }
+
+  console.log(`Configuring trusted publishing for ${packageName}...`);
+  await createTrustConfig(
+    packageName,
+    repository,
+    workflowFile,
+    token,
+    totpSecret,
+  );
+  console.log(`Trusted publishing configured for ${packageName}`);
+}

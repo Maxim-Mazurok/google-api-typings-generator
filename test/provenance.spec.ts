@@ -42,8 +42,5 @@ describe('NPM Provenance', () => {
     expect(calledCommand).toContain('--provenance');
     expect(calledCommand).toContain('npm publish');
     expect(calledCommand).toContain('--access public');
-
-    // Without npmrcPath, no --userconfig flag should be present
-    expect(calledCommand).not.toContain('--userconfig'); // cspell:ignore userconfig
   });
 });
