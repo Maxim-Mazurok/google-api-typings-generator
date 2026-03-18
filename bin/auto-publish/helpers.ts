@@ -29,7 +29,6 @@ export class Helpers {
     private readonly sh: SH,
     private readonly gitHub: GitHub,
     private readonly settings: Settings,
-    private readonly npmrcPath?: string,
   ) {}
 
   npmPublish = async (
@@ -38,10 +37,7 @@ export class Helpers {
     retryTimeout = 60, // seconds
   ): Promise<void> => {
     retriesLeft--;
-    const userConfigFlag = this.npmrcPath
-      ? ` --userconfig ${this.npmrcPath}` // cspell:words userconfig
-      : '';
-    const cmd = `npm publish --access public --provenance${userConfigFlag} ${fileURLToPath(npmArchivePath)}`;
+    const cmd = `npm publish --access public --provenance ${fileURLToPath(npmArchivePath)}`;
     const apiName = basename(fileURLToPath(npmArchivePath));
     const error503 = '503 Service Unavailable';
     const error404 = '404 Not Found';

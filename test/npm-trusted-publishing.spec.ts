@@ -3,6 +3,7 @@ import {
   base32Decode,
   generateTotp,
   npmApiLogin,
+  ensureTrustedPublishing,
 } from '../src/npm-trusted-publishing.js';
 
 describe('base32Decode', () => {
@@ -139,5 +140,159 @@ describe('npmApiLogin', () => {
     await expect(
       npmApiLogin('test-user', 'test-password', '123456'),
     ).rejects.toThrow('npm API login succeeded but no token was returned');
+  });
+});
+
+describe('ensureTrustedPublishing', () => {
+  let originalFetch: typeof globalThis.fetch;
+
+  beforeEach(() => {
+    originalFetch = globalThis.fetch;
+  });
+
+  afterEach(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  it('skips configuration when trust already exists', async () => {
+    // cspell:disable-next-line
+    const totpSecret = 'JBSWY3DPEHPK3PXP';
+    const existingConfig = [
+      {
+        id: 'trust-123',
+        type: 'github',
+        claims: {
+          repository: 'owner/repo',
+          workflow_ref: {file: 'publish.yml'},
+          environment: null,
+        },
+      },
+    ];
+
+    globalThis.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve(existingConfig),
+    });
+
+    await ensureTrustedPublishing(
+      '@scope/package',
+      'owner/repo',
+      'publish.yml',
+      'fake-token',
+      totpSecret,
+    );
+
+    // Should only have called GET (trust check), no POST
+    expect(globalThis.fetch).toHaveBeenCalledTimes(1);
+    expect(globalThis.fetch).toHaveBeenCalledWith(
+      'https://registry.npmjs.org/-/package/%40scope%2Fpackage/trust',
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          Authorization: 'Bearer fake-token',
+        }),
+      }),
+    );
+  });
+
+  it('creates trust config when none exists', async () => {
+    // cspell:disable-next-line
+    const totpSecret = 'JBSWY3DPEHPK3PXP';
+
+    globalThis.fetch = vi
+      .fn()
+      // First call: GET trust configs returns empty array
+      .mockResolvedValueOnce({
+        ok: true,
+        json: () => Promise.resolve([]),
+      })
+      // Second call: POST trust config returns 201
+      .mockResolvedValueOnce({
+        status: 201,
+      });
+
+    await ensureTrustedPublishing(
+      '@scope/package',
+      'owner/repo',
+      'publish.yml',
+      'fake-token',
+      totpSecret,
+    );
+
+    expect(globalThis.fetch).toHaveBeenCalledTimes(2);
+
+    // Verify POST was called with correct body
+    const postCall = vi.mocked(globalThis.fetch).mock.calls[1];
+    expect(postCall[0]).toBe(
+      'https://registry.npmjs.org/-/package/%40scope%2Fpackage/trust',
+    );
+    const postOptions = postCall[1] as RequestInit;
+    expect(postOptions.method).toBe('POST');
+    expect(JSON.parse(postOptions.body as string)).toEqual([
+      {
+        type: 'github',
+        claims: {
+          repository: 'owner/repo',
+          workflow_ref: {file: 'publish.yml'},
+        },
+      },
+    ]);
+  });
+
+  it('handles 409 conflict by deleting and recreating', async () => {
+    // cspell:disable-next-line
+    const totpSecret = 'JBSWY3DPEHPK3PXP';
+    const existingMismatchConfig = [
+      {
+        id: 'trust-old',
+        type: 'github',
+        claims: {
+          repository: 'owner/repo',
+          workflow_ref: {file: 'old-workflow.yml'},
+          environment: null,
+        },
+      },
+    ];
+
+    globalThis.fetch = vi
+      .fn()
+      // 1. GET trust configs - returns config with different workflow
+      .mockResolvedValueOnce({
+        ok: true,
+        json: () => Promise.resolve(existingMismatchConfig),
+      })
+      // 2. POST trust config - returns 409 (conflict)
+      .mockResolvedValueOnce({
+        status: 409,
+      })
+      // 3. GET trust configs (from 409 handler)
+      .mockResolvedValueOnce({
+        ok: true,
+        json: () => Promise.resolve(existingMismatchConfig),
+      })
+      // 4. DELETE old trust config
+      .mockResolvedValueOnce({
+        status: 204,
+      })
+      // 5. POST recreate trust config
+      .mockResolvedValueOnce({
+        status: 201,
+      });
+
+    await ensureTrustedPublishing(
+      '@scope/package',
+      'owner/repo',
+      'publish.yml',
+      'fake-token',
+      totpSecret,
+    );
+
+    expect(globalThis.fetch).toHaveBeenCalledTimes(5);
+
+    // Verify DELETE was called
+    const deleteCall = vi.mocked(globalThis.fetch).mock.calls[3];
+    expect(deleteCall[0]).toBe(
+      'https://registry.npmjs.org/-/package/%40scope%2Fpackage/trust/trust-old',
+    );
+    expect((deleteCall[1] as RequestInit).method).toBe('DELETE');
   });
 });
